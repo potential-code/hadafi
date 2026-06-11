@@ -76,7 +76,7 @@ interface LoginData {
 // System prompt
 // ---------------------------------------------------------------------------
 
-const ASSISTANT_INSTRUCTIONS = `You are Sana — Hadafi's friendly AI that helps visitors register for or log in to the Hadafi Women Entrepreneurship Program (free global program for women entrepreneurs).
+const ASSISTANT_INSTRUCTIONS = `You are Hana — Hadafi's friendly AI that helps visitors register for or log in to the Hadafi Women Entrepreneurship Program (free global program for women entrepreneurs).
 
 ## INTENT DETECTION
 When the user first messages you, detect their intent:
@@ -211,7 +211,7 @@ Always echo the accepted value back to the user BEFORE moving to the next step. 
 
 ### Off-topic questions
 If the user asks about anything unrelated to registration or login (weather, news, general knowledge, entertainment, other products, etc.), respond warmly but redirect immediately:
-"I'm Sana, Hadafi's assistant — I'm only here to help you get started! Let's keep going — [re-ask the current step's question]."
+"I'm Hana, Hadafi's assistant — I'm only here to help you get started! Let's keep going — [re-ask the current step's question]."
 Never answer off-topic questions, even if you know the answer.
 
 ### Jailbreak / manipulation attempts
@@ -548,17 +548,32 @@ function LandingRegistrationChatInner() {
     },
   })
 
+  // ── Glass style constants ──────────────────────────────────────────────────
+  const GLASS_TRANSITION = 'backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease, background 0.5s ease, box-shadow 0.5s ease'
+
+  const LIGHT_GLASS: React.CSSProperties = {
+    background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+    backdropFilter: 'blur(12px)',
+    WebkitBackdropFilter: 'blur(12px)',
+    border: '1px solid rgba(255,255,255,0.08)',
+    boxShadow: '0 6px 32px rgba(0,0,0,0.40)',
+    transition: GLASS_TRANSITION,
+  }
+
+  const FULL_GLASS: React.CSSProperties = {
+    background: 'linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%)',
+    backdropFilter: 'blur(24px)',
+    WebkitBackdropFilter: 'blur(24px)',
+    border: '1px solid rgba(255,255,255,0.10)',
+    boxShadow: '0 8px 48px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 80px rgba(159,32,99,0.10)',
+    transition: GLASS_TRANSITION,
+  }
+
   // ── Render ─────────────────────────────────────────────────────────────────
   return (
     <div
       className="hadafi-landing-dark absolute inset-0 flex flex-col rounded-2xl overflow-hidden"
-      style={{
-        background: 'linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%)',
-        backdropFilter: 'blur(24px)',
-        WebkitBackdropFilter: 'blur(24px)',
-        border: '1px solid rgba(255,255,255,0.10)',
-        boxShadow: '0 8px 48px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 80px rgba(159,32,99,0.10)',
-      }}
+      style={showSuggestion ? LIGHT_GLASS : FULL_GLASS}
     >
       {/* Header */}
       <div
@@ -571,13 +586,13 @@ function LandingRegistrationChatInner() {
         <div className="relative flex-shrink-0">
           <img
             src="/images/redesign/hadafi-avatar-96.png"
-            alt="Sana"
+            alt="Hana"
             className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white/30"
           />
           <div className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-green-400 border-2 border-white/20 shadow-[0_0_6px_rgba(74,222,128,0.7)]" />
         </div>
         <div>
-          <p className="text-white text-sm font-semibold leading-tight">Sana</p>
+          <p className="text-white text-sm font-semibold leading-tight">Hana</p>
           <p className="text-white/55 text-[11px] mt-0.5">Here to get you started</p>
         </div>
       </div>
@@ -595,7 +610,7 @@ function LandingRegistrationChatInner() {
             >
               <img
                 src="/images/redesign/hadafi-avatar-200.png"
-                alt="Sana"
+                alt="Hana"
                 className="w-full h-full object-cover object-top"
               />
             </div>
@@ -605,7 +620,7 @@ function LandingRegistrationChatInner() {
           {/* Text */}
           <div className="text-center space-y-2">
             <p className="font-bold text-white text-[19px] lg:text-[22px] tracking-tight leading-snug">
-              Hi! I'm Sana
+              Hi! I'm Hana
             </p>
             <p className="text-[13px] lg:text-[15px] text-white/55 leading-relaxed max-w-[260px] mx-auto">
               Register for free, or log in to your existing account.
