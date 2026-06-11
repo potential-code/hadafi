@@ -54,7 +54,7 @@ export function HeroSection() {
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-white/80 text-xs font-medium mb-7 self-center lg:self-start"
           >
             <Sparkles className="w-3.5 h-3.5 text-brand-primary-light" />
-            <span className="tracking-wide uppercase text-[11px]">SME Empowerment Program</span>
+            <span className="tracking-wide uppercase text-[11px]">Women Entrepreneurship Program</span>
             <span className="hidden sm:inline text-white/40">·</span>
             <span className="hidden sm:inline text-white/60">100% free, global</span>
           </motion.div>

@@ -383,7 +383,7 @@ export default function DashboardOverview() {
                   })}
                 </p>
                 <div className="mt-4 pt-4 border-t border-white/15 flex items-center justify-between text-[10px] uppercase tracking-wider relative">
-                  <span className="text-white/60">SMEEP · Potential.org</span>
+                  <span className="text-white/60">Hadafi · Potential.org</span>
                   <span className="font-bold text-white">Verified ✓</span>
                 </div>
               </motion.div>

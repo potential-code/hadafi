@@ -51,8 +51,8 @@ export function Navbar() {
         <div className={cn('flex items-center justify-between transition-all', scrolled ? 'h-16' : 'h-20')}>
           <a href="/" className="flex items-center group">
             <img
-              src="/images/SMEEP-logo.png"
-              alt="SMEEP"
+              src="/images/hadafi-logo.png"
+              alt="Hadafi Women Entrepreneurship Program"
               className={cn(
                 'transition-all duration-300 group-hover:scale-105',
                 scrolled ? 'h-9' : 'h-11',

@@ -127,7 +127,7 @@ export default function HumanMentorsPage() {
         eyebrow="Programme mentors"
         title="Book a session with a"
         highlight="human expert"
-        subtitle="Verified business mentors from across the world. One-on-one sessions, free for SMEEP members."
+        subtitle="Verified business mentors from across the world. One-on-one sessions, free for Hadafi members."
         actions={
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-text-muted" />

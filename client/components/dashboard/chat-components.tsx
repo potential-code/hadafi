@@ -114,7 +114,7 @@ export function SmeepTypingCursor() {
         className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
       />
       <div
-        className="smeep-typing-bubble px-4 py-3 bg-white border border-[#f7e8f0] flex items-center gap-1.5"
+        className="hadafi-typing-bubble px-4 py-3 bg-white border border-[#f7e8f0] flex items-center gap-1.5"
         style={{ borderRadius: '14px 14px 14px 0' }}
       >
         {[0, 1, 2].map((i) => (
@@ -196,7 +196,7 @@ export function SmeepAssistantMessage({ message, messages }: CopilotChatAssistan
             className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
           />
           <div
-            className="smeep-bot-bubble relative px-3 pt-2 pb-6 text-[13px] text-[#1A0A12] leading-relaxed bg-white border border-[#f7e8f0]"
+            className="hadafi-bot-bubble relative px-3 pt-2 pb-6 text-[13px] text-[#1A0A12] leading-relaxed bg-white border border-[#f7e8f0]"
             style={{ borderRadius: '14px 14px 14px 0', maxWidth: '85%' }}
           >
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
@@ -231,7 +231,7 @@ export function SmeepAssistantMessage({ message, messages }: CopilotChatAssistan
             <button
               key={i}
               type="button"
-              className="smeep-suggestion-pill"
+              className="hadafi-suggestion-pill"
               disabled={pillsDisabled}
               onClick={() => onPillClickRef.current?.(suggestion)}
             >
@@ -259,7 +259,7 @@ export function SmeepAssistantMessage({ message, messages }: CopilotChatAssistan
         <div className="min-w-0" style={{ maxWidth: '85%' }}>
           {prose && (
             <div
-              className="smeep-bot-bubble relative px-3 pt-2 pb-6 text-[13px] text-[#1A0A12] leading-relaxed bg-white border border-[#f7e8f0] mb-3"
+              className="hadafi-bot-bubble relative px-3 pt-2 pb-6 text-[13px] text-[#1A0A12] leading-relaxed bg-white border border-[#f7e8f0] mb-3"
               style={{ borderRadius: '14px 14px 14px 0' }}
             >
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{prose}</ReactMarkdown>
@@ -287,13 +287,13 @@ export function SmeepAssistantMessage({ message, messages }: CopilotChatAssistan
               ? 'Select one or more, then confirm.'
               : 'Tap to select, or type your own response below.'}
           </p>
-          <div className="smeep-suggestion-pills">
+          <div className="hadafi-suggestion-pills">
             {pills.map((pillText, index) => {
               const isSelected = selectedPills.has(index)
               return (
                 <button
                   key={`${index}-${pillText}`}
-                  className={`smeep-suggestion-pill${isSelected ? ' smeep-suggestion-pill--selected' : ''}`}
+                  className={`hadafi-suggestion-pill${isSelected ? ' hadafi-suggestion-pill--selected' : ''}`}
                   disabled={pillsDisabled}
                   onClick={() => {
                     if (multiSelect) {
@@ -316,7 +316,7 @@ export function SmeepAssistantMessage({ message, messages }: CopilotChatAssistan
           {multiSelect ? (
             <div className="flex flex-col items-start gap-1 mt-1">
               <button
-                className="smeep-confirm-btn"
+                className="hadafi-confirm-btn"
                 disabled={pillsDisabled || selectedPills.size === 0}
                 onClick={() => {
                   const chosen = pills.filter((_, i) => selectedPills.has(i))
@@ -326,7 +326,7 @@ export function SmeepAssistantMessage({ message, messages }: CopilotChatAssistan
                 Confirm selection{selectedPills.size > 0 ? ` (${selectedPills.size})` : ''}
               </button>
               <button
-                className="smeep-more-options-btn"
+                className="hadafi-more-options-btn"
                 disabled={pillsDisabled}
                 onClick={() => onPillClickRef.current?.('Generate more options')}
               >
@@ -336,7 +336,7 @@ export function SmeepAssistantMessage({ message, messages }: CopilotChatAssistan
             </div>
           ) : (
             <button
-              className="smeep-more-options-btn"
+              className="hadafi-more-options-btn"
               disabled={pillsDisabled}
               onClick={() => onPillClickRef.current?.('Generate more options')}
             >
@@ -448,7 +448,7 @@ export function SmeepChatInput({ isRunning, onSubmitMessage, onStop }: CopilotCh
 
   return (
     <div className="px-3 pb-3 pt-2" style={{ pointerEvents: 'auto' }}>
-      <div className="smeep-chat-input-wrap flex items-end gap-2 px-3 py-2 bg-[#FDF5F9] border border-[#f7e8f0] rounded-2xl">
+      <div className="hadafi-chat-input-wrap flex items-end gap-2 px-3 py-2 bg-[#FDF5F9] border border-[#f7e8f0] rounded-2xl">
         <textarea
           ref={textareaRef}
           value={value}
@@ -456,7 +456,7 @@ export function SmeepChatInput({ isRunning, onSubmitMessage, onStop }: CopilotCh
           onKeyDown={handleKeyDown}
           placeholder="Ask me anything…"
           rows={1}
-          className="smeep-chat-textarea flex-1 bg-transparent outline-none resize-none text-[13px] text-[#1A0A12] leading-snug placeholder:text-[#6B7280]/50 min-w-0"
+          className="hadafi-chat-textarea flex-1 bg-transparent outline-none resize-none text-[13px] text-[#1A0A12] leading-snug placeholder:text-[#6B7280]/50 min-w-0"
           style={{ minHeight: '20px', maxHeight: '120px', fontFamily: 'inherit' }}
         />
         <button
@@ -467,7 +467,7 @@ export function SmeepChatInput({ isRunning, onSubmitMessage, onStop }: CopilotCh
           style={
             canAct
               ? { background: 'linear-gradient(120deg, #9f2063 0%, #7a1a4c 100%)' }
-              : { background: 'var(--smeep-btn-idle-bg, #f7e8f0)' }
+              : { background: 'var(--hadafi-btn-idle-bg, #f7e8f0)' }
           }
         >
           {isRunning ? (
@@ -477,7 +477,7 @@ export function SmeepChatInput({ isRunning, onSubmitMessage, onStop }: CopilotCh
           )}
         </button>
       </div>
-      <p className="smeep-chat-hint text-[10px] text-center mt-1.5 select-none text-gray-500/45">
+      <p className="hadafi-chat-hint text-[10px] text-center mt-1.5 select-none text-gray-500/45">
         Enter to send · Shift+Enter for new line
       </p>
     </div>

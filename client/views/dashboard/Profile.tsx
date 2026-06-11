@@ -118,8 +118,8 @@ export default function ProfilePage() {
   // Re-fetch whenever the Copilot bot saves a profile update
   useEffect(() => {
     const handler = () => loadProfile()
-    window.addEventListener('smeep:profile-updated', handler)
-    return () => window.removeEventListener('smeep:profile-updated', handler)
+    window.addEventListener('hadafi:profile-updated', handler)
+    return () => window.removeEventListener('hadafi:profile-updated', handler)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
@@ -293,7 +293,7 @@ export default function ProfilePage() {
         eyebrow="Profile"
         title="Your"
         highlight="account"
-        subtitle="Update your details so SMEEP, mentors, and the AI assistant can tailor everything to you."
+        subtitle="Update your details so Hadafi, mentors, and the AI assistant can tailor everything to you."
       />
 
       <form onSubmit={onSubmit} className="grid grid-cols-12 gap-4 lg:gap-6">
@@ -546,7 +546,7 @@ export default function ProfilePage() {
               Your verified <span className="text-brand-primary">achievements</span>
             </h3>
             <p className="text-sm text-brand-text-muted/80 mt-1 max-w-2xl">
-              Each certificate proves a SMEEP course you completed. Download to share on LinkedIn or keep for your records.
+              Each certificate proves a Hadafi course you completed. Download to share on LinkedIn or keep for your records.
             </p>
           </div>
         </div>

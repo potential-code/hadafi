@@ -17,7 +17,7 @@ export default function SupportPage() {
         eyebrow="Support"
         title="How can we"
         highlight="help?"
-        subtitle="Search the knowledge base, message us, or chat with the SMEEP AI assistant."
+        subtitle="Search the knowledge base, message us, or chat with the Hadafi AI assistant."
       />
 
       <div className="grid grid-cols-12 gap-4 lg:gap-6">
@@ -33,7 +33,7 @@ export default function SupportPage() {
               </span>
               <div>
                 <h3 className="font-bold text-brand-text-primary">Frequently asked</h3>
-                <p className="text-xs text-brand-text-muted">Top questions from SMEEP members.</p>
+                <p className="text-xs text-brand-text-muted">Top questions from Hadafi members.</p>
               </div>
             </header>
             <ul className="divide-y divide-brand-surface-2">
@@ -87,7 +87,7 @@ export default function SupportPage() {
             <Sparkles className="w-6 h-6 text-brand-primary-light mb-2" />
             <h3 className="text-lg font-black">Try the AI assistant</h3>
             <p className="mt-1 text-sm text-white/65">
-              Get instant answers about SMEEP, your account, or your business.
+              Get instant answers about Hadafi, your account, or your business.
             </p>
             <Link
               href="/dashboard"
@@ -110,10 +110,10 @@ export default function SupportPage() {
               We typically reply within one working day.
             </p>
             <a
-              href="mailto:smeep@potential.com"
+              href="mailto:hadafi@potential.com"
               className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-brand-primary hover:gap-2 transition-all"
             >
-              smeep@potential.com →
+              hadafi@potential.com →
             </a>
           </motion.div>
         </aside>

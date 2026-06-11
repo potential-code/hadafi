@@ -158,7 +158,7 @@ export default function MentorSetupPage() {
       badge="Mentor Onboarding"
       heading={
         <>
-          Set up your <span className="text-gradient-magenta">SMEEP</span> account
+          Set up your <span className="text-gradient-magenta">Hadafi</span> account
         </>
       }
       subheading="Your application was approved. Create your password to access your mentor dashboard."

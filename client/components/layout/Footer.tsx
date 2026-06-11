@@ -5,10 +5,10 @@ import { Facebook, Linkedin, Mail, ArrowUpRight, Send, Check } from 'lucide-reac
 import { FOOTER_LINKS } from '@/lib/constants/navigation'
 import { FOOTER, NEWSLETTER, REDESIGN_ASSETS } from '@/lib/constants/content'
 
-const SHARE_URL = 'https://smeep.potential.org'
+const SHARE_URL = 'https://hadafi.potential.org'
 const SHARE_TEXT =
-  'Increase your sales and reduce your costs by registering in the SME empowerment program from potential.com'
-const LI_SUMMARY = 'Evolve your business to the new post-COVID-19 world'
+  'Empower yourself as a woman entrepreneur — join Hadafi, the free AI-powered program by Potential.org'
+const LI_SUMMARY = 'Start and grow your business with Hadafi — free tools, training, and mentorship for women entrepreneurs'
 
 const SHARE_LINKS = [
   {
@@ -111,8 +111,8 @@ export function Footer() {
               <img src={REDESIGN_ASSETS.logo.src} alt={REDESIGN_ASSETS.logo.alt} className="h-11 brightness-0 invert" />
             </a>
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
-              The SME Empowerment Program — free AI training, mentors, and community for SMEs and
-              startups worldwide.
+              Hadafi — free AI tools, training, and mentorship empowering women entrepreneurs to
+              start and grow their businesses worldwide.
             </p>
 
             {/* Share */}

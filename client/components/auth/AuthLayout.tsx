@@ -56,17 +56,17 @@ export function AuthLayout({
               />
             </Link>
             <h2 className="text-display text-balance text-4xl xl:text-5xl font-bold leading-[1.05] mt-2 max-w-md">
-              Empower your business with{' '}
-              <span className="text-gradient-magenta">AI — for free.</span>
+              Empower your business{' '}
+              <span className="text-gradient-magenta">with Hadafi — for free.</span>
             </h2>
             <p className="text-white/60 mt-5 max-w-md leading-relaxed">
-              Training, mentors, tools, and a global community of 300,000+ SMEs. SMEEP gives you
-              the unfair advantage that growing businesses deserve.
+              Training, mentors, tools, and a global community of 100,000+ women entrepreneurs.
+              Hadafi gives you everything you need to start and grow your business.
             </p>
 
             <ul className="mt-8 space-y-2.5 text-sm text-white/70">
               {[
-                '24/7 AI mentors trained for SMEs',
+                '24/7 AI mentors for women entrepreneurs',
                 'Live events with global experts',
                 'Exclusive partner offers & discounts',
                 'No credit card. No catch.',

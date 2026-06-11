@@ -42,14 +42,14 @@ export function setAuth(token: string, user: User): void {
   // Mirror cookie so Next.js middleware can read it for role-based routing.
   // Not httpOnly — intentional: we need client-side access via document.cookie.
   document.cookie = `${TOKEN_KEY}=${token}; path=/; max-age=43200; SameSite=Lax`
-  window.dispatchEvent(new Event('smeep:auth-changed'))
+  window.dispatchEvent(new Event('hadafi:auth-changed'))
 }
 
 export function clearAuth(): void {
   window.localStorage.removeItem(TOKEN_KEY)
   window.localStorage.removeItem(USER_KEY)
   document.cookie = `${TOKEN_KEY}=; path=/; max-age=0`
-  window.dispatchEvent(new Event('smeep:auth-changed'))
+  window.dispatchEvent(new Event('hadafi:auth-changed'))
 }
 
 export function isAuthenticated(): boolean {

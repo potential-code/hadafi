@@ -553,7 +553,7 @@ export function MentorBookingWidget({ mentorName, respond, onRegisterCancel, onD
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[10px] text-brand-text-muted font-medium">Cost</span>
-                  <span className="text-[10px] text-emerald-600 font-bold">Free for SMEEP members</span>
+                  <span className="text-[10px] text-emerald-600 font-bold">Free for Hadafi members</span>
                 </div>
               </div>
             </div>

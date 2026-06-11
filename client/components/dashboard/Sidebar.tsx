@@ -46,10 +46,10 @@ export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
 
   useEffect(() => {
     const refresh = () => setUser(getUser())
-    window.addEventListener('smeep:auth-changed', refresh)
+    window.addEventListener('hadafi:auth-changed', refresh)
     window.addEventListener('storage', refresh)
     return () => {
-      window.removeEventListener('smeep:auth-changed', refresh)
+      window.removeEventListener('hadafi:auth-changed', refresh)
       window.removeEventListener('storage', refresh)
     }
   }, [])

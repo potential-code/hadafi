@@ -56,7 +56,7 @@ export default function AiAssistantPage() {
         eyebrow="AI Assistant"
         title="Your AI"
         highlight="business partner"
-        subtitle="Generate plans, brainstorm ideas, and get tailored recommendations — powered by SMEEP and your own context."
+        subtitle="Generate plans, brainstorm ideas, and get tailored recommendations — powered by Hadafi and your own context."
       />
 
       <div className="grid grid-cols-12 gap-4 lg:gap-6">

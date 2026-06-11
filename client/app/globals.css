@@ -47,11 +47,11 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-  /* Brand custom colors — magenta on deep eggplant */
-  --color-brand-primary: #9f2063;
-  --color-brand-primary-dark: #7a1a4c;
-  --color-brand-primary-light: #c42b7a;
-  --color-brand-accent: #e83e94;
+  /* Brand custom colors — Hadafi pink */
+  --color-brand-primary: #e41674;
+  --color-brand-primary-dark: #b50d5c;
+  --color-brand-primary-light: #f0338a;
+  --color-brand-accent: #ff2d87;
   --color-brand-violet: #4c1d6e;
   --color-brand-dark: #0D0008;
   --color-brand-deep: #1a0418;
@@ -68,19 +68,19 @@
   --card-foreground: oklch(0.13 0.028 261);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.13 0.028 261);
-  --primary: oklch(0.47 0.18 350);
+  --primary: oklch(0.56 0.28 355);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.96 0.005 350);
-  --secondary-foreground: oklch(0.13 0.028 350);
-  --muted: oklch(0.96 0.005 350);
-  --muted-foreground: oklch(0.55 0.015 350);
-  --accent: oklch(0.96 0.005 350);
-  --accent-foreground: oklch(0.13 0.028 350);
+  --secondary: oklch(0.96 0.005 355);
+  --secondary-foreground: oklch(0.13 0.028 355);
+  --muted: oklch(0.96 0.005 355);
+  --muted-foreground: oklch(0.55 0.015 355);
+  --accent: oklch(0.96 0.005 355);
+  --accent-foreground: oklch(0.13 0.028 355);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.91 0.007 350);
-  --input: oklch(0.91 0.007 350);
-  --ring: oklch(0.47 0.18 350);
-  --chart-1: oklch(0.47 0.18 350);
+  --border: oklch(0.91 0.007 355);
+  --input: oklch(0.91 0.007 355);
+  --ring: oklch(0.56 0.28 355);
+  --chart-1: oklch(0.56 0.28 355);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
@@ -88,12 +88,12 @@
   --radius: 0.5rem;
   --sidebar: oklch(0.97 0.005 247);
   --sidebar-foreground: oklch(0.13 0.028 261);
-  --sidebar-primary: oklch(0.47 0.18 350);
+  --sidebar-primary: oklch(0.56 0.28 355);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.96 0.005 350);
-  --sidebar-accent-foreground: oklch(0.13 0.028 350);
-  --sidebar-border: oklch(0.91 0.007 350);
-  --sidebar-ring: oklch(0.47 0.18 350);
+  --sidebar-accent: oklch(0.96 0.005 355);
+  --sidebar-accent-foreground: oklch(0.13 0.028 355);
+  --sidebar-border: oklch(0.91 0.007 355);
+  --sidebar-ring: oklch(0.56 0.28 355);
   --font-noto-sans: 'Noto Sans', system-ui, sans-serif;
 }
 
@@ -104,18 +104,18 @@
   --card-foreground: oklch(1 0 0);
   --popover: oklch(0.15 0.028 261);
   --popover-foreground: oklch(1 0 0);
-  --primary: oklch(0.57 0.18 350);
+  --primary: oklch(0.64 0.28 355);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.23 0.02 350);
+  --secondary: oklch(0.23 0.02 355);
   --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.23 0.02 350);
-  --muted-foreground: oklch(0.65 0.015 350);
-  --accent: oklch(0.23 0.02 350);
+  --muted: oklch(0.23 0.02 355);
+  --muted-foreground: oklch(0.65 0.015 355);
+  --accent: oklch(0.23 0.02 355);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.57 0.18 350);
+  --ring: oklch(0.64 0.28 355);
 }
 
 @layer base {
@@ -140,7 +140,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%239f2063'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23e41674'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.65rem center;
     background-size: 1.05rem 1.05rem;
@@ -151,7 +151,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%239f2063'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23e41674'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.65rem center;
     background-size: 1.05rem 1.05rem;
@@ -175,15 +175,15 @@
   .bg-mesh-dark {
     background-color: #0D0008;
     background-image:
-      radial-gradient(at 12% 18%, rgba(159,32,99,0.45) 0, transparent 45%),
+      radial-gradient(at 12% 18%, rgba(228,22,116,0.45) 0, transparent 45%),
       radial-gradient(at 86% 12%, rgba(76,29,110,0.55) 0, transparent 50%),
-      radial-gradient(at 70% 92%, rgba(232,62,148,0.25) 0, transparent 50%),
-      radial-gradient(at 8% 88%, rgba(159,32,99,0.30) 0, transparent 50%);
+      radial-gradient(at 70% 92%, rgba(255,45,135,0.25) 0, transparent 50%),
+      radial-gradient(at 8% 88%, rgba(228,22,116,0.30) 0, transparent 50%);
   }
   .bg-mesh-soft {
     background-color: #FDF5F9;
     background-image:
-      radial-gradient(at 5% 0%, rgba(159,32,99,0.10) 0, transparent 45%),
+      radial-gradient(at 5% 0%, rgba(228,22,116,0.10) 0, transparent 45%),
       radial-gradient(at 95% 100%, rgba(76,29,110,0.08) 0, transparent 50%);
   }
   .bg-noise {
@@ -191,15 +191,15 @@
   }
   .glow-magenta {
     box-shadow:
-      0 0 0 1px rgba(159,32,99,0.18),
-      0 10px 30px -10px rgba(159,32,99,0.45),
-      0 0 60px -20px rgba(232,62,148,0.55);
+      0 0 0 1px rgba(228,22,116,0.18),
+      0 10px 30px -10px rgba(228,22,116,0.45),
+      0 0 60px -20px rgba(255,45,135,0.55);
   }
   .ring-magenta-soft {
-    box-shadow: 0 0 0 6px rgba(159,32,99,0.10);
+    box-shadow: 0 0 0 6px rgba(228,22,116,0.10);
   }
   .text-gradient-magenta {
-    background: linear-gradient(120deg, #e83e94 0%, #9f2063 50%, #c42b7a 100%);
+    background: linear-gradient(120deg, #ff2d87 0%, #e41674 50%, #f0338a 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -214,7 +214,7 @@
     inset: 0;
     padding: 1px;
     border-radius: inherit;
-    background: linear-gradient(135deg, rgba(232,62,148,0.6), rgba(76,29,110,0.0) 60%, rgba(159,32,99,0.5));
+    background: linear-gradient(135deg, rgba(255,45,135,0.6), rgba(76,29,110,0.0) 60%, rgba(228,22,116,0.5));
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -234,8 +234,8 @@
   to { stroke-dashoffset: 0; }
 }
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(232,62,148,0.55); }
-  50% { box-shadow: 0 0 0 18px rgba(232,62,148,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,45,135,0.55); }
+  50% { box-shadow: 0 0 0 18px rgba(255,45,135,0); }
 }
 @keyframes float-slow {
   0%, 100% { transform: translateY(0) }
@@ -255,60 +255,60 @@
   }
 }
 
-/* ─── SMEEP-branded CopilotKit theming (AI Business Assistant full-page chat) ── */
-.smeep-copilot {
-  --copilot-kit-primary-color: #9f2063;
+/* ─── Hadafi-branded CopilotKit theming (AI Business Assistant full-page chat) ── */
+.hadafi-copilot {
+  --copilot-kit-primary-color: #e41674;
   --copilot-kit-contrast-color: #ffffff;
   --copilot-kit-background-color: #ffffff;
   --copilot-kit-secondary-color: #fdf2f8;
-  --copilot-kit-secondary-contrast-color: #9f2063;
+  --copilot-kit-secondary-contrast-color: #e41674;
   --copilot-kit-separator-color: #f3e6ee;
   --copilot-kit-muted-color: #6b5b73;
 }
 /* Hide CopilotKit's stock header — we render our own branded header above it */
-.smeep-copilot .copilotKitHeader {
+.hadafi-copilot .copilotKitHeader {
   display: none !important;
 }
-.smeep-copilot .copilotKitMessages {
+.hadafi-copilot .copilotKitMessages {
   background: #fdf5f9 !important;
 }
 
-/* ─── Smeep Assistant (CopilotKit v2 embed) ─────────────────────────────────
+/* ─── Hadafi Assistant (CopilotKit v2 embed) ─────────────────────────────────
    The old v1 rules that lived here (.copilotKitMessages / .copilotKitMessage
    overrides) clobbered the v2 chat, which reuses the same class names — they
    painted an empty padded box on fresh threads and broke bubble alignment.
    The v2 default UI styles itself; only light brand touches belong here. */
-.smeep-assistant-chat .copilotKitChat {
+.hadafi-assistant-chat .copilotKitChat {
   background: transparent !important;
 }
 /* ── Bot bubble typography reset ─────────────────────────────────────────────
    Must live in @layer utilities so it wins the Tailwind v4 !important tier
    (unlayered !important has lowest priority with CSS Cascade Layers).        */
 @layer utilities {
-  .smeep-bot-bubble,
-  .smeep-bot-bubble *,
-  .smeep-bot-bubble .copilotKitParagraph,
-  .smeep-bot-bubble .copilotKitMarkdownElement {
+  .hadafi-bot-bubble,
+  .hadafi-bot-bubble *,
+  .hadafi-bot-bubble .copilotKitParagraph,
+  .hadafi-bot-bubble .copilotKitMarkdownElement {
     font-size: 13px !important;
     line-height: 1.625 !important;
   }
-  .smeep-bot-bubble h1,
-  .smeep-bot-bubble h2,
-  .smeep-bot-bubble h3,
-  .smeep-bot-bubble h4 {
+  .hadafi-bot-bubble h1,
+  .hadafi-bot-bubble h2,
+  .hadafi-bot-bubble h3,
+  .hadafi-bot-bubble h4 {
     font-weight: 600 !important;
     margin-bottom: 4px !important;
   }
-  .smeep-bot-bubble p,
-  .smeep-bot-bubble .copilotKitParagraph {
+  .hadafi-bot-bubble p,
+  .hadafi-bot-bubble .copilotKitParagraph {
     margin: 0 0 6px !important;
   }
-  .smeep-bot-bubble p:last-child,
-  .smeep-bot-bubble .copilotKitParagraph:last-child {
+  .hadafi-bot-bubble p:last-child,
+  .hadafi-bot-bubble .copilotKitParagraph:last-child {
     margin-bottom: 0 !important;
   }
-  .smeep-bot-bubble code {
-    background: rgba(159, 32, 99, 0.07);
+  .hadafi-bot-bubble code {
+    background: rgba(228, 22, 116, 0.07);
     border-radius: 4px;
     padding: 1px 4px;
     font-family: var(--font-mono), monospace;

@@ -2,18 +2,18 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'SMEEP — SME Empowerment Program | Powered by AI',
+  title: 'Hadafi – Women Entrepreneurship Program',
   description:
-    'Discover how to integrate AI into your business processes to save costs, increase revenue, and stay ahead in the future of business—free with the SME Empowerment Program.',
-  keywords: 'SME, AI, business empowerment, startup, digital transformation, AI tools',
+    'Hadafi empowers women entrepreneurs with free AI tools, training courses, mentorship, and partner resources. Start or grow your business today.',
+  keywords: 'Hadafi, women entrepreneurship, AI, business empowerment, women entrepreneurs, free program',
   openGraph: {
-    title: 'SMEEP — SME Empowerment Program',
-    description: 'Free AI-powered program for SMEs and startups worldwide.',
+    title: 'Hadafi – Women Entrepreneurship Program',
+    description: 'Free AI-powered program empowering women entrepreneurs worldwide.',
     type: 'website',
   },
   icons: {
-    icon: '/images/SMEEP-logo.png',
-    apple: '/images/SMEEP-logo.png',
+    icon: '/images/hadafi-logo.png',
+    apple: '/images/hadafi-logo.png',
   },
 }
 

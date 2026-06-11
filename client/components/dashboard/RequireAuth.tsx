@@ -67,10 +67,10 @@ export function RequireAuth({ children, role }: Props) {
 
     check()
     window.addEventListener('storage', check)
-    window.addEventListener('smeep:auth-changed', check)
+    window.addEventListener('hadafi:auth-changed', check)
     return () => {
       window.removeEventListener('storage', check)
-      window.removeEventListener('smeep:auth-changed', check)
+      window.removeEventListener('hadafi:auth-changed', check)
     }
   }, [pathname, router, role])
 

@@ -103,7 +103,7 @@ export const ADMIN_NOTIFICATIONS: AdminNotification[] = [
   { id: 'n1', title: 'Course awaiting review', body: '"Negotiation for Founders" was submitted by Celine Chami.', at: '20 min ago', level: 'warn', read: false },
   { id: 'n2', title: 'Spike in signups', body: '+312 new accounts in the last 24 hours — 38% above weekly average.', at: '1 hr ago', level: 'success', read: false },
   { id: 'n3', title: 'Mentor capacity low', body: 'Only 4 slots left this week with Monika Papadopoulou.', at: '3 hr ago', level: 'warn', read: false },
-  { id: 'n4', title: 'New partner offer live', body: 'Zoho Books extended the SMEEP discount until Aug 31.', at: 'Yesterday', level: 'info', read: true },
+  { id: 'n4', title: 'New partner offer live', body: 'Zoho Books extended the Hadafi discount until Aug 31.', at: 'Yesterday', level: 'info', read: true },
   { id: 'n5', title: 'Weekly digest sent', body: 'Sent to 12,480 active members.', at: '2 days ago', level: 'info', read: true },
 ]
 
@@ -482,7 +482,7 @@ export const ADMIN_PROFILE = {
   fullName: 'Hala Mansour',
   email: 'admin@email.com',
   role: 'Platform Administrator',
-  team: 'SMEEP Operations',
+  team: 'Hadafi Operations',
   avatar: 'https://api.dicebear.com/7.x/initials/svg?seed=Hala%20Mansour&backgroundColor=4c1d6e&fontSize=42&radius=50',
   joined: 'Jan 2024',
 }

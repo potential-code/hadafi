@@ -1,12 +1,12 @@
-.smeep-copilot .copilotKitChat,
-.smeep-copilot .copilotKitWindow {
+.hadafi-copilot .copilotKitChat,
+.hadafi-copilot .copilotKitWindow {
   border-radius: 1rem;
   border: 1px solid var(--color-brand-surface-2);
   background: #fdf5f9;
 }
 
-.smeep-copilot {
-  --copilot-kit-primary-color: #9f2063;
+.hadafi-copilot {
+  --copilot-kit-primary-color: #e41674;
   --copilot-kit-contrast-color: #ffffff;
   --copilot-kit-background-color: #fdf5f9;
   --copilot-kit-secondary-color: #fdf5f9;
@@ -15,16 +15,16 @@
   --copilot-kit-muted-color: #6b7280;
 }
 
-.smeep-copilot .copilotKitChat,
-.smeep-copilot .copilotKitWindow,
-.smeep-copilot .copilotKitMessages,
-.smeep-copilot .copilotKitInputContainer {
+.hadafi-copilot .copilotKitChat,
+.hadafi-copilot .copilotKitWindow,
+.hadafi-copilot .copilotKitMessages,
+.hadafi-copilot .copilotKitInputContainer {
   border-radius: 0;
   border: 0;
 }
 
 /* Chat fills its container — parent uses position:relative + absolute inset-0 */
-.smeep-copilot .copilotKitChat {
+.hadafi-copilot .copilotKitChat {
   height: 100% !important;
   overflow: hidden !important;
 }
@@ -32,7 +32,7 @@
 /* Grid layout: messages fill all remaining space (1fr), input sits below (auto).
    This is more reliable than flex because 1fr resolves against the grid track's
    available space, not the parent's height which may not be "definite" for flex. */
-.smeep-copilot .copilotKitChatBody {
+.hadafi-copilot .copilotKitChatBody {
   display: grid !important;
   grid-template-rows: 1fr auto !important;
   height: 100% !important;
@@ -40,32 +40,32 @@
 }
 
 /* Messages fills its 1fr grid cell and scrolls internally (V1 / landing) */
-.smeep-copilot .copilotKitMessages {
+.hadafi-copilot .copilotKitMessages {
   overflow-y: auto !important;
   min-height: 0 !important;
   background-color: #fdf5f9 !important;
 }
 
 /* Padding around messages so bubbles don't touch the card edges (V1 / landing) */
-.smeep-copilot .copilotKitMessagesContainer {
+.hadafi-copilot .copilotKitMessagesContainer {
   padding: 16px 14px 8px !important;
 }
 
-/* ===== V2 dashboard chat fixes (scoped to .smeep-assistant-chat) ===== */
+/* ===== V2 dashboard chat fixes (scoped to .hadafi-assistant-chat) ===== */
 
 /* Fill the entire chat panel with the brand light-pink so the scroll area,
    the gap below cards, and the space beside card strips all match the message
    bubble background instead of showing the parent container's white. */
-.smeep-assistant-chat {
+.hadafi-assistant-chat {
   background-color: #fdf5f9 !important;
 }
 
-/* In V2, StickToBottom owns all scrolling. The generic .smeep-copilot rule
+/* In V2, StickToBottom owns all scrolling. The generic .hadafi-copilot rule
    above sets overflow-y: auto on copilotKitMessages, which also enables
    overflow-x and causes a horizontal scrollbar whenever card-strip arrow
    buttons bleed outside the container (they use -left-3 / -right-3).
    Override to hidden so neither axis creates a spurious scrollbar. */
-.smeep-assistant-chat .copilotKitMessages {
+.hadafi-assistant-chat .copilotKitMessages {
   overflow: hidden !important;
 }
 
@@ -75,7 +75,7 @@
    fixes both problems: StickToBottom (flex-1) now only fills the space above the
    input, so the scrollbar ends flush with the top of the input bar and no messages
    are hidden behind it. */
-.smeep-assistant-chat [data-testid="copilot-input-overlay"] {
+.hadafi-assistant-chat [data-testid="copilot-input-overlay"] {
   position: static !important;
   pointer-events: auto !important;
 }
@@ -84,7 +84,7 @@
    [data-testid="copilot-scroll-content"]. On panels wider than 48 rem this
    creates equal centering margins that appear as white space on both sides.
    Expand to full width to remove them. */
-.smeep-assistant-chat [data-testid="copilot-scroll-content"] > div {
+.hadafi-assistant-chat [data-testid="copilot-scroll-content"] > div {
   max-width: 100% !important;
   margin-inline: 0 !important;
 }
@@ -93,36 +93,36 @@
    panel edge, plus a small top gap and a fixed bottom clearance. The dynamic
    paddingBottom V2 sets inline (to keep content above the absolute-positioned
    input) is no longer needed now that the input flows in the document. */
-.smeep-assistant-chat [data-testid="copilot-scroll-content"] {
+.hadafi-assistant-chat [data-testid="copilot-scroll-content"] {
   padding: 8px 8px 24px !important;
 }
 
 /* Input container never shrinks (grid auto row already handles this) */
-.smeep-copilot .copilotKitInputContainer {
+.hadafi-copilot .copilotKitInputContainer {
   flex-shrink: 0 !important;
 }
 
-.smeep-copilot .copilotKitInput {
+.hadafi-copilot .copilotKitInput {
   border-radius: 0.75rem !important;
 }
 
-.smeep-copilot .copilotKitUserMessage {
-  background: linear-gradient(135deg, #9f2063, #7a1a4c) !important;
+.hadafi-copilot .copilotKitUserMessage {
+  background: linear-gradient(135deg, #e41674, #b50d5c) !important;
   color: white !important;
   border-radius: 1rem 1rem 0.25rem 1rem !important;
 }
 
-.smeep-copilot .copilotKitAssistantMessage {
+.hadafi-copilot .copilotKitAssistantMessage {
   background: #fdf5f9 !important;
   color: #1a0a12 !important;
   border-radius: 1rem 1rem 1rem 0.25rem !important;
 }
 
 /* Suggestion chips — real CopilotKit selector: .copilotKitMessages footer .suggestions .suggestion */
-.smeep-copilot .copilotKitMessages footer .suggestions .suggestion {
+.hadafi-copilot .copilotKitMessages footer .suggestions .suggestion {
   border: 1.5px solid #e8b4d0 !important;
   background: #fdf5f9 !important;
-  color: #9f2063 !important;
+  color: #e41674 !important;
   border-radius: 999px !important;
   font-weight: 600 !important;
   font-size: 12px !important;
@@ -134,35 +134,35 @@
   box-shadow: none !important;
 }
 
-.smeep-copilot .copilotKitMessages footer .suggestions button {
+.hadafi-copilot .copilotKitMessages footer .suggestions button {
   display: inline-flex !important;
   align-items: center !important;
-  color: #9f2063 !important;
+  color: #e41674 !important;
 }
 
-.smeep-copilot .copilotKitMessages footer .suggestions .suggestion:hover,
-.smeep-copilot .copilotKitMessages footer .suggestions button:not(:disabled):hover {
-  background: #9f2063 !important;
+.hadafi-copilot .copilotKitMessages footer .suggestions .suggestion:hover,
+.hadafi-copilot .copilotKitMessages footer .suggestions button:not(:disabled):hover {
+  background: #e41674 !important;
   color: white !important;
-  border-color: #9f2063 !important;
+  border-color: #e41674 !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(159, 32, 99, 0.25) !important;
+  box-shadow: 0 4px 12px rgba(228, 22, 116, 0.25) !important;
 }
 
-.smeep-copilot .copilotKitButton {
-  background: #9f2063 !important;
+.hadafi-copilot .copilotKitButton {
+  background: #e41674 !important;
 }
-.smeep-copilot .copilotKitButton:hover {
-  background: #7a1a4c !important;
+.hadafi-copilot .copilotKitButton:hover {
+  background: #b50d5c !important;
 }
 
 /* ===== Floating popup (DashboardCopilotPopup) ===== */
 
 /* The launcher bubble bottom-right */
-.smeep-copilot-popup .copilotKitButton {
-  background: linear-gradient(135deg, #9f2063, #7a1a4c) !important;
+.hadafi-copilot-popup .copilotKitButton {
+  background: linear-gradient(135deg, #e41674, #b50d5c) !important;
   box-shadow:
-    0 10px 30px -8px rgba(159, 32, 99, 0.55),
+    0 10px 30px -8px rgba(228, 22, 116, 0.55),
     0 4px 12px -4px rgba(26, 10, 18, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
@@ -171,72 +171,72 @@
   border-radius: 999px !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
 }
-.smeep-copilot-popup .copilotKitButton:hover {
-  background: linear-gradient(135deg, #b6256f, #8a1c55) !important;
+.hadafi-copilot-popup .copilotKitButton:hover {
+  background: linear-gradient(135deg, #f0338a, #c2115e) !important;
   transform: translateY(-2px) scale(1.04);
   box-shadow:
-    0 14px 36px -8px rgba(159, 32, 99, 0.7),
+    0 14px 36px -8px rgba(228, 22, 116, 0.7),
     0 6px 16px -4px rgba(26, 10, 18, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
 }
-.smeep-copilot-popup .copilotKitButton svg {
+.hadafi-copilot-popup .copilotKitButton svg {
   color: white !important;
   width: 24px !important;
   height: 24px !important;
 }
 
 /* The popup window */
-.smeep-copilot-popup .copilotKitWindow {
+.hadafi-copilot-popup .copilotKitWindow {
   border-radius: 1.25rem !important;
   border: 1px solid #f1d6e3 !important;
   background: white !important;
   box-shadow:
     0 30px 60px -20px rgba(26, 10, 18, 0.25),
-    0 12px 28px -10px rgba(159, 32, 99, 0.18) !important;
+    0 12px 28px -10px rgba(228, 22, 116, 0.18) !important;
   overflow: hidden !important;
   width: min(384px, calc(100vw - 2rem)) !important;
   height: min(620px, calc(100vh - 7rem)) !important;
 }
 
 /* Header bar — branded gradient */
-.smeep-copilot-popup .copilotKitHeader {
-  background: linear-gradient(135deg, #9f2063 0%, #7a1a4c 100%) !important;
+.hadafi-copilot-popup .copilotKitHeader {
+  background: linear-gradient(135deg, #e41674 0%, #b50d5c 100%) !important;
   color: white !important;
   border-bottom: 0 !important;
   padding: 0.875rem 1rem !important;
 }
-.smeep-copilot-popup .copilotKitHeader * {
+.hadafi-copilot-popup .copilotKitHeader * {
   color: white !important;
 }
-.smeep-copilot-popup .copilotKitHeader button {
+.hadafi-copilot-popup .copilotKitHeader button {
   color: white !important;
   opacity: 0.85;
 }
-.smeep-copilot-popup .copilotKitHeader button:hover {
+.hadafi-copilot-popup .copilotKitHeader button:hover {
   opacity: 1;
 }
 
 /* Mobile: take more of the screen */
 @media (max-width: 480px) {
-  .smeep-copilot-popup .copilotKitWindow {
+  .hadafi-copilot-popup .copilotKitWindow {
     width: calc(100vw - 1rem) !important;
     height: calc(100vh - 6rem) !important;
     border-radius: 1rem !important;
   }
-  .smeep-copilot-popup .copilotKitButton {
+  .hadafi-copilot-popup .copilotKitButton {
     width: 52px !important;
     height: 52px !important;
   }
 }
 
-/* ===== Dark landing chat theme (.smeep-landing-dark parent) ===== */
+/* ===== Dark landing chat theme (.hadafi-landing-dark parent) ===== */
 
-.smeep-landing-dark {
-  --smeep-btn-idle-bg: rgba(255, 255, 255, 0.08);
+.hadafi-landing-dark {
+  --hadafi-btn-idle-bg: rgba(255, 255, 255, 0.08);
 }
 
 /* Override CopilotKit CSS variables for dark context */
-.smeep-landing-dark .smeep-copilot {
+.hadafi-landing-dark .hadafi-copilot {
   --copilot-kit-background-color: transparent;
   --copilot-kit-secondary-color: rgba(255, 255, 255, 0.06);
   --copilot-kit-separator-color: rgba(255, 255, 255, 0.08);
@@ -245,113 +245,113 @@
 }
 
 /* Transparent chat shell */
-.smeep-landing-dark .smeep-copilot .copilotKitChat,
-.smeep-landing-dark .smeep-copilot .copilotKitWindow {
+.hadafi-landing-dark .hadafi-copilot .copilotKitChat,
+.hadafi-landing-dark .hadafi-copilot .copilotKitWindow {
   background: transparent !important;
   border: 0 !important;
 }
 
 /* Transparent messages scroll area */
-.smeep-landing-dark .smeep-copilot .copilotKitMessages {
+.hadafi-landing-dark .hadafi-copilot .copilotKitMessages {
   background-color: transparent !important;
 }
 
 /* Transparent input outer container with dark top border */
-.smeep-landing-dark .smeep-copilot .copilotKitInputContainer {
+.hadafi-landing-dark .hadafi-copilot .copilotKitInputContainer {
   background: transparent !important;
   border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Dark glass bot bubble */
-.smeep-landing-dark .smeep-bot-bubble {
+.hadafi-landing-dark .hadafi-bot-bubble {
   background: rgba(255, 255, 255, 0.08) !important;
   border-color: rgba(255, 255, 255, 0.12) !important;
   color: rgba(255, 255, 255, 0.90) !important;
 }
 
 /* Bot bubble markdown content */
-.smeep-landing-dark .smeep-bot-bubble p,
-.smeep-landing-dark .smeep-bot-bubble li,
-.smeep-landing-dark .smeep-bot-bubble strong,
-.smeep-landing-dark .smeep-bot-bubble em,
-.smeep-landing-dark .smeep-bot-bubble h1,
-.smeep-landing-dark .smeep-bot-bubble h2,
-.smeep-landing-dark .smeep-bot-bubble h3,
-.smeep-landing-dark .smeep-bot-bubble code {
+.hadafi-landing-dark .hadafi-bot-bubble p,
+.hadafi-landing-dark .hadafi-bot-bubble li,
+.hadafi-landing-dark .hadafi-bot-bubble strong,
+.hadafi-landing-dark .hadafi-bot-bubble em,
+.hadafi-landing-dark .hadafi-bot-bubble h1,
+.hadafi-landing-dark .hadafi-bot-bubble h2,
+.hadafi-landing-dark .hadafi-bot-bubble h3,
+.hadafi-landing-dark .hadafi-bot-bubble code {
   color: rgba(255, 255, 255, 0.88) !important;
 }
 
-.smeep-landing-dark .smeep-bot-bubble a {
-  color: rgba(232, 62, 148, 0.95) !important;
+.hadafi-landing-dark .hadafi-bot-bubble a {
+  color: rgba(255, 45, 135, 0.95) !important;
 }
 
 /* Copy button in dark mode */
-.smeep-landing-dark .smeep-bot-bubble button {
+.hadafi-landing-dark .hadafi-bot-bubble button {
   color: rgba(255, 255, 255, 0.22) !important;
 }
 
 /* Dark typing indicator bubble */
-.smeep-landing-dark .smeep-typing-bubble {
+.hadafi-landing-dark .hadafi-typing-bubble {
   background: rgba(255, 255, 255, 0.08) !important;
   border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
 /* Input wrap focus highlight — light (dashboard) */
-.smeep-chat-input-wrap {
+.hadafi-chat-input-wrap {
   transition: box-shadow 0.18s ease, border-color 0.18s ease;
 }
-.smeep-chat-input-wrap:focus-within {
-  border-color: rgba(159, 32, 99, 0.45) !important;
-  box-shadow: 0 0 0 3px rgba(159, 32, 99, 0.14), 0 0 12px rgba(159, 32, 99, 0.10);
+.hadafi-chat-input-wrap:focus-within {
+  border-color: rgba(228, 22, 116, 0.45) !important;
+  box-shadow: 0 0 0 3px rgba(228, 22, 116, 0.14), 0 0 12px rgba(228, 22, 116, 0.10);
 }
 
 /* Dark input wrapper */
-.smeep-landing-dark .smeep-chat-input-wrap {
+.hadafi-landing-dark .hadafi-chat-input-wrap {
   background: rgba(0, 0, 0, 0.40) !important;
   border-color: rgba(255, 255, 255, 0.10) !important;
 }
 
 /* Input wrap focus highlight — dark (hero chatbot) */
-.smeep-landing-dark .smeep-chat-input-wrap:focus-within {
-  border-color: rgba(159, 32, 99, 0.60) !important;
-  box-shadow: 0 0 0 3px rgba(159, 32, 99, 0.22), 0 0 18px rgba(159, 32, 99, 0.18);
+.hadafi-landing-dark .hadafi-chat-input-wrap:focus-within {
+  border-color: rgba(228, 22, 116, 0.60) !important;
+  box-shadow: 0 0 0 3px rgba(228, 22, 116, 0.22), 0 0 18px rgba(228, 22, 116, 0.18);
 }
 
 /* Dark textarea text and placeholder */
-.smeep-landing-dark .smeep-chat-textarea {
+.hadafi-landing-dark .hadafi-chat-textarea {
   color: rgba(255, 255, 255, 0.85) !important;
 }
 
-.smeep-landing-dark .smeep-chat-textarea::placeholder {
+.hadafi-landing-dark .hadafi-chat-textarea::placeholder {
   color: rgba(255, 255, 255, 0.28) !important;
 }
 
 /* Dark hint text */
-.smeep-landing-dark .smeep-chat-hint {
+.hadafi-landing-dark .hadafi-chat-hint {
   color: rgba(255, 255, 255, 0.20) !important;
 }
 
 /* Dark scrollbar */
-.smeep-landing-dark .smeep-copilot .copilotKitMessages::-webkit-scrollbar {
+.hadafi-landing-dark .hadafi-copilot .copilotKitMessages::-webkit-scrollbar {
   width: 4px;
 }
 
-.smeep-landing-dark .smeep-copilot .copilotKitMessages::-webkit-scrollbar-track {
+.hadafi-landing-dark .hadafi-copilot .copilotKitMessages::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.03) !important;
 }
 
-.smeep-landing-dark .smeep-copilot .copilotKitMessages::-webkit-scrollbar-thumb {
+.hadafi-landing-dark .hadafi-copilot .copilotKitMessages::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.12) !important;
   border-radius: 999px !important;
 }
 
-.smeep-landing-dark .smeep-copilot .copilotKitMessages::-webkit-scrollbar-thumb:hover {
+.hadafi-landing-dark .hadafi-copilot .copilotKitMessages::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.22) !important;
 }
 
 /* ===== Inline suggestion pills — rendered inside bot message bubbles ===== */
 
-.smeep-suggestion-pills {
+.hadafi-suggestion-pills {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
@@ -359,14 +359,14 @@
   padding-bottom: 4px !important;
 }
 
-.smeep-suggestion-pill {
+.hadafi-suggestion-pill {
   display: inline-flex !important;
   align-items: center !important;
   text-align: left !important;
   border-radius: 999px !important;
   border: 1.5px solid #e8b4d0 !important;
   background: #fdf5f9 !important;
-  color: #9f2063 !important;
+  color: #e41674 !important;
   font-size: 12px !important;
   font-weight: 600 !important;
   line-height: 1.4 !important;
@@ -380,40 +380,40 @@
               box-shadow 0.15s ease;
 }
 
-.smeep-suggestion-pill--selected {
-  background: #9f2063 !important;
+.hadafi-suggestion-pill--selected {
+  background: #e41674 !important;
   color: #ffffff !important;
-  border-color: #9f2063 !important;
-  box-shadow: 0 2px 8px rgba(159, 32, 99, 0.25) !important;
+  border-color: #e41674 !important;
+  box-shadow: 0 2px 8px rgba(228, 22, 116, 0.25) !important;
 }
 
-.smeep-suggestion-pill:hover:not(:disabled) {
-  background: #9f2063 !important;
+.hadafi-suggestion-pill:hover:not(:disabled) {
+  background: #e41674 !important;
   color: #ffffff !important;
-  border-color: #9f2063 !important;
+  border-color: #e41674 !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(159, 32, 99, 0.25) !important;
+  box-shadow: 0 4px 12px rgba(228, 22, 116, 0.25) !important;
 }
 
-.smeep-suggestion-pill:active:not(:disabled) {
+.hadafi-suggestion-pill:active:not(:disabled) {
   transform: translateY(0) !important;
   box-shadow: none !important;
 }
 
-.smeep-suggestion-pill:disabled {
+.hadafi-suggestion-pill:disabled {
   opacity: 0.4 !important;
   cursor: not-allowed !important;
 }
 
 /* "Confirm selection" button — multi-select only */
-.smeep-confirm-btn {
+.hadafi-confirm-btn {
   display: inline-flex !important;
   align-items: center !important;
   margin-top: 2px !important;
   margin-bottom: 0 !important;
   padding: 7px 18px !important;
   border-radius: 999px !important;
-  background: #9f2063 !important;
+  background: #e41674 !important;
   color: #fff !important;
   font-size: 12px !important;
   font-weight: 600 !important;
@@ -421,31 +421,31 @@
   border: none !important;
   cursor: pointer !important;
   transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 2px 8px rgba(159, 32, 99, 0.3) !important;
+  box-shadow: 0 2px 8px rgba(228, 22, 116, 0.3) !important;
 }
 
-.smeep-confirm-btn:hover:not(:disabled) {
-  background: #7a1a4c !important;
+.hadafi-confirm-btn:hover:not(:disabled) {
+  background: #b50d5c !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 4px 12px rgba(159, 32, 99, 0.4) !important;
+  box-shadow: 0 4px 12px rgba(228, 22, 116, 0.4) !important;
 }
 
-.smeep-confirm-btn:active:not(:disabled) {
+.hadafi-confirm-btn:active:not(:disabled) {
   transform: translateY(0) !important;
 }
 
-.smeep-confirm-btn:disabled {
+.hadafi-confirm-btn:disabled {
   opacity: 0.35 !important;
   cursor: not-allowed !important;
 }
 
 /* "Generate more options" ghost button — appears below the pill row */
-.smeep-more-options-btn {
+.hadafi-more-options-btn {
   display: inline-flex;
   align-items: center;
   gap: 4px;
   margin-top: 6px;
-  color: rgba(159, 32, 99, 0.6);
+  color: rgba(228, 22, 116, 0.6);
   font-size: 11px;
   font-weight: 500;
   font-family: inherit;
@@ -457,21 +457,21 @@
   transition: color 0.15s ease;
 }
 
-.smeep-more-options-btn:hover:not(:disabled) {
-  color: #9f2063;
+.hadafi-more-options-btn:hover:not(:disabled) {
+  color: #e41674;
 }
 
-.smeep-more-options-btn:disabled {
+.hadafi-more-options-btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
 /* ===== Markdown typography inside bot bubbles and document preview ===== */
 
-.smeep-bot-bubble h1,
-.smeep-bot-bubble h2,
-.smeep-doc-preview h1,
-.smeep-doc-preview h2 {
+.hadafi-bot-bubble h1,
+.hadafi-bot-bubble h2,
+.hadafi-doc-preview h1,
+.hadafi-doc-preview h2 {
   font-size: 13.5px !important;
   font-weight: 700 !important;
   color: #1a0a12 !important;
@@ -479,8 +479,8 @@
   line-height: 1.3 !important;
 }
 
-.smeep-bot-bubble h3,
-.smeep-doc-preview h3 {
+.hadafi-bot-bubble h3,
+.hadafi-doc-preview h3 {
   font-size: 13px !important;
   font-weight: 600 !important;
   color: #1a0a12 !important;
@@ -488,63 +488,63 @@
   line-height: 1.3 !important;
 }
 
-.smeep-bot-bubble h1:first-child,
-.smeep-bot-bubble h2:first-child,
-.smeep-bot-bubble h3:first-child,
-.smeep-doc-preview h1:first-child,
-.smeep-doc-preview h2:first-child {
+.hadafi-bot-bubble h1:first-child,
+.hadafi-bot-bubble h2:first-child,
+.hadafi-bot-bubble h3:first-child,
+.hadafi-doc-preview h1:first-child,
+.hadafi-doc-preview h2:first-child {
   margin-top: 2px !important;
 }
 
-.smeep-bot-bubble p,
-.smeep-doc-preview p {
+.hadafi-bot-bubble p,
+.hadafi-doc-preview p {
   margin: 4px 0 !important;
   line-height: 1.55 !important;
 }
 
-.smeep-bot-bubble ul,
-.smeep-bot-bubble ol,
-.smeep-doc-preview ul,
-.smeep-doc-preview ol {
+.hadafi-bot-bubble ul,
+.hadafi-bot-bubble ol,
+.hadafi-doc-preview ul,
+.hadafi-doc-preview ol {
   padding-left: 18px !important;
   margin: 4px 0 !important;
 }
 
-.smeep-bot-bubble li,
-.smeep-doc-preview li {
+.hadafi-bot-bubble li,
+.hadafi-doc-preview li {
   margin: 2px 0 !important;
   line-height: 1.5 !important;
 }
 
-.smeep-bot-bubble ul > li,
-.smeep-doc-preview ul > li {
+.hadafi-bot-bubble ul > li,
+.hadafi-doc-preview ul > li {
   list-style-type: disc !important;
 }
 
-.smeep-bot-bubble ol > li,
-.smeep-doc-preview ol > li {
+.hadafi-bot-bubble ol > li,
+.hadafi-doc-preview ol > li {
   list-style-type: decimal !important;
 }
 
-.smeep-bot-bubble strong,
-.smeep-doc-preview strong {
+.hadafi-bot-bubble strong,
+.hadafi-doc-preview strong {
   font-weight: 700 !important;
 }
 
-.smeep-bot-bubble em,
-.smeep-doc-preview em {
+.hadafi-bot-bubble em,
+.hadafi-doc-preview em {
   font-style: italic !important;
 }
 
-.smeep-bot-bubble hr,
-.smeep-doc-preview hr {
+.hadafi-bot-bubble hr,
+.hadafi-doc-preview hr {
   border: none !important;
   border-top: 1px solid #f0d8e7 !important;
   margin: 10px 0 !important;
 }
 
-.smeep-bot-bubble code,
-.smeep-doc-preview code {
+.hadafi-bot-bubble code,
+.hadafi-doc-preview code {
   font-size: 11px !important;
   background: #f7e8f0 !important;
   border-radius: 3px !important;
@@ -553,17 +553,16 @@
 }
 
 /* Dark mode overrides for bot bubble markdown */
-.smeep-landing-dark .smeep-bot-bubble h1,
-.smeep-landing-dark .smeep-bot-bubble h2,
-.smeep-landing-dark .smeep-bot-bubble h3 {
+.hadafi-landing-dark .hadafi-bot-bubble h1,
+.hadafi-landing-dark .hadafi-bot-bubble h2,
+.hadafi-landing-dark .hadafi-bot-bubble h3 {
   color: rgba(255, 255, 255, 0.92) !important;
 }
 
-.smeep-landing-dark .smeep-bot-bubble hr {
+.hadafi-landing-dark .hadafi-bot-bubble hr {
   border-top-color: rgba(255, 255, 255, 0.12) !important;
 }
 
-.smeep-landing-dark .smeep-bot-bubble code {
+.hadafi-landing-dark .hadafi-bot-bubble code {
   background: rgba(255, 255, 255, 0.1) !important;
 }
-

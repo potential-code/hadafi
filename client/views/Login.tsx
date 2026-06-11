@@ -72,7 +72,7 @@ export default function LoginPage() {
       badge="Welcome back"
       heading={
         <>
-          Log in to <span className="text-gradient-magenta">SMEEP</span>
+          Log in to <span className="text-gradient-magenta">Hadafi</span>
         </>
       }
       subheading="Continue your AI-powered business journey."

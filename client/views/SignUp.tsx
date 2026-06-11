@@ -343,7 +343,7 @@ export default function SignUpPage() {
       badge="Free · No credit card"
       heading={
         <>
-          Join <span className="text-gradient-magenta">SMEEP</span> today
+          Join <span className="text-gradient-magenta">Hadafi</span> today
         </>
       }
       subheading="Empower your business with AI — it only takes a minute."

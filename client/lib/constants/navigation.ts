@@ -15,7 +15,7 @@ export const NAV_LINKS: NavLink[] = [
     children: [
       { label: 'Live Events', href: '#events', description: 'Webinars & replays' },
       { label: 'AI Mentors', href: '#ai-mentors', description: 'On-demand AI guidance' },
-      { label: 'AI Chatbot', href: '#ai-assistant', description: 'Ask SMEEP anything' },
+      { label: 'AI Chatbot', href: '#ai-assistant', description: 'Ask Hadafi anything' },
       { label: 'Human Mentors', href: '#mentors', description: 'Real expert mentors' },
       { label: 'Offers', href: '#offers', description: 'Perks & partner deals' },
     ],
@@ -43,9 +43,9 @@ export const FOOTER_LINKS = {
 } as const
 
 export const SOCIAL_LINKS = [
-  { label: 'Facebook', href: '#', icon: 'facebook' },
-  { label: 'Twitter / X', href: '#', icon: 'twitter' },
-  { label: 'Instagram', href: '#', icon: 'instagram' },
-  { label: 'LinkedIn', href: '#', icon: 'linkedin' },
+  { label: 'Facebook', href: 'https://www.facebook.com/hadafi.me/', icon: 'facebook' },
+  { label: 'Twitter / X', href: 'https://x.com/hadafime', icon: 'twitter' },
+  { label: 'Instagram', href: 'https://www.instagram.com/hadafi_program', icon: 'instagram' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/potential/', icon: 'linkedin' },
   { label: 'WhatsApp', href: '#', icon: 'message-circle' },
 ] as const

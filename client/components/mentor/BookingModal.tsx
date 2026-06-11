@@ -472,7 +472,7 @@ export function BookingModal({ mentor, onClose }: BookingModalProps) {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-brand-text-muted text-xs font-medium">Cost</span>
-                    <span className="text-emerald-600 font-bold text-xs">Free for SMEEP members</span>
+                    <span className="text-emerald-600 font-bold text-xs">Free for Hadafi members</span>
                   </div>
                 </div>
               </div>

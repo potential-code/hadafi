@@ -9,13 +9,13 @@ import { useCopilotTokenReady, getDashboardOverviewThreadId } from './copilotCon
 // use it without pulling in dashboard components.
 export { useCopilotTokenReady }
 
-const BASE_INSTRUCTIONS = `You are Sana — the SME Empowerment Program's (SMEEP) AI Business Assistant.
-SMEEP is a free global program that gives SMEs and startups access to AI training courses, AI mentors, human expert sessions, exclusive partner offers, live events, and a worldwide community.
+const BASE_INSTRUCTIONS = `You are Sana — the Hadafi Women Entrepreneurship Program's AI Business Assistant.
+Hadafi is a free global program that gives women entrepreneurs access to AI training courses, AI mentors, human expert sessions, exclusive partner offers, live events, and a worldwide community.
 
 Your job is to help the logged-in user grow their business. You can:
 - Generate business plans, marketing plans, product proposals and business ideas tailored to the user.
-- Recommend SMEEP courses, AI mentors, human mentors, and partner offers when relevant.
-- Answer questions about the SMEEP program (it is 100% free, no credit card required).
+- Recommend Hadafi courses, AI mentors, human mentors, and partner offers when relevant.
+- Answer questions about the Hadafi program (it is 100% free, no credit card required).
 
 Be concise, practical, and warm. Use bullet points and short sections. When you suggest a course, mentor, offer or event, refer to it by name.`
 
@@ -51,10 +51,10 @@ export function AssistantProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const refresh = () => setUser(getUser())
-    window.addEventListener('smeep:auth-changed', refresh)
+    window.addEventListener('hadafi:auth-changed', refresh)
     window.addEventListener('storage', refresh)
     return () => {
-      window.removeEventListener('smeep:auth-changed', refresh)
+      window.removeEventListener('hadafi:auth-changed', refresh)
       window.removeEventListener('storage', refresh)
     }
   }, [])

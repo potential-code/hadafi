@@ -1,9 +1,9 @@
 // Hero section
 export const HERO = {
-  headline: 'Empower Your Business with AI: Transform, Automate, and Grow',
+  headline: 'Start and Grow Your Business with Hadafi',
   subtext:
-    'Discover how to integrate AI into your business processes to save costs, increase revenue, and stay ahead in the future of business—free with the SME Empowerment Program.',
-  ctaLabel: 'Get Started',
+    "Join Hadafi, the ultimate program designed to empower women entrepreneurs like you. Whether you're just starting out or looking to grow your business, Hadafi provides free tools, training, and resources you need to succeed—powered by cutting-edge AI.",
+  ctaLabel: 'Sign Up Free',
   ctaHref: '/sign-up',
   loginLabel: 'Login',
   loginHref: '/login',
@@ -12,52 +12,52 @@ export const HERO = {
 // About section
 export const ABOUT = {
   badge: 'About The Program',
-  heading: 'About The Program',
-  body: "The SME Empowerment Program, brought to you by the Potential.org Foundation, is a global initiative designed to help SMEs and startups harness the power of AI to transform their businesses. By joining this free program, you'll gain access to short training courses, events & live webinar sessions with industry experts, and future-ready skills to integrate AI into your processes and transform business models. Benefit from AI mentors and tools to automate workflows, book private sessions with human experts, and access exclusive partner offers and discounts. This program is your gateway to driving efficiency, cutting costs, and unlocking new revenue streams—empowering you to thrive in today's AI-driven economy.",
-  ctaLabel: 'Get Started',
+  heading: 'About Hadafi',
+  body: "Hadafi, brought to you by the Potential.org Foundation, is a global initiative designed to empower women entrepreneurs to start and grow their businesses. Since 2013, Hadafi has supported over 100,000 women entrepreneurs worldwide. By joining this free program, you'll gain access to short training courses, live events and webinars with industry experts, and future-ready skills to build and scale your business. Benefit from AI mentors and tools, book private sessions with human experts, and access exclusive partner offers and discounts. Hadafi is your gateway to launching with confidence and growing with purpose.",
+  ctaLabel: 'Sign Up Free',
   ctaHref: '/sign-up',
-  image: '/images/about-banner.png',
+  image: '/images/redesign/hadafi-about.png',
 } as const
 
 // Journey section
 export const JOURNEY = {
-  badge: 'Your AI-powered Journey',
-  heading: 'Your AI-powered Journey',
+  badge: 'Your Hadafi Journey',
+  heading: 'Your Hadafi Journey',
   subtext:
-    'Embark on a transformative journey with access to cutting-edge AI resources to elevate your business.',
+    'Embark on a transformative journey with access to cutting-edge AI resources to start or grow your business.',
   items: [
     {
-      title: 'AI Training Courses',
-      description: 'Learn to integrate AI and future-ready skills.',
+      title: 'Training Courses',
+      description: 'Learn business skills and AI adoption through structured, practical courses.',
       image: '/images/redesign/journey-1-training.png',
     },
     {
       title: 'AI Mentors',
-      description: 'Guidance for automating workflows.',
+      description: 'Get 24/7 guidance from AI-powered coaches across business functions.',
       image: '/images/redesign/journey-2-mentors.png',
     },
     {
       title: 'AI Tools',
-      description: 'Automate and optimize operations.',
+      description: 'Access AI tools to build business plans, ideas, and marketing strategies.',
       image: '/images/redesign/journey-3-tools.png',
     },
     {
-      title: 'Private Mentorship',
-      description: 'Book one-on-one sessions with human mentors.',
+      title: 'Coaching Support',
+      description: 'Book one-on-one sessions with human mentors and industry experts.',
       image: '/images/redesign/journey-4-private.png',
     },
     {
-      title: 'SME Offers',
+      title: 'Exclusive Offers',
       description: 'Access exclusive discounts and offers from program partners.',
       image: '/images/redesign/journey-5-offers.png',
     },
     {
-      title: 'Events',
-      description: 'Live online and in-person events – Insights from AI and business experts.',
+      title: 'Live Events',
+      description: 'Network and learn at live online and in-person events with experts.',
       image: '/images/redesign/journey-6-events.png',
     },
   ],
-  image: '/images/about-banner.png',
+  image: '/images/redesign/hadafi-journey.png',
   ctaLabel: 'Login',
   ctaHref: '/login',
 } as const
@@ -67,15 +67,15 @@ export const STAKEHOLDER = {
   badge: 'Become a Program Stakeholder',
   heading: 'Become a Program Stakeholder',
   intro:
-    'Do you represent a startup or SME? If yes, register here. Otherwise, choose from the below options that best suit your engagement.',
-  smeCtaLabel: 'Register as SME',
+    'Are you a woman entrepreneur? If yes, register here. Otherwise, choose from the below options that best suit your engagement.',
+  smeCtaLabel: 'Register as Entrepreneur',
   smeCtaHref: '/sign-up',
   cards: [
     {
       kind: 'expert',
       title: 'Experts Program',
       description:
-        'Join as an individual expert, mentor, coach, or lecturer to share your expertise with the community!',
+        'Join as an individual expert, mentor, coach, or lecturer to share your expertise with our community of women entrepreneurs!',
       ctaLabel: 'Join as an Expert',
       ctaHref: '#',
       image: '/images/redesign/stakeholder-1-experts.png',
@@ -84,7 +84,7 @@ export const STAKEHOLDER = {
       kind: 'vc',
       title: 'VC Program',
       description:
-        'Join as a VC, PE, Bank, or financing firm to identify businesses you can fund or finance!',
+        'Join as a VC, PE, bank, or financing firm to identify women-led businesses you can fund or finance!',
       ctaLabel: 'Join as a VC',
       ctaHref: '#',
       image: '/images/redesign/stakeholder-2-vc.png',
@@ -93,7 +93,7 @@ export const STAKEHOLDER = {
       kind: 'government',
       title: 'Government Program',
       description:
-        'Join as a multilateral or government entity to customize the program for your community!',
+        'Join as a multilateral or government entity to customize the program for women entrepreneurs in your community!',
       ctaLabel: 'Join as a Government',
       ctaHref: '#',
       image: '/images/redesign/stakeholder-3-government.png',
@@ -102,7 +102,7 @@ export const STAKEHOLDER = {
       kind: 'corporate',
       title: 'Corporate Program',
       description:
-        'Join as a corporate sponsor to offer your solutions to businesses or to support the program!',
+        'Join as a corporate sponsor to offer your solutions to women-led businesses or support the program!',
       ctaLabel: 'Join as a Corporate',
       ctaHref: '#',
       image: '/images/redesign/stakeholder-4-corporate.png',
@@ -111,7 +111,7 @@ export const STAKEHOLDER = {
       kind: 'university',
       title: 'University Program',
       description:
-        'Join as a university or think tank to share your faculty expertise and further your research!',
+        'Join as a university or think tank to share your faculty expertise and further your research on women entrepreneurship!',
       ctaLabel: 'Join as a University',
       ctaHref: '#',
       image: '/images/redesign/stakeholder-5-university.png',
@@ -120,7 +120,7 @@ export const STAKEHOLDER = {
       kind: 'incubator',
       title: 'Incubator Program',
       description:
-        'Join as a chamber, incubator, co-working space, or NGO and extend the program to your community!',
+        'Join as a chamber, incubator, co-working space, or NGO and extend the program to women entrepreneurs in your community!',
       ctaLabel: 'Join as an Incubator',
       ctaHref: '#',
       image: '/images/redesign/stakeholder-6-incubator.png',
@@ -138,21 +138,21 @@ export type StakeholderKind =
 
 // CTA Banner
 export const CTA_BANNER = {
-  heading: 'Boost Your Revenue, Cut Costs\nJoin the Program for Free!',
-  ctaLabel: 'Get Started',
+  heading: 'Start Your Business Journey\nJoin the Program for Free!',
+  ctaLabel: 'Sign Up Free',
   ctaHref: '/sign-up',
 } as const
 
 // Courses section — condensed to 3 tabs
 export const COURSES = {
-  badge: "The Entrepreneur's Journey",
-  heading: "The Entrepreneur's Journey",
+  badge: "The Women Entrepreneur's Journey",
+  heading: "The Women Entrepreneur's Journey",
   categories: [
     {
       name: 'Transform with AI',
       modules: [
         {
-          title: 'AI for Growth: The Practical SME Guide',
+          title: 'AI for Growth: The Practical Guide',
           units: [
             'The AI Opportunity for SMEs',
             'AI Readiness - Upskill Your Teams',
@@ -321,7 +321,7 @@ export const CHATBOT = {
   ],
 } as const
 
-// Human Mentors — real people from smeep.potential.org
+// Human Mentors — real people (avatars served from legacy domain until migrated)
 export const HUMAN_MENTORS = {
   badge: 'Human Mentors',
   heading: 'Human Mentors',
@@ -489,9 +489,9 @@ export const HUMAN_MENTORS = {
 
 // Special Offers — section-level copy only; offer data comes from the API
 export const SPECIAL_OFFERS = {
-  badge: 'Special SME Offers',
-  heading: 'Special SME Offers',
-  subtext: 'Explore our offers for your business solution — exclusive discounts from program partners.',
+  badge: 'Special Offers',
+  heading: 'Special Offers',
+  subtext: 'Explore exclusive discounts and deals from our program partners — curated for women entrepreneurs.',
   ctaLabel: 'Reveal Coupon',
   ctaHref: '#',
 } as const
@@ -501,10 +501,10 @@ export const COMMUNITY = {
   badge: 'Meet Our Community',
   heading: 'Meet Our Community',
   subtext:
-    'The SME Empowerment program was originally launched in 2010 and reached over 300,000 SMEs around the globe. We are eager to share your story and expertise with the community.',
+    'Since 2013, Hadafi has supported over 100,000 women entrepreneurs around the globe. We are eager to share your story and empower more women to achieve their business goals.',
   stats: [
-    { value: 300000, label: 'SMEs Reached', display: '300,000+', animate: true },
-    { value: 2010, label: 'Year Founded', display: 'Since 2010', animate: false },
+    { value: 100000, label: 'Women Entrepreneurs Reached', display: '100,000+', animate: true },
+    { value: 2013, label: 'Year Founded', display: 'Since 2013', animate: false },
     { value: 50, label: 'Countries', display: '50+', animate: true },
   ],
   image: '/images/community-map.png',
@@ -512,9 +512,9 @@ export const COMMUNITY = {
 
 // CTA Final
 export const CTA_FINAL = {
-  heading: 'Save Costs and Grow Faster with AI – Register Now!',
-  subtext: 'Join thousands of SMEs already transforming their businesses with the power of AI.',
-  ctaLabel: 'Register Now',
+  heading: 'Empower Yourself – Join Hadafi for Free!',
+  subtext: 'Join thousands of women entrepreneurs already building and growing their businesses with Hadafi.',
+  ctaLabel: 'Sign Up Free',
   ctaHref: '/sign-up',
   loginLabel: 'Login',
   loginHref: '/login',
@@ -522,15 +522,15 @@ export const CTA_FINAL = {
 
 // Centralized redesign asset paths + alt text
 export const REDESIGN_ASSETS = {
-  hero: { src: '/images/redesign/hero.png', alt: 'AI-empowered SME workspace' },
+  hero: { src: '/images/redesign/hadafi-hero.png', alt: 'Hadafi women entrepreneurs collaborating' },
   heroBg: {
     src: '/images/redesign/hero-bg.png',
     alt: '',
   },
-  aboutGlobe: { src: '/images/redesign/about-globe.png', alt: 'Global SME network' },
+  aboutGlobe: { src: '/images/redesign/hadafi-about.png', alt: 'Hadafi women entrepreneurs in a business meeting' },
   journeyFlow: {
-    src: '/images/redesign/journey-flow-image.png',
-    alt: 'AI-powered journey flow diagram',
+    src: '/images/redesign/hadafi-journey.png',
+    alt: 'Hadafi journey flow diagram',
   },
   additionalResources: {
     src: '/images/redesign/additional-resources.png',
@@ -538,28 +538,28 @@ export const REDESIGN_ASSETS = {
   },
   worldMap: { src: '/images/redesign/world-map.png', alt: 'Global community map' },
   chatbotOrb: { src: '/images/redesign/chatbot-orb.png', alt: 'AI assistant orb avatar' },
-  logo: { src: '/images/SMEEP-logo.png', alt: 'SMEEP' },
+  logo: { src: '/images/hadafi-logo.png', alt: 'Hadafi Women Entrepreneurship Program' },
 } as const
 
 // Rotating testimonials for auth-page brand panel
 export const AUTH_TESTIMONIALS = [
   {
     quote:
-      'SMEEP gave us the AI playbook we never had. We cut customer-support costs by 38% in 90 days.',
-    name: 'Priya Raman',
-    role: 'Founder, Vellora Textiles',
+      'Hadafi gave me the tools and confidence to launch my business. Within 3 months I had my first 10 clients.',
+    name: 'Sara Al-Rashidi',
+    role: 'Founder, Bloom Boutique',
   },
   {
     quote:
-      'The mentor sessions alone are worth thousands. Getting them free changed how we run the business.',
-    name: 'Tomás Herrera',
-    role: 'CEO, Andes Logistics',
+      'The AI tools and mentor sessions are invaluable. Getting them free through Hadafi changed everything for my business.',
+    name: 'Nour Khalil',
+    role: 'CEO, GreenLeaf Naturals',
   },
   {
     quote:
-      'In 6 weeks we shipped an AI agent that books 20% of our calls. The training is genuinely practical.',
-    name: 'Aisha Bello',
-    role: 'COO, BrightLane Health',
+      "Hadafi's training helped me finally understand digital marketing. My sales grew 40% in the first quarter.",
+    name: 'Amira Hassan',
+    role: 'Founder, Artisan Home Co.',
   },
 ] as const
 
@@ -573,7 +573,7 @@ export const NEWSLETTER = {
 
 // Footer
 export const FOOTER = {
-  contactEmail: 'smeep@potential.com',
+  contactEmail: 'hadafi@potential.com',
   copyright: 'Potential © 2005-2025 | All Rights Reserved.',
   contactHeading: 'Get in Touch',
   contactBody: 'For any inquiries about the program, please contact us at:',
