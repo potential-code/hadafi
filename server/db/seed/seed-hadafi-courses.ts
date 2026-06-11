@@ -64,9 +64,13 @@ const folders = fs.readdirSync(HADAFI_COURSES_DIR).filter(f =>
   fs.existsSync(path.join(HADAFI_COURSES_DIR, f, 'course.json'))
 )
 
+// Skip course-109 (Norwegian placeholder with no content)
+const SKIP_WP_IDS = new Set(['109'])
+
 const extraFolders = folders.filter(folder => {
   const m = folder.match(/course-(\d+)-/)
   if (!m) return false
+  if (SKIP_WP_IDS.has(m[1])) return false
   return !cardWpIds.has(m[1])
 })
 
