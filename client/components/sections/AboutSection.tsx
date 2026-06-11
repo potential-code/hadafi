@@ -118,26 +118,6 @@ export function AboutSection() {
             A free global program by Potential.org — built for women entrepreneurs ready to start, grow, and lead.
           </motion.p>
 
-          {/* GSAP Stat counters */}
-          <div
-            ref={statsRef}
-            className="mt-8 grid grid-cols-3 gap-3 sm:gap-5 rounded-2xl bg-white border border-brand-surface-2 p-5 shadow-sm"
-          >
-            {STATS.map((s) => (
-              <div key={s.label} className="text-center sm:text-left">
-                <div
-                  data-stat={s.value}
-                  className="text-2xl sm:text-3xl font-extrabold text-gradient-magenta leading-none"
-                >
-                  {reduced ? s.display : '0'}
-                </div>
-                <p className="text-[11px] sm:text-xs text-brand-text-muted mt-1.5 font-medium uppercase tracking-wider">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
-
           {/* Feature cards */}
           <div className="mt-7 grid grid-cols-2 gap-3">
             {FEATURES.map(({ icon: Icon, label, desc }, i) => (
@@ -147,14 +127,39 @@ export function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.07 * i + 0.3, duration: 0.4 }}
-                className="flex flex-col gap-2 p-4 rounded-2xl bg-white border border-brand-surface-2 shadow-sm hover:border-brand-primary/30 hover:shadow-md transition-all duration-200"
+                className="group flex items-start gap-3.5 p-4 rounded-2xl border border-brand-primary/10 bg-gradient-to-br from-brand-primary/[0.05] to-transparent hover:border-brand-primary/25 hover:from-brand-primary/[0.09] transition-all duration-200 cursor-default"
               >
-                <div className="w-8 h-8 rounded-xl bg-brand-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-4 h-4 text-brand-primary" />
+                <div
+                  className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200"
+                  style={{ background: 'linear-gradient(135deg, #e41674 0%, #b50d5c 100%)' }}
+                >
+                  <Icon className="w-[18px] h-[18px] text-white" strokeWidth={1.75} />
                 </div>
-                <p className="text-sm font-semibold text-brand-text-primary leading-tight">{label}</p>
-                <p className="text-[12px] text-brand-text-muted leading-snug">{desc}</p>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-brand-text-primary leading-tight">{label}</p>
+                  <p className="text-[12px] text-brand-text-muted mt-0.5 leading-snug">{desc}</p>
+                </div>
               </motion.div>
+            ))}
+          </div>
+
+          {/* GSAP Stat counters — social proof strip below features */}
+          <div
+            ref={statsRef}
+            className="mt-5 flex items-stretch divide-x divide-brand-primary/10 rounded-2xl border border-brand-primary/10 bg-gradient-to-r from-brand-primary/[0.04] to-transparent overflow-hidden"
+          >
+            {STATS.map((s) => (
+              <div key={s.label} className="flex-1 px-4 py-4 text-center">
+                <div
+                  data-stat={s.value}
+                  className="text-2xl sm:text-3xl font-extrabold text-gradient-magenta leading-none"
+                >
+                  {reduced ? s.display : '0'}
+                </div>
+                <p className="text-[11px] sm:text-xs text-brand-text-muted mt-1.5 font-medium">
+                  {s.label}
+                </p>
+              </div>
             ))}
           </div>
 
