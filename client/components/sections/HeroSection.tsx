@@ -88,9 +88,9 @@ export function HeroSection() {
             </div>
 
             {/* Checklist */}
-            <ul className="flex flex-col gap-2">
+            <ul className="flex flex-col gap-2 max-w-xs sm:max-w-none mx-auto lg:mx-0">
               {HERO.checklist.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm text-white/70 text-center lg:text-left justify-center lg:justify-start">
+                <li key={item} className="flex items-center gap-2 text-sm text-white/70 justify-center lg:justify-start">
                   <span className="text-brand-primary font-bold flex-shrink-0 mt-0.5">✓</span>
                   <span>{item}</span>
                 </li>
