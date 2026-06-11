@@ -587,7 +587,7 @@ function LandingRegistrationChatInner() {
       >
         <div className="relative flex-shrink-0">
           <img
-            src="/images/redesign/hadafi-avatar-96.png"
+            src="/images/redesign/hana-avatar.png"
             alt="Hana"
             className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white/30"
           />
@@ -611,7 +611,7 @@ function LandingRegistrationChatInner() {
               }}
             >
               <img
-                src="/images/redesign/hadafi-avatar-200.png"
+                src="/images/redesign/hana-avatar.png"
                 alt="Hana"
                 className="w-full h-full object-cover object-top"
               />
