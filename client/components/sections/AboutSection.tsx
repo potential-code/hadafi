@@ -20,15 +20,15 @@ const HIGHLIGHTS = [
 ]
 
 const STATS = [
-  { value: 300000, display: '300K+', label: 'SMEs reached' },
+  { value: 100000, display: '100K+', label: 'Women entrepreneurs' },
   { value: 50, display: '50+', label: 'Countries' },
-  { value: 14, display: '14yr', label: 'Track record' },
+  { value: 2013, display: 'Since 2013', label: 'Program launched' },
 ] as const
 
 function formatStat(n: number, original: number) {
+  if (original === 2013) return 'Since 2013'
   if (original >= 1000) return `${Math.round(n / 1000)}K+`
-  if (original > 14) return `${Math.round(n)}+`
-  return `${Math.round(n)}yr`
+  return `${Math.round(n)}+`
 }
 
 export function AboutSection() {
@@ -80,7 +80,7 @@ export function AboutSection() {
             <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-white">
               <div>
                 <p className="text-[11px] uppercase tracking-[0.2em] text-white/60">Reach</p>
-                <p className="text-2xl font-bold leading-tight">300,000+ SMEs</p>
+                <p className="text-2xl font-bold leading-tight">100,000+ Women</p>
               </div>
               <div className="text-right">
                 <p className="text-[11px] uppercase tracking-[0.2em] text-white/60">Countries</p>

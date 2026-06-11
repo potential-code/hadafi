@@ -1,5 +1,5 @@
 // Shared CopilotKit connection settings used by every <CopilotKit> provider
-// in the SMEEP dashboard. There are two providers (popup + AI Business
+// in the Hadafi dashboard. There are two providers (popup + AI Business
 // Assistant page); they share runtime URL, agent and auth headers but use
 // different threadIds so their conversations stay isolated.
 
@@ -58,7 +58,7 @@ export function clearLandingPageThreadId(): void {
 // --- Copilot service token --------------------------------------------------
 // The AI backend (potential-ai) requires a service JWT on every request — chat
 // runs, transcription, TTS, and the voice WebSocket. Logged-in users obtain a
-// short-lived token from the smeep server (GET /api/auth/copilot-token); the
+// short-lived token from the Hadafi server (GET /api/auth/copilot-token); the
 // shared signing secret never reaches the browser. The token is cached in
 // localStorage and re-minted shortly before expiry.
 import { useEffect, useState } from 'react'

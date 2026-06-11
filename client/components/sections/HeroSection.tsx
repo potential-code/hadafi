@@ -99,9 +99,9 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.55 }}
             className="mt-10 flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-3 text-xs text-white/55"
           >
-            <div><span className="text-white font-semibold text-base mr-1">300k+</span> SMEs reached</div>
+            <div><span className="text-white font-semibold text-base mr-1">100,000+</span> women entrepreneurs</div>
             <div><span className="text-white font-semibold text-base mr-1">50+</span> countries</div>
-            <div><span className="text-white font-semibold text-base mr-1">Since 2010</span></div>
+            <div><span className="text-white font-semibold text-base mr-1">Since 2013</span></div>
           </motion.div>
 
         </div>
