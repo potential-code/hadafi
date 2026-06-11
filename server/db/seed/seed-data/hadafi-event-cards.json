@@ -1,0 +1,271 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-06-11T08:20:55+00:00",
+    "source_site": "https://hadafi.potential.org",
+    "cpt": {
+        "slug": "event_cards",
+        "label": "Live Events",
+        "description": "Live webinars, workshops, and events shown on the user dashboard under \"Live Sessions\".",
+        "items": [
+            {
+                "post_id": 3829,
+                "title": "Business Trends to Watch",
+                "slug": "business-trends-to-watch",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "event_track": "",
+                    "event_category": "",
+                    "linkedinurl": "",
+                    "overview_txt": "  ",
+                    "fulldate": "2025-06-22",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=nWxLaQIOQ8M"
+                }
+            },
+            {
+                "post_id": 3788,
+                "title": "What Investors Look For When Investing",
+                "slug": "what-investors-look-for-when-investing",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "event_track": "",
+                    "event_category": "",
+                    "linkedinurl": "",
+                    "overview_txt": "     ",
+                    "fulldate": "2021-06-15",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=EyGYUZXBnZM"
+                }
+            },
+            {
+                "post_id": 3787,
+                "title": "Enhance Your Learning and Development",
+                "slug": "enhance-your-learning-and-development",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "event_track": "",
+                    "event_category": "",
+                    "linkedinurl": "",
+                    "overview_txt": "  ",
+                    "fulldate": "2021-06-08",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=V3qriSV8ZJw"
+                }
+            },
+            {
+                "post_id": 3655,
+                "title": "Use Data to Grow Your Business",
+                "slug": "use-data-to-grow-your-business",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "event_track": "",
+                    "event_category": "",
+                    "linkedinurl": "",
+                    "overview_txt": "  ",
+                    "fulldate": "2021-06-01",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=7sLOeIkbn5c"
+                }
+            },
+            {
+                "post_id": 3648,
+                "title": "Boost Your Digital Marketing",
+                "slug": "boost-your-digital-marketing",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "event_track": "",
+                    "event_category": "",
+                    "linkedinurl": "",
+                    "overview_txt": "   ",
+                    "fulldate": "2021-05-25",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=MNCxeA_deZk"
+                }
+            },
+            {
+                "post_id": 3638,
+                "title": "Grow Your Community",
+                "slug": "grow-your-community",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "event_track": "",
+                    "event_category": "",
+                    "linkedinurl": "",
+                    "overview_txt": "   ",
+                    "fulldate": "2021-05-18",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=Wy_ZD_z1rpE&feature=youtu.be"
+                }
+            },
+            {
+                "post_id": 3631,
+                "title": "Sustainability and Impact",
+                "slug": "sustainability-and-impact",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "event_track": "",
+                    "event_category": "",
+                    "linkedinurl": "",
+                    "overview_txt": "   ",
+                    "fulldate": "2021-05-11",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=m4seAO9SjgU"
+                }
+            },
+            {
+                "post_id": 3628,
+                "title": "Prepare for Funding",
+                "slug": "prepare-for-funding",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "event_track": "",
+                    "event_category": "",
+                    "linkedinurl": "",
+                    "overview_txt": "  ",
+                    "fulldate": "2021-05-04",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=M345P_JPhzY"
+                }
+            },
+            {
+                "post_id": 3608,
+                "title": "Develop your Next Innovation",
+                "slug": "develop-your-next-innovation",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "event_track": "",
+                    "event_category": "",
+                    "linkedinurl": "",
+                    "overview_txt": "  ",
+                    "fulldate": "2021-04-27",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=-W4Ry6hUHs0&feature=youtu.be"
+                }
+            },
+            {
+                "post_id": 3607,
+                "title": "Developing your Digitization Strategy",
+                "slug": "developing-your-digitization-strategy",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "event_track": "",
+                    "event_category": "",
+                    "linkedinurl": "",
+                    "overview_txt": "  ",
+                    "fulldate": "2025-04-20",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=bE86eRKtEpQ"
+                }
+            },
+            {
+                "post_id": 3190,
+                "title": "Enhance your Operations",
+                "slug": "digitizing-your-operations",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://hadafi.potential.org/wp-content/uploads/2020/07/webinar-3.jpg",
+                "meta": {
+                    "event_track": "",
+                    "event_category": "Webinar",
+                    "linkedinurl": "",
+                    "overview_txt": " Join us to learn how to automate your manual and paper-based processes in order to decrease your operation costs.          ",
+                    "fulldate": "2021-04-12",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=CemEaQ5nddM"
+                }
+            },
+            {
+                "post_id": 3187,
+                "title": "Digitizing your Sales",
+                "slug": "digitizing-your-sales",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://hadafi.potential.org/wp-content/uploads/2020/07/webinar-2.jpg",
+                "meta": {
+                    "event_track": "",
+                    "event_category": "Webinar",
+                    "linkedinurl": "",
+                    "overview_txt": "Join us to learn how to digitize your sales process to get more leads, close deals faster and skyrocket your sales revenue.          ",
+                    "fulldate": "2021-04-05",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=mbvdIB59l7g"
+                }
+            },
+            {
+                "post_id": 3185,
+                "title": "Overview about SME Program",
+                "slug": "overview-about-sme-evolution-program",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://hadafi.potential.org/wp-content/uploads/2020/07/webinar-1.jpg",
+                "meta": {
+                    "event_track": "",
+                    "event_category": "Webinar",
+                    "linkedinurl": "",
+                    "overview_txt": " Join us to know more about the SME Evolution Program, how to register and how to make use of the amazing free and discounted offers.            ",
+                    "fulldate": "2021-03-29",
+                    "time": "5:00 PM / GST - UAE time",
+                    "recording_link": "https://www.youtube.com/watch?v=cQE1GFRlHFw&"
+                }
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_extra",
+                "url": "https://hadafi.potential.org/wp-content/uploads/2020/07/webinar-3.jpg",
+                "zip_path": "wp-content/uploads/2020/07/webinar-3.jpg",
+                "level": "card_item",
+                "post_id": 3190
+            },
+            {
+                "role": "card_extra",
+                "url": "https://hadafi.potential.org/wp-content/uploads/2020/07/webinar-2.jpg",
+                "zip_path": "wp-content/uploads/2020/07/webinar-2.jpg",
+                "level": "card_item",
+                "post_id": 3187
+            },
+            {
+                "role": "card_extra",
+                "url": "https://hadafi.potential.org/wp-content/uploads/2020/07/webinar-1.jpg",
+                "zip_path": "wp-content/uploads/2020/07/webinar-1.jpg",
+                "level": "card_item",
+                "post_id": 3185
+            }
+        ]
+    }
+}
