@@ -1,0 +1,12 @@
+node_modules
+**/.next
+**/dist
+.git
+.env
+.env.local
+.env.production
+*.log
+.DS_Store
+docs/
+.claude/
+.superpowers/

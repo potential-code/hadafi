@@ -1,0 +1,1179 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 98,
+        "title": "Online Productivity Tools",
+        "description": "Online Productivity Tools",
+        "unit_count": 10,
+        "author_id": 0,
+        "course_post_id": 3738,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2704,
+            "title": "Online Productivity Tools",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/productivity-online-tools-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Online-productivity-tools.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 98,
+                "title": "Online Productivity Tools",
+                "description": "Online Productivity Tools - Potential Course",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 2626,
+                        "title": "Productivity Online Tools PreTest",
+                        "slug": "productivity-online-tools-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "A3glSrkt80k",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 867,
+                            "title": "Online Productivity Tools PreTest",
+                            "description": "Online Productivity Tools PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following tools help your website/blog to be discovered easily on social media?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "SEOs",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Google Docs",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Evernote",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2163,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following applications can automate regular tasks that may be time consuming or easy to forget?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "SEOs",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Google Sheets",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "IFTTT",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Google Docs",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2164,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You cannot export Google Sheets to Microsoft Excel.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2147,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Google Forms provide you with statistics and ready-made sorting to your forms.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2148,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Skype cannot be used for group video calls and sharing files at the same time.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2149,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following applications help you read news offline?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Pocket",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Medium",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2165,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which application would help in organizing all your emails separately?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Mozilla Thunderbird ",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "KidPix",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Paint",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Evernote",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2166,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Cloud storage is safe and inaccessible by unauthorized entities.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2150,
+                                    "order": 7
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2627,
+                        "title": "Two Essential Tools to Support your Marketing and Advertising Activities",
+                        "slug": "two-essential-tools-to-support-your-marketing-and-advertising-activities",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "xTr_q-Yhrc0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Marketing and Advertising can be improved using the following:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Social Media</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Creative Content Writing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Graphical Visualization</h5>\r\n</li>\r\n \t<li>\r\n<h5>Knowing your audience</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Search engine optimization (SEO)</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn about how you can utilize social media applications to enhance your marketing and advertising outcomes.</h5>\r\n<h5>As individuals, corporations and SMEs, Social Media has become a part of the daily routine and a vital pillar to successful marketing and advertising campaigns. Many of the social media platforms offer paid services to advertise your business or products. In this course, you will learn about methods to utilize the social media platforms without paying any fees.</h5>\r\n<h5>Marketing and Advertising can be improved using the following:</h5>\r\n<h5>1. <b>Social Media:</b> On the social media platforms, there are several keys to increasing the social profiles:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Creative Content Writing:</b> Writing the usual and common posts may attract a small set of a possibly huge audience. Therefore, writing content that may be interactive, engaging and concise may increase your followers’ interest.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5><b>Graphical Visualization:</b>Visual aids are the key to your audiences’ heart. Visual aids are used in presentations, conferences, speeches and many more. They help the audience grasp more quickly on the content being advertised or presented.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5><b>Knowing your audience:</b> Depending on your type of business, your audience will differ. Therefore, it is recommended to identify the audience that you’re targeting. This helps in identifying the type of advertisement that shall be used.</h5>\r\n</li>\r\n</ul>\r\n<h5>2. <b>Search engine optimization (SEO):</b> SEOs are tools that help in putting websites and blogs on the top of the search engines lists. SEO applications such as google AdWords help in easily pushing your website forward to the top of the list, but unfortunately it is not free. Therefore, using keywords in the coding of your website or blog would help in advertising your website without any costs.</h5>\r\n<h5>Utilizing and taking advantage of free social media and SEO tools would highly benefit individuals and enterprises in advertising their business.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What do I need to do in order to increase marketing without any extra cost?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 840,
+                                "order": 1,
+                                "question": "What do I need to do in order to increase marketing without any extra cost?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 868,
+                            "title": "Online Productivity Tools Complete Unit 1",
+                            "description": "Online Productivity Tools Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your company use social media and SEOs to market their products?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2155,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2628,
+                        "title": "Four Key Applications to help you become a More Organized Person",
+                        "slug": "four-key-applications-to-help-you-become-a-more-organized-person",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "CxD-eMLjNvU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The following are some applications that were made to help you become more organized:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Evernote</h5>\r\n</li>\r\n \t<li>\r\n<h5>WunderList</h5>\r\n</li>\r\n \t<li>\r\n<h5>OneNote</h5>\r\n</li>\r\n \t<li>\r\n<h5>IFTTT</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will be learning about programs that would help you be more organized.</h5>\r\n<h5>Do you often lose track of tasks? Do you tend to forget important meetings and events? Is it a hassle to keep track of those sticky notes and papers? You can finally stop worrying. The following applications can be used to make your life easier.</h5>\r\n<h5>Here are some applications that were made to help you become more organized.</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Evernote:</b> Evernote is an advanced note taking platform that can help in creating notebooks specific to the category of the notes. As well as tagging the notes accordingly for easier access. One huge benefit of Evernote, is its flexibility in organizing to-do lists and assigning reminders and alarms to them. Another huge advantage of Evernote is its synchronization through all devices which helps you access your notes from almost any platform or through the web. A non-expensive addition to the Evernote set is the moleskine custom made notebook to easily scan your to-do lists and notes then convert them to Evernote data.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5><b>WunderList:</b> WunderList works similarly to Evernote, except that it handles To-do lists and reminders in a way that is slightly different. Its sharing and comment section functionalities make it the perfect platform for assigning a task list to team members and hearing their opinions or progress.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5><b>OneNote:</b> OneNote is a free Microsoft platform that uses the concept of a notebook, where your notebooks can be renamed after subjects or categories according to your needs. An advantage that OneNote has in many touch-enabled devices, is the sketching functionality, where you can use a touch pen to take down notes and keep them in your handwriting or convert them to computer font.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5><b>IFTTT:</b> IFTTT stands for IF THIS THEN THAT, this application helps in creating automated tasks that work without your need to open the app or supervise it. For example, setting an alarming notification on a specific day, or writing a conditional command to post a specific update to your social media.</h5>\r\n</li>\r\n</ul>\r\n<h5>Organizing has never been an easier task with these applications.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What software could I use to enhance my organization skills?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 841,
+                                "order": 1,
+                                "question": "What software could I use to enhance my organization skills?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 869,
+                            "title": "Online Productivity Tools Complete Unit 2",
+                            "description": "Online Productivity Tools Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you often manage your time by using to-do lists and reminders?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2156,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2629,
+                        "title": "3 Essential Google Office Tools you should know about",
+                        "slug": "3-essential-google-office-tools-you-should-know-about",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "B7hio0afSxI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Some Google Office tools include:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Google Docs</h5>\r\n</li>\r\n \t<li>\r\n<h5>Google Sheets</h5>\r\n</li>\r\n \t<li>\r\n<h5>Google Slides</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn about online office tools. Google Office suite is the perfect choice for teams who work together on long term projects, articles with several authors and a lot more. Google Drive is also perfect for storing all your data without worrying about backing them up or losing them due to an unexpected shutdown.</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Google Docs:</b> Google Docs is a document writing application that automatically saves your content while working through your document. Google Docs has almost all the functionalities needed for a word document and even more can be added using free third party add-ons that can customize your documents ever more. One advantage of Google docs is that a group of people can edit or comment simultaneously in real time, which can be a great platform for those teams and groups that communicate online and need a writing platform to present ideas.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Google Sheets:</b> Google Sheets can be one of the most organized sheet platforms. It has the same advantage as all the other Google Office suite programs. It is highly portable, stored on a cloud and multiple users’ collaboration has never been easier. You can also export the data to an excel spreadsheet for maximum compatibility on most platforms.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Google Slides:</b> Google Slides has a very simple user interface in contrast to PowerPoint. Google slides also functions more like Apple Mac’s Keynote interface, which is known for creating visually appealing slides. All other functionalities of Google office suite are also available for slides as well as improved web publishing and sharing functionalities.</h5>\r\n</li>\r\n</ul>\r\n<h5>Using Google Office suite would significantly increase productivity especially in teams.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can I implement the usage of online office tools in my team?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 842,
+                                "order": 1,
+                                "question": "How can I implement the usage of online office tools in my team?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 870,
+                            "title": "Online Productivity Tools Complete Unit 3",
+                            "description": "Online Productivity Tools Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your team often work on the same topic at the same time?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2157,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2630,
+                        "title": "Two Common Applications that Improve Event Organization",
+                        "slug": "two-common-applications-that-improve-event-organization",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "SETUh95aS9c",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The two most used applications for improving event organization are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Survey Monkey</h5>\r\n</li>\r\n \t<li>\r\n<h5>Google Forms</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will be introduced to some common platforms that help in creating surveys and RSVP forms.</h5>\r\n<h5>We live in age of technology, time became a precious asset, and customer’s convenience is a necessity for a successful business. Therefore, if you or an enterprise usually plan conferences and events, as well as looking for feedback from your attendees, then the applications that are about to be introduced would benefit you.</h5>\r\n<h5>Here are the two most used applications for improving event organization:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Survey Monkey:</b> Survey monkey is an online tool that helps you in creating fully customizable software as well as the option to use previously made templates. It is a user-friendly interface and reliable interface that is used by many entities due to its high flexibility.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Google Forms:</b>Google Forms is another addition of the google office suite, it includes different sorts of options and tools that can be added to your forms, unlike survey monkey, google forms is mainly used for RSVP when hosting events. It can also be used for applications. An advantage that you get for using google forms is that it saves you a lot of time by building statistics and organizing the data automatically, which makes data entry an easier job to handle.</h5>\r\n</li>\r\n</ul>\r\n<h5>Surveys and RSVPs are requirements to any conference or events. You can now easily use them with these free platforms.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can I use online RSVP forms to my benefit?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 843,
+                                "order": 1,
+                                "question": "How can I use online RSVP forms to my benefit?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 871,
+                            "title": "Online Productivity Tools Complete Unit 4",
+                            "description": "Online Productivity Tools Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you organize events?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2158,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2631,
+                        "title": "Two Useful Applications for Improving Communication",
+                        "slug": "two-useful-applications-for-improving-communication",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "TpVstdPlApI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Two useful applications for improving communication are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Skype</h5>\r\n</li>\r\n \t<li>\r\n<h5>WhatsApp</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will be learning more about utilizing free communication platforms to increase the communication methods between both teams and individuals.</h5>\r\n<h5>Communication is the core of a successful project. It also gives more flexibility and ease of access to information especially to those who travel a lot or work internationally. Therefore, utilizing the following applications may help in improving communication and sharing data.</h5>\r\n<h5>Here are two useful applications for improving communication:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Skype:</b> Skype is an online VOIP application that allows voice and video calls over the internet. It also allows data transfers and video group chats which are all free of cost. One huge benefit of using skype is its excellent connectivity and easily setting up internet based conferences. A huge advantage of skyping is that it allows sharing screens, which means that you now can give your presentation from home or anywhere outside the office.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>WhatsApp:</b> WhatsApp became a part of every smartphone. Everyone who is familiar with chatting and relies on it for communication recognizes WhatsApp. A huge advantage in WhatsApp is the interface for group chat. In case you were a team leader or a team member, you can easily communicate with the rest of the team, use voice and video calls, or even share media that gets automatically saved to the group’s conversation.</h5>\r\n</li>\r\n</ul>\r\n<h5>Communication has never been easier with those two applications.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can I communicate more easily with my team members?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 844,
+                                "order": 1,
+                                "question": "How can I communicate more easily with my team members?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 872,
+                            "title": "Online Productivity Tools Complete Unit 5",
+                            "description": "Online Productivity Tools Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are any of your team members working from home?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2159,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2632,
+                        "title": "Practical Applications that help you Read your News on the Go",
+                        "slug": "practical-applications-that-help-you-read-your-news-on-the-go",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "X_JqhGCjs8U",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Some applications that help you read your news on the go are:</h5>\r\n<h5>1.Pocket &amp; Medium</h5>\r\n<h5>2.Social Media Updates (Hootsuite &amp; Buffer)</h5>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will be learning about platforms and applications that help you read your news on the go.</h5>\r\n<h5>In this fast-paced era, staying up to date shows your professionalism as well as provide you with information that may be vital to your business. It also helps on educating you about the current events around the world. For example, if you work in the stock market, staying up to date with the stocks as well as the current market situation is important.</h5>\r\n<h5>Here are some applications that help you read your news on the go:</h5>\r\n<h5>1.<b>Pocket &amp; Medium:</b> Both applications share a similar function of saving your favorite news and articles to view them on the go in a reader’s view where no distractions such as ads, banners or sidebars exist. Pocket also offers access to this functionality when offline. Both applications also offer the access to different categories and articles.</h5>\r\n<h5>2.<b>Social Media Updates:</b></h5>\r\n<h5><b>Hootsuite &amp; Buffer:</b> These two applications are social media managing applications that allow all your social media updates to exist onto one platform that covers all your social media needs. It also allows to post to multiple social media networks at once. These applications are especially helpful to those handling both enterprise and personal social media accounts.</h5>\r\n<h5>Forget about newspapers, utilize your smartphone to your needs.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can I read the news more easily?",
+                            "course-unit-atq-two": "How can social media be utilized to maximize advertising and sharing news?",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 845,
+                                "order": 1,
+                                "question": "How can I read the news more easily?"
+                            },
+                            {
+                                "q_id": 846,
+                                "order": 2,
+                                "question": "How can social media be utilized to maximize advertising and sharing news?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 873,
+                            "title": "Online Productivity Tools Complete Unit 6",
+                            "description": "Online Productivity Tools Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you read the newspaper?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "From time to time",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Most of the time",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2160,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2633,
+                        "title": "Five Important Features to look for in an Email Manager Application",
+                        "slug": "five-important-features-to-look-for-in-an-email-manager-application",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "IaEb6gY0zYs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Some major features to look for in an email manager are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Junk Filtering</h5>\r\n</li>\r\n \t<li>\r\n<h5>Extensions</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cloud Support</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cross-platforms compatibility</h5>\r\n</li>\r\n \t<li>\r\n<h5>Security</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will be learning about managing your emails more professionally and easily.</h5>\r\n<h5>Here are some major features to look for in an email manager:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Junk Filtering:</b> The filtering system includes several junk filtering mechanisms that help on cleaning the inbox from spam-based emails.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Extensions:</b> Adding third-party extensions to enhance your email management experience even more is now an easy task. Theme Packs can also be used.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Cloud Support:</b> When attaching files that are too large for an email, the client automatically offers you the option to upload to a cloud service that would allow you to then share a link to the file in your email.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Cross-platforms compatibility:</b> Works on all the common Operating systems and devices with the ability to synchronize.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Security:</b> If you handle confidential email and messages that contain sensitive information, then look for a secure back-end platform that protects your inbox from any unauthorized access.</h5>\r\n</li>\r\n</ul>\r\n<h5>One of the major free email managers in the industry is Mozilla Thunderbird.</h5>\r\n<h5><b>Thunderbird:</b> is considered one of the top free email managers, thunderbird is the easy answer to saving time when browsing emails, saving them, or looking for old emails. It can easily filter all the unnecessary emails, it also provides an important function which is the ability to add multiple email accounts and manage them separately or all together. Mozilla Thunderbird also possesses all the features mentioned earlier.</h5>\r\n<h5>Email Management could be a hassle especially when many email accounts are being handled at the same time. Therefore, using thunderbird would save you lots of time and effort in filtering emails.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can I manage my emails more effectively?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 847,
+                                "order": 1,
+                                "question": "How can I manage my emails more effectively?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 874,
+                            "title": "Online Productivity Tools Complete Unit 7",
+                            "description": "Online Productivity Tools Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have several email addresses that you use simultaneously?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2161,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2634,
+                        "title": "Some Useful Cloud Storage Services that ease Data Organization",
+                        "slug": "some-useful-cloud-storage-services-that-ease-data-organization",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "bPcm-CF_HHs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The following are some of the Cloud Storage services :</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Google Drive</h5>\r\n</li>\r\n \t<li>\r\n<h5>WeTransfer</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will be learning about Cloud Storage.</h5>\r\n<h5>Do you often run out of storage? Do you transfer a lot of files? Do you want any easy access to your data at any time? Then utilizing cloud storage platforms is the answer to your personal use and to enterprise use as well.</h5>\r\n<h5>Here are some of these cloud storage services :</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Google Drive:</b> Google Drive is one of the top cloud storage providers as it offers an experience close to having an online computer. The drive itself stores all your data and information, but by simply using your Google email address you can get an access to other Google applications such as Google docs, sheets and slides that automatically save to your drive. Using Google drive on smaller devices, such as tablets and smart phones, also allows you to backup all your information and media automatically with almost no limit on space. It also allows you to create folders and albums to organize your data.\r\nGoogle drive also works perfectly with enterprises. A function that exists in most Google applications which is sharing, also exists on Google drive, where you can share a folder or a project with only people who are allowed access to the folder or file.\r\nOther Applications such as OneDrive, Dropbox and iCloud offer similar services.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>WeTransfer:</b> WeTransfer is the leading platform in sharing large files between enterprises and corporate, as it offers the choice of sharing files up to 2GB per transfer.</h5>\r\n</li>\r\n</ul>\r\n<h5>Cloud Platforms would be the future of storage due to security from both accidents and unauthorized access.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can I ensure a secure backup of my data and easily transfer files?",
+                            "course-unit-atq-two": "How can I rely on Cloud Platforms to decrease resources cost?",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 848,
+                                "order": 1,
+                                "question": "How can I ensure a secure backup of my data and easily transfer files?"
+                            },
+                            {
+                                "q_id": 849,
+                                "order": 2,
+                                "question": "How can I rely on Cloud Platforms to decrease resources cost?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 875,
+                            "title": "Online Productivity Tools Complete Unit 8",
+                            "description": "Online Productivity Tools Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you rely on cloud storage for backup?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2162,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2635,
+                        "title": "Online Productivity Tools PostTest",
+                        "slug": "online-productivity-tools-posttest",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 876,
+                            "title": "Online Productivity Tools PostTest",
+                            "description": "Online Productivity Tools PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following tools help your website/blog to be discovered easily on social media?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "SEOs",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Google Docs",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Evernote",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2167,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following applications can automate regular tasks that may be time consuming or easy to forget?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "SEOs",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Google Sheets",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "IFTTT",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Google Docs",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2168,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You cannot export Google Sheets to Microsoft Excel.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2151,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Google Forms provide you with statistics and ready-made sorting to your forms.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2152,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Skype cannot be used for group video calls and sharing files at the same time.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2153,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following applications help you read news offline?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Pocket",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Medium",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2169,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which application would help in organizing all your emails separately?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Mozilla Thunderbird",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "KidPix",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Paint",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Evernote",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2170,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Cloud storage is safe and inaccessible by unauthorized entities ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2154,
+                                    "order": 7
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/03/Online-productivity-tools.png",
+                "zip_path": "wp-content/uploads/2020/03/Online-productivity-tools.png",
+                "level": "card"
+            }
+        ]
+    }
+}

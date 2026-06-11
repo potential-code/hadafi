@@ -1,0 +1,1253 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 88,
+        "title": "Communication Skills",
+        "description": "A Practical and Efficient Course to help Improve your Communication Skills",
+        "unit_count": 12,
+        "author_id": 0,
+        "course_post_id": 3729,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2446,
+            "title": "Communication Skills",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/effective-communication-skills-pretest-2/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/communication.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 88,
+                "title": "Communication Skills",
+                "description": "A Practical and Efficient Course to help Improve your Communication Skills",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 2392,
+                        "title": "Effective Communication Skills Pretest",
+                        "slug": "effective-communication-skills-pretest-2",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 774,
+                            "title": "Effective Communication Skills Pretest",
+                            "description": "Effective Communication Skills Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "The words that you speak contributes up to 55 % of your message.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 1902,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Duration is not important when it comes to pitching. Using a lot of information and explanation is what matters. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 1903,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When you attend an event you need to make sure you are ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "At the right venue",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "With the right people",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "In an event where your Potential customers can be",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "4",
+                                    "question_id": 1904,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You need to appreciate your audience time and attention when preparing your icebreakers. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1905,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2393,
+                        "title": "Effective Communication",
+                        "slug": "effective-communication",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "xeC8sBzd7Xo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The three main phases of an effective communication:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Pre Communication</h5>\r\n</li>\r\n \t<li>\r\n<h5>During Communication</h5>\r\n</li>\r\n \t<li>\r\n<h5>Post Communication</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In order to communicate effectively while writing my emails, I need to always keep in mind:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 770,
+                                "order": 1,
+                                "question": "In order to communicate effectively while writing my emails, I need to always keep in mind:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 775,
+                            "title": "Communication Course Complete Unit 1",
+                            "description": "Communication Course Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "List 2 problems you are facing while communicating with others. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 1888,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2394,
+                        "title": "3 Elements that Impact Your Communication",
+                        "slug": "3-elements-impact-communication",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "f__g25cVPeU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Your Communication is dependent on three key factors:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The words</h5>\r\n</li>\r\n \t<li>\r\n<h5>The tone</h5>\r\n</li>\r\n \t<li>\r\n<h5>The body language</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In order to ensure that I have correctly conveyed my message, I need to improve the following:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 771,
+                                "order": 1,
+                                "question": "In order to ensure that I have correctly conveyed my message, I need to improve the following:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 776,
+                            "title": "Communication Course Complete Unit 2",
+                            "description": "Communication Course Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you work on improving your body language while communicating with others?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1889,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2395,
+                        "title": "Turn Your Voice to an Effective Communication Tool",
+                        "slug": "19337",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "rs6WOYbdohM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>For a voice to be effective as a communication tool, you have to:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Experiment with your voice</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sing along with the music that you like</h5>\r\n</li>\r\n \t<li>\r\n<h5>Have fun with it</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I need to train my voice to help me with communicating effectively by: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 772,
+                                "order": 1,
+                                "question": "I need to train my voice to help me with communicating effectively by: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 777,
+                            "title": "Communication Course Complete Unit 3",
+                            "description": "Communication Course Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": ": Do you think your tone of voice plays a part in the success of your meetings?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1890,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2396,
+                        "title": "Important Keys to Keep your Confidence",
+                        "slug": "important-keys-to-keep-your-confidence",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Dv1kkyhRrlQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The three keys to keep your confidence:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Surround yourself with inspiring people</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make time for your self</h5>\r\n</li>\r\n \t<li>\r\n<h5>Read stories about inspiring people</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In order to keep my confidence, I should make sure that I strengthen it regularly by: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 773,
+                                "order": 1,
+                                "question": "In order to keep my confidence, I should make sure that I strengthen it regularly by: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 778,
+                            "title": "Communication Course Complete Unit 4",
+                            "description": "Communication Course Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How important is your confidence to the success of your job?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Very much",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Somewhat",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Not important",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1891,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2397,
+                        "title": "Pitching your Business Idea",
+                        "slug": "pitching-business-idea",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "syNLEjm4puU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>For your pitch to be effective you need to:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Start with Audience Awareness</h5>\r\n</li>\r\n \t<li>\r\n<h5>Synthesize relevant information</h5>\r\n</li>\r\n \t<li>\r\n<h5>Use your emotions</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In order for my business idea to sound attractive, I need to:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 774,
+                                "order": 1,
+                                "question": "In order for my business idea to sound attractive, I need to:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 779,
+                            "title": "Communication Course Complete Unit 5",
+                            "description": "Communication Course Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you pitched a business idea before in front of an audience?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1893,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2398,
+                        "title": "Improving Your Body Language",
+                        "slug": "improving-your-body-language",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "ksiZQhLXP0g",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>To improve your body language you need to:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Be Calm</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t speak fast</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listen</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In order to enter my meeting with full confidence, I should take the following actions:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 775,
+                                "order": 1,
+                                "question": "In order to enter my meeting with full confidence, I should take the following actions:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 780,
+                            "title": "Communication Course Complete Unit 6",
+                            "description": "Communication Course Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you believe listening is more important than informing your audience about your idea? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Somewhat ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1894,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2399,
+                        "title": "Effective Networking",
+                        "slug": "effective-networking",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "tGdWHKm4UgE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 secrets for effective networking are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Find the right event</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listen</h5>\r\n</li>\r\n \t<li>\r\n<h5>Write your first thoughts on business cards</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "To improve my networking skills, I should make sure that I:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 776,
+                                "order": 1,
+                                "question": "To improve my networking skills, I should make sure that I:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 781,
+                            "title": "Communication Course Complete Unit 7",
+                            "description": "Communication Course Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you attend networking events?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1895,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Are you interested to attend an SME event? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1896,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2400,
+                        "title": "Better Public Speaking",
+                        "slug": "public-speaking",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "qiVj3n-mJ8w",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The three tips that you can use for better public speaking:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Visualize your audience</h5>\r\n</li>\r\n \t<li>\r\n<h5>Prepare your speech</h5>\r\n</li>\r\n \t<li>\r\n<h5>Show eye contact</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "While speaking to my audience, I should show:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 777,
+                                "order": 1,
+                                "question": "While speaking to my audience, I should show:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 782,
+                            "title": "Communication Course Complete Unit 7",
+                            "description": "Communication Course Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are your confident with your public speaking? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1897,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "In your opinion which public speaking tip is the most important? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Visualize your audience",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Prepare your speech ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Show eye contact",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All equally important ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1898,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2401,
+                        "title": "Preparing Your Ice Breakers",
+                        "slug": "preparing-ypur-ice-breakers",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "NC49iAD5if8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 4 tips to take into account when preparing your icebreakers:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Speak Personally</h5>\r\n</li>\r\n \t<li>\r\n<h5>Consider your audience</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure your humor is not offensive</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be grateful</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Engaging my audience by ___________________________ is an essential communication skill.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 778,
+                                "order": 1,
+                                "question": "Engaging my audience by ___________________________ is an essential communication skill."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 783,
+                            "title": "Communication Course Complete Unit 9",
+                            "description": "Communication Course Complete Unit 9",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "List a situation you have faced that required an icebreaker. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 1899,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2402,
+                        "title": "Speaking to the Media",
+                        "slug": "speaking-to-the-media",
+                        "order": 110,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "xtZmNt3AcY0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The three tips for speaking to the media:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Be direct and straight to the point</h5>\r\n</li>\r\n \t<li>\r\n<h5>Remain calm and cool</h5>\r\n</li>\r\n \t<li>\r\n<h5>Relate to the audience</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I should keep my talk with the media short and precise in order to:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 779,
+                                "order": 1,
+                                "question": "I should keep my talk with the media short and precise in order to:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 784,
+                            "title": "Communication Course Complete Unit 10",
+                            "description": "Communication Course Complete Unit 10",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you even spoken to the media before? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1900,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2403,
+                        "title": "Communication Skills Posttest",
+                        "slug": "communication-skills-certificate",
+                        "order": 120,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 785,
+                            "title": "Communication Course Post Test",
+                            "description": "Communication Course Post Test",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "Active listening is important to formulate your communication.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1878,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The words that you speak contributes up to 55 % of your message.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 1879,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Experiment with your voice is an effective tool to train your voice. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1880,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "To keep your confidence, you need to be very specific about who you share your ideas with. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1881,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Duration is not important when it comes to pitching. Using a lot of information and explanation is what matters. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 1882,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Body language is a part of the Nonverbal communication field.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1883,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When you attend an event you need to make sure you are ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "At the right venue",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "With the right people",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "In an event where your Potential customers can be",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 1884,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When you are talking to your audience, you need to ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Speak personally",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Make eye contact",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Deliver with fun in your heart",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 1885,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You need to appreciate your audience time and attention when preparing your icebreakers. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1886,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Keeping your points precise, short and straight to the point is important when speaking to the media. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1887,
+                                    "order": 9
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/communication.png",
+                "zip_path": "wp-content/uploads/2018/10/communication.png",
+                "level": "card"
+            }
+        ]
+    }
+}

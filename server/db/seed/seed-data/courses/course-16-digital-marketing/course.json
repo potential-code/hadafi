@@ -1,0 +1,1088 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 16,
+        "title": "Digital Marketing",
+        "description": "A Free Blended Learning Business Skills Development Program",
+        "unit_count": 12,
+        "author_id": 0,
+        "course_post_id": 3660,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2362,
+            "title": "Digital Marketing",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/marketing-plan/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/marketing.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 16,
+                "title": "24minMarketing Module",
+                "description": "Marketing strategy and practice have undergone dramatic changes in the past ten years, and the pace of evolution is only getting faster. Major technical advances, including the explosion of the internet and mobile devices, have had a major impact on buyers and the marketers who serve them. To thrive in this new digital age, even to survive, marketers must develop new strategies and practices better suited to today&apos;s new environment.(-new-line-)This course is designed to help you understand the digital marketing landscape, and provide you with a set of practical skills and resources to maximize your marketing performance.",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 798,
+                        "title": "Marketing Plan",
+                        "slug": "marketing-plan",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "JChSaqv5LrI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The eight steps to preparing a marketing plan:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Executive Summary</h5>\r\n</li>\r\n \t<li>\r\n<h5>Situational Analysis</h5>\r\n</li>\r\n \t<li>\r\n<h5>SWOT Analysis</h5>\r\n</li>\r\n \t<li>\r\n<h5>Marketing Objectives & Issues</h5>\r\n</li>\r\n \t<li>\r\n<h5>Marketing Strategy</h5>\r\n</li>\r\n \t<li>\r\n<h5>Actions & Tactics</h5>\r\n</li>\r\n \t<li>\r\n<h5>Budgets</h5>\r\n</li>\r\n \t<li>\r\n<h5>KPI’s & Controls</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Marketing planning involves deciding on marketing strategies that will help the company achieve its overall strategic objectives. In this lesson we’re going to show you what a marketing plan looks like.</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Executive Summary:</b> The purpose of this section is to provide a brief summary of the main goals, objectives and recommendations for management review and decision making.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Situational Analysis:</b> This section describes the target market and the company’s position in it, including information about the market, performance, competition, and distribution, it includes:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>A market description</b> that defines the market and its major segments, customer needs and the overall marketing environment.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>A product review</b></h5>\r\n</li>\r\n \t<li>\r\n<h5><b>A review of competition</b></h5>\r\n</li>\r\n \t<li>\r\n<h5><b>A review of channels and distribution</b></h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5><b>SWOT Analysis:</b> This section is designed to assess the major strengths, weaknesses, opportunities and threats for the company and its products.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Marketing Objective & Issues:</b> This section states the main marketing objectives that the company would like to attain in the coming period, and discusses the key issues that might affect these objectives.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Marketing Strategy:</b> Outlines the broad logic by which the business plans to achieve its marketing objectives, and the specific target markets, positioning, and budgets. It also outlines specific strategies for each element in the company’s marketing mix.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Actions and Tactics:</b> This area of the marketing plan outlines how marketing strategies will be turned in to specific actions, tactics and programs, answering the following questions: What will be done? When will it be done? Who is responsible? And how much will it cost?</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Budgets:</b> This section details a formal marketing budget for all activities outlined in the previous sections. It forms the basis for marketing’s operations, including materials, production, scheduling, personnel and other activities.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>KPIs and Controls:</b> The final section outlines the key indicators that will be used to monitor progress and allow management to review the implementation and success of the overall marketing plan.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "<h5>The aim of marketing is to get customers to know, like and trust you. Unknown</h5>",
+                            "course-unit-case-study": "<h5>During the past few years, Nike has successfully entered the golfing market with a line of golf clubs, balls, bags, shoes, and clothing for men, women and children. Celebrity endorsements are a crucial component of Nike’s marketing plan, and to enter the golf market, they enlisted the services of Tiger Woods to promote its golf products.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Digital Marketing – The Ultimate 2020 Guide</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/market-research/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Market Research – How to do Market Research – Potential.com</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/email-marketing-campaigns-business-growth/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">4 Ways to Create Email Marketing Campaigns That Drive Business Growth</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-reasons-you-need-an-effective-content-marketing-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Reasons You Need An Effective Content Marketing Strategy</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/how-to-use-fomo-marketing-in-your-business-infographic/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">How to Use FOMO Marketing in Your Business [Infographic]</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/video-marketing-benefits-challenges-best-practice/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Video marketing: Benefits, Challenges, Best Practice</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/customer-relationship-management/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Customer Relationship Management (CRM) – 4 Essential Tips</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/social-media-tips-for-business/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Social Media Tips For Your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/making-correct-pricing-decisions-business-marketing-success/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Making Correct Pricing Decisions for your Business Marketing Success</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/use-social-media-sites/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Four Ways to Use Social Media Sites for your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/3-steps-launch-marketing-campaign/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">3 Steps to Launch Any Marketing Campaign</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/introduction-digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Introduction to Digital Marketing</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-key-elements-marketing-plan/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Key Elements of a Successful Marketing Plan</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/7-reasons-for-having-a-social-media-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Reasons Why Businesses Should Adopt a Social Media Strategy</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My company's major weaknesses, strengths, opportunities and threats are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 644,
+                                "order": 1,
+                                "question": "My company's major weaknesses, strengths, opportunities and threats are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 97,
+                            "title": "24minMarketing Complete Unit 1",
+                            "description": "24minMarketing Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a clear marketing plan and strategy in place for your company?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1935,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 799,
+                        "title": "Organizing your Marketing Department",
+                        "slug": "organizing-your-marketing-department",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "ERU4UGzhAyE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The various ways that Modern marketing departments can be organized by:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Marketing Function</h5>\r\n</li>\r\n \t<li>\r\n<h5>Region & Geography</h5>\r\n</li>\r\n \t<li>\r\n<h5>Product or Brand</h5>\r\n</li>\r\n \t<li>\r\n<h5>Customer Segments</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Every company must design a marketing organization or department that can carry out its marketing strategies and plans. In this lesson we’re going to explore the various ways that Modern marketing departments can be arranged.</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The most common type of structure is the functional organization. Under this structure different marketing activities are headed by a specialist, for examples, as social media manager will be responsible for all social media activities and report to the marketing director. This functional marketing structure operates across all products and geographies.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Companies that sell across countries or internationally, often use geographic organization. Its marketing people are assigned to specific geographic markets, which allows them to settle in to a territory, understand customers and work with minimal travel time and cost.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Companies with many different products or brands often create product management marketing structure. Using this strategy, a product marketing manager develops and implements a complete marketing strategy and program for a specific product or brand.</h5>\r\n</li>\r\n \t<li>\r\n<h5>For companies that sell one product to many different types of markets and customers, a market or customer management structure might be best. Marketers in market management structures are responsible for developing marketing strategies for specific markets or customers. VIP banking is an example of this.</h5>\r\n</li>\r\n</ul>\r\n<h5>Marketing organization has become an increasingly important issue in today’s business landscape. With many companies finding that the environment calls for less focus on products, brands and territories, and more focus towards customer engagement and management.</h5>",
+                            "course-unit-quotes": "<h5>Marketing is too important to be left to the marketing department. David Packard</h5>",
+                            "course-unit-case-study": "<h5>Marketing team structures continue to evolve as consumer and technological changes place increasing demands on marketing teams. Xerox, 107-year-old company, branched out into document management, IT, and business process outsourcing services in addition to selling multifunction printers, software, and supplies.</h5>\r\n<h5>Beginning in 2009, their digital marketing team adapted agile work processes used by its product development teams. They set up three queues: one for work that required new development, one for creative projects, such as artwork, and a “rapid response” queue for site updates that take eight hours or less to complete.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Digital Marketing – The Ultimate 2020 Guide</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/market-research/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Market Research – How to do Market Research – Potential.com</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/email-marketing-campaigns-business-growth/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">4 Ways to Create Email Marketing Campaigns That Drive Business Growth</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-reasons-you-need-an-effective-content-marketing-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Reasons You Need An Effective Content Marketing Strategy</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/how-to-use-fomo-marketing-in-your-business-infographic/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">How to Use FOMO Marketing in Your Business [Infographic]</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/video-marketing-benefits-challenges-best-practice/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Video marketing: Benefits, Challenges, Best Practice</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/customer-relationship-management/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Customer Relationship Management (CRM) – 4 Essential Tips</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/social-media-tips-for-business/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Social Media Tips For Your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/making-correct-pricing-decisions-business-marketing-success/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Making Correct Pricing Decisions for your Business Marketing Success</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/use-social-media-sites/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Four Ways to Use Social Media Sites for your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/3-steps-launch-marketing-campaign/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">3 Steps to Launch Any Marketing Campaign</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/introduction-digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Introduction to Digital Marketing</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-key-elements-marketing-plan/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Key Elements of a Successful Marketing Plan</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/7-reasons-for-having-a-social-media-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Reasons Why Businesses Should Adopt a Social Media Strategy</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is the most appropriate marketing organization for my business? (functional, geographical, product/customer management structure)",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 645,
+                                "order": 1,
+                                "question": "What is the most appropriate marketing organization for my business? (functional, geographical, product/customer management structure)"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 98,
+                            "title": "24minMarketing Complete Unit 2",
+                            "description": "24minMarketing Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What marketing structure model would best meet the needs of your organization?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Functional",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Geographical",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Brand Management ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Customer / Market fouces",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1936,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 800,
+                        "title": "Digital Marketing Plan",
+                        "slug": "digital-marketing-plan",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "rbbT4CkKvYc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The six essential elements of a successful digital marketing plan:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Digital Presence</h5>\r\n</li>\r\n \t<li>\r\n<h5>Content Development</h5>\r\n</li>\r\n \t<li>\r\n<h5>SEM & SEO</h5>\r\n</li>\r\n \t<li>\r\n<h5>Email Marketing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Social Media</h5>\r\n</li>\r\n \t<li>\r\n<h5>Convert and Measure</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this part you will get introduced to the essential elements of a successful digital marketing plan, and provide a simple and easy framework for owners and marketers to use when setting, planning, and executing their strategy.</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Digital presence:</b> The website of a business is perhaps the foundation with regards to digital marketing. It is the home base for all your online activities, and provides a central resource for your customers to find information and connect to your business. With more and more people interacting with brands via their smart phones and tablets, it’s necessary to ensure you’re delivering a consistent and responsive experience across all devices.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Content development:</b> Businesses need to develop informational content – whether in the form of blogs, eBooks, infographics, white papers or videos in order to create awareness and interest. Content needs to be broad, searchable, and specifically geared to attract and engage your audience.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>SEM and SEO:</b> Search Engine Optimization is the art and science of increasing a website’s visibility in the search engines. There are a variety of SEO techniques, from on-site technical analysis and improvement, to content distribution & link-building. Secondly, Search engine marketing solutions such as Google AdWords and display ads are crucial to gaining exposure.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Email Marketing:</b> A solid digital marketing strategy requires a strong email strategy. Email marketing is still one of the most cost-effective ways to educate large audiences about your product or service. If you want to generate leads, convert leads, and develop a relationship with your customers, you must build a database and use email marketing effectively.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Social Media:</b> Social media remains one of the most powerful tools to establish a connection with your users. It helps you build brand authority and awareness. You can build trust, credibility, and keep your customers aware of what you are offering.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Convert & Measure:</b> Lastly, it’s important to have a testing and optimization plan in place to measure your marketing results and improve them as much as possible. You need to take the time to review metrics at each phase and determine what needs to be tweaked, what worked, and where to go from there.</h5>\r\n</li>\r\n</ul>\r\n<h5>Digital marketing is too diverse and dynamic to be confined to a certain number of elements. However, with limited budget and resources, make sure your efforts and investment are focused on these top 6 areas.</h5>",
+                            "course-unit-quotes": "<h5>Content is King! Bill Gates</h5>",
+                            "course-unit-case-study": "<h5>Airbnb, a marketplace where people share private spaces all over the world to be rented short-term, wanted to increase traffic and improve rankings in search engine results. These key goals were achieved using a strategy of SEO and targeted content marketing and promotion. Airbnb also chose to invest in Google display advertising with banner ad campaigns including images from actual housing being offered on their site. This allowed Airbnb to attract international traffic and increase their visibility dramatically.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Digital Marketing – The Ultimate 2020 Guide</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/market-research/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Market Research – How to do Market Research – Potential.com</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/email-marketing-campaigns-business-growth/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">4 Ways to Create Email Marketing Campaigns That Drive Business Growth</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-reasons-you-need-an-effective-content-marketing-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Reasons You Need An Effective Content Marketing Strategy</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/how-to-use-fomo-marketing-in-your-business-infographic/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">How to Use FOMO Marketing in Your Business [Infographic]</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/video-marketing-benefits-challenges-best-practice/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Video marketing: Benefits, Challenges, Best Practice</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/customer-relationship-management/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Customer Relationship Management (CRM) – 4 Essential Tips</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/social-media-tips-for-business/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Social Media Tips For Your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/making-correct-pricing-decisions-business-marketing-success/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Making Correct Pricing Decisions for your Business Marketing Success</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/use-social-media-sites/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Four Ways to Use Social Media Sites for your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/3-steps-launch-marketing-campaign/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">3 Steps to Launch Any Marketing Campaign</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/introduction-digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Introduction to Digital Marketing</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-key-elements-marketing-plan/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Key Elements of a Successful Marketing Plan</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/7-reasons-for-having-a-social-media-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Reasons Why Businesses Should Adopt a Social Media Strategy</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What SEO techniques will I use to enhance the visibility of my company's website?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 646,
+                                "order": 1,
+                                "question": "What SEO techniques will I use to enhance the visibility of my company's website?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 99,
+                            "title": "24minMarketing Complete Unit 3",
+                            "description": "24minMarketing Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Did you create a digital marketing plan that includes these 6 elements?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1937,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 801,
+                        "title": "5 Key Marketing Metrics that Actually Matter",
+                        "slug": "marketing-metrics",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "nlv0vFPBrNI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The five key marketing metrics that should be tracked are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Total Visits</h5>\r\n</li>\r\n \t<li>\r\n<h5>Conversion Rates</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cost per Conversion</h5>\r\n</li>\r\n \t<li>\r\n<h5>Customer Acquisition Cost (CAC)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Customer Lifetime Value (CLV)</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>It’s important to continually learn about and improve your marketing initiatives. But before we can optimize our campaigns, we have to be able to measure and manage them. In this lesson we’re going to show you the 5 key digital marketing metrics you should be tracking. Here they are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>The first key metric is Total Visits.</strong> Your website should be the primary target of new or existing customers, but you can also measure total visits to any location relevant to your campaigns, such as landing pages or social channels. Measuring your total number of visits will give you a “big picture” idea of how well your campaign is driving traffic.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>The second key metric is Conversion Rate.</strong> Whether it’s email subscribers, eBook downloads, or a pure lead generation conversion, every campaign has a goal. Once we understand how many people have visited our page in question, we need to determine what percentage of them actually did what we wanted them to do in the first place. If your goal is a white paper download, and you had 1,000 visitors to the page, and 100 of those did what you wanted them to (download a eBook, fill out a form, etc…) then your conversion rate for that goal would be 10%</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>The third key metric is the Cost per Conversion.</strong> Using the previous example, where 100 people out of 1,000 converted and completed your goal, it’s important to understand how much you spent to get those 100 conversions. Let’s say you spent a total of $500 dollars on your campaign. Take the total amount you spent, divided by the total number of conversions to get the cost per conversion for your campaign.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>The fourth Key Metric is Cost of Customer Acquisition or CAC for short.</strong> CAC is an extremely important and versatile metric, which can be applied to both your on and offline activities. In the previous example we looked at conversions, which could be any goal you want to achieve. CAC however focus on customers and how much it costs us to acquire them. Let’s say you spent $10,000 dollars across all your marketing initiatives, from social media, and content, to SEM, SEO and Email. All these efforts helped you acquire 100 new customers. To determine CAC, you simply take the total amount spent across all initiatives, divided by the total number of customers acquired by those initiatives. In this example, our CAC would equal to $100, meaning it cost us $100 marketing spend to acquire 1 customer.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>The fifth key metric is Customer Lifetime Value (CLV).</strong> Customer Lifetime Value or CLV for short helps us understand the value of an average customer over their lifetime. There are a number of ways to calculate CLV depending on your business model, but the simplest formula is to take the (Average Order Value – Costs to Acquire a Customer) x (Number of Repeat Sales) x (Average Retention Time) For example, let’s say you’re selling magazine subscriptions for $20 per month, and on average it costs you $15 to acquire a customer, with the average customer subscribing for 3 years. Our CLV formula would look like this ($20 – $15) x (12 Months) x (3 Years) = $180. Now, compare your Customer Lifetime Value to the Cost of Acquiring a Customer. The ideal ratio of CLV to CAC is 3 to 1, and some companies like sales force use 5 to 1. The point is if your CLV to CAC ratio is too low, your business is not sustainable, if it’s too high you’re not investing enough in acquiring new customers.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "<h5>\"Either write something worth reading or do something worth writing.\" - Benjamin Franklin</h5>",
+                            "course-unit-case-study": "<h5>Interview-prep website WikiJob was having great success with people using their free tools but was struggling for paid conversions. They added product reviews and customer testimonials to the site, and this change made customers 35% more likely to convert and purchase. Customer testimonials give evidence that the value you’re communicating is legitimate value. They show that other people have engaged with your business and found success. Helping the visitor navigate and make decisions is helpful at increasing conversions and making the visitor more likely to buy.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Digital Marketing – The Ultimate 2020 Guide</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/market-research/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Market Research – How to do Market Research – Potential.com</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/email-marketing-campaigns-business-growth/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">4 Ways to Create Email Marketing Campaigns That Drive Business Growth</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-reasons-you-need-an-effective-content-marketing-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Reasons You Need An Effective Content Marketing Strategy</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/how-to-use-fomo-marketing-in-your-business-infographic/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">How to Use FOMO Marketing in Your Business [Infographic]</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/video-marketing-benefits-challenges-best-practice/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Video marketing: Benefits, Challenges, Best Practice</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/customer-relationship-management/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Customer Relationship Management (CRM) – 4 Essential Tips</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/social-media-tips-for-business/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Social Media Tips For Your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/making-correct-pricing-decisions-business-marketing-success/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Making Correct Pricing Decisions for your Business Marketing Success</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/use-social-media-sites/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Four Ways to Use Social Media Sites for your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/3-steps-launch-marketing-campaign/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">3 Steps to Launch Any Marketing Campaign</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/introduction-digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Introduction to Digital Marketing</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-key-elements-marketing-plan/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Key Elements of a Successful Marketing Plan</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/7-reasons-for-having-a-social-media-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Reasons Why Businesses Should Adopt a Social Media Strategy</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The total number of visitors viewing my company's website is:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 647,
+                                "order": 1,
+                                "question": "The total number of visitors viewing my company's website is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 100,
+                            "title": "24minMarketing Complete Unit 4",
+                            "description": "24minMarketing Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What marketing metrics are you currently tracking? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Total visits",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Conversion Rate",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "CAC",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "CLV",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1938,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 802,
+                        "title": "Email Marketing Strategies",
+                        "slug": "email-marketing-strategies",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "KHYshkbvNis",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The seven email marketing strategies and tactics:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Test, Test, Test</h5>\r\n</li>\r\n \t<li>\r\n<h5>Aim like a Sniper (Target your Audience)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Get Personal</h5>\r\n</li>\r\n \t<li>\r\n<h5>Motivate & Incentivize</h5>\r\n</li>\r\n \t<li>\r\n<h5>Keep it Simple</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make it Mobile</h5>\r\n</li>\r\n \t<li>\r\n<h5>Build a Pyramid</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>As mentioned in our first lesson, Email marketing is still one of the most successful marketing channels and is a key component of a solid digital marketing plan. In this lesson, we’re going to give you practical tips and advice that you can use today to maximize your email ROI.</h5>\r\n<ul>\r\n \t<li><b> </b><strong>Best Practice #1: TEST, TEST, TEST</strong>\r\n<ul>\r\n \t<li>\r\n<h5>For any email campaign, the easiest element to test is the subject line, which is a great start. However, if you want to take your email marketing to the next level, you should be conducting tests on all the following elements:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Email messaging/content</h5>\r\n</li>\r\n \t<li>\r\n<h5>Layout and images</h5>\r\n</li>\r\n \t<li>\r\n<h5>Calls to action and buttons</h5>\r\n</li>\r\n \t<li>\r\n<h5>Day of the week & time of day</h5>\r\n</li>\r\n \t<li>\r\n<h5>Personalization</h5>\r\n</li>\r\n \t<li>\r\n<h5>The landing page you’re sending people to</h5>\r\n</li>\r\n \t<li>\r\n<h5>Target Audience</h5>\r\n</li>\r\n \t<li>\r\n<h5>Device responsiveness</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li><b>Best Practice #2 – Aim like a Sniper</b>\r\n<ul>\r\n \t<li>\r\n<h5>Too many marketers rely on “Spray and Pray” for their email marketing strategy, they send emails out to as many people as possible and hope for results. In reality, the best marketers use email as a precision guided missile, delivering relevant valuable and engaging content to a highly targeted audience.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li><b>Best Practice #3 – Get Personal</b>\r\n<ul>\r\n \t<li>\r\n<h5>Everything from the content of the subject lines to the content of the emails themselves can be personalized to the user who is receiving it.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li><b>Best Practice #4 – Motivate & Incentivize</b>\r\n<ul>\r\n \t<li>\r\n<h5>Use incentives to increase open and click through Rates: When you include an incentive in your subject line, you can increase open rates by as much as 50%. “Free shipping when you spend $25 or more” and “Receive a free iPod with demo” are examples of good, incentive-focused subject lines. The same applies to your buttons, and calls to action.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li><b>Best Practice #5 – Keep it Simple</b>\r\n<ul>\r\n \t<li>\r\n<h5>Email readers have short attention spans. After I open your email, you have less than 3 seconds to convince me to keep reading or to visit your landing page, so simplicity is key. Don’t stuff your emails with too many messages or objectives, one is enough. The same applies to the layout of your email. Make it easy for me to navigate and find my way.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li><b>Best Practice #6 – Make it Mobile</b>\r\n<ul>\r\n \t<li>\r\n<h5>In today’s world, the vast majority of emails are opened on mobile devices and tablets. Are your emails designed to adapt to different device screens? Responsive layouts have become a key driver of email performance, and those who haven’t made the transition are now suffering because of it.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li><b>Best Practice #7 –Build a Pyramid</b>\r\n<ul>\r\n \t<li>\r\n<h5>Structure your email like a pyramid, with key content taking center stage at the top of the body, and support it with a wide foundation of details at the underneath. Your most important key messages and calls to action should be located above the fold, where the user doesn’t need to scroll down in order to see it, and every message should contain the key information you wish to share, answering the five Ws (who, what, where, when and why).</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "<h5>Don’t find customers for your products, find products for your customers. Seth Godin</h5>",
+                            "course-unit-case-study": "<h5>Sony created an email campaign to cross and up-sell new products to existing PlayStation Plus subscribers, and PS3 owners who belong to the PlayStation Network. Email content was tailored to different customer segments and geographies. So for example, it focused on the additional space PlayStation Plus subscribers would gain to use with downloadable content, whereas with PS3 users it focused on the cross-play features of the PS Vita and PS3.Given a relatively low investment, the campaign achieved an ROI of 580x for each euro spent.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Digital Marketing – The Ultimate 2020 Guide</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/market-research/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Market Research – How to do Market Research – Potential.com</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/email-marketing-campaigns-business-growth/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">4 Ways to Create Email Marketing Campaigns That Drive Business Growth</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-reasons-you-need-an-effective-content-marketing-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Reasons You Need An Effective Content Marketing Strategy</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/how-to-use-fomo-marketing-in-your-business-infographic/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">How to Use FOMO Marketing in Your Business [Infographic]</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/video-marketing-benefits-challenges-best-practice/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Video marketing: Benefits, Challenges, Best Practice</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/customer-relationship-management/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Customer Relationship Management (CRM) – 4 Essential Tips</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/social-media-tips-for-business/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Social Media Tips For Your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/making-correct-pricing-decisions-business-marketing-success/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Making Correct Pricing Decisions for your Business Marketing Success</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/use-social-media-sites/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Four Ways to Use Social Media Sites for your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/3-steps-launch-marketing-campaign/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">3 Steps to Launch Any Marketing Campaign</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/introduction-digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Introduction to Digital Marketing</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-key-elements-marketing-plan/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Key Elements of a Successful Marketing Plan</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/7-reasons-for-having-a-social-media-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Reasons Why Businesses Should Adopt a Social Media Strategy</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "To help promote my products and services efficiently, I should ensure that my marketing emails are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 648,
+                                "order": 1,
+                                "question": "To help promote my products and services efficiently, I should ensure that my marketing emails are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 101,
+                            "title": "24minMarketing Complete Unit 5",
+                            "description": "24minMarketing Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": " Are you currently using email as part of your marketing plan?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1939,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 803,
+                        "title": "Social Media Results",
+                        "slug": "social-media-results",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "l-58LE69uQA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The five tips to achieving social media success:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Clarify your Social Media Goals</h5>\r\n</li>\r\n \t<li>\r\n<h5>Find your Audience</h5>\r\n</li>\r\n \t<li>\r\n<h5>Develop your Content Strategy</h5>\r\n</li>\r\n \t<li>\r\n<h5>Plan Ahead & use Scheduling</h5>\r\n</li>\r\n \t<li>\r\n<h5>Use Analytics to track progress & Adjust Your Strategy as Needed</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Social media allows your company to directly connect with your customers, prospects, and brand ambassadors about everything from products to challenges. An engaged audience is one of the greatest assets a brand can have. But do you know how to use social media to solidify these relationships?</h5>\r\n<h5>In this lesson we will provide you with essential best practices to create a winning social media strategy.</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Clarify Your Business's Social Media Goals</b></h5>\r\n<h5>The most important part of your social media marketing plan is defining clear goals. All decisions are informed by these, so without clearly defined goals, your social media plan will also be scattered and/or ineffective. To prevent this from happening, start by writing down at least three social media goals for your business. Make sure each goal is specific, realistic and measurable.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Find Your Audience</b></h5>\r\n<h5>Too often we see brands engage in any and all social media channels in an effort to be present everywhere and anywhere. The first key to success in any social media initiative looks at how engaged and active your audience is with a particular network, and see where you can make the most impact. It’s worth investigating the relationship between social channels and your business, in order to understand which activity would have the most impact on your desired results.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Develop Your Content Strategy</b></h5>\r\n<h5>The previous two tips should now create a framework for you to develop a comprehensive content strategy for your marketing plan. Within your content strategy, you should include what type of content you intend to post, how often you will post content, who your target audience is, who will create the content, and how you will promote the content.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Plan ahead and use Scheduling</b></h5>\r\n<h5>When planning and executing your social media strategy, it helps to save time by scheduling pre-planned content. This not only helps to build an audience, it also prevents you from inundating your follower’s feed with too much or not enough information. Scheduling helps you maintain a steady flow of content being published throughout the day. Another advantage to scheduling your posts is that you still can continue to share news, updates, and content in the event that you are busy or away from the office.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Use Analytics to Track Progress and Adjust Your Strategy as Needed</b></h5>\r\n<h5>Once your social media marketing plan has been implemented, it’s now time to check the appropriate metrics and see how your content is performing based on your goals. Once you’ve analyzed your current campaign, resolve to do more of what is working and revise things that are not working. You will need to keep developing your strategy and content, and use analytics to guide your next steps throughout your social media campaign.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "<h5>\"Social media is about the people. Not about your business. Provide for the people and the people will provide for you.\" - Matt Goulart</h5>",
+                            "course-unit-case-study": "<h5>Sharpie is the permanent marker company. Through social media and other marketing efforts, this company has taken an ordinary commodity and turned it into a common noun. They also good use of their Twitter, blog and Instagram but most importantly they have successfully formed their own community. For example, Sharpie invites their community to engage through art challenges where users vote for the best submissions, creating an unprecedented level of engagement and interaction with the brand.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Digital Marketing – The Ultimate 2020 Guide</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/market-research/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Market Research – How to do Market Research – Potential.com</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/email-marketing-campaigns-business-growth/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">4 Ways to Create Email Marketing Campaigns That Drive Business Growth</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-reasons-you-need-an-effective-content-marketing-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Reasons You Need An Effective Content Marketing Strategy</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/how-to-use-fomo-marketing-in-your-business-infographic/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">How to Use FOMO Marketing in Your Business [Infographic]</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/video-marketing-benefits-challenges-best-practice/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Video marketing: Benefits, Challenges, Best Practice</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/customer-relationship-management/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Customer Relationship Management (CRM) – 4 Essential Tips</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/social-media-tips-for-business/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Social Media Tips For Your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/making-correct-pricing-decisions-business-marketing-success/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Making Correct Pricing Decisions for your Business Marketing Success</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/use-social-media-sites/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Four Ways to Use Social Media Sites for your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/3-steps-launch-marketing-campaign/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">3 Steps to Launch Any Marketing Campaign</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/introduction-digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Introduction to Digital Marketing</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-key-elements-marketing-plan/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Key Elements of a Successful Marketing Plan</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/7-reasons-for-having-a-social-media-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Reasons Why Businesses Should Adopt a Social Media Strategy</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The goals of my social media marketing plan are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 649,
+                                "order": 1,
+                                "question": "The goals of my social media marketing plan are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 102,
+                            "title": "24minMarketing Complete Unit 6",
+                            "description": "24minMarketing Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What channels would give you the best return in terms time and effort invested?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Facebook",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Linkedin",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Twitter",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Instagram",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1940,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 804,
+                        "title": "Essential Search Engine Optimization Strategies",
+                        "slug": "seo-strategies",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "l6JqCHqDKM8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The four practical tips to success with search engine optimization (SEO):</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Indexation and Accessibility</h5>\r\n</li>\r\n \t<li>\r\n<h5>Site Speed & Performance</h5>\r\n</li>\r\n \t<li>\r\n<h5>Keyword Research</h5>\r\n</li>\r\n \t<li>\r\n<h5>Link Building</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Search engines have two major jobs: discovering and building a directory of all web content, and providing searchers with a ranked list of the most relevant websites and content based on what these people are looking for. As such, making sure your web properties are being found by the people who need your services should be an essential part of your marketing plan.</h5>\r\n<h5>In this lesson, we’ll show you how to succeed with SEO, and give you a few practical tips along the way.</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Indexation and Accessibility</b></h5>\r\n<h5>You could have the best website in the world, but if the search engines can’t properly access, crawl and index your site none of that matters. This applies to search engines as well as your human visitors. Look out for the following:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Titles:</b> Create eye-catching titles that raise the reader’s interest.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Keywords:</b> Pick keywords that will help bring people to your site and are relevant.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Links:</b> Link to quality sites that compliment what your website is about. It’ll encourage sites in your niche to link to you as well.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Quality:</b> Try to publish unique and quality content. This prompts users to come to your site because they cannot easily find the content elsewhere.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Freshness:</b> You need to add new content on a regular basis</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5><b>Site Speed & Performance</b></h5>\r\n<h5>Making your site faster and perform more efficiently is not only great for user experience but search engines love it to. In fact, Google penalizes slow websites with lower rankings, so make sure you measure and enhance your performance on a regular basis, Here’s how:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Use Cloud flare or other CDNs: </b>Content delivery networks essentially create copies of your website in the cloud, and deliver your content to users from the nearest server. This cuts down on wait times but also protects your site from vulnerabilities.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Optimize Image Size and Formats: </b>Pretty simple, smaller file sizes load faster. It’s important to minimize image file sizes, while maintaining the best possible quality.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Validate your Code: </b>Ensure your websites’ code is error free and W3C compliant. Browser errors can slow page load times and make pages difficult to read for both humans and search engines.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Optimize Website CSS and JavaScript: </b>Compile all your CSS and JavaScript files into to one document for each and compress them for added.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5><b>Keyword Research</b></h5>\r\n<h5>While SEO continues to evolve, one thing remains the same, Keyword Research, here is how to do it right:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Make a list of important, relevant topics based on what you know about your business.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Brainstorm some keywords or phrases that you think people would type in related to that topic</h5>\r\n</li>\r\n \t<li>\r\n<h5>Research related search terms. Google Keyword Planner, Trends or Autocomplete are great ways to get suggestions</h5>\r\n</li>\r\n \t<li>\r\n<h5>Search for keywords you can win, i.e. ones that are relevant to your business, can drive significant traffic and have moderate competition.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5><b>Link Building</b></h5>\r\n<h5>If we think of the web as a vast city, then links are the streets that connect each page. Building links not only helps generate referrals traffic, but also help build credibility and authority for your website. Here are a few key tips to get started:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Internal Linking: </b>Ensuring your pages are properly linked to each other internally. Pages should be only a click away from each other.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Get links from authority websites </b>in your niche. Find where authorities in your industry link to and are linked from and think about how you can get involved.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Social Media: </b>not for the links themselves, but to get your content noticed by the people most likely to share your type of content.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Create Linkable and Distribute: </b>You need a catchy story of your brand or a trending topic in your industry that is tailored to a specific group of audience.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "<h5>Speak to your audience in their language about what’s in their heart. Jonathan Lister</h5>",
+                            "course-unit-case-study": "<h5>Vicky, a nutrition blogger, was looking at enhancing her rankings on google search. Being an avid writer, she was able to produce a lot of content but after going through the tips on the potential.com SEO video, she identified quick solutions, that included categorizing her content better, including more links between the content, and removing un-necessary plugins that were slowing her site loading time. Within a few days she was starting to see improvements in her rankings and started to work on the next level of improvements.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Digital Marketing – The Ultimate 2020 Guide</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/market-research/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Market Research – How to do Market Research – Potential.com</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/email-marketing-campaigns-business-growth/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">4 Ways to Create Email Marketing Campaigns That Drive Business Growth</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-reasons-you-need-an-effective-content-marketing-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Reasons You Need An Effective Content Marketing Strategy</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/how-to-use-fomo-marketing-in-your-business-infographic/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">How to Use FOMO Marketing in Your Business [Infographic]</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/video-marketing-benefits-challenges-best-practice/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Video marketing: Benefits, Challenges, Best Practice</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/customer-relationship-management/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Customer Relationship Management (CRM) – 4 Essential Tips</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/social-media-tips-for-business/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Social Media Tips For Your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/making-correct-pricing-decisions-business-marketing-success/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Making Correct Pricing Decisions for your Business Marketing Success</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/use-social-media-sites/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Four Ways to Use Social Media Sites for your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/3-steps-launch-marketing-campaign/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">3 Steps to Launch Any Marketing Campaign</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/introduction-digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Introduction to Digital Marketing</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-key-elements-marketing-plan/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Key Elements of a Successful Marketing Plan</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/7-reasons-for-having-a-social-media-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Reasons Why Businesses Should Adopt a Social Media Strategy</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "To increase the Google ranking of my website, I should use (catchy titles, keywords, quality content etc):",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 650,
+                                "order": 1,
+                                "question": "To increase the Google ranking of my website, I should use (catchy titles, keywords, quality content etc):"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 103,
+                            "title": "24minMarketing Complete Unit 7",
+                            "description": "24minMarketing Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you optimized your website and content for maximum SEO results?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1941,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 805,
+                        "title": "Content Marketing Superiority",
+                        "slug": "content-marketing-superiority",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "BjJU12zE3DE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 4 tips to creating a successful content marketing strategy:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Personas: Identify and profile Audience</h5>\r\n</li>\r\n \t<li>\r\n<h5>Map the Buyers’ Journey</h5>\r\n</li>\r\n \t<li>\r\n<h5>Set Content Marketing Goals</h5>\r\n</li>\r\n \t<li>\r\n<h5>Create a Content Execution and Distribution Plan</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Today, potential buyers and clients get their information online through various sources in order   to educate themselves and guide their buying decisions. The organizations that succeed are those that embrace the science of creating and distributing high quality content to guide leads through the buyer’s journey. Easier said than done! Here are the essentials to creating a successful content marketing strategy:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Personas</b></h5>\r\n<h5>Before creating any piece of content, we must first identify and profile our audience, and the people who we intent to reach with our content. But how do your create them?</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Look through your contacts database to uncover trends about how certain leads or customers find and consume your content</h5>\r\n</li>\r\n \t<li>\r\n<h5>Use form fields that capture important persona information.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Take into consideration your sales team’s feedback on the leads they’re interacting with most.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Interview customers and prospects, either in person or over the phone, to discover what they like about your product or service.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5><b>Map the Buyer’s Journey</b></h5>\r\n<h5>It’s important to identify the steps that prospects or visitors will take in order to become customers or regular users. Identifying these steps is key to creating relevant, valuable and engaging content for every persona, and at every stage of the buying cycle. In simple terms, you will need different content to create awareness, a separate set of content for the consideration phase, and a final set of content for the decision phase that is designed to close the deal.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Set content marketing goals and align them to business goals</b></h5>\r\n<h5>When you’re planning a piece of content, how do you decide what is worth creating and what you should pass on? Every piece of content you commit to should serve a clear purpose for your marketing efforts.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Create a content execution and distribution plan</b></h5>\r\n<h5>Once you know what kind of content you will create, you need to establish the process for creating it. Your content execution plan should be a step-by-step map of how an idea turns into a finished product, and how to distribute those pieces of content so that they reach the right audience.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "<h5>\"What really decides consumers to buy or not to buy is the content of your advertising, not its form.\" - David Ogilvy</h5>",
+                            "course-unit-case-study": "<h5>Steve has an security software company that specializes in end user security products. To gain better leads, Steve evolved his marketing strategy from general campaigns to more specific thought leadership strategy. He started working with his team to build white-papers about best practices, infographics, checklists and other content that he know would be needed by his ideal clients. By putting these pieces of content in effective landing pages on his site and third party sites, he was able to get much more qualified leads by asking the interested prospects to enter information about their company size, needs and buying time-frames.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Digital Marketing – The Ultimate 2020 Guide</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/market-research/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Market Research – How to do Market Research – Potential.com</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/email-marketing-campaigns-business-growth/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">4 Ways to Create Email Marketing Campaigns That Drive Business Growth</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-reasons-you-need-an-effective-content-marketing-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Reasons You Need An Effective Content Marketing Strategy</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/how-to-use-fomo-marketing-in-your-business-infographic/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">How to Use FOMO Marketing in Your Business [Infographic]</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/video-marketing-benefits-challenges-best-practice/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Video marketing: Benefits, Challenges, Best Practice</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/customer-relationship-management/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Customer Relationship Management (CRM) – 4 Essential Tips</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/social-media-tips-for-business/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Social Media Tips For Your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/making-correct-pricing-decisions-business-marketing-success/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Making Correct Pricing Decisions for your Business Marketing Success</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/use-social-media-sites/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Four Ways to Use Social Media Sites for your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/3-steps-launch-marketing-campaign/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">3 Steps to Launch Any Marketing Campaign</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/introduction-digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Introduction to Digital Marketing</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-key-elements-marketing-plan/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Key Elements of a Successful Marketing Plan</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/7-reasons-for-having-a-social-media-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Reasons Why Businesses Should Adopt a Social Media Strategy</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Who is my target audience? ",
+                            "course-unit-atq-two": "The main purpose of my content is to:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 651,
+                                "order": 1,
+                                "question": "Who is my target audience? "
+                            },
+                            {
+                                "q_id": 652,
+                                "order": 2,
+                                "question": "The main purpose of my content is to:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 104,
+                            "title": "24minMarketing Complete Unit 8",
+                            "description": "24minMarketing Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you created buyer personas and defined your buyer’s journey?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1942,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 806,
+                        "title": "Revenue Generation Models",
+                        "slug": "revenue-generation-models",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "HOFNq4plZK0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Different Revenue Generation Models Available for Your Business</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Product & Service sale</h5>\r\n</li>\r\n \t<li>\r\n<h5>Advertising Income</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sponsorship Income</h5>\r\n</li>\r\n \t<li>\r\n<h5>Membership & Subscription Revenue</h5>\r\n</li>\r\n \t<li>\r\n<h5>Profile & User Data Income</h5>\r\n</li>\r\n \t<li>\r\n<h5>Transaction Fees and Commissions</h5>\r\n</li>\r\n \t<li>\r\n<h5>Referral Revenue (Finder’s fees)</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, we will discuss several revenue generation models that you can use to package, market and sell your products and services both on and offline</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Product & Service Sales:</b> Many online companies and ecommerce platforms draw a good portion of their revenue from markups on goods and services they sell online. This is the simplest and most direct method of marketing your offerings.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Advertising Income: </b>For online publishers and platforms that attract large or specific niche target markets, sales of online ad space can be a major source of revenue. Advertisers will pay to reach your audience if it meets their criteria.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Sponsorship Income: </b>Platforms and brands can solicit sponsors for some or all of their content, thus collecting sponsorship fees in order to help cover some or all of their costs. Every time you see something that is “brought to you by a brand” that’s sponsored content.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Membership & Subscription Revenue (Including SaaS models)</b> Web marketers can also charge subscription fees for use of their site or service. Many online newspapers, such as the Wall Street Journal or New York Times require subscription fees for their online services. These are recurring payments made in exchange for continued access to a product or service.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Profile and User Data Income:</b> Websites and platforms that have built databases containing in-depth user profiles. Such data can be valuable to advertisers who are willing to pay in order to reach particular audiences. Facebook for example, enables 3rd parties to advertise to its users based on a number of different criteria, including your interest, geographic location, job title, etc.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Transaction commissions and fees:</b> Some platforms charge commission fees on transactions between other parties who exchange goods or services on their websites. For example, eBay connects buyers and sellers, and takes a percentage of each successful transaction</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Referral Revenue</b> Companies can collect revenue by referring customers to others. For example, hosting companies like GoDaddy, will pay 3rd parties for every successful client they receive from them. This is essentially a finder’s fee.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "<h5>\"People don’t buy what you do, they buy why you do it.\" - Simon Sinek</h5>",
+                            "course-unit-case-study": "<h5>Maggie is chartered with identifying more revenue sources for her company which specializes in luxury property sales. The company already makes most of their revenue from commission on sales, however Maggie identified that since they are dealing with affluent buyers, many other companies could be interested in reaching them. She then went to her management with an idea to develop a magazine for their buyers and get luxury brands to advertise on it.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Digital Marketing – The Ultimate 2020 Guide</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/market-research/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Market Research – How to do Market Research – Potential.com</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/email-marketing-campaigns-business-growth/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">4 Ways to Create Email Marketing Campaigns That Drive Business Growth</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-reasons-you-need-an-effective-content-marketing-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Reasons You Need An Effective Content Marketing Strategy</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/how-to-use-fomo-marketing-in-your-business-infographic/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">How to Use FOMO Marketing in Your Business [Infographic]</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/video-marketing-benefits-challenges-best-practice/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Video marketing: Benefits, Challenges, Best Practice</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/customer-relationship-management/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Customer Relationship Management (CRM) – 4 Essential Tips</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/social-media-tips-for-business/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Social Media Tips For Your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/making-correct-pricing-decisions-business-marketing-success/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Making Correct Pricing Decisions for your Business Marketing Success</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/use-social-media-sites/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Four Ways to Use Social Media Sites for your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/3-steps-launch-marketing-campaign/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">3 Steps to Launch Any Marketing Campaign</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/introduction-digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Introduction to Digital Marketing</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-key-elements-marketing-plan/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Key Elements of a Successful Marketing Plan</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/7-reasons-for-having-a-social-media-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Reasons Why Businesses Should Adopt a Social Media Strategy</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 105,
+                            "title": "24minMarketing Complete Unit 9",
+                            "description": "24minMarketing Complete Unit 9",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you use one of the types of revenue models in your business?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of them",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1943,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 807,
+                        "title": "3 Quick Tips To Succeed with Inbound Marketing",
+                        "slug": "inbound-marketing",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "gbizDlExi_I",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The key tips for inbound marketing are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Define your target audience</h5>\r\n</li>\r\n \t<li>\r\n<h5>Have a clear content and distribution plan</h5>\r\n</li>\r\n \t<li>\r\n<h5>Nurture and build your relationships</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, we’re going to talk about one of the key marketing strategies in use today which is inbound marketing and we are going to give you three quick tips on how to succeed. What is inbound marketing? Inbound marketing is the art and science of turning strangers in the customers and how to do that? We do that by producing content, distributing it online and brining your customers back to your presence and having a nurturing and building relationship.</h5>\r\n<h5>The three key tips for inbound marketing are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Defining your audience means understanding their main points, their needs, their objectives and having a clear plan to address those when the time comes. Once you understand what your target audience looks like, once you understand what they need from you, you can clearly create a step by step map of how to turn them from strangers into customers.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Having a clear content strategy and distribution plan. You know your target audience. Now you need to produce the content that’s customized to your audience and have a plan on how you will distribute it to reach them. Where does your audience live? Are they on Facebook, are they on LinkedIn or twitter? Are they in your mail box? You can reach them in different ways and online really works well for that.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Nurturing and building your relationships. You have your audiences, you have your content and distribution plan. Now it’s time to take people from strangers to customers through the buyers’ journey. It’s important to understand that not every customer is ready to buy, so how do we take people along that path? Well, we create content customized for people who are just exploring, you create customized content for people who are actively evaluating options and you create content customized for people who are hot leads and ready to close. Now, most companies will focus on the hot leads but if you do that, then you’re ignoring a whole huge segment of your audience who are potential future buyers.</h5>\r\n</li>\r\n</ul>\r\n<h5>In summary, the key tips for inbound marketing are: define your target audience, have a clear content and distribution plan, and nurture and build those relationships and don’t give up on the people who need a helping hand.</h5>",
+                            "course-unit-quotes": "<h5>\"Don’t build links. Build relationships.\" - Rand Fishkin</h5>",
+                            "course-unit-case-study": "<h5>A product manager for a new fitness device is getting ready to launch a marketing campaign. Before doing so, he focuses on identifying who would be his ideal target customers and finds them to be those that are new to fitness tracking and need an affordable device. The next step is he identifies where would be the best place to reach these users and lists some online and offline locations. After doing so, he then creates a set of content and messages to appeal and attract his target audience with a special offer for those that are ready to buy now, and some tips and loyalty building content for those that are interested and not ready to buy.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Digital Marketing – The Ultimate 2020 Guide</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/market-research/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Market Research – How to do Market Research – Potential.com</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/email-marketing-campaigns-business-growth/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">4 Ways to Create Email Marketing Campaigns That Drive Business Growth</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-reasons-you-need-an-effective-content-marketing-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Reasons You Need An Effective Content Marketing Strategy</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/how-to-use-fomo-marketing-in-your-business-infographic/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">How to Use FOMO Marketing in Your Business [Infographic]</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/video-marketing-benefits-challenges-best-practice/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Video marketing: Benefits, Challenges, Best Practice</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/customer-relationship-management/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Customer Relationship Management (CRM) – 4 Essential Tips</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/social-media-tips-for-business/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Social Media Tips For Your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/making-correct-pricing-decisions-business-marketing-success/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Making Correct Pricing Decisions for your Business Marketing Success</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/use-social-media-sites/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Four Ways to Use Social Media Sites for your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/3-steps-launch-marketing-campaign/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">3 Steps to Launch Any Marketing Campaign</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/introduction-digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Introduction to Digital Marketing</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-key-elements-marketing-plan/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Key Elements of a Successful Marketing Plan</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/7-reasons-for-having-a-social-media-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Reasons Why Businesses Should Adopt a Social Media Strategy</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How do you currently package and sell your products? What types of revenue models is your business currently using and what other types could you integrate in the near future?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 808,
+                                "order": 1,
+                                "question": "How do you currently package and sell your products? What types of revenue models is your business currently using and what other types could you integrate in the near future?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 106,
+                            "title": "24minMarketing Complete Unit 10",
+                            "description": "24minMarketing Complete Unit 10",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a clear distribution plan?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 197,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 808,
+                        "title": "3 Tips on How to Run an Outbound Marketing Campaign",
+                        "slug": "outbound-marketing",
+                        "order": 110,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "3V1KmJc7H0M",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The three tips on how to effectively run an outbound campaign:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Communicating your competitive benefits</h5>\r\n</li>\r\n \t<li>\r\n<h5>Grabbing and holding your audience’s attention</h5>\r\n</li>\r\n \t<li>\r\n<h5>Testing and optimizing your ads</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Outbound marketing is another key marketing strategy that should be part of your marketing mix. What is outbound marketing? Well outbound marketing is what people traditionally think of when you hear of advertising, it’s your radio ads, it’s your TV ads, and it’s your print ads. Essentially it’s a strategy of pushing out your message to as wide audience as possible in an effort to persuade and communicate with them the benefits of your product or service.</h5>\r\n<h5>Here are three tips on how to effectively run an outbound campaign.</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Communicating your competitive benefits. A lot of ads try to be clever but they fail in communicating the essential points required in advertising and derive no value. Be sure to communicate three things in your ads, the first is what exactly it is your offering? The second is why should your audience want it. The third point is how should your audience act on it and how should they get and take advantage of your offer. If you are selling something based on price, then include the prices in the advertising. If you are selling your service then be sure to communicate the benefits that the user will get out of it.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Grabbing and holding your audience’s attention. Now we are constantly bombarded by advertising messages and our attention spans are shrinking every day. Whether it’s a billboard or an email in my inbox, you as an advertiser have less than three seconds to grab my attention and once you have my attention you better know what to do with it. It is also a good idea before you run any ad; whether it’s online, radio or print, to examine what’s going on in the landscape. Look at your competitors’ look about their advertisings and see what ads are offering similar products and services to yours and how you can differentiate your messaging and your positioning in your advertising to really stick out and keep my attention.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Testing and optimizing your ads. Now if you have the budget, running focus groups on your ads and getting other people’s opinions is a great way to understand whether your messages are getting across, or whether the cost actually works effectively and whether your ad has the desired outcome. A cheaper and easier way to do it is the “So what test”. Put yourself in your audiences’ shoes. Go through your ad and think to yourself so what why should I care. If you don’t pass that test, if you don’t have an answer to the so what question, your ad has failed and you should probably go back and tweak a few things and really make an impact.</h5>\r\n</li>\r\n</ul>\r\n<h5>In summary you want to highlight your competitive advantages and communicate these essential messages. You want to grab and hold on to your audience’s attention and never let go. Lastly, you really want to test and optimize your advertisement to make sure that it is the best that it can be.</h5>",
+                            "course-unit-quotes": "<h5>\"If you have more money than brains you should focus on outbound marketing. If you have more brains than money, you should focus on inbound marketing.\" - Guy Kawasaki</h5>",
+                            "course-unit-case-study": "<h5>The fitness device product manager starts to articulate what are the key messages that he would like to include in his outbound advertising campaigns. Focusing on his competitive advantage of an affordable yet stylish fitness device, he highlights in his ad a stylish model wearing the device and a big focused message on the low price that it has compared to other similar devices.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Digital Marketing – The Ultimate 2020 Guide</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/market-research/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Market Research – How to do Market Research – Potential.com</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/email-marketing-campaigns-business-growth/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">4 Ways to Create Email Marketing Campaigns That Drive Business Growth</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-reasons-you-need-an-effective-content-marketing-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Reasons You Need An Effective Content Marketing Strategy</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/how-to-use-fomo-marketing-in-your-business-infographic/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">How to Use FOMO Marketing in Your Business [Infographic]</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/video-marketing-benefits-challenges-best-practice/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Video marketing: Benefits, Challenges, Best Practice</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/customer-relationship-management/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Customer Relationship Management (CRM) – 4 Essential Tips</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/social-media-tips-for-business/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Social Media Tips For Your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/making-correct-pricing-decisions-business-marketing-success/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Making Correct Pricing Decisions for your Business Marketing Success</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/use-social-media-sites/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Four Ways to Use Social Media Sites for your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/3-steps-launch-marketing-campaign/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">3 Steps to Launch Any Marketing Campaign</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/introduction-digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Introduction to Digital Marketing</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-key-elements-marketing-plan/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Key Elements of a Successful Marketing Plan</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/7-reasons-for-having-a-social-media-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Reasons Why Businesses Should Adopt a Social Media Strategy</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Who is your target audience?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 810,
+                                "order": 1,
+                                "question": "Who is your target audience?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 107,
+                            "title": "24minMarketing Complete Unit 11",
+                            "description": "24minMarketing Complete Unit 11",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you using an outbound marketing strategy? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 198,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 809,
+                        "title": "3 Reasons on Why you Need to Podcast",
+                        "slug": "podcasting",
+                        "order": 120,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "r9asAkanYLY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The three reasons why you need to podcast:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The ability to share ideas and make your voice heard</h5>\r\n</li>\r\n \t<li>\r\n<h5>Build authority, credibility and position yourself as a thought leader</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gain followers and exposure to build a huge community and/or following around a specific topic or field</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Why you need to have a podcast.</h5>\r\n<ul>\r\n \t<li>\r\n<h5>If you are passionate about something or a subject, if you have the right expertise and you want to share it with people why not share it with audio. A podcast is audio on demand so people can listen to you to what you have to say anytime during the day. They can be running, driving, stuck in traffic or doing exercises.</h5>\r\n</li>\r\n \t<li>\r\n<h5>If you want to build your own authority and credibility you can create your own podcast in a simple niche a focused niche and niche down so you can target a very narrow people of your target audience.</h5>\r\n</li>\r\n \t<li>\r\n<h5>You can build a mass community following you; following what you have to say. You can talk about any field you want. In iTunes we have 16 categories and hundreds of sub categories, in any field you want to talk about in business, medical, in business let’s say you have careers you have many other subcategories even you can talk about art, music and others. Only in iTunes we have 525 million subscribers so imagine the community and how you can leverage on it.</h5>\r\n</li>\r\n</ul>\r\n<h5>Why you need to podcast? One because you are passionate about something and you want to share with people. Two because you have and you want to create your authority and create credibility and more credibility for yourself and three because the audience is there and is waiting for your expertise.</h5>\r\n<h5>So have a Podcast and let us listen to you.</h5>",
+                            "course-unit-quotes": "<h5>Instead of using technology to automate processes, think about using technology to enhance human interaction. Tony Zambito</h5>",
+                            "course-unit-case-study": "<h5>A news portal is doing very well online with a large reader base. So that they create more opportunities to generate advertising sales and to reach users who were on the move, driving, doing sports or preferring to listen instead of reading, they decided to create a podcast.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Digital Marketing – The Ultimate 2020 Guide</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/market-research/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Market Research – How to do Market Research – Potential.com</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/email-marketing-campaigns-business-growth/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">4 Ways to Create Email Marketing Campaigns That Drive Business Growth</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-reasons-you-need-an-effective-content-marketing-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Reasons You Need An Effective Content Marketing Strategy</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/how-to-use-fomo-marketing-in-your-business-infographic/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">How to Use FOMO Marketing in Your Business [Infographic]</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/video-marketing-benefits-challenges-best-practice/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Video marketing: Benefits, Challenges, Best Practice</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/customer-relationship-management/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Customer Relationship Management (CRM) – 4 Essential Tips</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/social-media-tips-for-business/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Social Media Tips For Your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/making-correct-pricing-decisions-business-marketing-success/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Making Correct Pricing Decisions for your Business Marketing Success</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/use-social-media-sites/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Four Ways to Use Social Media Sites for your Business</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/3-steps-launch-marketing-campaign/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">3 Steps to Launch Any Marketing Campaign</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/introduction-digital-marketing/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Introduction to Digital Marketing</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/5-key-elements-marketing-plan/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Key Elements of a Successful Marketing Plan</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/7-reasons-for-having-a-social-media-strategy/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Reasons Why Businesses Should Adopt a Social Media Strategy</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My podcast gives me the power to:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 653,
+                                "order": 1,
+                                "question": "My podcast gives me the power to:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 108,
+                            "title": "24minMarketing Complete Unit 12",
+                            "description": "24minMarketing Complete Unit 12",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you podcast? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 199,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/marketing.png",
+                "zip_path": "wp-content/uploads/2018/10/marketing.png",
+                "level": "card"
+            }
+        ]
+    }
+}

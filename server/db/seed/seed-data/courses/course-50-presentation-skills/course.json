@@ -1,0 +1,805 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 50,
+        "title": "Presentation Skills",
+        "description": "Presentation Skills",
+        "unit_count": 7,
+        "author_id": 0,
+        "course_post_id": 3692,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2291,
+            "title": "Presentation Skills",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/presentation-skills-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/presentation.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 50,
+                "title": "Presentation Skills",
+                "description": "Presentation Skills a course for potential",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1116,
+                        "title": "Presentation Skills PreTest",
+                        "slug": "presentation-skills-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 415,
+                            "title": "Presentation Skills PreTest",
+                            "description": "Presentation Skills PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Presentations are important to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Doctors",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Businessmen",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 958,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Both objective and subject are key elements that you should keep in mind while preparing for your presentation. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 959,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Confidence is not one of the four pillars of a great presentation.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 960,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following are ways to improve your presentation skills except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Not attending other presentations",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Arriving early",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Listening to your past recordings",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 961,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following are things you should avoid when presenting:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Talking too fast",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Holding your breath",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 962,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1117,
+                        "title": "5 Reasons Why Presentation Skills are Important to Everyone",
+                        "slug": "5-reasons-why-presentation-skills-are-important-to-everyone",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "rRs4wFGPQ0o",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Improving your presentation skills is vital to be able to convey your message to others with full confidence and clarity.</h5>\r\n<h5>Presentation skills are vital to everyone for the following 5 reasons:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Individual and Business Success</h5>\r\n</li>\r\n \t<li>\r\n<h5>Time Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Leadership</h5>\r\n</li>\r\n \t<li>\r\n<h5>Public Image</h5>\r\n</li>\r\n \t<li>\r\n<h5>Stress Reduction</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn 5 reasons why presentation skills are important to everyone.</h5>\r\n<h5>Have you ever felt nervous every time you were asked to present a certain topic in front of a group of people? Do you remember your hands feeling cold, your legs shaking and sometimes your voice even trembling? Well, presentations are important to everyone, whether at school, university, when looking for a job, while at a job, when starting a business and when seeking investment or financing. It is one of the essential skills in any career whether you are an academic, a doctor or a business person. Therefore, improving your presentation skills is vital to be able to convey your message to others with full confidence and clarity.</h5>\r\n<h5>Presentation skills are vital to everyone for the following 5 reasons:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Individual and Business Success: The first ‘real’ presentation an individual normally goes through is a <em>Job Interview. </em>How well you present yourself doesn’t guarantee success but certainly improves your chances of success. Also career growth, promotion and business progress all depend on good presentation skills.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Time Management: Great presenters use the most effective techniques to communicate their message across in less time focusing on the key elements.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Leadership: Great leaders are known for their effective ways in expressing their inspiring thoughts to their team, community and sometimes even to the public.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Public Image: You will be judged according to how you deliver your message. By conveying your topic clearly, you set a good image not only of yourself but also on behalf of your team or organization.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Stress Reduction: Miscommunication is the biggest cause of work related stress. Good presenters reduce miscommunication in their environment.</h5>\r\n</li>\r\n</ul>\r\n<h5>As explained, presentation skills are important for a number of reasons, so start working on improving them. Becoming a better presenter is becoming a better communicator and thus, becoming a more successful individual!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is the topic I will be addressing and to whom will I be presenting this topic?",
+                            "course-unit-atq-two": "Why is it important that I present this topic?",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 261,
+                                "order": 1,
+                                "question": "What is the topic I will be addressing and to whom will I be presenting this topic?"
+                            },
+                            {
+                                "q_id": 262,
+                                "order": 2,
+                                "question": "Why is it important that I present this topic?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 416,
+                            "title": "Presentation Skills Complete Unit 1",
+                            "description": "Presentation Skills Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Approximately how many presentations have you done in the past year? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "1-5",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "5-10",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": ">10",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 963,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1118,
+                        "title": "6 Key Elements You Should Consider while Preparing Your Presentation",
+                        "slug": "6-key-elements-you-should-consider-while-preparing-your-presentation",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "QDd-02iPVsY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Preparation before a presentation is very essential and can help you keep your presentation focused, well structured and interesting.</h5>\r\n<h5>The following are the 6 key elements you are suggested to consider in order to keep your presentation clear and focused:</h5>",
+                            "course-unit-read-more": "<ul>\r\n       <li>\r\n<h5>The Objective: You should keep in mind the purpose of your presentation at all times. The reason for your presentation and the outcomes expected by your audience are very important.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The Subject: This is the topic, in other words what you are going to talk about. The subject comes from the objective but it is not necessarily the same thing.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The Audience: You should know the size of your audience, their age range, gender and also whether they know anything about the topic you are addressing or is it something totally new to them. This really affects the way your topic must be presented.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The Place: You should know, in advance, the place where your presentation will take place. The size of the room, the seating arrangements and the availability of equipment are three vital elements that can affect your presentation.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The Time of Day: If you can choose the time slot for your presentation, then go for the morning slot. People are more alert than in the later times of the day.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The Length of Talk: Keep your presentation short and straight to the point to avoid losing the concentration of your audience. If other speakers are going to present after you, make sure you don’t over speak and take from their allocated time.</h5>\r\n</li>\r\n</ul>\r\n<h5>Preparing beforehand can really improve your presentation skills building up your confidence with time. Always remember that even the best presenters in the world take time to prepare what they have to say in advance!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the key elements I need to keep in mind to keep my presentation clear and focused?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 263,
+                                "order": 1,
+                                "question": "What are the key elements I need to keep in mind to keep my presentation clear and focused?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 417,
+                            "title": "Presentation Skills Complete Unit 2",
+                            "description": "Presentation Skills Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What is the age range of the audience you have presented to?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "15-25 years old",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "25-40 years old",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Other",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 964,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1119,
+                        "title": "4 Pillars of a Great Presentation",
+                        "slug": "4-pillars-of-a-great-presentation",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "PT7Ce_MignE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>A great presentation is needed to be able to successfully share your thoughts and have a great impact on your audience.</h5>\r\n<h5>The following are 4 pillars of a great presentation:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Voice and Body Language</h5>\r\n</li>\r\n \t<li>\r\n<h5>Audience Engagement</h5>\r\n</li>\r\n \t<li>\r\n<h5>Confidence</h5>\r\n</li>\r\n \t<li>\r\n<h5>Clear Content and Structure</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn about the 4 pillars of a great presentation.</h5>\r\n<h5>Presenting is not just speaking in front of an audience. For example, if your audience gets bored and stops listening or if your information presented in not well structured thus, confusing your listeners then you have failed to pass on your message. A great presentation is needed to be able to successfully share your thoughts and have a great impact on your audience.</h5>\r\n<h5>The following are 4 pillars of a great presentation:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Voice and Body Language: Your voice tone and pace, posture, gesture and movement all play an important role in a great presentation. For example, having a positive and energetic tone can really grasp your listeners’ attention.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Audience Engagement: Connecting and interacting with the audience through your presentation can keep them alert thus, securing their attention.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Confidence: The more confident you are while presenting your topic the more your listeners believe in what you say. You will have the power to control their thoughts and when your presentation is over, you will leave a great impact behind.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Clear Content and Structure: It is very important that you present your topic in a clear and organized manner so as not to confuse your audience. Visual Aids, such as PowerPoint, make it easier and faster for your listeners to grasp the message.</h5>\r\n</li>\r\n</ul>\r\n<h5>Remember concentration span of an individual is limited so you are advised to make your message clear and straight to the point.  Always keep in mind the above 4 important pillars before, during and after presenting in order to WOW your way to having the perfect presentation!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the things I need to ensure that I do during my presentation?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 264,
+                                "order": 1,
+                                "question": "What are the things I need to ensure that I do during my presentation?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 418,
+                            "title": "Presentation Skills Complete Unit 3",
+                            "description": "Presentation Skills Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you used any kind of Visual Aid (such as PowerPoint) to help you convey your message faster?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 965,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1120,
+                        "title": "6 Ways to Improve your Presentation Skills",
+                        "slug": "6-ways-to-improve-your-presentation-skills-and-become-an-exceptional-presenter",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "4dLmQEA5-jA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Presenting or passing a thought to others is not as easy as it may seem. The following are 6 ways to improve your presentation skills to the better:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Keep rehearsing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listening to your past recordings</h5>\r\n</li>\r\n \t<li>\r\n<h5>Attending other presentations</h5>\r\n</li>\r\n \t<li>\r\n<h5>Arriving early</h5>\r\n</li>\r\n \t<li>\r\n<h5>Spending time adapting to your presentation space before you start presenting:</h5>\r\n</li>\r\n \t<li>\r\n<h5>Transforming your nervous energy to enthusiasm</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn how to improve your presentation skills and become an exceptional presenter. Presenting or passing a thought to others is not as easy as it may seem. You need to work hard to learn how to convey your message so that your listener has fully understood and hopefully has got convinced in what you had to say. The following are 6 ways to improve your presentation skills to the better:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Keep rehearsing: your presentation over and over until you feel you are doing it right. Practice makes perfect! Writing it down makes it easier to remember what to say and in what order.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listening to your past recordings: helps you avoid repeating bad habits.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Attending other presentations: before yours, helps you get some context that might benefit you while presenting. Also try to understand the mood of the crowd to learn how <em>you </em>should talk to them.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Arriving early: avoids bad nervous feelings of possibly getting stuck in traffic. It helps you settle down before presenting.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Spending time adapting to your presentation space before you start presenting: makes you more comfortable. You can get yourself familiar with the equipment you will be using like the microphone for example.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Transforming your nervous energy to enthusiasm: helps your speech feel more energetic and positive to listen to, leaving a great impact on your audience.</h5>\r\n</li>\r\n</ul>\r\n<h5>The 6 ways we discussed are suggested to help you improve your presenting skills to the better. So start practicing!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the things that I need to make sure to do before my presentation?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 265,
+                                "order": 1,
+                                "question": "What are the things that I need to make sure to do before my presentation?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 419,
+                            "title": "Presentation Skills Complete Unit 4",
+                            "description": "Presentation Skills Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you role played your presentation with a friend so that you become even more prepared?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 966,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1121,
+                        "title": "6 Common Mistakes You Should Avoid When Presenting",
+                        "slug": "6-common-mistakes-you-should-avoid-when-presenting",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "EeT4UUpIwgo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The following are 6 things to avoid when presenting your topic:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Holding your breath</h5>\r\n</li>\r\n \t<li>\r\n<h5>Worrying facial expressions</h5>\r\n</li>\r\n \t<li>\r\n<h5>Negative Visualization</h5>\r\n</li>\r\n \t<li>\r\n<h5>Talking too fast</h5>\r\n</li>\r\n \t<li>\r\n<h5>Covering too much material</h5>\r\n</li>\r\n \t<li>\r\n<h5>Admitting you know everything</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn about 6 common mistakes you should avoid when presenting.</h5>\r\n<h5>Have you ever felt that you gave a wrong impression just by mistakenly saying the wrong thing? It may be unfair but people mainly judge others by what they have to say. When nervousness kicks in, things get worse and you may not know why certain words are coming out of your mouth. Also, how you say things can really affect the way people perceive you.</h5>\r\n<h5>The following are 6 things to avoid when presenting your topic:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Holding your breath: Being nervous tightens your muscles and thus, you are unable to take deep breaths which makes it harder for you to relax.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Worrying facial expressions: Always remember to smile to show your audience that you are calm and confident about what you are saying.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Negative Visualization: Instead of visualizing yourself throwing a bad presentation, picture your presentation full of laughs and enthusiasm.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Talking too fast: Work on your pauses so that you don’t end up running out of breath leading to more panic!</h5>\r\n</li>\r\n \t<li>\r\n<h5>Covering too much material: Your presentation should be useful, short and straight to the point. Presenting too much information in a short period of time will make your audience confused, losing focus of your topic.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Admitting you know everything: Everyone knows that nobody has all the answers about a given topic, admitting so will improve your credibility with the audience.</h5>\r\n</li>\r\n</ul>\r\n<h5>It is natural to feel nervous before your presentation, but we advise you to take your time to relax so as to avoid the 6 common mistakes many presenters do. Relaxation is the main key to a great presentation making it a one of a kind experience for both you and your loving audience!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the key things that I need to ensure I don't do during my presentation?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 266,
+                                "order": 1,
+                                "question": "What are the key things that I need to ensure I don't do during my presentation?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 420,
+                            "title": "Presentation Skills Complete Unit 5",
+                            "description": "Presentation Skills Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you spent some time organizing your content to be short and straight to the point?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 967,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1122,
+                        "title": "Presentation Skills PostTest",
+                        "slug": "presentation-skills-posttest",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 421,
+                            "title": "Presentation Skills PostTest",
+                            "description": "Presentation Skills PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Presentations are important to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Doctors",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Businessmen",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 968,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Both objective and subject are key elements that you should keep in mind while preparing for your presentation. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 969,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Confidence is not one of the four pillars of a great presentation.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 970,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following are ways to improve your presentation skills except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Not attending other presentations",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Arriving early",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Listening to your past recordings",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 971,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following are things you should avoid when presenting:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Talking too fast",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Holding your breath",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 972,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/presentation.png",
+                "zip_path": "wp-content/uploads/2018/10/presentation.png",
+                "level": "card"
+            }
+        ]
+    }
+}

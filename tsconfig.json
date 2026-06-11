@@ -1,0 +1,73 @@
+{
+  "compilerOptions": {
+    "isolatedModules": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "noEmit": true,
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": false,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "types": [
+      "node"
+    ],
+    "customConditions": [
+      "workspace"
+    ],
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strict": false,
+    "incremental": true,
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./client/*"
+      ]
+    }
+  },
+  "include": [
+    "client/.next/types/**/*.ts",
+    "client/app/**/*",
+    "client/components/**/*",
+    "client/hooks/**/*",
+    "client/lib/**/*",
+    "client/middleware.ts",
+    "client/next-env.d.ts",
+    "client/services/**/*",
+    "client/views/**/*",
+    "server/**/*",
+    "shared/**/*",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "client/node_modules",
+    "server/node_modules",
+    "server/dist",
+    "server/db/seed"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:25+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 82,
+        "title": "مهارات التواصل",
+        "description": "مهارات التواصل",
+        "unit_count": 12,
+        "author_id": 0,
+        "course_post_id": 3723,
+        "settings": {
+            "completion_wall": "all_visible",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": null,
+        "modules": [
+            {
+                "module_id": 82,
+                "title": "مهارات التواصل",
+                "description": "مهارات التواصل - بوتنشل",
+                "order": 1,
+                "number": 1,
+                "units": []
+            }
+        ]
+    },
+    "assets": {
+        "images": []
+    }
+}

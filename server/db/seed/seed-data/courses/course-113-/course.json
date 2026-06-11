@@ -1,0 +1,326 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 113,
+        "title": "القائمة المطلوبة للتواجد على الانترنت",
+        "description": "القائمة المطلوبة للتواجد على الانترنت",
+        "unit_count": 5,
+        "author_id": 1429,
+        "course_post_id": 3751,
+        "settings": {
+            "completion_wall": "all_visible",
+            "use_certificate": "no_certs",
+            "user_access": "default_show",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": null,
+        "modules": [
+            {
+                "module_id": 113,
+                "title": "القائمة المطلوبة للتواجد على الانترنت",
+                "description": "القائمة المطلوبة للتواجد على الانترنت",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 3793,
+                        "title": "عرضك",
+                        "slug": "%d8%b9%d8%b1%d8%b6%d9%83",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>في هذا القسم، سنركز على مساعدتك في نقل عرضك إلى جمهورك المستهدف.</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "اكتب فقرة تلخص أهم عرض لديك لعملائك",
+                            "course-unit-atq-two": "ما الذي يمكنك أن تقدمه للزائرين لتجربة خدمتك أو معرفة المزيد عما تقدمه؟ يمكن أن يكون إصدارًا تجريبيًا مجانيًا أو كتابًا إلكترونيًا أو اشتراكًا في رسالتك الإخبارية.",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1040,
+                                "order": 1,
+                                "question": "اكتب فقرة تلخص أهم عرض لديك لعملائك"
+                            },
+                            {
+                                "q_id": 1041,
+                                "order": 2,
+                                "question": "ما الذي يمكنك أن تقدمه للزائرين لتجربة خدمتك أو معرفة المزيد عما تقدمه؟ يمكن أن يكون إصدارًا تجريبيًا مجانيًا أو كتابًا إلكترونيًا أو اشتراكًا في رسالتك الإخبارية."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 954,
+                            "title": "عرضك",
+                            "description": "<p>عرضك</p>",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "هل تحتاج إلى بريد إلكتروني مع المجال الخاص بك؟",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "نعم",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "لا",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2337,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 3796,
+                        "title": "بيع على الانترنت",
+                        "slug": "%d8%a8%d9%8a%d8%b9-%d8%b9%d9%84%d9%89-%d8%a7%d9%84%d8%a7%d9%86%d8%aa%d8%b1%d9%86%d8%aa",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>يمكن لكل شركة جمع العملاء المحتملين من خلال موقع الويب الخاص بهم ويمكن لبعض الشركات بيع منتجاتها وخدماتها من خلال موقعها على الويب أيضًا.</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "اشرح المنتجات التي تريد بيعها من خلال موقعك: المادية (كتب ، ملابس ، إلكترونيات ، إلخ) أو منتجات رقمية (مستندات ، دورات ، موسيقى ، إلخ)",
+                            "course-unit-atq-two": "إذا كنت ستعرض دورة رقمية على مستخدمي موقع الويب الخاص بك لشرائها أو الاشتراك فيها، فماذا ستكون؟",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1042,
+                                "order": 1,
+                                "question": "اشرح المنتجات التي تريد بيعها من خلال موقعك: المادية (كتب ، ملابس ، إلكترونيات ، إلخ) أو منتجات رقمية (مستندات ، دورات ، موسيقى ، إلخ)"
+                            },
+                            {
+                                "q_id": 1043,
+                                "order": 2,
+                                "question": "إذا كنت ستعرض دورة رقمية على مستخدمي موقع الويب الخاص بك لشرائها أو الاشتراك فيها، فماذا ستكون؟"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 955,
+                            "title": "بيع على الانترنت",
+                            "description": "<p>بيع على الانترنت</p>",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What type of products do you sell?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "مادي",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "رقمي",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "خدمات",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "آخر",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2338,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 3798,
+                        "title": "علامتك التجارية",
+                        "slug": "%d8%b9%d9%84%d8%a7%d9%85%d8%aa%d9%83-%d8%a7%d9%84%d8%aa%d8%ac%d8%a7%d8%b1%d9%8a%d8%a9",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>في هذا القسم، سنركز على نظام الألوان المفضل لديك.</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "اذكر رمز اللون الذي ترغب في رؤيته على موقع الويب الخاص بك.",
+                            "course-unit-atq-two": "اذكر 3 أمثلة لمواقع في مجال عملك ترغب في أن يبدو موقعك مثلها.",
+                            "atqq_3": "قم بتضمين رابط (روابط) إلى أي مادة تعتقد أنه يجب أن تنعكس على موقعك، مثل صور المنتج أو المعلومات أو الموارد الأخرى.",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1045,
+                                "order": 1,
+                                "question": "اذكر رمز اللون الذي ترغب في رؤيته على موقع الويب الخاص بك."
+                            },
+                            {
+                                "q_id": 1046,
+                                "order": 2,
+                                "question": "اذكر 3 أمثلة لمواقع في مجال عملك ترغب في أن يبدو موقعك مثلها."
+                            },
+                            {
+                                "q_id": 1044,
+                                "order": 3,
+                                "question": "قم بتضمين رابط (روابط) إلى أي مادة تعتقد أنه يجب أن تنعكس على موقعك، مثل صور المنتج أو المعلومات أو الموارد الأخرى."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 956,
+                            "title": "علامتك التجارية",
+                            "description": "<p>علامتك التجارية</p>",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "هل تحتاج إلى مساعدة في تطوير موادك على وسائل التواصل الاجتماعي؟",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "نعم",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "لا",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2339,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "upload",
+                                    "text": "قم بتحميل صورة لنفسك أو لشركتك التي ترغب في تضمينها في الصفحة الرئيسية.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "question_id": 2340,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": []
+    }
+}

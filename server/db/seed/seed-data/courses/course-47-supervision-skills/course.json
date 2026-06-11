@@ -1,0 +1,761 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 47,
+        "title": "Supervision Skills",
+        "description": "Supervision Skills",
+        "unit_count": 7,
+        "author_id": 0,
+        "course_post_id": 3689,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2297,
+            "title": "Supervision Skills",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/supervision-skills-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/supervision.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 47,
+                "title": "Supervision Skills",
+                "description": "Supervision Skills a course for Potential",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1094,
+                        "title": "Supervision Skills PreTest",
+                        "slug": "supervision-skills-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 393,
+                            "title": "Supervision Skills PreTest",
+                            "description": "Supervision Skills PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "One Core skill of supervision is:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Setting Objectives",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Time-Management",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Motivation",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 912,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "As a leader, you should:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Not help your employees",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Not take suggestions from your employees",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Motivate your employees",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 913,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You can share confidential information about the enterprise or clients with your team to gain their trust.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 914,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You should punish your employees if they did something wrong for the first time.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 915,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Laying off work is an act that every supervisor should avoid.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 916,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1095,
+                        "title": "5 Core Skills to be a Good Supervisor",
+                        "slug": "5-core-skills-to-be-a-good-supervisor",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "A3WURcW5plg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Working on the core skills to being a supervisor are important to be able to set an example to the employees and maintaining a successful business.</h5>\r\n<h5>The 5 most important core skills to acquire:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Leadership Skills</h5>\r\n</li>\r\n \t<li>\r\n<h5>Time-Management Skills</h5>\r\n</li>\r\n \t<li>\r\n<h5>Technical Skills</h5>\r\n</li>\r\n \t<li>\r\n<h5>Communication Skills</h5>\r\n</li>\r\n \t<li>\r\n<h5>Judgmental Skills</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn 5 core skills that are essential to every supervisor.</h5>\r\n<h5>Have you ever struggled with leading a team ? Have you ever lost track of tasks and got stressed on deadlines? Do you have a hard time making tough decisions? Well, supervision is critical and vital to enterprises, companies, and institutes. Some core skills are required to become a better supervisor. Supervisors lead teams, manage tasks, solve problems, report up and down the hierarchy, and much more. One of the pillars of growth in business is to have good leadership and supervision skills over employees and team members. Therefore, improving your skills of leading and supervision is important to be able to interact with others and make the right decision.</h5>\r\n<h5><strong>Here are the 5 Core Skills that are essential to acquire:</strong></h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Leadership Skills:</strong> Being a good leader is critical for a supervisor, it is the first step towards managing a team. Your team members or employees would rely on their leader for guidance and mentor which is vital for success.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Time-Management Skills:</strong> Time Management is the seed to thriving in any task, it is implemented in every workplace and for any position. As a supervisor, you should learn how to manage your time as well as scheduling tasks for your employees. Therefore, time planning is critical for the success of any job or project.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Technical Skills:</strong> When an employee asks for your technical help and knowledge, you should be able to deliver as their supervisor. Mentoring, and passing on your technical skills is of great importance as a supervisor.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Communication Skills:</strong> Your communicative skills should be perfected as they happen to help you to deliver the message or task to an employee properly, as well as setting an example to the team members; it also maintains your prestige as a supervisor.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Judgmental Skills:</strong> Judgement of a certain situation, or deciding about a task is a skill acquired with experience, time, as well as trial and error.</h5>\r\n</li>\r\n</ol>\r\n<h5>Supervision skills are easy to acquire and apply, yet it is still important to improve them. So, improve your Core Skills and become a better supervisor with excellent leadership and time management skills.</h5>\r\n<h5><strong> </strong></h5>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the skills that I need to develop for this position?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 279,
+                                "order": 1,
+                                "question": "What are the skills that I need to develop for this position?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 394,
+                            "title": "Supervision Skills Complete Unit 1",
+                            "description": "Supervision Skills Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you currently a supervisor or yet to be promoted?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Supervisor",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Yet to be Promoted",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 922,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1096,
+                        "title": "6 Steps to Leading By Example",
+                        "slug": "6-steps-to-leading-by-example",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "woVdNMjd5NY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Learning these 6 steps to leading by example are necessary to becoming a better leader.</h5>\r\n<h5>The 6 steps to follow to lead by example:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Inspire</h5>\r\n</li>\r\n \t<li>\r\n<h5>Acknowledging failure</h5>\r\n</li>\r\n \t<li>\r\n<h5>Motivation</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listening</h5>\r\n</li>\r\n \t<li>\r\n<h5>Courage</h5>\r\n</li>\r\n \t<li>\r\n<h5>Compassion</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will be learning about 6 steps that would help you become a better supervisor.</h5>\r\n<h5>Do you feel like your employees need motivation and inspiration from time to time but you cannot offer them that? Do you feel like your judgments and decisions are the hardest part of your job? Well, inspiring your employees and motivating them is essential for having a healthy and a productive work environment. Listening to your team members and being compassionate about their struggles and problems whether it is personal or work-related, gives your employees the chance to trust you and follow their leader. Therefore, following the steps introduced in this video will guarantee that you become a better leader.</h5>\r\n<h5><strong>Here are the 6 steps to lead by example.</strong></h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Inspire:</strong> Be an inspiration to your employees. Employees always seek for guidance and they will instantly take their supervisor as an example. Setting the right example to your employees helps them do the job more efficiently as well as ensuring that they will feel safer knowing that their supervisor is there to help.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Acknowledging failure:</strong> As a supervisor, you are still prone to failing or taking a wrong decision. Yet, failure can be a success if acknowledged and fixed. Being the supervisor, some employees might find it intriguing and will not acknowledge their mistakes due to fear. Your task is to assure them that it is okay to fail but it is not okay to keep on doing the wrong thing.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Motivation:</strong> To be a leader you should motivate. Motivation is a necessary factor that humans cherish. If an employee fails to do a job or lacks motivation, be a leader, help them with their work or guide them. A manager tells an employee to do a task, a leader will do the task with the employees and supervise it.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Listening:</strong> Listening skills are vital to leadership. Listening to a suggestion from a team member could change the course of a task, action, or decision and direct it to the right path. As a supervisor, you should encourage everyone to speak, and you should listen.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Courage:</strong> As a leader, hard decisions must be made from time to time. Calculating risks and taking them needs a courageous leader. It also sets an example for the employees to always have the courage to suggest, commit to a task even if it is risky as well as empowering you as a leader.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Compassion:</strong> Being compassionate with your employees or team members is a humanitarian act that every leader should practice. Employees are only humans and are prone to work-related or personal issues as well as the daily hassles that face them. Be the source of comfort to your employees and make them feel safe, but be tough when needed.</h5>\r\n</li>\r\n</ol>\r\n<h5>Leading by example helps you gain the trust of your team as well as inspiring and motivating them. That is why it is essential for a supervisor to set the right examples to his team members to help guide them with their tasks.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the key elements that I need to lead my team/employees example?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 280,
+                                "order": 1,
+                                "question": "What are the key elements that I need to lead my team/employees example?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 395,
+                            "title": "Supervision Skills Complete Unit 2",
+                            "description": "Supervision Skills Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Were you ever a leader?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 923,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1097,
+                        "title": "5 Methods to Gain Trust",
+                        "slug": "5-methods-to-gain-trust",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "dUXBY5qVZag",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>These Methods could be used to gain the trust of your employees/team.</h5>\r\n<h5>The 5 Methods to gain trust are as follows:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Give trust to get trusted</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Reliable</h5>\r\n</li>\r\n \t<li>\r\n<h5>Take Blame and Give Credit</h5>\r\n</li>\r\n \t<li>\r\n<h5>Keep the door open</h5>\r\n</li>\r\n \t<li>\r\n<h5>Share Information</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will be learning more about how to gain the trust of your employees.</h5>\r\n<h5>Do you feel like your employees do not trust you?  Are your employees scared of informing you?  Employees tend to work better and feel more comfortable when their supervisor or leader gains their trust. This assures you as a supervisor that your employees would be more honest and will not feel threatened to inform you of their mistakes or their need for guidance. Therefore, practicing the methods introduced in the following video will help you make employees and your team gain your trust.</h5>\r\n<h5>Here are the 5 methods that will help you gain trust.</h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Give Trust to Get Trusted:</strong> As a Supervisor, you should let your team know that you trust them and believe in them. To give your employees the trust needed, let them know that they can do their jobs and beyond that. Let them know that their job designations do not limit them, and make them feel that you are one of them, not their boss.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Be Reliable:</strong> You can let your team rely on you when an experienced person is needed to complete the job. Let them know that they can rely on you to help them when they fail to do a task.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Take blame &amp; give credit: </strong>When a success occurs or when a task is accomplished, do not take all the credit, give your employees the credit and congratulate them on their accomplishments. Praise them to your boss in front of them. When a failure occurs, do not blame your employees, instead, blame the methodology of the enterprise or your own leadership that might need some improving.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Keep the door open:</strong> Although you have a higher job designation in the hierarchy, always be humble. An open-door policy is one of the best policies to show your employees that they can come in and share thoughts or worries at any time without any fear.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Share Information: </strong>Employees love to talk, whether it is good or bad news, sharing information with your employees is important. Although some information must remain confidential, other information like success or progress of a project should be shared with the employees. Bad news should be shared as well. This shows your team that you are not hiding anything and will make them trust you more.</h5>\r\n</li>\r\n</ol>\r\n<h5>Earning and giving trust is only a natural human response that can be dealt with using simple techniques that you would use in your everyday routine. For a leader, having the trust of the team encourages communication and in turn, sustains the success of the business.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the Methodologies to make my employees and team gain my trust?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 281,
+                                "order": 1,
+                                "question": "What are the Methodologies to make my employees and team gain my trust?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 396,
+                            "title": "Supervision Skills Complete Unit 3",
+                            "description": "Supervision Skills Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you like the concept of an open-door policy?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 924,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1098,
+                        "title": "4 Ways to Improve Your Role as a Supervisor",
+                        "slug": "4-ways-to-improve-your-role-as-a-supervisor",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "lBaZXw3gcy4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Improving yourself sets an example and makes you a role model to your employees.</h5>\r\n<h5>The 4 ways to improve yourself:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Be a Mentor</h5>\r\n</li>\r\n \t<li>\r\n<h5>Know when to discipline</h5>\r\n</li>\r\n \t<li>\r\n<h5>Give positive feedback</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be up to date</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will be introduced to some skills that can help improve your role as a supervisor.</h5>\r\n<h5>Are there ways to improve your supervision skills? Do you believe that your employees are always expecting the best from you? A supervisor should always work on improving himself to set an example to the employees.</h5>\r\n<h5><strong>Here are 4 ways to improve yourself:</strong></h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Be a Mentor:</strong> Being a supervisor, leading by example also means that you should be a mentor to your employees. As a mentor, you should examine the highest potential of your team members individually and push them forward to achieve their best. Being a role model to your team is also essential and is achieved by setting rules and guidelines and following them as well as handling problems and risks properly.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Know when to Discipline:</strong> Leaders make hard decisions all the time, it can include a decision to take a risk that might help the business success, or a decision to terminate an employee. Discipline to an employee is a necessity to make sure no one steps over the limits.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Give Positive Feedback: </strong>Employees whom achieve a goal or complete a task always look for feedback. Leaders should give positive feedback to their employees even if they did not do the right thing. Instead of telling them that what they did was wrong, tell them that they can improve.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Be up to date: </strong>Any employee should always be up to date with the current business situation and updates on the field. With your help as a leader and a supervisor, guidelines, and workshops can help increase the team’s knowledge.</h5>\r\n</li>\r\n</ol>\r\n<h5>Great Leaders always look forward towards improving themselves, and improving yourself makes you a role model to your employees and helps on increasing the productive outcome of your team members.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the things I need to improve about myself?",
+                            "course-unit-atq-two": "What are the skills that I need to work on the most?",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 282,
+                                "order": 1,
+                                "question": "What are the things I need to improve about myself?"
+                            },
+                            {
+                                "q_id": 283,
+                                "order": 2,
+                                "question": "What are the skills that I need to work on the most?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 397,
+                            "title": "Supervision Skills Complete Unit 4",
+                            "description": "Supervision Skills Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Did you ever have a mentor?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 925,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1099,
+                        "title": "5 Pitfalls you Should Avoid as a Supervisor",
+                        "slug": "5-pitfalls-you-should-avoid-as-a-supervisor",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "bOsJpDyy9Bs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Some experienced Supervisors shared their experiences and the pitfalls they fell in.</h5>\r\n<h5>The 5 pitfalls that you should avoid:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Not Planning Properly</h5>\r\n</li>\r\n \t<li>\r\n<h5>Laying off work</h5>\r\n</li>\r\n \t<li>\r\n<h5>Not Giving your employees enough work</h5>\r\n</li>\r\n \t<li>\r\n<h5>Being too Friendly</h5>\r\n</li>\r\n \t<li>\r\n<h5>Recruiting the wrong people</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will be learning about pitfalls that you should avoid as a supervisor. These pitfalls vary between minor and major mistakes that should be avoided.</h5>\r\n<h5><strong>Here are 5 pitfalls you should avoid:</strong></h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Not Planning Properly: </strong>Project Management is essential to complete all the tasks assigned. Your job as a supervisor is to plan ahead of time for every detail and schedule all tasks beforehand to avoid exceeding an assigned deadline.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Laying off work: </strong>Although you are a supervisor, laying off work is an act that should not be practiced because it sets a bad example for your employees. It also increases the load on your team members which in turn delivers an unacceptable outcome and a decline in productivity rate.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Not Giving your employees enough work: </strong>Just like how you should not lay off work, you should not do all the work yourself. Distribute the work per the job designations and responsibilities of your team members. Not having an even distribution of work might also cause a decline in productivity, as well as having your employees slacking due to the lack of tasks assigned.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Being too Friendly: </strong>At all costs, avoid being too friendly. Moderation is the key, allow your employees to trust you and rely on you, but do not let them step over you or exceed their limits.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Recruiting the wrong people: </strong>As a supervisor, you sometimes need to recruit more team members. Recruiting the wrong people gives off a bad impression on your judgment as a supervisor. Instead, you can make sure that the candidate gets a proper briefing and training before getting the job.</h5>\r\n</li>\r\n</ol>\r\n<h5>Mistakes are easily made but can be easily avoided. Being a supervisor, making a mistake is expected, so work on avoiding it next time and make sure you teach that pitfall to your team.</h5>\r\n<h5><strong> </strong></h5>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the things I should avoid as a supervisor and teach them to my team?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 284,
+                                "order": 1,
+                                "question": "What are the things I should avoid as a supervisor and teach them to my team?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 398,
+                            "title": "Supervision Skills Complete Unit 5",
+                            "description": "Supervision Skills Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you believe that supervision has more pitfalls than the ones mentioned above?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 926,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1100,
+                        "title": "Supervision Skills PostTest",
+                        "slug": "supervision-skills-posttest",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 399,
+                            "title": "Supervision Skills PostTest",
+                            "description": "Supervision Skills PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "One Core skill of supervision is:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Setting Objectives",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Time-Management",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Motivation",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 917,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "As a leader, you should :",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Not help your employees",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Not take suggestions from your employees",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Motivate your employees",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 918,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You can share confidential information about the enterprise or clients with your team to gain their trust.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 919,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You should punish your employees if they did something wrong for the first time.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 920,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Laying off work is an act that every supervisor should avoid.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 921,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/supervision.png",
+                "zip_path": "wp-content/uploads/2018/10/supervision.png",
+                "level": "card"
+            }
+        ]
+    }
+}

@@ -1,0 +1,595 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 25,
+        "title": "Uncovering Customer Needs",
+        "description": "Learn how to efficiently identify customer needs so you can sell with ease",
+        "unit_count": 6,
+        "author_id": 0,
+        "course_post_id": 3668,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2345,
+            "title": "Uncovering Customer Needs",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/uncovering-customer-needs-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/Customer-needs.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 25,
+                "title": "Uncovering Customer Needs",
+                "description": "Learn how to efficiently identify customer needs so you can sell with ease",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 886,
+                        "title": "Uncovering Customer Needs Pretest",
+                        "slug": "uncovering-customer-needs-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 185,
+                            "title": "Uncovering Customer Needs Pretest",
+                            "description": "Uncovering Customer Needs Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "When ending a client meeting, it is important to propose next steps your customer with a clear action plan and timelines.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 405,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "To demonstrate that you have understood the client needs you need to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Check for acceptance",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Acknowledge that you understand the need ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Describe your solution’s benefits ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "4",
+                                    "question_id": 406,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 887,
+                        "title": "3 Steps to Use at the Start of Business Meetings",
+                        "slug": "3-steps-use-start-business-meetings",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Q8Xy1W_lS6I",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 steps that will help you kick-off your next business meeting:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Proposing an Agenda</h5>\r\n</li>\r\n \t<li>\r\n<h5>State Value to customer</h5>\r\n</li>\r\n \t<li>\r\n<h5>Check for acceptance</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about a how to start a meeting on the right footing.</h5>\r\n<h5>After initially welcoming the client and having a cordial social interaction to break the ice, it is good to set a structure for the meeting to get the most out of it.</h5>\r\n<h5><strong>Here are 3 steps that will help you kick-off your next meeting:</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Proposing an Agenda </strong>to guide the meeting</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>State Value to customer </strong>so that they understand what’s in it for them</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Check for acceptance </strong>get a confirmation that you are both aligned</h5>\r\n</li>\r\n</ul>\r\n<h5>An example after following the above tips, you can start a meeting by saying:</h5>\r\n<h5><em>I’d like for the next 5 minutes to understand more about your needs, then explain to you some of the our offerings, that would address your needs so you can have an informed decision about next steps, does that sound good to you? </em></h5>\r\n<h5>These tips would help you structure your next meeting so that you achieve the most out of it.</h5>",
+                            "course-unit-quotes": "<h5>T<span id=\"yiv2243609807yui_3_16_0_ym19_1_1461823491862_39078\">he next time you're in a meeting</span><span id=\"yiv2243609807yui_3_16_0_ym19_1_1461823491862_39079\">,</span><span id=\"yiv2243609807yui_3_16_0_ym19_1_1461823491862_39080\">look around</span><span id=\"yiv2243609807yui_3_16_0_ym19_1_1461823491862_39081\"> and identify the yes-butters, the not-Knowers and the why- notters. Why- notters move the world. Louise Pierson </span></h5>",
+                            "course-unit-case-study": "<h5 id=\"yiv2105025622yui_3_16_0_ym19_1_1461923237067_89175\">You can start a meeting by saying: I’d like for the next 5 minutes to understand more about your needs, then explain to you some of the our offerings, that would address your needs so you can have an informed decision about next steps, does that sound good to you?</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What should I do to make sure that I kick off my next meeting?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 593,
+                                "order": 1,
+                                "question": "What should I do to make sure that I kick off my next meeting?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 186,
+                            "title": "Uncovering Customer Needs Complete Unit 1",
+                            "description": "Uncovering Customer Needs Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How well do you plan before your meetings:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "I usually plan",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "I should plan my meetings better",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 395,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 888,
+                        "title": "Uncover your Client’s Needs",
+                        "slug": "uncover-clients-needs",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "W8VGHyQgCAA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The two questioning methods to uncover clients’ needs:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Open questions</h5>\r\n</li>\r\n \t<li>\r\n<h5>Closed questions</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about how to uncover client needs.</h5>\r\n<h5>After opening a meeting and setting an agenda, then next aim is to uncover the client needs. You don’t have time to tell them about all your products, so first understand what their needs are and then you can tell them only about the products or solutions that meet those needs.</h5>\r\n<h5><strong>Use two questioning methods to uncover needs:</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Open questions </strong>that give the client an opportunity to shed light and expand on the question area</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Closed questions </strong>that force the client to give you a specific answer such as when a decision would be made</h5>\r\n</li>\r\n</ul>\r\n<h5>The aim of the questioning is to uncover the client’s circumstances and needs which would help you in suggesting the best solutions to their requirements.</h5>\r\n<h5>Remember, listening is a much more effective skill than talking when in meetings.</h5>",
+                            "course-unit-quotes": "<h5>People don't care how much you know until they know how much you care. Theodore Roosevelt</h5>",
+                            "course-unit-case-study": "<h5>John sells personal computers to companies. He has many models of computers, so when he goes to his clients and wants to recommend the right model, he needs to understand their needs very well. The common questions that he uses to uncover needs are open questions like, what will the computers be used for? What are the most required features that are needed? and some closed questions like, how many do you need? when will you need them?</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My next important meeting is with __________________ on __________________  . ",
+                            "course-unit-atq-two": "My objective from the meeting is to: ",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 594,
+                                "order": 1,
+                                "question": "My next important meeting is with __________________ on __________________  . "
+                            },
+                            {
+                                "q_id": 595,
+                                "order": 2,
+                                "question": "My objective from the meeting is to: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 187,
+                            "title": "Uncovering Customer Needs Complete Unit 2",
+                            "description": "Uncovering Customer Needs Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "List one open question you usually use to uncover your clients’ needs",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "single_line",
+                                    "question_id": 396,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "open",
+                                    "text": "List one closed question you usually use to uncover your clients’ needs",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "single_line",
+                                    "question_id": 397,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 889,
+                        "title": "Steps to Show your Understand of your Client&apos;s Needs",
+                        "slug": "3-steps-to-show-that-you-understand-your-clients-needs",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "a6wEKlXZhBw",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 steps used to demonstrate that you have understood the client needs:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Acknowledge that you understand the need</h5>\r\n</li>\r\n \t<li>\r\n<h5>Describe your solution’s benefits</h5>\r\n</li>\r\n \t<li>\r\n<h5>Check for acceptance</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, you will learn about how to demonstrate that you have understood the needs of the client.</h5>\r\n<h5>So that the client doesn’t end up doing the only talking and so you are able to ask more questions, you need to confirm to them that you understand their needs and have a solution for them.</h5>\r\n<h5><strong>Use the 3 steps to demonstrate that you have understood the client needs:</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Acknowledge that you understand the need </strong>by restating it in your words</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Describe your solution’s benefits </strong>focusing on the benefits and not features</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Check for acceptance </strong>and watch the client’s body language to confirm that the client is in agreement with your solution</h5>\r\n</li>\r\n</ul>\r\n<h5>After you have clarified to the client that you have understood their need, and have a solution for that need, you can go back and ask another question to help you uncover some additional needs and thus up sell your products and services.</h5>\r\n<h5>You can keep on questioning the client until you feel you have a good understanding of their needs and can then close the meeting.</h5>",
+                            "course-unit-quotes": "<h5>How you think about your customers influences how you respond to them. Marilyn Suttle</h5>",
+                            "course-unit-case-study": "<h5 id=\"yiv2105025622yui_3_16_0_ym19_1_1461923237067_89780\" dir=\"ltr\">John then shows that he understands the clients needs by repeating the requirement and confirming that he has a solution for the same. So if the client states that the sales teams would be needing the new laptops, John would respond that since the sales team need the laptops and would be taking them and using them in-front of their customers, it would be good to have 2-1 laptops that become tablets at the same time so they can demonstrate their presentation or software. John does the same for all needs uncovered by the questions that he asked.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": " I will be asking the following questions to uncover the needs:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 596,
+                                "order": 1,
+                                "question": " I will be asking the following questions to uncover the needs:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 188,
+                            "title": "Uncovering Customer Needs Complete Unit 3",
+                            "description": "Uncovering Customer Needs Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "Describe your solution’s benefits and how it can help most of your clients in addressing a need they have.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 398,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 890,
+                        "title": "Steps to Take when Finalizing a Client Meeting",
+                        "slug": "steps-take-finalizing-client-meeting",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "wywvbngHwto",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 steps to use when ending a client meeting:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Review previously accepted benefits</h5>\r\n</li>\r\n \t<li>\r\n<h5>Propose next steps for you and customer</h5>\r\n</li>\r\n \t<li>\r\n<h5>Check for acceptance</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about how to conclude a meeting successfully.</h5>\r\n<h5>It’s critical that we walk out of a meeting with a positive impression and a clear action plan for the way forward.</h5>\r\n<h5>Here are 3 steps to use when ending a client meeting:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Review previously accepted benefits</strong> about your solution which were identified in the meeting</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Propose next steps for you and customer</strong> with a clear action plan and timelines</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Check for acceptance</strong> by asking: <em>how does that sound?</em></h5>\r\n</li>\r\n</ul>\r\n<h5>As you return to your desk, plan to send a summary email outlining the above to confirm that no one forgets what was agreed on.</h5>",
+                            "course-unit-quotes": "<h5>If you are not emotionally involved, your client is not getting your best effort. Joe Jamail</h5>",
+                            "course-unit-case-study": "<h5>Before leaving the meeting John make sure that he summarizes the needs and the solutions that he has for these needs. He also suggests next steps to be done after the meeting and gets confirmation from the client that she agrees on these next steps.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The key benefits from my offer that I would like to highlight include:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 597,
+                                "order": 1,
+                                "question": "The key benefits from my offer that I would like to highlight include:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 189,
+                            "title": "Uncovering Customer Needs Complete Unit 4",
+                            "description": "Uncovering Customer Needs Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What are the next steps that you usually propose to a client at the end of a meeting? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 399,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 891,
+                        "title": "Uncovering Customer Needs Posttest",
+                        "slug": "uncovering-customer-needs-certificate",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 190,
+                            "title": "Uncovering Customer Needs Post Test",
+                            "description": "Uncovering Customer Needs Quiz",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "Before Starting a business meeting you need to set a structure for the meeting to get the most out of it. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 400,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You need to tell your clients about the different products or solutions that you have before understanding what their needs are.  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 401,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "To demonstrate that you have understood the client needs you need to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Check for acceptance",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Acknowledge that you understand the need",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Describe your solution’s benefits",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 402,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "When ending a client meeting, it is important to propose next steps your customer with a clear action plan and timelines. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 403,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You can’t keep on questioning the client until you feel you have a good understanding of their needs and can then close the meeting. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 404,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/Customer-needs.png",
+                "zip_path": "wp-content/uploads/2018/10/Customer-needs.png",
+                "level": "card"
+            }
+        ]
+    }
+}

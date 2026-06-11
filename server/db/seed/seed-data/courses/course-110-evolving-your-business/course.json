@@ -1,0 +1,940 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 110,
+        "title": "Evolving Your Business",
+        "description": "Evolving Your Business",
+        "unit_count": 8,
+        "author_id": 1429,
+        "course_post_id": 3748,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_show",
+            "unit_advancement": "automatic",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2927,
+            "title": "Evolving Your Business",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/overview-about-the-program/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/06/SMEEP.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 110,
+                "title": "SMEEP",
+                "description": "SMEEP application",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 3232,
+                        "title": "Overview about the program",
+                        "slug": "overview-about-the-program",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "2djCPSan4IM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 933,
+                            "title": "SMEEP Unit 1",
+                            "description": "Overview about the program",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What's your title?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "CEO / Founder / Owner",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Part of Leadership Team",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Other",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2294,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Is your business a women-led business?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2304,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Does your company have a valid trade license? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2305,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2930,
+                        "title": "Business Strategy",
+                        "slug": "setting-up-a-strategy-2",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Ba7eeC840lo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 essential considerations to keep in mind when putting a strategy are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Define your mission</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identify short-term goals</h5>\r\n</li>\r\n \t<li>\r\n<h5>Create KPIs</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, we will learn the essential aspects of setting up a strategy for your business. A solid Strategy helps a business focus the energy of its staff and make use of its resources to ensure long term success and growth. Without a good strategy companies loose focus and end up failing on the long run. To setup a strategy, you need to think about 3 key key considerations:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Define your mission</strong> as a business. What do you do, how do you do it and for whom do you do it? The key here is to determine what sets you apart from the competition.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Identify a few goals</strong> for the coming 1 to 3 years that if met, would ensure that you are delivering the right services to the right clients and are maintaining a healthy business.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Break up the goals and <strong>set monthly</strong> key performance indicators <strong>(KPIs)</strong> that you need to track and cascade to each department and employee so everyone is clear about how they contribute to the overall goals.</h5>\r\n</li>\r\n</ul>\r\n<h5>By following these 3 key considerations and continuously tracking progress of the KPIs across departments and individuals, you can ensure that you would be on your way to reaching your goals and fulfilling your mission. Remember, what gets measured gets done!</h5>",
+                            "course-unit-quotes": "<h5>“The biggest risk is not taking any risk… In a world that changing really quickly, the only strategy that is guaranteed to fail is not taking risks.” Mark Zuckerberg</h5>",
+                            "course-unit-case-study": "<h5>Aya has a nutrition business and a team of full time and part-time employees. Her mission is to help the community lead a more healthy lifestyle.</h5>\r\n<h5>After the COVID-19 lockdown, Aya had to close down her office and adapt quickly to reaching her clients online. As she was evaluating her strategy she started by doing a <a href=\"https://www.potential.com/articles/swot-analysis/\" target=\"_blank\" rel=\"noopener\">SWOT analysis</a>. After that exercise, she found that her mission hasn't changed but her goals need to change.</h5>\r\n<h5>As such, she identified 3 <a href=\"https://youtu.be/0yro6B2-uNk\" target=\"_blank\" rel=\"noopener\">SMART goals</a></h5>\r\n<ol>\r\n \t<li>Accelerating the company's move to digital</li>\r\n \t<li>Launching new programs to help people eat healthily at home</li>\r\n \t<li>Reducing any unnecessary costs.</li>\r\n</ol>\r\n<h5>She followed the goals with identifying the KPIs for each of the goals.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li>Template: <a href=\"https://www.score.org/resource/business-plan-template-established-business\" target=\"_blank\" rel=\"noopener\">Business Plan Template for an Established Business</a></li></br>\r\n \t<li>Video: <a href=\"https://youtu.be/5EHhSMjqd0I\" target=\"_blank\" rel=\"noopener\">SWOT Analysis - How to conduct a SWOT for your business (Step By Step Guide)</a></li></br>\r\n \t<li>Article: <a href=\"https://www.potential.com/articles/performance-management-process-and-its-importance/\" target=\"_blank\" rel=\"noopener\">Performance Management Process and Its Importance</a></li></br>\r\n \t<li>Suggested Course: <a href=\"https://smeep.potential.org/userdashboard/\" target=\"_blank\" rel=\"noopener\">Business Model Canvas</a></li>\r\n</br><li>Suggested Books: Click on the cover below to buy the book from Amazon.</li>\r\n</ul><br><br>\r\n<div class=\"row\">\r\n  <div class=\"col-md-3\" style=\"margin-top: 1%;\">\r\n    <a href=\"https://www.amazon.com/gp/product/1119689686/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1119689686&linkCode=as2&tag=potential06-20&linkId=01de6c46ef60030e6158fb2ca3c8776f\" target=\"_blank\">\r\n      <div class=\"card\">\r\n        <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Business-model-innovation-strategy.jpg\" alt=\"Business Model Innovation Strategy\">\r\n      </div>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"col-md-1\"></div>\r\n\r\n  <div class=\"col-md-3\" style=\"margin-top: 1%;\">\r\n    <a href=\"https://www.amazon.com/gp/product/1982154802/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1982154802&linkCode=as2&tag=potential06-20&linkId=46fd93152e193674681e565f04b1ec88\" target=\"_blank\">\r\n      <div class=\"card\">\r\n        <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Your-next-five-moves-book.jpg\" alt=\"Your Next Five Moves Book\">\r\n      </div>\r\n    </a>\r\n  </div>\r\n\r\n  <div class=\"col-md-1\"></div>\r\n\r\n  <div class=\"col-md-3\" style=\"margin-top: 1%;\">\r\n    <a href=\"https://www.amazon.com/gp/product/1454841532/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1454841532&linkCode=as2&tag=potential06-20&linkId=018633aa62c53e441b286f8c282457b5\" target=\"_blank\">\r\n      <div class=\"card\">\r\n        <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Trial-Advocacy.jpg\" alt=\"Trial Advocacy\">\r\n      </div>\r\n    </a>\r\n  </div>\r\n</div>\r\n",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "https://smeep.potential.org/userdashboard/#offers",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is your business' website? (if you don't have one, you can put your company's name)",
+                            "course-unit-atq-two": "What is the mission of your business?",
+                            "atqq_3": "What is the most important goal you have for this year?",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 955,
+                                "order": 1,
+                                "question": "What is your business' website? (if you don't have one, you can put your company's name)"
+                            },
+                            {
+                                "q_id": 956,
+                                "order": 2,
+                                "question": "What is the mission of your business?"
+                            },
+                            {
+                                "q_id": 979,
+                                "order": 3,
+                                "question": "What is the most important goal you have for this year?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 907,
+                            "title": "SMEEP Unit 2",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Has your mission changed after COVID-19?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2217,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2932,
+                        "title": "Innovative offer to increase sales",
+                        "slug": "innovation-process-2",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "5nUkWTZRVTc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 4 steps to help in developing your next innovation are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Identify the problem</h5>\r\n</li>\r\n \t<li>\r\n<h5>Ideate</h5>\r\n</li>\r\n \t<li>\r\n<h5>Prototype</h5>\r\n</li>\r\n \t<li>\r\n<h5>Evaluate & Refine</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, we will learn 4 steps that will guide you in developing your Next Innovation. Innovation can be summarized as the process of coming up with a new idea, product, service, or experience that customers would be willing to pay for. It is a key success factor for businesses these days since competition in the business world is fierce and innovation offers a way to differentiate and stay relevant to clients. Here is a simple 4 step process to help guide your innovation process:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Understand</strong> the problem that you are addressing, the users that are affected, the technology that is available, the competitors’ offerings.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Spend some time coming up with as many ideas as possible, regardless of how good they are <strong>(Ideate)</strong>.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose one or two of the best ideas – which could be a collection of a few ideas combined into one – and rapidly <strong>prototype</strong> them.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Evaluate and Refine</strong> by getting your target users to give you their feedback and suggestions on the prototype that you created.</h5>\r\n</li>\r\n</ul>\r\n<h5>As this innovation process becomes engrained into your business the process can be conducted periodically all through the organization with the involvement of all staff. As Alan Kay said, The best way to predict the future is to invent it!</h5>",
+                            "course-unit-quotes": "<h5>“Without change there is no innovation, creativity, or incentive for improvement. Those who initiate change will have a better opportunity to manage the change that is inevitable.” William Pollard</h5>",
+                            "course-unit-case-study": "<h5>Mohamed had a real estate brokerage business. To generate leads, he depended on having his sales teams getting leads from malls where they had booths present. As the footfall got reduced in malls, he needed to find a new way to generate leads.</h5>\r\n<h5></h5>\r\n<h5>He followed the <a href=\"https://www.potential.com/articles/innovation-design-thinking/\" target=\"_blank\" rel=\"noopener\"><i>innovation design thinking mode</i>l</a> to guide him:</h5>\r\n<div>\r\n<ul>\r\n \t<li>\r\n<h5>Understanding the problem, he realized that his target audience (mainly Chinese tourists) weren't traveling</h5>\r\n</li>\r\n \t<li>\r\n<h5>As he brainstormed, he thought he could launch online advertising campaigns, partner with Chinese agents, or launch a blog or youtube channel</h5>\r\n</li>\r\n \t<li>\r\n<h5>He found that the youtube channel with interesting investment tips in the Chinese language for Chinese prospective buyers would generate short terms leads and also position him as a thought leader in this space. He can quickly set up the site by filming his Chinese speaking team explaining various properties and tips</h5>\r\n</li>\r\n \t<li>\r\n<h5>To measure the success of the prototype, he would track the video likes and how many leads were generated in the first 3 months</h5>\r\n</li>\r\n</ul>\r\n</div>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li>Template: <a href=\"https://drive.google.com/file/d/17BrvLDB77SahMmktvbArkOmhO_p79Otf/view?usp=sharing\" target=\"_blank\" rel=\"noopener\">Free Innovation Design Thinking Template</a></li></br>\r\n \t<li>Article: <a href=\"https://www.potential.com/articles/innovation-design-thinking/\" target=\"_blank\" rel=\"noopener\">Innovation Design Thinking Process</a></li></br>\r\n \t<li>Playlist: <a href=\"https://www.youtube.com/playlist?list=PLnOHHqU0MaD6ZRQhniM9zT4nLEJvhWHcj\" target=\"_blank\" rel=\"noopener\">Innovation Design Thinking - YouTube Playlist</a></li></br>\r\n<li>Suggested Course: <a href=\"https://smeep.potential.org/userdashboard/\" target=\"_blank\" rel=\"noopener\">Innovation Design Thinking</a></li>\r\n</br><li>Suggested Books: Click on the cover below to buy the book from Amazon.</li>\r\n</ul><br><br>\r\n<div class=\"col-md-12\"></div>\r\n <a href=\"https://www.amazon.com/gp/product/1501164309/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1501164309&linkCode=as2&tag=potential06-20&linkId=c7ad106a75be25966f7957ec99b57b5e\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Way-of-the-wolf.jpg\" >\r\n</div>\r\n</div>\r\n</a>\r\n<div class=\"col-md-1\"></div>\r\n<a href=\"https://www.amazon.com/gp/product/1591844355/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1591844355&linkCode=as2&tag=potential06-20&linkId=6b663a64f06fa8a72122d1f0b1a0235f\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/The-challenger-sale.jpg\" >\r\n</div>\r\n</div>\r\n</a>\r\n<div class=\"col-md-1\"></div>\r\n<a href=\"https://www.amazon.com/gp/product/B07RRTQLSN/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07RRTQLSN&linkCode=as2&tag=potential06-20&linkId=4ebec3b2ebf6106f90ca443bb790d910\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Sales-habits.jpg\" >\r\n</div>\r\n</div>\r\n</a>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "https://smeep.potential.org/userdashboard/#offers",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What challenges are preventing you from increasing your revenue? ",
+                            "course-unit-atq-two": "List 10 ideas that can help you increase your revenue",
+                            "atqq_3": "How can you quickly develop (prototype) the best idea and test it?",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 957,
+                                "order": 1,
+                                "question": "What challenges are preventing you from increasing your revenue? "
+                            },
+                            {
+                                "q_id": 958,
+                                "order": 2,
+                                "question": "List 10 ideas that can help you increase your revenue"
+                            },
+                            {
+                                "q_id": 980,
+                                "order": 3,
+                                "question": "How can you quickly develop (prototype) the best idea and test it?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 908,
+                            "title": "SMEEP unit 3",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": " Where do you need to innovate more? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Improving sales / revenue",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Improving my operations and reducing cost",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2260,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What type of business are you in?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Services",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Manufacturing",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Trading",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Other",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2268,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2938,
+                        "title": "The online marketing campaign",
+                        "slug": "steps-to-launch-any-marketing-campaign",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "8NkvmHNAPuo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>To launch any marketing campaign think of these 3 steps:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Identify the Target Segment</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identify your Value proposition</h5>\r\n</li>\r\n \t<li>\r\n<h5>Have a call to action</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit we will learn 3 basic steps needed to launch any marketing campaign. You might have the best product at the best price, but if no one is going to know about it, then you will be out of business soon. To launch any marketing campaign think of these 3 steps:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Identify the Target Segment</strong> that has the most to gain from your product or service. The more niche that segment is, the easier it would be to identify the best way to reach them.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Identify your Value proposition</strong> by articulating what makes you different and why that target segment should go out of their way to get hold of your product or service.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Have a call to action</strong> for the recipients of your campaign. It could be a sign up process, a simple buying process, or a test drive.</h5>\r\n</li>\r\n</ul>\r\n<h5>These three steps can guide your through any campaign, and with today’s online marketing channels, you can ensure that you reach the right audiences effectively and be able to continuously tweak your campaigns for maximum performance.</h5>",
+                            "course-unit-quotes": " \r\n<h5>“The aim of marketing is to know and understand the customer so well the product or service fits him and sells itself.” Peter Drucker</h5>",
+                            "course-unit-case-study": "<h5>\r\nRyan has a life coaching business. He wants to increase his leads and plans to launch a marketing campaign.</h5>\r\n<h5>He starts by identifying his target audience and decides to focus on recent French-speaking university graduates in developing countries.</h5>\r\n<h5>The value proposition he can provide them is that he will help them find ways to earn income and find jobs and can provide coaching in a cost-effective way since it will make use of open webinar sessions for the users followed by personalized 1 on 1 sessions.</h5>\r\n<h5>His main call to action for them is to have users sign up to one of the public webinars he is delivering since he can then convince them on the webinar to sign up for a 3-month program.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li>Template: <a href=\"https://blog.hubspot.com/marketing/marketing-plan-template-generator\" target=\"_blank\" rel=\"noopener\">Free Marketing Plan Template</a></li></br>\r\n \t<li>Video: <a href=\"https://youtu.be/hrG8g5Wtl3E\" target=\"_blank\" rel=\"noopener\">How to Prepare a Marketing Plan</a></li></br>\r\n \t<li>Article: <a href=\"https://www.potential.com/articles/digital-marketing/\" target=\"_blank\" rel=\"noopener\">Digital Marketing - The Ultimate 2020 Guide</a></li></br>\r\n \t<li>Suggested Course: <a href=\"https://smeep.potential.org/userdashboard/\" target=\"_blank\" rel=\"noopener\">Business Model Canvas</a></li>\r\n</br><li>Suggested Books: Click on the cover below to buy the book from Amazon.</li>\r\n</ul><br><br>\r\n<div class=\"col-md-12\"></div>\r\n <a href=\"https://www.amazon.com/gp/product/0749484225/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0749484225&linkCode=as2&tag=potential06-20&linkId=3482220d72ed8794abd89a5210a6d9fe\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Digital-Marketing-strategy.jpg\" >\r\n</div>\r\n</div>\r\n</a>\r\n<div class=\"col-md-1\"></div>\r\n<a href=\"https://www.amazon.com/gp/product/B01B35M3SM/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01B35M3SM&linkCode=as2&tag=potential06-20&linkId=9249c6949b59f3c78fa8e2c5db69539f\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/The-1-page-marketing-plan.jpg\" >\r\n</div>\r\n</div>\r\n</a>\r\n<div class=\"col-md-1\"></div>\r\n<a href=\"https://www.amazon.com/gp/product/B08WK2833H/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B08WK2833H&linkCode=as2&tag=potential06-20&linkId=1d8b00b4ed3b837f1d792c5c1f9c2bc6\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/SMM-2021.jpg\" >\r\n</div>\r\n</div>\r\n</a>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "https://smeep.potential.org/userdashboard/#offers",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Which target customer segment is the most important one for your business?",
+                            "course-unit-atq-two": "What is the value proposition that you provide to your target customers and how is it different from your competitors?",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 961,
+                                "order": 1,
+                                "question": "Which target customer segment is the most important one for your business?"
+                            },
+                            {
+                                "q_id": 983,
+                                "order": 2,
+                                "question": "What is the value proposition that you provide to your target customers and how is it different from your competitors?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 911,
+                            "title": "SMEEP unit 4",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you currently get leads or business from your website?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2295,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Would you like support to create a lead generation campaign?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2296,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "How useful is the course so far?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Very useful",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Somehow useful",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Not useful",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2300,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2946,
+                        "title": "Project Management",
+                        "slug": "successful-project-implementation",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "6LRJ-CsZda4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The <strong>3 Considerations in Implementing Successful Projects include:</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5>An agreement on the acceptable <strong>quality</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>A budget for the <strong>costs</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>An accepted <strong>time</strong> period for implementation</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, we will learn about how to implement successful projects. Projects are launched all the time across organizations whether they are internal or external. It’s important to ensure successful project implementations so as to avoid a loss of a lot of time, money and in some cases reputations. <strong>Successful Project Management</strong> takes into account the following considerations:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>An agreement on the acceptable <strong>quality</strong> level of the output of the project. As an example, if the project is to send a person to the moon, the quality requirements would be dramatically high.</h5>\r\n</li>\r\n \t<li>\r\n<h5>An budget for the <strong>costs</strong> that would be incurred to deliver the project.</h5>\r\n</li>\r\n \t<li>\r\n<h5>An accepted <strong>time</strong> period during which the project should be completed.</h5>\r\n</li>\r\n</ul>\r\n<h5>The three aspects are all related to each other and as such are set out at the beginning of the project and are tracked all through the implementation of the project. If there is a need to improve any one of the three elements, that would have an impact on the other two elements. Everyone in the organisation should learn these three basic aspects to projects and defining them at the beginning would help save a lot of costs, time and effort.</h5>",
+                            "course-unit-quotes": "<h5>“If you can’t describe what you are doing as a process, you don’t know what you’re doing.” W. Edwards Deming</h5>",
+                            "course-unit-case-study": "<h5>After having successfully closed her strategic business deal, Annie brings in her implementation team to meet with the client and make sure that all parties are clear on the deliverables of the project to ensure that the desired <strong>quality</strong> level is met, within the <strong>cost</strong> and <strong>time</strong> that were proposed. Even though the sale was closed Annie stays close to the client and the project implementation to ensure that the client is satisfied and ready to refer her to others as well as possibly take more solutions from her.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li>Video: <a href=\"https://youtu.be/yspN9Oz-UKM\" target=\"_blank\" rel=\"noopener\">Project Management: What Makes a Successful Project Manager</a></li></br>\r\n \t<li>Article: <a href=\"https://www.potential.com/articles/project-scope/\" target=\"_blank\" rel=\"noopener\">6 Steps to Successfully Define the Scope of a Project</a></li></br>\r\n \t<li>Suggested Course: <a href=\"https://smeep.potential.org/userdashboard/\" target=\"_blank\" rel=\"noopener\">Project Management Essentials</a></li>\r\n</br><li>Suggested Books: Click on the cover below to buy the book from Amazon.</li>\r\n</ul><br><br>\r\n<div class=\"col-md-12\"></div>\r\n <a href=\"https://www.amazon.com/gp/product/1628251840/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1628251840&linkCode=as2&tag=potential06-20&linkId=55b05bde9c4cd87d118d04b0919e7ee5\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Project-management.jpg\" >\r\n</div>\r\n</div>\r\n</a>\r\n<div class=\"col-md-1\"></div>\r\n<a href=\"https://www.amazon.com/gp/product/0596517718/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0596517718&linkCode=as2&tag=potential06-20&linkId=a6c97469637fe7bd4da01ce00fc47fcd\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Making-things-happen.jpg\" >\r\n</div>\r\n</div>\r\n</a>\r\n<div class=\"col-md-1\"></div>\r\n<a href=\"https://www.amazon.com/gp/product/1951527720/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1951527720&linkCode=as2&tag=potential06-20&linkId=ba7d05efb832d415ba8b0aeca9a44bb8\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Project-communication.jpg\" >\r\n</div>\r\n</div>\r\n</a>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "https://smeep.potential.org/userdashboard/#offers",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is your main challenge when managing a project? Time or Quality or Cost and how can you improve?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 963,
+                                "order": 1,
+                                "question": "What is your main challenge when managing a project? Time or Quality or Cost and how can you improve?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 915,
+                            "title": "SMEEP unit 5",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a need for a part-time project manager to support you with your project(s)?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2235,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2948,
+                        "title": "ICT setup",
+                        "slug": "3-things-you-should-know-about-your-ict-environment",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "o7lyPWar4FI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 Things you should know about your ICT environment are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Move your applications to the cloud</h5>\r\n</li>\r\n \t<li>\r\n<h5>Standardize your various hardware devices</h5>\r\n</li>\r\n \t<li>\r\n<h5>Focus on your needs and not on the features of products</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, we will learn what are the key drivers of information, communications and technology happening in organisations.</h5>\r\n<h5>ICT is an indispensable tool for running any business since it provides a way to connect your talent, clients, suppliers and increases productivity within your organisation.</h5>\r\n<h5>3 Important aspects that you need to take into account when evaluating ICT setups:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>If you can <b>move your applications</b> to the <b>cloud</b> it would be better since it would save you maintenance, backing up data, paying up front for licenses.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Standardize</b> your various <b>hardware devices</b> so that it would become easier for you to manage and maintain.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Focus on your needs</b> and not on the features of products. Don’t get distracted by the bells and whistles.</h5>\r\n</li>\r\n</ul>\r\n<h5>Innovations are continuously taking place in the ICT space so you need to stay aware of tools and applications that could be of use to you.</h5>\r\n<h5>Remember, ICT should be used to help you become more productive so keep it simple!</h5>",
+                            "course-unit-quotes": "<h5>“It would appear that we have reached the limits of what it is possible to achieve with computer technology, although one should be careful with such statements, as they tend to sound pretty silly in 5 years.” John von Neumann</h5>",
+                            "course-unit-case-study": "<h5>A trading company that sells office supplies had a large outdoor sales team that would visit companies all day taking orders for various office supplies. Some of the sales teams would take tablets to the clients to show them the products and others would take their laptops. The sales team would then come back to the office and input on the CRM tool their forecasting and sales prospects.</h5>\r\n<h5>The IT manager started to realize that as the team grows, there is a need for standardization of products so that it would be easier to manage and fix problems. it would also be important for the company to offer the ability for sales staff to input their forecasting in a simple way from anywhere and thus a cloud based solution would be optimal.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li>Video: <a href=\"https://youtu.be/BpFKnPae1oY\" target=\"_blank\" rel=\"noopener\">AWS Quick Start - Hosting a Static Website on AWS (Demo)</a></li></br>\r\n \t<li>Article: <a href=\"https://aws.amazon.com/websites/\" target=\"_blank\" rel=\"noopener\">AWS Website Hosting Solutions</a></li></br>\r\n</br><li>Suggested Books: Click on the cover below to buy the book from Amazon.</li>\r\n</ul><br><br>\r\n<div class=\"col-md-12\"></div>\r\n <a href=\"https://www.amazon.com/gp/product/1108698069/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1108698069&linkCode=as2&tag=potential06-20&linkId=9ea2b75ae3b945723b0dcdc838b27857\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Cambridge-ICT.jpg\" >\r\n</div>\r\n</div>\r\n</a>\r\n<div class=\"col-md-1\"></div>\r\n<a href=\"https://www.amazon.com/gp/product/0415592771/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0415592771&linkCode=as2&tag=potential06-20&linkId=be265813e66b768cfebe9788089a79cb\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/ICT-Book.jpg\" >\r\n</div>\r\n</div>\r\n</a>\r\n<div class=\"col-md-1\"></div>\r\n<a href=\"https://www.amazon.com/gp/product/613982480X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=613982480X&linkCode=as2&tag=potential06-20&linkId=db022613df613d5e40b85d17a6a39ac9\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/ICT-Literacy.jpg\" >\r\n</div>\r\n</div>\r\n</a>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "https://smeep.potential.org/userdashboard/#offers",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Which aspect of your online presence do you need to enhance? (Hosting, Website, newsletter, marketing landing page, social media, other)",
+                            "course-unit-atq-two": "List the software applications (if any) in your company that you can move to the cloud? ",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 964,
+                                "order": 1,
+                                "question": "Which aspect of your online presence do you need to enhance? (Hosting, Website, newsletter, marketing landing page, social media, other)"
+                            },
+                            {
+                                "q_id": 985,
+                                "order": 2,
+                                "question": "List the software applications (if any) in your company that you can move to the cloud? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 916,
+                            "title": "SMEEP unit 6",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you need any support in web hosting, website development, social media presence, or digital marketing resources? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2237,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2944,
+                        "title": "Company financials",
+                        "slug": "important-financial-statements",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "LQ0sxysmbk0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 most Important Financial Statements are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Balance Sheet</h5>\r\n</li>\r\n \t<li>\r\n<h5>Profit or Loss Statement – P&L</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cash Flow statement</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn about the most important financial statements in any organization.</h5>\r\n<h5>Financial statements help to manage your business by showing you where the money came from, where it went and where is it now, allowing you in turn to ensure that you have a healthy business.</h5>\r\n<h5>The three most <b>Important Financial Statements</b> are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The <b>Balance Sheet</b> which highlights the assets – what you own, liabilities – what you owe, and capital – what is owed to owners. <b>Assets = liabilities + capital</b>.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The Profit or Loss Statement – <b>P&L </b>for short – also called Income statement includes how much sales or <b>revenue</b> you made over the year <b>less</b> the<b>expenses</b>.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The <b>Cash Flow</b> statement includes in the <b>Inflows and outflows</b> of <b>cash</b> in the company. This document is updated on a monthly basis since you always need to ensure you have enough cash to pay for your expenses.</h5>\r\n</li>\r\n</ul>\r\n<h5>As the saying says – cash is king!</h5>",
+                            "course-unit-quotes": "<h5>“Beware of little expenses. A small leak will sink a great ship.” Benjamin Franklin</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li>Video: <a href=\"https://youtu.be/FyMXlTMLLiw\" target=\"_blank\" rel=\"noopener\">Cash Flow Managment: the Cash Conversion Cycle</a></li></br>\r\n \t<li>Article: <a href=\"https://www.potential.com/articles/financial-planning-tips-for-entrepreneurs/\" target=\"_blank\" rel=\"noopener\">Financial Planning Tips for Entrepreneurs</a></li></br>\r\n<li>Article: <a href=\"https://www.potential.com/articles/small-business-cash-flow/\" target=\"_blank\" rel=\"noopener\">5 Tips to Help Your Small Business Avoid Cash Flow Issues</a></li></br>\r\n \t<li>Suggested Course: <a href=\"https://smeep.potential.org/userdashboard/\" target=\"_blank\" rel=\"noopener\">24-minute Accounting Course</a></li>\r\n</br><li>Suggested Books: Click on the cover below to buy the book from Amazon.</li>\r\n</ul><br><br>\r\n<div class=\"col-md-12\"></div>\r\n <a href=\"https://www.amazon.com/gp/product/1939370159/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1939370159&linkCode=as2&tag=potential06-20&linkId=9d969bcd2cdfc6ed4eb2f4103a5ad1bf\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Warren-Buffett-accounting.jpg\" >\r\n</div>\r\n</div>\r\n</a>\r\n<div class=\"col-md-1\"></div>\r\n<a href=\"https://www.amazon.com/gp/product/1422144119/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1422144119&linkCode=as2&tag=potential06-20&linkId=002a32e7e7210241573ae503ab14897b\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Financial-Intelligence.jpg\" >\r\n</div>\r\n</div>\r\n</a>\r\n<div class=\"col-md-1\"></div>\r\n<a href=\"https://www.amazon.com/gp/product/1601630239/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1601630239&linkCode=as2&tag=potential06-20&linkId=57d3f1befb62ce1e7aa7217ce6c4d421\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Financial-statement.jpg\" >\r\n</div>\r\n</div>\r\n</a>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "https://smeep.potential.org/userdashboard/#offers",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the things you can do to reduce your costs? (such as stopping non-essential services)",
+                            "course-unit-atq-two": "What are the ways in which you can generate more cash for your operations? (such as accepting payments through credit cards instead of transfers or checks)",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 962,
+                                "order": 1,
+                                "question": "What are the things you can do to reduce your costs? (such as stopping non-essential services)"
+                            },
+                            {
+                                "q_id": 984,
+                                "order": 2,
+                                "question": "What are the ways in which you can generate more cash for your operations? (such as accepting payments through credit cards instead of transfers or checks)"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 914,
+                            "title": "SMEEP unit 7",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you need a cloud based accounting software? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2233,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2950,
+                        "title": "Funding and Financing",
+                        "slug": "4-considerations-to-keep-in-mind-when-talking-to-funders",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "o7vu4_8MCsw",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 4 considerations to keep in mind when talking to funders are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Financial statements</h5>\r\n</li>\r\n \t<li>\r\n<h5>Strength of your strategy</h5>\r\n</li>\r\n \t<li>\r\n<h5>Strength of the management team</h5>\r\n</li>\r\n \t<li>\r\n<h5>Traction with existing clients or users</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn about what you should focus on when you want to expand your business.</h5>\r\n<h5>As the businesses become more successful, you may look for an expansion of your business by getting access to funders which could provide you with capital or debt.</h5>\r\n<h5>Four things that <b>funders look for</b> when backing a business:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The <b>financial statements</b> to ensure that the business is healthy and that with more money it can be even healthier.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The strength of the <b>strategy</b> to ensure that competitors wouldn’t be easily able to challenge your offerings.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The strength of the <b>team</b> that is managing the business and how well can that team overcome challenges and attract more great talent.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Traction that the business already has with <b>clients or users</b> which give credibility that the products or services that are being offered are in high demand.</h5>\r\n</li>\r\n</ul>\r\n<h5>The leadership team would need to assess which route to take when seeking funding or whether to keep on growing the business from within by re-investing the profits. In all cases, continuously thinking about the above 4 considerations would help guide you toward prosperity.</h5>",
+                            "course-unit-quotes": "<h5>An entrepreneur without funding is a musician without an instrument - Robert A. Rice Jr.</h5>",
+                            "course-unit-case-study": "<h5>A mobile phone retail shop was starting to get a lot of traction in their stores due to the personalized service and online support that they provide to their clients. The owner felt that if the online support and service could be expanded, there could be a great business opportunity in it.</h5>\r\n<h5>To do that expansion, there would be a need to hire additional experts in online services, invest in the development of the new platform and put a good marketing campaign to inform people about the service. So as not to take loans and burden his existing business with monthly loan payments, the entrepreneur put together a clear strategy, identified team members to be hired, demonstrated the success of the current existing online platform and went to seek investors to partner on this project.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n<li>Facebook is offering USD 100M in cash grants and ad credits to help small businesses during this challenging time. Apply now:<a href=\"https://www.facebook.com/business/boost/grants?content_id=KKf6RWdyo87L7QO\" target=\"_blank\" rel=\"noopener\"> Small business grants programme</a></li></br>\r\n \t<li>Video: <a href=\"https://youtu.be/Sj-PhhTzf9g\" target=\"_blank\" rel=\"noopener\">Five Ideas on How to Fund Your Business</a></li></br>\r\n</br><li>Suggested Books: Click on the cover below to buy the book from Amazon.</li>\r\n</ul><br><br>\r\n<div class=\"col-md-12\"></div>\r\n <a href=\"https://www.amazon.com/gp/product/9198633821/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=9198633821&linkCode=as2&tag=potential06-20&linkId=38d86357f1fc5868a2c42ad74401852e\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/51qoKYYiZUL._SL250_.jpg\" >\r\n</div>\r\n</div>\r\n</a>\r\n<div class=\"col-md-1\"></div>\r\n<a href=\"https://www.amazon.com/gp/product/1951929144/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1951929144&linkCode=as2&tag=potential06-20&linkId=ea712f1b3acf803eec2badd49df18b10\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/Get-money-for-sme.jpg\" >\r\n</div>\r\n</div>\r\n</a>\r\n<div class=\"col-md-1\"></div>\r\n<a href=\"https://www.amazon.com/gp/product/8799990202/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=8799990202&linkCode=as2&tag=potential06-20&linkId=cdb6a8db5aa85d5f38132e78407e8381\" target=\"_blank\">\r\n<div style=\"margin-top: 1%;\" class=\"col-md-3\">\r\n  <div class=\"card\">\r\n       <img src=\"https://smeep.potential.org/wp-content/uploads/2021/03/41WJnPwdHoL._SL250_.jpg\" >\r\n</div>\r\n</div>\r\n</a>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "https://smeep.potential.org/userdashboard/#offers",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/smeep.php",
+                            "course-unit-atq-one": "Before talking to banks or investors, which aspects do you need to improve? (Financials, Strategy, Team and/or Market Position)",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 992,
+                                "order": 1,
+                                "question": "Before talking to banks or investors, which aspects do you need to improve? (Financials, Strategy, Team and/or Market Position)"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 917,
+                            "title": "SMEEP unit 8",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How many employees do you have?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "only me",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "less than 5",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "between 5 and 20",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "more than 20",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2240,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Are you looking for?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Investment / Funding",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Financing / Loan",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2241,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "How useful was the course?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Very useful",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Somehow useful",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Not useful",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2301,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/06/SMEEP.png",
+                "zip_path": "wp-content/uploads/2020/06/SMEEP.png",
+                "level": "card"
+            }
+        ]
+    }
+}

@@ -1,0 +1,95 @@
+{{#> layout}}
+
+  <p style="margin:0 0 20px;font-family:'Noto Sans',system-ui,sans-serif;font-size:15px;line-height:1.65;color:#1A0A12;">
+    Hi <strong>{{smeName}}</strong>,
+  </p>
+
+  <p style="margin:0 0 20px;font-family:'Noto Sans',system-ui,sans-serif;font-size:15px;line-height:1.65;color:#1A0A12;">
+    Your order for <strong style="color:#9f2063;">{{offerTitle}}</strong> ({{offerCategory}}) has been confirmed.
+  </p>
+
+  <!-- Order info box -->
+  <table cellpadding="0" cellspacing="0" border="0" role="presentation" width="100%"
+         style="margin:0 0 28px;">
+    <tr>
+      <td style="background-color:#FDF5F9;border-left:4px solid #9f2063;border-radius:0 8px 8px 0;
+                 padding:16px 20px;">
+        <p style="margin:0 0 4px;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:11px;font-weight:700;letter-spacing:0.08em;
+                  text-transform:uppercase;color:#9f2063;">Points Deducted</p>
+        <p style="margin:0;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:15px;font-weight:600;color:#1A0A12;">{{pointsDeducted}} pts</p>
+        {{#if isPaid}}
+        <p style="margin:12px 0 4px;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:11px;font-weight:700;letter-spacing:0.08em;
+                  text-transform:uppercase;color:#9f2063;">Amount Charged</p>
+        <p style="margin:0;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:15px;font-weight:600;color:#1A0A12;">{{amountCharged}}</p>
+        {{/if}}
+      </td>
+    </tr>
+  </table>
+
+  <!-- Billing details box -->
+  {{#if billingName}}
+  <table cellpadding="0" cellspacing="0" border="0" role="presentation" width="100%"
+         style="margin:0 0 28px;">
+    <tr>
+      <td style="background-color:#FDF5F9;border-left:4px solid #9f2063;border-radius:0 8px 8px 0;
+                 padding:16px 20px;">
+        <p style="margin:0 0 12px;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:11px;font-weight:700;letter-spacing:0.08em;
+                  text-transform:uppercase;color:#9f2063;">Billing Details</p>
+        <p style="margin:0 0 4px;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:14px;color:#1A0A12;"><strong>{{billingName}}</strong></p>
+        {{#if billingEmail}}
+        <p style="margin:0 0 4px;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:13px;color:#4B5563;">{{billingEmail}}</p>
+        {{/if}}
+        {{#if billingPhone}}
+        <p style="margin:0 0 4px;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:13px;color:#4B5563;">{{billingPhone}}</p>
+        {{/if}}
+        {{#if billingCompany}}
+        <p style="margin:0 0 4px;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:13px;color:#4B5563;">{{billingCompany}}</p>
+        {{/if}}
+        {{#if billingCountry}}
+        <p style="margin:0;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:13px;color:#4B5563;">{{billingCountry}}</p>
+        {{/if}}
+        {{#if billingNotes}}
+        <p style="margin:12px 0 4px;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:11px;font-weight:700;letter-spacing:0.08em;
+                  text-transform:uppercase;color:#9f2063;">Order Notes</p>
+        <p style="margin:0;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:13px;color:#4B5563;">{{billingNotes}}</p>
+        {{/if}}
+      </td>
+    </tr>
+  </table>
+  {{/if}}
+
+  <!-- CTA button -->
+  <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin:0 0 28px;">
+    <tr>
+      <td align="center" bgcolor="#9f2063"
+          style="background-color:#9f2063;border-radius:8px;mso-padding-alt:0;">
+        <a href="{{siteUrl}}/dashboard/offers" target="_blank"
+           style="display:inline-block;padding:14px 32px;
+                  font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:15px;font-weight:700;color:#ffffff;
+                  text-decoration:none;border-radius:8px;
+                  mso-padding-alt:14px 32px;">
+          View My Offers
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <p style="margin:0;font-family:'Noto Sans',system-ui,sans-serif;font-size:13px;
+            line-height:1.6;color:#6B7280;">
+    Thank you for being part of SMEEP. Enjoy your offer!
+  </p>
+
+{{/layout}}

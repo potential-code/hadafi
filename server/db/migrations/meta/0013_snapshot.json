@@ -1,0 +1,91 @@
+{
+  "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+  "prevId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.users": {
+      "name": "users",
+      "schema": "",
+      "columns": {
+        "id": { "name": "id", "type": "uuid", "primaryKey": true, "notNull": true, "default": "gen_random_uuid()" },
+        "full_name": { "name": "full_name", "type": "text", "primaryKey": false, "notNull": true },
+        "email": { "name": "email", "type": "text", "primaryKey": false, "notNull": true },
+        "password_hash": { "name": "password_hash", "type": "text", "primaryKey": false, "notNull": true },
+        "role": { "name": "role", "type": "text", "primaryKey": false, "notNull": true, "default": "'sme'" },
+        "country": { "name": "country", "type": "text", "primaryKey": false, "notNull": false },
+        "avatar_url": { "name": "avatar_url", "type": "text", "primaryKey": false, "notNull": false },
+        "bio": { "name": "bio", "type": "text", "primaryKey": false, "notNull": false },
+        "company": { "name": "company", "type": "text", "primaryKey": false, "notNull": false },
+        "phone": { "name": "phone", "type": "text", "primaryKey": false, "notNull": false },
+        "invite_code_id": { "name": "invite_code_id", "type": "uuid", "primaryKey": false, "notNull": false },
+        "points": { "name": "points", "type": "integer", "primaryKey": false, "notNull": true, "default": 0 },
+        "timezone": { "name": "timezone", "type": "text", "primaryKey": false, "notNull": false },
+        "meeting_link": { "name": "meeting_link", "type": "text", "primaryKey": false, "notNull": false },
+        "created_at": { "name": "created_at", "type": "timestamp", "primaryKey": false, "notNull": true, "default": "now()" },
+        "updated_at": { "name": "updated_at", "type": "timestamp", "primaryKey": false, "notNull": true, "default": "now()" }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": { "users_email_unique": { "name": "users_email_unique", "nullsNotDistinct": false, "columns": ["email"] } },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.live_events": {
+      "name": "live_events",
+      "schema": "",
+      "columns": {
+        "id": { "name": "id", "type": "uuid", "primaryKey": true, "notNull": true, "default": "gen_random_uuid()" },
+        "title": { "name": "title", "type": "text", "primaryKey": false, "notNull": true },
+        "description": { "name": "description", "type": "text", "primaryKey": false, "notNull": false },
+        "type": { "name": "type", "type": "text", "primaryKey": false, "notNull": true, "default": "'Webinar'" },
+        "track": { "name": "track", "type": "text", "primaryKey": false, "notNull": false },
+        "date": { "name": "date", "type": "text", "primaryKey": false, "notNull": true },
+        "time": { "name": "time", "type": "text", "primaryKey": false, "notNull": true },
+        "meeting_link": { "name": "meeting_link", "type": "text", "primaryKey": false, "notNull": false },
+        "recording_link": { "name": "recording_link", "type": "text", "primaryKey": false, "notNull": false },
+        "cover_image": { "name": "cover_image", "type": "text", "primaryKey": false, "notNull": false },
+        "status": { "name": "status", "type": "live_event_status", "typeSchema": "public", "primaryKey": false, "notNull": true, "default": "'draft'" },
+        "created_by": { "name": "created_by", "type": "uuid", "primaryKey": false, "notNull": false },
+        "created_at": { "name": "created_at", "type": "timestamp", "primaryKey": false, "notNull": true, "default": "now()" },
+        "updated_at": { "name": "updated_at", "type": "timestamp", "primaryKey": false, "notNull": true, "default": "now()" }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "live_events_created_by_users_id_fk": {
+          "name": "live_events_created_by_users_id_fk",
+          "tableFrom": "live_events",
+          "tableTo": "users",
+          "columnsFrom": ["created_by"],
+          "columnsTo": ["id"],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.live_event_status": {
+      "name": "live_event_status",
+      "schema": "public",
+      "values": ["draft", "published"]
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

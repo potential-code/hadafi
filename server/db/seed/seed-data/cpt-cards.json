@@ -1,0 +1,783 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:45:51+00:00",
+    "source_site": "https://smeep.potential.org",
+    "cpt": {
+        "slug": "cards",
+        "label": "Course Cards",
+        "description": "Sidebar/dashboard tiles linking to WP Courseware courses.",
+        "items": [
+            {
+                "post_id": 4015,
+                "title": "AI for Growth: The Practical SME Guide",
+                "slug": "ai-for-growth-the-practical-sme-guide",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/the-ai-opportunity-for-smes/",
+                    "course_id": "116",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2024/12/SMEEP-course-card.png"
+                }
+            },
+            {
+                "post_id": 3578,
+                "title": "Digital Content",
+                "slug": "digital-content",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/identifying-your-keywords-and-useful-information/",
+                    "course_id": "115",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2021/04/futurejobs.jpeg"
+                }
+            },
+            {
+                "post_id": 3159,
+                "title": "Online presence",
+                "slug": "web-presence-checklist",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/items-needed/",
+                    "course_id": "112",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/06/Web-presence-card.png"
+                }
+            },
+            {
+                "post_id": 3005,
+                "title": "SMEEP",
+                "slug": "",
+                "status": "draft",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "",
+                    "course_id": "",
+                    "course_image_url": ""
+                }
+            },
+            {
+                "post_id": 2927,
+                "title": "Evolving Your Business",
+                "slug": "smeep-course",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/overview-about-the-program/",
+                    "course_id": "110",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/06/SMEEP.png"
+                }
+            },
+            {
+                "post_id": 2722,
+                "title": "Fitness For Business",
+                "slug": "fitness-for-business",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/fitness-business-prettest/",
+                    "course_id": "93",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Fitness-for-business-personel.png"
+                }
+            },
+            {
+                "post_id": 2720,
+                "title": "Nutrition Tips",
+                "slug": "nutrition-tips",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/nutrition-tips-pretest/",
+                    "course_id": "94",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Nutritiontips.png"
+                }
+            },
+            {
+                "post_id": 2718,
+                "title": "Problem Solving",
+                "slug": "problem-solving",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/problem-solving-pre-test/",
+                    "course_id": "95",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Problem-Solving.png"
+                }
+            },
+            {
+                "post_id": 2716,
+                "title": "Optimizing Nutrition",
+                "slug": "optimizing-nutrition",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/optimizing-nutrition-pretest/",
+                    "course_id": "96",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Optimizing-Nutrition.jpg"
+                }
+            },
+            {
+                "post_id": 2714,
+                "title": "Internet Research",
+                "slug": "internet-research",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/internet-research-pretest/",
+                    "course_id": "97",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Internet-Research.png"
+                }
+            },
+            {
+                "post_id": 2704,
+                "title": "Online Productivity Tools",
+                "slug": "online-productivity-tools",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/productivity-online-tools-pretest/",
+                    "course_id": "98",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Online-productivity-tools.png"
+                }
+            },
+            {
+                "post_id": 2520,
+                "title": "24 Minute MBA",
+                "slug": "24-min-mba",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/24-minute-mba-pretest/",
+                    "course_id": "91",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Untitled-1.jpg"
+                }
+            },
+            {
+                "post_id": 2446,
+                "title": "Communication Skills",
+                "slug": "communication-skills",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/effective-communication-skills-pretest-2/",
+                    "course_id": "88",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/communication.png"
+                }
+            },
+            {
+                "post_id": 2442,
+                "title": "24 Minute Human Resources",
+                "slug": "24-min-hr",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/human-resource-management-key-activities/",
+                    "course_id": "89",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/hr.png"
+                }
+            },
+            {
+                "post_id": 2364,
+                "title": "24 Minute Accounting",
+                "slug": "24-minute-accounting",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/24-minute-accounting-pretest/",
+                    "course_id": "15",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/accounting.png"
+                }
+            },
+            {
+                "post_id": 2362,
+                "title": "Digital Marketing",
+                "slug": "24minmarketing",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/marketing-plan/",
+                    "course_id": "16",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/marketing.png"
+                }
+            },
+            {
+                "post_id": 2360,
+                "title": "Business Etiquette",
+                "slug": "business-etiquette",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/business-etiquette-pretest/",
+                    "course_id": "17",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/business-etic.png"
+                }
+            },
+            {
+                "post_id": 2358,
+                "title": "Funding and Investment",
+                "slug": "business-model-innovation",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/define-your-customer-segments/",
+                    "course_id": "18",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/ar.png"
+                }
+            },
+            {
+                "post_id": 2356,
+                "title": "Call Center Essentials",
+                "slug": "call-center-essentials",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/call-center-essentials-pretest/",
+                    "course_id": "20",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/call-center.png"
+                }
+            },
+            {
+                "post_id": 2353,
+                "title": "24 Minute CIO",
+                "slug": "24-minute-cio",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/24-minute-cio-pretest/",
+                    "course_id": "21",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/cio.png"
+                }
+            },
+            {
+                "post_id": 2351,
+                "title": "Creative Thinking",
+                "slug": "creative-thinking",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/creative-thinking-pretest/",
+                    "course_id": "22",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/creative-thinking.png"
+                }
+            },
+            {
+                "post_id": 2349,
+                "title": "Critical Thinking",
+                "slug": "critical-thinking",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/critical-thinking-pretest/",
+                    "course_id": "23",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/criticat-thinking.png"
+                }
+            },
+            {
+                "post_id": 2347,
+                "title": "Corporate Social Responsibility (CSR)",
+                "slug": "corporate-social-responsibility-csr",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/corporate-social-responsibility-csr-pretest/",
+                    "course_id": "24",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/csr.png"
+                }
+            },
+            {
+                "post_id": 2345,
+                "title": "Uncovering Customer Needs",
+                "slug": "uncovering-customer-needs",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/uncovering-customer-needs-pretest/",
+                    "course_id": "25",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/Customer-needs.png"
+                }
+            },
+            {
+                "post_id": 2343,
+                "title": "Customer Service",
+                "slug": "customer-service",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/customer-service-pretest/",
+                    "course_id": "26",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/customer-service.png"
+                }
+            },
+            {
+                "post_id": 2341,
+                "title": "CV Writing",
+                "slug": "cv-writing",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/cv-writing-pre-test/",
+                    "course_id": "27",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/cv.png"
+                }
+            },
+            {
+                "post_id": 2338,
+                "title": "Effective Customer Meetings",
+                "slug": "effective-customer-meetings",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/effective-customer-meetings-pretest/",
+                    "course_id": "28",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/cutomer-meetings-1.png"
+                }
+            },
+            {
+                "post_id": 2336,
+                "title": "Expand your Business",
+                "slug": "expand-your-business",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/expand-business-pretest/",
+                    "course_id": "29",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/expand.png"
+                }
+            },
+            {
+                "post_id": 2334,
+                "title": "Financial Literacy",
+                "slug": "financial-literacy",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/financial-literacy-pretest/",
+                    "course_id": "31",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/financial-literacy.png"
+                }
+            },
+            {
+                "post_id": 2332,
+                "title": "Innovation Design Thinking Course",
+                "slug": "innovation",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/innovation-design-thinking-pretest/",
+                    "course_id": "32",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/innovation.png"
+                }
+            },
+            {
+                "post_id": 2330,
+                "title": "Interview Skills",
+                "slug": "interview-skills",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/interview-skills-pre-test/",
+                    "course_id": "33",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/interview.png"
+                }
+            },
+            {
+                "post_id": 2326,
+                "title": "Freelancing in Gig Economy",
+                "slug": "freelancing-in-gig-economy",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/freelancing-gig-economy-pretest/",
+                    "course_id": "34",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/gig.png"
+                }
+            },
+            {
+                "post_id": 2324,
+                "title": "Leadership Essentials",
+                "slug": "leadership-essentials",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/leadership-essentials/",
+                    "course_id": "35",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/Leadership-Essentials.png"
+                }
+            },
+            {
+                "post_id": 2322,
+                "title": "Managing your Cash Flow",
+                "slug": "managing-your-cash-flow",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/managing-cash-flow-pretest/",
+                    "course_id": "36",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/cash-flow.png"
+                }
+            },
+            {
+                "post_id": 2320,
+                "title": "Negotiation Skills",
+                "slug": "negotiation-skills",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/negotiation-skills-pretest/",
+                    "course_id": "37",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/negotiation.png"
+                }
+            },
+            {
+                "post_id": 2318,
+                "title": "Online Safety",
+                "slug": "online-safety",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/online-safety-pre-test/",
+                    "course_id": "38",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/internet.png"
+                }
+            },
+            {
+                "post_id": 2316,
+                "title": "Planning and Time Management",
+                "slug": "planning-and-time-management",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/planning-time-management-pretest/",
+                    "course_id": "39",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/time.png"
+                }
+            },
+            {
+                "post_id": 2312,
+                "title": "Project Management Essentials",
+                "slug": "project-management-essentials",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/project-management-essentials-pretest/",
+                    "course_id": "40",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/project-management.png"
+                }
+            },
+            {
+                "post_id": 2309,
+                "title": "Podcast",
+                "slug": "podcast",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/podcast-pretest/",
+                    "course_id": "41",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/podcast.png"
+                }
+            },
+            {
+                "post_id": 2307,
+                "title": "Productivity Skills",
+                "slug": "productivity-skills",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/productivity-skills-pretest/",
+                    "course_id": "42",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/online-productivity.png"
+                }
+            },
+            {
+                "post_id": 2305,
+                "title": "24 Minute Sales",
+                "slug": "24-minute-sales",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/24-minute-sales/",
+                    "course_id": "43",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/sales.png"
+                }
+            },
+            {
+                "post_id": 2303,
+                "title": "Social Media for Business",
+                "slug": "social-media-for-business",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/social-media-f/",
+                    "course_id": "44",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/social-media.png"
+                }
+            },
+            {
+                "post_id": 2301,
+                "title": "Starting a Blog Online",
+                "slug": "starting-a-blog-online",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/starting-a-blog-online-pretest/",
+                    "course_id": "45",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/start-blog.png"
+                }
+            },
+            {
+                "post_id": 2299,
+                "title": "Startup your Business",
+                "slug": "startup-your-business",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/startup-business-pretest/",
+                    "course_id": "46",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/startup.png"
+                }
+            },
+            {
+                "post_id": 2297,
+                "title": "Supervision Skills",
+                "slug": "supervision-skills",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/supervision-skills-pretest/",
+                    "course_id": "47",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/supervision.png"
+                }
+            },
+            {
+                "post_id": 2295,
+                "title": "SWOT Analysis",
+                "slug": "swot-analysis",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/swot-analysis-pretest/",
+                    "course_id": "48",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/swot.png"
+                }
+            },
+            {
+                "post_id": 2293,
+                "title": "Teamwork",
+                "slug": "teamwork",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/teamwork-pretest/",
+                    "course_id": "49",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/teamwork.png"
+                }
+            },
+            {
+                "post_id": 2291,
+                "title": "Presentation Skills",
+                "slug": "presentation-skills",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": null,
+                "meta": {
+                    "course_unit_number": "",
+                    "course_time": "",
+                    "course_unit_link": "https://smeep.potential.org/module-1/presentation-skills-pretest/",
+                    "course_id": "50",
+                    "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/presentation.png"
+                }
+            }
+        ]
+    },
+    "assets": {
+        "images": []
+    }
+}

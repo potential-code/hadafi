@@ -1,0 +1,786 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 22,
+        "title": "Creative Thinking",
+        "description": "Creative Thinking",
+        "unit_count": 7,
+        "author_id": 0,
+        "course_post_id": 3665,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2351,
+            "title": "Creative Thinking",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/creative-thinking-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/creative-thinking.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 22,
+                "title": "Creative Thinking",
+                "description": "Creative Thinking - Potential",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 864,
+                        "title": "Creative Thinking PreTest",
+                        "slug": "creative-thinking-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 163,
+                            "title": "Creative Thinking PreTest",
+                            "description": "Creative Thinking PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "The following is true about creativity except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Adds value to your life ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Raises hidden talents",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Helps you think with the help of others around you",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Helps you become true to yourself",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 350,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Being a creative thinker means being a traditional thinker with limited abilities. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 351,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "“6 Thinking Hats” is a system designed by Edward de Bono as an approach to promote critical thinking. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 352,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Lateral Thinking is not the same as logical thinking. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 353,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following should be avoided in order to think creatively except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Ego",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Get out of your comfort zone",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Assume certain perceptions",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Complain about a problem",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 354,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 865,
+                        "title": "8 Reasons Why Creativity is an Essential Skill for Everyone to Learn",
+                        "slug": "8-reasons-why-creativity-is-an-essential-skill-for-everyone-to-learn",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "8ySm6qs8HTw",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>8 reasons why you are advised to be creative in your everyday life:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Adds value</strong> not only to your life but also to the life of others.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Helps you become <strong>self reliant and more confident</strong>.</h5>\r\n</li>\r\n \t<li>\r\n<h5>By thinking creatively you <strong>become true to yourself</strong>.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gives you a reason to wake up every morning to start <strong>exploring new ideas and thoughts</strong>.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Brings out hidden talents.</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Makes you feel satisfied</strong> at all phases of your life.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Helps you <strong>express your feelings.</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Makes it easier to <strong>master difficult situations</strong>.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn why creativity is important in our lives.</h5>\r\n<h5>Creativity is the process of nurturing your imagination allowing you to “think out of the box”. Being able to train your mind to think creatively helps you invent, problem-solve, create and communicate in fresh, new ways. When you think open-mindedly you become a happier person ready to accept exciting surprises from life.</h5>\r\n<h5>The following are 8 reasons why you are advised to be creative in your everyday life:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Thinking creatively <strong>adds value</strong> not only to your life but also to the life of others. Translating your thoughts into beautiful work, projects ‘yourself’ clearly into the world you live in.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Creative thinking helps you become <strong>self reliant and more confident</strong>. Thinking on your own without the help of others makes you a stronger truly happy person.</h5>\r\n</li>\r\n \t<li>\r\n<h5>By thinking creatively, you <strong>become true to yourself</strong>. You accept who you are without worrying about other peoples’ judgments.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Thinking open-mindedly gives you a reason to wake up every morning to start <strong>exploring new ideas and thoughts</strong>. It makes your life worth living.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Creative thinking can <strong>bring out hidden talents</strong> that you have not noticed before. Instead of just complaining about a problem, it helps you discover new opportunities that you haven’t been aware of.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Thinking ‘out of the box’ <strong>makes you feel satisfied</strong> in all phases of your life. You never feel that you have reached a dead end instead you are always ready to explore new challenges. You have the ability to see what others can’t see.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Being creative helps you <strong>express your feelings</strong> allowing you to be whatever you want to be in this world.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The more experienced you get with thinking creatively, the easier it becomes to <strong>master difficult situations</strong> you may face in your life.</h5>\r\n</li>\r\n</ul>\r\n<h5>As explained, creative thinking has many advantages but most importantly it will make you a happier, better person so start practicing!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n         <li><a href=\"https://www.potential.com/articles/creative-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Creative Thinking: Become an Exceptional Thinker</a></li>\r\n         <li><a href=\"https://www.potential.com/interpersonal-skills/7-key-tips-to-develop-strategic-thinking-in-your-organization/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Key Tips to Develop Strategic Thinking in Your Organization</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I should keep practice nurturing my mind to think creatively due to the following reasons:",
+                            "course-unit-atq-two": "When I think creatively, I will improve the following qualities:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 609,
+                                "order": 1,
+                                "question": "I should keep practice nurturing my mind to think creatively due to the following reasons:"
+                            },
+                            {
+                                "q_id": 610,
+                                "order": 2,
+                                "question": "When I think creatively, I will improve the following qualities:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 164,
+                            "title": "Creative Thinking Complete Unit 1",
+                            "description": "Creative Thinking Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you feel excited waking up in the morning ready to explore life?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 355,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 866,
+                        "title": "6 Ways to Apply Creative Thinking in your Everyday Life",
+                        "slug": "6-ways-to-apply-creative-thinking-in-your-everyday-life",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "yVybK1J_nzs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>6 ways to apply creative thinking in your life:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Risk Taking</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Playing</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Regularly asking Why</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Generating large quantity of ideas</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Day Dreaming</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Reading</strong></h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn 6 ways to apply creativity in your life.</h5>\r\n<h5>Successful people today are great creative thinkers. Practicing creativity on a daily basis guides you to become a great success in the future. The most important thing is to feel free when trying to apply creativity in your life. Creativity is having the power to expand your imagination bringing the most out of your potentials.</h5>\r\n<h5>The following are 6 ways to apply creative thinking in your life:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Risk Taking</strong>: Being adventurous and ready for life’s challenges pushes you a step forward to creativity.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Playing:</strong> Trying to play and be funny at times gives you the chance to manipulate the given problem accordingly to what you need.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Regularly asking Why: </strong>Being curious and nosy, wanting to ask questions all the time opens endless doors and possibilities.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Generating large quantity of ideas: </strong>By producing a big number of possible solutions, a smart, unique, unexpected answer might be discovered.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Day Dreaming: </strong>Wondering about things related to your project frees your mind to expand its horizons and explore new ways out there.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Reading: </strong>Going to the library and spending hours reading can nurture your imagination and grow a strong creative thinker.</h5>\r\n</li>\r\n</ul>\r\n<h5>Therefore, by working on being a risk taker, a day dreamer and a good reader you are forcing your mind to grow in all directions. So follow the above steps to WOW your way to become a high-standard creative thinker as opposed to being a boring, traditional thinker with limited abilities!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n         <li><a href=\"https://www.potential.com/articles/creative-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Creative Thinking: Become an Exceptional Thinker</a></li>\r\n         <li><a href=\"https://www.potential.com/interpersonal-skills/7-key-tips-to-develop-strategic-thinking-in-your-organization/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Key Tips to Develop Strategic Thinking in Your Organization</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What can I do to ensure that my mind thinks creatively?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 611,
+                                "order": 1,
+                                "question": "What can I do to ensure that my mind thinks creatively?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 165,
+                            "title": "Creative Thinking Complete Unit 2",
+                            "description": "Creative Thinking Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you a risk-taker?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 356,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 867,
+                        "title": "6 Thinking Hats: Approach Creative Thinking by De Bono",
+                        "slug": "6-thinking-hats-approach-creative-thinking-by-de-bono",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "rzqYS0r2veQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The following are the 6 thinking hats and what each color represents:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>“White Hat”- stating facts and information</h5>\r\n</li>\r\n \t<li>\r\n<h5>“Yellow Hat”-looking at the bright side</h5>\r\n</li>\r\n \t<li>\r\n<h5>“Red Hat”- expressing feelings and emotions</h5>\r\n</li>\r\n \t<li>\r\n<h5>“Blue Hat”-managing and controlling</h5>\r\n</li>\r\n \t<li>\r\n<h5>“Green Hat”-exploring other alternatives</h5>\r\n</li>\r\n \t<li>\r\n<h5>“Black Hat”-being realistic and practical</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn about the “6 Thinking Hats” Approach to Creative Thinking.</h5>\r\n<h5>The “6 Thinking Hats” is a system designed by Edward de Bono as an approach to promote creative thinking. It is a tool used to enhance real thinking to make the process more productive and focused. The ‘6 Thinking Hats’ separates thinking into 6 different roles, each role identified with a colored symbolic thinking hat. This approach helps to redirect thoughts by mentally switching from one hat to the other.</h5>\r\n<h5>The following are the 6 thinking hats and what each color represents:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>“White Hat”- stating facts and information, things you already know.</h5>\r\n</li>\r\n \t<li>\r\n<h5>“Yellow Hat”-looking at the bright side, being optimistic and positive, adding value and benefits.</h5>\r\n</li>\r\n \t<li>\r\n<h5>“Red Hat”- expressing feelings and emotions, your reactions and opinions.</h5>\r\n</li>\r\n \t<li>\r\n<h5>“Blue Hat”-managing and controlling, looking at the bigger picture.</h5>\r\n</li>\r\n \t<li>\r\n<h5>“Green Hat”-exploring other alternatives, generating new ideas and solutions.</h5>\r\n</li>\r\n \t<li>\r\n<h5>“Black Hat”-being realistic and practical, being cautious, finding where things might go wrong, discovering dangers and difficulties. Black Hat is usually called the ‘devil’s voice’.</h5>\r\n</li>\r\n</ul>\r\n<h5>The above 6 hats when combined together allows your mind to think clearly and objectively. For example, you can start by grabbing the “Blue Hat” asking yourself questions such as: what is our goal? Are the 6 guidelines observed clearly? What is the subject addressed? This helps you get an overall view of your problem. Next, you can grab the “Red Hat” expressing what you feel towards the problem and asking yourself who might be affected from this problem. Then, you can grab “Yellow” and later “Green Hat” to invent new concept and solutions. Finally, you can switch between the “White” and “Black hat” in order to validate your solution by using information that you already know.</h5>\r\n<h5>Start training your mind to switch directions from one hat to another to solve problems efficiently, effectively bringing out benefits too!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n         <li><a href=\"https://www.potential.com/articles/creative-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Creative Thinking: Become an Exceptional Thinker</a></li>\r\n         <li><a href=\"https://www.potential.com/interpersonal-skills/7-key-tips-to-develop-strategic-thinking-in-your-organization/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Key Tips to Develop Strategic Thinking in Your Organization</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Using the “6 Thinking Hats” approach by Edward De Bono, which hat/s shall I grab in order to get an overall view of my problem?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 612,
+                                "order": 1,
+                                "question": "Using the “6 Thinking Hats” approach by Edward De Bono, which hat/s shall I grab in order to get an overall view of my problem?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 166,
+                            "title": "Creative Thinking Complete Unit 3",
+                            "description": "Creative Thinking Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever tried the “6 Thinking Hats” approach to help your mind think clearly and objectively while making a decision?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 357,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 868,
+                        "title": "Another Creative Approach: Lateral Thinking",
+                        "slug": "another-creative-approach-lateral-thinking",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "8dLrvMfpQr0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Lateral Thinking involves the following 5 steps:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Change the focus of your thinking</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Break free from limits</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Develop new ideas</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Use diverse unrelated data</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Look beyond obvious alternatives</strong></h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn another approach to creative thinking called “Lateral Thinking”.</h5>\r\n<h5>Lateral Thinking is a phrase invented by Edward De Bono that means messy thinking. Lateral thinking is far from logical thinking most people use today. It is expanding your thinking limits, freeing yourself from boundaries giving you the chance to explore things you never knew existed.</h5>\r\n<h5>The following are 5 steps involved in Lateral Thinking:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Change the focus of your thinking</strong>, allowing your mind to discover new options. Don’t be afraid to try something new.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Break free from limits</strong> of traditional logical thinking of reason. Think messy, think all over making every small detail count.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Develop new ideas and shape them to fit the</strong> situation you have on hand. Generating ideas is not sufficient; implementing these ideas according to what you need is what it takes to be a success.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Use diverse unrelated data</strong> to help you come up with new concepts. Break down data, group them together or even try data you have never imagined might work. By experimenting without judgment, unexpected solutions may arise!</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Look beyond obvious alternatives</strong>. Sometimes, opportunities are hidden and can only be discovered by thinking ‘out of the box’.</h5>\r\n</li>\r\n</ul>\r\n<h5>Creative thinking is the ability to free your mind to create, interpret and visualize possibilities. Whether you decide to use lateral thinking or the 6 hats thinking approach, work your way to become a WOW creative thinker!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n         <li><a href=\"https://www.potential.com/articles/creative-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Creative Thinking: Become an Exceptional Thinker</a></li>\r\n         <li><a href=\"https://www.potential.com/interpersonal-skills/7-key-tips-to-develop-strategic-thinking-in-your-organization/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Key Tips to Develop Strategic Thinking in Your Organization</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Using the lateral thinking approach by Edward De Bono, which steps shall I follow to help me come up with new concepts for my problem?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 613,
+                                "order": 1,
+                                "question": "Using the lateral thinking approach by Edward De Bono, which steps shall I follow to help me come up with new concepts for my problem?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 167,
+                            "title": "Creative Thinking Complete Unit 4",
+                            "description": "Creative Thinking Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Generating ideas is not sufficient; have you tried implementing your ideas according to what you need? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 358,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 869,
+                        "title": "8 Things to Avoid which will Impact your Creative Thinking",
+                        "slug": "8-things-to-avoid-which-will-impact-your-creative-thinking",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "hGZ82JemIXo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>8 things you are advised to avoid in order to be able to unleash your creativity:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Complain about a problem</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Worry about what others think</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Stay in your ‘comfort zone’</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>School limiting your creativity</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Hold back when you have a good idea</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Ego</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Stop learning</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Assume certain perceptions</strong></h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn 8 things to avoid which will impact your Creative Thinking</h5>\r\n<h5>Creative thinking pushes passion allowing you to love and live beyond your limits. However, sometimes situations happen in life that restrict your freedom. It’s up to you to break down these walls and live up to your full potential.</h5>\r\n<h5>The following are 8 things you are advised to avoid in order to be able to unleash your creativity:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Complain about a problem: </strong>Don’t just nag about a problem instead try to discover opportunities that might be hidden deep within.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Worry about what others think: </strong>Don’t waste your time worrying about other peoples’ judgments. Be happy with who you are and don’t be afraid to show it.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Stay in your ‘comfort zone’: </strong>Living up to your potential is not easy but make sure you give it a go! Don’t take the easy way out because you will never know what great things you might be missing!</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>School limiting your creativity: </strong>Society wants robots. It does not encourage you to think for yourself. Schools are programmed to help society limit youth potential. Don’t fall for the trap. Allow your mind to explore new, fresh places that it has never been given a chance to explore before.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Hold back when you have a good idea: </strong>Instead of just accepting what you know innovate something not created before. Unleash your creativity to flourish throughout your life and career.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Ego: </strong>Focus on what’s right rather than who’s right. Eliminating your ego allows you to change the way you think by becoming more flexible and open-minded.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Stop learning: </strong>Being smart is not being able to generate an idea but it is being able to recognize the value of the idea and make it happen. Keep looking for answers putting what you know into reality!</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Assume certain perceptions: </strong>Naturally, in your everyday life there will be certain boundaries already set previously. Don’t assume they will always be there instead work your way to break them down and free yourself to make a change for a better world!</h5>\r\n</li>\r\n</ul>\r\n<h5>We suggest you try to avoid the above 8 points mentioned above in order to free your mind to think creatively. It is a step forward to raise hidden talents that will push our world to a lasting global success!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n         <li><a href=\"https://www.potential.com/articles/creative-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Creative Thinking: Become an Exceptional Thinker</a></li>\r\n         <li><a href=\"https://www.potential.com/interpersonal-skills/7-key-tips-to-develop-strategic-thinking-in-your-organization/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Key Tips to Develop Strategic Thinking in Your Organization</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the things I should avoid in order to unleash my creativity?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 614,
+                                "order": 1,
+                                "question": "What are the things I should avoid in order to unleash my creativity?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 168,
+                            "title": "Creative Thinking Complete Unit 5",
+                            "description": "Creative Thinking Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What have you tried in order to break down the walls that are trying to limit you from living up to your full potential? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Getting out of your comfort zone",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Being happy with who you are",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Innovating something not created before",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 359,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 870,
+                        "title": "Creative Thinking PostTest",
+                        "slug": "creative-thinking-posttest",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 169,
+                            "title": "Creative Thinking PostTest",
+                            "description": "Creative Thinking PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "The following is true about creativity except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Adds value to your life",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Raises hidden talents",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Helps you think with the help of others around you",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Helps you become true to yourself",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 360,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Being a creative thinker means being a traditional thinker with limited abilities. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 361,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "“6 Thinking Hats” is a system designed by Edward De Bono as an approach to promote critical thinking. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 362,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Lateral Thinking is not the same as logical thinking. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 363,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following should be avoided in order to think creatively except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Ego",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Get out of your comfort zone",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Assume certain perceptions",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Complain about a problem",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 364,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/creative-thinking.png",
+                "zip_path": "wp-content/uploads/2018/10/creative-thinking.png",
+                "level": "card"
+            }
+        ]
+    }
+}

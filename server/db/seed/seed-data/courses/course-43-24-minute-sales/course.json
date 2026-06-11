@@ -1,0 +1,1981 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 43,
+        "title": "24 Minute Sales",
+        "description": "Develop your Enterprise (B2B) Sales Strategy in 24 min Through Online Training",
+        "unit_count": 12,
+        "author_id": 0,
+        "course_post_id": 3685,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2305,
+            "title": "24 Minute Sales",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/24-minute-sales/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/sales.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 43,
+                "title": "24minSales",
+                "description": "Professional sales skills especially Enterprise Sales (B2B) are unfortunately not taught in Universities or Schools. This is despite the fact that all businesses need sales and as such there are many jobs and opportunities available for productive sales individuals.(-new-line-)\nThrough this program, we aim to practically and efficiently empower individuals by providing a step by step guide through the sales process. The program output would allow job seeking sales professionals to get an understanding of the enterprise sales process while also allowing seasoned sales professionals to organise their sales plan and get an actionable guide at the end of the course.",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1047,
+                        "title": "24 Minute Sales Pretest",
+                        "slug": "24-minute-sales",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 346,
+                            "title": "24 minute Sales Pretest",
+                            "description": "24 minute Sales Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What are the two essential sales skills?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Business Acumen, Performance Management",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Empathy, Ego",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Listen, Contact without purpose",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Communicate, Over Familiarity",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 826,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "_____________ is the subdivision of a market into discrete customer groups that share similar characteristics.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Customer Segmentation",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Demographic Segmentation",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Geographic Segmentation",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Psychographic segmentation",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 827,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The BANT Model refers to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Budget, Authority, Need, Timeframe",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Brand, Awareness, Network, Timeframe",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Brand, Authority, Network, Timeframe",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Budget, Awareness, Need, Timeframe",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 828,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 4 ways for you to increase the number of sales prospects? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Networking, Email, Referrals, LinkedIn",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Linked in, Facebook, Twitter, Instagram",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Marketing Campaigns, Newsletters, Facebook, Tags",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Social Media, Advertising Campaigns, Podcasts, Emails",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 829,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1048,
+                        "title": "Program Overview",
+                        "slug": "program-overview",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "_p8yWuxJoAE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>This course will provide you with:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Customised go to market sales strategy for your offerings.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Practical downloadable tools that you can start to use immediately to manage your business.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A diploma from Potential.com, after having successfully completed the course to validate your learning.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Welcome to the 24 min Sales training program. We know that the most important resource you have is time. That’s why we have put together a practical, effective set of training material that would allow you to develop your sales strategy within 24 minutes. Whether you are an entrepreneur, sales professional, looking for a sale job or a sales manager this short course will give you the needed skills and tools to help you be prepared to increase your enterprise sales. For a minimal investment of your time and money you will be getting:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Customised go to market sales strategy for your offerings.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Practical downloadable tools that you can start to use immediately to manage your business.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A diploma from Potential.com, after having successfully completed the course to validate your learning.</h5>\r\n</li>\r\n</ul>\r\n<h5>I am confident that you will find immense value in the coming modules and wish you great success in sales.</h5>",
+                            "course-unit-quotes": "Try not to become a person of success, but try to become a person of value. Albert Einstein",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "It is good for me to take this course because:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 319,
+                                "order": 1,
+                                "question": "It is good for me to take this course because:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 347,
+                            "title": "24minSales Complete Unit 1",
+                            "description": "24minSales Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What is your job title?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "single_line",
+                                    "question_id": 779,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1049,
+                        "title": "Essential Sales Skills",
+                        "slug": "essential-sales-skills",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "S9jZOLtyCOo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The two essential sales skills which should always be in balance are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Empathy</b> to understand client needs.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Ego</b> to close business.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will learn what it takes to sell your products and services.</h5>\r\n<h5>Sales is a fundamental aspect of any business as it aims to match the needs of the clients with the benefits that your product or service can provide to these clients. Without sales there is no business.</h5>\r\n<h5>The most successful sales people exhibit two essential skills:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>They have <b>Empathy</b> by being able to put themselves in the shoes of the customer and understand the client’s needs and requirements.</h5>\r\n</li>\r\n \t<li>\r\n<h5>They have <b>Ego</b> which drives them to overcome rejections and obstacles so that they can close the deal in a way that is good for them and the company.</h5>\r\n</li>\r\n</ul>\r\n<h5>These two skills are necessary and need to be in balance at all time. Every person in the organisation can apply these skills since everyone is involved in selling something to someone.</h5>\r\n<h5>Remember, nothing really happens in a business until someone sells something!</h5>",
+                            "course-unit-quotes": "When people talk, listen completely. Most people never listen. Ernest Hemingway",
+                            "course-unit-case-study": "<h5>Diane runs a graphic design business and she is very keen on providing the best customer service to her clients. She usually empathizes well with the clients, by listening to their needs and detailed requirements so that she can provide them with the best solution. Recently she noticed that one of her clients seems to have been abusing her empathy by getting her different concepts and ideas without actually giving her a purchase order for her work. She realized that she needed to use more of her Ego (to balance the Empathy) by asking for the order before proceeding with more non-paid work.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How could I acquire the 2 essential sales skills in my workeplace?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 320,
+                                "order": 1,
+                                "question": "How could I acquire the 2 essential sales skills in my workeplace?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 348,
+                            "title": "24minSales Complete Unit 2",
+                            "description": "24minSales Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which of these skills do I need to enhance:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Ego",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Empathy",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "I already balanced both",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 783,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1050,
+                        "title": "Offerings Benefits",
+                        "slug": "offerings-benefits",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "xQ6A6A53ycc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The two key benefits your offerings should help your clients with are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Make more money</h5>\r\n</li>\r\n \t<li>\r\n<h5>Save money</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will learn what is important to your business clients.</h5>\r\n<h5>The sale of your products or solutions are what keep your company alive, and to best position your offerings you need to focus on the benefits that they provide to your clients instead of focusing on the features of these offerings.</h5>\r\n<h5>There are 2 key benefits that are always of interest to clients and which you should capitalize on when positioning <b>your offerings</b>. What you are selling should either <b>help your clients:</b></h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Make more money</b></h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Save money</b></h5>\r\n</li>\r\n</ul>\r\n<h5>Everything else is considered a nice to have, but if you can demonstrate the business impact of your offerings, you would get the clients’ attention.</h5>\r\n<h5>In the end, you are not selling your products or services but rather you are selling Money in the form of savings or increase of revenue for your clients!</h5>",
+                            "course-unit-quotes": "Pretend that every single person you meet has a sign around his or her neck that says, ‘Make me feel important.’ Not only will you succeed in sales, you will succeed in life. Mary Kay Ash",
+                            "course-unit-case-study": "<h5>Patrick is a sales account manager responsible for selling Customer Relationship Management (CRM) solutions to Small and Medium businesses. As he was going around promoting his CRM products, he noticed that it was very hard for him to take the relevant meetings with prospects since they didn’t understand what CRM could provide to them. The moment he changed his pitch and focused on how he can help SMEs make more money by being able to improve their sales funnel through CRM software, prospects were much more willing to talk to him.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My business offerings to my clients should focus on:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 321,
+                                "order": 1,
+                                "question": "My business offerings to my clients should focus on:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 349,
+                            "title": "24minSales Complete Unit 3",
+                            "description": "24minSales Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do your offerings help your clients make money?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1958,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1051,
+                        "title": "Segment Your Clients",
+                        "slug": "segment",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "8sfLJPqkbGY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Three ways that you can segment your target clients</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Industry</b> (Finance, telecom, Government, Education etc..)</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Geography</b> (Country or regional focus)</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Size of Clients</b> (by number of users, or revenue, or spending)</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will learn the various ways to segment your clients.</h5>\r\n<h5>Segmenting your clients helps you to focus on the message that you need to deliver to them, and in this process, you will be able to clarify the type of benefits that would be obtainable, in an understandable manner.</h5>\r\n<h5>Companies often segment their target clients by:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Industry</b> (Finance, telecom, Government, Education etc..).</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Geography</b> (Country or regional focus).</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Size of Clients</b> (by number of users, or revenue, or spending).</h5>\r\n</li>\r\n</ul>\r\n<h5>You might have more than one segment that you address or more than one sub –segment but by focusing your energies on the most relevant one you can ensure that the message to that segment is tailored and effective.</h5>\r\n<h5>The bottom line is that you need to have a high impact, simple message that could be quickly delivered to and understood by your target clients!</h5>",
+                            "course-unit-quotes": "Spend a lot of time talking to customers face-to-face. You’d be amazed how many companies don’t listen to their customers. Ross Perot",
+                            "course-unit-case-study": "<h5>Lisa works in an office supplies company and has been tasked with setting up the sales business in a new market. She has a team of 2 sales people and wanted to split the effort between the team members either by industry or size of business. She decided to segment the market according to large organizations across industries that would have the most to benefit from the cost savings that her office supplies solutions could provide. This split would also help her make use of her limited number of sales people so that any deal that they generate would be rewarding for their company.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How do you segment your target clients?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 322,
+                                "order": 1,
+                                "question": "How do you segment your target clients?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 350,
+                            "title": "24minSales Complete Unit 4",
+                            "description": "24minSales Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "Which target segment would have the most to gain from your offerings?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "single_line",
+                                    "question_id": 786,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "open",
+                                    "text": "What is the one line sentence that demonstrates the tailored benefit that you would provide to that target segment?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 787,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1052,
+                        "title": "Sales Funnel Stages",
+                        "slug": "sales-funnel-stages",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "YDyhBS_JepM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The sales funnel stages include</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Prospecting</b> which is the initial identification of possible opportunities.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Qualifying</b> or validating where we ensure that there is truly an opportunity in the account at this point of time and identify the key decision makers.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Proposing</b> by which we propose a solution to address the client needs within a budget that they have.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Closing</b> the deal which includes the final stages of negotiations.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Winning</b> the project and handing it over the delivery team.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will learn about the sales funnel and the various stages in it.</h5>\r\n<h5>The sales funnel is the process of taking client opportunities through a qualification process towards a successful deal closure. It is essential in enterprise business to have a sales funnel since it provides the ability to forecast future revenue.</h5>\r\n<h5>The <b>sales funnel stages include</b>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Prospecting</b> which is the initial identification of possible opportunities.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Qualifying</b> or validating where we ensure that there is truly an opportunity in the account at this point of time and identify the key decision makers.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Proposing</b> by which we propose a solution to address the client needs within a budget that they have.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Closing</b> the deal which includes the final stages of negotiations.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Winning</b> the project and handing it over the delivery team.</h5>\r\n</li>\r\n</ul>\r\n<h5>These 5 stages represent the sales roadmap for any business and should be reviewed on a daily basis by the responsible sales person!</h5>",
+                            "course-unit-quotes": "You don’t close a sale; you open a relationship if you want to build a long-term, successful enterprise. Patricia Fripp",
+                            "course-unit-case-study": "<h5>Mohamed has recently been recruited to head sales management in his company. His task is to produce over the next 6 months a total sales of $5 million dollars. In his first meeting with his new team, he asks them to come prepared with their sales funnel including expected deal size and stage of each opportunity. In adding up all the deal sizes of the team at the various stages of the funnel, he realizes that it totals $10 million dollars in expected sales if all the opportunities materialize. Taking the rule of thumb that about 30% of the opportunities would materialize, he realizes that his first priority is to have his team increase the total gross funnel to $15 million by prospecting for more opportunities and expanding existing opportunities. This would get him closer to closing his $5 million target with the 6 months.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In order to change a client opportunity to a successful deal, my business's sales funnel should include:",
+                            "course-unit-atq-two": "What is your gross sales funnel (total value of opportunities you are working on) for the next 3 months? ",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 323,
+                                "order": 1,
+                                "question": "In order to change a client opportunity to a successful deal, my business's sales funnel should include:"
+                            },
+                            {
+                                "q_id": 823,
+                                "order": 2,
+                                "question": "What is your gross sales funnel (total value of opportunities you are working on) for the next 3 months? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 351,
+                            "title": "24minSales Complete Unit 5",
+                            "description": "24minSales Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you using a sales funnel today for your day to day sales management? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 788,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1053,
+                        "title": "Gaining Prospects",
+                        "slug": "gaining-prospects",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "mMqcKqjRL20",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 ways for you to increase the prospecting:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Networking</b> at Events and Trade Shows</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Email</b> Campaign to your Contacts</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Referrals</b> from existing clients or friends</h5>\r\n</li>\r\n \t<li>\r\n<h5>Reaching out to new leads on <b>LinkedIn</b></h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will learn about practical ways to increase your new leads.</h5>\r\n<h5>Prospecting is the first stage of the sales funnel and involves a low level of engagement with possible clients. The aim of this stage is to expand as much as possible the reach into the market and to identify new prospects.</h5>\r\n<h5>Here are <b>4 ways for you to increase the number of prospects</b>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Networking</b> at Events and Trade Shows</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Email</b> Campaign to your Contacts</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Referrals</b> from existing clients or friends</h5>\r\n</li>\r\n \t<li>\r\n<h5>Reaching out to new leads on <b>LinkedIn</b></h5>\r\n</li>\r\n</ul>\r\n<h5>Prospecting should be an ongoing process since sales is a numbers game and as such you should aim to increase your chances of success by increasing the volume of leads you are working on.</h5>",
+                            "course-unit-quotes": "Prospecting – Find the man with the problem. Ben Friedman",
+                            "course-unit-case-study": "<h5>Annie’s company has recently acquired a new Human Resources (HR) product and she has been tasked with promoting the product to the market. The product is new and as such there isn’t much knowledge about it so she decides that the first thing she needs to do is to quickly identify who could be interested in that product. She prepares an email template, an elevator pitch and a brochure and starts sending out the email to her HR contacts, books herself in upcoming HR conferences and asks her existing clients if their HR colleagues could be interested. After a few weeks she finds herself with a lot of interested prospects and starts qualifying those opportunities.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "To increase the volume of my leads, I can:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 324,
+                                "order": 1,
+                                "question": "To increase the volume of my leads, I can:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 352,
+                            "title": "24minSales Complete Unit 6",
+                            "description": "24minSales Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What can you do out of the above suggestions to in the next 2 weeks to increase your leads? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 790,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1054,
+                        "title": "Sales Qualifications",
+                        "slug": "sales-qualifications",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "AHnzvfCo-2A",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5><b>4 questions to</b> ask yourself as you <b>qualify an opportunity</b>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Does the client seem to have an allocated <b>Budget for the project?</b></h5>\r\n</li>\r\n \t<li>\r\n<h5>Am I talking to the right contacts in my clientele who can <b>authorize</b> decisions?</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Is there any need</b> for my offerings?</h5>\r\n</li>\r\n \t<li>\r\n<h5>Will the client be able to take a decision to move ahead in a <b>timely manner?</b></h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will learn about how to qualify the opportunity that you are working on.</h5>\r\n<h5>After an initial interest from a client, the next step is to validate the opportunity and ensure that your time and efforts are well spent on the hottest leads.</h5>\r\n<h5>Here are <b>4 questions to</b> ask yourself as you <b>qualify an opportunity:</b>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Does the client seem to have an allocated <b>Budget for the project?</b></h5>\r\n</li>\r\n \t<li>\r\n<h5>Am I talking to the right contacts in my clientele who can <b>authorize</b> decisions?</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Is there any need</b> for my offerings?</h5>\r\n</li>\r\n \t<li>\r\n<h5>Will the client be able to take a decision to move ahead in a <b>timely manner?</b></h5>\r\n</li>\r\n</ul>\r\n<h5>This lead qualification method is called the BANT model and allows you to determine if you should propose for that opportunity.</h5>",
+                            "course-unit-quotes": "The questions you ask are more important than the things you could ever say. Tom Freese",
+                            "course-unit-case-study": "<h5>After doing a good amount of prospecting and getting interested leads, Annie needs to quickly identify who is ready to buy her product or service at this stage. She focuses on identifying if she is talking to a person that has the authority to make a decision, if that person has a budget to spend within the time frame of 2 months and if there is a real need in the prospect organization for her solution. She finds out that half of the prospects she initially identified have the above four areas covered and agrees with them to send them proposals.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "After proper validation, is this opportunity worth going for? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 325,
+                                "order": 1,
+                                "question": "After proper validation, is this opportunity worth going for? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 353,
+                            "title": "24minSales Complete Unit 7",
+                            "description": "24minSales Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "Identify a very important opportunity that you are working on. \nOpportunity Name:\n",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "single_line",
+                                    "question_id": 800,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Is there are budget? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Need to find out",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 801,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Are you talking to the right authority level? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Need to find out",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 802,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Is there a need? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Need to find out",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 803,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Will they take a decision with a quarter? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Need to find out",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 804,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1055,
+                        "title": "Winning Proposals",
+                        "slug": "winning-proposals",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "al0A3dXVpQU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Make sure your proposals include:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Executive Summary</h5>\r\n</li>\r\n \t<li>\r\n<h5>Understanding of Client Needs</h5>\r\n</li>\r\n \t<li>\r\n<h5>Your Solution to those Needs</h5>\r\n</li>\r\n \t<li>\r\n<h5>Financial Investment (not Cost)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Appendices With Additional Information</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will learn about how to submit an effective proposal.</h5>\r\n<h5>Proposals explain to clients how our solutions meet their needs. They are time consuming to produce so they should only be put together after good qualification of the opportunity.</h5>\r\n<h5>Here are <b>5 essential components in winning proposals</b>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Summarize the proposal in an <b>Executive Summary</b>. Most clients would read this section so you should leave it till the end to ensure you have covered all key points.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Have a section that shows that you <b>Understand the Clients’ Needs</b>.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Include a section that outlines <b>Your Solution</b> to those needs.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Include an easy to understand <b>Financial Investment</b> section. Always refer to your sales price as an investment and not cost and as much as you can show the Return on that investment. You can also put a next steps inside that section.</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Appendices</b> to cover all other standard information, like your corporate profile, implementation methods, solution features etc..</h5>\r\n</li>\r\n</ul>\r\n<h5>The proposal’s main body can be short and effective, but has to be customised for each client. The appendix material on the other hand, can be prepared ahead of time and reused in proposals efficiently.</h5>\r\n<h5>Remember, proposals reflect of your company’s professionalism, so make sure they give clients a feel of the quality of service they can expect from you.</h5>",
+                            "course-unit-quotes": "If opportunity doesn’t knock, build a door. Milton Berle",
+                            "course-unit-case-study": "<h5>So that Annie doesn’t spend much time preparing different proposals, she creates a standard appendix that includes information about her product, company, team, and reference. She then creates a simple 2/3 page document that she develops for each prospect to focus on the needs that she identified and the solution she can provide for her needs. She efficiently creates these proposals and sends them across to her prospects. Out of the proposals that she sends, a little more than half of the prospects call her in to negotiate. The rest either tells her that they went with another offer from a competitor or that their priorities have changed.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In order for my proposal to be effective, it should include:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 326,
+                                "order": 1,
+                                "question": "In order for my proposal to be effective, it should include:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 354,
+                            "title": "24minSales Complete Unit 8",
+                            "description": "24minSales Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do I have these standard proposal materials ready? Corporate Profile:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 791,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Team Profiles?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 792,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Case Study from Clients?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 793,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Project Implementation methodology?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 794,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1056,
+                        "title": "Closing your Sale",
+                        "slug": "closing-your-sale",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "4NemSx5EGnQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 tactics to watch out for when closing a sale with your clients.</h5>\r\n<h5>They could attempt to reduce your profits by:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Breaking up the negotiation to small parts</h5>\r\n</li>\r\n \t<li>\r\n<h5>Claiming that if there is no deal</h5>\r\n</li>\r\n \t<li>\r\n<h5>Promising of better future terms</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video we will learn about creating better negotiated outcomes.</h5>\r\n<h5>Negotiation happens all the time within the organisation, with suppliers and with clients. If done well, it strengthens the relationship between the two negotiating entities by ensuring that expectations are clear and the outcome is in the interest of both parties.</h5>\r\n<h5>Many negotiated outcomes are jeopardised due to these 3 tactics:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The negotiator <b>breaks up the negotiation to small parts</b> so that you approve one element just to find that there is another that is then introduced. Always make sure that you only give your final answer after knowing all the elements that would be negotiated.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The negotiator <b>claims that if there is no deal</b> if they don’t get what they want. If the negotiator is being one sided and not ready to take your point of view, then it is better to disagree early than to get into a one sided relationship. Most of the times they are bluffing.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The negotiator takes from you what they want today with the <b>promise of better future terms</b>. No one can guarantee the future unless it is in a contract, so don’t count on empty promises.</h5>\r\n</li>\r\n</ul>\r\n<h5>Everyone in the organisation should be aware of good negotiation tactics so they preserve the interest of the company in all their dealings and to reach better outcomes.</h5>\r\n<h5>Remember that the best possible outcome is a Win-Win situation where both parties win in the negotiated agreement.</h5>",
+                            "course-unit-quotes": "If you are not taking care of your customer, your competitor will. Bob Hooey",
+                            "course-unit-case-study": "<h5>Annie is getting excited about closing her first few deals selling the new product that her company is promoting. After talking to many people, qualifying some of the opportunities, sending proposals to a few of these opportunities, she is now ready to negotiate with the “hottest” prospects. She meets with her first prospect and even though she is focused on a win-win outcome, she is conscious of the client trying to play hard. The client tries to get a better deal by pointing out to Annie that she doesn’t have any references yet, and that if she doesn’t give him a better price, he would take a competitor’s offer. Annie instead of giving a cash discount, offers to extend further post-sale support to comfort the client about this being one of the first few deals. They both get a Win-Win deal and shake hands on agreement.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What problems may I face during a negotiation and how can I overcome it?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 328,
+                                "order": 1,
+                                "question": "What problems may I face during a negotiation and how can I overcome it?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 355,
+                            "title": "24minSales Complete Unit 9",
+                            "description": "24minSales Complete Unit 9",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Think about a negotiation that is taking place with a client now. Does your client Win? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 795,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you Win? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 796,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1057,
+                        "title": "Project Management",
+                        "slug": "project-management-3",
+                        "order": 110,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "6LRJ-CsZda4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The <b>3 Considerations in Implementing Successful Projects include:</b></h5>\r\n<ul>\r\n \t<li>\r\n<h5>An agreement on the acceptable <b>quality</b></h5>\r\n</li>\r\n \t<li>\r\n<h5>A budget for the <b>costs</b></h5>\r\n</li>\r\n \t<li>\r\n<h5>An accepted <b>time</b> period for implementation</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will learn about how to implement successful projects.\r\nProjects are launched all the time across organisations whether they are internal or external. It’s important to ensure successful project implementations in order to avoid a loss of a lot of time, money and in some cases reputations.</h5>\r\n<h5><b>Successful Project Management</b> takes into account the following considerations:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>An agreement on the acceptable <b>quality</b> level of the output of the project. As an example, if the project is to send a person to the moon, the quality requirements would be dramatically high.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A budget for the <b>costs</b> that would be incurred to deliver the project.</h5>\r\n</li>\r\n \t<li>\r\n<h5>An accepted <b>time</b> period during which the project should be completed</h5>\r\n<h5>The three aspects are all related to each other and as such are set out at the beginning of the project and are tracked all through the implementation of the project. If there is a need to improve any one of the three elements, that would have an impact on the other two elements.</h5>\r\n</li>\r\n</ul>\r\n<h5>Everyone in the organisation should learn these three basic aspects to projects and defining them at the beginning would help save a lot of costs, time and effort.</h5>",
+                            "course-unit-quotes": "Just because something doesn’t do what you planned it to do doesn’t mean it’s useless. Thomas Edison",
+                            "course-unit-case-study": "<h5>After having successfully closed her strategic business deal, Annie brings in her implementation team to meet with the client and makes sure that all parties are clear on the deliverable's of the project to ensure that the desired quality level is met, within the cost and time that were proposed. Even though the sale was closed Annie stays close to the client and the project implementation to ensure that the client is satisfied and ready to refer her to others as well as possibly take more solutions from her.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Think of a project that you are implementing. Identify the following: How feasible if the project, what is the approximate budget and what is the time period for the implementation?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 807,
+                                "order": 1,
+                                "question": "Think of a project that you are implementing. Identify the following: How feasible if the project, what is the approximate budget and what is the time period for the implementation?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 356,
+                            "title": "24minSales Complete Unit 10",
+                            "description": "24minSales Complete Unit 10",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Did you prepare a timeline for your work?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1934,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1058,
+                        "title": "24 minute Sales Posttest",
+                        "slug": "certificate-2",
+                        "order": 120,
+                        "status": "publish",
+                        "content": "<img id=\"mainimg\" style=\"display: none;\" src=\"https://www.courses.potential.com/wp-content/uploads/2015/07/24min-Sales-heroimg-1800-230715-12.jpg\" />",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 357,
+                            "title": "24minSales PostTest",
+                            "description": "24minSales PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What are the two essential sales skills?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Business Acumen, Performance Management",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Empathy, Ego",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Listen, Contact without purpose",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Communicate, over familiarity",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 805,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Sales People have ____________ by being able to put themselves in the shoes of the customer and understand the client's needs and requirements.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Ethics",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Empathy",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Attitude",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Ego",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 806,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Who is involved in Sales in an organization? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Sales Team",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Marketing Manager",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Relationship Manager",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Every person in the organization",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 807,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "In sales, to best position your offerings you need to focus on the ______________ that they provide to your clients instead of focusing on the ________________ of these offerings.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Advantages, Value",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Benefits, features",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Value, Price",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Features, Benefits",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 808,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Select the two key benefits that your Offerings should always have:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Make more money, Save Money",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Make more money, Competitive Advantage",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Save Money, Win-Win Situation",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Competitive Advantage, Win-Win Situation",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 809,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "In sales, if you can demonstrate the business impact of your_______________, you would get the _____________.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Clients’ attention, Offerings",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Benefits, Customer’s Value",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Customer’s Value, Benefits",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Offerings, Clients’ attention",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 810,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Companies often segment their target clients by __________________, ___________________, and ____________________. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Industry, Geography, Size of Clients",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Different Personality Traits, Values, Lifestyle",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Cities, Countries, International Regions",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Income, Education, Age",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 811,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "_____________ is the subdivision of a market into discrete customer groups that share similar characteristics.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Customer Segmentation",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Demographic Segmentation",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Geographic Segmentation",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Psychographic segmentation",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 812,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The ____________ is the process of taking client opportunities through a qualification process towards a successful deal closure.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Sales Plan",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Sales Funnel",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Sales Forecast",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Sales Process",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 813,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "____________ is the initial identification of possible opportunities.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Qualifying",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Prospecting",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Proposing",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Winning",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 814,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 4 ways for you to increase the number of prospects? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Networking, Email, Referrals, linkedIn",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Linked in, Facebook, Twitter, Instagram",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Marketing Campaigns, Newsletters, Facebook, Tags",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Social Media, Advertising Campaigns, Podcasts, Emails",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 815,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Should Prospecting be an ongoing process? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "According to the market condition",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 816,
+                                    "order": 11
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The BANT Model Refers to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Budget, Authority, Need, Timeframe",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Brand, Awareness , Network, Timeframe",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Brand, Authority, Network, Timeframe",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Budget, Awareness, Need, Timeframe",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:2:{i:0;s:1:\"1\";i:1;s:1:\"3\";}",
+                                    "question_id": 817,
+                                    "order": 12
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The BANT model allows you to determine if you should",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Expand the opportunity",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Validate the opportunity",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Propose for the opportunity",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Create the opportunity",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 818,
+                                    "order": 13
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A business proposal is a written offer from ___________ a to a prospective ___________.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Seller, Buyer",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Buyer, Customer",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Buyer, Seller",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Seller, Supplier",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 819,
+                                    "order": 14
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Executive Summary, Understanding of Client Needs, Financial Investment are components of a ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Winning Business Plan",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Winning Proposal",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Winning Marketing Plan",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Winning Sales Plan",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 820,
+                                    "order": 15
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 3 tactics to watch out for when negotiating to close your Sale?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Breaking up the negotiation to small parts ,Claiming that if there is no deal ,Promising of better future terms",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Communicate clearly, Make eye contact, Ask one more time",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Always treat prospects like buyers, Stay with the buyer, present a proposal in writing",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Remain seated, Make eye contact, Always smile",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 821,
+                                    "order": 16
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "To strengthen the relationship between the two negotiating entities, ensure that ____________ are clear and the outcome is in the interest of ______________.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Prices, Selling party",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Expectations, Both parties",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Prices, Buying party",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Features, both parties",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 822,
+                                    "order": 17
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "It's important to ensure successful project implementations to avoid loss of ___________, ___________ and ____________.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Time, Money and reputation",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Quality, Quantity, time",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Quantity, Quality, Money",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Productivity, Energy, time",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 823,
+                                    "order": 18
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 3 considerations to take in account when implementing successful projects? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Quality, Time, Cost",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Time, Money, Reputation",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Quality, Quantity, Productivity",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Budgeting, Planning, Monitoring",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 824,
+                                    "order": 19
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Everyone in the organization should learn these three basic aspects to projects and defining them at the beginning would help save _______________, _____________ and___________.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Costs, Time and Effort",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Time, Money and reputation",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Quality, Time, Cost",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Productivity, Energy, time",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 825,
+                                    "order": 20
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/sales.png",
+                "zip_path": "wp-content/uploads/2018/10/sales.png",
+                "level": "card"
+            }
+        ]
+    }
+}

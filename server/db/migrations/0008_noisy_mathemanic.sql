@@ -1,0 +1,2 @@
+DROP INDEX "mentor_sessions_slot_idx";--> statement-breakpoint
+CREATE UNIQUE INDEX "mentor_sessions_slot_active_idx" ON "mentor_sessions" USING btree ("slot_id") WHERE "mentor_sessions"."status" != 'cancelled';

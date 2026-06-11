@@ -1,0 +1,915 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 33,
+        "title": "Interview Skills",
+        "description": "Potential Course",
+        "unit_count": 8,
+        "author_id": 0,
+        "course_post_id": 3675,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2330,
+            "title": "Interview Skills",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/interview-skills-pre-test/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/interview.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 33,
+                "title": "Interview Skills",
+                "description": "Potential Course",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 952,
+                        "title": "Interview Skills Pre Test",
+                        "slug": "interview-skills-pre-test",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 251,
+                            "title": "Interview Skills PreTest",
+                            "description": "",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How many kinds of interviews can a job seeker face?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "2",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "1",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "5",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 536,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Job Interviews can:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Strengthen your network",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Help you improve your skills",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 537,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Always thank the interviewer/s at the end of the interview.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 540,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Use slang words during your interview in order to make it more informal.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 541,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following should be avoided in a job interview except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Look disinterested",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Answer specifically",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Be arrogant",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 542,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Interviewer goes overtime with the conversation is a good sign that you have nailed the interview. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 543,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 953,
+                        "title": "5 Kinds of Interviews Used Today",
+                        "slug": "5-kinds-of-interviews-used-today",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "zju0182gkK0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>A job interview is a communication between the applicant and the recruiter to further identify a suitable candidate for the job position.</h5>\r\n<h5>5 types of interviews one may face when looking for a job:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Immediate telephone interview</h5>\r\n</li>\r\n \t<li>\r\n<h5>One-to-one job interview</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sequential interview</h5>\r\n</li>\r\n \t<li>\r\n<h5>Group interview</h5>\r\n</li>\r\n \t<li>\r\n<h5>Dinner/lunch interview</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi.</h5>\r\n<h5>Looking for a job takes time and effort. As discussed in our previous course, submitting a clear CV application is the first step of job searching. Selecting your CV among other candidates brings you to the second important step of job searching which is the ‘<strong><em>Job Interview’.</em></strong></h5>\r\n<h5>As might be obvious to you, a job interview is a communication between the applicant and the recruiter to further identify a suitable candidate for the job position. Job seekers are eagerly waiting for this stage to arrive as it is a positive step after submitting a CV.</h5>\r\n<h5>In this video, you will learn about 5 types of interviews one may face when looking for a job and some tips for each type.</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Immediate Telephone Interview</strong>: An interview that usually happens as an initial stage before the face-to-face interview to get to know more information about the candidate. Since it is an interview on the phone, you can keep your notes with you but that does not mean you shouldn’t be prepared beforehand. What you say on the phone is very important, since it is the first impression you make on your recruiter.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>One-to-one job interview:</strong> A face to face interview that involves the interviewee and only one interviewer. Questions are asked by both to see if the candidate is suitable for the job.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Sequential Interview:</strong> A set of interviews, each time with a different interviewer. Usually, different questions are asked. But, if the same questions are repeated just answer fully and clearly as the previous time.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Group Interview</strong>: An interview with one interviewee but many interviewers. In this kind of interview, group discussions and teamwork are emphasized. Speak openly and make sure all is involved in the group.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Dinner/Lunch Interview:</strong> An interview with a less formal atmosphere. Make sure you follow table manners. This kind of interview allows your recruiter to get to know you on a more personal level. Over here, good and bad communication skills are easily discoverable.</h5>\r\n</li>\r\n</ul>\r\n<h5>Since interviews play a vital role in helping you get hired, then be prepared for whatever type you may encounter and do you ultimate best to make a great impression!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Why am I interested in applying for this position?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 409,
+                                "order": 1,
+                                "question": "Why am I interested in applying for this position?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 252,
+                            "title": "Interview Skills complete unit 1",
+                            "description": "Interview Skills complete unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following interviews are you most comfortable with?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Immediate telephone interview",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "One-to-one job interview",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Sequential interview",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Group interview",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Dinner/lunch interview",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 548,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 954,
+                        "title": "4 Reasons why Interviews are Good for Job Seekers",
+                        "slug": "4-reasons-why-interviews-are-good-for-job-seekers",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "_bAJwNKUp7M",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 ways that job interviews benefit you whether you get the job or not:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>They strengthen your network</h5>\r\n</li>\r\n \t<li>\r\n<h5>Job Interviews reveal unexpected opportunities</h5>\r\n</li>\r\n \t<li>\r\n<h5>They help you refine your job search</h5>\r\n</li>\r\n \t<li>\r\n<h5>They help you improve your skills</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn why interviews are something that you should look forward to.</h5>\r\n<h5>Going through many interviews can feel depressing for some, but as well as helping recruiters find great quality employees, interviews also benefit job seekers. However long interviews may take, they will always bring you a step closer to you landing that job you aspire for.</h5>\r\n<h5>Here are 4 of ways that job interviews benefit you:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><u>They strengthen your network:</u> Interviews give you the chance to connect to more people thus, expanding your relations and connections. This will open your chances to other careers and opportunities in the future.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Job interviews reveal unexpected opportunities</u>: Interviews open doors ahead of you by expanding your horizons. Your interviewer might not recruit you but may refer you to other job positions that you were not aware of.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>They help you Refine your job search:</u> Interviews allow you to renew your job search looking for up to date trends and modern paths.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>They help you Improve your skills:</u> Interviews allow you to find your weak points giving you a chance to improve them. Refining your story and developing your skills will ensure you a better job in the future.</h5>\r\n</li>\r\n</ul>\r\n<h5>We suggest you keep the above 4 advantages in mind while moving from one interview to the next. As explained, interviews are good for those looking for their ‘dream’ jobs. The more interviews you take the more experience you get in <strong><em>quality job seeking</em></strong>!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Apart from doing the interview, what are the other things that I would like to get out of it (network, more opportunities, or to learn)?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 410,
+                                "order": 1,
+                                "question": "Apart from doing the interview, what are the other things that I would like to get out of it (network, more opportunities, or to learn)?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 253,
+                            "title": "Interview Skills complete unit 2",
+                            "description": "Interview Skills complete unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Approximately how many interviews have you done in the past year? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "1-5",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "5-10",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": ">10",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 549,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 955,
+                        "title": "8 Qualities of an Exceptional Interviewer",
+                        "slug": "8-qualities-of-an-exceptional-interviewer",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "VSbnS5W1GsE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>8 qualities of a high-standard interviewee:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Arriving early to the interview</h5>\r\n</li>\r\n \t<li>\r\n<h5>Grooming</h5>\r\n</li>\r\n \t<li>\r\n<h5>3-Researching the company’s profile</h5>\r\n</li>\r\n \t<li>\r\n<h5>Using contacts</h5>\r\n</li>\r\n \t<li>\r\n<h5>Improving Interview Techniques</h5>\r\n</li>\r\n \t<li>\r\n<h5>Practicing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Handling different kinds of interviews</h5>\r\n</li>\r\n \t<li>\r\n<h5>Saying Thank you</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will highlight 8 qualities of an exceptional interviewee.</h5>\r\n<h5>Being a highly qualified interviewee needs a lot of work and practice. The more you prepare yourself, the higher the chance you have to tackle any kind of interview you face. This increases your chances of obtaining the job you want as quickly as possible making it.</h5>\r\n<h5>Here are 8 qualities of a high-standard interviewee:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><u>Arriving early to the interview</u>: This is the most important part of being an exceptional interviewee. If you are late, you set a bad image of yourself to the recruiter before the interview even starts.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Grooming:</u> Getting well-dressed for the interview is an important method to show your recruiter you are serious and worth their time. Knowing what to wear depends on the company’s culture and on the job position you are trying to get hired for but neatness and cleanliness are essential.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Researching the company’s profile</u>: Spending time, before an interview, gathering information about the company and job position you are applying to is a vital step to ensure you are well prepared and know their terminology, challenges and focus areas.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Using contacts</u>: Connections are vital and give you the chance to reach your goals faster. The more you know people in the desired company you are applying for, the better chance you get for obtaining your desired job title.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Improving Interview Techniques</u>: Working on your skills regularly is essential when experiencing interviews. Be confident and professional in order to build up your self-image in front of the interviewer. This will be discussed in detail in the next video.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Practicing:</u> Dress as if it is the actual interview and get a friend or family member to help you practice questions often asked. The more practice you do, the less nervous you become and the more experience you get in tackling interviews.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Handling different kinds of interviews</u>: We have discussed this in the previous video. Be ready for any of the 5 kinds of interviews you might encounter.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Saying Thank you</u>: Always thank the interviewer/s at the end of the interview. Remember that even if you were not selected suitable for that job, leaving a good impression might allow them to refer you to other companies or job positions.</h5>\r\n</li>\r\n</ul>\r\n<h5>We suggest you follow the above steps to WOW your way to become an exceptional highly-qualified interviewer!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the things that I need to ensure that I do before getting into the interview?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 411,
+                                "order": 1,
+                                "question": "What are the things that I need to ensure that I do before getting into the interview?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 254,
+                            "title": "Interview Skills complete unit 3",
+                            "description": "Interview Skills complete unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you spent some time researching the company and job position you are applying to?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 550,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 956,
+                        "title": "7 Ways to Improve Interviewing Skills",
+                        "slug": "7-ways-to-improve-interviewing-skills",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "VrpIsyC40M4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>7 ways to improve your interviewing skills:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Good Nonverbal Communication</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listening carefully</h5>\r\n</li>\r\n \t<li>\r\n<h5>Avoid Talking Too Much</h5>\r\n</li>\r\n \t<li>\r\n<h5>Using Professional Language</h5>\r\n</li>\r\n \t<li>\r\n<h5>Answering and Asking Questions</h5>\r\n</li>\r\n \t<li>\r\n<h5>Avoid Being Too Familiar</h5>\r\n</li>\r\n \t<li>\r\n<h5>Having a Good Attitude</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. Once an interview has been set for you, it means that you are beginning the path of getting a job. Job interviews can be crucial for landing a job, so as a job seeker you are advised to regularly work on your interviewing techniques in order to make the best impression.</h5>\r\n<h5>In this video, we will discuss 7 ways to improve your interviewing skills. So, here they are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Good Nonverbal Communication: Talking is not the only way to show your confidence to the interviewer. Posture, eye contact and a firm handshake will also do the job.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listening carefully: Listening to the information given to you by the interviewer and letting them know that you heard what they had to say is very important. Try to match their pace and style of talking.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Avoid Talking Too Much: Relate only information regarding the job position applied for and match only skills for that position’s requirement.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Using Professional Language: Address your interviewer professionally by not using slang words and staying focused on the business discussion. Don’t refer to age, race, religion or politics.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Answering and Asking Questions: Be prepared to prove your ability and skills by not only answering questions effectively, but by asking the right questions that will help you determine if this is the right place for you.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Avoid Being Too Familiar: Remember the interviewer is not your friend. Keep it professional and don’t overstep the line of a candidate looking for a job.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Having a Good Attitude: Here you should have a balance between confidence and professionalism. Don’t appear desperate and don’t appear too over confidence.</h5>\r\n</li>\r\n</ul>\r\n<h5>You know you can do the job and now you should let your recruiter believe it too. By building up your self-image using the above suggested 7 steps, you avoid a quick ending to your interview and hopefully guide your path to an awesome job!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the things that I need to ensure that I do during the interview?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 412,
+                                "order": 1,
+                                "question": "What are the things that I need to ensure that I do during the interview?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 255,
+                            "title": "Interview Skills complete unit 4",
+                            "description": "Interview Skills complete unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you prepared a set of questions that you can ask during your interview to help you determine if it is the right place for you? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 551,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 957,
+                        "title": "7 Things Not to Do in a Job Interview",
+                        "slug": "7-things-not-to-do-in-a-job-interview",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "RYWhdw0XhXc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>7 Things Not to Do in a Job Interview:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Don’t answer your phone or text during the interview</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t dress inappropriately</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t talk negatively about previous company and employees</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t be arrogant</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t look disinterested</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t answer generally</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t be unaware of the company or job</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will show you 7 things you should not do in a job interview. Following the points below helps you have a smooth conversation with your recruiter preventing a quick ending.</h5>\r\n<h5>So, here they are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Don’t answer your phone or text during the interview. This kind of interruption is not acceptable.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t dress inappropriately. Your image starts by the way you dress so take time preparing your look.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t talk negatively about previous company and employees. This gives a bad sign that you are not loyal or trustful.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t be arrogant. There is a thin line between arrogance and confidence. Know how to appear confident by stating your accomplishments as a company’s winner points. Don’t brag about yourself.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t look disinterested. Interviewers end interviewees quickly with boring candidates. They look for interviewees full of energy that could bring optimism and positivity to the company.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t answer generally. Be specific with details. Interviewers want to know what skills you have and what achievements you have previously accomplished. They want you to prove to them that you have done it.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t be unaware of the company or job. Having little or no information of what you are applying to shows that you are uninterested and definitely unprepared.</h5>\r\n</li>\r\n</ul>\r\n<h5>As a job seeker, keep the above <strong><em>don’t </em></strong>points in your mind at all times during an interview. This helps you stay in a strong, clear and confident position with your fellow interviewer!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the key things that I need to ensure I don't do in the interview?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 413,
+                                "order": 1,
+                                "question": "What are the key things that I need to ensure I don't do in the interview?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 256,
+                            "title": "Interview Skills complete unit 5",
+                            "description": "Interview Skills complete unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Were you aware of the thing Not to do in a job interview?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2019,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 958,
+                        "title": "6 Signs Telling You that You Nailed the Interview",
+                        "slug": "6-signs-telling-you-that-you-nailed-the-interview",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "oKJw7llrg8o",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>6 signs to know that you have nailed the interview and most probably on the route to get the job:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Interviewer is enjoying the conversation</h5>\r\n</li>\r\n \t<li>\r\n<h5>Interviewer shows you around</h5>\r\n</li>\r\n \t<li>\r\n<h5>Interviewer goes overtime with the conversation</h5>\r\n</li>\r\n \t<li>\r\n<h5>Interviewer tries to sells you the company</h5>\r\n</li>\r\n \t<li>\r\n<h5>Interviewer discusses benefits and pay</h5>\r\n</li>\r\n \t<li>\r\n<h5>Interviewer asks you for a list of referees</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will discuss 6 signs to know that you have nailed the interview and most probably on route to get the job. This is what all job seekers aim for and dream of and the below signs are an indication you are on the right track.</h5>\r\n<h5>Here are the signs:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><u>Interviewer is enjoying the conversation: </u>You know they are by checking out their body language. If they are smiling, making eye contact and leaning slightly toward you then you are on the right track.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Interviewer shows you around:</u> Spending time showing you around the office and introducing you to the rest of the team are good indicators that you are being seriously considered for the job.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Interviewer goes overtime with the conversation:</u> Spending more time than the slot designated for your interview means that your recruiter wants to know you better and is interested</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Interviewer tries to sells you the company:</u> Most of the time you are marketing yourself in an interview, trying to convince the recruiter that you are the one for the job. But, when the table is turned and the interviewer starts to sell you the image of his company then it’s a good sign that are surely considered for the job.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Interviewer discusses benefits and pay: </u>If interviewer discusses pay information and benefits that the company is willing to offer, without you asking, then you are on the right track.</h5>\r\n</li>\r\n \t<li>\r\n<h5><u>Interviewer asks you for a list of referees: </u>which gives an indication that they are impressed and want to talk to people who can further recommend your work</h5>\r\n</li>\r\n</ul>\r\n<h5>As explained earlier, being able to tackle an interview comes with time and practice. But if you weren’t able to nail an interview, cheer up and look forward to your next one. Mistakes do happen and it is the only right way to learn and progress!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the things that I need to ensure I get to so that I have a good interview outcome?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 414,
+                                "order": 1,
+                                "question": "What are the things that I need to ensure I get to so that I have a good interview outcome?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 257,
+                            "title": "Interview Skills complete unit 6",
+                            "description": "Interview Skills complete unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you role played the interview with a friend so that you become even more prepared?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 553,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 959,
+                        "title": "Interview Skills  Post Test",
+                        "slug": "interview-skills-post-test",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 258,
+                            "title": "Interview Skills Post Test",
+                            "description": "Interview Skills Post Test",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How many kinds of interviews can a job seeker face?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "2",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "1",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "5",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:2:{i:0;s:1:\"1\";i:1;s:1:\"3\";}",
+                                    "question_id": 538,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Job Interviews can:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Strengthen your network",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Help you improve your skills",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 539,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Always thank the interviewer/s at the end of the interview. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 544,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Use slang words during your interview in order to make it more informal.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 545,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following should be avoided in a job interview except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Look disinterested.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Answer specifically.",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Be arrogant.",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 546,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Interviewer goes overtime with the conversation is a good sign that you have nailed the interview. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 547,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/interview.png",
+                "zip_path": "wp-content/uploads/2018/10/interview.png",
+                "level": "card"
+            }
+        ]
+    }
+}

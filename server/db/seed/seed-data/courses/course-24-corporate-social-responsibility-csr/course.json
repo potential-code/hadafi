@@ -1,0 +1,736 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 24,
+        "title": "Corporate Social Responsibility (CSR)",
+        "description": "Corporate Social Responsibility (CSR)",
+        "unit_count": 7,
+        "author_id": 0,
+        "course_post_id": 3667,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2347,
+            "title": "Corporate Social Responsibility (CSR)",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/corporate-social-responsibility-csr-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/csr.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 24,
+                "title": "Corporate Social Responsibility (CSR)",
+                "description": "Launch your next CSR program - do good for your business and community",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 879,
+                        "title": "Corporate Social Responsibility (CSR) Pretest",
+                        "slug": "corporate-social-responsibility-csr-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 178,
+                            "title": "Corporate Social Responsibility (CSR) Pretest",
+                            "description": "Corporate Social Responsibility (CSR) Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 3Ps that companies use to measure their performance on?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "People, Planet, Profit",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Product, Place, Process",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Product, Price, Place",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "People, Product, Process ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 392,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "When integrating people from diverse backgrounds in the workplace, companies should ensure that the culture in the organization is an inclusive one, where people are valued, respected and supported.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 393,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 880,
+                        "title": "3 Key Areas that Companies should Measure their Performance on",
+                        "slug": "3-key-areas-companies-measure-performance",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "5ahBKMlBtYs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3Ps that companies should measure their performance on:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Planet</h5>\r\n</li>\r\n \t<li>\r\n<h5>Profit</h5>\r\n</li>\r\n \t<li>\r\n<h5>People</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Many of the best companies now integrate corporate social responsibility (CSR) into their day to day operations using civic engagement to create shared value to the community and business. Instead of just focusing on profit generation, progressive companies look at what is called the Triple Bottom line which goes beyond the focus on profits - the original bottom line.</h5>\r\n<h5>These Triple Bottom line or 3Ps allows companies to evaluate their performance in the following areas:</h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>People </strong>which focuses on the development of the community and adherence to fair labor practices</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Planet </strong>focused on the impact on the environment and what is being done to integrate sustainable environmental practices</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Profit </strong>the economic value created by the organization after deducting the cost of all inputs, including the cost of the capital</h5>\r\n</li>\r\n</ol>\r\n<h5>By focusing on these 3Ps, companies can ensure that they are using business as a way to address customer needs and create jobs, while maintaining a healthy surrounding.</h5>",
+                            "course-unit-quotes": "It takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you’ll do things differently. Warren Buffet",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In our business, I should focus more effort on the following P: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 598,
+                                "order": 1,
+                                "question": "In our business, I should focus more effort on the following P: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 179,
+                            "title": "Corporate Social Responsibility Complete Unit 1",
+                            "description": "Corporate Social Responsibility Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Choose which one of the following is an area of focus for your business: ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Planet",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Profit ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "People",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 383,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 881,
+                        "title": "5 ways in which Diversity and Inclusion can Help your Workplace",
+                        "slug": "5-ways-diversity-inclusion-can-help-workplace",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "AryUtwA7aqY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 ways in which diversity and inclusion can help your workplace:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Greater creativity outputs</h5>\r\n</li>\r\n \t<li>\r\n<h5>Better engagement from employees</h5>\r\n</li>\r\n \t<li>\r\n<h5>Better understanding of customer needs</h5>\r\n</li>\r\n \t<li>\r\n<h5>Higher productivity</h5>\r\n</li>\r\n \t<li>\r\n<h5>Higher profit</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Diversity in the workplace ensures that there is a healthy mix of gender, ethnic and religious talent that is a reflection of the actual world we live in. By having such diversity that is brought together in an inclusive environment and not a quota driven one, businesses benefit dramatically.</h5>\r\n<h5>Here are 5 ways in which diversity and inclusion can help your workplace:</h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Greater creativity </strong>outputs countless studies have shown creativity improvements in diverse teams</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Better engagement </strong>from employees since no one feels left out</h5>\r\n</li>\r\n \t<li>\r\n<h5>Better <strong>understanding of customer needs </strong>since customers would be well represented in the team</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Higher productivity </strong>since people feel that they are valued in an inclusive workplace</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Higher profit </strong>where many studies have shown that top performing companies have diverse and inclusive cultures</h5>\r\n</li>\r\n</ol>\r\n<h5>There is no doubt that by integrating people from diverse backgrounds in the workplace, the benefits are immense, and what companies should ensure is that the culture in the organization is an inclusive one, where people are valued, respected and supported.</h5>\r\n<h5>If we consider diversity as the melting pot, inclusion is getting the ingredients to taste well together :)</h5>",
+                            "course-unit-quotes": "<h5>Diversity is the art of thinking independently together. Malcolm Forbes</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "To increase diversity in our workplace, I’ll do the following: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 599,
+                                "order": 1,
+                                "question": "To increase diversity in our workplace, I’ll do the following: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 180,
+                            "title": "Corporate Social Responsibility Complete Unit 2",
+                            "description": "Corporate Social Responsibility Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your business do a conscious effort to increase diversity?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 384,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 882,
+                        "title": "Why you should Launch an Open Innovation Program",
+                        "slug": "why-you-should-launch-an-open-innovation-program-as-your-next-community-project",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "BJ16LT-PDnE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 reasons why you should launch an open innovation program:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>You can get access to ideas from the community</h5>\r\n</li>\r\n \t<li>\r\n<h5>You can educate the community on key aspects of your industry</h5>\r\n</li>\r\n \t<li>\r\n<h5>You would be able to identify top talent</h5>\r\n</li>\r\n \t<li>\r\n<h5>It could help position your brand</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Innovation is needed by all organizations to survive in today's fast changing world. While we might have very talented teams working for us, we can never assume that we have the complete set of creative talent within the boundaries of our organization. As such it would be great to tap into the wisdom of our users and community where we operate and seek their ideas on how we can innovate further. In doing so, we can have a positive social impact and include this as part of our Corporate Social Responsibility (CSR) activities</h5>\r\n<h5>Here are 4 reasons why you should launch an open innovation program:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>You can get <strong>access to ideas </strong>from the community in a very affordable way</h5>\r\n</li>\r\n \t<li>\r\n<h5>While engaging in getting ideas from the community, you can also <strong>educate </strong>them <strong>on</strong> key aspects of <strong>your industry</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>You would be able to <strong>identify top talent </strong>through the engagement that you might hire later on</h5>\r\n</li>\r\n \t<li>\r\n<h5>It could help <strong>position your brand </strong>as open and innovative thus creating more loyalty</h5>\r\n</li>\r\n</ul>\r\n<h5>Running such open innovative programs are not as difficult as it used to be, since it is relatively easy to reach out to a broad audience online and identify from there who are the best participants to engage in your programs. In doing so you can ensure that you are doing well for your community and for your business.</h5>",
+                            "course-unit-quotes": "<h5>A business that makes nothing but money is a poor business. Henry Ford</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The next open innovation project we can launch could be:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 600,
+                                "order": 1,
+                                "question": "The next open innovation project we can launch could be:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 181,
+                            "title": "Corporate Social Responsibility Complete Unit 3",
+                            "description": "Corporate Social Responsibility Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you launched an open innovation project before? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 385,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 883,
+                        "title": "5 Reasons Why Doing Good for your Community is Good for your Business",
+                        "slug": "5-reasons-good-community-good-business",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "eoC2H0Fe_8s",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 reasons why doing good for your community is good for your business:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Increased sales</h5>\r\n</li>\r\n \t<li>\r\n<h5>Hiring great talent</h5>\r\n</li>\r\n \t<li>\r\n<h5>Better brand awareness</h5>\r\n</li>\r\n \t<li>\r\n<h5>More engagement from your customers</h5>\r\n</li>\r\n \t<li>\r\n<h5>Stronger brand loyalty</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Gone are the days when companies can just focus on their sales and profit numbers and disregard their impact to the community and environment around them. Customers, governments and shareholders are holding businesses more accountable toward their surroundings as part of their Corporate Social Responsibility (CSR). This doesn't mean though that companies who do good need to compromise on profits.</h5>\r\n<h5>Here are 5 reasons why doing good for your community can also be good for your business:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Increased sales</strong>, since today's customers like to buy from companies that they perceive are socially responsible</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Hiring great talent</strong>, since many studies have shown that the most talented employees need to feel that their job has a sense of purpose</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Better brand awareness, </strong>since the press and media will help in sharing stories of good business practices much more than just talking about your products or services</h5>\r\n</li>\r\n \t<li>\r\n<h5>More <strong>engagement from your customers </strong>as they could participate with you in the community projects that you organize</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Stronger brand loyalty </strong>where customers would not be as inclined to switch to a competitor when they appreciate the value you are providing to the community</h5>\r\n</li>\r\n</ul>\r\n<h5>So, launching such community projects that help those around you is not only good for them but also can have a very positive impact on your team, your marketing and your bottom line.</h5>",
+                            "course-unit-quotes": "<h5>We make living by what we get, but we make a life by what we give. Winston Churchill</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The next community program we will launch is:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 601,
+                                "order": 1,
+                                "question": "The next community program we will launch is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 182,
+                            "title": "Corporate Social Responsibility Complete Unit 4",
+                            "description": "Corporate Social Responsibility Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you launched a community program before? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 394,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 884,
+                        "title": "5 Reasons Why Educational Programs can be Great CSR Tools",
+                        "slug": "5-reasons-educational-programs-can-great-csr-tools",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "u9z25rHdUsc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 reasons why educational programs can be great CSR tools for your business:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>You can <strong>align </strong>the education <strong>to your business</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Give your <strong>team a chance to volunteer </strong>in workshops</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Create content </strong>that can then be re-purposed on your social media and website</h5>\r\n</li>\r\n \t<li>\r\n<h5>Use it for <strong>open innovation </strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Use education to <strong>foster engagement </strong>from your community</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Many companies struggle to identify corporate engagement or corporate citizenship programs that work for them. Some resort to charity work, while others have their teams volunteer in community activities but these kind of activities struggle to maintain momentum or sustainability. Education programs that are launched by businesses to help educate the community about something meaningful to them can have a very positive impact to the community itself and the business.</h5>\r\n<h5>Here are 5 reasons why educational programs can be great CSR tools for your business</h5>\r\n<ul>\r\n \t<li>\r\n<h5>You can <strong>align </strong>the education <strong>to your business </strong>so that it you are seen as a thought leader in that space - raising your brand awareness</h5>\r\n</li>\r\n \t<li>\r\n<h5>Giving your <strong>team a chance to volunteer </strong>in workshops or mentorship sessions where they develop their own expertise further</h5>\r\n</li>\r\n \t<li>\r\n<h5>Developing educational material can be a great way to <strong>create content </strong>that can then be re-purposed on your social media and website</h5>\r\n</li>\r\n \t<li>\r\n<h5>Using it for <strong>open innovation </strong>where you educate your community industry challenges and rewarding the best solutions or ideas</h5>\r\n</li>\r\n \t<li>\r\n<h5>Using education to <strong>foster engagement </strong>from your community as they interact with your program</h5>\r\n</li>\r\n</ul>\r\n<h5>So for the next corporate engagement opportunity that you are exploring, identify what areas of development could be useful for your community and aligned to your business. By creating relevant educational content, you would be doing good for both.</h5>",
+                            "course-unit-quotes": "<h5>If you get, give. If you learn, teach. Maya Angelou</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The next educational program we can launch could be:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 602,
+                                "order": 1,
+                                "question": "The next educational program we can launch could be:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 183,
+                            "title": "Corporate Social Responsibility Complete Unit 5",
+                            "description": "Corporate Social Responsibility Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "The main reason for us to launch our educational program would be to: ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Educate our users on our business ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Give our team a chance to volunteer in workshops ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Create content that can then be repurposed on social media and website",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Use it for open innovation ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Use education to foster engagement from our community ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 386,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 885,
+                        "title": "Corporate Social Responsibility (CSR) Posttest",
+                        "slug": "corporate-social-responsibility-csr-certificate",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 184,
+                            "title": "Corporate Social Responsibility (CSR) Post Test",
+                            "description": "Corporate Social Responsibility (CSR) Post Test",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 3Ps that companies use to measure their performance on?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "People, Planet, Profit",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Product, Place, Process",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Product, Price, Place",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "People, Product, Process",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 387,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "When integrating people from diverse backgrounds in the workplace, companies should ensure that the culture in the organization is an inclusive one, where people are valued, respected and supported. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 388,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When launching an open innovation program, you will:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Get access to ideas from the community, Educate the community on key aspects of your industry",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Pay a lot of money to gain new ideas, Help position your brand",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Put a lot of effort, time & money to identify top talents, Get access to ideas from the community",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 389,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Customers, governments and shareholders are holding businesses more accountable toward their surroundings as part of their Corporate Social Responsibility (CSR).",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 390,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Educational programs can be great CSR tools for your business. They help you to educate the community about something meaningful to them and can impact the community in a positive way which will benefit your business as well. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 391,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/csr.png",
+                "zip_path": "wp-content/uploads/2018/10/csr.png",
+                "level": "card"
+            }
+        ]
+    }
+}

@@ -1,0 +1,472 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T06:38:59+00:00",
+    "source_site": "https://smeep.potential.org",
+    "cpt": {
+        "slug": "expert_cards",
+        "label": "Human Mentors",
+        "description": "Human mentor / expert profiles shown on the user dashboard.",
+        "items": [
+            {
+                "post_id": 3785,
+                "title": "Shahrazad Shehab",
+                "slug": "shahrazad-shehab",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2021/06/Shahrazad-Shehab-card-1.png",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "PR, Social Media",
+                    "linkedinurl": "https://www.linkedin.com/in/shahrazad-shehab/",
+                    "overview_txt": " Startup Mentor, Digital Marketing Strategist  ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-shahrazad-shehab]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3651,
+                "title": "Sawsan Abbasy",
+                "slug": "sawsan-abbasy",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2021/05/Sawsan-Abbasy-300x300-1.png",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Strategy, Sales",
+                    "linkedinurl": "https://www.linkedin.com/in/sawsanabbasi/",
+                    "overview_txt": " Coach, Entrepreneurship, Leadership",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-sawsan-abbasi]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3469,
+                "title": "Umair Azhar",
+                "slug": "umair-azhar",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2021/03/Umair.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Insurance, Financials",
+                    "linkedinurl": "https://www.linkedin.com/in/umair-azhar-b112117b/",
+                    "overview_txt": " Insurance, Financials ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-umair-azhar]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3467,
+                "title": "Ghinwa Abi Zeid",
+                "slug": "ghinwa-abi-zeid",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2021/03/ghenwa.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Legal, Partnerships, Company Setup",
+                    "linkedinurl": "https://www.linkedin.com/in/ghinwa-abi-zeid-7a129016/",
+                    "overview_txt": " Legal, Partnerships, Company Setup ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-ghinwa-abi-zeid]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3465,
+                "title": "Monika Papadopoulou",
+                "slug": "monika-papadopoulou",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2021/03/monika.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Leadership, Sales, Branding, featured",
+                    "linkedinurl": "https://www.linkedin.com/in/monika-papadopoulou-26484191/",
+                    "overview_txt": " Leadership, Sales, Branding  ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-monika-papadopoulou]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3462,
+                "title": "Ziad Banna",
+                "slug": "ziad-banna",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2021/03/ziadbanna.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Project Management, leadership, Accounting, featured",
+                    "linkedinurl": "https://www.linkedin.com/in/ziad-b-a7206b24/",
+                    "overview_txt": " Project Management, Leadership, Accounting ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-ziad-banna]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3456,
+                "title": "Albert Jose",
+                "slug": "albert-jose",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2021/03/Albert-card.png",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "ACCOUNTING, Auditing, Tax",
+                    "linkedinurl": "https://www.linkedin.com/in/al-khazraji-audit-b08523168/",
+                    "overview_txt": " Finance, Auditing, Tax  ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-albert]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3361,
+                "title": "Nika Sturm",
+                "slug": "nika-sturm",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2020/08/Nika-Sturm.png",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Strategy",
+                    "linkedinurl": "https://www.linkedin.com/in/nikasturm/",
+                    "overview_txt": "Productivity / Collaboration, Change Management",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-nika-sturm]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3358,
+                "title": "Sirine Fadoul",
+                "slug": "sirine-fadoul",
+                "status": "draft",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2020/08/Sirine-Fadoul.png",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "PR, Strategy, Marketing",
+                    "linkedinurl": "linkedin.com/in/sirinefadoul",
+                    "overview_txt": " Strategic Partnerships, Fundraising, Business Development",
+                    "ap_shortcode": "",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3350,
+                "title": "Ahmed Alsuleimani",
+                "slug": "ahmed-alsuleimani",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2020/08/Ahmed-Alsuleimani.png",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Leadership, Strategy",
+                    "linkedinurl": "https://www.linkedin.com/in/ahmed-alsuleimani-42a04066",
+                    "overview_txt": " Training, Instructional Design, Management  ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-ahmed-m-h-al-suleimani]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3223,
+                "title": "Hazem M Bazan",
+                "slug": "hazem-m-bazan",
+                "status": "draft",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2020/07/Hazem-card.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Sales, Leadership, Strategy",
+                    "linkedinurl": "https://www.linkedin.com/in/hazembazan",
+                    "overview_txt": " Sales, Leadership, Strategy ",
+                    "ap_shortcode": "",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3222,
+                "title": "Celine Chami",
+                "slug": "celine-chami",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2020/07/Celine-card.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Social Media, Marketing, Communication, featured",
+                    "linkedinurl": "http://linkedin.com/in/celinechami",
+                    "overview_txt": " Social Media, Marketing, Communication  ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-celine-chami]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3206,
+                "title": "Samer Hamadeh",
+                "slug": "samer-hamadeh",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2020/07/Samer-card.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Product Development, Strategy, Business Development",
+                    "linkedinurl": "https://www.linkedin.com/in/samerhamadeh/",
+                    "overview_txt": "Product Development, Strategy, Business Development ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-samer-hamadeh]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3205,
+                "title": "Kirsten Westholter",
+                "slug": "kirsten-westholter",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2020/07/Kirsten-card.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Design Thinking, Business Transformation, Strategy",
+                    "linkedinurl": "https://www.linkedin.com/in/kirstenwestholter/",
+                    "overview_txt": " Design Thinking, Business Transformation, Strategy ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-kirsten-westholter]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3204,
+                "title": "Tony Feghali",
+                "slug": "tony-feghali",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2020/07/Tony-card.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Strategy, Leadership, Sales",
+                    "linkedinurl": "https://www.linkedin.com/in/tonyfeghali/",
+                    "overview_txt": " Strategy, Leadership, Sales ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-tony-feghali]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3202,
+                "title": "Sam Kamal-Eddine",
+                "slug": "sam-kamal-eddine",
+                "status": "draft",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2020/07/Sam-card.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "Sales, Leadership, Team Building",
+                    "linkedinurl": "https://www.linkedin.com/in/wissamke",
+                    "overview_txt": " Sales, Leadership, Team Building ",
+                    "ap_shortcode": "",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3195,
+                "title": "Alla Musnicka",
+                "slug": "alla-musnicka",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2020/07/Alla-card.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": " Sales, Marketing, PR, featured",
+                    "linkedinurl": "https://www.linkedin.com/in/alla-marija-musnicka-21154224",
+                    "overview_txt": " Sales, Marketing, PR    ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-alla-musnicka]",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3150,
+                "title": "Ivan Kraemer",
+                "slug": "ivan-kraemer",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2020/06/Ivan-Kraemer-smeep-card.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "ICT, Sales, Team Building, featured",
+                    "linkedinurl": "https://www.linkedin.com/in/ivankraemer/",
+                    "overview_txt": " Sales, ICT, Team Building    ",
+                    "ap_shortcode": "",
+                    "zoomurl": ""
+                }
+            },
+            {
+                "post_id": 3149,
+                "title": "Mita Srinivasan",
+                "slug": "mita-srinivasan",
+                "status": "publish",
+                "content": "",
+                "featured_image_url": null,
+                "extra_image_url": "https://smeep.potential.org/wp-content/uploads/2020/06/Mita-Smeep-card.jpg",
+                "meta": {
+                    "expert_track": "",
+                    "expert_category": "PR, Social Media, Commmunications, featured",
+                    "linkedinurl": "https://www.linkedin.com/in/mitasrinivasan/ ",
+                    "overview_txt": " PR, Social Media, Commmunications   ",
+                    "ap_shortcode": "[ssa_booking type=consultation-phone-call-with-mita-srinivasan]",
+                    "zoomurl": ""
+                }
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2021/06/Shahrazad-Shehab-card-1.png",
+                "zip_path": "wp-content/uploads/2021/06/Shahrazad-Shehab-card-1.png",
+                "level": "card_item",
+                "post_id": 3785
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2021/05/Sawsan-Abbasy-300x300-1.png",
+                "zip_path": "wp-content/uploads/2021/05/Sawsan-Abbasy-300x300-1.png",
+                "level": "card_item",
+                "post_id": 3651
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2021/03/Umair.jpg",
+                "zip_path": "wp-content/uploads/2021/03/Umair.jpg",
+                "level": "card_item",
+                "post_id": 3469
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2021/03/ghenwa.jpg",
+                "zip_path": "wp-content/uploads/2021/03/ghenwa.jpg",
+                "level": "card_item",
+                "post_id": 3467
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2021/03/monika.jpg",
+                "zip_path": "wp-content/uploads/2021/03/monika.jpg",
+                "level": "card_item",
+                "post_id": 3465
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2021/03/ziadbanna.jpg",
+                "zip_path": "wp-content/uploads/2021/03/ziadbanna.jpg",
+                "level": "card_item",
+                "post_id": 3462
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2021/03/Albert-card.png",
+                "zip_path": "wp-content/uploads/2021/03/Albert-card.png",
+                "level": "card_item",
+                "post_id": 3456
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/08/Nika-Sturm.png",
+                "zip_path": "wp-content/uploads/2020/08/Nika-Sturm.png",
+                "level": "card_item",
+                "post_id": 3361
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/08/Sirine-Fadoul.png",
+                "zip_path": "wp-content/uploads/2020/08/Sirine-Fadoul.png",
+                "level": "card_item",
+                "post_id": 3358
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/08/Ahmed-Alsuleimani.png",
+                "zip_path": "wp-content/uploads/2020/08/Ahmed-Alsuleimani.png",
+                "level": "card_item",
+                "post_id": 3350
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/07/Hazem-card.jpg",
+                "zip_path": "wp-content/uploads/2020/07/Hazem-card.jpg",
+                "level": "card_item",
+                "post_id": 3223
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/07/Celine-card.jpg",
+                "zip_path": "wp-content/uploads/2020/07/Celine-card.jpg",
+                "level": "card_item",
+                "post_id": 3222
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/07/Samer-card.jpg",
+                "zip_path": "wp-content/uploads/2020/07/Samer-card.jpg",
+                "level": "card_item",
+                "post_id": 3206
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/07/Kirsten-card.jpg",
+                "zip_path": "wp-content/uploads/2020/07/Kirsten-card.jpg",
+                "level": "card_item",
+                "post_id": 3205
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/07/Tony-card.jpg",
+                "zip_path": "wp-content/uploads/2020/07/Tony-card.jpg",
+                "level": "card_item",
+                "post_id": 3204
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/07/Sam-card.jpg",
+                "zip_path": "wp-content/uploads/2020/07/Sam-card.jpg",
+                "level": "card_item",
+                "post_id": 3202
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/07/Alla-card.jpg",
+                "zip_path": "wp-content/uploads/2020/07/Alla-card.jpg",
+                "level": "card_item",
+                "post_id": 3195
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/06/Ivan-Kraemer-smeep-card.jpg",
+                "zip_path": "wp-content/uploads/2020/06/Ivan-Kraemer-smeep-card.jpg",
+                "level": "card_item",
+                "post_id": 3150
+            },
+            {
+                "role": "card_extra",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/06/Mita-Smeep-card.jpg",
+                "zip_path": "wp-content/uploads/2020/06/Mita-Smeep-card.jpg",
+                "level": "card_item",
+                "post_id": 3149
+            }
+        ]
+    }
+}

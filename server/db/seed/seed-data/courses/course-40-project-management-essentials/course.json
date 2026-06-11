@@ -1,0 +1,1327 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 40,
+        "title": "Project Management Essentials",
+        "description": "Learn the key elements and tips for managing successful projects",
+        "unit_count": 12,
+        "author_id": 0,
+        "course_post_id": 3682,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2312,
+            "title": "Project Management Essentials",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/project-management-essentials-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/project-management.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 40,
+                "title": "Project Management Essentials",
+                "description": "Learn the key elements and tips for managing successful projects",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1018,
+                        "title": "Project Management Essentials Pretest",
+                        "slug": "project-management-essentials-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 317,
+                            "title": "Project Management Essentials Pretest",
+                            "description": "Project Management Essentials Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Project management processes fall into five groups respectively:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Planning, Initiating, Executing, Monitoring and Controlling, Closing",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Initiating, Executing, Planning, Monitoring and Controlling, Closing",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Initiating, Planning, Executing, Monitoring and Controlling, Closing",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Planning, Initiating, Executing, Closing, Monitoring and Controlling",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 724,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "______________ is defined as the project's milestones, activities, and deliverables, and their expected start and end dates. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Schedule Management",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Stakeholder Management",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Communications Management",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Project Change Management",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 725,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Monitoring and controlling typically involves proper allocation, co-ordination and management of human, physical, and financial resources. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 726,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1019,
+                        "title": "Introduction to Project Management",
+                        "slug": "introduction-project-management",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "7Va07jP8tdk",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>A project has four essential elements:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>A Specific Timeframe</h5>\r\n</li>\r\n \t<li>\r\n<h5>A Well-coordinated Approach</h5>\r\n</li>\r\n \t<li>\r\n<h5>A Desired Outcome</h5>\r\n</li>\r\n \t<li>\r\n<h5>Unique Characteristics</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>What exactly is a project? A project is a temporary group of activities designed to produce a unique product, service or result. It is temporary in that it has a defined beginning and end in time, and therefore defined scope and resources.</h5>\r\n<h5>A project has four essential elements:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>A specific timeframe with well-defined start and end date and set milestones</h5>\r\n</li>\r\n \t<li>\r\n<h5>A well-coordinated approach to co-dependent events and the sequence by which these events occur</h5>\r\n</li>\r\n \t<li>\r\n<h5>A desired outcome such as a measurable milestone, timeline, goal or objective</h5>\r\n</li>\r\n \t<li>\r\n<h5>Unique characteristics and challenges dependent on the project resources, scope and environment</h5>\r\n</li>\r\n</ul>\r\n<h5>Project management is the application of knowledge, skills, tools, and techniques to project activities to meet the project requirements. Projects are delivered in stages with common project management processes running across these stages.</h5>\r\n<h5>Project management processes fall into five groups:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Initiating</h5>\r\n</li>\r\n \t<li>\r\n<h5>Planning</h5>\r\n</li>\r\n \t<li>\r\n<h5>Executing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Monitoring and Controlling</h5>\r\n</li>\r\n \t<li>\r\n<h5>Closing</h5>\r\n</li>\r\n</ul>\r\n<h5>Phases, or stages, are very important for project managers to ensure that the deliverables produced at the end of each phase meet their purpose, and that project team members are properly prepared for the next phase.</h5>\r\n<h5>Remember as a project manager you need to be ready to plan, manage, implement, control, support, measure &amp; report, communicate and face unplanned challenges and risks.</h5>",
+                            "course-unit-quotes": "Being a Project Manager is like being an artist, you have the different colored process streams combining into a work of art.  Greg Cimmarrusti, PMP",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "When preparing for my project, I should take into account these four things:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 346,
+                                "order": 1,
+                                "question": "When preparing for my project, I should take into account these four things:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 318,
+                            "title": "Project Management Complete Unit 1",
+                            "description": "Project Management Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you involved in projects as part of your day to day work? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 704,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1020,
+                        "title": "Initiating and Planning a Project",
+                        "slug": "initiating-planning-project",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "4oTB5DR0PAg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The Project Initiation Document (PID) normally includes:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Project Name</h5>\r\n</li>\r\n \t<li>\r\n<h5>Project Purpose & Benefits</h5>\r\n</li>\r\n \t<li>\r\n<h5>Expected Objectives</h5>\r\n</li>\r\n \t<li>\r\n<h5>Deliverables & Outcome</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Getting your project off to a good start is essential for the success of the project. Lack of clarity in your project objectives can result in the project heading in different directions, and building up unrealistic expectations and worries.</h5>\r\n<h5>Before your start your planning, controlling and reporting activities, you need to get everyone on the same page. This is done through a well-defined Project Initiation Document (PID), which is considered the top-level project-planning document ensuring all stakeholders understand where the project is heading.</h5>\r\n<h5>The PID would include the information needed to get your project started, and communicate key information to the project's stakeholders.</h5>\r\n<h5>The PID normally includes:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Project Name</h5>\r\n</li>\r\n \t<li>\r\n<h5>Project Purpose & Benefits</h5>\r\n</li>\r\n \t<li>\r\n<h5>Expected Objectives</h5>\r\n</li>\r\n \t<li>\r\n<h5>Deliverables & Outcome</h5>\r\n</li>\r\n</ol>\r\n<h5>Your Project Initiation Document provides the following:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Defines your project and its scope</h5>\r\n</li>\r\n \t<li>\r\n<h5>Justifies your project</h5>\r\n</li>\r\n \t<li>\r\n<h5>Secures funding for the project, if necessary</h5>\r\n</li>\r\n \t<li>\r\n<h5>Defines the roles and responsibilities of project participants</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gives people the information they need to be productive and effective right from the start</h5>\r\n</li>\r\n</ul>\r\n<h5>By creating a PID, you'll answer the questions: What? Why? Who? How? When?</h5>",
+                            "course-unit-quotes": "We will either find a way, or make one. Hannibal",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What do I need to prepare in order to create my project plan?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 347,
+                                "order": 1,
+                                "question": "What do I need to prepare in order to create my project plan?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 319,
+                            "title": "Project Management Complete Unit 2",
+                            "description": "Project Management Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you been tasked in setting up a project before?      ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 705,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1021,
+                        "title": "Creating your Project Plan",
+                        "slug": "creating-project-plan",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "FU7GI2xNGiE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>To create a project plan you will need to have:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Personnel and project calendars</h5>\r\n</li>\r\n \t<li>\r\n<h5>Description of project scope</h5>\r\n</li>\r\n \t<li>\r\n<h5>Stakeholder expectations</h5>\r\n</li>\r\n \t<li>\r\n<h5>Project risks</h5>\r\n</li>\r\n \t<li>\r\n<h5>Lists of activities and resource requirements</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Once you have created your Project Initiation Document, you are ready to create your Project Plan, which is the project’s road map. To create a project plan you will need to have:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Personnel and project calendars in terms of working days, shifts, and resource availability</h5>\r\n</li>\r\n \t<li>\r\n<h5>Description of project scope to determine key start and end dates, major assumptions behind the plan, and key constraints and restrictions.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Stakeholder expectations to help determine project milestones.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Project risks to make sure there's planned time to deal with identified risks</h5>\r\n</li>\r\n \t<li>\r\n<h5>Lists of activities and resource requirements to determine if there are other constraints to consider when developing the schedule</h5>\r\n</li>\r\n</ul>\r\n<h5>Your project plan should:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Guide project execution and control</h5>\r\n</li>\r\n \t<li>\r\n<h5>Document planning assumptions and decisions,</h5>\r\n</li>\r\n \t<li>\r\n<h5>Facilitate communication among stakeholders</h5>\r\n</li>\r\n \t<li>\r\n<h5>Document approved scope, cost, and schedule baselines</h5>\r\n</li>\r\n</ul>\r\n<h5>Your project plan could be created using:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Gantt Charts: Gantt charts convey this information visually. They outline all of the tasks involved in a project, and their order, shown against a timescale. This gives you an instant overview of a project, its associated tasks, and when these need to be finished</h5>\r\n</li>\r\n \t<li>\r\n<h5>PERT Charts (Critical Path Analysis):  Define the sequential order of activities where you cannot start some activities until others are finished</h5>\r\n</li>\r\n \t<li>\r\n<h5>A simple Excel file</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "Planning without action is futile, action without planning is fatal. Cornelius Fitchner",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I need to prepare _________________ in order to create my Project Plan.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 348,
+                                "order": 1,
+                                "question": "I need to prepare _________________ in order to create my Project Plan."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 320,
+                            "title": "Project Management Complete Unit 3",
+                            "description": "Project Management Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you used Microsoft Project Software before?     ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 706,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1022,
+                        "title": "What should be Included in your Project Plan",
+                        "slug": "included-project-plan",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "6JZ7fZzXmgA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The project plan should include:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Scope Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Requirements Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Schedule Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Financial Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Quality Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Resource Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Stakeholder management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Communications Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Project Change Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Risk Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Procurement Management</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>The project plan is the project’s road map that creates the common language that all stakeholders can reference to ensure that the project is on target with regards to time, output and costs.</h5>\r\n<h5>The project plan typically covers:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Scope Management: Project (Expected work) and Product (Features & Functions)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Requirements Management: Documenting, analyzing, tracing, prioritizing and agreeing on requirements and then controlling change and communicating to relevant stakeholders</h5>\r\n</li>\r\n \t<li>\r\n<h5>Schedule Management: Project's milestones, activities, and deliverables, and their expected start and end dates</h5>\r\n</li>\r\n \t<li>\r\n<h5>Financial Management: Investment and budgetary details</h5>\r\n</li>\r\n \t<li>\r\n<h5>Quality Management: Quality planning, quality control, quality assurance and quality improvement</h5>\r\n</li>\r\n \t<li>\r\n<h5>Resource Management: Financial resources, inventory, human resources & skills, production resources, and/or information technology</h5>\r\n</li>\r\n \t<li>\r\n<h5>Stakeholder management: Define and manage positive relationships with stakeholders through the appropriate management of their expectations and agreed objectives</h5>\r\n</li>\r\n \t<li>\r\n<h5>Communications Management: What information needs to flow in the project, Who needs what information, When is the information needed, What format is the information delivered in, and Who will be responsible for transmitting and providing the information</h5>\r\n</li>\r\n \t<li>\r\n<h5>Project Change Management: Change control of project parameters and their impact on the project</h5>\r\n</li>\r\n \t<li>\r\n<h5>Risk Management: Identification, assessment, and prioritization of risks</h5>\r\n</li>\r\n \t<li>\r\n<h5>Procurement Management: Establishing, maintaining and closing relationships with suppliers of goods and services for the project</h5>\r\n</li>\r\n</ul>\r\n<h5>In addition to the PID and Project Plan, project managers can create a Work Breakdown Structure (WBS), which is a key project deliverable that organizes the team's work into manageable sections.</h5>\r\n<h5>The use of the above steps and charts depend greatly on the complexity and size of your project. One thing to keep in mind is that good planning leads to a higher success rate.</h5>",
+                            "course-unit-quotes": "If you don't know where you are going. How can you expect to get there? Basil S. Walsh",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Some important elements that I should include as part of my project plan are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 349,
+                                "order": 1,
+                                "question": "Some important elements that I should include as part of my project plan are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 321,
+                            "title": "Project Management Complete Unit 4",
+                            "description": "Project Management Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you got in your company a standard set of project planning documents? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 707,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1023,
+                        "title": "Effectively Executing a Project",
+                        "slug": "effectively-executing-project",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "cGALUyoisRg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Monitoring and controlling a project typically include:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Measuring project activities</h5>\r\n</li>\r\n \t<li>\r\n<h5>Monitoring project variables</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identifying corrective actions</h5>\r\n</li>\r\n \t<li>\r\n<h5>Influencing the factors</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Now that you have your project plan in place, you are ready to start executing on the phases of the project towards the expected deliverables. Execution involves proper allocation, co-ordination and management of human, physical, and financial resources.</h5>\r\n<h5>Throughout execution, as a project manager you will be monitoring and controlling all the processes, deliverables and project performance so that potential problems can be identified in a timely manner and corrective action can be taken.</h5>\r\n<h5>Monitoring and controlling typically include:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Measuring the ongoing project activities (the As-Is - 'where we are');</h5>\r\n</li>\r\n \t<li>\r\n<h5>Monitoring the project variables (cost, effort, scope, etc.) against the project management plan and the project performance baseline (the To-Be - <em>where we should be</em>);</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identify corrective actions to address issues and risks properly (<em>How can we get on track again</em>);</h5>\r\n</li>\r\n \t<li>\r\n<h5>Influencing the factors that could circumvent integrated change control so only approved changes are implemented.</h5>\r\n</li>\r\n</ul>\r\n<h5>Project managers need to monitor three key elements: Time, Scope and Cost. Scope covers the deliverables at certain agreed quality and within a defined time. Quality should never be sacrificed, but can be adjusted through re-scoping, in agreement with project owner.</h5>",
+                            "course-unit-quotes": "A project without a critical path is like a ship without a rudder. D. Meyer",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In order to keep monitoring and controlling my project correctly, I should ensure that:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 350,
+                                "order": 1,
+                                "question": "In order to keep monitoring and controlling my project correctly, I should ensure that:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 322,
+                            "title": "Project Management Complete Unit 5",
+                            "description": "Project Management Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have clear performance targets for your project?   ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 708,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1024,
+                        "title": "Effective Project Management Communication",
+                        "slug": "effective-project-management-communication",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "THP1lttHWyA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>To effectively communicate the project status using a Project Dashboard you need to:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Assess your goals and expectations</h5>\r\n</li>\r\n \t<li>\r\n<h5>Define what should be shown</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure that people are held personally accountable</h5>\r\n</li>\r\n \t<li>\r\n<h5>Enhance your dashboard as needed</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Project Managers can use a Project Dashboard to quickly and effectively communicate the project status. This can be achieved by following the steps below:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Assess your goals and expectations for the dashboard:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Why you are you using it?</h5>\r\n</li>\r\n \t<li>\r\n<h5>What should it tell you in terms of budget, meetings, resources, activities statuses, and risks</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Define what should be shown on the Project Dashboard, and how this should be represented.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure that people are held personally accountable for their Project Dashboard judgment calls and decisions.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Enhance your dashboard as needed by adding or eliminating measures, increasing or reducing the sensitivity of reporting, encouraging people to make good judgment calls, and validating the information being reported.</h5>\r\n</li>\r\n</ol>\r\n<h5>For more complex projects, project managers can use the Project Milestone Report for effective status communication. This report includes:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Description of the Milestone: Details about what was accomplished in order to complete the milestone specification.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Due Date: When the milestone was due according to the current project plan.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Actual Completion Date: When the milestone was actually accomplished.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Comments: Details about modifications from the original plan i.e. why the due date was missed or why deliverables were changed.</h5>\r\n</li>\r\n</ol>\r\n<h5>Project communication can occur through various channels based on the defined communication plan. Although online communication channels are effective, project managers need to hold regular meetings throughout the project life cycle.</h5>",
+                            "course-unit-quotes": "If, on your team, everyone’s input is not encouraged, valued, and welcome, why call it a team? Woody Williams",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "By using a Project Dashboard, I can easily communicate the following project status:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 351,
+                                "order": 1,
+                                "question": "By using a Project Dashboard, I can easily communicate the following project status:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 323,
+                            "title": "Project Management Complete Unit 6",
+                            "description": "Project Management Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "When you are required to be in projects, do you have weekly communication updates? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 709,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1025,
+                        "title": "Closing a Project",
+                        "slug": "closing-a-project",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "FrenvtEFxKM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The closing phase of a project consists of:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Contract Closure</h5>\r\n</li>\r\n \t<li>\r\n<h5>Project Closure</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Once all the phases of the project are completed, the project manager needs to ensure the formal acceptance and ending of the project. At this stage, project managers and teams are responsible for archiving all the files and documenting lessons learned.</h5>\r\n<h5>The closing phase consists of:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Contract closure including the resolution of any open items and the closing of each contract applicable to the project or project phase</h5>\r\n</li>\r\n \t<li>\r\n<h5>Project closure to finalize all activities across all processes to formally close the project or a project phase</h5>\r\n</li>\r\n</ul>\r\n<h5>Closing also includes a Post Implementation Review phase. This is a vital phase of the project for the project team to learn from experiences and apply lessons learned to future projects.</h5>",
+                            "course-unit-quotes": "A project is complete when it starts working for you, rather than you working for it. Scott Allen",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "After the completion of my project, I should ensure all files are archived and documented by:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 352,
+                                "order": 1,
+                                "question": "After the completion of my project, I should ensure all files are archived and documented by:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 324,
+                            "title": "Project Management Complete Unit 7",
+                            "description": "Project Management Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "After the closing phase of the project, did the Project Manager sit the team down and discuss the Post Implementation Review?   ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Haven’t been in a project",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 710,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1026,
+                        "title": "What Makes a Successful Project Manager",
+                        "slug": "21143",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "yspN9Oz-UKM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Successful Project Managers possess diverse skills and characteristics such as:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Leadership &amp; self-confidence</h5>\r\n</li>\r\n \t<li>\r\n<h5>Pragmatism &amp; empathy</h5>\r\n</li>\r\n \t<li>\r\n<h5>Conduct meetings effectively</h5>\r\n</li>\r\n \t<li>\r\n<h5>Conflict resolution &amp; sound judgment</h5>\r\n</li>\r\n \t<li>\r\n<h5>Negotiation &amp; influence</h5>\r\n</li>\r\n \t<li>\r\n<h5>Team building and motivation</h5>\r\n</li>\r\n \t<li>\r\n<h5>Relationship management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Decision making &amp; analysis (Data and Impact)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Detailed oriented and seeing the big picture</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listening, generosity, flexibility, humor &amp; calmness</h5>\r\n</li>\r\n \t<li>\r\n<h5>Able to give and receive criticism</h5>\r\n</li>\r\n \t<li>\r\n<h5>Awareness of project management tools</h5>\r\n</li>\r\n \t<li>\r\n<h5>Political and cultural awareness</h5>\r\n</li>\r\n \t<li>\r\n<h5>General management</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Communication is a key skill for project managers. Project managers spend up to 90% of their time in communication (meetings, phone calls, emails, letters).</h5>\r\n<h5>The duties and responsibilities of project managers vary from one project to another and from one company to another. However, the following duties are somewhat common to all project managers:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Project Planning</h5>\r\n</li>\r\n \t<li>\r\n<h5>Interacting and communicating with key stakeholders</h5>\r\n</li>\r\n \t<li>\r\n<h5>Procuring project resources</h5>\r\n</li>\r\n \t<li>\r\n<h5>Interacting with outside clients, vendors and suppliers</h5>\r\n</li>\r\n \t<li>\r\n<h5>Initiating project implementation</h5>\r\n</li>\r\n \t<li>\r\n<h5>Continually monitoring the project progress, reviewing interim objectives and adjusting the project elements as needed</h5>\r\n</li>\r\n \t<li>\r\n<h5>Managing the project team, delegating and providing feedback</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identifying opportunities and problems and related solutions and adjustments</h5>\r\n</li>\r\n \t<li>\r\n<h5>Managing and resolving conflicts</h5>\r\n</li>\r\n \t<li>\r\n<h5>Consulting with advisors, mentors and coaches</h5>\r\n</li>\r\n</ul>\r\n<h5>Successful Project Managers possess diverse skills and characteristics such as:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Leadership &amp; self-confidence</h5>\r\n</li>\r\n \t<li>\r\n<h5>Pragmatism &amp; empathy</h5>\r\n</li>\r\n \t<li>\r\n<h5>Conduct meetings effectively</h5>\r\n</li>\r\n \t<li>\r\n<h5>Conflict resolution &amp; sound judgment</h5>\r\n</li>\r\n \t<li>\r\n<h5>Negotiation &amp; influence</h5>\r\n</li>\r\n \t<li>\r\n<h5>Team building and motivation</h5>\r\n</li>\r\n \t<li>\r\n<h5>Relationship management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Decision making &amp; analysis (Data and Impact)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Detailed oriented and seeing the big picture</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listening, generosity, flexibility, humor &amp; calmness</h5>\r\n</li>\r\n \t<li>\r\n<h5>Able to give and receive criticism</h5>\r\n</li>\r\n \t<li>\r\n<h5>Awareness of project management tools</h5>\r\n</li>\r\n \t<li>\r\n<h5>Political and cultural awareness</h5>\r\n</li>\r\n \t<li>\r\n<h5>General management</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "On lessons learned – Don’t look where you fall, but where you slipped. ~African Proverb – Woody Williams",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I should always work on improving my project manager skills by ensuring that I:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 353,
+                                "order": 1,
+                                "question": "I should always work on improving my project manager skills by ensuring that I:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 325,
+                            "title": "Project Management Complete Unit 8",
+                            "description": "Project Management Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What characteristics defined the success of your Project Manager?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 711,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1027,
+                        "title": "Common Project Manager Pitfalls",
+                        "slug": "common-project-manager-pitfalls",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "-cjK0N0eRnI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The pitfalls that project managers should avoid include:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The failure to address issues immediately</h5>\r\n</li>\r\n \t<li>\r\n<h5>Rescheduling too often</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be content with reaching milestones on time while ignoring quality</h5>\r\n</li>\r\n \t<li>\r\n<h5>Focusing more on project administrating and less on project management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Micromanaging rather than managing and delegating effectively</h5>\r\n</li>\r\n \t<li>\r\n<h5>Adopting new tools to quickly</h5>\r\n</li>\r\n \t<li>\r\n<h5>Monitoring project progress intermittently</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Project managers are put in very sensitive and difficult positions surrounded by possibilities of errors and things going wrong at each stage of the project.</h5>\r\n<h5>Some pitfalls that Project Managers should avoid include:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The failure to address issues immediately</h5>\r\n</li>\r\n \t<li>\r\n<h5>Rescheduling too often</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be content with reaching milestones on time while ignoring quality</h5>\r\n</li>\r\n \t<li>\r\n<h5>Focusing more on project administrating and less on project management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Micromanaging rather than managing and delegating effectively</h5>\r\n</li>\r\n \t<li>\r\n<h5>Adopting new tools to quickly</h5>\r\n</li>\r\n \t<li>\r\n<h5>Monitoring project progress intermittently</h5>\r\n</li>\r\n</ul>\r\n<h5>Just like with any other profession, project managers are constant learners. They continuously work on enhancing their technical, managerial and inter-personal skills. They learn from their mistakes and use their experiences to manage their future projects successfully.</h5>",
+                            "course-unit-quotes": "Know when to cut your losses if necessary. Don’t let your desire to succeed be the enemy of good judgment. If Napoleon had left Moscow immediately, he may have returned with a salvageable army. Jerry Manas",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "As a project manager, the possibility of performing errors is common thus I should try my best to avoid: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 354,
+                                "order": 1,
+                                "question": "As a project manager, the possibility of performing errors is common thus I should try my best to avoid: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 326,
+                            "title": "Project Management Complete Unit 9",
+                            "description": "Project Management Complete Unit 9",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you think that you have the characteristics to be a Project Manager?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1944,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1028,
+                        "title": "The Project Manager’s Checklist",
+                        "slug": "project-managers-checklist",
+                        "order": 110,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "NGyMlULSfwc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The project manager’s check list should include:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Project Integration</h5>\r\n</li>\r\n \t<li>\r\n<h5>Scope Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Schedule Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cost Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Quality Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>People Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Communication</h5>\r\n</li>\r\n \t<li>\r\n<h5>Risk Management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Project Procurement</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Project managers utilize their skills and techniques at every stage of the project lifecycle. Here is a list of areas that Project Managers need to ensure that they do well:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Project Integration: Develop a solid understanding of the project's goals, and how the various elements will fit together for a successful outcome.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Scope Management: Define the scope at the very start of your project based on the requirements and manage it closely against sign-off while effectively controlling any variations.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Schedule Management: Clearly define the sequence of activities, estimate the time needed for each one, and build in sufficient contingency time to allow for the unexpected.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cost Management: Remain systematic with your estimating, budgeting, and controlling the project decisions will could an impact on cost. Understand what's driving your costs and to develop a system for monitoring the project's financial performance.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Quality Management: Projects must be delivered on time, on budget, and to specification.</h5>\r\n</li>\r\n \t<li>\r\n<h5>People Management: Get the correct mix of interpersonal, technical and political skills on your team.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Communication: Communicate with the right people at the right time and using adequate methods.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Risk Management: Understand which of the risks are significant and develop a plan for monitoring and controlling the major risks involved in your project.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Project Procurement: In case you are using external suppliers you will need to closely manage the cost, time and quality impact.</h5>\r\n</li>\r\n</ul>\r\n<h5>By keeping an eye on these areas, Project Managers can ensure that they deliver successful projects that are on time, budget and within the quality level needed.</h5>",
+                            "course-unit-quotes": "Project management can be defined as a way of developing structure in a complex project, where the independent variables of time, cost, resources and human behavior come together. Rory Burke",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "At every stage of my project lifecycle, I should check the following points:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 355,
+                                "order": 1,
+                                "question": "At every stage of my project lifecycle, I should check the following points:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 327,
+                            "title": "Project Management Complete Unit 10",
+                            "description": "Project Management Complete Unit 10",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you follow the checklist items as mentioned above?  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 713,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1029,
+                        "title": "Project Management Essentials Posttest",
+                        "slug": "project-management-essentials-certificate",
+                        "order": 120,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 328,
+                            "title": "Project Management Essentials Post Test",
+                            "description": "Project Management Essentials Post Test",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Project management processes fall into five groups respectively:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Planning, Initiating, Executing, Monitoring and Controlling, Closing",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Initiating, Executing, Planning, Monitoring and Controlling, Closing",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Initiating, Planning, Executing, Monitoring and Controlling, Closing",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Planning, Initiating, Executing, Closing, Monitoring and Controlling",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 714,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A well-defined ________________ which is considered the top-level project-planning document ensuring all stakeholders understand where the project is heading.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Project Initiation Document (PID)",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Project Plan",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Project Scope",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Project Proposal",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 715,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Project plan could be created using:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Gantt Charts",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "PERT Charts",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Excel file",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 716,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Gantt Charts defines the sequential order of activities where you cannot start some activities until others are finished.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 717,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "______________ is defined as the project's milestones, activities, and deliverables, and their expected start and end dates. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Schedule Management",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Stakeholder Management",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Communications Management",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Project Change Management",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 718,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Monitoring and controlling typically involves proper allocation, co-ordination and management of human, physical, and financial resources. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 719,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The Project Milestone Report should include:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Start date, Due Date, Actual Completion Date, Project Milestone",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Description of the Milestone, Due Date, Actual Completion Date, Comments",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Project Plan, Description of the Milestone, Executing Plan, Due Date",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Start date, Description of the Milestone, Project Plan, Actual Completion Date",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 720,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The closing phase includes Contract closure to finalize all activities across all processes to formally close the project or a project phase. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 721,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Pitfall that Project Managers should avoid include:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "The failure to address issues immediately",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Rescheduling too often",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Adopting new tools to quickly",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 722,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "_______________ clearly define the sequence of activities, estimate the time needed for each one, and build in sufficient contingency time to allow for the unexpected.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Scope Management",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Schedule Management",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Quality Management",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Project Integration",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 723,
+                                    "order": 9
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/project-management.png",
+                "zip_path": "wp-content/uploads/2018/10/project-management.png",
+                "level": "card"
+            }
+        ]
+    }
+}

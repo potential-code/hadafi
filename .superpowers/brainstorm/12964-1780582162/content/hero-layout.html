@@ -1,0 +1,161 @@
+<h2>How should the chatbot sit within the hero section?</h2>
+<p class="subtitle">These mockups show the current SMEEP hero section (dark background, left-aligned content) with the registration chatbot added</p>
+
+<div class="cards">
+
+  <!-- Option A: Split Layout -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#0D0008;border-radius:8px;padding:16px;font-family:sans-serif;min-height:220px;position:relative;overflow:hidden;">
+        <!-- Background glow effects -->
+        <div style="position:absolute;top:-20px;left:-20px;width:120px;height:120px;background:radial-gradient(circle,rgba(159,32,99,0.3),transparent);border-radius:50%;"></div>
+        <div style="position:absolute;bottom:-10px;right:160px;width:100px;height:100px;background:radial-gradient(circle,rgba(76,29,110,0.3),transparent);border-radius:50%;"></div>
+        <!-- Left: Hero content (55%) -->
+        <div style="display:flex;gap:12px;height:200px;">
+          <div style="flex:0 0 54%;padding-right:8px;">
+            <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 10px;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;">
+              <div style="width:8px;height:8px;background:#9f2063;border-radius:50%;"></div>
+              <span style="color:rgba(255,255,255,0.8);font-size:9px;letter-spacing:1px;text-transform:uppercase;">SME EMPOWERMENT PROGRAM</span>
+            </div>
+            <div style="color:#fff;font-size:14px;font-weight:700;line-height:1.2;margin-bottom:6px;">Empower Your<br>Business With AI</div>
+            <div style="color:rgba(255,255,255,0.65);font-size:8px;line-height:1.5;margin-bottom:10px;">Access world-class mentors, AI tools,<br>and a global SME community.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);color:#fff;font-size:8px;padding:5px 10px;border-radius:20px;">Get Started Free →</div>
+              <div style="border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.75);font-size:8px;padding:5px 10px;border-radius:20px;">Sign In</div>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;">
+              <span style="color:rgba(255,255,255,0.5);font-size:7px;"><strong style="color:#fff">300k+</strong> SMEs</span>
+              <span style="color:rgba(255,255,255,0.5);font-size:7px;"><strong style="color:#fff">50+</strong> Countries</span>
+            </div>
+          </div>
+          <!-- Right: Chatbot panel (45%) -->
+          <div style="flex:0 0 44%;background:rgba(255,255,255,0.04);border:1px solid rgba(159,32,99,0.3);border-radius:16px;padding:10px;display:flex;flex-direction:column;">
+            <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);border-radius:10px 10px 0 0;padding:6px 10px;margin:-10px -10px 8px;display:flex;align-items:center;gap:6px;">
+              <div style="background:rgba(255,255,255,0.2);border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center;">✦</div>
+              <span style="color:#fff;font-size:8px;font-weight:600;">SMEEP Assistant</span>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:3px;">
+                <div style="width:5px;height:5px;background:#4ade80;border-radius:50%;"></div>
+                <span style="color:rgba(255,255,255,0.7);font-size:7px;">Online</span>
+              </div>
+            </div>
+            <div style="flex:1;overflow:hidden;display:flex;flex-direction:column;gap:6px;">
+              <div style="background:#fff;border:1px solid #f7e8f0;border-radius:10px 10px 10px 0;padding:6px 8px;max-width:85%;">
+                <span style="font-size:7.5px;color:#1A0A12;line-height:1.4;">👋 Welcome! Would you like to join SMEEP for free?</span>
+              </div>
+              <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);border-radius:10px 10px 0 10px;padding:6px 8px;max-width:78%;align-self:flex-end;">
+                <span style="font-size:7.5px;color:#fff;">I want to register</span>
+              </div>
+              <div style="background:#fff;border:1px solid #f7e8f0;border-radius:10px 10px 10px 0;padding:6px 8px;max-width:85%;">
+                <span style="font-size:7.5px;color:#1A0A12;line-height:1.4;">Great! What's your full name?</span>
+              </div>
+            </div>
+            <div style="background:#FDF5F9;border:1px solid #f7e8f0;border-radius:10px;padding:5px 8px;margin-top:6px;display:flex;align-items:center;gap:6px;">
+              <span style="flex:1;font-size:7px;color:rgba(107,91,115,0.6);">Type your reply…</span>
+              <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);width:16px;height:16px;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                <span style="color:#fff;font-size:8px;">→</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Side-by-Side Split</h3>
+      <p>Hero text takes ~55% on the left, chatbot panel takes ~45% on the right. Both are equal visual weight. The chatbot is always visible — no click to open.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Floating Card overlay -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#0D0008;border-radius:8px;padding:16px;font-family:sans-serif;min-height:220px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-20px;left:-20px;width:120px;height:120px;background:radial-gradient(circle,rgba(159,32,99,0.25),transparent);border-radius:50%;"></div>
+        <!-- Full-width hero text (centered) -->
+        <div style="text-align:center;padding-bottom:20px;">
+          <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 10px;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;">
+            <span style="color:rgba(255,255,255,0.8);font-size:9px;letter-spacing:1px;text-transform:uppercase;">SME EMPOWERMENT PROGRAM</span>
+          </div>
+          <div style="color:#fff;font-size:14px;font-weight:700;line-height:1.2;margin-bottom:6px;">Empower Your Business With AI</div>
+          <div style="color:rgba(255,255,255,0.65);font-size:8px;line-height:1.5;margin-bottom:10px;">Access world-class mentors, AI tools, and a global SME community.</div>
+          <div style="display:flex;gap:6px;justify-content:center;">
+            <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);color:#fff;font-size:8px;padding:5px 12px;border-radius:20px;">Get Started Free →</div>
+            <div style="border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.75);font-size:8px;padding:5px 12px;border-radius:20px;">Sign In</div>
+          </div>
+        </div>
+        <!-- Floating chatbot bottom-right -->
+        <div style="position:absolute;bottom:12px;right:12px;width:150px;background:rgba(13,0,8,0.85);backdrop-filter:blur(12px);border:1px solid rgba(159,32,99,0.4);border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.5);">
+          <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);padding:5px 8px;display:flex;align-items:center;gap:5px;">
+            <span style="color:#fff;font-size:8px;font-weight:600;">✦ SMEEP Assistant</span>
+            <div style="margin-left:auto;width:5px;height:5px;background:#4ade80;border-radius:50%;"></div>
+          </div>
+          <div style="padding:6px 8px;display:flex;flex-direction:column;gap:4px;">
+            <div style="background:#fff;border:1px solid #f7e8f0;border-radius:7px 7px 7px 0;padding:4px 6px;">
+              <span style="font-size:7px;color:#1A0A12;">👋 Want to join SMEEP for free?</span>
+            </div>
+            <div style="background:#FDF5F9;border:1px solid #f7e8f0;border-radius:8px;padding:4px 6px;display:flex;align-items:center;gap:4px;margin-top:2px;">
+              <span style="flex:1;font-size:6.5px;color:rgba(107,91,115,0.6);">I want to register</span>
+              <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);width:13px;height:13px;border-radius:5px;display:flex;align-items:center;justify-content:center;"><span style="color:#fff;font-size:7px;">→</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Floating Bottom-Right</h3>
+      <p>Hero text stays full-width and centered. The chatbot floats as a compact overlay in the bottom-right corner, similar to a chat widget. Subtle presence, doesn't compete with the hero message.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Hero + Chat below -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#0D0008;border-radius:8px;padding:16px;font-family:sans-serif;min-height:220px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-20px;right:20px;width:100px;height:100px;background:radial-gradient(circle,rgba(76,29,110,0.25),transparent);border-radius:50%;"></div>
+        <!-- Left hero text -->
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <div style="flex:0 0 54%;padding-right:8px;">
+            <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 10px;display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;">
+              <span style="color:rgba(255,255,255,0.8);font-size:9px;letter-spacing:1px;text-transform:uppercase;">SME EMPOWERMENT PROGRAM</span>
+            </div>
+            <div style="color:#fff;font-size:14px;font-weight:700;line-height:1.2;margin-bottom:6px;">Empower Your<br>Business With AI</div>
+            <div style="color:rgba(255,255,255,0.65);font-size:8px;line-height:1.5;margin-bottom:10px;">Access world-class mentors, AI tools,<br>and a global SME community.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
+              <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);color:#fff;font-size:8px;padding:5px 10px;border-radius:20px;">Get Started Free →</div>
+              <div style="border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.75);font-size:8px;padding:5px 10px;border-radius:20px;">Sign In</div>
+            </div>
+          </div>
+          <!-- Right: chat starting with chip -->
+          <div style="flex:0 0 44%;border:1px solid rgba(159,32,99,0.25);border-radius:14px;overflow:hidden;">
+            <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);padding:5px 9px;display:flex;align-items:center;gap:5px;">
+              <span style="color:#fff;font-size:8px;font-weight:600;">✦ SMEEP Assistant</span>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:3px;"><div style="width:5px;height:5px;background:#4ade80;border-radius:50%;"></div><span style="color:rgba(255,255,255,0.7);font-size:7px;">Online</span></div>
+            </div>
+            <div style="background:#0D0008;padding:8px;display:flex;flex-direction:column;gap:5px;min-height:130px;">
+              <div style="background:rgba(255,255,255,0.06);border:1px solid #f7e8f0;border-radius:7px 7px 7px 0;padding:5px 7px;max-width:90%;">
+                <span style="font-size:7px;color:rgba(255,255,255,0.9);">👋 Welcome to SMEEP! I can help you register for free. Ready to get started?</span>
+              </div>
+              <!-- Pre-prompt chip -->
+              <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;">
+                <div style="background:rgba(159,32,99,0.15);border:1px solid rgba(159,32,99,0.4);border-radius:20px;padding:3px 8px;">
+                  <span style="font-size:7px;color:#d4698a;">✦ I want to register</span>
+                </div>
+              </div>
+              <div style="flex:1;"></div>
+              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:4px 7px;display:flex;align-items:center;gap:5px;margin-top:auto;">
+                <span style="flex:1;font-size:6.5px;color:rgba(107,91,115,0.6);">Or type a message…</span>
+                <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);width:13px;height:13px;border-radius:5px;display:flex;align-items:center;justify-content:center;"><span style="color:#fff;font-size:7px;">→</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Split with Dark-Themed Chat</h3>
+      <p>Same side-by-side split as A, but the chat panel uses the dark hero background rather than a white panel — creating a more cohesive, immersive look. The pre-prompt chip is prominently visible.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px;">Click your preferred layout, then let me know in the terminal. All options are fully responsive — on mobile the chat would stack below the hero text.</p>

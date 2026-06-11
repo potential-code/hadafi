@@ -1,0 +1,440 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 115,
+        "title": "Digital Content",
+        "description": "Digital Content",
+        "unit_count": 4,
+        "author_id": 2,
+        "course_post_id": 3753,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "no_certs",
+            "user_access": "default_show",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 3578,
+            "title": "Digital Content",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/identifying-your-keywords-and-useful-information/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2021/04/futurejobs.jpeg",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 115,
+                "title": "Virtual Job Placement",
+                "description": "Virtual Job Placement",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 3573,
+                        "title": "Identifying your keywords and useful information",
+                        "slug": "identifying-your-keywords-and-useful-information",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "UreG6zVdYq0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>There is a lot of information available online today. So that your website and social media posts stand out, you need to focus on specific keywords.</h5>\r\n<h5></h5>\r\n<h5>Here are the steps to help you decide on which keywords to use</h5>\r\n<div>\r\n<ul>\r\n \t<li>\r\n<h5>Search Wikipedia for the topic you decided on and get keyword ideas</h5>\r\n</li>\r\n \t<li>\r\n<h5>Check the chosen keywords on google trends to identify which one has the most traffic</h5>\r\n</li>\r\n \t<li>\r\n<h5>Search for interesting statistics and quotes on the topic</h5>\r\n</li>\r\n \t<li>\r\n<h5>Decide on who would be most interested to know about your topic</h5>\r\n</li>\r\n</ul>\r\n\r\n<div align=\"center\"><button type=\"button\" class=\"btn btn-info\" data-toggle=\"collapse\" data-target=\"#demo\" aria-expanded=\"true\" style=\"\">العربية <i class=\"fa fa-language\"></i>\r\n  </button></div>\r\n  <div id=\"demo\" class=\"collapse\">\r\n<h5 style=\"text-align: right;direction:rtl;\">- أصبح الإنترنت اليوم مزدحماً بالمعلومات. لذا لا بدّ من التركيز على كلمات مفاتيح محدّدة كي يبرز موقعك الإلكتروني ومنشوراتك على مواقع التواصل الاجتماعي.</h5>\r\n<h5 style=\"text-align: right;direction:rtl;\"></h5>\r\n<h5 style=\"text-align: right;direction:rtl;\">إليك بعض الخطوات التي تُساعدك على تحديد الكلمات المفاتيح التي ستستخدمها</h5>\r\n<ul>\r\n \t<li style=\"text-align: right;direction:rtl;\">\r\n<h5>البحث في ويكيبيديا عن الموضوع الذي اخترته والتعرّف على الكلمات المفاتيح</h5>\r\n</li>\r\n \t<li style=\"text-align: right;direction:rtl;\">\r\n<h5>التأكّد من الكلمات المفاتيح على موقع \"مؤشّرات جوجل\" (google trends) لتحديد تلك الأكثر بحثاً على الإنترنت</h5>\r\n</li>\r\n \t<li style=\"text-align: right;direction:rtl;\">\r\n<h5>البحث عن الإحصائيات والاقتباسات المهمّة والملفتة حول الموضوع</h5>\r\n</li>\r\n \t<li style=\"text-align: right;direction:rtl;\">\r\n<h5 style=\"text-align: right;direction:rtl;\">تحديد الجمهور المهتمّ بالاطّلاع على الموضوع الذي اخترته</h5>\r\n</li>\r\n</ul>\r\n  </div>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>Example of this step</h5>\r\n<ul>\r\n\r\n \t<li>\r\n<h5>Main topic - Photography</h5>\r\n</li>\r\n \t<li>\r\n<h5>Search on Wikipedia gave several interesting keywords related to photography - Food Photography</h5>\r\n</li>\r\n \t<li>\r\n<h5>Search on google trends to see which has more traffic Food Photography vs Food Photos</h5>\r\n</li>\r\n \t<li>\r\n<h5>Decide on keyword #FoodPhotography</h5>\r\n</li>\r\n<img src=\"https://competitions.potential.com/future-jobs/wp-content/uploads/2020/12/howtousegoogletrends.gif\" style=\"width:100%\";>\r\n \t<li>\r\n<h5>Identify an interesting Statistic: <strong>“Adding good quality photos to your page guarantees to boost sales by 30%” - <a href=\"https://www.meero.com/\" target=\"_blank\" rel=\"noopener noreferrer\" data-auth=\"NotApplicable\">https://www.meero.com/\r\n</a></strong></h5>\r\n</li>\r\n\t<li>\r\n<h5>Those who are most interested in my <b>topic</b>  would be <b>restaurant owners</b> </h5></li>\r\n</ul>\r\n",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<h5>Links to the tools mentioned:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><a href=\"https://wikipedia.com\" target=\"_blank\" rel=\"noopener\">Wikipedia.com</a></h5>\r\n</li>\r\n \t<li>\r\n<h5><a href=\"https://trends.google.com/\" target=\"_blank\" rel=\"noopener noreferrer\" data-auth=\"NotApplicable\">Google trends</a></h5>\r\n</li>\r\n</ul>\r\n\r\n<h5>Check out the complete guide to find the best keywords with examples by clicking<a href=\"https://keywordtool.io/blog/keyword-research/\" target=\"_blank\"> here </a> </h5>\r\n\r\n\r\n<h5> This unit  will prepare you for these kind of jobs and here are a few examples of how much you can start to earn: </h5> \r\n<div class=\"row\">\r\n<div class=\"col-md-6\">\r\n<img src=\"https://competitions.potential.com/future-jobs/wp-content/uploads/2020/12/keywords.png\" style=\"width: 90%;\">\r\n</div>\r\n<div class=\"col-md-6\">\r\n<img src=\"https://competitions.potential.com/future-jobs/wp-content/uploads/2020/12/keywordsprices.png\" style=\"width: 90%;\">\r\n</div>\r\n</div>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is the main #keyword that you chose to use? ",
+                            "course-unit-atq-two": "What is an interesting statistic or quote that you found on the topic? (include the source)",
+                            "atqq_3": "Which group of people would be most interested in your topic?",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1031,
+                                "order": 1,
+                                "question": "What is the main #keyword that you chose to use? "
+                            },
+                            {
+                                "q_id": 1032,
+                                "order": 2,
+                                "question": "What is an interesting statistic or quote that you found on the topic? (include the source)"
+                            },
+                            {
+                                "q_id": 1030,
+                                "order": 3,
+                                "question": "Which group of people would be most interested in your topic?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 949,
+                            "title": "YDP 2",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which social media platform do you use the most?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Instagram",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Facebook",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Snapchat",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Twitter",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Tiktok",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 6,
+                                            "text": "Other",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2329,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 3574,
+                        "title": "Creating Social Media Posts",
+                        "slug": "create-social-media-posts",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "dus_AFgJQko",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Social Media posts should have a consistent style. You can use free tools to create a nice look for your posts. You also need to produce the posts for each type of platform you will use.</h5>\r\n<h5></h5>\r\n<h5>Here are the steps to help you create a sample nice social media post</h5>\r\n<div>\r\n<ul>\r\n \t<li>\r\n<h5>Use a tool like Canva.com to decide on the best template to use</h5>\r\n</li>\r\n \t<li>\r\n<h5>Add the statistic that you found in the previous unit along with a nice image</h5>\r\n</li>\r\n \t<li>\r\n<h5>Include a description with the #Keyword you chose and other keywords</h5>\r\n</li>\r\n</ul>\r\n\r\n\r\n<div align=\"center\"><button type=\"button\" class=\"btn btn-info\" data-toggle=\"collapse\" data-target=\"#demo\" aria-expanded=\"true\" style=\"\">العربية <i class=\"fa fa-language\"></i>\r\n  </button></div>\r\n  <div id=\"demo\" class=\"collapse\">\r\n<h5 style=\"text-align: right;direction:rtl;\">يجب أن تتّسم المنشورات على مواقع التواصل الاجتماعي بأسلوب متجانس. يُمكن استخدام الأدوات المجانية لنشر المحتوى بأسلوب جميل ومُلفت للنظر. عليك أيضاً خلق المنشورات لكل منصة من منصات التواصل الاجتماعي التي ستستخدمها.</h5>\r\n<h5 style=\"text-align: right;direction:rtl;\"></h5>\r\n<h5 style=\"text-align: right;direction:rtl;\">إليك بعض الخطوات التي تُساعدك على خلق منشور جميل على مواقع التواصل الاجتماعي</h5>\r\n<ul>\r\n \t<li style=\"text-align: right;direction:rtl;\">\r\n<h5>استخدام أداة مثل Canva.com لاختيار أفضل النماذج للنشر</h5>\r\n</li>\r\n \t<li style=\"text-align: right;direction:rtl;\">\r\n<h5>إضافة الإحصائيات التي وجدتها في البند السابق، وتنسيقها مع صورة جميلة</h5>\r\n</li>\r\n \t<li>\r\n<h5 style=\"text-align: right;direction:rtl;\"> كتابة وصف مع #الكلمة_المفتاح التي اخترتها وغيرها من الكلمات المفاتيح</h5>\r\n</li>\r\n</ul>\r\n  </div>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<h5>Links to the tools mentioned:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><a href=\"http://canva.com\" target=\"_blank\" rel=\"noopener\">canva.com</a></h5>\r\n</li>\r\n</ul>\r\n\r\n<h5> Here is a tutorial from Canva on how to use the platform to create your first social media post: </h5> \r\n<div style=\"top: 0px; left: 0px; position: relative; width: 100%; display: block;\" id=\"fg-plyr\">\r\n        <div data-video-id=\"EZ7UjKDG5Oc\" data-type=\"youtube\"></div>\r\n    </div>\r\n\r\n<h5> Here is how you edit your social media post on Canva: </h5>\r\n\r\n<div style=\"top: 0px; left: 0px; position: relative; width: 100%; display: block;\" id=\"fg-plyr\">\r\n        <div data-video-id=\"KGlnjNolEHc\" data-type=\"youtube\"></div>\r\n    </div>\r\n\r\n<h5> This unit  will prepare you for these kind of jobs and here are a few examples of how much you can start to earn: </h5> \r\n<div class=\"row\">\r\n<div class=\"col-md-6\">\r\n<img src=\"https://competitions.potential.com/future-jobs/wp-content/uploads/2020/12/social.png\" style=\"width: 90%;\">\r\n</div>\r\n<div class=\"col-md-6\">\r\n<img src=\"https://competitions.potential.com/future-jobs/wp-content/uploads/2020/12/social2.png\" style=\"width: 90%;\">\r\n</div>\r\n</div>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is the caption you would include for your post? ",
+                            "course-unit-atq-two": "Place the link of your post from your social media channel",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1033,
+                                "order": 1,
+                                "question": "What is the caption you would include for your post? "
+                            },
+                            {
+                                "q_id": 1034,
+                                "order": 2,
+                                "question": "Place the link of your post from your social media channel"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 950,
+                            "title": "YDP 3",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How often do you post on social media?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "I don't post",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Weekly",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Daily",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "several times a day",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2330,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 3575,
+                        "title": "Creating Videos",
+                        "slug": "creating-videos",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "l--i_uc5bjU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Videos have become the most used communication method for companies and individuals. Choose the style of video you would like to work on such as animation using vyond, or standard videos imovies. Use one of these free tools to develop a 30-second video.</h5>\r\n<h5></h5>\r\n<h5>Here are some tips to keep in mind:</h5>\r\n<div>\r\n<ul>\r\n \t<li>\r\n<h5>Capture the attention in the introduction</h5>\r\n</li>\r\n \t<li>\r\n<h5>Provide the information you want to convey</h5>\r\n</li>\r\n \t<li>\r\n<h5>Close with a call for action</h5>\r\n</li>\r\n</ul>\r\n<div align=\"center\"><button type=\"button\" class=\"btn btn-info\" data-toggle=\"collapse\" data-target=\"#demo\" aria-expanded=\"true\" style=\"\">العربية  <i class=\"fa fa-language\"></i>\r\n  </button></div>\r\n  <div id=\"demo\" class=\"collapse\">\r\n<h5 style=\"text-align: right;direction:rtl;\">– أصبحت الفيديوهات وسيلة التواصل الأكثر شيوعاً بين الشركات والأفراد. اختَر نوع الفيديو الذي يحلو لك، مثلاً الرسوم المتحرّكة بواسطة منصة vyond أو الفيديو القياسي عبر تطبيق imovies. استخدم إحدى هذه الأدوات المجانية لإعداد فيديو مدّته 30 ثانية.</h5>\r\n<h5 style=\"text-align: right;direction:rtl;\">إليك بعض النصائح المفيدة التي يجب أخذها في عين الاعتبار:</h5>\r\n<ul style=\"text-align: right;direction:rtl;\">\r\n \t<li>\r\n<h5>لفت انتباه القارئ في المقدّمة</h5>\r\n</li>\r\n \t<li>\r\n<h5>توفير المعلومات التي تودّ إيصالها</h5>\r\n</li>\r\n \t<li>\r\n<h5>إنهاء الفيديو بدعوة إلى اتّخاذ إجراء ما (أو ما يُعرف بالـCTA)</h5>\r\n</li>\r\n</ul>\r\n\r\n  </div>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>Below you can see the results on when users search for the keyword \" Food Photography \":  </h5>\r\n<img src=\"https://competitions.potential.com/future-jobs/wp-content/uploads/2020/12/WhatsApp-Image-2020-12-09-at-3.05.33-PM.jpeg\" style=\"width:inherit;\">",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<h5>Links to the tools mentioned:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><a href=\"http://vyond.com\" target=\"_blank\" rel=\"noopener\">vyond.com</a></h5>\r\n</li>\r\n</ul>\r\n<h5> Watch the video below to learn how to make a video using Vyond:</h5>\r\n<div style=\"top: 0px; left: 0px; position: relative; width: 100%; display: block;\" id=\"fg-plyr\">\r\n        <div data-video-id=\"tR50jRU7KZc\" data-type=\"youtube\"></div>\r\n    </div>\r\n\r\n<h5> This unit  will prepare you for these kind of jobs and here are a few examples of how much you can start to earn: </h5> \r\n<div class=\"row\">\r\n<div class=\"col-md-6\">\r\n<img src=\"https://competitions.potential.com/future-jobs/wp-content/uploads/2020/12/video.png\" style=\"width: 90%;\">\r\n</div>\r\n<div class=\"col-md-6\">\r\n<img src=\"https://competitions.potential.com/future-jobs/wp-content/uploads/2020/12/vytond.png\" style=\"width: 90%;\">\r\n</div>\r\n</div>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is the call for action that you want to include? ",
+                            "course-unit-atq-two": "Put a link to the video on your social media channel. If you don't have one, create a new youtube account, post your video there, and include the link here to the video",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1035,
+                                "order": 1,
+                                "question": "What is the call for action that you want to include? "
+                            },
+                            {
+                                "q_id": 1036,
+                                "order": 2,
+                                "question": "Put a link to the video on your social media channel. If you don't have one, create a new youtube account, post your video there, and include the link here to the video"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 951,
+                            "title": "YDP 4",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever made money from your social media activities?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2331,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 3576,
+                        "title": "Creating blog posts",
+                        "slug": "creating-blog-posts",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "qTYz0k3K1ds",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Apart from videos, articles are a great way to be found through google search - called SEO. For an article to stand out amongst the billions of web pages that are online, it needs to be SEO friendly.</h5>\r\n<h5></h5>\r\n<h5>Here are some tips to include in your article:</h5>\r\n<div>\r\n<ul>\r\n \t<li>\r\n<h5>The title should include your keyword and be attractive for people to click on</h5>\r\n</li>\r\n \t<li>\r\n<h5>The article should include several sub-headings that also include your keyword</h5>\r\n</li>\r\n \t<li>\r\n<h5>List articles are very attractive for people to click on and for SEO to find them</h5>\r\n</li>\r\n</ul>\r\n<div align=\"center\"><button type=\"button\" class=\"btn btn-info\" data-toggle=\"collapse\" data-target=\"#demo\" aria-expanded=\"true\" style=\"\">العربية  <i class=\"fa fa-language\"></i>\r\n  </button></div>\r\n  <div id=\"demo\" class=\"collapse\">\r\n<h5 style=\"text-align: right;direction:rtl;\">علاوة على مقاطع الفيديو، تُشكّل المقالات طريقة مثالية للظهور في عمليّة البحث على جوجل، أو ما يُعرف بالـSEO (تهيئة محرّكات البحث). لا بدّ من أن تكون المقالة مهيّلة لمحرّكات البحث كي تبرز من بين مليارات الصفحات الإلكترونية.</h5>\r\n<h5 style=\"text-align: right;direction:rtl;\"></h5>\r\n<h5 style=\"text-align: right;direction:rtl;\">إليك بعض النصائح لكتابة المقالات:</h5>\r\n<ul>\r\n \t<li style=\"text-align: right;direction:rtl;\">\r\n<h5>يجب كتابة عنوان مُلفت يشدّ القارئ إلى النقر عليه، ويشمل الكلمة المفتاح</h5>\r\n</li>\r\n \t<li style=\"text-align: right;direction:rtl;\">\r\n<h5>يجب أن يشمل المقال عدّة عناوين ثانوية، تشمل بدورها الكلمة المفتاح</h5>\r\n</li>\r\n \t<li>\r\n<h5 style=\"text-align: right;direction:rtl;\">تُعَدّ المقالات التي تشمل مُحتوًى مفصّلاً على شكل نقاط مُلفتة جداً للقارئ، كما يسهل على محرّكات البحث إيجادها</h5>\r\n</li>\r\n</ul>\r\n  </div>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5> Example on searching on Google using the keyword \"Food Photography\" </h5> \r\n<div class=\"row\">\r\n<div class=\"col-md-6\">\r\n<img src=\"https://competitions.potential.com/future-jobs/wp-content/uploads/2020/12/WhatsApp-Image-2020-12-09-at-2.55.45-PM.jpeg\" style=\"width: 90%;\">\r\n</div>\r\n<div class=\"col-md-6\">\r\n<img src=\"https://competitions.potential.com/future-jobs/wp-content/uploads/2020/12/WhatsApp-Image-2020-12-09-at-2.55.44-PM.jpeg\" style=\"width: 90%;\">\r\n</div>\r\n</div>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<h5>How to write a blog post: <a href=\"https://backlinko.com/write-a-blog-post\" target=\"_blank\" rel=\"noopener noreferrer\" data-auth=\"NotApplicable\">https://backlinko.com/write-a-blog-post</a></h5>\r\n\r\n<h5> Create your own blog using blogger.com, <a href=\"https://support.google.com/blogger/answer/1623800?hl=en\" target=\"_blank\">click here</a> to learn how to create and manage your own blog with Blogger. </5>\r\n\r\n<h5> This unit  will prepare you for these kind of jobs and here are a few examples of how much you can start to earn: </h5> \r\n<div class=\"row\">\r\n<div class=\"col-md-6\">\r\n<img src=\"https://competitions.potential.com/future-jobs/wp-content/uploads/2020/12/articles.png\" style=\"width: 90%;\">\r\n</div>\r\n<div class=\"col-md-6\">\r\n<img src=\"https://competitions.potential.com/future-jobs/wp-content/uploads/2020/12/articles2.png\" style=\"width: 90%;\">\r\n</div>\r\n</div>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What would be a good title for an article that you can publish on your topic?",
+                            "course-unit-atq-two": "List 3 interesting points that could be related to your article and important for your target audience",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1037,
+                                "order": 1,
+                                "question": "What would be a good title for an article that you can publish on your topic?"
+                            },
+                            {
+                                "q_id": 1038,
+                                "order": 2,
+                                "question": "List 3 interesting points that could be related to your article and important for your target audience"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 952,
+                            "title": "YDP 5",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "I prefer: ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Producing videos ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Writing articles",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2332,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2021/04/futurejobs.jpeg",
+                "zip_path": "wp-content/uploads/2021/04/futurejobs.jpeg",
+                "level": "card"
+            }
+        ]
+    }
+}

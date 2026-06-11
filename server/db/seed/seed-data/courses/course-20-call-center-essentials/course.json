@@ -1,0 +1,901 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 20,
+        "title": "Call Center Essentials",
+        "description": "Learn the basics of call center operations",
+        "unit_count": 9,
+        "author_id": 0,
+        "course_post_id": 3663,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2356,
+            "title": "Call Center Essentials",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/call-center-essentials-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/call-center.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 20,
+                "title": "Call Center Essentials",
+                "description": "Learn the basics of call center operations",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 841,
+                        "title": "Call Center Essentials Pretest",
+                        "slug": "call-center-essentials-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 140,
+                            "title": "Call Center Essentials Pretest",
+                            "description": "Call Center Essentials Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "Outbound calls are calls that come in to the center by clients that have a problem or want to ask a question.  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 297,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "To handle an angry client, you need to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Listen, Don’t argue, Empathize with the client",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Listen, Argue, Empathize with the client",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Speak Loudly, Argue, Close the argument ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "1",
+                                    "question_id": 298,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 842,
+                        "title": "Call Center and Contact Center Differences",
+                        "slug": "call-center-contact-center-differences",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "a3i3T_jf-X8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Call centers were initially designed to handle voice calls coming in or being made out of the center. These call centers became known as contact centers as they needed to account for all customer engagements.</h5>",
+                            "course-unit-read-more": "<h5>Call centers became a very popular way to serve customers especially with the development of the interactive voice response (IVR) systems - those automated prompts on the call that ask you to press 1 for this and 2 for that etc.. Call centers were initially designed to handle voice calls coming in or being made out of the center.</h5>\r\n<h5>However, as technology evolved and people had more opportunities to interact with organizations, the call centers had to evolve too and address all customer interactions including email, social media, web chat and the like. These call centers became known as contact centers as they needed to account for all customer engagements.</h5>\r\n<h5>Since customers would be contacting the contact center through any channel, these centers need to have a complete view of the customer across the various touch points in what is called a 360 degree view of the customer.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 141,
+                            "title": "Call Center Complete Unit 1",
+                            "description": "Call Center Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a contact center operation in your business?    ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 283,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 843,
+                        "title": "2 Call Types that Take Place in a Contact Center",
+                        "slug": "2-call-types-take-place-contact-center",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "5M4XK7NIJGs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The two main types of calls or interactions that take place in a contact center:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Inbound Calls</h5>\r\n</li>\r\n \t<li>\r\n<h5>Outbound Calls</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Contact centers have two main types of calls or interactions that take place in them:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Inbound calls: </strong>which are calls that come in to the center by clients that have a problem or want to ask a question. These calls should be serviced as quickly and effectively as possible. Since they are originated by the client, they can provide a great opportunity to delight them with exceptional service.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Outbound calls: </strong>which are calls that are originated by the contact center staff either for sales, collections of money owed, customer service surveys or as a followup to an inbound call request. Doing outbound calls can be very tricky since the call can take place at a random time that might not be convenient to the client.</h5>\r\n</li>\r\n</ul>\r\n<h5>A lot of thought needs to go into the efficient handling of the calls, so that organizations ensure that customers get the best possible experience.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My main focus in my call center activities are: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 625,
+                                "order": 1,
+                                "question": "My main focus in my call center activities are: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 142,
+                            "title": "Call Center Complete Unit 2",
+                            "description": "Call Center Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you found Call Center agents to be more pleasant when you call them (In bound calls) or when they call you (Out bound calls)?    ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "In bound calls   ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Out bound calls   ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Both",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Neither ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 284,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 844,
+                        "title": "3 Elements of an Inbound Call Center Call",
+                        "slug": "3-elements-of-an-inbound-call-centre-call",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "W8aRp7BtNN4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 elements of an inbound call center call:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Opening the call</h5>\r\n</li>\r\n \t<li>\r\n<h5>The call body</h5>\r\n</li>\r\n \t<li>\r\n<h5>Closing the call</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Call centers provide organizations with an effective and convenient way solve customer problems or address their needs. The basis of any call center operation is the calls that take place between the agent who answers the call and the customer or caller on the other line.</h5>\r\n<h5>There are 3 elements to any inbound call center call that agents would need to be trained on:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Opening the call: </strong>When a call arrives and the agent picks it up, they will greet the client and introduce themselves.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>The call body: </strong>The focus in the main part of the call is to listen well, understand the customer issue and address it appropriately.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Closing the call: </strong>Before closing the call with the client, a thank you farewell message is provided. Then, the agent would need to wrap up the call and add any notes to the customer system.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Our main message that we went to get across in each call is: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 626,
+                                "order": 1,
+                                "question": "Our main message that we went to get across in each call is: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 143,
+                            "title": "Call Center Complete Unit 3",
+                            "description": "Call Center Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you measure the average duration of your overall calls?  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 285,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 845,
+                        "title": "Contact Center Team Functions",
+                        "slug": "contact-center-team-functions",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "ZdlJjjexo40",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The usual functions you would find in a contact center:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Contact Center Agent</h5>\r\n</li>\r\n \t<li>\r\n<h5>Contact Center Team Leader</h5>\r\n</li>\r\n \t<li>\r\n<h5>Workforce Management (WFM) Lead</h5>\r\n</li>\r\n \t<li>\r\n<h5>Quality Management Team</h5>\r\n</li>\r\n \t<li>\r\n<h5>Management Information Systems (MIS) Team</h5>\r\n</li>\r\n \t<li>\r\n<h5>Contact Center Manager</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Contact centers are designed around key functions made up of teams. Here are the usual functions you would find in a contact center</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Contact Center Agent</strong>: Answering contacts that come from the customers or doing outbound calls</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Contact Center Team Leader</strong>: Handling Escalations from agents that they weren't able to solve</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Workforce Management (WFM) Lead</strong>: Prepares staff schedules, holidays and leave bookings</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Quality Management Team</strong>: Monitoring Interactions, preparing score card, recommending agent training, recommending corrective actions</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Management Information Systems (MIS) Team</strong>: Responsible of preparing dashboards, prepare reports, daily, monthly and yearly performance report, call volume report, etc</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Contact Center Manager</strong>: Responsible for overall management of the contact center</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 144,
+                            "title": "Call Center Complete Unit 4",
+                            "description": "Call Center Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a workforce management system other than excel or spreadsheets ?   ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 286,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 846,
+                        "title": "5 Great Customer Service Words & Phrases",
+                        "slug": "5-great-customer-service-words-phrases",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "83VVs-bzrR4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 5 great customer service words and phrases that you can use:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Unfortunate</h5>\r\n</li>\r\n \t<li>\r\n<h5>Based on our experience</h5>\r\n</li>\r\n \t<li>\r\n<h5>All I’m saying is</h5>\r\n</li>\r\n \t<li>\r\n<h5>I’m just doing my job</h5>\r\n</li>\r\n \t<li>\r\n<h5>Definitely!</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>When customers contact the customer service center, they are usually facing a problem, which means they are already starting the contact with you with a negative experience. Your aim is to turn that experience into a positive one and the words and phrases you use can make a great difference.</h5>\r\n<h5>Here are 5 great customer service words and phrases that you can use:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>It’s <strong>unfortunate </strong>that you are facing this problem</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Based on our experience </strong>this is the right course of action</h5>\r\n</li>\r\n \t<li>\r\n<h5>Replace the word “but\" with “<strong>All I’m saying is</strong>”</h5>\r\n</li>\r\n \t<li>\r\n<h5>When things go out of hand, you can remind the client “<strong>I’m just doing my job\"</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Definitely</strong>! is much more effective than yes</h5>\r\n</li>\r\n</ul>\r\n<h5>These 5 terms can help improve your customer communication and turn the negative situation into a more positive one.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I should try in my calls to say more of the following phrase: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 627,
+                                "order": 1,
+                                "question": "I should try in my calls to say more of the following phrase: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 145,
+                            "title": "Call Center Complete Unit 5",
+                            "description": "Call Center Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you track customer satisfaction after the calls that are made?  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 287,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 847,
+                        "title": "3 Tips on How to Handle an Angry Client",
+                        "slug": "3-tips-on-how-to-handle-an-angry-client",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "R56haUGg9go",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 tips on how to handle an angry client:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Listen</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t argue</h5>\r\n</li>\r\n \t<li>\r\n<h5>Empathize with the client</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Many of us face the occasional angry client - weather internal inside our company or external in dealing with buying customers. Some customers are rude and not reasonable, but in the vast majority of times, customers are reasonable.</h5>\r\n<h5>Here are 3 tips on how to handle an angry client and diffuse the situation</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Listen</strong>, <strong>Listen </strong>and Listen some more</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Don’t argue </strong>with the client, since you will never win</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Empathize with the client </strong>and let them know you understand their situation</h5>\r\n</li>\r\n</ul>\r\n<h5>After understanding the problem and situation, if you can solve it that would be great, if not, then you need make it clear that the problem is out of your hands and it's unfortunate that they had that experience. Depending on the policies of the company, you might be able to offer them something to compensate them on their bad experience.</h5>\r\n<h5>Remember, not to take any negative customer contact personally, you need to learn to separate your emotion from the job.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "When I get an angry client, I should try to do more of the following: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 628,
+                                "order": 1,
+                                "question": "When I get an angry client, I should try to do more of the following: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 146,
+                            "title": "Call Center Complete Unit 6",
+                            "description": "Call Center Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you track how many calls are needed to successfully address a customer complaint?  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 288,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 848,
+                        "title": "3 Outcomes that should Guide All Customer Service Engagements",
+                        "slug": "3-outcomes-guide-customer-service-engagements",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "3c00jhB6OVg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 outcomes that should guide all your customer service engagements:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Customer Centric</h5>\r\n</li>\r\n \t<li>\r\n<h5>Performance Driven</h5>\r\n</li>\r\n \t<li>\r\n<h5>Results Oriented</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Customers are essential for all businesses, and taking care of these customers would help in increasing their loyalty to your organization. Solving customer problems however, could be a very costly activity from a time and money perspective, so how can we ensure that we are not overdoing it?</h5>\r\n<h5>Here are 3 outcomes that should guide all your customer service engagements:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Customer Centric</strong>- always ensure that any process or activity has the customer at the centre of it</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Performance Driven</strong>- continuously measure and enhance the performance</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Results Oriented</strong>- keep tracking how well you are doing in solving customer problems and how happy the customers are</h5>\r\n</li>\r\n</ul>\r\n<h5>The above 3 outcomes help keep a balance to ensure that you are efficiently addressing customers problems and being effective in how they are being addressed to ensure the highest level of customer satisfaction.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 147,
+                            "title": "Call Center Complete Unit 7",
+                            "description": "Call Center Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are agents in your call center rewarded according to their performance? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 289,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 849,
+                        "title": "Call Center Essentials Posttest",
+                        "slug": "call-center-essentials-certificate",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 148,
+                            "title": "Call Center Post Test",
+                            "description": "Call Center Post Test",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "Call centers were initially designed to handle voice calls coming in or being made out of the center. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 290,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Outbound calls are calls that come in to the center by clients that have a problem or want to ask a question.  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 291,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The focus in the main part of the call is to speak well, introduce your product and then understand the customer issue. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 292,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Monitoring Interactions, preparing score card, recommending agent training, recommending corrective actions are the functions of:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Contact Center Agent",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Contact Center Team Leader",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Workforce Management (WFM) Lead",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Quality Management Team",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Management Information Systems (MIS) Team",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 6,
+                                            "text": "Contact Center Manager",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 293,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "When customers contact the customer service center, they will start the contact with you with a positive experience. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 294,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "To handle an angry client, you need to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Listen, Don’t argue, Empathize with the client",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Listen, Argue, Empathize with the client",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Speak Loudly, Argue, Close the argument",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 295,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Solving customer problems could be a very costly activity from a time and money perspective, so companies must ensure that they are not overdoing it. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 296,
+                                    "order": 6
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/call-center.png",
+                "zip_path": "wp-content/uploads/2018/10/call-center.png",
+                "level": "card"
+            }
+        ]
+    }
+}

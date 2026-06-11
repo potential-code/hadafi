@@ -1,0 +1,1434 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 38,
+        "title": "Online Safety",
+        "description": "online safety course for school",
+        "unit_count": 12,
+        "author_id": 0,
+        "course_post_id": 3680,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2318,
+            "title": "Online Safety",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/online-safety-pre-test/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/internet.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 38,
+                "title": "Online Safety",
+                "description": "Online Safety for schools",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 999,
+                        "title": "Online Safety Pre-Test",
+                        "slug": "online-safety-pre-test",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 298,
+                            "title": "Online safety pre-test",
+                            "description": "Online safety pre-test",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Phishing is the :",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Hijacking of the user’s sensitive data",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Tricking the user into inputting his credentials into fake sites",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Using E-mail that seems legitimate, for the user to send his information",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 672,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A strong password consists of:\r\n",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Upper and Lowercase letters, symbols and numbers",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Parts of your name, birthdate or parent’s name",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Simple numbers or words",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 673,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Privacy settings offer me full protection even if I input my sensitive information",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 674,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is Open DNS?\r\n",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "A cloud-based protection service that can filter the internet and block malicious websites",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "An Antivirus",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "An application that keeps all your passwords in one secure place",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "A network that helps you browse the internet anonymously",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 675,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": " Untrustworthy websites can steal sensitive information.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 677,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": " Keeping my device secure can:\r\n",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Prevent my device from being stolen",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Prevent my data from being stolen",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "all of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 678,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Is it a bad idea to have the same password for every account you own?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 679,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Does anything you do on applications like Facebook, Instagram, possibly affect your privacy?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 680,
+                                    "order": 8
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1000,
+                        "title": "How to Prevent Phishing",
+                        "slug": "prevent-phishing",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "BU8teqiMzAM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>In this unit, you will learn how to safeguard yourself from phishing threats. Phishing is the attempt to steal sensitive information such as usernames, passwords, and credit card details by disguising as a trustworthy entity in an electronic communication.</h5>",
+                            "course-unit-read-more": "<h5>Here are 8 things you can do to safeguard yourself from phishing threats:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Always be aware of the content of the email that is sent to you, never press suspicious links.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be very careful of emails requesting sensitive information.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Always check to make sure that the site is verified by checking the actual email address that is sent to you and the displayed name.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Phishers sometimes use scare tactics like threatening to cancel a service in case you fail to update information.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t sign up and put your email in sites or forms when you don’t have to. Most of the spam and junk you have received is a result of you signing up to certain websites.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Never input sensitive information in forms that are present in suspicious emails.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Instead of pressing links in emails, input the links yourself to prevent being tricked into going to a false site.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Check for HTTPS (secure connection on the site) at the start of the website link to make sure that the website you are using is not a fake one.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The best software to protect yourself is your own common sense, and if something doesn’t look right, chances are it really isn’t.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "\"The spy act prohibits keystroke logging, hijacking, and phishing.\" - Cliff Stearns",
+                            "course-unit-case-study": "<h5>Steve received an email that appeared to come from his bank, asking him to log on to his bank account to update his personal information. He clicked on the URL in the email and went directly to his bank's website. In reality, the URL in the email took Steve to a look-alike website. The site looked identical to his own bank site, so when he was asked for his account number, username and password, he automatically started to type them in. This caused his data to be leaked and used for identity theft or stealing information.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Steps that I'm willing to take to prevent phishing are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 362,
+                                "order": 1,
+                                "question": "Steps that I'm willing to take to prevent phishing are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 299,
+                            "title": "Phishing complete questions",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you or any of your friends ever been exposed to harmful content like\r\nviruses?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 660,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever been a victim of phishing?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 661,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1001,
+                        "title": "How to Have a Strong Password",
+                        "slug": "how-to-have-a-strong-password",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "zaNNm0pr5Xs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>In this unit, you’ll learn how to make a secure/strong password which is easily memorable.</h5>",
+                            "course-unit-read-more": "<h5>Here are 3 great methods that you can use for making a strong and memorable password:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>The Bruce Schneier's Method</strong>; security expert Bruce Schneier invented a method to make a secure password that you can easily remember and it is simply this: Take a sentence and make it a password. an Example, “Strong Passwords Give Us Security” = SPGUS</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>The PAO Method</strong>; scientific memorization techniques might help you remember your unbreakable password, one technique is the PAO (Person Action Object) method. It goes like this:</h5>\r\n</li>\r\n</ul>\r\n<ol>\r\n \t<li>\r\n<h5>Select an image of an interesting place (Example: A garden)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Select a character (Example: A man)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Select an action (Example: A Man is Cutting a flower in a garden)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Which gives us: AMICAFIAG</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5><strong>The Phonetic Muscle Memory Method</strong>; here’s how to make an advanced unbreakable password. Go to a password generator site: For example, \"passwordsgenerator.net.\"</h5>\r\n</li>\r\n</ul>\r\n<ol>\r\n \t<li>\r\n<h5>Create a password.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Look for phonetic structure and see how it sounds in your head. Example: b45u can be (before five you). That way you'll be able to memorize your password effectively.</h5>\r\n</li>\r\n</ol>\r\n<h5>After following any of the above tips to memorize a password, ensure that you add a number, symbol and capital letter to make the password even more secure.</h5>\r\n<h5>Finally, after making your super-secure password you should remember one golden rule: Never use the same password twice, always use different passwords for different accounts.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>Angela didn't normally put much thought into her passwords, she was worried if she puts something long and irrelevant, she would forget it. So, she used general information about herself for her passwords, such as her name, parent's names, pet names, birthday and other things. This made it very easy for someone to access her accounts online and steal sensitive information.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I will use the following methods to create a secure password:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 363,
+                                "order": 1,
+                                "question": "I will use the following methods to create a secure password:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 300,
+                            "title": "How to have a strong password complete question",
+                            "description": "How to have a strong password complete question",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do your current passwords include a non-alphabet symbol or character?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 662,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1002,
+                        "title": "Importance of Privacy Settings",
+                        "slug": "importance-privacy-settings",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "1kDePotAmB0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>In this unit we will teach you how to protect your privacy online. Usually, vigilante hackers and cyber criminals are more likely to obtain information from you by using your personal information and personal posts you input online. Be careful what you post online because apart from bad people invading your privacy, it can cause cyber-bullying.</h5>",
+                            "course-unit-read-more": "<h5>Here are 5 methods that can help protect yourself online:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Set your profile settings to private so that some critical information such as where you live and where you were born can be hidden from the general public.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be careful of your interactions on Social Media: Never accept requests to connect from people whom you do not know in person.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Block cyber bullies and suspicious individuals: Facebook’s block feature is an effective weapon against bullies.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Do not post sensitive information that could be used against you</h5>\r\n</li>\r\n</ul>\r\n<h5 data-fontsize=\"16\" data-lineheight=\"24\">Be careful when installing third party apps that might connect with your social media profile to get data. Always read the requested permissions. Privacy is your right and you should protect it. Always set your privacy settings to ensure that your sensitive information will never be seen by the wrong people.</h5>",
+                            "course-unit-quotes": "\"Once you've lost your privacy, you realize you've lost an extremely valuable thing.\" - Billy Graham",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Steps I want to take to protect my privacy online:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 364,
+                                "order": 1,
+                                "question": "Steps I want to take to protect my privacy online:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 301,
+                            "title": "Importance of Privacy Settings",
+                            "description": "Importance of Privacy Settings",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Has your personal information ever been given to the wrong person on the internet?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 663,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you upload most of your data into the cloud?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 664,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1003,
+                        "title": "Useful Software for Online Protection",
+                        "slug": "useful-software-online-protection",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "hrnzFPXcvZk",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>In this unit, we will introduce some of the best software and services for maximizing protection online.</h5>",
+                            "course-unit-read-more": "<h5>Here are 5 types of software and services that increase protection online:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Open DNS</strong>: Open DNS is a cloud based protection service. It is a little complex to set it up, but it's really beneficial. It filters the internet with Open DNS and blocks malicious websites.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Antivirus software</strong>: Antivirus software, in all its forms, is a necessity in this time. Use real-time protection and scan features to protect from harmful content</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Password managers</strong>: Password managers help keep all the passwords in one secure place. They are a large help for people with many different accounts.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>VPNs</strong>: Virtual Private Networks helps browse the internet anonymously without being tracked this software is especially useful for people who work with sensitive information online..</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Location and security finder</strong>: These applications help lock and find a mobile remotely in case it was stolen.</h5>\r\n</li>\r\n</ul>\r\n<h5>But no software can fully protect you, always be aware online and you'll be protected.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": " Software I'm going to use to increase my security:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 365,
+                                "order": 1,
+                                "question": " Software I'm going to use to increase my security:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 302,
+                            "title": "Useful Software for Online Protection complete questions",
+                            "description": "Useful Software for Online Protection questions",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have an antivirus or any other protective software installed on your\r\ndevice?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 665,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1004,
+                        "title": "How to Detect an Untrustworthy Website",
+                        "slug": "detect-untrustworthy-website",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "575V0EzUIC8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>In this unit, we will be giving a brief summary on how to detect an untrustworthy website. Go through these thoroughly to protect data you give away online.</h5>",
+                            "course-unit-read-more": "<h5>These 5 signs or hints indicate whether a website is trustworthy or not are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>There is no https:// in the address bar, implying that the information inputted won't be transmitted safely.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>It is strange if the URL doesn’t match the name of the link.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>It is highly suspicious if a site requests for a PIN number, since websites never require that kind of information.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A website might be illegitimate if it doesn’t have a privacy or returns policy.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The website can be untrustworthy if the user doesn’t have the option to contact to issue a problem.</h5>\r\n</li>\r\n</ul>\r\n<h5>Always remember these points in order to detect an untrustworthy website.</h5>",
+                            "course-unit-quotes": "\"Think then click, not the other way around\" - Unknown",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 303,
+                            "title": "How to Detect an Untrustworthy Website Quiz",
+                            "description": "How to Detect an Untrustworthy Website Quiz",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever encountered a fake website?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 666,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1005,
+                        "title": "4 Tips on How to Keep Your Device Secure",
+                        "slug": "4-tips-keep-device-secure",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "qeZRXVrKq6g",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>In this unit, we are going to talk about the importance of locking a device. When you don’t lock a device, you are typically giving the information on that device away. It’s important to lock a device and input a password for that device, it is also important to keep your information safe and sound.</h5>",
+                            "course-unit-read-more": "<h5>These are 4 tips to keep a device safe:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Don’t upload on the cloud because managing who sees what’s been uploaded is very difficult.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Keep passwords secure and strong, never let anyone use a password that doesn’t belong to them.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Use a USB raptor for locking and unlocking a computer.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure when leaving your portable device in the open that it is locked in front of strangers so they can’t access it.</h5>\r\n</li>\r\n</ul>\r\n<h5>Take into consideration these 4 tips, they will surely help you maintain your privacy on your device.</h5>",
+                            "course-unit-quotes": "\"You should know who has your personal data, what data they have, and how it is used.\" - Elie Parser",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Steps I will take to keep my device secure:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 367,
+                                "order": 1,
+                                "question": "Steps I will take to keep my device secure:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 304,
+                            "title": "How to Keep Your Device Secure quiz",
+                            "description": "How to Keep Your Device Secure quiz",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you use a USB raptor or any other device lock service?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 667,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever had any digital device stolen? If yes, was the criminal able\r\nto access it?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 668,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1006,
+                        "title": "4 Steps on How to Avoid and Handle Identity Theft",
+                        "slug": "5-steps-avoid-handle-identity-theft",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "A5TiyJ-QofI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>What do you know about identity theft? It’s more than someone just stealing a name, the thief is stealing money, personal information, and an innocent person's life. It’s a very dangerous, yet common thing nowadays due to the internet. Personal information must be kept safe and sound, and make sure never to use or enter information in suspicious websites.</h5>",
+                            "course-unit-read-more": "<h5>These 4 points will help you dodge or prevent identity theft are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Avoid entering personal information on public computers, make sure to clear logins and passwords after using a public computer.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be alert for phishing.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Think twice before entering personal information on the internet, especially when entering bank account information. One problem which is very common is shopping online. There are trustworthy websites, but the ones that aren’t can really cause harm, it might even take every single penny that was in the bank account.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Always check for clues that tell whether a website should be used or not. Review the unit “ How to Detect Untrustworthy Websites”.</h5>\r\n</li>\r\n</ul>\r\n<h5>Make sure to keep these 4 points in mind whenever you are entering personal information on the internet.</h5>",
+                            "course-unit-quotes": "\"If we don’t act now to safeguard our privacy, we could all become victims of identity theft.\" - Bill Nelson",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Steps I will take to prevent my identity from being taken:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 368,
+                                "order": 1,
+                                "question": "Steps I will take to prevent my identity from being taken:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 305,
+                            "title": "Identity Theft quiz",
+                            "description": "Identity Theft quiz",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever entered bank account information on a website?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 669,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1007,
+                        "title": "Ignore or Report a Cyber Bully",
+                        "slug": "ignore-report-cyber-bully",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "iJSZNiIEW2c",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Being cyber bullied can make people feel helpless, but there are steps they can take to protect themselves and seek help. The most important thing to do is to talk to an adult or expert as soon as there is a problem.</h5>",
+                            "course-unit-read-more": "<h5>These are 6 steps on how to react to cyber bullying:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Do not answer bullies. Example: Block a bully from Facebook, WhatsApp, or other networking services where they can reach you.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Keep a record of bullying messages received. Then, show a parent directly so they can identify or report him/her.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Reach out to a parent, a favorite teacher, school administrators, counselors, and even police officers who can help you deal with cyber bullying. School policies may have rules against cyber bullying. It’s also helpful to talk to friends or a counselor so you can get their support when you are feeling upset by hurtful comments.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Never sink to the bully’s level. Don’t cyber bully the bully, it just ruins everything you stand for.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Never believe the bully. Don’t let bullies destroy your self-esteem.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>A Cyber bullies’ cowardly and destructive actions reflect on the problems they are having with themselves, it’s not necessarily about you.</h5>\r\n</li>\r\n</ul>\r\n<h5>If a cyber bully comes near you, threatens you, harms you, or even attacks you on the internet in any way, just make sure to use these tips to get rid of the bully.</h5>",
+                            "course-unit-quotes": "\"Bullying is not a reflection of the victim’s character, but rather a sign of the bully’s lack of character.\" - Kaylee Bald",
+                            "course-unit-case-study": "<h5>Josh was a young boy who had a lovely life. Many people were jealous they decided to bully him. That triggered cyber bullying, which destroyed his self-esteem, confidence, and happiness. Many people have nothing better to do than just hide behind their computer screens miles away and type some harmful comments to poor Josh. He was hurt badly by those people and was pushed to do stuff he regrets to this day.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Steps I will take to avoid cyber bullies:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 369,
+                                "order": 1,
+                                "question": "Steps I will take to avoid cyber bullies:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 306,
+                            "title": "8-Ignore or report a Cyber Bully complete questions",
+                            "description": "8-Ignore or report a Cyber Bully complete questions",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever been bullied by a Cyber bully?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 670,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1008,
+                        "title": "Types of Virus Threats",
+                        "slug": "types-virus-threats",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "bWoeMslsrqk",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The great big ocean of the web contains many predators and threats. If we can identify them, we can protect ourselves from possible dangers.</h5>",
+                            "course-unit-read-more": "<h5>These are 5 types of possible threats that may occur at any time using the internet:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Trojans: Trojans are the most popular and complicated threats of all. Trojan is a standout amongst the biggest dangers among all internet viruses. It can conceal itself from antivirus discovery and take essential account information to trade-off a financial balance. Accordingly, a Trojan can cause many sorts of harm beginning from a PC to an online record.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Spyware: Is a malware designed to manipulate any computer and/or mobile device for spying on the user. Spyware is used for blackmail, sensitive data, and phishing. Spyware will spy on daily activity and make a phishing scam accordingly. Example, if you search for cars for a week, the hacker will make a phishing site about cars to trick you to input your information.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Botnet: Botnet is something that is installed to hijack your computer, the result is the computer becomes a bot used to create large-scale attacks.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Chain letters: Some emails trick you into sending them and sharing them with others only to replicate a virus.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Yourself: You can be a threat to yourself sometimes if you do not browse safely. You can cause yourself harm to your privacy and security if you use the internet foolishly.</h5>\r\n</li>\r\n</ul>\r\n<h5>Identifying threats are the key to avoiding them. Once you know them, you can get rid of them effectively.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Steps I am going to follow to stop malicious software from infecting me:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 370,
+                                "order": 1,
+                                "question": "Steps I am going to follow to stop malicious software from infecting me:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 307,
+                            "title": "9-Types of Virus Threats Quiz",
+                            "description": "9-Types of Virus Threats Quiz",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Did your device ever catch a virus?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 671,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1009,
+                        "title": "Reasons Why You Shouldn’t Interact With Strangers",
+                        "slug": "reasons-shouldnt-interact-strangers",
+                        "order": 110,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "O7_14R5tqf8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>In this unit, we will show the dangers of interacting with strangers online. The internet is a really dark place, meaning not everyone is exactly who they say they are.</h5>",
+                            "course-unit-read-more": "<h5>These are the reasons why people shouldn't talk to strangers online:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Strangers often pose an unknown threat. Some are harmless spammers, some are cyber bullies, and some are harmful identity thieves or hackers.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Some strangers want to convince others to join a cult or group. Never respond, just simply report and block. Such cults could be associated with drugs, crimes, and other illegal activities.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Some strangers will ask for personal information like an address or a bank account.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Strangers can use blackmail to obtain money or other things using personal information.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Strangers can pose as friends, using fake profiles and profile pictures.</h5>\r\n</li>\r\n</ul>\r\n<h5>Make sure to keep tabs on friends and the people on the internet. The online world is full of bad people, that is why we must be very careful to whom we talk to.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Things I’ll lookout for when I'm browsing through social media:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 371,
+                                "order": 1,
+                                "question": "Things I’ll lookout for when I'm browsing through social media:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 308,
+                            "title": "Reasons Why You Shouldn’t Interact With Strangers",
+                            "description": "Reasons Why You Shouldn’t Interact With Strangers",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever been approached by a stranger online?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 690,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1010,
+                        "title": "Online Safety Post Test",
+                        "slug": "online-safety-post-test",
+                        "order": 120,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 309,
+                            "title": "Online Safety Post test",
+                            "description": "Online Safety Post test",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Phishing is the:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Hijacking of the user’s sensitive data",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Tricking the user into inputting his credentials into fake sites",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Using E-mail that seems legitimate, for the user to send his information",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 681,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A strong password consists of:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Upper and Lowercase letters, symbols and numbers",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Parts of your name, birthdate or parent’s name",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Simple numbers or words",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 682,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Privacy settings offer me full protection even if I input my sensitive information",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 683,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is Open DNS?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "A cloud-based protection service that can filter the internet and block malicious websites",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "An Antivirus",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "An application that keeps all your passwords in one secure place",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "A network that helps you browse the internet anonymously",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 684,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Untrustworthy websites can steal sensitive information.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 686,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Keeping my device secure can:\r\n",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Prevent my device from being stolen",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Prevent my data from being stolen",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "all of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 687,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Is it a bad idea to have the same password for every account you own?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 688,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": " Does anything you do on applications like Facebook, Instagram, possibly affect your privacy?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 689,
+                                    "order": 8
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/internet.png",
+                "zip_path": "wp-content/uploads/2018/10/internet.png",
+                "level": "card"
+            }
+        ]
+    }
+}

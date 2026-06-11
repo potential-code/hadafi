@@ -1,0 +1,770 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 39,
+        "title": "Planning and Time Management",
+        "description": "Planning and Time Management",
+        "unit_count": 7,
+        "author_id": 0,
+        "course_post_id": 3681,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2316,
+            "title": "Planning and Time Management",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/planning-time-management-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/time.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 39,
+                "title": "Planning & Time Management",
+                "description": "The Planning and Time Management course is a Blended learning program",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1011,
+                        "title": "Planning & Time Management Pretest",
+                        "slug": "planning-time-management-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 310,
+                            "title": "Planning & Time Management Pretest",
+                            "description": "Planning & Time Management Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "When setting goals you must take into account:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Steps that you need to take ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Milestone along the year",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Personal goals",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Professional goals",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "All of the above ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "5",
+                                    "question_id": 698,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You should measure if your goals are achievable before setting them. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 699,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1012,
+                        "title": "The Importance of Planning and Time Management",
+                        "slug": "the-importance-of-planning-and-time-management",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "IZEuj-iL-2w",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Planning and time management are essential skills in today’s workplace as we are getting more and more challenged to do more with less. Choosing what to focus on in our day to day work becomes a necessity that all employees, managers or entrepreneurs should master. In the coming videos, we will take you through a step by step process to determine what is important to you, how can you reflect that into your plan and how can you ensure that you will be doing what you planned for. As you then execute your plan on a day to day basis, you will get less stress, and much more satisfaction. As the saying goes “Failing to plan is planning to fail” so let’s start the planning course!</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "\"A goal without a plan is just a wish.\" Antoine de Saint-Exupery",
+                            "course-unit-case-study": "<h5><span id=\"yiv8655276729yui_3_16_0_ym19_1_1461734995029_12062\">Vera a 22 year old recent graduate working at a telecom operator, feels that she needs more time in her day to do what she needs to do. She is always rushing around, juggling between work and personal issues and at the end of the day, she feels that she hasn't done much. Very decides, she needs to take a step back and look at how she is spending her day and if it is aligned to her goals. </span></h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Full name:",
+                            "course-unit-atq-two": "Job tile:",
+                            "atqq_3": "Company:",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 356,
+                                "order": 1,
+                                "question": "Full name:"
+                            },
+                            {
+                                "q_id": 839,
+                                "order": 2,
+                                "question": "Job tile:"
+                            },
+                            {
+                                "q_id": 838,
+                                "order": 3,
+                                "question": "Company:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 311,
+                            "title": "Planning & time mgt Complete Unit 1",
+                            "description": "Planning & time mgt Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a clear plan for the coming 5 years? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 700,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1013,
+                        "title": "Setting your Long Term Objectives",
+                        "slug": "setting-long-term-objectives",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "AXyF2NdVHUg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The first step in the planning process is to think as far out into the future as possible by identifying what is important to you. One way to do that is to think about what will you have liked to accomplish upon your retirement? Would you want to be a very successful person? a wealthy person? the most liked person? a powerful person? One with high academic status? a great family person? etc..</h5>\r\n<h5>“When you <strong>reach</strong> for the <strong>stars you may not</strong> quite <strong>get one</strong>, <strong>but you won’t</strong> come up with a <strong>handful</strong> of <strong>mud either</strong>.” – Leo Burnett</h5>\r\n<h5>Think about the areas that are most important to you and choose 3 characteristics that matter to you.</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "\"Plan your next move because every step contributes towards your goal.\" Sukant Ratnakar",
+                            "course-unit-case-study": "<h5>The first step that Vera does is to imagine she is at retirement age and tries to envisage what would she have wanted to have achieved by then. She finds that she doesn't care much about wealth but is keen on having been successful at creating a positive change in the world around her. She finds that her particular focus would be taking care of nature and her community.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 312,
+                            "title": "Planning & time mgt Complete Unit 2",
+                            "description": "Planning & time mgt Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "When I retire, I would like to have accumulated: ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Wealth",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Success",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Power",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Large Network",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Big Family",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 6,
+                                            "text": "Academic Excellence",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 7,
+                                            "text": "Others",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 692,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1014,
+                        "title": "Setting your 3 Year Objectives",
+                        "slug": "setting-3-year-objectives",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "qTeAleAXKAs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Keeping in mind where you want to be when you retire, think about what you want to accomplish in the next 3 years. After 3 years from now, what are the achievable – even if a little challenging – goals that you want to have done. It could be a business that you want to start up, a career move that you want to make, a house that you want to buy, a personal objective that you have or anything like that.</h5>\r\n<h5>Choose 2 objectives from your professional and 2 from your personal side that you want to accomplish within 3 years.</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "\"Happy people plan actions, they don't plan results.\" Denis Waitley",
+                            "course-unit-case-study": "<h5>Thinking of her long term objective of doing well for nature and her community, Vera decides that she would like within 3 years to be working with a non-profit organisation, or a social business that is aligned to her long term goal. To do that, she realizes that she needs to build her experience in this space and identify which would be the organisations that she would like to work with.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In 3 years, on the personal side, I want to have done:",
+                            "course-unit-atq-two": "In 3 years, on the professional side, I want to have done: ",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 357,
+                                "order": 1,
+                                "question": "In 3 years, on the personal side, I want to have done:"
+                            },
+                            {
+                                "q_id": 358,
+                                "order": 2,
+                                "question": "In 3 years, on the professional side, I want to have done: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 313,
+                            "title": "Planning & time mgt Complete Unit 3",
+                            "description": "Planning & time mgt Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have clear detailed goals set out that you would like to achieve in the coming 3 years?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 701,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1015,
+                        "title": "Setting your 1 Year Objectives",
+                        "slug": "setting-your-1-year-objectives",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "czcgNiXpOP0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Keeping in mind what you want to achieve in 3 years, think of the concrete steps that you need to take in the coming year that would help you reach that 3 year objective. A good way to do so is to put one milestone that you want to accomplish each month along the year. Make sure that you are taking into account the 2 personal and 2 professional goals you had in your 3 year objectives.</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "\"Planning is bringing the future into the present so that you can do something about it now.\" Alan Lakein",
+                            "course-unit-case-study": "<h5>To reach her 3 year plan, Vera decides to try to find within her current company an opening in the Corporate Social Responsibility department and tries to identify and participate in volunteering activities that build her experience in community work. She also makes a list of friends who are in that field so that they can advise her and she learns more about that.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My plan for the next 12 months: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 359,
+                                "order": 1,
+                                "question": "My plan for the next 12 months: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 314,
+                            "title": "Planning & time mgt Complete Unit 4",
+                            "description": "Planning & time mgt Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Is it easy for you to specify each milestone that you would like to accomplish during the year? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 702,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1016,
+                        "title": "Setting your Day to Day Plan",
+                        "slug": "setting-day-day-plan",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "DOOgyuziPF4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>What you have put as a plan for the year and on a month to month basis is your guide for what is important for you to do on a daily basis. Every evening or every morning, before you start getting distracted by errands and daily requests, make sure that you put together a list of 5 things that you should do in the day that would help you towards achieving your monthly objectives. Some of these tasks could need more than 1 day to complete, so you can keep them for the upcoming days.</h5>\r\n<h5>By being in control of your to do list, you can ensure that you end up doing what is important to you and feel the pleasure of accomplishment. Your plans over time might change, but at least you can always be sure that you are the one that is adapting them and whatever you have done or will do will be aligned to your goals.</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "\"A man without a plan for the day is lost before he starts.\" Lewis K. Bendele",
+                            "course-unit-case-study": "<h5>Vera decides that every evening, she would put together her daily plan and ensure that it is aligned as much as possible to her aim of developing her community expertise and experience. That guides her learning, engagements, and time spent with friends. She leaves time her in day for the many tasks that she will be requested to do for her normal job. After trying this process for a few weeks, she feels much more at ease with herself, turns down a many tasks that are not aligned to her job or personal priorities. She still has very busy days, but at least now she feels that these days are not wasted and are leading in line with what she loves to do.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "List your day to day to do list, what are your most important goals: ",
+                            "course-unit-atq-two": "List other items to be done:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 360,
+                                "order": 1,
+                                "question": "List your day to day to do list, what are your most important goals: "
+                            },
+                            {
+                                "q_id": 361,
+                                "order": 2,
+                                "question": "List other items to be done:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 315,
+                            "title": "Planning & time mgt Complete Unit 5",
+                            "description": "Planning & time mgt Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Your plans might change over time. Is it easy for you to adapt new plans in short periods of time?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 703,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1017,
+                        "title": "Planning & Time Management Posttest",
+                        "slug": "planning-time-management-certificate",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 316,
+                            "title": "Planning & time mgt Post Test",
+                            "description": "Planning & time mgt Quiz",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "When setting long term objectives, you should think of what you want to achieve in:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "The long term future",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "The next three years",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "The next year",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "The next month",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 693,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You should measure if your goals are achievable before setting them.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 694,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When setting goals you must take into account:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Steps that you need to take",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Milestone along the year",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Personal goals",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Professional goals",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"5\";}",
+                                    "question_id": 695,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Daily basis planning is not as important as putting a yearly plan. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 696,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Scratching a daily to do list is an effective way that would help you towards achieving your monthly objectives. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 697,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/time.png",
+                "zip_path": "wp-content/uploads/2018/10/time.png",
+                "level": "card"
+            }
+        ]
+    }
+}

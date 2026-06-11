@@ -1,0 +1,908 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 42,
+        "title": "Productivity Skills",
+        "description": "Productivity Skills",
+        "unit_count": 7,
+        "author_id": 0,
+        "course_post_id": 3684,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2307,
+            "title": "Productivity Skills",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/productivity-skills-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/online-productivity.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 42,
+                "title": "Productivity Skills",
+                "description": "Productivity Skills a potential course",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1040,
+                        "title": "Productivity Skills  PreTest",
+                        "slug": "productivity-skills-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 339,
+                            "title": "Productivity Skills PreTest",
+                            "description": "Productivity Skills PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Richard has forgotten where he wrote the client’s comments. He failed at:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Prioritizing",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Adopting organizational skills",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Managing distractions",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 769,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "You have to find your strengths in order to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Improve them",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Invest in them",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Be productive",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 770,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following examples best illustrates the ‘Zeigarnik Effect’?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "An employee thinking about his ex during work",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A mother thinking about the dishes she has to clean while she cooks",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "An employer planning for the coming corporate dinner",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 771,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Talking to your imaginary friend helps you most with:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Think objectively",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Feeling less lonely",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Talking to the child in you",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 772,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Because Chris is busy, he doesn’t directly wash the dishes after lunch. To be more productive, Chris should:  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Take regular breaks",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Follow the 2-minute rule",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Lead a healthy lifestyle",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 773,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1041,
+                        "title": "5 Elements of Time Management",
+                        "slug": "5-elements-of-time-management",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "__Qmp-n0kUI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Time management is an inevitable tactic to be productive and accomplish a lot within a little.</h5>\r\n<h5>You will become time efficient if you abide by the following principles:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Prioritizing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Adopting Organizational Skills</h5>\r\n</li>\r\n \t<li>\r\n<h5>Managing Distractions</h5>\r\n</li>\r\n \t<li>\r\n<h5>Saying Yes Mindfully</h5>\r\n</li>\r\n \t<li>\r\n<h5>Taking Breaks</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn 5 aspects to consider so that you become-time efficient.</h5>\r\n<h5>Have you ever planned a schedule but never managed to commit to it? Have you ever wondered why a full 24-hour day doesn’t seem to be enough? Are you having problems managing your time and optimizing your resources to be productive?</h5>\r\n<h5>To find out the answers, evaluate yourself according each of these criteria:</h5>\r\n<h5>1- Prioritizing: Start your day with a to-do-list and classify your tasks under these labels: important and urgent, important but not urgent, not important but urgent, not important and not urgent. This method helps you feel more productive earlier during the day to keep you the least stressed and demotivated later on.</h5>\r\n<h5>2- Adopting Organizational Skills: This involves a couple of little tasks that make a big difference, like sorting your files into folders, labeling them properly, cleaning your desktop and workplace, planning the steps of your task before your start. Such easy methods help you stay focused on one assignment without being unnecessarily interrupted.</h5>\r\n<h5>3- Managing Distractions: This doesn’t only cover sitting in a quiet place or switching your phone to silent, because you’ve got to control inner distractions too. For example, if you’re working while constantly worried about the load of work you still have, write the remaining tasks on a sheet of paper instead of keeping them in your mind.</h5>\r\n<h5>4- Saying Yes Mindfully: When confronted with a new task, overcome the excitement of having something new to do before saying “yes.” Reflect about the to-do-list sheet you have already written. Cancel unimportant meetings and reject requests that aren’t aligned with your priorities, because saying yes costs you more stress and time pressure.</h5>\r\n<h5>5- Taking Breaks: You might constantly feel the need to produce, but life is not all about work. Avoid becoming a perfectionist and know when to say enough because some people get easily addicted to work as an escape, not knowing that this could kill their creativity and lead to chronic stress. So keep some space for friends and hobbies. To be productive, you need to be happy first.</h5>\r\n<h5>Today technology offers you unlimited resources to save time and make you productive more than ever. Harness the opportunity and become the person you have always wanted to be. Time is running and you’ve got to keep up.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/productivity/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Productivity Skills: Improve your time management and reduce your stress</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/workplace-health-wellness-program/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 ways to effectively implement a Workplace Health & Wellness program</a></li>\r\n<li><a href=\"https://www.potential.com/articles/productivity-tools/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Productivity Tools: Learn How to Stay Productive Online</a></li>\r\n<li><a href=\"https://www.potential.com/articles/importance-benefits-health-programs-workplace/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Importance and Benefits of Health Programs in your Workplace</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are 3 tasks I have to complete today?",
+                            "course-unit-atq-two": "How would I list them in order of priority?",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 329,
+                                "order": 1,
+                                "question": "What are 3 tasks I have to complete today?"
+                            },
+                            {
+                                "q_id": 330,
+                                "order": 2,
+                                "question": "How would I list them in order of priority?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 340,
+                            "title": "Productivity Skills Complete Unit 1",
+                            "description": "Productivity Skills Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How frequently do you write a to-do-list and commit to it?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Never ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Sometimes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Always",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 764,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1042,
+                        "title": "4 Practices to Discover Your Strengths",
+                        "slug": "4-practices-to-discover-your-strengths",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "i1FYW9YauyQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Identifying your strengths is the starting point towards planning guaranteed productivity.</h5>\r\n<h5>To know where you should invest your time, consider the following methods:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Observe What Makes You Happy</h5>\r\n</li>\r\n \t<li>\r\n<h5>Notice What You Do Differently</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose Your Favorite Qualities</h5>\r\n</li>\r\n \t<li>\r\n<h5>Read</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn 4 ways to identify your best assets so that you invest in them.</h5>\r\n<h5>Ever felt overwhelmed by the amount of skills there are to master? Have you noticed that there are tasks which you accomplish with ease and brilliance while you approach other tasks with less vehemence and passion? You will reach optimal productivity faster if you lean on what you already do very well.</h5>\r\n<h5>Here are 4 ways to find your strengths:</h5>\r\n<h5>1- Observe What Makes You Happy: Explore the world and listen to your inner voice. Which task makes you feel inspired and alive? Which topics do you talk about with fervor? What kind of projects you’re willing to spend long hours working on? Answer these questions while you push yourself into new experiences and out of your comfort zone.</h5>\r\n<h5>2-Notice What You Do Differently: Something might make you feel happy but not necessarily unique. You might love scriptwriting but write an average plot or dialogue. You can definitely work on improving your skills, but there is already something you are good at and passionate about, at the same time. Look first at what comes naturally.</h5>\r\n<h5>3- Choose Your Favorite Qualities: Think now. What do you like most about yourself? What makes you proud? You don't have to look at your biggest achievements for that. Search among little everyday moments for your resilience, determination, bright outlook on life, discipline, fervor to learn and other positive attributes.</h5>\r\n<h5>4- Read: Set a goal to read daily about personal development, even if one article. Find out what’s happening in the world, how people are motivating themselves, the habits they are adopting to improve. While you read, look inside yourself to feel which strength points resonate with what you’re reading.</h5>\r\n<h5>Not being able to clearly identify your strengths and weaknesses risks your productivity. Everybody’s got something they uniquely perform at. Take a break now, find your assets and start investing in them. You will impress yourself by your success.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/productivity/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Productivity Skills: Improve your time management and reduce your stress</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/workplace-health-wellness-program/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 ways to effectively implement a Workplace Health & Wellness program</a></li>\r\n<li><a href=\"https://www.potential.com/articles/productivity-tools/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Productivity Tools: Learn How to Stay Productive Online</a></li>\r\n<li><a href=\"https://www.potential.com/articles/importance-benefits-health-programs-workplace/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Importance and Benefits of Health Programs in your Workplace</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are my favorite qualities?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 331,
+                                "order": 1,
+                                "question": "What are my favorite qualities?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 341,
+                            "title": "Productivity Skills Complete Unit 2",
+                            "description": "Productivity Skills Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How frequently do you read about personal development?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Never ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Sometimes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Always",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 765,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1043,
+                        "title": "4 Stress Management Techniques",
+                        "slug": "4-stress-management-techniques",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "mEaInBnEXQI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Stress management is key to unleash your hidden potentials, efficiently and effectively.</h5>\r\n<h5>To handle stress better than any time before, consider these habits:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Stop Multitasking</h5>\r\n</li>\r\n \t<li>\r\n<h5>Exercise</h5>\r\n</li>\r\n \t<li>\r\n<h5>Think Positively</h5>\r\n</li>\r\n \t<li>\r\n<h5>Drop Perfectionism</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this unit, you will 4 ways to cope with the stress, that would otherwise prevent you from accomplishing a lot.</h5>\r\n<h5>You usually feel stressed when the goals you have to achieve outgrow the resources present at your disposal, such as a project’s time-frame and your current level of motivation. However, the state of being stressed consumes from your mind’s capacity, hence leaving you with little room for productivity.</h5>\r\n<h5>So, here are 4 effective tips to help you cope with stress:</h5>\r\n<h5>1- Stop Multitasking: A theory in psychology called the ‘Zeigarnik Effect’ states that your brain tends to remember incomplete tasks more than complete ones. Accordingly, when you multitask, your mind will keep hammering you with the other incomplete task you are performing at the same time. So focus on just one task, and when done, start the other.</h5>\r\n<h5>2- Exercise: Doubtlessly, this tip perfectly works for anything especially for stress management. You would be surprised if you knew how exercise works in each and every way to help your body systems work harmoniously and supply you with a dose of endorphins to make you more immune to stress afterwards. No matter how stuffed your work schedule is, find a way to squeeze exercise in.</h5>\r\n<h5>3- Think Positively: Ever heard about NLP, Neurolinguistic Programming? It is a communication model that trains your mind to think in the most productive manner. For example, if you have a lot of work to do, you would perceive this as an exciting opportunity to challenge yourself and improve your time management skills.</h5>\r\n<h5>4- Drop Perfectionism: Especially if you're of Type A personality, it’s easy to fall into the trap of perfectionism. While ‘perfect’ doesn’t exist, you will constantly feel stressed upon working relentlessly but rarely feeling satisfied about the outcomes. You’d argue that perfectionism brings out the best in you, but try being ‘a high achiever’ instead. It’s a healthier version of success.</h5>\r\n<h5>You can't avoid stress when running a business or handling a job, so it is time to consider dealing with it. With these techniques in mind, you will soon find yourself functioning productively even under stressful situations. Soon, you will impress yourself and become everyone's preferred work partner.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/productivity/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Productivity Skills: Improve your time management and reduce your stress</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/workplace-health-wellness-program/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 ways to effectively implement a Workplace Health & Wellness program</a></li>\r\n<li><a href=\"https://www.potential.com/articles/productivity-tools/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Productivity Tools: Learn How to Stay Productive Online</a></li>\r\n<li><a href=\"https://www.potential.com/articles/importance-benefits-health-programs-workplace/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Importance and Benefits of Health Programs in your Workplace</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Which of the above techniques I currently don’t apply?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 332,
+                                "order": 1,
+                                "question": "Which of the above techniques I currently don’t apply?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 342,
+                            "title": "Productivity Skills Complete Unit 3",
+                            "description": "Productivity Skills Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "On a scale from 1 to 10, how productively do you perform under stress?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "1-4 ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "5-7",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "8-10",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 766,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1044,
+                        "title": "5 Shortcuts to Better Decision Making",
+                        "slug": "5-shortcuts-to-better-decision-making",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "ggL5ihZ8OL4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Decision making is inevitable, and it can make or break your productivity.</h5>\r\n<h5>Here are 5 tips to guarantee that your decisions benefit your capacities:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Economize</h5>\r\n</li>\r\n \t<li>\r\n<h5>Advise Your Imaginary Friend</h5>\r\n</li>\r\n \t<li>\r\n<h5>Avoid Information Overload</h5>\r\n</li>\r\n \t<li>\r\n<h5>Step Outside the Box</h5>\r\n</li>\r\n \t<li>\r\n<h5>Review Your Decisions</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn 5 strategies to facilitate the process of decision making.</h5>\r\n<h5>Are you wondering how a different approach to making decisions can enhance productivity? Think about it. Life is mostly the results of your decisions: since early morning, when you are considering whether to wake up immediately or snooze the alarm until you are thinking at night whether to call it a day or do stay up a bit more.</h5>\r\n<h5>Below are 5 pieces of advice to improve the quality of your decisions:</h5>\r\n<h5>1- Economize: Your intellectual power diminishes with every decision you make, so don’t waste your thinking energy except on situations that are worth it. In psychology, the term “decision fatigue” refers to the state when you start making bad decisions after you have already done many. On the long term, this can lead to stress and create the temptation to procrastinate.</h5>\r\n<h5>2- Advise Your Imaginary Friend: If you are about to make a decision, pretend that you're not directly involved. Instead, it’s your imaginary friend who has to make that decision. Just sit with him/her, discuss the entire matter and give your best thoughts about the appropriate decision. With this technique in mind, you will find yourself breaking free from the negative emotions that would have otherwise controlled you.</h5>\r\n<h5>3- Avoid Information Overload: Probably you’re familiar with the situation when someone complains: “I have a lot of clothes to the extent that I don’t know what to wear”. This can often happen during a decision making process, if you go on researching, thinking, gathering information and data until the traffic of input in your mind exceeds your ability to concentrate. So, keep your thinking focused and relevant.</h5>\r\n<h5>4- Step outside the Box: Here’s the fun part of decision making, the factor that makes you stand out as a creative decision maker. After you’ve gathered the information you need, push them a step further, make the ordinary sound different and execute your decision in a new light. For example, if you decided to work instead of watching the DVD you just bought, consider working while you eat some popcorn. Challenging familiar patterns creates motivation.</h5>\r\n<h5>5- Review Your Decisions: This little step should happen at two instances: before and after you’ve taken a decision. First, you should prepare a back-up plan in case something unexpected happens to your original arrangements. Second, you should evaluate your decision after you’ve executed it, so that you can harness its advantages and avoid its disadvantages for the next decisions you are about to make.</h5>\r\n<h5>Productivity killers lurk everywhere, inside and outside your mind. One of them is the traps of decision making, a process that could sometimes cost you a lot of time to complete and also to make up for, if it was a bad decision. Following the above tactics puts you on the right track, and practicing them would pave your way to become a brilliant decision maker, both efficient and effective.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/productivity/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Productivity Skills: Improve your time management and reduce your stress</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/workplace-health-wellness-program/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 ways to effectively implement a Workplace Health & Wellness program</a></li>\r\n<li><a href=\"https://www.potential.com/articles/productivity-tools/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Productivity Tools: Learn How to Stay Productive Online</a></li>\r\n<li><a href=\"https://www.potential.com/articles/importance-benefits-health-programs-workplace/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Importance and Benefits of Health Programs in your Workplace</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How would I describe a good decision?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 333,
+                                "order": 1,
+                                "question": "How would I describe a good decision?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 343,
+                            "title": "Productivity Skills Complete Unit 4",
+                            "description": "Productivity Skills Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "If you had a magic wand to control the events of your day, you would control:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Everything ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Many things",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "A few things",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Nothing",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 767,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1045,
+                        "title": "6 Productivity Hacks for Life",
+                        "slug": "6-productivity-hacks-for-life",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "jf3EpPQt0Vk",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Productivity isn’t limited to a specific time or task. It is a mindset, simpler than what it seems to be.</h5>\r\n<h5>Below are the guiding steps to become fundamentally productive:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Maximize Utility from Available Resources</h5>\r\n</li>\r\n \t<li>\r\n<h5>Take Regular Short Breaks</h5>\r\n</li>\r\n \t<li>\r\n<h5>Keep Your Hobby Going</h5>\r\n</li>\r\n \t<li>\r\n<h5>Follow the 2-Minute Rule</h5>\r\n</li>\r\n \t<li>\r\n<h5>Use Organization Tools</h5>\r\n</li>\r\n \t<li>\r\n<h5>Lead a Healthy Lifestyle</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5 class=\"BodyA\">In this unit, you will acquire 6 aspects of sustaining a productive lifestyle.</h5>\r\n<h5 class=\"BodyA\">Now that you’ve developed a better understanding and application of productive performance, it is time to learn about maintaining it. But before, reflect upon this indispensable advice for an effective life change: “Everything starts with motivation but endures with habit.”</h5>\r\n<h5 class=\"BodyA\">So here are 6 effective habits to keep your productivity levels at their peak:</h5>\r\n<h5 class=\"BodyA\">1- Maximize Utility from Available Resources: This is what all businessmen do for maximum revenue. Whether you’re a morning person or a night owl, complete the work that requires most focus when you are most energetic. However, when you start to feel sluggish during the day, switch to easier tasks or more engaging ones such as making calls or meeting with clients.</h5>\r\n<h5 class=\"BodyA\">2- Take Regular Short Breaks: If your work requires long seated hours, take a break every now and then because your body and brain can become numb and demanding of a new stimulation to reboot their energy. Stand up and stretch, have a small walk, sit in the sun or breathe fresh air. Otherwise, you’ll soon reach a burnout and motivating yourself then would consume much more time and energy.</h5>\r\n<h5 class=\"BodyA\">3- Keep Your Hobby Going: This is a longer version of “break,” but you equally need it for many reasons. Hobbies are a good stress relief from work. They channel your thinking in another direction, benefiting your quality of work with what is called “lateral thinking,” an ingenious creative approach to solve problems. So take your time doing what you love.</h5>\r\n<h5 class=\"BodyA\">4- Follow the 2-Minute Rule: Never heard of it before? It’s easy and has 2 applications. First, whenever you have a small task that takes 2 minutes or less, do it immediately and don’t procrastinate. Second, whenever you feel completely demotivated to finish something, work on it fully focused just for 2 minutes. After that, you will find that your mind has tuned into the work. For more, review David Allen’s bestselling book ‘Getting Things Done.’</h5>\r\n<h5 class=\"BodyA\">5- Use Organization Tools: There are many, and you just need to search online for the one that meets your needs. For example, Evernote is an application that allows you to take notes, organize information and write down any idea that crosses your mind, with everything synced on different devices. Bullet Journal is a to-do list and a journal at the same time. Google docs helps you take notes, share files and edit them on different devices. Google Calendar contributes to your experience of a scheduled day with non-overlapping duties, and the list goes on.</h5>\r\n<h5 class=\"BodyA\">6- Lead a Healthy Lifestyle: To keep the productive mode ON, maintaining a healthy physical and emotional life is top priority. Adopt a balanced diet, exercise, get enough sleep, laugh, listen to others, and surround yourself with happy people. Have some time for yourself, reflect, let go and commit to other positive rituals. Last but not least, build a certain routine into your life to save time asking yourself “What is the next step?”</h5>\r\n<h5 class=\"BodyA\">It is only normal that you wake up every day with different levels of motivation, but only the mind of a winner plans to sustain a productive lifestyle on the long term. Get started today, try each of these tactics, one at a time and watch your potentials exponentially grow and mature.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/productivity/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Productivity Skills: Improve your time management and reduce your stress</a></li>\r\n \t<li><a href=\"https://www.potential.com/articles/workplace-health-wellness-program/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 ways to effectively implement a Workplace Health & Wellness program</a></li>\r\n<li><a href=\"https://www.potential.com/articles/productivity-tools/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Productivity Tools: Learn How to Stay Productive Online</a></li>\r\n<li><a href=\"https://www.potential.com/articles/importance-benefits-health-programs-workplace/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Importance and Benefits of Health Programs in your Workplace</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are some techniques I use to be productive?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 334,
+                                "order": 1,
+                                "question": "What are some techniques I use to be productive?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 344,
+                            "title": "Productivity Skills Complete Unit 5",
+                            "description": "Productivity Skills Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What determines my productivity levels the most?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "My emotional mood",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Scheduled deadline",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Load of work",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Other",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 768,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1046,
+                        "title": "Productivity Skills PostTest",
+                        "slug": "productivity-skills-posttest",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 345,
+                            "title": "Productivity Skills PostTest",
+                            "description": "Productivity Skills PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Richard has forgotten where he wrote the client’s comments. He failed at:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Prioritizing",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Adopting organizational skills",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Managing distractions",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 774,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "You have to find your strengths in order to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Improve them",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Invest in them",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Be productive",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 775,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following examples best illustrates the ‘Zeigarnik Effect’?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "An employee thinking about his ex during work",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A mother thinking about the dishes she has to clean while she cooks",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "An employer planning for the coming corporate dinner",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 776,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Talking to your imaginary friend most helps you with:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Think objectively",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Feeling less lonely",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Talking to the child in you",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 777,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Because Chris is busy, he doesn’t directly wash the dishes after lunch. To be more productive, Chris should:  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Take regular breaks",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Follow the 2-minute rule",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Lead a healthy lifestyle",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 778,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/online-productivity.png",
+                "zip_path": "wp-content/uploads/2018/10/online-productivity.png",
+                "level": "card"
+            }
+        ]
+    }
+}

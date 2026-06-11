@@ -1,0 +1,36 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 54,
+        "title": "التمويل والاستثمار",
+        "description": "ابتكار نموذج العمل",
+        "unit_count": 10,
+        "author_id": 1429,
+        "course_post_id": 3696,
+        "settings": {
+            "completion_wall": "all_visible",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": null,
+        "modules": [
+            {
+                "module_id": 54,
+                "title": "التمويل والاستثمار",
+                "description": "تحدى نموذج عملك القائم وحدد مجالات التحسين",
+                "order": 1,
+                "number": 1,
+                "units": []
+            }
+        ]
+    },
+    "assets": {
+        "images": []
+    }
+}

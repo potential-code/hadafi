@@ -1,0 +1,1308 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 44,
+        "title": "Social Media for Business",
+        "description": "Essential Social Media Tips and Tricks for your Business",
+        "unit_count": 10,
+        "author_id": 0,
+        "course_post_id": 3686,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2303,
+            "title": "Social Media for Business",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/social-media-f/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/social-media.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 44,
+                "title": "Social Media for Business",
+                "description": "Essential Social Media Tips and Tricks for your Business",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1059,
+                        "title": "Social Media for Business Pretest",
+                        "slug": "social-media-f",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 358,
+                            "title": "Social Media for Business Pretest",
+                            "description": "Social Media for Business Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "The largest network that allows you to reach a very wide set of users that could be interesting for your business is:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "LinkedIn",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Instagram",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Facebook",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Twitter",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Pinterest ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "3",
+                                    "question_id": 852,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Social media provides you with the opportunity to monitor what your users are saying about your products and services, and to quickly address issues that could come up. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 853,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1060,
+                        "title": "Four Ways to Use Social Media Sites for your Business",
+                        "slug": "four-ways-to-use-social-media-sites-for-your-business",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "OfUXAy3uncw",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Four ways to use Social Media Sites for your business:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Advertising</h5>\r\n</li>\r\n \t<li>\r\n<h5>Referrals</h5>\r\n</li>\r\n \t<li>\r\n<h5>Customer Support</h5>\r\n</li>\r\n \t<li>\r\n<h5>Product Development</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Social Media has become the place where people spend most of their time compared to any other media outlets. When implemented well Social Media can help any business with a limited budget do what only large companies were able to do a few years back. Here are 4 ways to make use of Social Media for your business:</h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Advertising:</strong> even with limited budgets, businesses can engage with their prospects and promote their products and services</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Referrals:</strong> There is nothing better than a happy client talking about their purchase from you to their friends and fans on Social Media</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Customer Support:</strong> to efficiently be able to monitor any issues with products or services</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Product Development:</strong> where you can poll and test your prospects’ opinions prior to help in developing your next products and services</h5>\r\n</li>\r\n</ol>\r\n<h5>The above use cases can be deployed by businesses of any sizes and at various stages of development. By using Social Media effectively, businesses can save a lot of money and provide a better client experience.</h5>",
+                            "course-unit-quotes": "Why use social media? Marketing is no longer about the stuff that you make, but about the stories you tell. Seth Godin",
+                            "course-unit-case-study": "<h5>Social Media allows brands to connect with their customers more effectively and on a more personal level. Herschel Supply Co, a retail business that manufactures modern bags and accessories, dedicated a customer care team to respond to all questions, even those that didn’t mention their brand but rather the same product line. They were able to reach in a short period of time a 20% increase in customer service satisfaction and more than 50% increase in overall positive brand sentiment by monitoring hashtags and keywords that evolved around their brand and business.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My main objective for using social media in my business is: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 310,
+                                "order": 1,
+                                "question": "My main objective for using social media in my business is: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 359,
+                            "title": "Social Media Complete Unit 1",
+                            "description": "Social Media Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you use social media for your business?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 830,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1061,
+                        "title": "Top 5 Social Media Sites for your Business",
+                        "slug": "top-5-social-media-sites-business",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "ixgHh6FuUX4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The top 5 Social Media Sites for your business:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Facebook</h5>\r\n</li>\r\n \t<li>\r\n<h5>LinkedIn</h5>\r\n</li>\r\n \t<li>\r\n<h5>Instagram</h5>\r\n</li>\r\n \t<li>\r\n<h5>Twitter</h5>\r\n</li>\r\n \t<li>\r\n<h5>Pinterest</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Social Media is being used by billions of individuals around the world and there are hundreds of applications and sites. In this video, we will discuss which ones are best for your business.</h5>\r\n<h5>The top 5 Social Media Sites include:</h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Facebook: </strong>the largest network by far allows you to reach a very wide set of users that could be interesting for your business. It also has the most flexible and targeted advertising capabilities</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>LinkedIn:</strong> the largest professional network is very useful if you are selling to businesses or are in the services business yourself</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Instagram:</strong> is an efficient and easy way to promote images of your products or services. If you are into handmade or food items, it’s extremely effective</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Twitter:</strong> is useful if you are providing thought leadership or news services. It requires more effort to get a loyal following but can be very influential when you do</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Pinterest:</strong> is also a great tool for businesses to promote products and services especially if you are targeting women buyers</h5>\r\n</li>\r\n</ol>\r\n<h5>There are many other social media networks that could be useful for a specific set of audience, such as Google+, Tumbler and many local language sites in countries around the world. Even if you are present on all these networks, as a small business, you would need to focus your efforts on the channels that can provide you with the best return on your time.</h5>",
+                            "course-unit-quotes": "We don't have a choice on whether we do social media, the question is how well we do it? Erik Qualman",
+                            "course-unit-case-study": "<h5>Consistent publishing, targeted messages, quality content and specific types of posts that match your business communication strategy can help understand where your target audience interact most, and accustom them to know what to expect from your brand and how to bond into your business. Sophia Forero, a jewelry e-commerce business, tested targeted posts based on gender, interests and geographic regions on various social media platforms to understand where her fans are most engaged. Forero succeeded in placing Facebook as their top platform to focus on and has managed to decrease conversion costs by 50% and increase overall sales by 15%.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The most important channels for my business objectives are: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 311,
+                                "order": 1,
+                                "question": "The most important channels for my business objectives are: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 360,
+                            "title": "Social Media Complete Unit 2",
+                            "description": "Social Media Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which social media sites do you use the most for your business?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Facebook",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "LinkedIn",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Instagram",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Twitter",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Pinterest",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 6,
+                                            "text": "Other",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 831,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1062,
+                        "title": "A Step-by-Step Guide to Creating a Social Media Strategy",
+                        "slug": "step-step-guide-creating-social-media-strategy",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "4yj9xv576s8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>6 steps to setup your social media strategy:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Decide what are your primary objectives</h5>\r\n</li>\r\n \t<li>\r\n<h5>Decide on the 2-5 best social media channels</h5>\r\n</li>\r\n \t<li>\r\n<h5>Set SMART goals for each channel</h5>\r\n</li>\r\n \t<li>\r\n<h5>Come up with key engagement approaches</h5>\r\n</li>\r\n \t<li>\r\n<h5>Add your brand elements</h5>\r\n</li>\r\n \t<li>\r\n<h5>Develop a content marketing plan</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this module we will be putting together an efficient social media strategy.</h5>\r\n<h5>Coming up with a solid strategy to guide your social media activities is essential given that without it, you could end up investing a lot of your time without seeing the return on your investment.</h5>\r\n<h5>Here are the 6 steps to setup your social media strategy</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Decide <strong>what are your primary objectives</strong> from your social media activities – are you going to use it for advertising, customer service, product sales or development, recruitment</h5>\r\n</li>\r\n \t<li>\r\n<h5>Decide on the 2-5 <strong>best social media channels</strong> to reach your target audience and objectives</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Set SMART goals</strong> for each channel that are in line with your objectives, such as expected response time to an interaction or expected number of leads</h5>\r\n</li>\r\n \t<li>\r\n<h5>Come up with <strong>key engagement approaches</strong> that you can use to attract and engage your audience on each of the chosen channels</h5>\r\n</li>\r\n \t<li>\r\n<h5>Book or Update your social media channels <strong>adding your brand elements</strong> such as the logo, about us section, attractive banner and links to your website</h5>\r\n</li>\r\n \t<li>\r\n<h5>Develop a <strong>content marketing plan</strong> that includes the frequency and types of posts that would be rolled out on each channel and who from your team is responsible for making that happen</h5>\r\n</li>\r\n</ol>\r\n<h5>Setting up such a strategy can be done every 3-6 months after reviewing the results of the previous period and your actual results in comparison with your plan. It is important to have at least one person responsible for your social media presence who’s role is in collecting the necessary elements from your team or external parties.</h5>",
+                            "course-unit-quotes": "Don't use social media to impress people; use it to impact people. Dave Willis",
+                            "course-unit-case-study": "<h5>Evalueserve, a service provider, supports banks, Insurance Companies, law firms and other local corporations. Their social media strategy stated that using LinkedIn on a daily basis will help brand building and develop their business to broader areas. Evalueserve team used LinkedIn to contact prospective clients, added comments to forums, answered business related questions on groups. They managed to stand out among all competitors as the leading brand for the services provided which has led to 25% increase in lead generation.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "On my primary social media, my goal is to improve my primary business objective _______________ by _____________ within ________ months.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 312,
+                                "order": 1,
+                                "question": "On my primary social media, my goal is to improve my primary business objective _______________ by _____________ within ________ months."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 361,
+                            "title": "Social Media Complete Unit 3",
+                            "description": "Social Media Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a clear social media strategy?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 832,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "If yes, how often do you set a social media strategy?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yearly",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "6-12 months",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "3-6 months",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Monthly ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 833,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1063,
+                        "title": "10 Tips for Crafting the Perfect Social Media Posts",
+                        "slug": "10-tips-crafting-perfect-social-media-posts",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "dChXK3LwgWk",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>10 tips to help you in crafting better posts:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Include engaging images or videos</h5>\r\n</li>\r\n \t<li>\r\n<h5>Distribute your posts to cover different time zones</h5>\r\n</li>\r\n \t<li>\r\n<h5>Recirculate old and effective posts with new approaches</h5>\r\n</li>\r\n \t<li>\r\n<h5>Optimize the posts for each type of channel that you are using</h5>\r\n</li>\r\n \t<li>\r\n<h5>Rewrite the posts for various target segments</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identify influencers and mention them</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be personal</h5>\r\n</li>\r\n \t<li>\r\n<h5>Do A/B testing for same message</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identify what’s trending</h5>\r\n</li>\r\n \t<li>\r\n<h5>Keep your audience engaged in the conversation</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, we will give some tips for crafting great social media posts.</h5>\r\n<h5>Social media posts can take many forms and should be designed in a way to reflect your strategy. The frequency of posts isn’t as important as the quality of your posts, so ensure that your time is being invested in the right kind of posts.</h5>\r\n<h5>Here are 10 quick tips to help you in crafting better posts:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Include engaging images or videos</strong> in your posts</h5>\r\n</li>\r\n \t<li>\r\n<h5>Distribute your posts to <strong>cover different time zones</strong> in your target countries</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Recirculate</strong> old and <strong>effective posts</strong> with new approaches</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Optimize</strong> the posts for <strong>each type of channel</strong> that you are using</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Rewrite</strong> the posts for <strong>various target segments</strong> that you are reaching</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Identify influencers</strong> and <strong>mention</strong> them in relevant posts</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Be personal</strong> in your tone of messages</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Do A/B testing</strong> for same message to identify most effective style</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Identify what’s trending</strong> and tag along with your messages or comments</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Keep your audience</strong> engaged in the <strong>conversation </strong>by asking feedback and mentioning them</h5>\r\n</li>\r\n</ul>\r\n<h5>These are tips that could be applied regularly to your posts and by doing so, you can increase engagement within your audience and increase the return on your invested time.</h5>",
+                            "course-unit-quotes": "Here’s the heart of the matter: The essence of social media is knowing your audiences and engaging them in something they love.",
+                            "course-unit-case-study": "<h5>Testing different combination of posts is essential to understand what works best. Best performing posts are those that reflect your business objective and are interesting to your target audience. For example, Diamonds, a jewelry store, achieved a 40% increase in engagement by posting timely content during holidays and events. They switched high quality product and lifestyle photos and short captions, published stories about their products which had perceived Diamonds as a brand that sells an experience rather than a product.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": " I will increase engagement by using:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 313,
+                                "order": 1,
+                                "question": " I will increase engagement by using:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 362,
+                            "title": "Social Media Complete Unit 4",
+                            "description": "Social Media Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following do you include in your social media posts? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Images ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Videos",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Call to action",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Caption",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 834,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1064,
+                        "title": "When & How Often should you Post on Social Media",
+                        "slug": "often-post-social-media",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "HPE5LiCvr3M",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The suggested time and frequency of your posts per social media channel per day:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>On Twitter: several tweets a day</h5>\r\n</li>\r\n \t<li>\r\n<h5>On Instagram: 2-3 posts a day</h5>\r\n</li>\r\n \t<li>\r\n<h5>on Facebook: 1 post a day</h5>\r\n</li>\r\n \t<li>\r\n<h5>LinkedIn: 1 post per working day</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video we will explore the optimal frequency and timing of your social media posts.</h5>\r\n<h5>With all the effort that goes into preparing your social media posts, you want to make sure that when you do post them, you will get the maximum number of views for those posts.</h5>\r\n<h5>Here are some suggestions on the time and frequency of your posts per social media channel per day:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>On <strong>Twitter</strong> you can be expected to post <strong>several tweets a day</strong> with some brands posting over 10 a day.</h5>\r\n</li>\r\n \t<li>\r\n<h5>On <strong>Instagram</strong> it’s common to for brands to <strong>post 2-3 posts a day</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>The average number of posts on<strong> Facebook</strong> for brands is <strong>1 post a day</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>LinkedIn</strong> posts are more scarce with an average of <strong>1 post per working day</strong></h5>\r\n</li>\r\n</ul>\r\n<h5>Keep in mind that you might need to post tweets again to cover different time zones if you are working globally. Given that people are continuously connected, posts get the best viewing in the evenings.</h5>\r\n<h5>In the end, you would need to try, measure and adapt your posts to the time when you get the best interactions.</h5>",
+                            "course-unit-quotes": "Social tools are not just about giving people a voice, but giving them a way to collaborate, contribute and connect. John Stepper",
+                            "course-unit-case-study": "<h5>There is no perfect answer as to when is the optimum time or day to post on social media. Timing and number of posts vary according to the business industry, platform used, target audience, region, post content and goals. According to Polar, a beer brand in Venezuela, the best time to post on Facebook is on Friday between 2 and 5 PM where their target audience are online, happier and planning to go out and the best days to publish on Saturday and Sunday is on peak times at 1 p.m. These posts generated 32% more engagement than workweek posts.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I will post at this frequency: _______ per week",
+                            "course-unit-atq-two": "I will publish my important posts on this day _____________ and at this time  _____________ . ",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 314,
+                                "order": 1,
+                                "question": "I will post at this frequency: _______ per week"
+                            },
+                            {
+                                "q_id": 315,
+                                "order": 2,
+                                "question": "I will publish my important posts on this day _____________ and at this time  _____________ . "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 363,
+                            "title": "Social Media Complete Unit 5",
+                            "description": "Social Media Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How often do you post on various social media platforms?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Once per day",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "2 or more per day",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "2 or more per week",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "On Weekly basis",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 835,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1065,
+                        "title": "4 Best Practices to Promote your Business on Social Media",
+                        "slug": "4-best-practices-promote-business-social-media",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "E6xmMeU__Xc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 ways to promote your business on social media:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Use twitter for updates and announcements</h5>\r\n</li>\r\n \t<li>\r\n<h5>Use Facebook for onlinelearning</h5>\r\n</li>\r\n \t<li>\r\n<h5>Come up with useful content in your area of expertise</h5>\r\n</li>\r\n \t<li>\r\n<h5>Engage in LinkedIn forums on topics that are relevant to your clients</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, we will learn about some tips to help promote your business on social media. Everyone is spending more time on social media so if you want to reach out to new prospects, go to where they are. Social media can be a very efficient tool to reach new prospects and promote your business. Here are 4 ways to promote your business on social media:</h5>\r\n<h5>1- Use twitter for updates and <strong>announcements</strong> about your latest accomplishments including press releases and press coverage</h5>\r\n<h5>2- Use Facebook for<strong> onlinelearning </strong>that could engage your target audience – such as the development of a new innovation, or logo</h5>\r\n<h5>3- Come up with <strong>useful content</strong> in your area of expertise and create from it infographs, templates, tools, ebooks that could be promoted on all social channels</h5>\r\n<h5>4- Engage in LinkedIn <strong>forums</strong> on topics that are relevant to your clients and in your areas of expertise</h5>\r\n<h5>When executed well, using social media as a way to reach prospects could be the most cost effective way for you to do so.</h5>",
+                            "course-unit-quotes": "Social networks represent the digital reflection of what humans do: we connect and share. Jeremiah Owyang",
+                            "course-unit-case-study": "<h5>Becoming active on several social networks, including Twitter, Facebook, Pinterest and Instagram is important but each platform should have its own strategy based on your objective to promoting your business.Golden Candles, were looking to generate more purchases from their posts and for that they provided special discounts, while on twitter they included a promotional code that they can use on checkout. Golden Candles managed to generate a 20% increase in conversion rates.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Promoting my business on social media can be done by using:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 316,
+                                "order": 1,
+                                "question": "Promoting my business on social media can be done by using:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 364,
+                            "title": "Social Media Complete Unit 6",
+                            "description": "Social Media Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following do you use on social media to promote your business? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Competitions",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Polls",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Offers",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 836,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1066,
+                        "title": "Which Online Advertising Channels are Best for your Marketing Campaign",
+                        "slug": "which-online-advertising-channels-are-best-for-your-marketing-campaign",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "BKosAQqCHuU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The digital advertising channels that are best for your marketing campaign:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Google ads</h5>\r\n</li>\r\n \t<li>\r\n<h5>Facebook ads</h5>\r\n</li>\r\n \t<li>\r\n<h5>Twitter ads</h5>\r\n</li>\r\n \t<li>\r\n<h5>LinkedIn ads</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, we will learn about the best channels to use for each advertising type.</h5>\r\n<h5>All major social media channels offer affordable advertising options, but choosing which channel to use for each type of advertising can be difficult.</h5>\r\n<h5>Here are some considerations on which advertising channel is best for your specific marketing objective:</h5>\r\n<h5>1- <strong>Google ads</strong> are great if you want to promote a specific product or service that people could be searching for</h5>\r\n<h5>2<strong>- Facebook ads</strong> are great if you want to raise brand awareness by targeting a certain demographic with specific interests</h5>\r\n<h5>3- <strong>Twitter ads</strong> are great if you want to promote a message or announcement</h5>\r\n<h5>4- <strong>LinkedIn ads</strong> are great if you want to target a specific function or profession</h5>\r\n<h5>Be very clear about your objectives from any marketing activity and as such decide on the best channel for your campaign.</h5>",
+                            "course-unit-quotes": "Social media marketing is about identifying the essence of engagement. Edgerank Checker",
+                            "course-unit-case-study": "<h5>Divea Tea sponsored a promotional post that was initially generating high engagement rates on Facebook. This resulted to a 30% ROI by reaching out to new customers interested in their products, however the ultimate reason for the success was by boosting the best performing posts. Other social media platforms were tried, whereby the platform that generated the best results was Facebook. Depending on the products and services being promoted, as well as the target audience, then the right platform needs to be selected.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "For promoting a product people are looking for, the best advertising channel I should use is:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 317,
+                                "order": 1,
+                                "question": "For promoting a product people are looking for, the best advertising channel I should use is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 365,
+                            "title": "Social Media Complete Unit 7",
+                            "description": "Social Media Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which digital advertising channels you use for your marketing campaign?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Google AdWords",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Social media ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Email ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 837,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1067,
+                        "title": "4 Ways to Use Social Media for Customer Service and Support",
+                        "slug": "4-ways-to-use-social-media-for-customer-service-and-support",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "FQmcByt_kqY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 ways to use social media for customer service and support:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Tracking sentiment about products, services, or the brand in general</h5>\r\n</li>\r\n \t<li>\r\n<h5>Addressing negative issues quickly</h5>\r\n</li>\r\n \t<li>\r\n<h5>Launch a poll to identify how well are you doing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Putting a human touch to business transactions.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, you can learn how to provide a better customer service experience through the use of Social Media.</h5>\r\n<h5>Everyone including your users and customers is spending much more time on social media so why not go to where these customers are instead of asking them to come to us. Provide them with customer service and support on social media itself.</h5>\r\n<h5>Here are 4 ways social media is being used to improve customer service:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Tracking sentiment</strong> about products, services, or the brand in general - in a nutshell, are customers positive or negative in their comments on what we are offering</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Addressing negative issues quickly</strong> by spotting any bad experience that is posted and quickly addressing it – even if not solved quickly the quick response is taken very positively by customers</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Launch a poll</strong> to identify how well are you doing. Conducting a simple net promoter score poll can provide you with a wealth of insight and allows you to track your customer service improvements</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Putting a human touch</strong> to business transactions. With more and more people interacting with your brand through online channels, social media provides you with an opportunity to connect with your clients on a personal level</h5>\r\n</li>\r\n</ul>\r\n<h5>The bottom line is that social media provides you with a great opportunity to monitor what your users are saying about your products and services, and to quickly address issues that could come up. Make the most out of it to provide a better customer experience</h5>",
+                            "course-unit-quotes": "Social Media is one area of business where you don't need to outspend your competitors in order to beat them. ",
+                            "course-unit-case-study": "<h5>Social media allows us to serve our customers more effectively and on a personal level. Creating that bond while problem solving results in happy customers who return in the future. One of their social media objectives is to try to respond to every question – even those that don’t directly mention their business. As a small business, you’re always looking for a way to make your brand stand out among the competition. It’s important to find inspiration for something unique that fits your brand, but it also helps to learn from the success of others. For example, how have other small businesses used social media to grow and improve their business?</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can I use social media to improve customer service in my business?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 318,
+                                "order": 1,
+                                "question": "How can I use social media to improve customer service in my business?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 366,
+                            "title": "Social Media Complete Unit 8",
+                            "description": "Social Media Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you use social media to improve customer service? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 838,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you respond to mentions or comments on social within 24 hours?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 839,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1068,
+                        "title": "Social Media for Business Posttest",
+                        "slug": "social-media-for-business-certificate",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 367,
+                            "title": "Social Media Post Test",
+                            "description": "Social Media Quiz",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "The four ways to use social media sites for business are:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Purchasing, Customer Service, Customer Support, Product Development",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Product Design, Referrals, Customer Service, Marketing campaigns",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Advertising, Referrals, Customer Service, Product Development",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Marketing, Advertising, Purchasing, Product Development",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 840,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Even with a limited budget, through ____________ businesses can engage with their prospects and promote their products and services. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Customer service",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Advertising",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Marketing",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Campaigns",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 841,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The largest network that allows you to reach a very wide set of users that could be interesting for your business is:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "LinkedIn",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Instagram",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Facebook",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Twitter",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Pinterest",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 842,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Pinterest requires more effort to get loyal followers but can be very influential when you do. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 843,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Setting a social media strategy should be done every _________________ after reviewing the results of the previous period and your actual results in comparison with your plan.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Year",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Month",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "6-12 months",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "3-6 months",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 844,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Social media posts can take many forms and should be designed in a way to reflect your strategy. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 845,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The frequency of social media posts is as important as the quality of your posts. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 846,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "On Twitter you can be expected to post _____________ a day.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Several tweets",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "One tweet",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Two tweets",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 847,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The average number of posts on Facebook for brands is ____ post (s) a day.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "2",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "1",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "5",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "3",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 848,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "To promote your business on social media, use _____________for onlinelearning that could engage your target audience – such as the development of a new innovation, or logo.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "LinkedIn",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Google +",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Pinterest",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Facebook",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 849,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "________________ are great if you want to promote a specific product or service that people could be searching for.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Twitter ads",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Google ads",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Facebook ads",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "LinkedIn ads",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 850,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Social media provides you with the opportunity to monitor what your users are saying about your products and services, and to quickly address issues that could come up. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 851,
+                                    "order": 11
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/social-media.png",
+                "zip_path": "wp-content/uploads/2018/10/social-media.png",
+                "level": "card"
+            }
+        ]
+    }
+}

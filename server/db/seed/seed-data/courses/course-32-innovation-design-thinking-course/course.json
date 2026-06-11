@@ -1,0 +1,627 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 32,
+        "title": "Innovation Design Thinking Course",
+        "description": "The Innovation Process course is a Blended learning program",
+        "unit_count": 6,
+        "author_id": 0,
+        "course_post_id": 3674,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2332,
+            "title": "Innovation Design Thinking Course",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/innovation-design-thinking-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/innovation.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 32,
+                "title": "24minMarketing Module",
+                "description": "Innovation is a key requirement for any business in today&apos;s world. It offers an opportunity to differentiate yourself from the competition. In this simple course, we take you through a 4 step innovation development process. (-new-line-)\nThrough the program, we aim to provide a simple playlist of videos that provide practical tips on essential business skills for aspiring professionals. This playlist would be supported by a set of resources that would be available to the participants.",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 946,
+                        "title": "Innovation Design Thinking Pretest",
+                        "slug": "innovation-design-thinking-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 245,
+                            "title": "Innovation Design Thinking Pretest",
+                            "description": "Innovation Design Thinking Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "In the Ideate stage, we should only focus on creating good ideas.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 530,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Some of the areas that we should explore to understand the problem include:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "The Technical landscape",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Existing Solutions",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Target User Behaviours",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "4",
+                                    "question_id": 531,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 947,
+                        "title": "Understand the Problem",
+                        "slug": "understand",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "9NV8j2egO0Q",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The first step in the innovation process is to <strong>understand the problem</strong> you’re trying to solve or the need that you are trying to address.</h5>\r\n<h5>To <strong>understand the problem</strong>, it’s good to put yourself in the shoes of the user or customer and empathize with them. You can do so by observing, surveying, and embedding yourself in the situation.</h5>\r\n<h5>In addition to understanding the problem from the user perspective, you can explore what are the current solutions available, what technology exists that could be used in solutions and where do they fall short in fulfilling the user needs.</h5>\r\n<h5>Understanding the problem and need is key to finding the right solution.</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "<h5>\"When all think alike, then no one is thinking.\" - Walter Lippma</h5>",
+                            "course-unit-case-study": "<h5>Natalie is tasked with the job of finding an innovative solution to reduce obesity in kids. For the first part of the innovation process, she seeks to understand the problem and why do kids get obese. Her aim is to understand the problem from all angles including the kids natural body composition, their emotional state, their surroundings, what influences them, where they live etc. Natalie also tries to understand what existing solutions have been used, what has their success been, what technologies exist today etc.. Natalie keeps on doing this investigative activity until she is quite confident that she has a good understanding of the problem at hand.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/innovation-design-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Innovation Design Thinking Process</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is the need or problem that you are trying to address or solve?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 415,
+                                "order": 1,
+                                "question": "What is the need or problem that you are trying to address or solve?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 246,
+                            "title": "Innovation Complete Unit 1",
+                            "description": "Innovation Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Were you aware of the the innovation design thinking process?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2018,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 948,
+                        "title": "Ideate",
+                        "slug": "ideate",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "VJd7gM51Yrk",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The second step in the innovation process is to <strong>come up with as many ideas as possible</strong> to address the problem that you are working on. At this stage, there is no right or wrong idea, anything works, no matter how crazy it is.</h5>\r\n<h5>If you are working in teams, it would be best to have a board or flip-chart and have everyone explain their idea and post it or write it up. This helps trigger new thoughts in others around you.</h5>\r\n<h5>To come up with more ideas, approach the brainstorming from a technology, user, emotional, functional, business and any other angle you can think of.</h5>\r\n<h5>At the end of the ideation process, consolidate some of the ideas, remove some of the ideas that have no relevance, and then vote on the best most promising one which you can pursue further.</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "<h5>\"If you want something new, you have to stop doing something old” - Peter F. Drucker</h5>",
+                            "course-unit-case-study": "<h5>After understanding the problem well, Natalie sets aside an hour of brainstorming where she puts down all ideas that come to her mind without judging if these ideas are good or bad. Every idea is good. At the end of that period she then starts to evaluate the various ideas, putting together similar ones, eliminating bad ones. Natalie then chooses the most promising idea, that came out of the ideation process, to prototype.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/innovation-design-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Innovation Design Thinking Process</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "List 5 ideas that can solve that problem or address that need:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 416,
+                                "order": 1,
+                                "question": "List 5 ideas that can solve that problem or address that need:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 247,
+                            "title": "Innovation Complete Unit 2",
+                            "description": "Innovation Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": " Do you like to come up with innovative ideas or solutions?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 533,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 949,
+                        "title": "Prototype",
+                        "slug": "prototype",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "Ls7BacseeWA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The third step in the innovation process called <strong>prototyping</strong>, is where you take the best idea, or consolidated group of ideas that you came up with, and turn it into a sample product that can explain and demonstrate to users the idea.</h5>\r\n<h5>If you’re building a software or app, it would be to come up with the minimum viable product that you can give to users to test.</h5>\r\n<h5>If you’re building a physical product, you would be able to create a mock of that product representing how that would look in real life.</h5>\r\n<h5>The aim of the prototype is to get as close as possible to the real product or service that you want to build, without having to spend huge amount of resources or time doing it.</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "<h5>“The value of an idea lies in the using of it.” - Thomas Edison</h5>",
+                            "course-unit-case-study": "<h5>Natalie takes the most promising idea, which includes an iPad application and a physical quiz game, and creates a sample of how they would look and work when created. She tries to make this sample as close to reality as possible. Using cardboards of different colors and shapes, Natalie creates a prototype that can explain her idea to the children she is targeting.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/innovation-design-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Innovation Design Thinking Process</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Which idea is the best idea for you to create a prototype for?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 417,
+                                "order": 1,
+                                "question": "Which idea is the best idea for you to create a prototype for?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 248,
+                            "title": "Innovation Complete Unit 3",
+                            "description": "Innovation Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever created a prototype?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 534,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 950,
+                        "title": "Evaluate and Refine",
+                        "slug": "evaluate-and-refine",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "<div class=\"post-content\"></div>",
+                        "media": {
+                            "youtube_video_id": "AA7m9Zilc6s",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The fourth step of the innovation process is where you take your prototype, and put it in the hands of users to get their <strong>feedback</strong>.</h5>\r\n<h5>Your role here is to be like a scientist where you observe and document how your users are interacting with the prototype, what is the feedback that they are giving you, what else would they like to see in such a product, what did they like and didn’t like etc..</h5>\r\n<h5>Collecting all this feedback would allow you to to go back to the prototype stage, refine it further and and to test it further with users. In some cases, you might come to the realization the product you’re building wasn’t that great after all, and as such you go back to stage one and understand further the needs of the user.</h5>\r\n<h5>This whole process allows you to very efficiently develop a product or solution that is in line with the needs of your users and which adds value to them.</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "<h5>“The entrepreneur always searches for change, responds to it, and exploits it as an opportunity.” - Peter F. Drucker</h5>",
+                            "course-unit-case-study": "<h5>After creating the prototype, Natalie takes it to a few schools and explains to the children and teachers how the game works and how the iPad application will look and interact. She then captures all their feedback and confirms some of the assumptions she had made while creating the prototype. She also shows the prototype to a printing house that can print the game and an application developer that can build the app. After the feedback is collected, she notices that the idea can be enhanced further and some elements could be changed so she enhances the prototype and continues this process until she is comfortable that she can start working on the real innovation.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/innovation-design-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Innovation Design Thinking Process</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What would be the ways in which you can evaluate the user feedback for the prototype?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 418,
+                                "order": 1,
+                                "question": "What would be the ways in which you can evaluate the user feedback for the prototype?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 249,
+                            "title": "Innovation Complete Unit 4",
+                            "description": "Innovation Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you consider yourself a good listener?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 535,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 951,
+                        "title": "Innovation Design Thinking Posttest",
+                        "slug": "innovation-design-thinking-certificate",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 250,
+                            "title": "Innovation Process Post Test",
+                            "description": "Innovation Process - English Quiz",
+                            "type": "quiz_block",
+                            "pass_mark": 100,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "The four stages of the innovation process in order from start to finish are:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Ideate, Prototype, Understand, Evaluate",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Understand, Evaluate, Ideate, Prototype",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Understand, Ideate, Prototype, Evaluate",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Ideate, Prototype, Evaluate, Understand",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 526,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "In the Ideate stage, we should only focus on creating good ideas.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 527,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "When we evaluate and refine we should try to improve on the idea and prototype before we move into production of the final solution.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 528,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Some of the areas that we should explore to understand the problem include: ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "The Technical landscape",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Existing Solutions",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Target User Behaviours",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 529,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/innovation.png",
+                "zip_path": "wp-content/uploads/2018/10/innovation.png",
+                "level": "card"
+            }
+        ]
+    }
+}

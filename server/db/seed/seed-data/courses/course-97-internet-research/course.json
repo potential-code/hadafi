@@ -1,0 +1,1281 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 97,
+        "title": "Internet Research",
+        "description": "Internet Research",
+        "unit_count": 10,
+        "author_id": 0,
+        "course_post_id": 3737,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2714,
+            "title": "Internet Research",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/internet-research-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Internet-Research.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 97,
+                "title": "Internet Research",
+                "description": "Internet Research a potential course",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 2616,
+                        "title": "Internet Research PreTest",
+                        "slug": "internet-research-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "A3glSrkt80k",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 857,
+                            "title": "Internet Research PreTest",
+                            "description": "Internet Research PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "The Bing search engine was created by Google.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2112,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following types of resources can be found through online videos?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Tutorials",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Lectures",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Events",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 2113,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Design flaws can render a study inadequate to draw conclusions from.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2114,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Research funded by a corporation can be trusted to provide accurate information.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2115,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Contributing to a forum can help to ensure that community members support you when you have questions.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2116,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Khan academy is a website that teaches languages.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2117,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "MIT Open courseware offers courses in engineering.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2118,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "APA and MLA accomplish the same tasks in different styles.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2119,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The star is used for a combined search.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2120,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Hyphens are used to exclude words from a search.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2121,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The Loci method relies on locations that you know the details of very well.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2122,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Spaced repetition is the most common technique that is used and taught.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2123,
+                                    "order": 11
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2617,
+                        "title": "3 different search engine options",
+                        "slug": "3-different-search-engine-options",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "ZYybyN6LmNs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 different search engine options:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Google</h5>\r\n</li>\r\n \t<li>\r\n<h5>Bing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Yahoo</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will cover the 3 most common online search engines. Using search engines is a pivotal part of online research. When looking at the different options available, it is not a matter of finding which is better. They all offer benefits in their own way.</h5>\r\n<h5>Here are the 3 most common search engine options:</h5>\r\n<h5>  1. Google</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Google is the most popular search engine in the world. It offers more than just website search results. You can find images, videos from different sites, unit conversions and research papers</h5>\r\n</li>\r\n \t<li>\r\n<h5>Google also allows for the use of different built in tools such as ‘-‘, ‘*’, ‘AND’, ‘OR’</h5>\r\n</li>\r\n</ul>\r\n<h5>   2. Bing</h5>\r\n<ul>\r\n\r\n \t<li>\r\n<h5>Bing was created by Microsoft and is the default search engine in Internet Explorer (or the newest version called Microsoft Edge). It provides users with a different look and feel along with a cleaner layout.</h5>\r\n</li>\r\n</ul>\r\n<h5>   3. Yahoo</h5>\r\n<ul>\r\n\r\n \t<li>\r\n<h5>Yahoo search engine is different than the rest in that it provides more comprehensive search results. The shopping option is also more comprehensive than the Bing and Google counterpart. What seperates Yahoo from the rest is Yahoo answers. Results from this website are given priority when using Yahoo search engine and there is so much valuable information available there.</h5>\r\n</li>\r\n</ul>\r\n<h5>Understanding the features of each search engine can help you to determine what will work best for you.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My preferred search engine is: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 850,
+                                "order": 1,
+                                "question": "My preferred search engine is: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 858,
+                            "title": "Internet Research Complete Unit 1",
+                            "description": "Internet Research Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What do you look for in a good search engine?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Proper layout of results",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Less advertising results",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Added functionality like unit conversion, calculator, etc.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2136,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2618,
+                        "title": "2 ways to use video websites as research tools",
+                        "slug": "2-ways-to-use-video-websites-as-research-tools",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "MBzDq26CuaE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>2 ways to use video websites as research tools:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Look for video tutorials</h5>\r\n</li>\r\n \t<li>\r\n<h5>Look for events or university lectures</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will go over 2 ways to use video websites as research tools. Making sure that you explore all potential sources of information can make for a more successful research experience. Sites such as YouTube, Vimeo and Dailymotion are often gold mines of important information.</h5>\r\n<h5>Here are 2 ways to use video websites as research tools:</h5>\r\n<h5>               1. Look for video tutorials</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Video tutorials in the area that you wish to learn more about can serve as powerful teaching resources that get straight to the point</h5>\r\n</li>\r\n</ul>\r\n<h5>     2. Look for events or university lectures</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Often times you can find some very relevant lectures from universities or TEDx events that help to clear up your understanding of specific topics</h5>\r\n</li>\r\n</ul>\r\n<h5>Knowing what to look for in a video website can serve to provide you with the information that you desire in a much shorter amount of time than learning things on your own.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The videos that are most suited to my type of learning are (lectures or tutorials):",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 851,
+                                "order": 1,
+                                "question": "The videos that are most suited to my type of learning are (lectures or tutorials):"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 859,
+                            "title": "Internet Research Complete Unit 2",
+                            "description": "Internet Research Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you find video lectures to be a useful resource?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2137,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you find tutorials to be a useful resource?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2138,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2619,
+                        "title": "4 Criteria to Identify Meaningful Research",
+                        "slug": "4-criteria-to-identify-meaningful-research",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 criteria to identify meaningful research:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Who funded the research?</h5>\r\n</li>\r\n \t<li>\r\n<h5>Which journal or institution published the research?</h5>\r\n</li>\r\n \t<li>\r\n<h5>What type of study was it?</h5>\r\n</li>\r\n \t<li>\r\n<h5>Were there any design flaws that you can identify?</h5>\r\n</li>\r\n</ol>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will cover 4 useful criteria to identify meaningful research. The internet is over flowing with research papers of different purpose. Unfortunately, a lot of these studies are not very trustworthy.</h5>\r\n<h5>Here are 4 criteria to identify meaningful research:</h5>\r\n<h5>                  1.  Who funded the research?</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Funding information is often provided under the author information of a study. This is a great way to identify any conflict of interest. For example, if a sugar company funded a study suggesting that sugar was good for you, that would suggest a serious research flaw</h5></li>\r\n</ul>\r\n<h5>2. Which journal or institution published the research?</h5>\r\n<ul>\r\n\r\n \t<li>\r\n<h5>The journal or institution must have a good reputation of performing good research. Simply searching for more information about the website where you are finding the research will provide insight into whether it is credible or not</h5>\r\n\r\n \t</li></ul>\r\n<h5>3.What type of study was it?  There are a few different types of study designs:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Meta-analysis is a way of combining data from many different research studies</h5>\r\n</li>\r\n \t<li>\r\n<h5>Systematic review is an evaluation of all research studies that address a particular topic</h5>\r\n</li>\r\n \t<li>\r\n<h5>Randomized controlled trial assigns participants to two or more groups randomly</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cohort study is a type of study where people with a particular condition or treatment are followed over time and compared with a different group of people not affected by the condition or treatment</h5>\r\n\r\n \t</li></ul>\r\n<h5>4. Were there any design flaws that you can identify?</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Identifying design flaws can be difficult. An example of a design flaw is when researchers make a definitive claim even though their study involved a very small number of subjects. Small groups are not very good representations of the entire population</h5>\r\n</li>\r\n</ul>\r\n<h5>Understanding how to identify credible research will allow for a more accurate understanding of new topics.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "9AQ_X2FD7Ug",
+                            "course-unit-atq-one": "The most important aspect of research that I must identify is:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 852,
+                                "order": 1,
+                                "question": "The most important aspect of research that I must identify is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 860,
+                            "title": "Internet Research Complete Unit 3",
+                            "description": "Internet Research Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever attempted to understand the legitimacy of the research that you find?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2139,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2620,
+                        "title": "2 Reasons to Utilize Online Forums",
+                        "slug": "2-reasons-to-utilize-online-forums",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "pNpdUjBbI2k",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>2 reasons to utilize online forums:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Different perspectives</h5>\r\n</li>\r\n \t<li>\r\n<h5>Develop a positive reputation</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will explore 2 reasons to utilize online forums. In our modern internet landscape, there are new ways of receiving and communicating information. One of these new tools is online forums. An online forum is an online discussion site. The most popular online forum is Reddit.</h5>\r\n<h5>Here are 2 reasons to utilize online forums:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Different Perspectives</h5>\r\n<h5>People of many different levels of expertise can be found on online forums. With so many different perspectives you can find many different solutions to questions that you might pose.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Develop A Positive Reputation</h5>\r\n<h5>Being a contributor to the community can cement you as a reliable voice within a forum sub topic. This type of trust will ensure that your questions will garner answers in future occurrences</h5>\r\n</li>\r\n</ol>\r\n<h5>Keeping these ideas in mind can help you to get started in your forum of choice.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Utilizing forums will help me to:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 853,
+                                "order": 1,
+                                "question": "Utilizing forums will help me to:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 861,
+                            "title": "Internet Research Complete Unit 4",
+                            "description": "Internet Research Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are there any forums that you regularly visit?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "0",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "1",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "2",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "3+",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2140,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2621,
+                        "title": "4 Sources of Free Online Courseware",
+                        "slug": "4-sources-of-free-online-courseware",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "7dKhtcBLIo4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 sources of free online courseware:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Potential</h5>\r\n</li>\r\n \t<li>\r\n<h5>MIT Open Courseware and Coursera</h5>\r\n</li>\r\n \t<li>\r\n<h5>Allison</h5>\r\n</li>\r\n \t<li>\r\n<h5>Khan academy</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will provide 4 sources of free online courseware. Online courseware is beginning to dominate the educational landscape. Free resources are now very impressive sources of up-to-date and relevant information. While www.potential.com can provide you with all of the practical business knowledge you require, there are other sources for alternative topics.</h5>\r\n<h5>Here are 4 sources of free online courseware:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>potential.com</h5>\r\n<h5>Potential provides practical lifelong learning courses with videos that could be watched for free. For the full course components a minimum monthly subscription charge would need to be paid.</h5>\r\n</li>\r\n \t<li>\r\n<h5>MIT Open Courseware &amp; Coursera</h5>\r\n<h5>Both of these sites provide courses in university level topics that include science and engineering.</h5>\r\n</li>\r\n \t<li>\r\n<h5>allison.com</h5>\r\n<h5>Allison is a website full of free online courseware ranging from health to languages to personal development.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Khan academy</h5>\r\n<h5>Khan academy is a very practical online learning utility for many topics ranging from chemistry to calculus</h5>\r\n</li>\r\n</ol>\r\n<h5>These utilities provide their own unique upside and can help in mastering a new topic that you may be researching.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The topics that I need to learn are:",
+                            "course-unit-atq-two": "The best suited online courseware is at:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 854,
+                                "order": 1,
+                                "question": "The topics that I need to learn are:"
+                            },
+                            {
+                                "q_id": 855,
+                                "order": 2,
+                                "question": "The best suited online courseware is at:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 862,
+                            "title": "Internet Research Complete Unit 5",
+                            "description": "Internet Research Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How many online courseware websites have you used?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "0",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "1",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "2",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "3",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "4+",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2141,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2622,
+                        "title": "3 Different Approaches to Avoid Plagiarism and Copyright Issues",
+                        "slug": "3-different-approaches-to-avoid-plagiarism-and-copyright-issues",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "zksNfA20kb8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 different approaches to avoid plagiarism and copyright issues:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Attribution</h5>\r\n</li>\r\n \t<li>\r\n<h5>APA citation</h5>\r\n</li>\r\n \t<li>\r\n<h5>MLA citation</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will explore 3 different approaches that you can use to avoid plagiarizing or causing copyright infringement. The World Wide Web is fully connected and exposed. Information is susceptible to misuse and must therefore be cited properly. This includes pictures, research studies and articles.</h5>\r\n<h5>Here are 3 different approaches to avoiding plagiarism:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Attribution</h5>\r\n<h5>For items such as photo’s it is often sufficient to attribute the image to the original owner and provide a link to the original. Some items are not open to this type of attribution whereas some are open source and can be used freely depending on the listed conditions</h5>\r\n</li>\r\n \t<li>\r\n<h5>APA citation</h5>\r\n<h5>APA citation allows for appropriate attribution of the original author or creator of information that you are presenting.</h5>\r\n</li>\r\n \t<li>\r\n<h5>MLA citation</h5>\r\n<h5>MLA citation accomplishes the same objective as APA but in a different style.</h5>\r\n</li>\r\n</ol>\r\n<h5>There are many different types of citation that you can use to avoid plagiarism. It is dependent on your preference which one you choose to use.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The style that best fits my approach is: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 856,
+                                "order": 1,
+                                "question": "The style that best fits my approach is: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 863,
+                            "title": "Internet Research Complete Unit 6",
+                            "description": "Internet Research Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you/have you already used a citation style? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2142,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "If yes, how many different styles?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "1",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "2",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "3",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "4+",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Not Applicable",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2143,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2623,
+                        "title": "5 Google Search Tools That You Can Utilize in Your Online Research",
+                        "slug": "5-google-search-tools-that-you-can-utilize-in-your-online-research",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Gt15VUM8sMs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 google search tools:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Exact matches</h5>\r\n</li>\r\n \t<li>\r\n<h5>Exclude words</h5>\r\n</li>\r\n \t<li>\r\n<h5>Wildcard placeholder</h5>\r\n</li>\r\n \t<li>\r\n<h5>Combine searches</h5>\r\n</li>\r\n \t<li>\r\n<h5>Website search</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at 5 Google search tools that you can utilize in your online research. Google search tools are not utilized by most users. Although not very popular, they can have a huge impact on your search results.</h5>\r\n<h5>Here are the 5 Google search tools:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Exact Matches</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Using quotations around words will cause google to search for an exact word or phrase, rather than any slight variations. Use this tool by placing quotations around the search terms that you want exact results for.</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Exclude Words</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Using a hyphen before a search term will exclude that word from your search results. Use this tool by placing a hyphen directly before the term you would like to exclude.</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Wildcard Placeholder</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Using a star in your search phrase tells Google to attempt to fill in the appropriate word in place of the star. This tool is used if you don’t know the exact phrase that you are looking for.</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"4\">\r\n \t<li>\r\n<h5>Combine Searches</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Using a capitalized “O” and a capitalized “R” in between two search terms allows Google to search for both terms simultaneously.</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"5\">\r\n \t<li>\r\n<h5>Website Search</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Google also allows you to search specific websites. To do this, enter your search phrase in the Google search bar followed by site, a colon and the web address of the site you would like to search.</h5>\r\n</li>\r\n</ul>\r\n<h5>Utilizing these tools can reduce your required search times significantly. Having these tools in your toolbox should also allow for more confidence when seeking out new information.</h5>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<a href=\"https://www.potential.com/articles/internet-search/\" target=\"_blank\">Internet Search – Effective Web Search to Get Results </a>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The tactic that would be most useful for my purposes is:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 857,
+                                "order": 1,
+                                "question": "The tactic that would be most useful for my purposes is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 864,
+                            "title": "Internet Research Complete Unit 7",
+                            "description": "Internet Research Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How many of these tactics have you implemented before?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "1",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "2",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "3+",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "none",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2144,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2624,
+                        "title": "3 Techniques to Memorize Any New Information That You Research",
+                        "slug": "4-techniques-to-memorize-any-new-information-that-you-research",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "KjzYS8ZtQmI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 techniques to memorize any new information:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Visual Markers</h5>\r\n</li>\r\n \t<li>\r\n<h5>Loci Method</h5>\r\n</li>\r\n \t<li>\r\n<h5>Spaced Repetition</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at 4 techniques to memorize any new information that you research. Memorization techniques are not usually taught very effectively. Effective memorization requires a large amount of creativity. It requires you to unlock your “child” mind as you will see in this video.</h5>\r\n<h5>Here are the 3 techniques to memorize any new information:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Visual Markers</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Visual markers are very useful when reading or trying to memorize concepts. To use this technique when reading, you need to assign an outrageous mental image to each paragraph that you read. This image must somehow remind you of what the paragraph was talking about. After a few paragraphs you can make a story out of the different images that you have assigned. Replaying this outrageous story in your mind will allow you to remember the information contained within those paragraphs.</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Loci Method</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>The Loci method is an effective way to memorize lists that can help with things ranging from a public speech that you are giving to a grocery list. This method requires that you explore a location that you know well (such as your home) while following a specific path. You would then choose a few notable places along that path that stand out to you. In each of those places, you would place a visual marker that reminds you of the specific list item that you are trying to remember. The more ridiculous the visual marker, the easier it will be to remember. Walking through the same path in your imagination, will lead you through the list that you have memorized. For example, if I wanted to remember a grocery list of bread and toothpaste, I would start by walking through the front door of my home. Upon opening the front door, I find that a baker is baking a fresh loaf of bread in a stone oven that he has built in my wall. As I keep walking into my home, I make it into my kitchen and see a cat in my kitchen sink licking the dirty dishes. Because of this, the cats’ teeth are very dirty. Replaying this story in my mind would remind me that I need bread and toothpaste.</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Spaced Repetition</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Spaced repetition is the most common of these memory techniques. Most of the time it is not used correctly, however. If there is a specific definition you are trying to learn, you would want to repeat the process of reciting it daily until you can recite it perfectly. When this occurs, you need to change the frequency of reciting this definition from daily to weekly. This will test your long term storage of this information. The more difficult the definition is to recite, the more likely it is to be encoded as a long term memory. An app called Anky is very useful in helping to remind you of things that you want to practice spaced repetition with. This technique works great for new concepts, definitions and languages.</h5>\r\n</li>\r\n</ul>\r\n<h5>Utilizing these techniques in conjunction with one another and practicing them daily can rewire your brain’s ability to take in and store new information. No one has a bad memory. It is all a matter of being taught the proper techniques and exercising your brain muscle every day to ensure that it stay strong.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "A technique that I can begin to implement immediately is:",
+                            "course-unit-atq-two": "I can improve my current approach to learning by:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 858,
+                                "order": 1,
+                                "question": "A technique that I can begin to implement immediately is:"
+                            },
+                            {
+                                "q_id": 859,
+                                "order": 2,
+                                "question": "I can improve my current approach to learning by:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 865,
+                            "title": "Internet Research Complete Unit 8",
+                            "description": "Internet Research Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How many of these techniques have you used?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "0",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "1",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "2",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "3",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2145,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Can these techniques help you to learn better and faster?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2146,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2625,
+                        "title": "Internet Research PostTest",
+                        "slug": "internet-research-posttest",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 866,
+                            "title": "Internet Research PostTest",
+                            "description": "Internet Research PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "The Bing search engine was created by Google.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2124,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following types of resources can be found through online videos?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Tutorials",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Lectures",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Events",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 2125,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Design flaws can render a study inadequate to draw conclusions from.\n",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2126,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Research funded by a corporation can be trusted to provide accurate information.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2127,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Contributing to a forum can help to ensure that community members support you when you have questions.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2128,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Khan academy is a website that teaches languages.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2129,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "MIT Open courseware offers courses in engineering.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2130,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "APA and MLA accomplish the same tasks in different styles.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2131,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The star is used for a combined search.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2132,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Hyphens are used to exclude words from a search.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2133,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The Loci method relies on locations that you know the details of very well.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2134,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Spaced repetition is the most common technique that is used and taught.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2135,
+                                    "order": 11
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/03/Internet-Research.png",
+                "zip_path": "wp-content/uploads/2020/03/Internet-Research.png",
+                "level": "card"
+            }
+        ]
+    }
+}

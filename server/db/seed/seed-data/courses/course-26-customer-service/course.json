@@ -1,0 +1,866 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 26,
+        "title": "Customer Service",
+        "description": "Customer Service",
+        "unit_count": 8,
+        "author_id": 0,
+        "course_post_id": 3669,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2343,
+            "title": "Customer Service",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/customer-service-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/customer-service.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 26,
+                "title": "Customer Service",
+                "description": "Customer Service a course for potential",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 892,
+                        "title": "Customer Service PreTest",
+                        "slug": "customer-service-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 191,
+                            "title": "Customer Service PreTest",
+                            "description": "Customer Service PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "All successful organisations use a customer plan as it is the key path to a growing fulfilled business. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 407,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Having a full knowledge of only good experiences of your customers is one of the qualities of a high-standard customer service team. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 408,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Never admitting you are wrong improves your interaction with the customers. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 409,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following ways should be followed when managing your customer complaints:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Analyse your customer complaint. ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Record details of your analysis. ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "a and b",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 410,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "When dealing with an unexpected complaint, more immediate action should be taken the smaller the problem is. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 411,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following are things you should follow to achieve customer excellence except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Don’t leave your customers waiting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Don’t get to know your customers well even on a personal level. ",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Create long term relationships with your customers. ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 412,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 893,
+                        "title": "4 Reasons Why You Should Have a Customer Service Plan",
+                        "slug": "4-reasons-why-you-should-have-a-customer-service-plan-2",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "fpwb121MnDg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 reasons why you need to perform a strategic customer service plan for your employees to follow:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>It creates a positive business environment.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gives your business a professional image.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Enhances quality of your business.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sets a system to classify customer complaints in order to manage them in a smooth, professional manner.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. Businesses aim to deliver their products or services to the community at a high standard in order for their organisation to excel in the future. Designing a customer service plan will guide the business in achieving that goal.  This video will explain why you need to perform a strategic customer service plan for your employees to follow.</h5>\r\n<h5>Here are the 4 reasons:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>It creates a positive business environment. Employees know what they have to do which makes them more confident when dealing with the customers. Using the customer service plan as a guide will diminish small unnecessary questions and queries that will just waste time and money.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gives your business a professional image. Building this image takes time but with a customer service plan every individual, internal or external to your business, will have a pre-acknowledgment that your business follows a reliable, respectful and service oriented strategy.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Enhances quality of your business. A customer service plan can include information concerning the appearance of your staff, appearance of your products, quality of your services, prices of your sales and maybe the tone of voice that employees are suggested to use while dealing with an upset customer. All this and many more play an essential role in improving ones quality of business.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sets a system to classify customer complaints in order to manage them in a smooth, professional manner. Every individual will try to follow the system in the most convenient way to be able to handle these complaints right away. This will minimize stress and highlight what is most important making both your employees and customers happy.</h5>\r\n</li>\r\n</ul>\r\n<h5>Every organisation is advised to establish a customer service plan for employees to follow. All successful organisations use a customer plan as it is the key path to a growing fulfilled business. So get ready to fight for your clients with your paws as there are others ready to pounce and take them away from you!</h5>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can I deliver my products/services in the best possible way?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 587,
+                                "order": 1,
+                                "question": "How can I deliver my products/services in the best possible way?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 192,
+                            "title": "Customer Service Complete Unit 1",
+                            "description": "Customer Service Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Why do you need to prepare a customer service plan?\t",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "To classify your customer complaints",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "To create a positive environment in your business",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Other",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 419,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 894,
+                        "title": "8 Qualities of Exceptional Customer Service Teams",
+                        "slug": "8-qualities-of-exceptional-customer-service-teams-2",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "5XpqglpSB9I",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Customer service is providing services to your customers before, during and after purchasing your products or services.</h5>\r\n<h5>Here are 8 Qualities of high-standard customer service team and which we suggest you follow:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Being <strong>patient </strong>and <strong>empathetic </strong>are essential keys to a happy customer.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Being <strong>persuasive </strong>is essential.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Have a <strong>pre-planned strategy</strong> on whom to forward the problem to and how.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Communicate clearly and immediately. </strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Be ethical </strong>with <strong>good moral values. </strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Have a <strong>full knowledge </strong>of your <strong>customers’ bad and good experiences. </strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Being able to <strong>close the deal </strong>with the customer confirming that the issues have been resolved.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Conduct regular <strong>surveys</strong>.</h5>\r\n</li>\r\n</ul>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-read-more": "<h5>Hi. In this video you will learn about what it involves to become an exceptional customer service team or company.</h5>\r\n<h5>Customer service is providing services to your customers before, during and after purchasing your products or services. Good customer service is what all businesses aim for in order to meet the customers’ needs. Bad customer service generates problems, complaints and diminishes the existence of good repeated long term customers.</h5>\r\n<h5>Here are 8 Qualities of high-standard customer service team and which we suggest you follow:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Being <strong>patient </strong>and <strong>empathetic</strong> are essential keys to a happy customer. Give your full time and energy by listening and interacting with shared interests. Customers can be boring, picky, problem makers or too slow to understand.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Being <strong>persuasive </strong>is essential. Know your products or services very well to be able to convince your customer that they are worth having.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Have a <strong>pre-planned strategy</strong> on whom to forward the problem to and how. Unexpected problems faced for the first time must be handled in an efficient way.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Communicate clearly and immediately. </strong>Make sure the customer understood clearly what you are trying to say as to avoid wasting time.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Be ethical </strong>with <strong>good moral values. </strong>Give maximum help but with good time management skills. Let the customer trust you completely.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Have a <strong>full knowledge </strong>of your <strong>customers’ bad and good experiences. </strong>This will help you learn learn how to satisfy your customer in the future.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Being able to <strong>close the deal </strong>with the customer confirming that the issues have been resolved. Make sure that the customer’s satisfaction has been reached.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Conduct regular <strong>surveys</strong> whether through emails, phone calls, websites or even when sending an invoice to a customer, surveys are really helpful in meeting the customers’ needs.</h5>\r\n</li>\r\n</ol>\r\n<h5>As explained, good customer service skills are needed at all times to maintain happy long-term customers which are what all businesses need. Everyone in the company can be involved in providing great service, and it is essential that you have a dedicated team or individual who is the point of contact for all customer issues.</h5>\r\n<h5>Satisfied customers are the key to a successful business! So use the above tips to WOW your customers and create loyal ambassadors for your business.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What do I need to ensure to do before, during and after clients purchase my products or services?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 588,
+                                "order": 1,
+                                "question": "What do I need to ensure to do before, during and after clients purchase my products or services?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 193,
+                            "title": "Customer Service Complete Unit 2",
+                            "description": "Customer Service Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a strategy prepared on whom to forward an unexpected problem to?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 420,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 895,
+                        "title": "Five Steps Building a Culture of Great Customer Service",
+                        "slug": "five-steps-building-a-culture-of-great-customer-service-2",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "oV8jD8WmoAI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Good customer service skills apply when you have the right interaction with your customer.</h5>\r\n<h5>The following are five basic steps that you can implement to improve your interaction with your customer:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Make sure your customers feel that there is a common ground between the both of you.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listen carefully and empathetically to their needs.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Admit “yes, I am wrong” when you are genuinely mistaken is important.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Follow up after a problem is resolved is very important.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Learn from your mistakes is the fastest way to increase your understanding of customer needs.</h5>\r\n</li>\r\n</ul>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-read-more": "<h5>Hi. In this video you will learn five steps that we suggest you follow building a great customer service.</h5>\r\n<h5>Good customer service skills apply when you have the right interaction with your customer. Keep your customers satisfied by making them feel that they are always right. Customer interaction is a communication skill between the customer and service team. Improving that interaction will lead you on to the path of a great customer service team.</h5>\r\n<h5>The following are five basic steps that you can implement to improve your interaction with your customer:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Make sure your customers feel that there is a common ground between the both of you. Make them believe you have common interests and that their problem is your problem.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listen carefully and empathetically to their needs. In other words, “Put yourself in their shoes”. Listening is a key factor that plays a big role in making the customer feel that you truly care.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Admit “yes, I am wrong” when you are genuinely mistaken is important. It makes you reach the customers on a whole new level. You are proving that they are not beneath you and that there is no room for arrogance between the both of you.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Follow up after a problem is resolved is very important. Conduct surveys whether through emails, phone calls, websites or send it with the invoice to the customer after resolving all issues.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Learn from your mistakes is the fastest way to increase your understanding of customer needs. Experiencing customer interaction on a daily basis increases the rate of learning.  This may happen at the point of sale, at your customer relationship programs or after a problem has been resolved.</h5>\r\n</li>\r\n</ol>\r\n<h5>As explained, part of the customer service skills is to improve customer interaction so use these five basic guidelines to make your way to a superb customer service!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What do I need to ensure that my customer service team do to improve interaction with customers?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 589,
+                                "order": 1,
+                                "question": "What do I need to ensure that my customer service team do to improve interaction with customers?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 194,
+                            "title": "Customer Service Complete Unit 3",
+                            "description": "Customer Service Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you prepared surveys to use as a source of feedback of whether your customers were fully satisfied after the problem was resolved?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 421,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 896,
+                        "title": "8 Efficient Ways Managing Customer Complaints",
+                        "slug": "8-efficient-ways-managing-customer-complaints-2",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "0aIvzsM--ro",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Customer complaints are received when customers are not happy about a product or service they have purchased.</h5>\r\n<h5>We suggest following these 8 ways while managing your customer complaints:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Analyse your customer complaint.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Record details of your analysis.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Understand your customer needs.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Acknowledge your company’s costs, services, qualities, billing issues and communications.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Take the best action to solve the problem.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Fast response.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Follow up after the problem has been solved.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Always thank the customers for their patience while solving the problem.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. This video will suggest ways for you to follow in order to be able to manage customer complaints effectively.</h5>\r\n<h5>Customer complaints are received when customers are not happy about a product or service they have purchased. This is good for your business because when handled efficiently a customer complaint can prevent further problems and lead to stable, long term happy customers. Happy customers mean more profitable returns.</h5>\r\n<h5>We suggest following these 8 ways while managing your customer complaints:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Analyse your customer complaint. Study the reason that led to the problem. Find out who is making the complaint and how often is this complaint encountered.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Record details of your analysis. Implementing software for recording analysis is a great way to prevent problems from reoccurring in the future.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Understand your customer needs. Determine what the customer is looking for as a solution. Be polite and listen carefully. You might be surprised that some of their solutions are less than what you expect. Know what will make them satisfied customers. If you end up with unhappy customers, they will leave your company for a competitor.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Acknowledge your company’s costs, services, qualities, billing issues and communications. Having the full and right information guides you to find the best solution to the problem.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Take the best action to solve the problem. Put all the above collected information together in order to find the best solution to fix the problem. The best solution is obtained when an agreement is reached between the customer service team and client.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Fast response. Quick responses are advised when dealing with complaints. It is not preferable to keep customers waiting. If you have no choice but to pass on the customer to another employee, make sure to explain why.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Follow up after the problem has been solved. Make sure the customer is satisfied with the solution. This will encourage the customer to come back to you with any other issue.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Always thank the customers for their patience while solving the problem. Satisfied customers will be back and hopefully will attract their friends on social media to come.</h5>\r\n</li>\r\n</ul>\r\n<h5>At some point, everyone in the organization is bound to deal with an upset customer. As mentioned, the solution is to manage this situation efficiently resulting with a satisfied customer thinking you are part of a wonderful organization.</h5>\r\n<h5>We suggest you follow the 8 steps above to help u achieve long term relationships with your customers resulting in a valuable collection of ANTIQUES!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What do I need to ensure that my customer service team do to manage customer complaints effectively?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 590,
+                                "order": 1,
+                                "question": "What do I need to ensure that my customer service team do to manage customer complaints effectively?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 195,
+                            "title": "Customer Service Complete Unit 4",
+                            "description": "Customer Service Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you gathered full information regarding your company’s costs, services, qualities, billing issues and communications in order to guide you to the best solutions?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 422,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 897,
+                        "title": "4 Things to do to handle an Unexpected Customer Complaint to Perfection",
+                        "slug": "4-things-to-do-to-handle-an-unexpected-customer-complaint-to-perfection-2",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "ol4guqbZwPA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>An unexpected customer complaint in customer service happens when one has encountered a specific product problem for the first time or a service issue that has never appeared to one before.</h5>\r\n<h5>We suggest your strategy to follow these 4 steps when dealing with an unexpected complaint:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The person to-go-to or forward the problem to.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The part of the information that you will forward to that selected person above.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The communication method that will be used to pass the information.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The rate at which the problem should be adhered depending on its magnitude.</h5>\r\n</li>\r\n</ul>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-read-more": "<h5>Hi. In this video you will learn the 4 steps that you can follow as a customer service employee when an unexpected customer complaint is encountered.</h5>\r\n<h5>An unexpected customer complaint in customer service happens when one has encountered a specific product problem for the first time or a service issue that has never appeared to one before. Surprises are bound to happen in any business. Part of good customer service skills is to be able to handle such circumstances efficiently and promptly in order to keep your customers satisfied and happy.</h5>\r\n<h5>Have a <strong>time-efficient strategy</strong>. We suggest your strategy to follow these 4 steps when dealing with an unexpected complaint:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The person to-go-to or forward the problem to. We suggest pre-planning your hierarchy of chosen employees according to the magnitude of the problem.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The part of the information that you will forward to that selected person above. Be clear and definite on what the problem is so as not to waste time.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The communication method that will be used to pass the information. Emails, chats, phone or face-to-face. The communication method will be chosen depending on the size of the problem. The bigger the problem the more contact will be involved between customer service and client.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The rate at which the problem should be adhered depending on its magnitude. More immediate action to be taken the bigger the problem is.</h5>\r\n</li>\r\n</ul>\r\n<h5>Learning and applying these steps in the business improves with experience. The more problems encountered the more a customer service team will be able to handle them with good time-management skills.  The customers’ satisfaction is essential to every individual in the organization.</h5>\r\n<h5>As explained, dealing with unexpected complaints is one of the skills a good customer service team can endure so follow these four steps to resolve your unexpected issues in a smooth, professional manner leading to a WOW performance!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What do I need to ensure that my customer service team do when surprised with an unexpected complaint?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 591,
+                                "order": 1,
+                                "question": "What do I need to ensure that my customer service team do when surprised with an unexpected complaint?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 196,
+                            "title": "Customer Service Complete Unit 5",
+                            "description": "Customer Service Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you pre-planned a time-efficient strategy for your employees to follow when dealing with an unexpected customer complaint?\n\n",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 423,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 898,
+                        "title": "5 Things to Ensure That You Have Achieved Customer Excellence",
+                        "slug": "5-things-you-need-in-place-to-ensure-that-you-have-achieved-customer-excellence-2",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Kd8AqDdVeyY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Customer Excellence is making sure that you have fully met your customer needs before, during and especially after purchasing a product or service.</h5>\r\n<h5>Here are 5 things we suggest you follow to make sure that you achieve customer excellence:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Don’t leave your customers waiting</h5>\r\n</li>\r\n \t<li>\r\n<h5>Know your customers well even on a personal level.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Find solutions to your mistakes.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be creative.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Create long term relationships with your customers.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video we will suggest 5 things your business needs to have in place to ensure customer excellence.</h5>\r\n\r\n<h5>Customer Excellence is making sure that you have fully met your customer needs before, during and especially after purchasing a product or service. All businesses aim to reach customer excellence by providing strategies for their employees to follow. This will guide the employees to understand the customers and thus play an essential role to drive a profitable growth of their organization.</h5>\r\n<h5>Here are 5 things we suggest you follow to make sure that you achieve customer excellence:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Don’t leave your customers waiting. Fast response should be taken. Customers hate waiting and if there is no escape, make sure you have a plan of entertaining the customers while they wait. Maybe let them take a survey, fill up their details in an application, explore new products of your business or give them an overall view of your up to date services.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Know your customers well even on a personal level. Collect all information needed about your customers needs. What their likes and dislikes are. Get to know their names. Customers are happy when they feel that you really do care.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Find solutions to your mistakes. High standard of customer service is achieved when the organisation admits they're wrong and fixes the problem as soon as possible. After the problem has been resolved, performing a nice gesture towards the customers as a sign of apology is advised in order to ensure that the customer will return.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be creative. Take an extra step. Whatever makes your customers happy should be taken into consideration even if it may seem like a strange action to perform. Twisting the ropes little might attract your customers to repeatedly come back to your business.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Create long term relationships with your customers. This can be done by conducting surveys as a source of feedback of whether your customer was fully satisfied. Ensuring that your customer leaves your business with a memorable experience can lead to long term loyal ambassadors of your corporate organisation. Remember these ambassadors will probably bring others through social media leading to a profitable success in the future.</h5>\r\n</li>\r\n</ul>\r\n<h5>Delivering what is promised by your product or service and more importantly following up with requests and queries after that, will lead to fully satisfied customers. Reaching customer excellence gives your organisation a competitive advantage over other businesses. As explained, the goal is to have long term customers that will not leave your brand for other competitive businesses.</h5>\r\n<h5>So follow the 5 steps that we have advised in order to make your business a unique and memorable experience to your fans!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What key points I need to follow in order to achieve customer excellence?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 592,
+                                "order": 1,
+                                "question": "What key points I need to follow in order to achieve customer excellence?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 197,
+                            "title": "Customer Service Complete Unit 6",
+                            "description": "Customer Service Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you delivered what was promised by your product or service and more importantly followed up with requests and queries after that?\n\n",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 424,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 899,
+                        "title": "Customer Service PostTest",
+                        "slug": "customer-service-posttest",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 198,
+                            "title": "Customer Service PostTest",
+                            "description": "Customer Service PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "All successful organisations use a customer plan as it is the key path to a growing fulfilled business. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 413,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Having a full knowledge of only good experiences of your customers is one of the qualities of a high-standard customer service team. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 414,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Never admitting you are wrong improves your interaction with the customers. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 415,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following ways should be followed when managing your customer complaints:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Analyse your customer complaint.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Record details of your analysis.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "a and b",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 416,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "When dealing with an unexpected complaint, more immediate action should be taken the smaller the problem is. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 417,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following are things you should follow to achieve customer excellence except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Don’t leave your customers waiting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Don’t get to know your customers well even on a personal level.",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Create long term relationships with your customers.",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 418,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/customer-service.png",
+                "zip_path": "wp-content/uploads/2018/10/customer-service.png",
+                "level": "card"
+            }
+        ]
+    }
+}

@@ -1,0 +1,158 @@
+<h2>How should editing work after the summary?</h2>
+<p class="subtitle">The user has seen their summary and wants to change something. Two approaches:</p>
+
+<div class="split" style="gap:16px;align-items:flex-start;">
+
+  <!-- Option A: Per-field edit icons on the card -->
+  <div>
+    <div class="mockup">
+      <div class="mockup-header">A — Edit icon per row</div>
+      <div class="mockup-body" style="background:#0D0008;padding:10px;border-radius:0 0 8px 8px;font-family:sans-serif;">
+        <div style="font-size:7px;color:rgba(255,255,255,0.5);margin-bottom:6px;">Confirmation card in chat:</div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(159,32,99,0.35);border-radius:10px;overflow:hidden;max-width:95%;">
+          <div style="background:linear-gradient(120deg,rgba(159,32,99,0.3),rgba(122,26,76,0.3));border-bottom:1px solid rgba(159,32,99,0.2);padding:5px 8px;">
+            <span style="color:#fff;font-size:7.5px;font-weight:600;">✦ Review Your Details</span>
+          </div>
+          <div style="padding:7px 8px;display:flex;flex-direction:column;gap:4px;">
+            <!-- Each row has inline edit pencil -->
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="color:rgba(255,255,255,0.4);font-size:6px;text-transform:uppercase;letter-spacing:0.5px;">Full Name</span>
+              <div style="display:flex;align-items:center;gap:5px;">
+                <span style="color:#fff;font-size:7px;">Sarah Johnson</span>
+                <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:4px;width:14px;height:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;" title="Edit name">
+                  <span style="font-size:8px;color:rgba(255,255,255,0.5);">✎</span>
+                </div>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,0.05);"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="color:rgba(255,255,255,0.4);font-size:6px;text-transform:uppercase;letter-spacing:0.5px;">Email</span>
+              <div style="display:flex;align-items:center;gap:5px;">
+                <span style="color:#fff;font-size:7px;">sarah@example.com</span>
+                <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:4px;width:14px;height:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+                  <span style="font-size:8px;color:rgba(255,255,255,0.5);">✎</span>
+                </div>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,0.05);"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="color:rgba(255,255,255,0.4);font-size:6px;text-transform:uppercase;letter-spacing:0.5px;">Country</span>
+              <div style="display:flex;align-items:center;gap:5px;">
+                <span style="color:#fff;font-size:7px;">🇳🇬 Nigeria</span>
+                <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:4px;width:14px;height:14px;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-size:8px;color:rgba(255,255,255,0.5);">✎</span>
+                </div>
+              </div>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,0.05);"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="color:rgba(255,255,255,0.4);font-size:6px;text-transform:uppercase;letter-spacing:0.5px;">Invite Code</span>
+              <div style="display:flex;align-items:center;gap:5px;">
+                <span style="color:#4ade80;font-size:7px;">✓ SMEEP2025</span>
+                <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:4px;width:14px;height:14px;display:flex;align-items:center;justify-content:center;">
+                  <span style="font-size:8px;color:rgba(255,255,255,0.5);">✎</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:5px 8px 7px;">
+            <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);color:#fff;font-size:7px;font-weight:600;padding:6px;border-radius:7px;text-align:center;">Confirm &amp; Register</div>
+          </div>
+        </div>
+        <!-- What happens when edit icon clicked -->
+        <div style="margin-top:8px;font-size:6.5px;color:rgba(255,255,255,0.4);">→ User taps ✎ next to "Email":</div>
+        <div style="margin-top:5px;display:flex;flex-direction:column;gap:4px;">
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(247,232,240,0.12);border-radius:6px 6px 6px 0;padding:4px 7px;max-width:88%;font-size:7px;color:rgba(255,255,255,0.9);">
+            Sure! What's the new email address you'd like to use?
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px 6px 0 6px;padding:4px 7px;max-width:75%;align-self:flex-end;font-size:7px;color:rgba(255,255,255,0.85);">
+            sarah.j@company.com
+          </div>
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(247,232,240,0.12);border-radius:6px 6px 6px 0;padding:4px 7px;max-width:88%;font-size:7px;color:rgba(255,255,255,0.9);">
+            ✓ Updated! Here's your revised summary.
+          </div>
+          <div style="font-size:6.5px;color:rgba(255,255,255,0.3);font-style:italic;">[new summary card appears]</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:8px;padding:8px;background:rgba(255,255,255,0.04);border-radius:8px;">
+      <p style="font-size:12px;color:rgba(255,255,255,0.8);margin:0 0 4px;"><strong>A — Per-field edit icons</strong></p>
+      <p style="font-size:11px;color:rgba(255,255,255,0.5);margin:0;">Pencil icon ✎ on each row. Clicking it triggers the AI to ask specifically for that field. Precise and quick — no need to say which field to change. Summary re-renders once new value is validated.</p>
+    </div>
+  </div>
+
+  <!-- Option B: General "Edit" button, AI asks which field -->
+  <div>
+    <div class="mockup">
+      <div class="mockup-header">B — "Edit" button → AI asks which field</div>
+      <div class="mockup-body" style="background:#0D0008;padding:10px;border-radius:0 0 8px 8px;font-family:sans-serif;">
+        <div style="font-size:7px;color:rgba(255,255,255,0.5);margin-bottom:6px;">Confirmation card in chat:</div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(159,32,99,0.35);border-radius:10px;overflow:hidden;max-width:95%;">
+          <div style="background:linear-gradient(120deg,rgba(159,32,99,0.3),rgba(122,26,76,0.3));border-bottom:1px solid rgba(159,32,99,0.2);padding:5px 8px;">
+            <span style="color:#fff;font-size:7.5px;font-weight:600;">✦ Review Your Details</span>
+          </div>
+          <div style="padding:7px 8px;display:flex;flex-direction:column;gap:4px;">
+            <div style="display:flex;justify-content:space-between;">
+              <span style="color:rgba(255,255,255,0.4);font-size:6px;text-transform:uppercase;letter-spacing:0.5px;">Full Name</span>
+              <span style="color:#fff;font-size:7px;">Sarah Johnson</span>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,0.05);"></div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="color:rgba(255,255,255,0.4);font-size:6px;text-transform:uppercase;letter-spacing:0.5px;">Email</span>
+              <span style="color:#fff;font-size:7px;">sarah@example.com</span>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,0.05);"></div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="color:rgba(255,255,255,0.4);font-size:6px;text-transform:uppercase;letter-spacing:0.5px;">Country</span>
+              <span style="color:#fff;font-size:7px;">🇳🇬 Nigeria</span>
+            </div>
+            <div style="height:1px;background:rgba(255,255,255,0.05);"></div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="color:rgba(255,255,255,0.4);font-size:6px;text-transform:uppercase;letter-spacing:0.5px;">Invite Code</span>
+              <span style="color:#4ade80;font-size:7px;">✓ SMEEP2025</span>
+            </div>
+          </div>
+          <div style="padding:5px 8px 7px;display:flex;gap:5px;">
+            <div style="flex:1;background:linear-gradient(120deg,#9f2063,#7a1a4c);color:#fff;font-size:7px;font-weight:600;padding:6px;border-radius:7px;text-align:center;">Confirm &amp; Register</div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.55);font-size:7px;padding:6px 9px;border-radius:7px;">Edit</div>
+          </div>
+        </div>
+        <!-- What happens when Edit clicked -->
+        <div style="margin-top:8px;font-size:6.5px;color:rgba(255,255,255,0.4);">→ User taps "Edit":</div>
+        <div style="margin-top:5px;display:flex;flex-direction:column;gap:4px;">
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(247,232,240,0.12);border-radius:6px 6px 6px 0;padding:4px 7px;max-width:90%;font-size:7px;color:rgba(255,255,255,0.9);">
+            No problem! Which detail would you like to change?
+          </div>
+          <!-- Quick-reply chips -->
+          <div style="display:flex;gap:3px;flex-wrap:wrap;">
+            <div style="background:rgba(159,32,99,0.12);border:1px solid rgba(159,32,99,0.35);border-radius:20px;padding:2px 7px;"><span style="font-size:6px;color:#d4698a;">Name</span></div>
+            <div style="background:rgba(159,32,99,0.12);border:1px solid rgba(159,32,99,0.35);border-radius:20px;padding:2px 7px;"><span style="font-size:6px;color:#d4698a;">Email</span></div>
+            <div style="background:rgba(159,32,99,0.12);border:1px solid rgba(159,32,99,0.35);border-radius:20px;padding:2px 7px;"><span style="font-size:6px;color:#d4698a;">Password</span></div>
+            <div style="background:rgba(159,32,99,0.12);border:1px solid rgba(159,32,99,0.35);border-radius:20px;padding:2px 7px;"><span style="font-size:6px;color:#d4698a;">Country</span></div>
+            <div style="background:rgba(159,32,99,0.12);border:1px solid rgba(159,32,99,0.35);border-radius:20px;padding:2px 7px;"><span style="font-size:6px;color:#d4698a;">Invite Code</span></div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px 6px 0 6px;padding:4px 7px;max-width:60%;align-self:flex-end;font-size:7px;color:rgba(255,255,255,0.85);">Email</div>
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(247,232,240,0.12);border-radius:6px 6px 6px 0;padding:4px 7px;max-width:88%;font-size:7px;color:rgba(255,255,255,0.9);">What's your new email address?</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:8px;padding:8px;background:rgba(255,255,255,0.04);border-radius:8px;">
+      <p style="font-size:12px;color:rgba(255,255,255,0.8);margin:0 0 4px;"><strong>B — "Edit" button + field chips</strong></p>
+      <p style="font-size:11px;color:rgba(255,255,255,0.5);margin:0;">Single "Edit" button. Clicking it has the AI ask "Which field?" and shows quick-reply chips for each field. More conversational. User can also just type "change my email" in natural language.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px;text-align:center;">In both cases, after the new value is validated, the summary card refreshes with the updated detail. Click "A" or "B" or tell me in the terminal.</p>
+
+<div class="options" style="margin-top:12px;">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content"><h3>Per-field ✎ icons</h3><p>Most precise — tap the pencil next to the exact field you want to change</p></div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content"><h3>Edit button + chips</h3><p>More conversational — AI asks which field, shows chips + accepts natural language</p></div>
+  </div>
+</div>

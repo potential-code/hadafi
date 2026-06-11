@@ -1,0 +1,209 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 64,
+        "title": "التّفكير النّقدي",
+        "description": "التّفكير النّقدي",
+        "unit_count": 8,
+        "author_id": 0,
+        "course_post_id": 3706,
+        "settings": {
+            "completion_wall": "all_visible",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": null,
+        "modules": [
+            {
+                "module_id": 64,
+                "title": "التّفكير النّقدي",
+                "description": "التّفكير النّقدي - بوتنشل",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1457,
+                        "title": "التّفكير النّقدي - الإختبار النهائي",
+                        "slug": "%d8%a7%d9%84%d8%aa%d9%91%d9%81%d9%83%d9%8a%d8%b1-%d8%a7%d9%84%d9%86%d9%91%d9%82%d8%af%d9%8a-%d9%84%d9%84%d8%b4%d9%87%d8%a7%d8%af%d8%a9",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10_ar.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 549,
+                            "title": "Critical Thinking Arabic PostTest",
+                            "description": "Critical Thinking Arabic PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "التّفكير النّقدي هو اكتساب مهارة في تطوير أحكامك من خلال التّفكير المغلق والمنطقي والمترابط\t           ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 1267,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "أي نوع من المفكّرين يستمعون لما يقوله الآخرون؟\n\n",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "السّاذجون",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "الأنانيّون",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "المعتدلون",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 1268,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "ما هي المرحلة الأولى في تطوير التّفكير النّقدي؟",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "تحليل المعطيات الّتي تمّ جمعها",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "المعرفة الكافية للتّركيز على النّقاش الرّئيسي المطروح",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "معالجة وتقييم المعطيات",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 1269,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "تقدير النّفس والعقلانيّة هما صفتان للمفكّر النّاجح.\t",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1270,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "يستطيع عقلنا أن:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "يخدعنا عبر اعتقادنا بأنّنا قمنا بالحلِّ الصّائب",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "يضلّلنا لنصل إلى الإعتقاد بأنّنا قمنا بالأفضل لمجرّد مقارنة الشّأن بشأنٍ آخر",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "كل ما سبق",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 1271,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "الإعتماد على الآخرين في التّفكير ليست صفة يتحلّى بها المفكّر النّاقد.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1272,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": []
+    }
+}

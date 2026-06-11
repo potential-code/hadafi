@@ -1,0 +1,934 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 28,
+        "title": "Effective Customer Meetings",
+        "description": "Effective Customer Meetings",
+        "unit_count": 9,
+        "author_id": 0,
+        "course_post_id": 3671,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2338,
+            "title": "Effective Customer Meetings",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/effective-customer-meetings-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/cutomer-meetings-1.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 28,
+                "title": "Effective Customer Meetings",
+                "description": "Effective Customer Meetings",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 909,
+                        "title": "Effective Customer Meetings Pretest",
+                        "slug": "effective-customer-meetings-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 208,
+                            "title": "Effective Customer Meetings Pretest",
+                            "description": "Effective Customer Meetings Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "The 3 Elements that impact your communication are:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "The words, Tone and Body Language ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "The First Impression, Tone and Body Language ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Listening, Speaking and Moving ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "1",
+                                    "question_id": 455,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "During customer meetings, body language is not as important as listening empathetically to the customer. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 456,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 910,
+                        "title": "Effective Face-to-Face Customer Meetings",
+                        "slug": "effective-face-to-face-customer-meetings",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "vLqjP_GeNBs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 4 tips that will help you in your next customer visit:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The First Impression</h5>\r\n</li>\r\n \t<li>\r\n<h5>Body language</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listen empathetically</h5>\r\n</li>\r\n \t<li>\r\n<h5>Conclude the meeting on a positive note</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about a few practical tips to improve an in person customer visit.</h5>\r\n<h5>Doing our day-to-day work we get many opportunities to meet with important people including customers of ours.  Sometimes, these meetings could be crucial to secure a new customer or resolve a problem.</h5>\r\n<h5><strong>Here are 4 tips that will help you in your next customer visit:</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5>The <strong>First Impression is a lasting impression </strong>– make sure you are welcoming and positive when you walk in to the meeting</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Body language is what counts</strong> – fake smiles and negative body language are easily caught</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Listen empathetically</strong> – let the customer know that you care about their point of view and you are taking the time to understand it</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Conclude </strong>the meeting on a positive note<strong> with a clear set of action plans </strong>that you both agree on</h5>\r\n</li>\r\n</ul>\r\n<h5>The above tips can be applied by anyone in a customer-facing situation and are useful in all customer encounters.</h5>\r\n<h5>Go out and try them in your next meeting.</h5>",
+                            "course-unit-quotes": "Always go into meetings or negotiations with a positive attitude. Tell yourself you're going to make this the best deal for all parties. Natalie Massenet",
+                            "course-unit-case-study": "<h5>Sally has a graphic design company and is visiting, for the first time, a friend who works for a bank. Sally's friend told her that if the head of marketing is around, they might be able to see him. Since this could be a good opportunity for Sally and even though she might not see the head of marketing, she wanted to ensure that she makes a good first impression. So she dressed for the occasion and prepared in her mind what she would say if she got the chance of meeting with the manager.\r\nWhen she did visit the bank, the head of marketing was out of office. However, when her friend was walking her out as Sally was about to leave, the Head of Marketing happened to walk in. Sally's friend introduced her to the manager and as the manager asked about what she does, Sally responded confidently explaining her unique approach to graphic design. The manager was impressed and as such requested to have a follow up meeting to discuss in further details.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Provide 3 major issues you need to be aware of before you enter your next meeting:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 569,
+                                "order": 1,
+                                "question": "Provide 3 major issues you need to be aware of before you enter your next meeting:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 209,
+                            "title": "Effective Customer Meetings Complete Unit 1",
+                            "description": "Effective Customer Meetings Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you close your meetings with a clear set of action plans that you and your customer agree on?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Sometimes",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 457,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 911,
+                        "title": "Elements that Impact your Communication",
+                        "slug": "elements-that-impact-your-communication",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "f__g25cVPeU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The three elements that impact your communication:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The words that you speak</h5>\r\n</li>\r\n \t<li>\r\n<h5>The tone in which you speak those words</h5>\r\n</li>\r\n \t<li>\r\n<h5>The body language in which you convey your message</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about the three elements that make up any communication and where to focus your effort to get the maximum impact.</h5>\r\n<h5>Communication happens all the time in our business and personal encounters. We are continuously attempting to explain our point of view in an effective and convincing way, so understanding which elements have the most impact on the message is crucial.</h5>\r\n<h5><strong>Your communication is dependent on three key factors</strong>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The <strong>words</strong> that you speak which <strong>contribute</strong> only about <strong>7%</strong> of your message</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>The tone </strong>in which you speak those words which<strong> contribute </strong>about<strong> 38% </strong>of your message</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>The body language </strong>in which you convey your message which<strong> contributes up to 55%</strong> of your message</h5>\r\n</li>\r\n</ul>\r\n<h5>As you notice the actual words that you say have very little impact to the message and as such the focus should be on improving your tone and body language so that you ensure that your message is well received at all times.</h5>\r\n<h5>As Will Smith said in the film “Hitch” – 90% of what you are saying ain’t coming out of your mouth.</h5>",
+                            "course-unit-quotes": "\"Communication - the human connection - is the key to personal and career success.\" - Paul J. Meyer",
+                            "course-unit-case-study": "<h5>Kamran is a non-native English speaker, but his job requires that he does a lot of presentations in English. After watching the communications video at <a href=\"https://www.potential.com/\">Potential.com</a>, Kamran realized that his struggle sometimes for finding the right words was not that important and as such focused on improving his body language and tone when presenting. He was surprised to see the dramatic improvement in the interest and engagement from the audience by just varying his tone more and using open body language.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The three most important elements needed to improve my communication skills are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 570,
+                                "order": 1,
+                                "question": "The three most important elements needed to improve my communication skills are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 210,
+                            "title": "Effective Customer Meetings Complete Unit 2",
+                            "description": "Effective Customer Meetings Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you vary your tone when speaking so it doesn’t sound monotone? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 443,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have an open and positive body language?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 454,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 912,
+                        "title": "Tips for Better Body Language",
+                        "slug": "tips-for-better-body-language",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "sUNKopAvBck",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 5 tips that will help you in improving your body language:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Smile</h5>\r\n</li>\r\n \t<li>\r\n<h5>Look straight</h5>\r\n</li>\r\n \t<li>\r\n<h5>Stand and sit upright</h5>\r\n</li>\r\n \t<li>\r\n<h5>Extend Open arms</h5>\r\n</li>\r\n \t<li>\r\n<h5>Pace the person in front of you</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about a few practical tips to improve your body language.</h5>\r\n<h5>Body language is the non-verbal communication that we are conveying to others through the facial expressions or body positions. Since it constitutes up to 90% of the actual communicated message, we need to master it.</h5>\r\n<h5><strong>Here are 5 tips that will help you in improving your body language</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Smile</strong> – it’s the most noticeable aspect of your face gestures</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Look straight </strong>– in the eyes of your speaker – not up nor down on them</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Stand and sit upright</strong> – without slouching to convey confidence</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Extend Open arms </strong>– instead of crossed ones to convey openness</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Pace </strong>the person in front of you by being in sync with the speed and actions that they portray</h5>\r\n</li>\r\n</ul>\r\n<h5>The above tips can be applied by anyone at any time to help create better, more effective communications.</h5>\r\n<h5>Remember, it’s what you don’t say that counts.</h5>",
+                            "course-unit-quotes": "<h5>Body language is a very powerful tool. We had body language before we had speech, and apparently, 80% of what you understand in a conversation is read through the body, not the words. Deborah Bull</h5>",
+                            "course-unit-case-study": "<h5><span id=\"yiv5149111856yui_3_16_0_ym19_1_1462715650657_78169\">Kamran wanted to improve his body language further when in front of clients or during presentations so, he practiced recording himself on video doing rehearsals. Thus, he observed how he could improve his smile and posture by using open arms and good eye contact. He also practiced when with clients how he could follow their style and approach so that they felt more at ease with him. If his clients were straight to the point, he would try to be the same but if they liked to socialize, he would give some time for that and so on. </span></h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "To help me communicate better in my meetings, I can improve my body language by:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 571,
+                                "order": 1,
+                                "question": "To help me communicate better in my meetings, I can improve my body language by:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 211,
+                            "title": "Effective Customer Meetings Complete Unit 3",
+                            "description": "Effective Customer Meetings Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which body language aspects you use more in your business meetings? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Smile",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Look straight",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Stand and sit upright",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Extend open arms",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Pace the person in front of you",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 444,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 913,
+                        "title": "Tips to Use at the Start of Business Meetings",
+                        "slug": "tips-to-use-at-the-start-of-business-meetings",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Q8Xy1W_lS6I",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 steps that will help you kick-off your next business meeting:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Proposing an Agenda</h5>\r\n</li>\r\n \t<li>\r\n<h5>State Value to customer</h5>\r\n</li>\r\n \t<li>\r\n<h5>Check for acceptance</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about a how to start a meeting on the right footing.</h5>\r\n<h5>After initially welcoming the client and having a cordial social interaction to break the ice, it is good to set a structure for the meeting to get the most out of it.</h5>\r\n<h5><strong>Here are 3 steps that will help you kick-off your next meeting:</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Proposing an Agenda </strong>to guide the meeting</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>State Value to customer </strong>so that they understand what’s in it for them</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Check for acceptance </strong>get a confirmation that you are both aligned</h5>\r\n</li>\r\n</ul>\r\n<h5>An example after following the above tips, you can start a meeting by saying:</h5>\r\n<h5><em>I’d like for the next 5 minutes to understand more about your needs, then explain to you some of our offerings that would address your needs so you can have an informed decision about next steps, does that sound ok with you?</em></h5>\r\n<h5>These tips would help you structure your next meeting so that you achieve the most out of it.</h5>",
+                            "course-unit-quotes": "<h5>The next time you're in a meeting, look around and identify the yes-butters, the not-Knowers and the why- notters. Why- notters move the world. Louise Pierson </h5>",
+                            "course-unit-case-study": "<h5>You can start a meeting by saying: I’d like for the next 5 minutes to understand more about your needs, then explain to you some of the our offerings, that would address your needs so you can have an informed decision about next steps, does that sound good to you?</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In order to kick-off my next meeting, after welcoming my clients I should ensure that I:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 572,
+                                "order": 1,
+                                "question": "In order to kick-off my next meeting, after welcoming my clients I should ensure that I:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 212,
+                            "title": "Effective Customer Meetings Complete Unit 4",
+                            "description": "Effective Customer Meetings Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How well do you plan before your meetings:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "I usually plan",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "I should plan my meetings better",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 445,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 914,
+                        "title": "The Best Way to Uncover Client Needs",
+                        "slug": "the-best-way-to-uncover-client-needs",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "W8VGHyQgCAA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The two questioning methods to uncover clients’ needs:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Open questions</h5>\r\n</li>\r\n \t<li>\r\n<h5>Closed questions</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about how to uncover client needs.</h5>\r\n<h5>After opening a meeting and setting an agenda, then next aim is to uncover the client needs. You don’t have time to tell them about all your products, so first understand what their needs are and then you can tell them only about the products or solutions that meet those needs.</h5>\r\n<h5><strong>Use two questioning methods to uncover needs:</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Open questions </strong>that give the client an opportunity to shed light and expand on the question area</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Closed questions </strong>that force the client to give you a specific answer such as when a decision would be made</h5>\r\n</li>\r\n</ul>\r\n<h5>The aim of the questioning is to uncover the client’s circumstances and needs which would help you in suggesting the best solutions to their requirements.</h5>\r\n<h5>Remember, listening is a much more effective skill than talking when in meetings.</h5>",
+                            "course-unit-quotes": "<h5 class=\"lineheight25 qoutes-text\" data-fontsize=\"18\" data-lineheight=\"25\">People don't care how much you know until they know how much you care. Theodore Roosevelt</h5>",
+                            "course-unit-case-study": "<h5 class=\"lineheight25\" data-fontsize=\"14\" data-lineheight=\"25\">John sells personal computers to companies. He has many models of computers, so when he goes to his clients and wants to recommend the right model, he needs to understand their needs very well. The common questions that he uses to uncover needs are open questions like, what will the computers be used for? What are the most required features that are needed? and some closed questions like, how many do you need? when will you need them?</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "List one open question you usually use to uncover your clients’ needs:",
+                            "course-unit-atq-two": "List one closed question you usually use to uncover your clients’ needs:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 573,
+                                "order": 1,
+                                "question": "List one open question you usually use to uncover your clients’ needs:"
+                            },
+                            {
+                                "q_id": 574,
+                                "order": 2,
+                                "question": "List one closed question you usually use to uncover your clients’ needs:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 213,
+                            "title": "Effective Customer Meetings Complete Unit 5",
+                            "description": "Effective Customer Meetings Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What do you usually use more? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Open questions ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Closed questions",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 458,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 915,
+                        "title": "3 Steps to Demonstrate an Understanding of Client Needs",
+                        "slug": "19487",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "a6wEKlXZhBw",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 steps used to demonstrate that you have understood the client needs:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Acknowledge that you understand the need</h5>\r\n</li>\r\n \t<li>\r\n<h5>Describe your solution’s benefits</h5>\r\n</li>\r\n \t<li>\r\n<h5>Check for acceptance</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about how to demonstrate that you have understood the needs of the client.</h5>\r\n<h5>So that the client doesn’t end up doing the only talking and so you are able to ask more questions, you need to confirm to them that you understand their needs and have a solution for them.</h5>\r\n<h5><strong>Use the 3 steps to demonstrate that you have understood the client needs:</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Acknowledge that you understand the need </strong>by restating it in your words</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Describe your solution’s benefits </strong>focusing on the benefits and not features</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Check for acceptance </strong>and watch the client’s body language to confirm that the client is in agreement with your solution</h5>\r\n</li>\r\n</ul>\r\n<h5>After you have clarified to the client that you have understood their need, and have a solution for that need, you can go back and ask another question to help you uncover some additional needs and thus up sell your products and services.</h5>\r\n<h5>You can keep on questioning the client until you feel you have a good understanding of their needs and can then close the meeting.</h5>",
+                            "course-unit-quotes": "<h5 class=\"lineheight25 qoutes-text\" data-fontsize=\"18\" data-lineheight=\"25\">How you think about your customers influences how you respond to them. Marilyn Suttle</h5>",
+                            "course-unit-case-study": "<h5>John then shows that he understands the clients needs by repeating the requirement and confirming that he has a solution for the same. So if the client states that the sales team would be needing the new laptops, John would respond that since the sales team need the laptops and would be taking them and using them in-front of their customers, it would be good to have 2-1 laptops that become tablets at the same time so they can demonstrate their presentation or software. John does the same for all needs uncovered by the questions that he asked.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Describe your solution’s benefits and how it can help most of your clients in addressing a need they have:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 575,
+                                "order": 1,
+                                "question": "Describe your solution’s benefits and how it can help most of your clients in addressing a need they have:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 214,
+                            "title": "Effective Customer Meetings Complete Unit 6",
+                            "description": "Effective Customer Meetings Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Is it easier for you to demonstrate your understanding of your clients’ needs and propose the right solution for them? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 459,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 916,
+                        "title": "Steps to Use When Ending a Client Meeting",
+                        "slug": "steps-to-use-when-ending-a-client-meeting",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "wywvbngHwto",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 steps to use when ending a client meeting:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Review previously accepted benefits</h5>\r\n</li>\r\n \t<li>\r\n<h5>Propose next steps for you and customer</h5>\r\n</li>\r\n \t<li>\r\n<h5>Check for acceptance</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about how to conclude a meeting successfully.</h5>\r\n<h5>It’s critical that we walk out of a meeting with a positive impression and a clear action plan for the way forward.</h5>\r\n<h5>Here are 3 steps to use when ending a client meeting:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Review previously accepted benefits</strong> about your solution which were identified in the meeting</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Propose next steps for you and customer</strong> with a clear action plan and timelines</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Check for acceptance</strong> by asking: <em>how does that sound?</em></h5>\r\n</li>\r\n</ul>\r\n<h5>As you return to your desk, plan to send a summary email outlining the above to confirm that no one forgets what was agreed on.</h5>",
+                            "course-unit-quotes": "<h5>If you are not emotionally involved, your client is not getting your best effort. Joe Jamail</h5>",
+                            "course-unit-case-study": "<h5>Before leaving the meeting John makes sure that he summarizes the needs and the solutions that he has for these needs. He also suggests next steps to be done after the meeting and gets confirmation from the client that she agrees on these next steps.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "When ending a client meeting, I should:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 576,
+                                "order": 1,
+                                "question": "When ending a client meeting, I should:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 215,
+                            "title": "Effective Customer Meetings Complete Unit 7",
+                            "description": "Effective Customer Meetings Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What are the next steps that you usually propose to a client at the end of a meeting? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 446,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 917,
+                        "title": "Effective Customer Meetings Posttest",
+                        "slug": "effective-customer-meetings-certificate",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 216,
+                            "title": "Effective Customer Meetings Post Test",
+                            "description": "Effective Customer Meetings Post Test",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "During customer meetings,\tbody language is not as important as listening empathetically to the customer. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 447,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The 3 Elements that impact your communication are:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "The words, tone and body language",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "The First Impression, tone and body language",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Listening, speaking and moving",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 448,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "To improve your body language you need to pace the person in front of you by being in sync with the speed and actions that they portray. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 449,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Before Starting a business meeting you need to set a structure for the meeting to get the most out of it. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 450,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "You need to tell your clients about the different products or solutions that you have before understanding what their needs are.  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 451,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "To demonstrate that you have understood the client needs you need to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Check for acceptance",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Acknowledge that you understand the need",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Describe your solution’s benefits",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 452,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": " When ending a client meeting, it is important to propose next steps your customer with a clear action plan and timelines. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 453,
+                                    "order": 6
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/cutomer-meetings-1.png",
+                "zip_path": "wp-content/uploads/2018/10/cutomer-meetings-1.png",
+                "level": "card"
+            }
+        ]
+    }
+}

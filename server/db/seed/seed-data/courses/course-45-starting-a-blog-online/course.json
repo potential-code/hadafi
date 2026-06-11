@@ -1,0 +1,1334 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 45,
+        "title": "Starting a Blog Online",
+        "description": "Starting a Blog Online",
+        "unit_count": 10,
+        "author_id": 0,
+        "course_post_id": 3687,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2301,
+            "title": "Starting a Blog Online",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/starting-a-blog-online-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/start-blog.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 45,
+                "title": "Starting a Blog Online",
+                "description": "Starting a Blog Online -Potential",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1069,
+                        "title": "Starting a Blog Online PreTest",
+                        "slug": "starting-a-blog-online-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 368,
+                            "title": "Starting a Blog Online PreTest",
+                            "description": "Starting a Blog Online PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "A blog can be utilized to write about technical topics that you have not researched.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 854,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A blog can be used to provide a personal touch that will help you to connect well with readers.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 855,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following is a key to creating a successful blog?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Being unique",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Writing every single day",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Providing only paid content",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 856,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Intrigue and reader participation are core requirements of improved readership.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 857,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is the best way to describe Reddit?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Online forum that showcases any and all topics",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "An image based social platform similar to Instagram",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "A social platform similar to Facebook",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 858,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "It is important that you over exaggerate your experiences in order to garner more interest.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 859,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Maintaining blogging consistency will:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Show dedication to your craft",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Provide readers with free value",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Keep you up-to-date through required research",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 860,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A blog cannot be a combination of personal and technical interests.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 861,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A hosting service is preferable when:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "A full website is your main goal",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A personalized domain name is required",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Custom layout design",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 862,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A custom domain is available through WordPress free version.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 863,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Host Gator is the only option for setting up a self-hosted website.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 864,
+                                    "order": 10
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1070,
+                        "title": "5 Ways a Blog Can Improve Your Service",
+                        "slug": "5-ways-a-blog-can-improve-your-service",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "b-NZakbGXVA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>A blog is a regularly updated online web page that acts as a medium for your thoughts and passions.</h5>\r\n<h5>5 ways that a blog can improve your service:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Attracting Constructive Feedback</h5>\r\n</li>\r\n \t<li>\r\n<h5>Detailed Research For Blog Posts</h5>\r\n</li>\r\n \t<li>\r\n<h5>Complete Immersion in the Writing Process</h5>\r\n</li>\r\n \t<li>\r\n<h5>Provides a Personal Touch</h5>\r\n</li>\r\n \t<li>\r\n<h5>Free Content Provides Added Value</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. We live in a wonderful age. This age of the internet has provided us with so many tools to deliver our services to the world. One of these modern tools is blogging. Blogging can help to improve your service in more ways than one. This video will go over how blogging can help.</h5>\r\n<h5>A blog is a regularly updated online web page that acts as a medium for your thoughts and passions. A blog can be anything that you want it to be. Blogging can be used as a tool to improve the delivery and/or quality of your service.</h5>\r\n<h5>Here are 5 ways that a blog can improve your service:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Attracting Constructive Feedback</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>A blog can allow for readers to provide their input which can provide you with new insights</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Detailed Research For Blog Posts</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Research is required before publishing a post. This results in an increased understanding of your craft</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Complete Immersion in the Writing Process</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>The process of articulating your thoughts and organizing a detailed blog post acts to organize thoughts in your own head</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"4\">\r\n \t<li>\r\n<h5>Provides a Personal Touch</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Blog posts provide an opportunity for you to provide insight into your point of view and your opinions</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"5\">\r\n \t<li>\r\n<h5>Free Content Provides Added Value</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Providing a significant amount of your knowledge through your blog provides increased value to your potential customer, making it more likely for them to be comfortable to hire you for your services</h5>\r\n</li>\r\n</ul>\r\n<h5>Understanding the power that blogs can have is very important in this age of connectivity. It can be used as a marketing tool and a medium for your passion. Considering the steps mentioned above will provide insight into the potential benefits of starting your own blog.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I am looking to improve my service by:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 299,
+                                "order": 1,
+                                "question": "I am looking to improve my service by:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 369,
+                            "title": "Starting a Blog Online Complete Unit 1",
+                            "description": "Starting a Blog Online Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What is one aspect of your service that a blog could improve? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Providing a personal touch",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Free content provides added value",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Detailed research of your craft",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 876,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1071,
+                        "title": "3 Ways to Create a Successful Blog",
+                        "slug": "3-ways-to-create-a-successful-blog",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "k8TZoROOLSQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 ways to create a successful blog:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Find ways to be unique</h5>\r\n</li>\r\n \t<li>\r\n<h5>Provide an appropriate amount of free material</h5>\r\n</li>\r\n \t<li>\r\n<h5>Challenge potentially flawed ideas in your industry</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will discuss 3 ways to create a successful blog. With so many blogs available to online readers, it is imperative to give readers a reason to choose your blog.  It may help to ask yourself what causes you to stay loyal to your favorite information sources.</h5>\r\n<h5>Here are the 3 ways to create a successful blog:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Find ways to be unique</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>What makes you different than the rest? Use this difference as your central theme. Doing this will show readers that you can provide them with potentially new insights</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Provide an appropriate amount of free material</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Provide an appropriate amount of free material without compromising the value of your paid services. By doing this, you can sustain a loyal readership and set your blog up to become a marketing tool</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Challenge potentially flawed ideas in your industry</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Since a blog can be an unregulated medium in which you can present your ideas, it makes for a good place to challenge what you may not believe to be true within your industry. This comes at the price of controversy but can stimulate interest in your blog posts.</h5>\r\n</li>\r\n</ul>\r\n<h5>Having multiple perspectives as to what makes a successful blog will provide you with the necessary tools to guide your blog to the top. The 3 ideas listed above can allow for a fresh and unique blog that is based on your insights to be created successfully.</h5>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My approach to my craft is different because:",
+                            "course-unit-atq-two": "The percentage of my material that I can provide for free is:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 300,
+                                "order": 1,
+                                "question": "My approach to my craft is different because:"
+                            },
+                            {
+                                "q_id": 301,
+                                "order": 2,
+                                "question": "The percentage of my material that I can provide for free is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 370,
+                            "title": "Starting a Blog Online Complete Unit 2",
+                            "description": "Starting a Blog Online Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you feel like you have a unique perspective on your industry?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 877,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you feel like there are some old ideas within your industry that can be revised?\r\n\r\n",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 879,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1072,
+                        "title": "4 Tactics to Attracting Improved Readership",
+                        "slug": "4-tactics-to-attracting-improved-readership",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "MsWjDpH1dHU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 tactics to attracting improved readership:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Utilize online social mediums</h5>\r\n</li>\r\n \t<li>\r\n<h5>Stand out</h5>\r\n</li>\r\n \t<li>\r\n<h5>Encourage readers to join in on a conversation</h5>\r\n</li>\r\n \t<li>\r\n<h5>Experiment with new ways of doing things within your industry</h5>\r\n</li>\r\n</ol>\r\n<h5><strong> </strong></h5>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will go over 4 tactics to attracting improved readership. There are many ways to go about attracting readership, but the basics are often under-utilized. Reaching readers and then providing them with incentive to read is very important.</h5>\r\n<h5>Here are the 4 tactics to attracting improved readership:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Utilize online social mediums</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Sites such as Instagram, twitter and Facebook can allow for the use of hashtags and advertising which can reveal your posts to a widespread audience</h5>\r\n</li>\r\n \t<li>\r\n<h5>LinkedIn is also useful in that it offers an article writing and publishing tool that can be used in conjunction with your blog service</h5>\r\n</li>\r\n \t<li>\r\n<h5>Online forums such as Reddit are also useful in that they contain communities involved in any and all topics. These are great places to stimulate discussion</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Stand out</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>This is a very important point. Being unique is the key to giving the readers incentive. This incentive can be generated through the discussion of fascinating or controversial topics.</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Encourage readers to join in on a conversation</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Posting articles and encouraging readers to share their opinions or feedback can garner better responses. This will allow you to refine your ideas and to potentially think of new ideas</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"4\">\r\n \t<li>\r\n<h5>Experiment with new ways of doing things within your industry</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Performing these experiments and blogging about them will create tremendous intrigue within your online following. Readers love to hear about experiments and results, especially if they don’t have the time to try them themselves</h5>\r\n</li>\r\n</ul>\r\n<h5>Following these steps will allow readers to gravitate to your blog for a fresh and dynamic perspective.</h5>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My blog will attract readers by:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 302,
+                                "order": 1,
+                                "question": "My blog will attract readers by:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 371,
+                            "title": "Starting a Blog Online Complete Unit 3",
+                            "description": "Starting a Blog Online Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What tactics have you used to create intrigue?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Social media",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Encouraging conversation with others",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "You’ve played around with new ways of doing things",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Other",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 878,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1073,
+                        "title": "3 Steps to Portray Your Unique Story",
+                        "slug": "3-steps-to-portray-your-unique-story",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "fXlso9YK_ZA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 Steps to Portray Your Unique Story:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Show readers that you have dedication to your craft</h5>\r\n</li>\r\n \t<li>\r\n<h5>Provide maximal free value</h5>\r\n</li>\r\n \t<li>\r\n<h5>Consistent blogging will keep you researching and staying up-to-date</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at 3 steps that you can take to portray your unique story. In previous videos, we have talked about being unique in order to produce incentive for readers to read your blogs. Everyone has a unique story full of twists, turns and valuable insights. Understanding your story and bringing that element to your blog will allow for a better connection to your readers.</h5>\r\n<h5>Here are the 3 steps to portray your unique story:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Think back to what got you to this point</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>You have experienced things that most people may not have experiences, and that can bring a unique touch to your blog theme</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Ask yourself: “What have I experienced that makes me worthy of readers’ loyalty and respect?”</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>What past experiences do you consider to be an asset?</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Provide people with YOUR story</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Chances are that most people can relate to your struggles and they will respect your experience</h5>\r\n</li>\r\n</ul>\r\n<h5>Understanding your unique past can help you to deliver a personal touch to your blog. Making your blog more personal will allow for a deeper connection to your loyal readers. We often take our past experience for granted, but there are plenty of struggles and victories that can provide insight to those who may need it.</h5>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The parts of my personal journey that readers may be able to relate to are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 303,
+                                "order": 1,
+                                "question": "The parts of my personal journey that readers may be able to relate to are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 372,
+                            "title": "Starting a Blog Online Complete Unit 4",
+                            "description": "Starting a Blog Online Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How many specific experiences can you recount that have helped you to become who you are?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "1",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "1-5",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": ">5",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 880,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1074,
+                        "title": "3 Reasons to Maintain Blog Post Consistency",
+                        "slug": "3-reasons-to-maintain-blog-post-consistency",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "7ZsQCphL140",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 Reasons to Maintain Blog Post Consistency:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Show readers that you have dedication to your craft</h5>\r\n</li>\r\n \t<li>\r\n<h5>Provide maximal free value</h5>\r\n</li>\r\n \t<li>\r\n<h5>Consistent blogging will keep you researching and staying up-to-date</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will explore the final but equally vital component of a great blog which is consistency. Maintaining consistency will move you closer to attracting customers and mastering your craft.</h5>\r\n<h5>Here are 3 reasons to maintain blog post consistency:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Show readers that you have dedication to your craft</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Whether once a month or once a week, you readers will begin to wait for the next post</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Provide maximal free value</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Doing this will allow for potential customers to be more comfortable to make the jump to your paid services</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Consistent blogging will keep you researching and staying up-to-date</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Research for each blog post will keep you at the peak of your understanding of your craft and it will keep you up-to-date with new happenings</h5>\r\n</li>\r\n</ul>\r\n<h5>Staying consistent can be difficult. That’s why determining the frequency of your posts is essential. Readers will come to expect this frequency of articles especially if they provide plenty of value. Taking into consideration the 3 reasons above can provide the appropriate amount of motivation to keep you delivering valuable content.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "A blogging frequency that I can maintain while pleasing my readership is:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 304,
+                                "order": 1,
+                                "question": "A blogging frequency that I can maintain while pleasing my readership is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 373,
+                            "title": "Starting a Blog Online Complete Unit 5",
+                            "description": "Starting a Blog Online Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a list of ideas for potential blog posts?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 881,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": " If yes, how many are there?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "0",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "1",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "1-5",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": ">5",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 882,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1075,
+                        "title": "3 Choices to Make When Starting Your Blog",
+                        "slug": "3-choices-to-make-when-starting-your-blog",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "QDZi9wVcRCI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 Choices to Make When Starting Your Blog:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Choose your approach</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose your service</h5>\r\n</li>\r\n \t<li>\r\n<h5>To host or not to host</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will explore three options that we suggest you take into consideration. This video will have you ready to set-up your blog right away. There are many blogging services and blogging styles that should be considered before starting. Understanding which direction you are going to take your blog can make your desired outcome clearer to the reader.</h5>\r\n<h5>Here are 3 choices to make when starting your blog:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Choose your approach</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Is your blog going to be a technical blog or a personal blog? Or is it going to be a mix of the two?</h5>\r\n</li>\r\n \t<li>\r\n<h5>A technical blog can explore topics that you find interesting within your industry in an informative and passionate way</h5>\r\n</li>\r\n \t<li>\r\n<h5>A personal blog can be unrelated to the industry you’re in. Instead, it can lead your readers through what other things you find interesting</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Choose your service</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Services such as Blogger.com, wordpress.com, medium.com or tumblr.com are all free services but offer slightly varying options and layouts</h5>\r\n</li>\r\n \t<li>\r\n<h5>The majority of blogs are created using wordpress</h5>\r\n</li>\r\n \t<li>\r\n<h5>com has a paid option in which you can create your own domain name like “www.yourdomainname.com” rather than the traditional “yourdomainname.wordpress.com”. This also removes ads and provides you with more online storage</h5></li>\r\n</ul>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>To host or not to host</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>You have the option to create your own domain name and self-host your blog</h5>\r\n</li>\r\n \t<li>\r\n<h5>This option requires the purchase of a hosting service (such as hostgator) and installing the wordpress software onto it</h5>\r\n</li>\r\n</ul>\r\n<h5>Having a clear and concise strategy as to what you want your blog to convey will help to attract the right readers. The free options would be preferred if you will be casually using your blog, but the paid options should be considered for more serious blogging ventures. Putting some thought into what your ideal blog would look like can help you to understand what first steps to take and taking into consideration the 3 choices above can help you to get started.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Will my blog be used often enough to warrant a paid service?",
+                            "course-unit-atq-two": "My blog will be a _________________ (technical or personal) blog.",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 305,
+                                "order": 1,
+                                "question": "Will my blog be used often enough to warrant a paid service?"
+                            },
+                            {
+                                "q_id": 306,
+                                "order": 2,
+                                "question": "My blog will be a _________________ (technical or personal) blog."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 374,
+                            "title": "Starting a Blog Online Complete Unit 6",
+                            "description": "Starting a Blog Online Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you made a website with a blog or a standalone blog?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Website with a blog",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A standalone blog",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Neither",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 883,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1076,
+                        "title": "5 Steps to Getting Your Blog Started",
+                        "slug": "5-steps-to-getting-your-blog-started",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "EdibPzfvNZ0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 Steps to Starting Your Blog:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Visit www.wordpress.com</h5>\r\n</li>\r\n \t<li>\r\n<h5>Get Started</h5>\r\n</li>\r\n \t<li>\r\n<h5>Enter Your Information</h5>\r\n</li>\r\n \t<li>\r\n<h5>Customize Your Site</h5>\r\n</li>\r\n \t<li>\r\n<h5>Follow the Tutorial</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will lead you through the step-by-step process to starting a WordPress blog through the WordPress website. After watching this video, you will know how to begin blogging through WordPress with the paid or free versions of the service. Here are the 5 steps to getting started:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Start by going to <a href=\"http://www.wordpress.com\" target=\"_blank\" rel=\"noopener\">wordpress.com</a></h5>\r\n</li>\r\n \t<li>\r\n<h5>On the main screen, you want to press on the “Get Started” button</h5>\r\n</li>\r\n \t<li>\r\n<h5>Now that you’re at the “Get Started” page, you can proceed to enter your information</h5>\r\n</li>\r\n \t<li>\r\n<h5>Upon reaching the next screen, you will be lead through a few initial steps to setup your website</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>The 4<sup>th</sup> step is the one where you will be given the option to continue with the free version, or upgrade to a paid version.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The benefits of each option are listed and suit different scenarios</h5>\r\n</li>\r\n \t<li>\r\n<h5>The free version will give you a basic subdomain like “yourdomain.wordpress.com” whereas any of the paid versions will give you a custom “yourdomain.com” domain name</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"5\">\r\n \t<li>\r\n<h5>Once these steps are complete, WordPress will lead you through a tutorial on how to control your site</h5>\r\n</li>\r\n</ol>\r\n<h5>Congratulations! You have set up a basic WordPress account and website! In the next video we will explore the steps involved in starting a hosted WordPress website.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The blogging service that I will use is:",
+                            "course-unit-atq-two": "My blog will be called: ",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 307,
+                                "order": 1,
+                                "question": "The blogging service that I will use is:"
+                            },
+                            {
+                                "q_id": 308,
+                                "order": 2,
+                                "question": "My blog will be called: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 375,
+                            "title": "Starting a Blog Online Complete Unit 7",
+                            "description": "Starting a Blog Online Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you value the ability to customize your blog’s look?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "No. I’m more concerned with content.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Yes. The look can draw people in.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Content and appearance are both important to me.",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 884,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1077,
+                        "title": "12 Steps to Self-Hosting Your Blog",
+                        "slug": "12-steps-to-self-hosting-your-blog",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "oz1YQyiEJM4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>12 Steps to Self-Hosting Your Blog:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Visit <a href=\"http://www.hostgator.com\" target=\"_blank\" rel=\"noopener\">hostgator.com</a></h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose “Web Hosting”</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose Pricing Option</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose a domain name and enter your info</h5>\r\n</li>\r\n \t<li>\r\n<h5>Check your emails</h5>\r\n</li>\r\n \t<li>\r\n<h5>Follow the emailed link to your control panel</h5>\r\n</li>\r\n \t<li>\r\n<h5>Find “Quick Install”</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose the “WordPress” option</h5>\r\n</li>\r\n \t<li>\r\n<h5>Install WordPress</h5>\r\n</li>\r\n \t<li>\r\n<h5>Fill in the necessary information</h5>\r\n</li>\r\n \t<li>\r\n<h5>When installation Is complete, select “View Credentials”</h5>\r\n</li>\r\n \t<li>\r\n<h5>Proceed to the Admin Area</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will lead you through the step-by-step process to starting your own website which will include WordPress blogging options. This option is more suitable for some people since it offers much faster download times and the ability to design a full website that has much more than just a blog on it. For this example, we will be using a hosting service called host gator. Here are the 12 steps to self-hosting your blog:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Visit <a href=\"http://www.hostgator.com\" target=\"_blank\" rel=\"noopener\">hostgator.com</a></h5>\r\n</li>\r\n \t<li>\r\n<h5>At the main menu bar, choose “Web Hosting”</h5>\r\n</li>\r\n \t<li>\r\n<h5>On the following screen, you have 3 pricing options. The cheapest “Hatchling Plan” will be sufficient to setup a single website</h5>\r\n</li>\r\n \t<li>\r\n<h5>After choosing your pricing option, you need to enter your custom domain name. The domain name will work only if it isn’t already in use. Continuing down the page, you will need to enter more information. There are also more options offered that may be of use to you</h5>\r\n</li>\r\n \t<li>\r\n<h5>Upon completion of your payment, you should check your emails for an account info email from Host Gator</h5>\r\n</li>\r\n \t<li>\r\n<h5>Click on the link that is next to “Your Control Panel” in the email and enter the username and password that they have provided in the email</h5>\r\n</li>\r\n \t<li>\r\n<h5>Now that you have entered the Host Gator Control Panel, you want to scroll down until you find the heading titled: “Software and Services”. The option you want to click on is “Quick Install”</h5>\r\n</li>\r\n \t<li>\r\n<h5>On this new page, you will find a list of items titled “Popular Installs” on the left side of the page. Choose the “WordPress” option</h5>\r\n</li>\r\n \t<li>\r\n<h5>Under where it says “Install WordPress For FREE” choose “Install WordPress”</h5>\r\n</li>\r\n \t<li>\r\n<h5>You can now proceed to choose your domain name from the drop down menu while leaving the “install/path/here” box empty. The “Admin User” box is just any username that you can choose. The rest of the page should be straight forward</h5>\r\n</li>\r\n \t<li>\r\n<h5>Once you move on, you will be shown a progress bar at the top of the page. When WordPress is finished being installed, it will tell you so. When finished, you want to click on the “View Credentials” drop down menu on the right of notification bar saying that the install is complete. This will give you a link to the login area of your WordPress add on, along with your username and password</h5>\r\n</li>\r\n \t<li>\r\n<h5>Click on the “Admin Area” link and proceed to enter the username and password provided</h5>\r\n</li>\r\n</ol>\r\n<h5>Congratulations! You have set up your own website which is fully equipped with WordPress. With this, you can go on to create a store on your website while maintaining a blog in the same place! The possibilities are literally endless!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In addition to my WordPress blog, I plan on adding ____________ (an online store, instructional videos, etc.) to my website.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 309,
+                                "order": 1,
+                                "question": "In addition to my WordPress blog, I plan on adding ____________ (an online store, instructional videos, etc.) to my website."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 376,
+                            "title": "Starting a Blog Online Complete Unit 8",
+                            "description": "Starting a Blog Online Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What purpose would a full website serve for you?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Marketing my services",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Delivering services online",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Passion project",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 885,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1078,
+                        "title": "Starting a Blog Online PostTest",
+                        "slug": "starting-a-blog-online-posttest",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 377,
+                            "title": "Starting a Blog Online PostTest",
+                            "description": "Starting a Blog Online PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "A blog can be utilized to write about technical topics that you have not researched.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 865,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A blog can be used to provide a personal touch that will help you to connect well with readers.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 866,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following is a key to creating a successful blog?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Being unique",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Writing every single day",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Providing only paid content",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 867,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Intrigue and reader participation are core requirements of improved readership.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 868,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is the best way to describe Reddit?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Online forum that showcases any and all topics",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "An image based social platform similar to Instagram",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "A social platform similar to Facebook",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 869,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "It is important that you over exaggerate your experiences in order to garner more interest.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 870,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Maintaining blogging consistency will:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Show dedication to your craft",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Provide readers with free value",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Keep you up-to-date through required research",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 871,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A blog cannot be a combination of personal and technical interests.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 872,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A hosting service is preferable when:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "A full website is your main goal",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A personalized domain name is required",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Custom layout design",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 873,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A custom domain is available through WordPress free version.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 874,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Host Gator is the only option for setting up a self-hosted website.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 875,
+                                    "order": 10
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/start-blog.png",
+                "zip_path": "wp-content/uploads/2018/10/start-blog.png",
+                "level": "card"
+            }
+        ]
+    }
+}

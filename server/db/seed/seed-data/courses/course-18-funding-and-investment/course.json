@@ -1,0 +1,865 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 18,
+        "title": "Funding and Investment",
+        "description": "Challenge your existing business model and identify areas of improvement",
+        "unit_count": 9,
+        "author_id": 0,
+        "course_post_id": 3662,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2358,
+            "title": "Funding and Investment",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/define-your-customer-segments/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/ar.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 18,
+                "title": "Funding and Investment",
+                "description": "Challenge your existing business model and identify areas of improvement",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 820,
+                        "title": "Define your Customer Segments",
+                        "slug": "define-your-customer-segments",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "_OKmGVLzZcg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 Kinds of customer segments if you are a start-up:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Mass market</h5>\r\n</li>\r\n \t<li>\r\n<h5>Niche Market</h5>\r\n</li>\r\n \t<li>\r\n<h5>Multi-Sided Market</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video we will learn what are some ways in which you can identify the customers or users that you aim to serve or reach in your business.</h5>\r\n<h5>Customer segments have something in common with each other allowing you to reach them more easily by knowing what their interests are, where you can reach them and what do they need.</h5>\r\n<h5>Here are 3 ways that you can define your customer segments if you are a start-up:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Mass market includes a broad range of people that could be interested in your offerings. This is quite common in consumer products, but reaching that mass market is very costly for start-ups. A lot of consumer goods like chocolates, soap, and milk follow such a model as well as others like WhatsApp</h5>\r\n</li>\r\n \t<li>\r\n<h5>Niche Market includes a more specific group of people that come together because of their age, location, and interests. It is easier for a start-up to reach such a customer segment since it’s easier to grab their attention through your knowledge of their interests. Health products, organic, specific apps could follow this model</h5>\r\n</li>\r\n \t<li>\r\n<h5>Multi-Sided Market is specific to companies that have users of the products or service who could be using it for free and clients who have an interest in reaching that set of users. Advertising businesses use this model where advertisers are the clients can reach readers who are the users</h5>\r\n</li>\r\n</ol>\r\n<h5>All through the development of your business it is crucial that you and your team are very clear on the market segment that you are trying to reach as this would guide many other decisions that you need to take.</h5>",
+                            "course-unit-quotes": "<h5>Spend a lot of time talking to customers face-to-face. You’d be amazed how many companies don’t listen to their customers. Ross Perot</h5>",
+                            "course-unit-case-study": "<h5>Julie is developing an app that helps students engage better in Science, Tech, Engineering, Arts and Math (STEAM). As she starts to define her customers, she tries to focus and identify the actual users of the app who would be 10-13 year olds, but then debates whether the customers are the parents of these students or the schools in which the students studies. Julie decides to target the schools in her region as primary customers since she thinks that it could be easier to market to them.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My most important target customer segments (groups) are:",
+                            "course-unit-atq-two": "My annual revenue for this year is expected to be:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 629,
+                                "order": 1,
+                                "question": "My most important target customer segments (groups) are:"
+                            },
+                            {
+                                "q_id": 1017,
+                                "order": 2,
+                                "question": "My annual revenue for this year is expected to be:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 119,
+                            "title": "Business Model Innovation Complete Unit 1",
+                            "description": "Business Model Innovation Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "My primary business is:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "B2B - Selling to Enterprises",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "B2C - Selling to Consumers",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Both",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1961,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 821,
+                        "title": "Define your Value Proposition",
+                        "slug": "define-value-proposition",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "XvGniXyphqY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 4 questions to ask yourself about as you define your value proposition:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>What is the problem that you are trying to solve?</h5>\r\n</li>\r\n \t<li>\r\n<h5>What is the value that your product or service add to your target segment?</h5>\r\n</li>\r\n \t<li>\r\n<h5>How do you address the needs of your target segment?</h5>\r\n</li>\r\n \t<li>\r\n<h5>How is your value proposition different from others – or unique?</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this video we will learn how to define your value proposition so that it has the maximum impact on your clients.</h5>\r\n<h5>Your value proposition is what defines your business, and what excites your clients to do business with you. If you are not exciting your clients enough, they would not go through the effort of trying your product or service.</h5>\r\n<h5>Here are 4 questions to ask yourself about as you define your value proposition:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>What is the problem that you are trying to solve?</h5>\r\n</li>\r\n \t<li>\r\n<h5>What is the value that your product or service add to your target segment?</h5>\r\n</li>\r\n \t<li>\r\n<h5>How do you address the needs of your target segment?</h5>\r\n</li>\r\n \t<li>\r\n<h5>How is your value proposition different from others – or unique?</h5>\r\n</li>\r\n</ol>\r\n<h5>Keeping your value proposition clear and effective allows you to communicate it effectively within your company and to your target segments. Every one of your team members needs to understand how their work contributes to that value proposition.</h5>",
+                            "course-unit-quotes": "<h5 style=\"text-align: left;\">\"If you don’t have a competitive advantage, don’t compete.\" - Jack Welch</h5>",
+                            "course-unit-case-study": "<h5>As Julie defines the value proposition to schools for her STEAM application, she finds research that shows how the engagement in STEAM educational apps can help students do better in their school and later careers. Her value proposition to the school is that by using her app, schools can stay in touch with their students after school hours, position themselves as innovators and could generate sales in the app through additional fees.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My value proposition addresses or solves the following customer needs:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 630,
+                                "order": 1,
+                                "question": "My value proposition addresses or solves the following customer needs:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 120,
+                            "title": "Business Model Innovation Complete Unit 2",
+                            "description": "Business Model Innovation Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "I have raised funding before from:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Venture Capital",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Angel Investors",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Friends and Family",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "I haven't raised funding previously",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 258,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 822,
+                        "title": "Channel Strategies",
+                        "slug": "channel-strategies",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "p-0ko3tB3Zs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 2 commonly used channel strategies to sell through to your channels:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Direct Channels</h5>\r\n</li>\r\n \t<li>\r\n<h5>Indirect Channels</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this video you can understand the different ways in which you can reach out to your clients so that they buy your products or services.</h5>\r\n<h5>Channels are the way that you interface with your clients and services. Your aim is to find the most convenient way for your clients to buy your products and services and to have a great experience doing so.</h5>\r\n<h5>Here are 2 commonly used channel strategies to sell through to your channels.</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Direct Channels where you sell directly to your clients either through your website, through your stores or through your sales teams</h5>\r\n</li>\r\n \t<li>\r\n<h5>In-Direct Channels where you rely on others to sell your products or services. These could be distributors, retailers or resellers that already have the supply chain or customer relationship and would thus provide you with the most efficient way to reach your clients and possibly to support them</h5>\r\n</li>\r\n</ol>\r\n<h5>Deciding on the channel model in a startup is very important since each way would have its advantages and disadvantages. As the business evolves, it can have a hybrid channel model that makes use of both routes to reach your clients.</h5>",
+                            "course-unit-quotes": "<h5>Measuring engagement and engaging consumers are two sides of the same coin. David Penn</h5>",
+                            "course-unit-case-study": "<h5>By defining her focused customer segments as schools in her district, Julie knows that she can reach these schools through direct sales in the beginning by visiting them in person and explaining the product, but in the future she would need to either use an online marketing to reach schools in other locations or have a self service model for the schools to sign up to use the application for their students.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": " I reach my customers through the ____________ channel(s) so that they buy from me.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 631,
+                                "order": 1,
+                                "question": " I reach my customers through the ____________ channel(s) so that they buy from me."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 121,
+                            "title": "Business Model Innovation Complete Unit 3",
+                            "description": "Business Model Innovation Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "I have been in business for:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Less than 1 year",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Between 1 and 3 years",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "More than 3 years",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2319,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 823,
+                        "title": "Customer Relationship Types",
+                        "slug": "customer-relationship-types",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "fqPEZAwXslk",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The five common customer relationship types:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Self Service or Automated relationships</h5>\r\n</li>\r\n \t<li>\r\n<h5>Personal Relationships</h5>\r\n</li>\r\n \t<li>\r\n<h5>Co-Creation Relationships</h5>\r\n</li>\r\n \t<li>\r\n<h5>Transactional Relationships</h5>\r\n</li>\r\n \t<li>\r\n<h5>Switching Cost</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this video you will determine what are the possible customer relationships you can develop.</h5>\r\n<h5>Your customer relationship will influence the experience that they will have with you and the frequency of engagement with them.</h5>\r\n<h5>Here are 5 commonly used customer relationships:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Self Service or Automated relationships where clients can conduct most or all of the service they need without assistance by anyone in your business. A lot of monthly subscription or online services follow this model</h5>\r\n</li>\r\n \t<li>\r\n<h5>Personal Relationships where your direct teams are involved in selling and servicing your clients. This is common in physical retail, high value and corporate sales.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Co-Creation Relationship where clients contribute to the growth of your business, such as the case with social media sites</h5>\r\n</li>\r\n \t<li>\r\n<h5>Transactional Relationship where the client can use your product and service once and might never have the need to return to you and use it again</h5>\r\n</li>\r\n \t<li>\r\n<h5>Switching Cost are sticky relationships where it becomes difficult for a client to change a service since they have invested so much time and effort into the relationship. First movers in this type of relationship have the most to gain</h5>\r\n</li>\r\n</ol>\r\n<h5>Determine which one of these relation types has the most value to your business and to your clients’ experience.</h5>",
+                            "course-unit-quotes": "<h5>The golden rule for every business man is this: Put yourself in your customer’s place. Orison Swett Marden</h5>",
+                            "course-unit-case-study": "<h5>Instead of selling the app upfront and loosing the possibility of selling more services in the future, Julie decides to have the schools she is targeting \"pay as they go\" by paying for the active number of students using the apps per month. This way, they don't have to invest a big amount of money upfront and would maintain an ongoing relationship with Julie's company.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The client relationship that I have is: (One-Time purchase, Monthly subscription)",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 632,
+                                "order": 1,
+                                "question": "The client relationship that I have is: (One-Time purchase, Monthly subscription)"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 122,
+                            "title": "Business Model Innovation Complete Unit 4",
+                            "description": "Business Model Innovation Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "My customers come from primarily:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "One country",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "between 1 to 5 countries",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "more than 5 countries",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 259,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 824,
+                        "title": "Key Revenue Streams",
+                        "slug": "key-revenue-streams",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "V8EF7vlUqBI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The seven key revenue streams used in businesses:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Asset sales</h5>\r\n</li>\r\n \t<li>\r\n<h5>Usage fee</h5>\r\n</li>\r\n \t<li>\r\n<h5>Subscription fee</h5>\r\n</li>\r\n \t<li>\r\n<h5>Leasing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Licensing revenue</h5>\r\n</li>\r\n \t<li>\r\n<h5>Brokerage fees</h5>\r\n</li>\r\n \t<li>\r\n<h5>Advertising</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this video you will learn about the most used methods of getting money for your business through the sales of your products or services.</h5>\r\n<h5>Revenue streams or sales refer to how you generate cash from your clients. Different client segments could pay you in different ways. Without sales a business can’t function, so this is the most important aspects of any business.</h5>\r\n<h5>7 most used revenue types include:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Asset sales refers to cases where you sell a product to a client who then becomes the owner of that product. This is the most widely used model in business and takes place anytime we buy a car, computer or a building</h5>\r\n</li>\r\n \t<li>\r\n<h5>Usage fee refers to when a client uses your product or service but its ownership remains with you. This is common in the hotel or airline industry</h5>\r\n</li>\r\n \t<li>\r\n<h5>Subscription fee refers to when your clients subscribe on a monthly or weekly basis and can use your infrastructure. Examples of this include software as a service, gym memberships, etc..</h5>\r\n</li>\r\n \t<li>\r\n<h5>Leasing or renting or lending refer to allowing clients to use your assets for a period of time as if it is theirs</h5>\r\n</li>\r\n \t<li>\r\n<h5>Licensing revenue is earned when you give clients a permission to use your intellectual property. This is common in content production and inventions.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Brokerage fees are earned when you take commission from facilitating a business transaction between two parties.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Advertising results from fees for advertising a particular product or service or brand</h5>\r\n</li>\r\n</ol>\r\n<h5>Ensuring which of the above revenue streams is most convenient for each of your target segments and in turn allowing you to generate the most business is an essential aspect of having your business survive and thrive.</h5>",
+                            "course-unit-quotes": "<h5>People don’t buy what you do, they buy why you do it. Simon Sinek</h5>",
+                            "course-unit-case-study": "<h5 id=\"yiv1991223054yui_3_16_0_ym19_1_1463339852232_579823\" dir=\"ltr\">The key revenue stream that Julie wants to use for her app is a subscription model where schools pay $2 per student per month. Given the number of schools in her district and the number of students that they have between the age of 10-13 years, Julie estimates that if she gets 10% of those students to sign up, she could have 10,000 subscriptions by the end of the year, resulting in $20,000 per month of revenue.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My overall revenue (sales) projection for the year is ___and the number of units that I will sell is: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 633,
+                                "order": 1,
+                                "question": "My overall revenue (sales) projection for the year is ___and the number of units that I will sell is: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 123,
+                            "title": "Business Model Innovation Complete Unit 5",
+                            "description": "Business Model Innovation Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "My revenue has:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Decreased from last year",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Increased from last year",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Not applicable",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 260,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 825,
+                        "title": "Key Resource Types",
+                        "slug": "key-resource-types",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "En2_bMAcLxo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The three common recourse types:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Physical Resources</h5>\r\n</li>\r\n \t<li>\r\n<h5>Intellectual Property</h5>\r\n</li>\r\n \t<li>\r\n<h5>Human Capital Resources</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this video we learn about how to identify the key resources in your business.</h5>\r\n<h5>Key resources reflect the most important assets for your business. Identifying them will help you in protecting these assets and making the most of them.</h5>\r\n<h5>Here are 3 common resource types:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Physical resources include vehicles, offices or stores, data center, manufacturing equipment</h5>\r\n</li>\r\n \t<li>\r\n<h5>Intellectual Property assets brands, copyrights, patents, platforms and even customer databases.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Human Capital representing your team. In most businesses this is your most important asset as the team helps in keeping innovations coming in and in providing your clients with a great experience</h5>\r\n</li>\r\n</ol>\r\n<h5>Identifying your most important assets in your business and protecting them is essential to making your business function well.</h5>",
+                            "course-unit-quotes": "<h5>The greatest achievement of the human spirit is to live up to one’s opportunities and make the most of one’s resources. Vauvenargues</h5>",
+                            "course-unit-case-study": "<h5 id=\"yiv1991223054yui_3_16_0_ym19_1_1463339852232_579826\" dir=\"ltr\">The most important resources in Julie's business, that are essential to the survival of that business, are her STEAM expert and the application developer; both of which have been with her from the start of the project. All the other resources could be outsourced and there is no need for any major physical assets.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The key resources I rely on to run my business are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 634,
+                                "order": 1,
+                                "question": "The key resources I rely on to run my business are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 124,
+                            "title": "Business Model Innovation Complete Unit 6",
+                            "description": "Business Model Innovation Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "My full time employees are:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Only me",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Less than 5",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Between 5 and 15",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "More than 15",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2320,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 826,
+                        "title": "Key Activities your Business Engages in",
+                        "slug": "key-activities-business-engages",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "KkFsnGEwzIE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 key activities that your business engages in:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Production Activities</h5>\r\n</li>\r\n \t<li>\r\n<h5>Problem Solving</h5>\r\n</li>\r\n \t<li>\r\n<h5>Platforms</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will know how to summarize the key activities in your business.</h5>\r\n<h5>There are many daily tasks that are done within the business, but it is always important to be clear about what are the key activities that need to be conducted within the business to deliver on the value proposition that you are promising your clients. By identifying these activities, it would help you to prioritise the efforts taking place in your business.</h5>\r\n<h5>Some of the common activities in a business include:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Production activities which focus on the design, manufacturing and delivery of a product or service – common in manufacturing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Problem solving which cover a lot of services businesses that work on addressing customer problems</h5>\r\n</li>\r\n \t<li>\r\n<h5>Platforms bring together users and clients on a common space for them to interact – Credit card companies, Software platforms, and online merchants are examples that have platforms as a key activity</h5>\r\n</li>\r\n</ol>\r\n<h5>Reviewing your key activities and improving the performance is an essential part of innovating a better product or service to your clients.</h5>",
+                            "course-unit-quotes": "<h5>Never mistake activity for achievement. John Wooden</h5>",
+                            "course-unit-case-study": "<h5>Julie knows that her most important activity over the coming period is great marketing and branding of her app and great customer service to the schools that are buying the app. She knows that she would need to organize a roadshow to explain the system and train administrators in the school on how to use the system.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The main activities I conduct in my day-to-day work are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 635,
+                                "order": 1,
+                                "question": "The main activities I conduct in my day-to-day work are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 125,
+                            "title": "Business Model Innovation Complete Unit 7",
+                            "description": "Business Model Innovation Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "My business is primarily:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Online",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Offline",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "A combination",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2321,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 827,
+                        "title": "Key Partnerships",
+                        "slug": "key-partnerships",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "IK9gbtNl4AQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The two key partnerships in a business:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Alliances</h5>\r\n</li>\r\n \t<li>\r\n<h5>Suppliers</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this video will help you determine the key partnerships that you need to have in place in your business.</h5>\r\n<h5>Forming strong partnerships with your ecosystem is a great tool to help in expanding your reach and making sure that your business is delivering its promise to clients.</h5>\r\n<h5>Some essential partnerships in a business include:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Alliances these are entities that can complement your offerings or your reach to your clients – these can include joint ventures or general partnership agreement</h5>\r\n</li>\r\n \t<li>\r\n<h5>Suppliers are essential in providing you non-core business elements that allow you to focus on your core areas of strength</h5>\r\n</li>\r\n</ol>\r\n<h5>Continuous evaluation of the available partnership options is essential to stay abreast of the latest developments.</h5>",
+                            "course-unit-quotes": "<h5>If we are together nothing is impossible. If we are divided all will fail. Winston Churchill</h5>",
+                            "course-unit-case-study": "<h5>In enhancing her credibility, Julie needs to partner with the local school district authority as well as creating a partnership with the an international STEAM curriculum provider to license some of the content from them.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My key partners are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 636,
+                                "order": 1,
+                                "question": "My key partners are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 126,
+                            "title": "Business Model Innovation Complete Unit 8",
+                            "description": "Business Model Innovation Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "My user/client annual growth rate is:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Less than 10%",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Between 10-50%",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "More than 50%",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2322,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 828,
+                        "title": "Important Cost Structures",
+                        "slug": "important-cost-structures",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "7dG1GhVS0aQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The two essential cost structure elements:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fixed costs</h5>\r\n</li>\r\n \t<li>\r\n<h5>Variable costs</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, you will learn the 2 most important cost structures in your business.</h5>\r\n<h5>Cost structure refers to all the costs that you incur to deliver on your business model. Keeping your costs under control is essential to maintain a healthy business.</h5>\r\n<h5>2 Essential Cost Structure elements include:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fixed Costs – which refer to all costs that you need to incur whether you sell or not. These could include factory, general administration staff, rent, management staff costs etc..</h5>\r\n</li>\r\n \t<li>\r\n<h5>Variable Costs – which refer to costs that are associated with the sales of your products or services. The more you sell the more these costs would go up. Variable costs include things like the raw material for your products, or cost of consultants that you would etc..</h5>\r\n</li>\r\n</ul>\r\n<h5>When you are starting up a business keeping the fixed costs as low as possible is essential so that you don’t run out of cash too quickly before you start selling enough products and services to cover your costs.</h5>",
+                            "course-unit-quotes": "<h5>Cutting prices or putting things on sale is not sustainable business strategy. The other side of it is that you can’t cut enough costs to save your way to prosperity. Howard Schultz</h5>",
+                            "course-unit-case-study": "<h5>Julie knows that she needs to keep the cost of operation as low as possible so that she doesn't increase the running costs which are the bulk of her costs. She calculates that her monthly running costs are about $10,000 in salaries - including hers and her 2 colleagues - $5,000 in marketing and related expenses. The cost per student for the hosting and infrastructure for her app are $50 per month. So her profit per student is $1.5 and as such, she calculates that she can break even once she has 10,000 students per month on the application.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My monthly costs are __________ and the profit percentage I make per product I sell is: ",
+                            "course-unit-atq-two": "The most important cost positions in my business model are:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 637,
+                                "order": 1,
+                                "question": "My monthly costs are __________ and the profit percentage I make per product I sell is: "
+                            },
+                            {
+                                "q_id": 638,
+                                "order": 2,
+                                "question": "The most important cost positions in my business model are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 127,
+                            "title": "Business Model Innovation Complete Unit 9",
+                            "description": "Business Model Innovation Complete Unit 9",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "My business is making a yearly:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Profit",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Loss",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Breaking even",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 261,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/ar.png",
+                "zip_path": "wp-content/uploads/2018/10/ar.png",
+                "level": "card"
+            }
+        ]
+    }
+}

@@ -1,0 +1,875 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 17,
+        "title": "Business Etiquette",
+        "description": "Welcome to the world of Business Etiquette Consulting!",
+        "unit_count": 8,
+        "author_id": 0,
+        "course_post_id": 3661,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2360,
+            "title": "Business Etiquette",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/business-etiquette-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/business-etic.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 17,
+                "title": "Business Etiquette",
+                "description": "Welcome to the world of Business Etiquette Consulting!",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 811,
+                        "title": "Business Etiquette Pretest",
+                        "slug": "business-etiquette-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 110,
+                            "title": "Business Etiquette Pretest",
+                            "description": "Business Etiquette Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "Before the meeting starts, make sure you don’t speak about the weekend, your interests and any other conversations. Socializing with the attendees of the meeting must be done after the meeting and not before. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 232,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "In order to produce a clear minutes of meeting document, you will be required to work on it:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Before the meeting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "During the meeting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "After the meeting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 233,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 812,
+                        "title": "Professionalism at a Meeting",
+                        "slug": "professionalism-at-a-meeting",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "wfMFpH4d8c4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>To set the right environment before going into a meeting, you should:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Socialize with the attendees of the meeting before the meeting starts</h5>\r\n</li>\r\n \t<li>\r\n<h5>If you are at a higher rank position always initiate the handshake</h5>\r\n</li>\r\n \t<li>\r\n<h5>Stand up when being introduced to someone and exchange your business cards</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be punctual</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sit upright at the same level as everyone else</h5>\r\n</li>\r\n \t<li>\r\n<h5>Dress appropriately</h5>\r\n</li>\r\n \t<li>\r\n<h5>Never pull out a ladies chair for her</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this video, you will learn all different business etiquette tips you should keep in mind when walking into a meeting. To set the right environment before going into a meeting, you should:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Socialize with the attendees of the meeting before the meeting starts. Speak about the weekend, your interests and any other nice conversations.</h5>\r\n</li>\r\n \t<li>\r\n<h5>If you are at a higher rank position always initiate the handshake.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Stand up when being introduced to someone and exchange your business cards.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be punctual. Being on time will reflect that you are dependable and committed.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sit upright at the same level as everyone else and don’t cross your legs as that could be viewed as inappropriate.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Dress appropriately. Business attire is required for all business meetings i.e. formal pants, a shirt or blouse and a jacket with formal shoes.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Never pull out a ladies chair for her as this can be viewed as gender biased.</h5>\r\n</li>\r\n</ol>\r\n<h5>Keeping these tips in mind will help you keep and maintain a professionalism in a meeting.</h5>",
+                            "course-unit-quotes": "<h5>\"A professional is someone who can do his best work when he doesn't feel like it.\" Alistair Cooke</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Before going to my meeting, I should make sure that I:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 639,
+                                "order": 1,
+                                "question": "Before going to my meeting, I should make sure that I:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 111,
+                            "title": "Business Etiquette Complete Unit 1",
+                            "description": "Business Etiquette Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Work meetings aren't always fun. However, you are required to attend them. What is the most difficult thing to do in a business meeting? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Be punctual",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Sit properly",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Be concise",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 226,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 813,
+                        "title": "Communicating in a Meeting",
+                        "slug": "communicating-in-a-meeting",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "z5yNhKEhk_w",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Tips to keep in mind when communicating in a meeting:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Be concise and clear</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure you are well prepared</h5>\r\n</li>\r\n \t<li>\r\n<h5>Speak out loud and clear so everyone can hear you</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listen well and do not interrupt</h5>\r\n</li>\r\n \t<li>\r\n<h5>You can drink something during a meeting like coffee, tea and water</h5>\r\n</li>\r\n \t<li>\r\n<h5>Do not put your phone out</h5>\r\n</li>\r\n \t<li>\r\n<h5>Take notes in the meeting so you can follow up later with an email or \"minutes of meeting\" document</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this video, you will learn some tricks and tips to communicate efficiently, effectively and maintain professionalism during a meeting. Below are some points you can keep in mind:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Be concise and clear. Be straight to the point and don't repeat yourself.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure you are well prepared. Have a checklist of the different things that you would like to discuss and tick off the different points on your checklist once you have covered them.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Speak out loud and clear so everyone can hear you.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Listen well and do not interrupt. Interrupt only when you think is necessary and allow others to express themselves. Ask any questions as you move along during the meeting.</h5>\r\n</li>\r\n \t<li>\r\n<h5>You can drink something during a meeting like coffee, tea and water. Just refrain from having any gum or food.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Do not put your phone out. Keep it in your bag or pocket and do not send any text messages during the meeting. If you have to take a call, apologise for the interruption and take it outside the meeting room. Make sure it is quick.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Take notes in the meeting so you can follow up later with an email or \"minutes of meeting\" document. If you choose to record the meeting on your phone and not use a paper and pencil make sure that you inform the attendees of the meeting that you are recording.</h5>\r\n</li>\r\n</ol>\r\n<h5>Keeping these tips in mind will help you communicate professionally during a meeting.</h5>",
+                            "course-unit-quotes": "<h5>\"Etiquette is what you are doing and saying when people are looking and listening. What you are thinking is your business.\" Virginia Cary Hudson</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "When communicating with the attendees of the meeting, I should ensure that I:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 640,
+                                "order": 1,
+                                "question": "When communicating with the attendees of the meeting, I should ensure that I:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 112,
+                            "title": "Business Etiquette Complete Unit 2",
+                            "description": "Business Etiquette Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "It is not polite to interrupt others during meetings. When should you interrupt the speaker in a meeting?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Speaker is not clear",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Moving away from the point of the meeting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "You are afraid you won’t be heard ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 227,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 814,
+                        "title": "How to Record Minutes of Meeting",
+                        "slug": "record-minutes-meeting",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "QToMCbIgT7E",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>In order to produce a clear minutes of meeting document, you will be required to divide your work into three parts; before the meeting, during the meeting and after the meeting.</h5>",
+                            "course-unit-read-more": "<h5>By recording minutes of meeting, you will assure that everything in the meeting has been documented to help in taking the relationship with the client to the next level. This video will give you short quick tips on how to create a “Minutes of meeting” document.<strong>Step 1. Before the Meeting</strong> create a template to record minutes of meeting this; template should include:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Date and time of the meeting</h5>\r\n</li>\r\n \t<li>\r\n<h5>The purpose of the meeting</h5>\r\n</li>\r\n \t<li>\r\n<h5>The meeting lead’s name</h5>\r\n</li>\r\n \t<li>\r\n<h5>Assigned action items</h5>\r\n</li>\r\n \t<li>\r\n<h5>Decisions made</h5>\r\n</li>\r\n</ul>\r\n<h5><strong>Step 2: During the meeting</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5>Write notes or record the meeting. Make sure you have informed everyone while recording.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Check if all attendees are present and take their business cards.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Try and take an outline of what is said or done and don’t go too much into detail.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Record all notes directly into the template so you don’t get confused later.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Number the pages so the sequence of the meeting is identified.</h5>\r\n</li>\r\n</ul>\r\n<h5><strong>Step 3: After the meeting</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5>Review the notes and add additional comments, or clarify what you didn’t understand right after the meeting.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Type your notes on the template so it is easier for everyone to read.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Assure that your document is reviewed with the meeting lead before sending it across.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Following these three steps will help you create a clear and concise \"minutes of meeting\" document.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-quotes": "<h5>A meeting is an event where minutes are taken and hours wasted. James T. Kirk</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 113,
+                            "title": "Business Etiquette Complete Unit 3",
+                            "description": "Business Etiquette Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Why are minutes of meeting important to you?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Keep track of decisions made (motions made, votes, etc.) ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Keep track of next steps planned",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Identification and tracking of action items",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above points",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 228,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 815,
+                        "title": "Professional Phone Skills",
+                        "slug": "professional-phone-skills",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "jcP3Lx3wEb8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>When responding to a phone call in an organization you should:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Pick up the phone with a formal greeting</h5>\r\n</li>\r\n \t<li>\r\n<h5>Pick up the phone quickly</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure that there isn’t too much noise in the background</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure that you are positive and friendly.</h5>\r\n</li>\r\n \t<li>\r\n<h5>If you are taking a message for someone you should take the caller’s name, the person he/she is calling, the purpose of the call, an email or contact number where he/she can be reached</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>When responding to a phone call in an organisation you should abide to the below points so that you convey professionalism at your working environment.</h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Pick up the phone with a formal greeting</strong>: Start by greeting and introducing yourself. So you could say, “Good morning/ Good evening / Good Afternoon, This is Sara from Potential, how may I direct your call?” Make sure you are pleasant on the phone.</h5>\r\n</li>\r\n</ol>\r\n<h5>End the conversation by saying “Thank you sir/ madam, is there anything else I can help you with?”</h5>\r\n<h5>Make sure you use sentences like “Looking forward to seeing you soon. Looking forward to hearing from you again. Thank you for calling Potential” Make sure that the vibes given on the phone are positive and reflect total assertiveness and professionalism.</h5>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5><strong>Pick up the phone quickly</strong>: People don’t like to wait while calling make sure that you answer a call by the third ring.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure that there <strong>isn’t too much noise </strong>in the background.</h5>\r\n</li>\r\n \t<li>\r\n<h5>If you run across a client who is complaining about a product or service make sure that you are positive and friendly.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>If you are taking a message for someone you should take the details below:</strong></h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>The caller’s name</h5>\r\n</li>\r\n \t<li>\r\n<h5>The person he/she is calling</h5>\r\n</li>\r\n \t<li>\r\n<h5>The purpose of the call</h5>\r\n</li>\r\n \t<li>\r\n<h5>An email or contact number where he/she can be reached.</h5>\r\n</li>\r\n</ul>\r\n<h5>Make sure you repeat the number to ensure that it is accurate. Give the same information if you were to leave a message for someone.</h5>\r\n<h5>Abiding to the above points will help in your day to day interactions on the phone at your workplace.</h5>",
+                            "course-unit-quotes": "<h5>\"Words can inspire. And words can destroy. Choose yours well.\" Robin Sharma</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "If I receive a phone call in the organization, I should answer:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 641,
+                                "order": 1,
+                                "question": "If I receive a phone call in the organization, I should answer:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 114,
+                            "title": "Business Etiquette Complete Unit 4",
+                            "description": "Business Etiquette Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "The way you handle the telephone reflects on you and your company, firm, or department. Should companies train their team members on how to handle the office phone calls professionally? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 229,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 816,
+                        "title": "Professionalism at the Workplace",
+                        "slug": "professionalism-at-the-workplace",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "qkxQAnb_LNQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Characteristics you should possess to shine in the workplace and be recognized for your professionalism:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Be Competent</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Reliable and Honest</h5>\r\n</li>\r\n \t<li>\r\n<h5>Have Integrity</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure you respect others and support others</h5>\r\n</li>\r\n \t<li>\r\n<h5>Upgrade yourself</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Positive</h5>\r\n</li>\r\n \t<li>\r\n<h5>Staying Work-Focused</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t forget</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>In this video, you will learn about the characteristics you should possess to shine in the workplace and be recognized for your professionalism. You should:</h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Be Competent</strong>. Make sure you have the skills and knowledge to be good at what you do.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Be Reliable and Honest.</strong>Make sure that people can depend on you to show up on time and meet deadlines. Tell the truth about what has been accomplished and what has not.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Have Integrity. </strong>Stick to your principles no matter the circumstances.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Make sure you respect others and support others.</strong> Treat all people in your workspace equally and make sure you acknowledge their success and shed the light on their achievements and guide them if they need help.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Upgrade yourself</strong>. Research and be up to date with all the details related to your field.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong> Be Positive</strong>. Have an upbeat optimistic approach and attitude.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Staying Work-Focused.</strong> Keep your personal matters at home.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Don’t forget.</strong> You should always take notes and make sure you are on top of all your tasks and tick off the tasks you have daily. “I forgot!” is for slackers and unreliable people.</h5>\r\n</li>\r\n</ol>\r\n<h5>If you abide to the above, you will convey all the professional characteristics of an employee. After all you don’t want to be like every fish in the sea. You need to shine and stand out to progress and move forward.</h5>",
+                            "course-unit-quotes": "<h5>\"The mark of a true professional is giving more than you get.\" Robert Kirby</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Abiding certain characteristics in the organization helps me become more professional.  Thus, I should ensure that I am ______ in my workplace:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 642,
+                                "order": 1,
+                                "question": "Abiding certain characteristics in the organization helps me become more professional.  Thus, I should ensure that I am ______ in my workplace:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 115,
+                            "title": "Business Etiquette Complete Unit 5",
+                            "description": "Business Etiquette Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What is the most important trait when it comes to being professional?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Honesty",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Respect",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Self-Upgrading",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Being Positive",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Competence",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 230,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 817,
+                        "title": "How to Write an Email Professionally",
+                        "slug": "how-to-write-an-email-professionally",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "qkMDHgG1i60",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Tips to keep in mind when writing an email professionally:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fill the subject with something catchy that means a lot to your reader.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Try to be straight to the point and include your main message at the beginning of the email.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be clear with your message.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure your email has no punctuation or grammatical errors.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Remember to say please and thank you. Be polite.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Add a signature block section with the contact details necessary.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be firm in terms of receiving responses and respond to your emails.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>It is very important to respond to your emails in a high professional manner. In this video, we will discuss the tips that you can keep in mind when writing an email.</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Fill the subject with something catchy that means a lot to your reader.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Try to be straight to the point and include your main message at the beginning of the email. Make sure your email doesn’t exceed 2-3 paragraphs. You can always add a more information section or attach a document with all the details so that it is optional for the reader to go through it.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be clear with your message. Make sure your message is not vague.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure your email has no punctuation or grammatical errors. Use spell and grammar check and proofread your email many times before sending it across. In some systems it is hard to recall an email.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Remember to say please and thank you. Be polite.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Add a signature block section with the contact details necessary. There is no need to clutter your email with “sayings” or artwork in the signature section. Keep it nice and neat.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be firm in terms of receiving responses and respond to your emails. If there are any delays be sure to clarify the reasons behind the delay.</h5>\r\n</li>\r\n</ol>\r\n<h5>These are some tips that you could keep in mind when sending out business emails.</h5>",
+                            "course-unit-quotes": "<h5>\"Professional is not a label you give yourself - it's a description you hope others will apply to you.\" David Maister</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "When responding to my emails, I have to make sure that my emails are free of:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 643,
+                                "order": 1,
+                                "question": "When responding to my emails, I have to make sure that my emails are free of:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 116,
+                            "title": "Business Etiquette Complete Unit 6",
+                            "description": "Business Etiquette Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What annoys you the most in an email?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "A bad subject line",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Ignoring questions",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Not using blind copy (BCC)",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Unstructured email message",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 231,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 818,
+                        "title": "Business Etiquette Post Test",
+                        "slug": "business-etiquette-certificate",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 117,
+                            "title": "Business Etiquette Post Test",
+                            "description": "Business Etiquette Post Test",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "Before the meeting starts, make sure you don’t speak about the weekend, your interests and any other conversations. Socializing with the attendees of the meeting must be done after the meeting and not before. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 234,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "If you choose to record the meeting on your phone, you should make sure that you inform the attendees of the meeting that you are recording. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 235,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "In order to produce a clear minutes of meeting document, you will be required to work on it:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Before the meeting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "During the meeting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "After the meeting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 236,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When responding to a phone call in an organization you should:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Start by greeting and introducing yourself",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Make sure that you are positive and friendly",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Pick up the phone quickly",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 237,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "If you run across a client who is complaining about a product or service, make sure that you are strict and straight to the point. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 238,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "In order to be recognized for your professionalism, you should make sure that people can depend on you to show up on time and meet deadlines. This is an example of showing your:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Competency",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Reliability & Honesty",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Integrity",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Positivity",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 239,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "In order to respond to your emails in a highly professional manner, you need to be firm in terms of receiving responses and respond to your emails and be clear within the message itself.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 240,
+                                    "order": 6
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/business-etic.png",
+                "zip_path": "wp-content/uploads/2018/10/business-etic.png",
+                "level": "card"
+            }
+        ]
+    }
+}

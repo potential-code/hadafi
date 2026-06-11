@@ -1,0 +1,577 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 103,
+        "title": "Grow your Social Business",
+        "description": "Grow your Social Business",
+        "unit_count": 10,
+        "author_id": 1448,
+        "course_post_id": 3742,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "no_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": null,
+        "modules": [
+            {
+                "module_id": 103,
+                "title": "Grow your Manufacturing Business",
+                "description": "Grow your Manufacturing Business",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 2786,
+                        "title": "Set your Social Business Growth Strategy",
+                        "slug": "set-your-manufacturing-growth-strategy-3",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "<h5>“The biggest risk is not taking any risk… In a world that changing really quickly, the only strategy that is guaranteed to fail is not taking risks.” Mark Zuckerberg</h5>",
+                            "course-unit-case-study": "<h5>Celine has a media and marketing agency. Prior to starting up the agency, she was working for one of the large advertising companies as a account manager and had many great contacts.</h5>\r\n<h5>When Celine started her agency many of her previous customers started to give her business since they trusted her. Despite the great feeling of being able to get a lot of business, Celine started to quickly realise that she needed to say 'No' to many business opportunities.</h5>\r\n<h5>She realised that the only way she can maintain quality and be able to scale was to specialise in a few areas that she was most passionate about. She decided to focus her agency on helping her customers develop the most efficient marketing campaigns.</h5>\r\n<h5>To do that she set 3 goals for herself over the year:</h5>\r\n<h5>1- To develop the sales kit that would allow her and her sales team to quickly explain and sell the company's services</h5>\r\n<h5>2- Develop the standard operating procedures that would allow her to quickly deliver the service and monitor implementation of it</h5>\r\n<h5>3- Create a marketing campaign for her own company that would reach her ideal target audiences and generate leads for her service</h5>\r\n<h5>By following this focused strategy, Celine felt more in control and was able to focus on learning and improving her offerings and delivery capability.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is your business's mission? ",
+                            "course-unit-atq-two": "What are your 3 most important goals for this year?",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 905,
+                                "order": 1,
+                                "question": "What is your business's mission? "
+                            },
+                            {
+                                "q_id": 906,
+                                "order": 2,
+                                "question": "What are your 3 most important goals for this year?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 888,
+                            "title": "Set your Manufacturing Growth Strategy",
+                            "description": "Set your Manufacturing Growth Strategy",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How developed do you consider your current business strategy to be? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Very developed",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Somewhat developed",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Not Developed",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2186,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2787,
+                        "title": "Developing your Innovation Process to Help Scale your Manufacturing",
+                        "slug": "developing-your-innovation-process-to-help-scale-your-manufacturing-3",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>Layla has an ideal customer who has a boutique that sells trendy accessories for youth in downtown. She is noticing first-hand the trend that youth are more and more inclined not to visit stores but rather buy online.</h5>\r\n<h5>Identifying that <strong>problem</strong>, she seeks to innovate a solution.</h5>\r\n<h5>To <strong>ideate</strong>, she comes up with many possible ideas but focuses on one idea that has to do with developing a mobile app that integrates, fashion, trivia and a community.</h5>\r\n<h5>Since she is not an expert in this field she goes to one of the local universities and asks for interns that could help her come out with building a <strong>prototype</strong> of the app.</h5>\r\n<h5>She finds out the prototype can be done in a month and since the students are based in the university, they could <strong>test </strong>amongst the youth there to get feedback.</h5>\r\n<h5>Once feedback has been gathered, Layla can then continue to develop the app using the students or find a professional company to develop it after proper testing and feedback.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is a pressing challenge that your customers are having in your area of business? ",
+                            "course-unit-atq-two": "What are possible solutions that you can provide to the challenge?",
+                            "atqq_3": "Out of the possible solutions, what is the best solution that you can take to market tomorrow and test with the prospects that you have?",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 908,
+                                "order": 1,
+                                "question": "What is a pressing challenge that your customers are having in your area of business? "
+                            },
+                            {
+                                "q_id": 909,
+                                "order": 2,
+                                "question": "What are possible solutions that you can provide to the challenge?"
+                            },
+                            {
+                                "q_id": 907,
+                                "order": 3,
+                                "question": "Out of the possible solutions, what is the best solution that you can take to market tomorrow and test with the prospects that you have?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2788,
+                        "title": "Essential Leadership Skills to drive your Strategy and Innovation Process",
+                        "slug": "essential-leadership-skills-to-drive-your-strategy-and-innovation-process-3",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>Julie has been recently started up an online gallery. This is the first time she takes a leadership position and is worried that her lack of experience could inhibit her success in her business. She decides that the best way for her to succeed is to build on her strength instead of focusing on her weaknesses.</h5>\r\n",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What do you and others around you consider as your key leadership strengths?",
+                            "course-unit-atq-two": "What do you consider are the areas that you can improve in?",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 910,
+                                "order": 1,
+                                "question": "What do you and others around you consider as your key leadership strengths?"
+                            },
+                            {
+                                "q_id": 911,
+                                "order": 2,
+                                "question": "What do you consider are the areas that you can improve in?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2789,
+                        "title": "Empowering the Team Around you to help you implement your Strategy",
+                        "slug": "empowering-the-team-around-you-to-help-you-implement-your-strategy-3",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>Ron is chartered with finding the best talent for his SEO marketing firm. The company is in a highly competitive space and needs to hire fast. Despite the fact that there is a need for filling up important posts, Ron has had previous experience that it’s better not to hire than to hire the wrong person that doesn’t fit within the culture. When someone is hired and doesn’t align to the company’s culture, they could distract others, cause loss of time and money in the organization. The faster such people are fired, the better.</h5>\r\n<h5>To reach the right talent, Ron creates for candidates a tour of the company showing how employees enjoy an open work environment, a lot of job rotation and many opportunities for learning. He does however also state the key values and the very demanding environment that exists. Through a careful screening process and after observing how well the candidates could fit in the work environment, Ron then passes them on to hiring managers to assess them further.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2790,
+                        "title": "Launching an Effective Marketing Campaign to Promote Your Innovation",
+                        "slug": "launching-an-effective-marketing-campaign-to-promote-your-innovation-3",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>A construction material company is introducing a new environmentally friendly paint to the market. To develop a marketing plan, the marketing manager identifies two key target segments that they need to reach, the developers who are building and the consultants that recommend and approve quality.</h5>\r\n<h5>Here is how their marketing campaign looks like:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Target Audience: a) Developers b) Consultants</h5>\r\n</li>\r\n \t<li>\r\n<h5>Value Proposition: a) Saves Money b) In line with green standards</h5>\r\n</li>\r\n \t<li>\r\n<h5>Call for Action: a) Buy now and get 15% off b) download the whitepaper</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2791,
+                        "title": "Developing your Team&apos;s Sales Skills to Increase your Enterprise Sales",
+                        "slug": "developing-your-teams-sales-skills-to-increase-your-enterprise-sales-3",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>Diane runs a graphic design business and she is very keen on providing the best customer service to her clients. She usually empathises well with the clients, by listening to their needs and detailed requirements so that she can provide them with the best solution.</h5>\r\n<h5>Recently she noticed that one of her clients seems to have been abusing her empathy by getting her different concepts and ideas without actually giving her a purchase order for her work. She realised that she needed to use more of her Ego (to balance the Empathy) by asking for the order before proceeding with more non-paid work.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2792,
+                        "title": "Key Legal Documents you Need to have in Place to Protect Your Investments",
+                        "slug": "key-legal-documents-you-need-to-have-in-place-to-protect-your-investments-3",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "<h5>“It is an immutable law in business that words are words, explanations are explanations, promises are promises-but only performance is reality.” Harold S. Geneen</h5>",
+                            "course-unit-case-study": "<h5>A startup has just launched their delivery business using a very catchy name and is picking up clients at a very fast pace. As the company grows and wants to expand into another city in the country, they realize that another company has just launched a similar business with a very similar name and is using the success of the original company to get clients.</h5>\r\n<h5>As the original startup seeks legal support, they find that since they didn’t protect their name through a trademark, there is not much that they can do about stopping the copycat business. They then have to resort to coming up with a new name that they register from the beginning.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 889,
+                            "title": "Which legal documents do you have in place?",
+                            "description": "Which legal documents do you have in place?",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which legal documents do you have in place?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Incorporation documents",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Employment contract",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Mutual Non-Disclosure Agreement",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Sales contract",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Trademark",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2187,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2793,
+                        "title": "Financial Metrics You Need to track to ensure the health of Your Business",
+                        "slug": "financial-metrics-you-need-to-track-to-ensure-the-health-of-your-business-3",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>A company is growing fast acquiring customers on an ongoing basis. The nature of the business is such that when the orders come in, the clients pay a 20% down payment with the remainder being paid on delivery. Despite the high profit margin of 70%, and the great success in orders coming in, the company quickly starts to feel the financial stress since they need to pay for the full amount of the products when they ship them and wait until their clients pay them the remaining amount.</h5>\r\n<h5>The CFO seeks bank financing to help in the transition, but the banks inform the CFO that he needs to try to create a healthier cash flow before seeking bank loans. The CFO takes the advice, and negotiates with the suppliers to give 60 days’ payment terms even if they increase the price by 2%. He then informs the sales team that they should not accept less than 50% down payment and can give up to 10% discounts for clients that pay upfront.</h5>\r\n<h5>After a few months with these changes in place, the CFO found that the banks were now fighting over who would give him better loan terms.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2794,
+                        "title": "Key Project Management Considerations to keep in mind when Implementing Your Projects",
+                        "slug": "key-project-management-considerations-to-keep-in-mind-when-implementing-your-projects-3",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>After having successfully closed her strategic business deal, Annie brings in her implementation team to meet with the client and make sure that all parties are clear on the deliverables of the project to ensure that the desired <strong>quality</strong> level is met, within the <strong>cost</strong> and <strong>time</strong> that were proposed. Even though the sale was closed Annie stays close to the client and the project implementation to ensure that the client is satisfied and ready to refer her to others as well as possibly take more solutions from her.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2795,
+                        "title": "What Are the Technology Tools you can Use to Improve your Business Performance",
+                        "slug": "what-are-the-technology-tools-you-can-use-to-improve-your-business-performance-3",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>A software company that sells office apps had a large outdoor sales team that would visit companies all day taking orders for various office apps. Some of the sales teams would take tablets to the clients to show them the products and others would take their laptops. The sales team would then come back to the office and input on the CRM tool their forecasting and sales prospects.</h5>\r\n<h5>The IT manager started to realize that as the team grows, there is a need for standardization of products so that it would be easier to manage and fix problems. it would also be important for the company to offer the ability for sales staff to input their forecasting in a simple way from anywhere and thus a cloud based solution would be optimal.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": null
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": []
+    }
+}

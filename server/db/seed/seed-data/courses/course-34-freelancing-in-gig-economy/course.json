@@ -1,0 +1,1470 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 34,
+        "title": "Freelancing in Gig Economy",
+        "description": "Freelancing in Gig Economy",
+        "unit_count": 10,
+        "author_id": 0,
+        "course_post_id": 3676,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2326,
+            "title": "Freelancing in Gig Economy",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/freelancing-gig-economy-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/gig.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 34,
+                "title": "Freelancing in Gig Economy",
+                "description": "Freelancing in Gig Economy - Potential Course",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 960,
+                        "title": "Freelancing in Gig Economy PreTest",
+                        "slug": "freelancing-gig-economy-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 259,
+                            "title": "Freelancing in Gig Economy PreTest",
+                            "description": "Freelancing in Gig Economy PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "People hired under a freelance contract are not usually employees of the hiring party.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 567,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The gig economy is characterized by individuals competing to win work contracts.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 568,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Freelancing can be performed outside of a traditional job’s working hours.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 569,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The best way to determine what your freelancing service will be is to ask yourself:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "“What am I good at?\"",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "“What do I enjoy doing?”",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 570,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Why is it important to explain your work?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Potential clients can ask your competition to do the same",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Help new freelancers to get started in the industry",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Potential clients understand your unique style",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 571,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The aspects of your competition that you must monitor is:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Pricing, location and customer names",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Location, bonuses and customer names",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Pricing, bonuses and timelines",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "You don’t have to monitor anything",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 572,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Failing to stay up-to-date with new techniques and approaches in your industry may cause you to become irrelevant.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 573,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Adjusting your pricing will give you control over how many potential clients you will have approaching you.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 574,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Providing more value than the customer is expecting wastes time and is unnecessary.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 575,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Working for free can allow you to negotiate:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Future contracts",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "New leads",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 576,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Smiling is not necessary in an Upwork profile picture.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 577,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The longer your title the better.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 578,
+                                    "order": 11
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Insurance is only necessary if you have a large income. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 579,
+                                    "order": 12
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A CPA can help with:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Taxes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Financial reporting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Financial planning",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 580,
+                                    "order": 13
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 961,
+                        "title": "3 Important Keys you should Know about the Gig Economy",
+                        "slug": "3-important-keys-know-enhance-understanding-gig-economy",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "EL0Q6Ge-S1c",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 important keys you should know to enhance your understanding of the gig economy:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Short term contract work</h5>\r\n</li>\r\n \t<li>\r\n<h5>Competition between freelancers</h5>\r\n</li>\r\n \t<li>\r\n<h5>Part-time or full-time work</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at what makes the gig economy different than the traditional economic system we’re familiar with. The gig economy is the economic structure of the future. It affords both employers and employees more flexibility and efficiency. Here are 3 important keys you should consider to enhance your understanding of the gig economy:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Short Term Contract Work</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The gig economy is characterized by the short term contract work. An employer-employee relationship does not exist in this structure. Instead, freelancers are hired by companies to complete projects on a temporary contract.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Competition between freelancers</h5>\r\n<ul>\r\n \t<li>\r\n<h5>In this structure, freelancers are competing to win the jobs that are available from companies or individuals.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Part time or Full time work</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Under the gig economy structure, the option for full time or part time work is available. The flexibility of contract work allows you to choose your own hours.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ol>\r\n<h5>The gig economy is the way of the future. Employees typically prefer the flexibility of hours and the employers prefer the freedom of project based hiring. This system may eventually become the main way that business is carried out.</h5>\r\n<h5></h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "For me, the most appealing part of the gig economy is: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 397,
+                                "order": 1,
+                                "question": "For me, the most appealing part of the gig economy is: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 260,
+                            "title": "Freelancing in Gig Economy Complete Unit 1",
+                            "description": "Freelancing in Gig Economy Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you performed a freelancing project for someone before?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 581,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 962,
+                        "title": "3 Questions that will Help you Determine your Craft",
+                        "slug": "3-questions-will-help-determine-craft",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "G6LG3ZJ-1UA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 questions that will help you determine your craft:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>What are the skills that people around you complement you on?</h5>\r\n</li>\r\n \t<li>\r\n<h5>What is it that you enjoy doing?</h5>\r\n</li>\r\n \t<li>\r\n<h5>How much time do you envision giving to your freelancing career?</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at 3 questions that can help you determine your craft. Now that you’ve decided to take the freelancing route, your options are nearly endless. Deciding on a precise focus will ensure that you provide the right services to the right clientele. This process will require some recollection and self-exploration. Here are 3 questions you should ask yourself in order to determine your craft:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>What are the skills that people around you complement you on?</h5>\r\n<ul>\r\n \t<li>\r\n<h5>There are usually a set of skills that people around you often “wish [they] could do” that you find to be easy. Each and every one of us has a set of skills that we take for granted. However, these skills can be valuable to a future freelancing career.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>What is it that you enjoy doing?</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Freelancing is open to whatever you make of it. Providing value through your unique skills will be much more efficient and effective when you enjoy what you’re doing</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>How much time do you envision giving to your freelancing career?</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Understanding what you want your hours to look like can help you to determine what your ideal service will be.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ol>\r\n<h5>After some self-reflection, it will become clearer what your ideal service will be. It is also important to remember that your freelancing service may evolve as you find out what things you like and don’t like with experience.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Other people usually complement me on my ability to: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 398,
+                                "order": 1,
+                                "question": "Other people usually complement me on my ability to: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 261,
+                            "title": "Freelancing in Gig Economy Complete Unit 2",
+                            "description": "Freelancing in Gig Economy Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What is your ideal freelancing service?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 582,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Are you employed full time or part time?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Self employed",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Employed part-time",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Employed full-time",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Unemployed",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 584,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 963,
+                        "title": "3 Initial Steps to Build a Strong Portfolio",
+                        "slug": "3-initial-steps-build-strong-portfolio",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "5FYN1810G8Q",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 initial steps to build a strong portfolio:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Any client is a valid client</h5>\r\n</li>\r\n \t<li>\r\n<h5>Blog posts</h5>\r\n</li>\r\n \t<li>\r\n<h5>Explain your work</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at 3 important steps to take when building a fresh portfolio. A portfolio is a set of completed work that serves as an example to potential customers. This is a very powerful tool in acquiring new clientele but can be difficult to set up when you don’t have any experience. Here are 3 steps to take when building a fresh portfolio:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Any client is a valid client</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Working for a low fee or even for free should be an option when you are first starting. This can help you to develop a good reputation and it can allow you to negotiate a list of potentially interested clients from your customer in return for your free services. You can also create an imaginary client scenario. Developing a project for an imaginary client can help you to create great content for your portfolio.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Blog posts</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Creating blog posts that demonstrate your understanding of your craft can be extremely beneficial when attracting potential customers. It also helps to find ways to guest post on other blogs with heavy traffic.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Explain your work</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Provide context to the work that you have done. Providing a real backstory can help you to connect to your potential clients by inviting them into your though process and style.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ol>\r\n<h5>When you are first starting out, it is important that you trust the process. Developing a trustworthy portfolio will take work. Understanding that it will take time, hard work and sacrifice to build yourself into a strong freelancing professional will provide you with the motivation to get it done.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My blog would feature information about: ",
+                            "course-unit-atq-two": "My strategy to build a clientele base is to: ",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 399,
+                                "order": 1,
+                                "question": "My blog would feature information about: "
+                            },
+                            {
+                                "q_id": 400,
+                                "order": 2,
+                                "question": "My strategy to build a clientele base is to: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 262,
+                            "title": "Freelancing in Gig Economy Complete Unit 3",
+                            "description": "Freelancing in Gig Economy Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you worked for free before?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 585,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you currently have your own blog?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 586,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 964,
+                        "title": "3 Freelancing Habits that are Critical to Success",
+                        "slug": "3-freelancing-habits-critical-success",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "mb8qwxkFtuE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 freelancing habits that are critical to success:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Creating and sticking to a schedule</h5>\r\n</li>\r\n \t<li>\r\n<h5>Monitoring your competition</h5>\r\n</li>\r\n \t<li>\r\n<h5>Staying up to date with the latest and greatest in your industry</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will explore 3 freelancing habits that are critical to success. Two things can occur in a freelancing scenario. If you are balancing freelancing work with a full time or part time job, you may find yourself with too much freelance work to handle. On the other hand, you may only be working in the freelancing industry and struggle to find the motivation to finish projects. Here are 3 freelancing habits that are critical to success:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Creating and sticking to a schedule</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Maintaining this habit will ensure that you keep customers happy while maintaining your own personal work flow.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Monitoring your competition</h5>\r\n<ul>\r\n \t<li>\r\n<h5>It is important to keep tabs on what your competition is providing for their customers. This includes pricing, added bonuses and timelines for project completion. Knowing these things will ensure that you are staying ahead of your competition.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Staying up to date with the latest and greatest in your industry</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Knowing about the latest developments in your industry will ensure that you’re at the leading edge of your freelancing work.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ol>\r\n<h5>These are important aspects of being a successful freelancer. Being clear on what you need to do to stay ahead on your work will ensure that you have sustained success.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The habits that I need to improve are: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 401,
+                                "order": 1,
+                                "question": "The habits that I need to improve are: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 263,
+                            "title": "Freelancing in Gig Economy Complete Unit 4",
+                            "description": "Freelancing in Gig Economy Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How many of these habits, mentioned above, have you already developed?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "1",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "2",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "3",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "none",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 587,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 965,
+                        "title": "2 Tactics to Determine your Service Pricing",
+                        "slug": "2-tactics-determine-service-pricing",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "FXuX_NEfFok",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>2 tactics to determine your service pricing</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Understand what your competition is charging</h5>\r\n</li>\r\n \t<li>\r\n<h5>Use your cost to control how many customers you’re serving</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at 2 tactics to determine your pricing. Determining pricing can be very confusing. In the beginning, you may have to start at a lower cost in order to attract more opportunities to prove yourself. Here are the 2 tactics to determine your pricing:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Understand what the competition charges</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Understanding what your competitors charge will show you the appropriate amounts that you can ask for to attract clientele. You may have to start off charging less than your competitors in order to build your reputation.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Use your cost to control how many customers you are serving</h5>\r\n<ul>\r\n \t<li>\r\n<h5>In time, you will find that your prices are causing you to accumulate more customers than you can handle. At this point, you will see that a price increase is necessary in order to adjust the number of customers that are approaching you for your services.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ol>\r\n<h5>These tactics will allow you to play with your pricing to build a reputation and to control the number of customers that you are attracting. Adjusting your rates based on your competition is also critical based on where you are in your freelancing career. Adjusting your rates according to demand will help you to create a flow of customers that you can handle.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I can determine the average cost of the services of someone in my industry by: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 402,
+                                "order": 1,
+                                "question": "I can determine the average cost of the services of someone in my industry by: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 264,
+                            "title": "Freelancing in Gig Economy Complete Unit 5",
+                            "description": "Freelancing in Gig Economy Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Would you consider average price of your onlinelearning services to be an important aspect to monitor?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 588,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 966,
+                        "title": "5 Steps to Acquiring and Maintaining Clientele",
+                        "slug": "5-steps-acquiring-maintaining-clientele",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "pWaR0zVZZHE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 steps to acquiring and maintaining clientele:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Guest posts</h5>\r\n</li>\r\n \t<li>\r\n<h5>Negotiate new leads</h5>\r\n</li>\r\n \t<li>\r\n<h5>Over deliver on value</h5>\r\n</li>\r\n \t<li>\r\n<h5>Attend relevant conferences or events</h5>\r\n</li>\r\n \t<li>\r\n<h5>Contact people you may know</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will explore the 5 steps to acquiring clientele. Acquiring clientele is about more than just finding one time clients. You want to ensure that clients keep coming back for your services. There are a lot of tactics that you can use to attract and maintain a group of clients. We will outline a few. Here are the 5 steps to acquiring clientele:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Guest posts</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Writing blog posts are a great way to demonstrate what you know. If you guest post on a popular blog, you may direct the attention of potentially new clientele to your services.</h5>\r\n</li>\r\n</ol>\r\n</li>\r\n \t<li>\r\n<h5>Negotiate new leads</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Working for free is a great way to work for a list of potential clients that your customer might know. This will provide you with a list of potential clients which you can contact and potentially start charging. It also helps that these new clients will have heard positive testimonials from your free customer.</h5>\r\n</li>\r\n</ol>\r\n</li>\r\n \t<li>\r\n<h5>Over deliver on value</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Treating every project like you’re trying to prove yourself is a great mentality. Delivering more value than the customer is expecting, will ensure that they will return for your services and tell their friends about you.</h5>\r\n</li>\r\n</ol>\r\n</li>\r\n \t<li>\r\n<h5>Attend relevant conferences or events</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Attending conferences or events will provide you with the opportunity to meet with others working within your industry, along with potential customers.</h5>\r\n</li>\r\n</ol>\r\n</li>\r\n \t<li>\r\n<h5>Contact people you may know</h5>\r\n<ol>\r\n \t<li>\r\n<h5>If you know people from your previous positions, it may help to reach out and offer your services for a better price than their competitors.</h5>\r\n</li>\r\n</ol>\r\n</li>\r\n</ol>\r\n<h5>Placing a high value on customer satisfaction is really the key here. Working your way to increased pay happens slowly and is a methodical process. In the beginning you may need to start slow but in time, you will find success when you emphasize customer satisfaction.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Relevant conferences in my industry are:",
+                            "course-unit-atq-two": "People that I know that may be able to use my services are: ",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 403,
+                                "order": 1,
+                                "question": "Relevant conferences in my industry are:"
+                            },
+                            {
+                                "q_id": 404,
+                                "order": 2,
+                                "question": "People that I know that may be able to use my services are: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 265,
+                            "title": "Freelancing in Gig Economy Complete Unit 6",
+                            "description": "Freelancing in Gig Economy Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you already have experience in finding clientele?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 589,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "How many relevant conferences have you attended?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "None",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "1",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "2",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "3+",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 590,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 967,
+                        "title": "5 Keys to Creating a Strong Upwork Profile",
+                        "slug": "5-keys-creating-strong-upwork-profile",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "CFZNlL9YGsE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 keys to creating a strong Upwork profile:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Inviting profile picture</h5>\r\n</li>\r\n \t<li>\r\n<h5>Short and concise title</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose appropriate skills</h5>\r\n</li>\r\n \t<li>\r\n<h5>Developing an effective overview</h5>\r\n</li>\r\n \t<li>\r\n<h5>Portfolio section</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will show you the 5 steps to create a strong Upwork profile. www.Upwork .com is a website where clients and freelancers go to connect with each other. It is a website that is free for you to set up your freelancing profile and have potential clients contact you. Here are the 5 steps to creating a strong Upwork profile:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Inviting profile picture</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Your profile picture is often the first impression that you are making with your potential clients. Making sure that the picture is inviting is very important. A portrait from the shoulders up is typically what is most common. It is important to show your teeth when you smile and to express positive body language. The backdrop should also be light colored.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Short and concise title</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Your title is located under your name and provides your profile visitors with insight into what it is you specialize in. For example it could be: “JavaScript UI Web Developer” or “Illustrator and Cartoonist”. This title should be short but it should intrigue your visitor.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Choose appropriate skills</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Under your title is a list of your skills. You can add these skills to your profile in order to expand on what your title already iterated. These skills also help Upwork users to find you through the search function. Your profile will appear if a user searches for one or more of the skills that you have listed.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Developing an effective overview</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Your overview is a paragraph long description of what you do, what you have done, what differentiates you from your competition, and what motivates you. This section will help to attract the right customers. It is all about selling your abilities effectively.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Portfolio section</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The portfolio section will allow you to demonstrate your past projects. This is very important for developing immediate trust with potential clients. Using your most successful work can help you to convince those hesitant clients to seek your services.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ol>\r\n<h5>After putting some time and thought into your profile, you will find that customers are lining up to hire you for your services. It is important that you view your profile from the perspective of a potential client. Then ask yourself: “Would I hire myself if I had seen this profile for the first time?” If the answer is yes, then you have successfully created your first freelancing profile.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Aspects of my career that I should highlight in my overview are:",
+                            "course-unit-atq-two": "Projects that I can include in my portfolio include:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 405,
+                                "order": 1,
+                                "question": "Aspects of my career that I should highlight in my overview are:"
+                            },
+                            {
+                                "q_id": 406,
+                                "order": 2,
+                                "question": "Projects that I can include in my portfolio include:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 266,
+                            "title": "Freelancing in Gig Economy Complete Unit 7",
+                            "description": "Freelancing in Gig Economy Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you built a LinkedIn Profile before?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 591,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Have you built an Upwork profile before?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 592,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 968,
+                        "title": "4 Financial Moves that you Should make to Stay Ahead",
+                        "slug": "4-financial-moves-make-stay-ahead",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "56u0a8e3ApQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 financial moves that you should make to stay ahead:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Saving</h5>\r\n</li>\r\n \t<li>\r\n<h5>Avoid loans</h5>\r\n</li>\r\n \t<li>\r\n<h5>Keeping track of taxes with the help of a CPA</h5>\r\n</li>\r\n \t<li>\r\n<h5>Insurance</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>The world of freelancing comes with major insecurity. Taking care of your finances is an important consideration that can save you potential problems in the future. Freelancing work is often available in abundance but in the unforeseen circumstances that things slow down, there are some important tactics to keep in mind. Here are 4 financial moves that you should make to stay ahead:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Saving</h5>\r\n<ul>\r\n \t<li>\r\n<h5>When you start creating a steady stream of income in the gig economy, it is time to consider putting a large portion of your income into a savings account. You can save to contribute to an emergency fund that you can use in times of need or you can begin a retirement fund.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Avoid Loans</h5>\r\n<ul>\r\n \t<li>\r\n<h5>It isn’t clever to be using loans in times of uncertainty. Any kind of debt is not safe when you have not yet established a reliable freelancing career.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Keeping track of taxes with the help of a CPA</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Certified Professional Accountants can be hired to ensure that you are reporting your taxes in a legal fashion that is most beneficial to your financial situation. Understanding the benefits of hiring a professional accountant early can save you potential legal troubles down the road.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Insurance</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Re investing your profits in a strong freelancers insurance plan will give you the peace of mind when it comes to benefits that you may have missed out on from not having a traditional job. This will also help you to cover any unforeseen emergencies that may arise.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ol>\r\n<h5>Keeping in mind the possibilities that may arise in the future will prove to be valuable. Although things may be going well at the moment, you won’t want to risk the hard work that you have put into freelancing. Keeping an eye on all of the possibilities will ensure that you stay ahead with added peace of mind.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I will start by contributing $________ to my savings accounts each month.",
+                            "course-unit-atq-two": "I will incorporate ______________ into my financial safety strategy.",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 407,
+                                "order": 1,
+                                "question": "I will start by contributing $________ to my savings accounts each month."
+                            },
+                            {
+                                "q_id": 408,
+                                "order": 2,
+                                "question": "I will incorporate ______________ into my financial safety strategy."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 267,
+                            "title": "Freelancing in Gig Economy Complete Unit 8",
+                            "description": "Freelancing in Gig Economy Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you currently incorporate any of the strategies mentioned in this unit?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 593,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 969,
+                        "title": "Freelancing in Gig Economy PostTest",
+                        "slug": "freelancing-gig-economy-posttest",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 268,
+                            "title": "Freelancing in Gig Economy PostTest",
+                            "description": "Freelancing in Gig Economy PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "People hired under a freelance contract are not usually employees of the hiring party.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 554,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The gig economy is characterized by individuals competing to win work contracts.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 555,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Freelancing can be performed outside of a traditional job’s working hours.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 556,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The best way to determine what your freelancing service will be is to ask yourself:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "“What am I good at?”",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "“What do I enjoy doing?”",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 557,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Why is it important to explain your work?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Potential clients can ask your competition to do the same",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Help new freelancers to get started in the industry",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Potential clients understand your unique style",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 558,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The aspects of your competition that you must monitor is:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Pricing, location and customer names",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Location, bonuses and customer names",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Pricing, bonuses and timelines",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "You don’t have to monitor anything",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 559,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Failing to stay up-to-date with new techniques and approaches in your industry may cause you to become irrelevant.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 560,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Adjusting your pricing will give you control over how many potential clients you will have approaching you.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 561,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Providing more value than the customer is expecting wastes time and is unnecessary.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 562,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Working for free can allow you to negotiate:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Future contracts",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "New leads",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 563,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Smiling is not necessary in an Upwork profile picture.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 564,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The longer your title the better.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 565,
+                                    "order": 11
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A CPA can help with:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Taxes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Financial reporting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Financial planning",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 566,
+                                    "order": 12
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/gig.png",
+                "zip_path": "wp-content/uploads/2018/10/gig.png",
+                "level": "card"
+            }
+        ]
+    }
+}

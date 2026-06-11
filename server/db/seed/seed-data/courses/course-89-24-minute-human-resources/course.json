@@ -1,0 +1,1106 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 89,
+        "title": "24 Minute Human Resources",
+        "description": "The 24minHR is a customized program for India",
+        "unit_count": 12,
+        "author_id": 0,
+        "course_post_id": 3730,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2442,
+            "title": "24 Minute Human Resources",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/human-resource-management-key-activities/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/hr.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 89,
+                "title": "24 Min HR",
+                "description": "The 24minHR is a customized program for India",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 2404,
+                        "title": "Human Resource Management Key Activities",
+                        "slug": "human-resource-management-key-activities",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "GLcF951h9XM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The five function areas associated with effective human resource management are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Hiring</h5>\r\n</li>\r\n \t<li>\r\n<h5>Talent Development</h5>\r\n</li>\r\n \t<li>\r\n<h5>Compensation</h5>\r\n</li>\r\n \t<li>\r\n<h5>Safety</h5>\r\n</li>\r\n \t<li>\r\n<h5>Labor Relations</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>HRM is the process of hiring and developing employees so that they become more valuable to the organization. Human Resource departments face different challenges, ranging from a constantly changing workforce to ever-present government regulations, technology changes, and economic conditions. Here are 5 function areas that should be a part of effective human resource management:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Hiring:</strong> to ensure that the organization has the right number of employees, with the right skills, in the right jobs at the right time, to achieve organizational objectives. The staffing process involves job analysis, human resource planning, recruitment, and selection.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Talent Development:</strong> consisting of training and development, career planning, organization development, performance management and appraisal.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Compensation:</strong> which include rewards that individuals receive as a result of their employment. It consists of direct and indirect financial compensation, as well as non-financial compensation.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Safety:</strong> Protecting employees from injuries caused by work-related accidents as employees who work in safe environments and enjoy good health are more likely to be productive.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Labor relations:</strong> in countries where businesses are required by law to recognize a labor union and bargain with it in good faith if the firm’s employees want the union to represent them.</h5>\r\n</li>\r\n</ul>\r\n<h5>The role of HR managers has evolved over the years into a very strategic one, since talent is the most important asset of any business. Good HR practices need to be continually reviewed and adjusted to meet the changing demands of today’s fast paced business environment. Remember, to win in the marketplace you must first win in the workplace!</h5>",
+                            "course-unit-quotes": "<h5>\"We recruit for attitude and train for skill.” Atul Gawande</h5>",
+                            "course-unit-case-study": "<h5>The CEO of ABC company noticed that there were a lot of staff that were quitting over the past months. He brought in an HR consultant to review why was that happening. After concluding his report, the consultant pointed out the main reason why so many were quitting was that the promises made at the time of hiring, in particular with regard to Talent Development and Compensation, were not being fulfilled. The employees were seeing that they were not being given an opportunity to develop their skills and the compensation model was not linked to their performance. The CEO immediately took action to ensure that these two areas were added to the HR function.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I should ensure that my human resource management department always focuses on the following areas:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 780,
+                                "order": 1,
+                                "question": "I should ensure that my human resource management department always focuses on the following areas:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 786,
+                            "title": "HRM Indian Eng Complete Unit 1",
+                            "description": "HRM Indian Eng Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does the HR department in your company work according to the mentioned 5 HR function areas?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1906,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2405,
+                        "title": "Steps for Successful Hiring",
+                        "slug": "steps-successful-hiring",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "76pRVhhnRH8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The staffing process contains:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Job Analysis</h5>\r\n</li>\r\n \t<li>\r\n<h5>Human Resource Planning</h5>\r\n</li>\r\n \t<li>\r\n<h5>Recruitment & Selection</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Staffing is the process of filling a position in an organization with the most qualified & suitable candidate to create positive impact on the organization effectiveness. Every business that grows will need to hire staff so it is essential that the hiring gets done right. Here are <strong>3 Steps to follow when hiring:</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5>Do a <strong>Job Analysis:</strong> to determine the skills, duties and knowledge required for performing the various jobs at the organization.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Conduct <strong>Human Resource Planning:</strong> to match the internal and external supply of people with job openings anticipated in the organization over a specific period of time.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Recruit and Select:</strong> by attracting individuals on a timely basis, in sufficient numbers with appropriate qualifications and then choosing the individual best suited for the particular position and the organization from a group of applicants.</h5>\r\n</li>\r\n</ul>\r\n<h5>Finding the right employee at the right time for the right job is essential to any organization at any stage of its development. Selecting a wrong person for any job can be costly for the organization. The goal is to properly match the right person with the right job. To save time, money and nerves, ensure that you hire well by following these 3 steps!</h5>",
+                            "course-unit-quotes": "<h5>“You need to have a collaborative hiring process.” Steve Jobs, Apple</h5>",
+                            "course-unit-case-study": "<h5>A startup is expanding fast and is in need of staff to help take off some load. Due to the fast growth, the CEO of the startup puts a job posting for a project management position that could help in handling some projects. A few weeks after identifying a good project manager and hiring him, the appointed project manager comes into the CEO office and is complaining that he is not doing a project management job, but rather a account management job. After an explanation, it became clear to the CEO that she didn't do a good Job Analysis to identify the right position needed and as such had hired incorrectly.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "When hiring, my hiring staff should:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 781,
+                                "order": 1,
+                                "question": "When hiring, my hiring staff should:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 787,
+                            "title": "HRM Indian Eng Complete Unit 2",
+                            "description": "HRM Indian Eng Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your company provide a clear job description to the employees?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1907,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2406,
+                        "title": "Talent Development Functions",
+                        "slug": "talent-development-functions",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "P1F9U7Ugeik",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The four human resource development functions:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Training & Development</h5>\r\n</li>\r\n \t<li>\r\n<h5>Performance Management and Appraisal</h5>\r\n</li>\r\n \t<li>\r\n<h5>Career Planning and Development</h5>\r\n</li>\r\n \t<li>\r\n<h5>Organization Development</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Human Resource Development deals with training and developing employees with the aim to improving their performance levels across the organization. Job requirements are continuously changing so staff in an organisation should be continuously developed to stay relevant to the job needs.</h5>\r\n<h5>Here are <strong>4 essential Human Resource Development (HRD) functions in any business:</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Training and development (T&D)</strong> is the heart of a continuous effort to improve employee skills, knowledge and organizational performance. Training is providing workers with knowledge and skills needed for their present jobs, while development is learning beyond today’s job. Employees need to be prepared to cope with the organization as it changes and grows.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Performance Management and Appraisal:</strong> Performance Management is a goal-oriented process used to maximize the productivity of employees, teams, and the overall organization while performance appraisal is a formal system of reviewing and evaluating the individual’s and team’s performance.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Career Planning and development:</strong> an ongoing process whereby an individual sets career goals and identifies the means to achieve them. Career development is a formal approach used by the organization to ensure that employees with the proper qualifications and experiences are available for promotion or reassignment when needed.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Organization development:</strong> is a planned and systematic attempt to make the organization more effective by creating a more positive behavioral environment.</h5>\r\n</li>\r\n</ul>\r\n<h5>Human resource development should involve training an employee after he/she is hired, providing opportunities to learn new skills, distributing resources that are beneficial for the employee's tasks, and other developmental activities.</h5>\r\n<h5>Remember, there is only one thing worse than training employees and losing them, and that’s not training them and leaving them employed within the organization. Transform your thinking and look forward.</h5>",
+                            "course-unit-quotes": "<h5>\"Resources are hired to give results, not reasons.” Amit Kalantri</h5>",
+                            "course-unit-case-study": "<h5>A company conducts its employee performance reviews once a year to determine what is the bonus that should be distributed to the staff. It became clear after a few years of doing so, that this was not effective since employees didn't have a chance of developing themselves in the identified areas except at the end of the year. The company then changed the process to a much more efficient quarterly performance review which ensured that the employees and their managers can quickly address areas of weakness. The performance of the employees improved, and their motivation has been encouraged as they were able to develop quickly.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Some human resource functions I use in my business to help develop my employees' performance levels:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 782,
+                                "order": 1,
+                                "question": "Some human resource functions I use in my business to help develop my employees' performance levels:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 788,
+                            "title": "HRM Indian Eng Complete Unit 3",
+                            "description": "HRM Indian Eng Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you think providing employees with training is important in an organization? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1908,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2407,
+                        "title": "Staff Compensation Options",
+                        "slug": "staff-compensation-options",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "QyWDYYgrZ_Y",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The three major types of compensation are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Direct Financial Compensation</h5>\r\n</li>\r\n \t<li>\r\n<h5>Indirect Financial Compensation</h5>\r\n</li>\r\n \t<li>\r\n<h5>Non-financial Compensation</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Compensation is the total of all rewards provided to employees in return for their services. The overall purposes of providing compensation are to attract, retain, and motivate employees.</h5>\r\n<h5>The <strong>three major types of compensation</strong> are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Direct financial compensation:</strong> compensation consists of the pay that an employee receives in the form of wages, salaries, commissions, and bonuses.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Indirect financial compensation:</strong> consists of all financial rewards that are not included in direct financial compensation, such as health care insurance.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Non-financial compensation:</strong> consists of the satisfaction that an employee receives from the job itself or from the job environment and the workplace flexibility, like a parking spot next to the CEO’s parking spot.</h5>\r\n</li>\r\n</ul>\r\n<h5>To determine compensation, each organization must form their own compensation program. A good compensation program will have a balance of salaries, benefits and rewards which will help the organization gain a competitive advantage in today’s labor market, maintain talent and motivate employees.</h5>\r\n<h5>Remember, “Your number one customers are your people. Look after employees first and then customers last. “<em>Ian Hutchinson, author of People Glue</em></h5>",
+                            "course-unit-quotes": "<h5>“Do not hire a man who does your work for money, but him who does it for the love of it.” Henry David Thoreau, Life without Principle</h5>",
+                            "course-unit-case-study": "<h5>Google, Facebook and many others are focusing on a lot of non-financial compensation by creating amazing environments for employees to work in including a lot of flexibility and many perks.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The types of compensation that I give to my employees are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 783,
+                                "order": 1,
+                                "question": "The types of compensation that I give to my employees are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 789,
+                            "title": "HRM Indian Eng Complete Unit 4",
+                            "description": "HRM Indian Eng Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "In your opinion, what type of compensation satisfies employees the most?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Direct Financial Compensation",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Indirect Financial Compensation",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Nonfinancial Compensation",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1909,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2408,
+                        "title": "Creating a Great Environment to Work in",
+                        "slug": "creating-great-environment-work",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "v_B0sTCEWhM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 4 Considerations to improve your Workplace Well-Being:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Introducing Safety measures</h5>\r\n</li>\r\n \t<li>\r\n<h5>Creating an open environment</h5>\r\n</li>\r\n \t<li>\r\n<h5>Encouraging diversity in the workplace</h5>\r\n</li>\r\n \t<li>\r\n<h5>Having a Work-Life balance</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Workplace Well-Being relates to how well the work environment supports employees to be safe, healthy, satisfied and engaged at work which are key aspects of Occupational Health and Safety standards.</h5>\r\n<h5>A good work environment has been proven to increase the level of productivity within the workforce whereas a bad work environment can have serious negative effects on engagement and commitments of employees.</h5>\r\n<h5>Here are 4 considerations to improve Workplace Well-Being:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Introduction of <strong>Safety</strong> measures that raise awareness in your team about safe practices, ensuring there are no hazardous areas in your workplace and encouraging ergonomic best practices.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Creating an <strong>open environment</strong> where employees are free to share their ideas, thoughts and concerns without fear of being reprimanded for their thoughts.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Encouraging <strong>diversity</strong> in the workplace where people of different backgrounds, beliefs, age, gender and ethnicity work together with no favoritism for one group or the other.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Supporting staff to have a <strong>Work-Life balance</strong> which includes healthy practices such as exercise and nutrition as well as support for parents such as child care services and maternity / parental leave policies.</h5>\r\n</li>\r\n</ul>\r\n<h5>HR managers should review these policies on a regular basis to be in line with staff needs and changing job requirements. So creating a good working environment would result in greater productive, creativity and less absentees - an investment well worth making.</h5>",
+                            "course-unit-quotes": "<h5>“Treat Employees like they make a difference and they will.” Jim Goodnight</h5>",
+                            "course-unit-case-study": "<h5>Google, Facebook and many others are focusing on a lot of non-financial compensation by creating amazing environments for employees to work in including a lot of flexibility and many perks.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I should ensure that my HR managers are improving our workforce well-being by:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 784,
+                                "order": 1,
+                                "question": "I should ensure that my HR managers are improving our workforce well-being by:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 790,
+                            "title": "HRM Indian Eng Complete Unit 5",
+                            "description": "HRM Indian Eng Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you work on improving you’re company’s workplace well-being?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "From time to time",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "On a regular basis",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1910,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2409,
+                        "title": "Tips for Building the Right Team",
+                        "slug": "tips-building-right-team",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Ogwaefc-t2w",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>To build your team, you need to think about 3 key considerations:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Hire Right</h5>\r\n</li>\r\n \t<li>\r\n<h5>Give Opportunities for Development</h5>\r\n</li>\r\n \t<li>\r\n<h5>Fire Fast</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>You never know what to expect in business and unless you have the right team in place, it would be very hard for a company to navigate the challenges and make use of the opportunities that arise.</h5>\r\n<h5>To build your team, you need to think about 3 key considerations:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Hire right</strong> by making sure that you are getting people that are in line with your values, culture and are passionate about what you are doing.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Give opportunities for development</strong> by having your team members do job rotations, get put on special projects, pursue some side projects and be responsible for their learning.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Fire fast</strong> when there is a mismatch between the individual’s attitude and your objectives or strategy. Don't let things linger so that it doesn't spill over to affect others.</h5>\r\n</li>\r\n</ul>\r\n<h5>By following these 3 key considerations and continuously rewarding, even if it is only a pat on the back, you will ensure that you have a cohesive team that is all rowing in the same direction. Remember, your talent is your most important asset. Nurture it, Manage it & Reward It!</h5>",
+                            "course-unit-quotes": "<h5>\"Talent wins games, but teamwork and intelligence win championships.\" Michael Jordan</h5>",
+                            "course-unit-case-study": "<h5>Jack Welsh the former General Electric CEO had a 10% rule. Every year, the company would fire the lowest 10% performing individuals in the company and hire a new set of individuals instead. This helped keep only top performers in the company and built a strong performance culture.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "To build my team right, I need to consider the following:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 785,
+                                "order": 1,
+                                "question": "To build my team right, I need to consider the following:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 791,
+                            "title": "HRM Indian Eng Complete Unit 6",
+                            "description": "HRM Indian Eng Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you Fire Fast when there is a mismatch between the individual’s attitude and your objectives or strategy?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1911,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2410,
+                        "title": "Herzberg Motivation Theory",
+                        "slug": "herzberg-motivation-theory",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "c7yxSEATM48",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Herzberg’s Two-Factor Theory highlights two important factors:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Motivation Factors</h5>\r\n</li>\r\n \t<li>\r\n<h5>Hygiene Factors</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Motivation includes “the processes that account for an individual’s intensity, direction, and persistence of effort toward attaining a goal”. One of the most popular early motivation theories is Herzberg’s Two-Factor Theory. He highlighted <strong>two</strong> important <strong>rewards to motivate your teams</strong>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Internist Rewards known as “Motivation Factors”: </strong>when an employee is satisfied, they will receive a feeling of accomplishment from performing a particular task. Intrinsic rewards contain recognition, opportunities for growth, promotional opportunities and responsibility which will create job satisfaction. These intrinsic rewards are related to job satisfaction. Herzberg called the intrinsic rewards the <strong>motivation factors</strong> as they can transfer the employee from being not satisfied to satisfied.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Extrinsic Rewards known as “Hygiene Factors”: </strong>are rewards an employee receives from others for performing a particular task, such as salary. Other extrinsic rewards contain the company policy, quality of supervision, job security. Extrinsic factors are related with job dissatisfaction. Herzberg called the extrinsic rewards <strong>Hygiene factors. </strong>These hygiene factors can transfer the employee from being dissatisfied to being not dissatisfied.</h5>\r\n</li>\r\n</ul>\r\n<h5>Managers who eliminate job dissatisfaction factors may not necessarily bring about motivation; employees will not be dissatisfied nor satisfied. To motivate employees, managers must emphasize on intrinsically rewarding factors that are associated with the work itself or to outcomes directly derived from it. Remember, “The way your employees feel is the way your customers will feel. And if your employees don’t feel valued, neither will your customers.” – Sybil F. Stershic, Taking Care of the People Who Matter Most: A Guide to Employee-Customer Care</h5>",
+                            "course-unit-quotes": "<h5>\"You can have the best strategy and the best building in the world, but if you don’t have the hearts and minds of the people who work with you, none of it comes to life.” Renee West, Luxor and Excalibur Hotel</h5>",
+                            "course-unit-case-study": "<h5>A lot of people looking for jobs these days search for companies that have a mission and values that are in line with theirs. This helps motivate them to come to work since they feel that they are making a difference in the community. As such many companies now highlight their social impact, sustainable business practices to help lure in good talent and more customers.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In your opinion, what is the most important motivation factor?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 811,
+                                "order": 1,
+                                "question": "In your opinion, what is the most important motivation factor?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 792,
+                            "title": "HRM Indian Eng Complete Unit 7",
+                            "description": "HRM Indian Eng Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you a motivated employee?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1912,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2411,
+                        "title": "What makes up Emotional Intelligence",
+                        "slug": "makes-emotional-intelligence",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "lE1sExIwwgs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The four parts of Daniel Goleman Model are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Self-awareness</h5>\r\n</li>\r\n \t<li>\r\n<h5>Self-management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Social awareness</h5>\r\n</li>\r\n \t<li>\r\n<h5>Relationship management</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>The first part is about the self-awareness and what this means is about how aware am I about how I react to a sensation, to a situation. When some things happen, how does this trigger me? Whether positively or negatively, what are the emotions for me? Am I happy? Am I upset? Am I anxious? What is it? What’s the feeling that I have? This is self-awareness and it starts there with how much do I know about my emotions.</h5>\r\n<h5>The second part is about the self-management, which is what do I do with this emotion. Now that I know that I am angry, what am I going to do about it. Am I going to manage it, or do I just disperse the anger out and just let it come out as being aggressive towards others. So this is the self-management, this is what happens or the front part of the brain that controls it and decides for me what am I going to do about it.</h5>\r\n<h5>If you think when you really want to come out with an idea or thinking too much, you normally go like this right. This is an instinctive gesture or something that we do and this is really about stimulating this front part to manage the brain for us, the rational and logical and thinking part.</h5>\r\n<h5>Then the second part of the module, which is the bottom part, is really about the social and the first part of the bottom part is the social awareness. What this talks to is about how aware am I about the society or the community around me. So what do I know about the other person? Is he or she upset? Are they motivated? Are they demotivated? Are they happy about what they are doing or not. And this becomes the social awareness, so the awareness of the feeling and emotions of the other people around you.</h5>\r\n<h5>Actually all the three parts of the module work in favor or they service the last part of the model which is the relationship management. All this information, which is basically the self-awareness, the self-management, and the social awareness, is for the sake or enabler’s to enable me to better manage the relationship with others and this is an essence to what emotional intelligence is all about.</h5>",
+                            "course-unit-quotes": "<h5>\"Emotional intelligence is the ability to sense, understand, and effectively apply the power and acumen of emotions as a source of human energy, information, connection, and influence.\" Robert K. Cooper. Ph.D.</h5>",
+                            "course-unit-case-study": "<h5>In the past, companies would focus on IQ - reflecting sheer intelligence - when they looked to hire staff. These days they focus more on EQ - the Emotional intelligence since most jobs require the ability to interact with others, whether they are suppliers, customers, staff or the like...</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I focus on the following to build my emotional intelligence and to maintain relationships:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 812,
+                                "order": 1,
+                                "question": "I focus on the following to build my emotional intelligence and to maintain relationships:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 793,
+                            "title": "HRM Indian Eng Complete Unit 8",
+                            "description": "HRM Indian Eng Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you emotionally intelligent?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1945,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2412,
+                        "title": "Talent Development Tips",
+                        "slug": "talent-development-tips",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "sOKeNyeBtCE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>This course will provide you with three ways for better talent development:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Developing yourself</h5>\r\n</li>\r\n \t<li>\r\n<h5>Developing Others</h5>\r\n</li>\r\n \t<li>\r\n<h5>70/20/10 Rule</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>What I want you to start thinking about as I start talking to you, is that when I say people development - that includes myself. So it’s me, my team, whether it’s one person or two people or more. So even if I have just one person working with me, this is still a team. Together we are a team. The key competency or key capability of any business is to continue developing because if we stop developing, we will die. The world is moving so fast and the changes are coming right left and centered. If we don’t continue keeping up with those changes and the newest learning & innovative trends, then we are going to be out of business very soon.</h5>\r\n<h5>So, continuous development or talent development is a key capability for you and your business to keep on growing and succeeding. Therefore, <strong>how to actually do it? </strong><strong>Developing one’s self</strong> and <strong>developing others</strong>: obviously you need to develop yourself before developing others because we can’t practice something, preach something that we are not personally practicing. So if I go and tell my team member – “you need to go and attend this training, read this book because you don’t understand much about this and you now do this”. If I, myself, do nothing about it, then I, haven’t been really working on ‘myself’. This doesn’t set a good example and it’s not really the kind of collaboration that we are talking about.</h5>\r\n<h5>Now I am going to talk about the <strong>how</strong>? This is what we need to do. I need to provide you with more information and some more knowledge about how you can actually go about it.</h5>\r\n<h5>In the older or conventional way of actually developing people, many organizations, unfortunately till date, still fall in to this trap. “Send them to training, just go and attend this course and this public program”, but you know that this is only 10% of how can you actually develop people. Because of this, I want to introduce to you this model. It’s called the <strong>70, 20, 10 rule</strong> and it is a rule that has been developed by creative center for leadership. It basically teaches people and organizations how to best develop their people. Let’s start with the 10% which actually talks to the training program, is actually the percentage you can spend on developing people. Only 10 % goes to training. Not just that but then you also have 20% which goes to actual coaching and feedback. The last part which is the bigger chunk of the rule is the 70%. 70% of the time is spend on different developmental activities like on job training so actually taking on a challenging project and learning how to complete it. Even gaining experience by following a person who is completing a similar project, would fall in this section.</h5>\r\n<h5>Checking out the internet, Google, YouTube, learning how different things are done, it is all on the job as you are going. You are not sitting in a training room, you are actually learning about different things while working. When you attend a business developing meeting, bringing your team member in to attend with you, so they understand how things actually happen behind or outside the office. So these are the kinds of things that you can do in addition to the 10% which goes to the actual classroom training.</h5>\r\n<h5>So, to summarize about talent development, it’s about developing yourself and developing others and it is about performing it through the 70,20,10 rule. It is not just spending huge budgets for training and sending people to courses, but it is also about ongoing interactions with your team member or members and on doing a lot of projects that actually help to build the skills base in your business.</h5>",
+                            "course-unit-quotes": "<h5>\"Talent hits a target no one else can hit. Genius hits a target no one else can see.\" Arthur Schopenhauer</h5>",
+                            "course-unit-case-study": "<h5>Talent development programs these days in leading companies usually include a blended learning experiences - online training, online workshops and physical workshops - complemented by coaching and on the job training. Online training has become a very cost effective tool to help give staff an opportunity to take the lead in their development.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Talent in my workforce should always be improved and kept up to date with the ever fast changing world, by making sure: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 786,
+                                "order": 1,
+                                "question": "Talent in my workforce should always be improved and kept up to date with the ever fast changing world, by making sure: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 794,
+                            "title": "HRM Indian Eng Complete Unit 9",
+                            "description": "HRM Indian Eng Complete Unit 9",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you work on attracting talents to work at your organization?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1915,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you think there is a space for talent development at your organization?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1916,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2413,
+                        "title": "Tips in Managing a Multi Cultural Team",
+                        "slug": "tips-managing-multi-cultural-team",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "YQbmoklcxfk",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 5 keys to managing a Multi- Cultural Team are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Be flexible</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t prejudge based on stereotype</h5>\r\n</li>\r\n \t<li>\r\n<h5>Have ZERO Tolerance Ethnic or Racial remarks</h5>\r\n</li>\r\n \t<li>\r\n<h5>Develop Elephant Ears</h5>\r\n</li>\r\n \t<li>\r\n<h5>Give each member an equal opportunity to shine</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video segment, I wish to share the 5 keys to successfully managing a multi-cultural team:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Be flexible with your standards if you wish to win people over you will need to be flexible.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t prejudge based on stereotype- Allow your openness to understanding others as individuals give you an added advantage as a people manager</h5>\r\n</li>\r\n \t<li>\r\n<h5>Have ZERO Tolerance for Ethnic or Racial remarks or Jokes. Remember, each person has a background they are entitled to be proud of, and each person is now a valuable member of your team, treat them all with equal respect and you will see magical results.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Develop Elephant Ears: Be a great listener, show people that you care by stopping to listen and take in the feedback you are offered</h5>\r\n</li>\r\n \t<li>\r\n<h5>Give each member an equal opportunity to shine, to move up, to be promoted, to be recognized, to be rewarded. By doing this, the differences in their backgrounds become not as important as the reality that each one is a member of your team, like the fingers on your hand, you need them all to grab the opportunities in front of your organization.</h5>\r\n</li>\r\n</ul>\r\n<h5>By keeping 5 keys in mind, you will be better equipped to manage a multi-cultural team and become a more capable leader!</h5>",
+                            "course-unit-quotes": "<h5>\"Coming together is a beginning. Keeping together is progress. Working together is success.\" Henry Ford</h5>",
+                            "course-unit-case-study": "<h5>Countless studies show that adding more diversity, whether in the form of gender, age or racial diversity can have a big positive impact on performance.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Diversity in the workforce is important, I should manage my multi-cultural team by:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 787,
+                                "order": 1,
+                                "question": "Diversity in the workforce is important, I should manage my multi-cultural team by:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 795,
+                            "title": "HRM Indian Eng Complete Unit 10",
+                            "description": "HRM Indian Eng Complete Unit 10",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a Multi-Cultural Team?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1917,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "In your opinion is it hard to manage a team with different backgrounds?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1918,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2414,
+                        "title": "Essential Leadership Skills",
+                        "slug": "leadership-skills-for-employees",
+                        "order": 110,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "lNBJsr4eHTc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 4 essential leadership skills every HR employee should follow:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Lead by Example</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Passionate</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Authentic</h5>\r\n</li>\r\n \t<li>\r\n<h5>Recognize the Good Work of Other</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>I will give you 4 practical leadership tips that HR can apply:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Lead by Example.</strong> The best way to engage others is to be the first to do what you are asking them to do. Practice what you preach.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be <strong>Passionate</strong> about what you are doing. If you are not excited about your work, then you can’t expect to motivate others to do it.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be <strong>Authentic</strong> by reflecting the values and character that make you who you are. Don't try to be someone you are not.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Recognize</strong> the good work of <strong>others</strong> around you no matter how small that work may be.</h5>\r\n</li>\r\n</ul>\r\n<h5>By keeping 5 keys in mind, you will be better equipped to manage a multi-cultural team and become a more capable leader!</h5>",
+                            "course-unit-quotes": "<h5>\"I am not afraid of an army of lions led by a sheep; I am afraid of an army of sheep led by a lion.\" Alexander the Great</h5>",
+                            "course-unit-case-study": "<h5>His Highness Sheik Mohammed bin Rashid Al Maktoum titled his book \"My vision  ... Challenges in the Race for Excellence\", which presents the vision of His Highness, the experience of development, which is based on excellence and move in the UAE and Dubai from their role as a regional economic, to play a role vital center of a global economic, with a focus on the sectors of professional services, tourism and economy of thought and knowledge, and creative human energy.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I should make sure that my HR employees undergo the following leadership skills:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 788,
+                                "order": 1,
+                                "question": "I should make sure that my HR employees undergo the following leadership skills:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 796,
+                            "title": "HRM Indian Eng Complete Unit 11",
+                            "description": "HRM Indian Eng Complete Unit 11",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "Which leadership skill represents you as a leader? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "medium_textarea",
+                                    "question_id": 1919,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2415,
+                        "title": "5 Most Common Personality Traits",
+                        "slug": "5-common-personality-traits",
+                        "order": 120,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "faE1pCmPEZg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The five key dimensions of people's personalities measured in the Big Five Personality Traits Model are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Extrovert/ Introvert</h5>\r\n</li>\r\n \t<li>\r\n<h5>Agreeableness</h5>\r\n</li>\r\n \t<li>\r\n<h5>Conscientiousness</h5>\r\n</li>\r\n \t<li>\r\n<h5>Emotional Stability</h5>\r\n</li>\r\n \t<li>\r\n<h5>Openness to Experience</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about the big five personality traits model. Personality is the sum total of ways in which an individual reacts to and interacts with others. It refers to individual differences in patterns of thinking, feeling and behaving. Most often it is described in terms of measurable traits that a person shows such as aggressive, submissive, shy, lazy, timid, loyal, and ambitious. There are many determinants of personality including heredity, environmental factors and age.</h5>\r\n<h5>When a person's personality doesn't fit the job, everyone loses. Not only will they be unhappy with their unsuitability for the position, but the organization will also suffer from increased absenteeism, low productivity, conflict with other co-workers, and loss of any investment in training when that person leaves.</h5>\r\n<h5>Here are <strong>The Big Five Personality Traits</strong> Model that measures the five key dimensions of people's personalities.</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Extrovert/ Introvert:</strong> is your level of sociability. Are you outgoing or quiet?</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Agreeableness:</strong> is your level of friendliness and showing compassion to others.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Conscientiousness:</strong> is a key ingredient in success. It measures your level of care that you take in your life and work, for example, if you set and keep long-range goals. If you score high in conscientiousness, you are organized and you know how to plan and follow your plan. If you score low, you're likely to be disorganized.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Emotional Stability:</strong> measures your level of emotions. It refers to your ability to remain calm or even well balanced when faced with pressure or stress.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Openness to Experience: </strong>measures your level of creativity, and your desire for knowledge and new experiences.</h5>\r\n</li>\r\n</ul>\r\n<h5>Understanding these dimensions will allow you to better understand what roles fit you best. You will be able to hire an employee who will perfectly fit the position that you're trying to fill.</h5>\r\n<h5>Remember, a beautiful appearance will last a few decades, but a beautiful personality will last a life time.</h5>",
+                            "course-unit-quotes": "<h5>\"Always dream and shoot higher than you know you can do. Do not bother just to be better than your contemporaries or predecessors. Try to be better than yourself.” William Faulkner</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "To ensure that my employees are placed in the right job for them, I should classify their personalities by:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 789,
+                                "order": 1,
+                                "question": "To ensure that my employees are placed in the right job for them, I should classify their personalities by:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 797,
+                            "title": "HRM Indian Eng Complete Unit 12",
+                            "description": "HRM Indian Eng Complete Unit 12",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "In your opinion, which is the most important personality trait?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Extraversion",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Agreeableness",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Conscientiousness",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Emotional Stability",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Openness to Experience",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1920,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/hr.png",
+                "zip_path": "wp-content/uploads/2018/10/hr.png",
+                "level": "card"
+            }
+        ]
+    }
+}

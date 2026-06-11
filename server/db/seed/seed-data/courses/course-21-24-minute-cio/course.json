@@ -1,0 +1,2095 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 21,
+        "title": "24 Minute CIO",
+        "description": "The 24minCIO is a Free Blended Learning Business Skills Development Program",
+        "unit_count": 14,
+        "author_id": 0,
+        "course_post_id": 3664,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2353,
+            "title": "24 Minute CIO",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/24-minute-cio-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/cio.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 21,
+                "title": "24minCIO",
+                "description": "All organisations have been transformed by the technological developments that are taking place and IT managers are at the center of this transformation. The expectations from IT managers and CIOs is that they need to keep their organizations up to date with the latest development and provide innovative solutions that produce a competitive advantage.(-new-line-)\nGiven these changing dynamics, we have put together this practical and efficient program - 24 minute program, to provide you with a refresher or new insight on important areas that IT individuals need to master. The program will be continuously updated so stay engaged with us.",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 850,
+                        "title": "24 Minute CIO Pretest",
+                        "slug": "24-minute-cio-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 149,
+                            "title": "24 minute CIO Pretest",
+                            "description": "24 minute CIO Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "2.\tAs more organizations use IT as a competitive advantage, there is a need for a high coordination between business and IT leaders. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 346,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 3 cloud computing benefits?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Save Money, Time, Data ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Easy to use, Streamline processes, Increase capital costs",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Agility, Peace of mind, Cost Savings",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Improve accessibility, Increase capital costs, Decrease flexibility",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "3",
+                                    "question_id": 347,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When making a storage solution purchasing decision, always look for these 3 Ps:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Performance, Price, Protection",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Price, Product, Promotion",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Place, Product, Price",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Performance, Price, Promotion ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "1",
+                                    "question_id": 348,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Minimizing the risk of losing data with quick backups and redundant hard drives is an example of :",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Increasing Privacy",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Multilayered Protection",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Fast Backups",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Anytime Access",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "3",
+                                    "question_id": 349,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 851,
+                        "title": "Business Strategy",
+                        "slug": "business-strategy-2",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Ba7eeC840lo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>This course will provide you with 3 key considerations to setup a Strategy:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Define your mission as a business.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identify a few goals for the coming 1 to 3 years</h5>\r\n</li>\r\n \t<li>\r\n<h5>Break up the goals and set monthly key performance indicators (KPIs)</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video we will learn the essential aspects of setting up a strategy for your business. A solid Strategy helps a business focus the energy of its staff and make use of its resources to ensure long term success and growth. Without a good strategy companies loose focus and end up failing in the long run.\r\nTo setup a strategy, you need to keep in mind 3 key considerations:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Define your mission as a business. What do you do, how do you do it and for whom do you do it? The key here is to determine what sets you apart from the competition</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identify a few goals for the coming 1 to 3 years that if met, would ensure that you are delivering the right services to the right clients and are maintaining a healthy business</h5>\r\n</li>\r\n \t<li>\r\n<h5>Break up the goals and set monthly key performance indicators (KPIs) that you need to track and cascade to each department and employee so everyone is clear about how they contribute to the overall goals.</h5>\r\n</li>\r\n</ul>\r\n<h5>By following these 3 key considerations and continuously tracking progress of the KPIs across departments and individuals, you can ensure that you would be on your way to reaching your goals and fulfilling your mission. Remember, what gets measured gets done!</h5><h5>In this video we will learn the essential aspects of setting up a strategy for your business. A solid Strategy helps a business focus the energy of its staff and make use of its resources to ensure long term success and growth. Without a good strategy companies loose focus and end up failing in the long run.\r\nTo setup a strategy, you need to keep in mind 3 key considerations:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Define your mission as a business. What do you do, how do you do it and for whom do you do it? The key here is to determine what sets you apart from the competition</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identify a few goals for the coming 1 to 3 years that if met, would ensure that you are delivering the right services to the right clients and are maintaining a healthy business</h5>\r\n</li>\r\n \t<li>\r\n<h5>Break up the goals and set monthly key performance indicators (KPIs) that you need to track and cascade to each department and employee so everyone is clear about how they contribute to the overall goals.</h5>\r\n</li>\r\n</ul>\r\n<h5>By following these 3 key considerations and continuously tracking progress of the KPIs across departments and individuals, you can ensure that you would be on your way to reaching your goals and fulfilling your mission. Remember, what gets measured gets done!</h5>",
+                            "course-unit-quotes": "<h5>The biggest risk is not taking any risk… In a world that changing really quickly, the only strategy that is guaranteed to fail is not taking risks. Mark Zuckerberg</h5>",
+                            "course-unit-case-study": "<h5>John is heading a consulting services business and wants to create a new strategy for the organization to guide it for the next 3 years and align his team. Being a consulting business, they get requested to do many different kinds of tasks, but in order to grow, John knows that they need to focus. He then identifies that his strategy is to focus on the areas of customer service improvement where the company has had good successes and in-house expertise.</h5>\r\n<h5>Mission: Our company helps organizations improve their customer service to increase loyalty, repeat business and long-term sustainability of businesses.</h5>\r\n<h5>Goals:\r\n1- Be positioned as a leader in this space by getting publicity for our work.\r\n2- Coming up with a proprietary framework for our services.\r\n3- Win projects from the best brands in the industry.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "In order to set up a solid strategy for my business, I need to:",
+                            "course-unit-atq-two": "What is your company’s mission? ",
+                            "atqq_3": "State 3 goals you have for the coming year: ",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 615,
+                                "order": 1,
+                                "question": "In order to set up a solid strategy for my business, I need to:"
+                            },
+                            {
+                                "q_id": 819,
+                                "order": 2,
+                                "question": "What is your company’s mission? "
+                            },
+                            {
+                                "q_id": 818,
+                                "order": 3,
+                                "question": "State 3 goals you have for the coming year: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 150,
+                            "title": "24minCIO Complete Unit 1",
+                            "description": "24minCIO Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your company have a clear strategy? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 299,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 852,
+                        "title": "Innovation",
+                        "slug": "innovation-2",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "5nUkWTZRVTc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>This course will provide you with 4 step process to help guide your innovation:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Understand the problem that you are addressing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Spend some time coming up with as many ideas as possible</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose one or two of the best ideas</h5>\r\n</li>\r\n \t<li>\r\n<h5>Evaluate and Refine by getting your target users to give you their feedback and suggestions on the prototype that you created</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn 4 steps that will guide you in developing your Next Innovation. Innovation can be summarized as the process of coming up with a new idea, product, service, or experience that customers would be willing to pay for. It is a key success factor for businesses these days since competition in the business world is fierce and innovation offers a way to differentiate and stay relevant to clients.</h5>\r\n<h5>Here is a simple 4 step process to help guide your innovation process:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Understand the problem that you are addressing, the users that are affected, the technology that is available, the competitors offerings</h5>\r\n</li>\r\n \t<li>\r\n<h5>Spend some time coming up with as many ideas as possible, regardless of how good they are (Ideate)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose one or two of the best ideas – which could be a collection of a few ideas combined into one – and rapidly prototype them</h5>\r\n</li>\r\n \t<li>\r\n<h5>Evaluate and Refine by getting your target users to give you their feedback and suggestions on the prototype that you created.</h5>\r\n</li>\r\n</ul>\r\n<h5>As this innovation process becomes ingrained into your business the process can be conducted periodically all through the organization with the involvement of all staff.</h5>\r\n<h5>As Alan Kay said, the best way to predict the future is to invent it!</h5>",
+                            "course-unit-quotes": "<h5>Without change there is no innovation, creativity, or incentive for improvement. Those who initiate change will have a better opportunity to manage the change that is inevitable. William Pollard</h5>",
+                            "course-unit-case-study": "<h5>Layla has a boutique that sells trendy accessories for youth in downtown. She is noticing first-hand the trend that youth are more and more inclined not to visit stores but rather buy online.</h5>\r\n<h5>Identifying that <b>problem</b>, she seeks to innovate a solution.</h5>\r\n<h5>To <b>ideate</b>, she comes up with many possible ideas but focuses on one idea that has to do with developing a mobile app that integrates, fashion, trivia and a community.</h5>\r\n<h5>Since she is not an expert in this field she goes to one of the local universities and asks for interns that could help her come out with building a <b>prototype</b> of the app.</h5>\r\n<h5>She finds out the prototype can be done in a month and since the students are based in the university, they could <b>test</b> amongst the youth there to get feedback.</h5>\r\n<h5>Once feedback has been gathered, Layla can then continue to develop the app using the students or find a professional company to develop it after proper testing and feedback.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "When new ideas have struck me or any of my colleagues in my company, I should ensure sure that:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 616,
+                                "order": 1,
+                                "question": "When new ideas have struck me or any of my colleagues in my company, I should ensure sure that:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 151,
+                            "title": "24minCIO Complete Unit 2",
+                            "description": "24minCIO Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a solution for the problem you are facing in your business?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1954,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 853,
+                        "title": "Business-IT Alignment",
+                        "slug": "business-it-alignment",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "P1EWFaS3L-o",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Two activities that form the foundation of business to IT alignment:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Business strategy and priorities need to drive the IT investment priority purchases.</h5>\r\n</li>\r\n \t<li>\r\n<h5>IT Capabilities must enable innovative business practices</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video we’ll explore what are the two activities that would support business to IT alignment in organizations.</h5>\r\n<h5>As more and more organizations use IT as competitive advantage, they need to have a very high coordination between business and IT leaders.</h5>\r\n<h5>Here two activities that form the foundation of business to IT alignment:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Business strategy and priorities need to drive the IT investment priority purchases.</h5>\r\n</li>\r\n \t<li>\r\n<h5>IT Capabilities must enable innovative business practices</h5>\r\n</li>\r\n</ul>\r\n<h5>By following the simple sequence there will be more alignment between business and IT and thus more relation coming out of this coordination.</h5>\r\n<h5>Regular meetings should be held between the two departments to ensure agreed plan, stay on track, and deliver on the anticipated business performance metrics.</h5>",
+                            "course-unit-quotes": "<h5>Technology provides no benefits of its own; it is the application of technology to business opportunities that produces ROI. Robert McDowell</h5>",
+                            "course-unit-case-study": "<h5>The IT Manager of a large bank has been tasked with streamlining and reducing the cost of the ICT operations. In doing the initial analysis, he identifies that by introducing a more integrated ERP, CRM and Financial System, there could be a lot of savings and much less operational staff needed to manage the different systems that exist today. Before starting with the project though, the IT manager calls in the heads of business operations, sales and marketing and finance to discuss with their own business needs and if they can dedicate staff to help in the business scoping. Operations and Finance business units show their interest to start with the same project immediately due to their own needs to reduce costs. The sales and marketing team however has several marketing campaigns underway and as such can't change the system in the coming months. By working with the business users that are most ready to change and engaging them in the process, the IT manager is able to get the support and ensure that his priorities are as closely aligned to business needs.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I need to ensure that there is more alignment between my business and IT leaders, by:",
+                            "course-unit-atq-two": "What are the business priorities for your organization in the coming 3 months?",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 617,
+                                "order": 1,
+                                "question": "I need to ensure that there is more alignment between my business and IT leaders, by:"
+                            },
+                            {
+                                "q_id": 820,
+                                "order": 2,
+                                "question": "What are the business priorities for your organization in the coming 3 months?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 152,
+                            "title": "24minCIO Complete Unit 3",
+                            "description": "24minCIO Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you regularly meet with Business department to review their objectives?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1955,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 854,
+                        "title": "Cloud Computing",
+                        "slug": "cloud-cmputing",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "ezxarLkhdEs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>This course will provide you with:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The three cloud computing benefits: agility, peace of mind and cost</h5>\r\n</li>\r\n \t<li>\r\n<h5>Microsoft 365 solutions</h5>\r\n</li>\r\n \t<li>\r\n<h5>Why you should switch to cloud computing on premise</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, there are lots of SMB’s “small medium businesses” that are wondering about the cloud benefits. To me there are three main ones:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Agility</h5>\r\n</li>\r\n \t<li>\r\n<h5>Peace of mind</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cost</h5>\r\n</li>\r\n</ul>\r\n<h5>Microsoft is a market leader when it comes to cloud solutions, especially with office 365 which is the fastest growing product in the history of Microsoft. Office 365 is really made up of 5 solutions:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Business email</h5>\r\n</li>\r\n \t<li>\r\n<h5>Office with Word, Excel, PowerPoint</h5>\r\n</li>\r\n \t<li>\r\n<h5>Instant messaging and video conferencing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Web sites with SharePoint</h5>\r\n</li>\r\n \t<li>\r\n<h5>Social enterprise with yammer</h5>\r\n</li>\r\n</ul>\r\n<h5>All the solution are hosted in our tier 4 data center where we are spending millions of dollars to make it secure and private. Also, you get the latest and greatest features always in a ninety-nine point nine percent at a fraction of the cost they would cost you on premise.</h5>\r\n<h5>Everybody needs productively and collaboration IT solutions like email, word processing and web conferencing – especially SME’s. So why have the headaches of investing and managing your own hardware and IT environment when you can acquire those services for a lot cheaper through Microsoft’s cloud and reinvest that money into more strategic projects that will bring growth to your company.</h5>\r\n<h5>Save your money, pay for what you use with office 365.</h5>",
+                            "course-unit-quotes": "<h5>The real benefits of the cloud are slightly different than we originally predicted; they are less about pure cost efficiency, and more about speeding up time to market (aka agility). Every CIO and IT decision maker should be thinking about how they can use cloud and hosting to accelerate time to market, which means turning IT from a cost center into a revenue center. Toby Owen, Peer 1 Hosting.</h5>",
+                            "course-unit-case-study": "<h5>An IT manager of a mid-sized company is putting the plan for the coming period and is trying to identify ways in which her department can add more value to the users in the organization. She finds out in her analysis that a big portion of her team's time is going towards managing the various software used by the users' day to day tasks, managing backups and ensuring that the software's latest versions are downloaded by the users so as to avoid security breaches. She realizes that if she shifts the software licenses to a cloud based online subscription model, she could justify the investment and save costs by having less staff manage this operational aspect. She could also then transition some staff into more value add business support functions like app and web development.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I should ensure that my company is making use of the cloud solutions because:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 618,
+                                "order": 1,
+                                "question": "I should ensure that my company is making use of the cloud solutions because:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 153,
+                            "title": "24minCIO Complete Unit 4",
+                            "description": "24minCIO Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What are the applications that you can move to the cloud? Choose all that apply - Office (Word, Excel etc..) ERP, Finance, CRM, Others ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 306,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 855,
+                        "title": "Data Centre Infrastructure",
+                        "slug": "data-centre",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "YYO3OcTwMdg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Five Considerations to keep in mind when choosing your data centre infrastructure:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Respond dynamically to changing business demands</h5>\r\n</li>\r\n \t<li>\r\n<h5>Eliminate redundancy and try to unify management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Accelerate IT service delivery</h5>\r\n</li>\r\n \t<li>\r\n<h5>Reduce infrastructure footprint and increase performance</h5>\r\n</li>\r\n \t<li>\r\n<h5>Lower your up-front capital and management costs</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hello. Data centers, whether starting in a simple rack or taking up an entire floor, are the engines of business growth in today's connected economy. Technology is changing fast and investments in infrastructure can be very high and can get very fast.</h5>\r\n<h5>Here are five considerations to keep in mind when purchasing any ICT infrastructure to help protect your investment and adapt to the changing landscape.</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Make sure your infrastructure can respond dynamically to changing business demands without having to continuously change systems.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Eliminate redundancy and try to unify management of the different systems so you can save on costs.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Ensure that your architecture and infrastructure allow you to accelerate IT service delivery to users across your organization no matter where you and they are located.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Reduce infrastructure footprint and increase performance by deploying state of the art infrastructure.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Lastly, but most importantly, lower your up-front capital and management costs while maintaining the possibility to invest as your needs grow using the same infrastructure.</h5>\r\n</li>\r\n</ul>\r\n<h5>There are continuous demands for ICT purchases as companies evolve. IT managers and IT leaders should be ready with a proactive strategy to protect the company’s investment and grow with these needs. The data center has become the ever intelligent brain of an organization and CIO’s are the custodians of that organization.</h5>\r\n<h5>Make sure your data center is future ready.</h5>",
+                            "course-unit-quotes": "<h5>What we are experiencing today, I truly don’t believe we’ve ever had anything quite like it. There aren’t that many people who really understand the individual technologies; to manage to have them integrated is extremely complicated. Jerry Luftman</h5>",
+                            "course-unit-case-study": "<h5>An IT manager of a mid-size company is looking at upgrading the ICT infrastructure that he has had in the company for the last 5 years. Some of the servers are starting to struggle to keep up with demands of the increasing applications and storage is running out. His ICT partner after evaluating the infrastructure and applications suggested that they use a hybrid model where some of the critical application and data resides on-premise at the company and the rest of the non-critical applications and storage can be moved on the cloud. By making use of the previous annual maintenance budget, the IT manager was able to put the upfront investment needed to setup the new latest technology on-site infrastructure, and then use some remaining money to pay for a few months of cloud based infrastructure.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I should make sure that my data centre infrastructure can:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 619,
+                                "order": 1,
+                                "question": "I should make sure that my data centre infrastructure can:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 154,
+                            "title": "24minCIO Complete Unit 5",
+                            "description": "24minCIO Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Can you re-locate some of your infrastructure to a local or regional managed data center? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1956,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 856,
+                        "title": "Storage Solution Implementation",
+                        "slug": "storage-solution",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "w14ho8rAuQ8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Seven benefits that should be part of any storage solution:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>IT needs to be completely scalable</h5>\r\n</li>\r\n \t<li>\r\n<h5>Storage solutions need to optimize the data storage</h5>\r\n</li>\r\n \t<li>\r\n<h5>Data protection and recovery should be easy to deploy and test</h5>\r\n</li>\r\n \t<li>\r\n<h5>Current and future performance should not be compromised</h5>\r\n</li>\r\n \t<li>\r\n<h5>Lower the up-front capital costs and management costs while maintaining the possibility to invest</h5>\r\n</li>\r\n \t<li>\r\n<h5>Know the cost per terabyte ensures savings to the organization</h5>\r\n</li>\r\n \t<li>\r\n<h5>Simple data migration should be possible whenever the need arises</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, storage is growing at exponential rates across organizations as most and more and more data are being produced and consumed on daily basis.</h5>\r\n<h5>George Orwell always said all animals are equal but there are animals more equal than the others. Same as data, not all data are created equal. An organization need to have an evolving strategy to manage different data types and the growth rate of such and secure the most sense of data at the same time.</h5>\r\n<h5>Here are seven benefits to keep in mind while purchasing a storage solution:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Any storage solution no matter how small it may be it needs to be completely scalable that can grow with the certain growth of mind over Data over the coming years.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Storage solutions need to optimize the data storage based on different data types.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Data protection and recovery should be easy to deploy and test since disasters can hit you at any point in time.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Current and future performance should not be compromised at the growth of data taking place.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Lower the up-front capital costs and management costs while maintaining the possibility to invest in the future as your needs grow.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Know the cost per terabyte ensures savings to the organization.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Simple data migration should be possible whenever the need arises.</h5>\r\n</li>\r\n</ul>\r\n<h5>IT managers and administrators are always continuously challenged and under pressure to grow the storage infrastructure while at the same time needs to ensure that the data is safe and secure. To do that the storage infrastructure strategy needs to be built with the future of mind and you need to have incremental growth that is building your strategy and building your plans.</h5>\r\n<h5>We hope the above tips will guide you through that process. As a summary when making a storage decision please always look at these three P’s : performance, price and protections.</h5>",
+                            "course-unit-quotes": "<h5>You can have data without information, but you cannot have information without data. Daniel Keys Moran</h5>",
+                            "course-unit-case-study": "<h5>A financial brokerage company was doing an audit to determine their readiness for restoring lost data in the case of a disaster. As they did their business continuity exercise, they determined that the backup and restore procedure was not effective or fast enough since their backup system still used tapes and restoring them took too long. After the audit they decided to get rid of their old system and buy the latest storage devices hosted in two different locations with automatic backups happening on an hourly basis. They were able to start with a small data storage size that was enough for their current year needs but which could be expanded to 10 times their needs without having to change the systems. In their process, the backup and recovery time was reduced from a couple of hours to a couple of minutes.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "While purchasing my business's storage infrastructure, I should always make sure that:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 620,
+                                "order": 1,
+                                "question": "While purchasing my business's storage infrastructure, I should always make sure that:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 155,
+                            "title": "24minCIO Complete Unit 6",
+                            "description": "24minCIO Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What are your approximate storage growth averages over the past year?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "single_line",
+                                    "question_id": 310,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "open",
+                                    "text": "What is the application that is consuming the most storage in your environment?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "single_line",
+                                    "question_id": 311,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 857,
+                        "title": "Servers' Benefits",
+                        "slug": "servers-benefits",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "r-wg0HHhSqU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Seven ways a server can benefit your small business:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fast backups</h5>\r\n</li>\r\n \t<li>\r\n<h5>Control things like email</h5>\r\n</li>\r\n \t<li>\r\n<h5>Increase privacy</h5>\r\n</li>\r\n \t<li>\r\n<h5>Multi layered protection</h5>\r\n</li>\r\n \t<li>\r\n<h5>Share resources more effectively</h5>\r\n</li>\r\n \t<li>\r\n<h5>Anytime access</h5>\r\n</li>\r\n \t<li>\r\n<h5>Manage accessories</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video we will discuss some of the ways your small businesses can benefit from having servers in your environment and in today’s digital world. Many businesses rely on laptops and cloud services to run their businesses. Others deploy desktops and include on them some of the key company services. But how can you introduce servers to help manage your business environment more effectively and professionally, ensuring that there is a better risk management, as well as significantly achieving more benefits. There are seven ways that a server can help make your business more efficient.</h5>\r\n<ul>\r\n \t<li>\r\n<h5>As data continues to grow, fast backups for your data become important and with servers you can minimize the risk of lost data with quick backups and redundant hard drives.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Control things like email, so with servers you can centralize business email system and help make it easy to manage.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Security is very important in today’s day in age. Servers will help you to increase privacy; ie: protecting sensitive files and control who has access to them.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Security also means you can bring with servers multi layered protection. This means that you can help defend your business’s IT network by filtering or blocking unwanted content.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Operational servers allow you to be able to share resources more effectively. You can share files, printers, contact lists, calendars and such items.</h5>\r\n</li>\r\n \t<li>\r\n<h5>You could also bring about anytime access. This means accessing your server base files and data and email from virtually anywhere, allowing employees to be able to work remotely without depending on their peer’s PCs and laptops.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Lastly server the way to manage accessories much more better so you can control printers, scanners and other accessories from one centralized location.</h5>\r\n</li>\r\n</ul>\r\n<h5>When you decide to invest in any other ICT purchase, key issues need to be remembered. You are not just making sure to buy for your current needs, but also need to take into account that the products can scale as your IT demands expand. Don’t just buy something that is just good enough for today, but think about how you can ensure that you protect your investments as well as making sure that you are ready for tomorrow as well.</h5>\r\n<h5>So I hope that those benefits can help you assess if it is the right time for you to invest in a server in your business.</h5>",
+                            "course-unit-quotes": "<h5>I don’t need a hard disk in my computer if I can get to the server faster… carrying around these non-connected computers is byzantine by comparison. Steve Jobs</h5>",
+                            "course-unit-case-study": "<h5>A small business was evaluating if there was a real need to deploy a server in their premise or if it was better to put all the servers on the cloud. The IT manager did an in depth review and cost benefit analysis and found out that even through most of the needs could be handled by servers on the cloud, it was much more efficient to handle some local office needs through an in-house server. Local connectivity to printers, scanners, time attendance machine and shared folders were much better handled with a good local server.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "A server will make my business more efficient because:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 621,
+                                "order": 1,
+                                "question": "A server will make my business more efficient because:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 156,
+                            "title": "24minCIO Complete Unit 7",
+                            "description": "24minCIO Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have servers in your environment?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1957,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 858,
+                        "title": "IT Infrastructure",
+                        "slug": "it-infrastructure",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "buqqRrtnlFs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Four benefits of standardizing your IT infrastructure Purchases:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Make it easier for IT to manage the diverse set of devices or software that is deployed in your organization</h5>\r\n</li>\r\n \t<li>\r\n<h5>You can buy in quantity and get better deals</h5>\r\n</li>\r\n \t<li>\r\n<h5>Avoid wasted efforts on compatibility issues between different systems</h5>\r\n</li>\r\n \t<li>\r\n<h5>Reduce support calls as employees become collectively more familiar with features and with solving problems</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video we will explore the benefits of standardizing your IT infrastructure purchases. Information technology is providing competitive advantage for businesses across all industries as connectivity, data and intelligence come together to unleash great opportunities. With the changing business demands companies are continuously in need of updating their IT infrastructure to keep up with constant shifts in business requirements and IT trends.</h5>\r\n<h5>So here are four benefits of standardizing your IT infrastructure and purchases:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Make it easier for IT to manage the diverse set of devices or software that is deployed in your organization.</h5>\r\n</li>\r\n \t<li>\r\n<h5>You can buy in quantity and get better deals.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Avoid wasted efforts on compatibility issues between different systems.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Reduce support calls as employees become collectively more familiar with features and with solving problems.</h5>\r\n</li>\r\n</ul>\r\n<h5>IT managers these days are playing a key role in innovation and service delivery with in all businesses. The more CIOs and IT managers can simplify their operations the more they can focus on supporting the business and standardizing infrastructure is a step in that direction.</h5>",
+                            "course-unit-quotes": "<h5>CIOs can no longer afford to sit around simply absorbing the change that filters through their organizations. Instead, CIOs themselves should work to drive change at all levels of the business. How to do it? Understand the steps needed to create change in the first place; factor corporate culture into your plans; pace yourself; and fight to deliver tangible business outcomes. The Wall Street Journal CIO Network.</h5>",
+                            "course-unit-case-study": "<h5>A fast growing company was trying to be accommodating by allowing the staff to choose and buy their own laptops and phones while being able to claim the amounts back as part of their expenses. As the company started to go over 50 staff and some of the laptops where starting to break down or have software issues, the IT department found itself overwhelmed trying to support the various products and solutions. It then came out with a policy of working with one major vendor for its computer needs and as such kept a stock of spare parts on site so that it could easily solve issues. It also created some online learning material as part of the help desk to address the most common software issues that come up and to allow users to be self-sufficient.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How often do you refresh (buy new) computers for your staff?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 821,
+                                "order": 1,
+                                "question": "How often do you refresh (buy new) computers for your staff?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 157,
+                            "title": "24minCIO Complete Unit 8",
+                            "description": "24minCIO Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What model of computers best suits the needs of your organization? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Desktops",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Laptop",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "2 in 1s (Laptop/Tablet)",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Tablets",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 314,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 859,
+                        "title": "Mobile Strategy",
+                        "slug": "mobile-strategy",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "kgdVmmMOX20",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Three considerations to think of when developing mobile strategy:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Bring your own device “BYOD”</h5>\r\n</li>\r\n \t<li>\r\n<h5>Mobile first strategy</h5>\r\n</li>\r\n \t<li>\r\n<h5>Security concerns</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn the three consideration to think of when developing mobile strategy. The global growth of mobile devices has been phenomenal and continues to expand at an amazingly fast pace. CIO’s need to have a mobile strategy as part of the overall CIT strategy.</h5>\r\n<h5>Here are three considerations to take into account as you develop your mobile strategy:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Bring your own device is BYOD has become a key expectation of employees and as such you need to be able to deploy internal services to employees taking into account that very personal devices operating systems.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Mobile first strategy the process of launching your services and offerings by focusing on the mobile users first instead of a traditional PC users is a requirement in most industries and this will continue to expand to cover more users. Organization that stay abreast of the latest developments taking place in mobile technologies would be able to innovate products and services that benefit their clients.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Security concerns are highlighted further as employees and climb store so much information on these very personal devices. A multi-platform security architecture needs to be deployed across internal and external services.</h5>\r\n</li>\r\n</ul>\r\n<h5>The proliferation of mobile devices has impact across the organization but the CIO and IT manager’s need to be able to turn the complexity into an opportunity to innovate and stay steps ahead of the competition.</h5>",
+                            "course-unit-quotes": "<h5>Technology is the key to helping the company achieve its goals. It’s exciting to work on projects that directly impact our growth.</h5>\r\n<h5 class=\"alignleft\"></h5>",
+                            "course-unit-case-study": "<h5>Despite having standardized the IT infrastructure in the office where approved devices were provided by the company, the IT manager of a multinational company still needed to provision for the ability of staff and visitors to bring their own devices and hook them up to the network for access to internet and public files. The IT department then created two tiers of networks, one for the secure company issued devices and another fire-walled network for other devices that the company didn't have control over.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Developing a mobile strategy can benefit my business in the following ways:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 622,
+                                "order": 1,
+                                "question": "Developing a mobile strategy can benefit my business in the following ways:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 158,
+                            "title": "24minCIO Complete Unit 9",
+                            "description": "24minCIO Complete Unit 9",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you offer your staff the opportunity to bring their own device (BYOD)? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 315,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 860,
+                        "title": "Leadership Skills",
+                        "slug": "leadership-skills-3",
+                        "order": 110,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "3Mb6vqOSV-Y",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 4 steps process to help guide your leadership skills:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Lead by Example</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Passionate about what you are doing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Authentic</h5>\r\n</li>\r\n \t<li>\r\n<h5>Recognize the good work of others around you</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn 4 essential leadership skills that will help you in any leadership role. Successful leaders can be charismatic, quiet, introvert, social and as such everyone can be a leader.</h5>\r\n<h5>I will give you 4 practical leadership tips that anyone can apply:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Lead by Example. The best way to engage others is to be the first to do what you are asking them to do. Practice what you preach.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Passionate about what you are doing. If you are not excited about your work, then you can’t expect to motivate others to do it.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Authentic by reflecting the values and character that make you who you are. Don’t try to be someone you are not.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Recognize the good work of others around you no matter how small that work may be. Leadership is needed in many situations.</h5>\r\n</li>\r\n</ul>\r\n<h5>By following the 4 tips of leading by example, being passionate and authentic, can ensure that others would be motivated to follow your lead.</h5>\r\n<h5>As John Maxwell said, “A leader is one who knows the way, goes the way and shows the way!”</h5>",
+                            "course-unit-quotes": "<h5>Outstanding leaders go out of their way to boost the self-esteem of their personnel. If people believe in themselves, it’s amazing what they can accomplish. Sam Walton</h5>",
+                            "course-unit-case-study": "<h5>Julie has been recently promoted for a leadership position and is worried that her lack of experience could inhibit her success in this role. She decides that the best way for her to succeed is to build on her strength instead of focusing on her weaknesses.</h5>\r\n<h5>She notes to herself that she should always lead by example, be herself and listen to those around her.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Some important leadership skills that I should acquire:",
+                            "course-unit-atq-two": "Which leadership characteristic represents you best as a leader? ",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 623,
+                                "order": 1,
+                                "question": "Some important leadership skills that I should acquire:"
+                            },
+                            {
+                                "q_id": 822,
+                                "order": 2,
+                                "question": "Which leadership characteristic represents you best as a leader? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 159,
+                            "title": "24minCIO Complete Unit 10",
+                            "description": "24minCIO Complete Unit 10",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "In your opinion, what is the most important leadership characteristic that successful leaders should possess? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Lead by example",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Passionate",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Authentic",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Recognize & value good work",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Empathy",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 316,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you believe that coaching is needed for leadership development? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 318,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 861,
+                        "title": "Talent Development",
+                        "slug": "talent-development-2",
+                        "order": 120,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "5W1o7co04CQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Three ways for better talent development:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Developing yourself</h5>\r\n</li>\r\n \t<li>\r\n<h5>Developing Others</h5>\r\n</li>\r\n \t<li>\r\n<h5>70/20/10 Rule</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video we will talk about talent development or in other words people development. What I want you to start thinking about as I start talking to you, is that when I say people development, that includes myself. So it’s me, my team, whether it’s one person or two people or more. So even if I have just one person working with me, this is still a team, together we are a team. And it’s really like key competency or key capability of any business is to continue developing because if we stopped developing, we will die because the world is moving so fast and the changes are coming right left and centered. If we don’t continue keeping up with those changes and the newest learning and how we do this and the most innovative and so on. We are going to get out of business very soon.</h5>\r\n<h5>So continuous development or talent development is a key capability for you and your business to keep on growing and succeeding. Therefore, <b>how to actually do it?</b></h5>\r\n<h5><b>Developing myself</b> and <b>developing others:</b> obviously you need to develop yourself before developing others because we can’t practice something, preach something that we are not personally are practicing. So if I go and tell my member, you need to go and attend this training, read this book because you don’t understand much about this and you know do this. I myself do nothing about it, I myself haven’t been really working on myself. This doesn’t set a good example and it’s not really the kind of collaboration we are talking about.</h5>\r\n<h5>Now I am going to talk about the <b>how?</b> This is what we need to do, now I need to give you more information and some more knowledge about how you can actually go and do it.</h5>\r\n<h5>You actually develop people. And because of this I want to introduce to you this model and it’s called the <b>70, 20, 10</b> rule and it is a rule that has been developed by creative center for leadership and it’s basically to teach us people and organizations how to best develop our people. And the 70 % or let’s start with the 10% which actually talks to the training program, is actually the % you can spend on developing people. Only 10 % goes to training, it’s very different from how many organizations do it.</h5>\r\n<h5>Not just that but then you also have 20 % which goes to actual coaching and feedback, ongoing coaching and feedback that you do to your team members, do it for yourself or seek for yourself for your team members or from others that you’re working with including the client. So this is the 20 % of the development time you spend on coaching and mentoring. And last one which is the bigger chunk is the 70% and those 70 % is the 70% of the time is spend on different developmental activities like on job training so actually taking on a challenging project and learn by doing it, going and experiencing someone who is doing a similar project that you would like to go and learn about.</h5>\r\n<h5>Checking out the internet, google, the YouTube, learning how different things are done, it is all on the job as you are going. You are not sitting in a training room, you are actually as you are working you are learning about different things, maybe attending a meeting, so bringing your team member to attend a business developing meeting with you so they understand how actually things happen behind or outside the office. So these are the kind of things that you can do in addition to the 10% which goes to the actual classroom training.</h5>\r\n<h5>So, in essence to summarize what I just said about talent development, it’s about developing self and about developing others and it is about doing it through a 70,20,10 rule. So it is not just spending huge budgets for training and sending people to courses but it also ongoing interactions with your team member or members and on doing a lot of projects that it actually build the skills in your business.</h5>",
+                            "course-unit-quotes": "<h5>You know, as most entrepreneurs do, that a company is only as good as its people. The hard part is actually building the team that will embody your company’s culture and propel you forward. Kathryn Minshew</h5>",
+                            "course-unit-case-study": "<h5>Talent development programs these days in leading companies usually include a blended learning experiences - online training, online workshops and physical workshops - complemented by coaching and on the job training. Online training has become a very cost effective tool to help give staff an opportunity to take the lead in their development.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The best methods I can use to help develop my talents and the talents of my team are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 624,
+                                "order": 1,
+                                "question": "The best methods I can use to help develop my talents and the talents of my team are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 160,
+                            "title": "24minCIO Complete Unit 11",
+                            "description": "24minCIO Complete Unit 11",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you work on attracting talents to work at your organization?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 319,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you think there is a space for talent development at your organization?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 320,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 862,
+                        "title": "Project Management",
+                        "slug": "13420",
+                        "order": 130,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "6LRJ-CsZda4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Three considerations to keep in mind when implementing successful projects:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>An agreement on the acceptable <strong>quality</strong> level of the output of the project</h5>\r\n</li>\r\n \t<li>\r\n<h5>A budget for the <strong>costs</strong> that would be incurred to deliver the project</h5>\r\n</li>\r\n \t<li>\r\n<h5>An accepted <strong>time</strong> period during which the project should be completed</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about how to implement successful projects. Projects are launched all the time across organizations whether they are internal or external. It’s important to ensure successful project implementations so as to avoid a loss of a lot of time, money and in some cases reputations.</h5>\r\n<h5>Successful Project Management takes into account the following considerations:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>An agreement on the acceptable quality level of the output of the project. As an example, if the project is to send a person to the moon, the quality requirements would be dramatically high.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A budget for the costs that would be incurred to deliver the project.</h5>\r\n</li>\r\n \t<li>\r\n<h5>An accepted time period during which the project should be completed.</h5>\r\n</li>\r\n</ul>\r\n<h5>The three aspects are all related to each other and as such are set out at the beginning of the project and are tracked all through the implementation of the project. If there is a need to improve any one of the three elements, that would have an impact on the other two elements. Everyone in the organisation should learn these three basic aspects to projects and defining them at the beginning would help save a lot of costs, time and effort.</h5>",
+                            "course-unit-quotes": "<h5>If you can’t describe what you are doing as a process, you don’t know what you’re doing. W. Edwards Deming</h5>",
+                            "course-unit-case-study": "<h5>After having successfully closed her strategic business deal, Annie brings in her implementation team to meet with the client and make sure that all parties are clear on the deliverables of the project to ensure that the desired <b>quality</b> level is met, within the <strong>cost</strong> and <strong>time</strong> that were proposed. Even though the sale was closed Annie stays close to the client and the project implementation to ensure that the client is satisfied and ready to refer her to others as well as possibly take more solutions from her.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 161,
+                            "title": "24minCIO Complete Unit 12",
+                            "description": "24minCIO Complete Unit 12",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What is your usually your main challenge when managing a project: ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Time",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Quality",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Cost",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 321,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 863,
+                        "title": "24 minute CIO Posttest",
+                        "slug": "24mincio-certificate",
+                        "order": 140,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 162,
+                            "title": "24minCIO Post Test",
+                            "description": "24minCIO Post Test",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 3 essential considerations to keep in mind when setting up a strategy?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Define your mission, Short Term Goals, Create KPI’s",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Define your mission, vision, Goals",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Define your short term goals, Long term goals, mission",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Set up a SWOT Analyses, Marketing Plan, Strategic Plan",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 322,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A strong Strategy ensures that the ______________ and _____________ of your business are directed toward the right goals. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Recruitment strategy, staffing",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Energy of your team, resources",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Marketing plan, resources",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Mission, vision",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 323,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The best way to predict the future is to invent it. What are the 4 steps that will guide you in developing your Next Innovation?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Set up a strategy, Create, Ideate, Prototype",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Ideate, Prototype, Organize, Plan",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Identify a problem, Ideate, Prototype, Evaluate & Refine",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Identify a problem, Organize, Plan, Evaluate & Refine",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 324,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Innovation can be summarized as the process of coming up with _____________that _________ would be willing to pay for.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "a new idea or product, customers",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "deals, distributers",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "deals, suppliers",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "new ideas, employees",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 325,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 2 activities that form the foundation of business to IT alignment are:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Business drives IT investment  / IT capabilities enabling business practices",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Mobile First Strategy / Regular Meetings",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "IT capabilities enabling business practices / Mobile First Strategy",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Business drives It investment/  Regular Meetings",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 326,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "As more organizations use IT as a competitive advantage, there is a need for a high coordination between business and IT leaders. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "True",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "False",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 327,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 3 cloud computing benefits?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Save Money, Time, Data",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Easy to use, Streamline processes, Increase capital costs",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Agility, Peace of mind, Cost Savings",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Improve accessibility, Increase capital costs, Decrease flexibility",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 328,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Business email, office, instant messaging & video conferencing, websites and social enterprise are parts of:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Hybrid cloud",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Office 365",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Local server",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Private Cloud",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 329,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When purchasing any ICT infrastructure you should make sure that your infrastructure can respond dynamically to changing business demands without having to continuously change systems. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "True",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "False",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 330,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When purchasing any ICT infrastructure you should __________ upfront capital and management costs while maintaining the possibility to invest as your needs grow using _________________. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Higher, same infrastructure",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Lower, Different infrastructure",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Lower, same infrastructure",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Higher, Different infrastructure",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 331,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When making a storage solution purchasing decision, always look for these 3 Ps:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Performance, Price and Protection",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Price, Product, Promotion",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Place, Product, Price",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Performance, Price, Promotion",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 332,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "All data is created equal and organizations need to have an evolving strategy to manage the same types of data, manage the growth of the data and to secure the most sensitive data.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "True",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "False",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 333,
+                                    "order": 11
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Minimizing the risk of losing data with quick backups and redundant hard drives is an example of:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Increasing Privacy",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Multilayered protection",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Fast Backups",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Anytime access",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 334,
+                                    "order": 12
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "___________________ help defend your business‘ IT network by filtering or blocking unwanted content.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Manage accessories",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Multilayered protection",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Increase Privacy",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Share effectively",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 335,
+                                    "order": 13
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "______________ these days are playing a key role in innovation and service delivery within all businesses.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "IT Managers",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "IT Infrastructure",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "IT Solutions",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "IT Services",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 336,
+                                    "order": 14
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "IT is providing a competitive advantage for businesses across all industries as connectivity, data and intelligence come together to unleash great opportunities. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "True",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "False",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 337,
+                                    "order": 15
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "BYOD stands for:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Buy Your Own Devices",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Bring Your Own Devices",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Bring Your Own Data",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Buy Your Own Drives",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 338,
+                                    "order": 16
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "____________________ refers to companies&apos; increasing tendency to design their products for mobile phones or devices before making correlate designs for traditional desktop and laptop computers.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Mobile First Strategy",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Mobile-First Responsive Web Design",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Mobile Specification",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Mobile Security",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 339,
+                                    "order": 17
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 4 essential leadership skills everyone should follow? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Passionate, Authentic, Empathy, Recognition",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Takes responsibility, Empath, Hard to convince, Recognition",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Generate good ideas, Empath, takes responsibility, Recognition",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Hard to convince, Generate good ideas, Motivation, Recognition",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 340,
+                                    "order": 18
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Practice what you preach is an example of:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Passion about work",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Authenticity",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Recognizing others work",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Leading by example",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 341,
+                                    "order": 19
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "_____________ is a key capability for you and your business to keep on growing and succeeding. It is about developing oneself and then developing other. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Career Development",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Team Development",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Talent Development",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Economic Development",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 342,
+                                    "order": 20
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "____________ is a rule developed by the Center for Creative Leadership (CCL) to teach people and organizations how to best develop people. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "70/20/10 Rule",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Developing others",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Developing yourself",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Talen Development",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 343,
+                                    "order": 21
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 3 considerations to take in account when implementing successful projects?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Quality, Time, Cost",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Time, Money, Reputation",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Quality, Quantity, Productivity",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Budgeting, Planning, Monitoring",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 344,
+                                    "order": 22
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "It's important to ensure successful project implementations to avoid loss of ___________, ___________ and ____________. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Time, Money and reputation",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Quality, Quantity, time",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Quantity, Quality, Money",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Productivity, Energy, time",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 345,
+                                    "order": 23
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/cio.png",
+                "zip_path": "wp-content/uploads/2018/10/cio.png",
+                "level": "card"
+            }
+        ]
+    }
+}

@@ -1,0 +1,639 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 116,
+        "title": "AI for Growth: The Practical SME Guide",
+        "description": "",
+        "unit_count": 6,
+        "author_id": 8412,
+        "course_post_id": 4002,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_show",
+            "unit_advancement": "automatic",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 4015,
+            "title": "AI for Growth: The Practical SME Guide",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/the-ai-opportunity-for-smes/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2024/12/SMEEP-course-card.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 116,
+                "title": "AI for Growth: The Practical SME Guide",
+                "description": "<p>AI for Growth: The Practical SME Guide</p>",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 4003,
+                        "title": "The AI Opportunity for SMEs",
+                        "slug": "the-ai-opportunity-for-smes",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "rnepHoI_JhA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "<h5>Artificial Intelligence, or AI, is no longer a distant concept reserved for tech giants. It’s here, accessible, and ready to revolutionize your small or medium-sized business. But what exactly is AI? Simply put, AI refers to machines and systems that can perform tasks typically requiring human intelligence—like understanding language, recognizing patterns, or making predictions. </h5>\r\n\r\n<h5>Let’s start by clarifying a common misconception. AI doesn’t mean robots taking over jobs. Instead, it’s about helping your business work smarter, not harder. Think of AI as an enhancement—a tool to support your team and free up their time for more strategic tasks. </h5>\r\n\r\n<h5>Why does AI matter to SMEs? Because the competitive landscape is changing fast. Businesses using AI are outperforming those that don’t. They’re automating routine tasks, gaining insights from data, and improving customer experiences—all while reducing costs. </h5>\r\n\r\n<h5>Take real-world examples: a chatbot responding to customer inquiries 24/7, a marketing tool that personalizes campaigns, or an AI-driven inventory system predicting demand. These aren’t just ideas—they’re tools that SMEs around the world are using right now. </h5>\r\n\r\n<h5>The takeaway? AI is not just for the big players. It’s for you, too. By the end of this course, you’ll understand how to unlock AI’s potential to grow your business. Ready to explore? Let’s dive in! </h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What specific areas or challenges in your business do you think AI could address to improve efficiency, reduce costs, or enhance customer experiences? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1052,
+                                "order": 1,
+                                "question": "What specific areas or challenges in your business do you think AI could address to improve efficiency, reduce costs, or enhance customer experiences? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 958,
+                            "title": "The AI Opportunity for SMEs",
+                            "description": "<p><span class=\"TextRun MacChromeBold SCXW43204538 BCX8\" lang=\"EN-US\" xml:lang=\"EN-US\" data-contrast=\"none\"><span class=\"NormalTextRun SCXW43204538 BCX8\" data-ccp-parastyle=\"heading 4\">The AI Opportunity for SMEs</span></span></p>",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What’s the primary reason you’re exploring AI for your business? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "To improve efficiency and save time ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "To enhance customer experience and engagement ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "To gain a competitive advantage ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2341,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 4004,
+                        "title": "AI Readiness - Upskill Your Teams",
+                        "slug": "ai-readiness-upskill-your-teams",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "0AHFT7ilUrc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "<h5>AI adoption starts with people. Your team is the backbone of your business, and preparing them for this journey is essential. But what does that preparation look like? </h5>\r\n\r\n<h5>First, let’s talk about knowledge. AI can seem complex, but your team doesn’t need to be tech experts. They just need to understand the basics—what AI is, how it works, and how it can make their jobs easier. Equip them with resources, tutorials, and simple guides to build this foundation. </h5>\r\n\r\n<h5>Next, we need to address ethics. AI is powerful, but with power comes responsibility. Your team must use AI ethically—making decisions that are fair, unbiased, and transparent. Teach them about ethical guidelines, especially when handling sensitive customer data. </h5>\r\n\r\n<h5>Speaking of data, confidentiality is key. AI relies on data to function, and it’s your job to ensure that data is protected. Train your team on best practices for data security, including compliance with regulations like GDPR. </h5>\r\n\r\n<h5>Finally, foster a culture of innovation. Encourage your team to think creatively about how AI can improve their workflows. When they see AI as a partner, not a threat, they’ll embrace it wholeheartedly. </h5>\r\n\r\n<h5>Remember, AI adoption isn’t just about technology—it’s about mindset. Invest in your team, and you’ll be ready to unlock AI’s full potential. </h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<h5><b>Special SME Offer: <a href=\"https://educate.potential.com/ai-amplify/\" target=\"_blank\" rel=\"noopener\">AI Amplify</a></li></br></b></h5>\r\n",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What steps can you take to upskill your team to prepare them for AI adoption?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1053,
+                                "order": 1,
+                                "question": "What steps can you take to upskill your team to prepare them for AI adoption?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 959,
+                            "title": "AI Readiness - Upskill Your Teams",
+                            "description": "<p><span class=\"TextRun MacChromeBold SCXW217021085 BCX8\" lang=\"EN-US\" xml:lang=\"EN-US\" data-contrast=\"none\"><span class=\"NormalTextRun SCXW217021085 BCX8\" data-ccp-parastyle=\"heading 4\">AI Readiness - Upskill Your Teams</span></span></p>",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What do you think is the biggest challenge your team faces in adopting AI? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Lack of AI knowledge or expertise ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Resistance to change within the team  ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Limited budget for upskilling and training ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2342,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "How many employees do you currently have? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "1-5",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "6-20",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "21-49",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "50+",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2343,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Would you consider enrolling your employees in a ready-to-go AI upskilling program? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2344,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 4005,
+                        "title": "Augmented Intelligence - Chat-Based Tools",
+                        "slug": "augmented-intelligence-chat-based-tools",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "upXjs26TMi8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "<h5>If you’re looking for the easiest way to get started with AI, chat-based tools are your answer. These tools, like chatbots and virtual assistants, are designed to simplify your business operations while delivering powerful results. </h5>\r\n\r\n<h5>Let’s break it down. What are chat-based AI tools? Think of them as intelligent systems that can interact with your customers or employees in real time. They can answer queries, provide guidance, or even help with decision-making—all through simple, conversational interfaces. </h5>\r\n\r\n<h5>Now, why are they so effective? First, they’re incredibly easy to set up. With minimal training, you can have a chatbot ready to handle customer inquiries or guide visitors through your website. </h5>\r\n\r\n<h5>Second, they’re versatile. Use them for customer service, lead generation, or FAQ automation. You can even deploy AI mentors to assist your team in making informed decisions. </h5>\r\n\r\n<h5>The benefits are immense. Chat-based tools reduce costs, improve response times, and ensure 24/7 availability. They scale effortlessly, handling thousands of interactions without breaking a sweat. </h5>\r\n\r\n<h5>But it doesn’t stop there. These tools are constantly learning, which means they get better over time. The more they interact, the smarter they become—helping your business deliver exceptional experiences. </h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<h4><b>Special SME Offer: <a href=\"https://ai.potential.com/ai-bot/\" target=\"_blank\" rel=\"noopener\">AI Customer Service Chatbot</a></li></br></b></h4>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can you use chat-based AI tools in your business, and what tasks or interactions would you like them to handle? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1054,
+                                "order": 1,
+                                "question": "How can you use chat-based AI tools in your business, and what tasks or interactions would you like them to handle? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 960,
+                            "title": "Augmented Intelligence - Chat-Based Tools",
+                            "description": "<p><span class=\"TextRun MacChromeBold SCXW775126 BCX8\" lang=\"EN-US\" xml:lang=\"EN-US\" data-contrast=\"none\"><span class=\"NormalTextRun SCXW775126 BCX8\" data-ccp-parastyle=\"heading 4\">Augmented Intelligence - Chat-Based Tools</span></span></p>",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Where would you most likely use a chat-based AI tool in your business? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Customer service and support ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Generating leads and answering sales inquiries ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Internal employee onboarding, support, and training ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2345,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 4006,
+                        "title": "Automating Business Processes with AI Agentic Tools",
+                        "slug": "automating-business-processes-with-ai-agentic-tools",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "PSCFV_pWxX8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "<h5>Imagine a world where mundane tasks are automated, freeing up your time to focus on strategy and growth. That’s what AI agentic tools can do for your business. </h5>\r\n\r\n<h5>So, what are AI agentic tools? They’re systems designed to handle repetitive tasks, like generating marketing materials, creating business models, or drafting legal documents. These tools are highly customizable, allowing you to align them perfectly with your workflows. </h5>\r\n\r\n<h5>Let’s explore some examples. Need a new marketing campaign? AI can generate ads, social media posts, and email templates in minutes. Training your team? Use AI to create interactive courses or onboarding materials. Managing operations? Automate inventory updates, scheduling, or reporting. </h5>\r\n\r\n<h5>The benefits are clear. Automation reduces operational costs, enhances accuracy, and boosts productivity. Plus, with ready-to-use AI tools available, getting started is easier than ever. </h5>\r\n\r\n<h5>Customization takes it a step further. Tailor these tools to match your exact needs, ensuring seamless integration into your existing processes. </h5>\r\n\r\n<h5>By automating your business functions, you’re not just saving time—you’re creating a scalable, efficient operation.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<h5><b>Special SME Offer: <a href=\"mailto:rawzaba@potential.com\">Custom AI Agentic Tools</a></li></br></b></h5>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Which business processes or workflows would you prioritize for automation, and how could AI tools help streamline these tasks? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1055,
+                                "order": 1,
+                                "question": "Which business processes or workflows would you prioritize for automation, and how could AI tools help streamline these tasks? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 961,
+                            "title": "Automating Business Processes with AI Agentic Tools",
+                            "description": "<p><span class=\"TextRun MacChromeBold SCXW50843372 BCX8\" lang=\"EN-US\" xml:lang=\"EN-US\" data-contrast=\"none\"><span class=\"NormalTextRun SCXW50843372 BCX8\" data-ccp-parastyle=\"heading 4\">Automating Business Processes with AI Agentic Tools</span></span></p>",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which process would you prioritize for automation using AI tools? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Marketing and content",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "HR and legal documents",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Blog articles and press releases",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2346,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 4007,
+                        "title": "Leveraging Local LLM and Hybrid Models",
+                        "slug": "leveraging-local-llm-and-hybrid-models",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "dyS31S7IcNU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "<h5>When adopting AI, one size doesn’t fit all—especially when it comes to handling sensitive information. For many businesses, data security and privacy are top priorities. That’s where locally built Large Language Models, or LLMs, come into play. </h5>\r\n\r\n<h5>What are local LLM models? Unlike cloud-based solutions like OpenAI’s GPT or Google’s Gemini, local LLMs are AI systems hosted on your premises or a private infrastructure you control. These models are designed to ensure your data stays within your environment, reducing the risks associated with external data storage. </h5>\r\n\r\n<h5>Why is this important? First, it’s about compliance. Many industries have strict regulations about where and how data is stored. Hosting an LLM locally helps you meet those requirements, whether it’s GDPR in Europe or other regional standards. </h5>\r\n\r\n<h5>Second, it’s about control. With local models, you decide how your data is used, ensuring it’s not being shared, analyzed, or stored by third parties. This is especially critical if you handle confidential customer information, financial records, or intellectual property. </h5>\r\n\r\n<h5>Getting started with a local LLM might sound complex, but it’s more accessible than you think. Many ready-to-use solutions allow you to deploy and customize models on your infrastructure without extensive technical expertise. </h5>\r\n\r\n<h5>The benefits are clear: enhanced data security, compliance with regulations, and full control over your AI system. By choosing a local solution, you’re not just adopting AI—you’re doing it responsibly and strategically. </h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "If you were to adopt a locally built LLM model, what data or processes would you prioritize for integration, and how would this enhance your data security and control? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1056,
+                                "order": 1,
+                                "question": "If you were to adopt a locally built LLM model, what data or processes would you prioritize for integration, and how would this enhance your data security and control? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 962,
+                            "title": "Leveraging Local LLM and Hybrid Models",
+                            "description": "<p><span class=\"NormalTextRun SCXW56025774 BCX8\" data-ccp-parastyle=\"heading 4\">Leveraging</span><span class=\"NormalTextRun SCXW56025774 BCX8\" data-ccp-parastyle=\"heading 4\"> Local LLM and Hybrid Models</span></p>",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What’s the biggest factor driving your interest in locally built LLM models for your business? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Concerns about the security of cloud-based solutions ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "The need to comply with strict data regulations ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "A desire for customization and control over AI capabilities ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2347,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 4008,
+                        "title": "Implementing AI in Your Business",
+                        "slug": "implementing-ai-in-your-business",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "6d8XQA-WUKI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "<h5>It’s time to put theory into practice. Implementing AI might seem overwhelming, but with a clear roadmap, it becomes manageable and rewarding. </h5>\r\n\r\n<h5>Start with an AI adoption checklist. Identify areas in your business where AI can have the biggest impact. Is it customer service, operations, or marketing? Pinpoint the processes that stand to gain the most. </h5>\r\n\r\n<h5>Next, choose the right tools. Whether it’s a chatbot, a workflow automation system, or a custom AI model, ensure it aligns with your business objectives. </h5>\r\n\r\n<h5>Begin with a pilot project. Test the tool in a controlled environment, monitor its performance, and gather feedback. This allows you to refine the system before scaling it across your business. </h5>\r\n\r\n<h5>Once you’re confident in its results, expand its use. Integrate AI into additional areas, train your team to maximize its potential, and continuously track your outcomes. </h5>\r\n\r\n<h5>Remember, AI is not a one-time investment—it’s an ongoing journey. By starting small and scaling strategically, you’ll unlock its full potential. Ready to transform your business? </h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/smeep.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 963,
+                            "title": "Implementing AI in Your Business",
+                            "description": "<p>Implementing AI in Your Business</p>",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What’s the biggest barrier preventing you from implementing AI in your business? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Lack of clarity on how to get started. ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Concerns about cost and ROI. ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Limited time to explore and test AI tools. ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2348,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2024/12/SMEEP-course-card.png",
+                "zip_path": "wp-content/uploads/2024/12/SMEEP-course-card.png",
+                "level": "card"
+            }
+        ]
+    }
+}

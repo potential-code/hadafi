@@ -1,0 +1,1004 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 27,
+        "title": "CV Writing",
+        "description": "Potential Course",
+        "unit_count": 9,
+        "author_id": 0,
+        "course_post_id": 3670,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2341,
+            "title": "CV Writing",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/cv-writing-pre-test/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/cv.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 27,
+                "title": "CV Writing - Potential",
+                "description": "Build your CV now",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 900,
+                        "title": "CV Writing - Pre-Test",
+                        "slug": "cv-writing-pre-test",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 199,
+                            "title": "CV writing Pre Test",
+                            "description": "CV writing Pre Test",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following is true about CVs?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "A CV is useful for everyone except jobseekers.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A CV contains information about your friends and family members. ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "A CV helps you market yourself.",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 432,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following is/are important when writing a CV?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Presentation Only",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Content Only",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Both Presentation and Content",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 433,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A combined CV is usually longer than both Chronological and Functional CVs because it combines both. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 434,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "How many steps are included in the layout of a Chronological CV:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "3",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "6",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "7",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 435,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 901,
+                        "title": "7 Reasons Why a CV is Important for Job Seekers",
+                        "slug": "7-reasons-why-cv-is-important-for-job-seekers",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "5G4XJG6msZY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>A CV is an application that contains information such as personal details, work experiences, qualifications and personal interests of the specified job seeker.</h5>\r\n<h5>7 reasons why you need a CV when looking for a job:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>A CV helps you market yourself.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A CV can be applied multiple times to jobs in a specific career area.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A CV always reminds you of what you have done in your career.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A CV helps you identify your weaknesses.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A CV refreshes your mind before your interview.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A CV helps you see if you have achieved your targets.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A CV sets a plan for your future job potentials.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>This might be obvious, but some people looking for jobs still don’t have CVs. If you are convinced you need a CV simply move on to the next unit.</h5>\r\n<h5>Otherwise, in this video you will learn what a CV is and why it plays an important role in a job seekers life.</h5>\r\n<h5>CV stands for Curriculum Vitae. This is a Latin word that means ‘the story of your life’. In America, a CV is normally called a resume. A CV is an application that contains information such as personal details, work experiences, qualifications and personal interests of the specified job seeker. Basically, it is the first chance you can have to make a good impression on your recruiter. The main purpose of a CV is to help you obtain a face-to-face interview for the job you desire.</h5>\r\n<h5>Here are the<strong> 7 reasons why you need a CV</strong> when looking for a job:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>A CV helps you market yourself.</strong> It is a great way to attract attention of your recruiter. It sells your skills and qualifications, thus helping recruiters choose you over other candidates.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>A CV can be applied multiple times</strong> to jobs in a specific career area.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>A CV always reminds you of what you have done </strong>in your career.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>A CV helps you identify the weaknesses</strong> in your skills.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>A CV refreshes your mind</strong> before your interview.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>A CV helps you see if you have achieved the targets</strong> that you have set previously.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>A CV sets a plan</strong> for your future job potentials.</h5>\r\n</li>\r\n</ul>\r\n<h5>Everyone looking for a job needs to prepare a CV, thus making a strong communication with their recruiters!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I am looking for a job opportunity in: ",
+                            "course-unit-atq-two": " The objective of my CV is:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 577,
+                                "order": 1,
+                                "question": "I am looking for a job opportunity in: "
+                            },
+                            {
+                                "q_id": 578,
+                                "order": 2,
+                                "question": " The objective of my CV is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 200,
+                            "title": "CV writing Complete Unit 1",
+                            "description": "CV writing Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "Give one reason why you need to prepare a CV? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 425,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 902,
+                        "title": "8 Qualities of Exceptional High-Standard CV Writing",
+                        "slug": "8-qualities-of-exceptional-high-standard-cv-writing",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "3AiRD8qyWFM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>8 qualities to apply when writing your CV:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Be clear and accurate in your CV writing.</h5>\r\n</li>\r\n \t<li>\r\n<h5>If you are printing the CV do it on good quality paper, since most people would send it electronically.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Highlight headings and don’t use paragraphs.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be neat and precise.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t make your CV long.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Check spelling and grammar mistakes.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be confident while writing your CV and use positive language.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Always keep your CV up to date.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. You are advised to take your time and effort when writing a CV. In this video, we will show 8 qualities of exceptional high-standard CV writing. Most school and colleges are recommended to teach students about CV writing because today, it is most appropriate type of application when looking for a job.</h5>\r\n<h5>So here are the<strong> 8 qualities that we suggest you apply when writing your CV</strong>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Be clear and accurate</strong> in your CV writing. Content is very important. Only include factual information related to the job you’re applying for.</h5>\r\n</li>\r\n \t<li>\r\n<h5>If you are printing the CV do it on good quality paper, since most people would send it electronically. <strong>Presentation is very important.</strong> It is a key element of whether your CV will be read or not.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Highlight headings and don’t use paragraphs.</strong> Use bullet points to focus on your key points, thus making it faster for the recruiter to get all your useful qualities into his mind.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Be neat and precise.</strong> Make your CV clear to read. Font ’12-Times New Roman’ is advised. As explained, presentation is extremely important. Why would a recruiter spend his time reading your CV if you did not spend your time preparing a neat CV.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Don’t make your CV long.</strong> One page is sufficient. Not more than two pages. If it is too long, the recruiter gets bored reading it and will not continue.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Check spelling and grammar mistakes.</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Be confident while writing your CV and <strong>use positive language</strong>. Also,<strong> use your possible future potentials</strong> to attract the attention of your recruiter.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Always keep your CV up to date.</strong> Keep amending it according to changes in your jobs and skills.</h5>\r\n</li>\r\n</ul>\r\n<h5>As explained, good CV writing is essential for job seekers to WOW their way to a face-to-face interview for the job they desire!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "At school/college, I was taught to make sure my CV was:",
+                            "course-unit-atq-two": "My CV is too long and wordy. How shall I cut it down efficiently?",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 579,
+                                "order": 1,
+                                "question": "At school/college, I was taught to make sure my CV was:"
+                            },
+                            {
+                                "q_id": 580,
+                                "order": 2,
+                                "question": "My CV is too long and wordy. How shall I cut it down efficiently?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 201,
+                            "title": "CV writing Complete Unit 2",
+                            "description": "CV writing Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Is your CV free from grammar and spelling mistakes?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 426,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 903,
+                        "title": "3 Types of CVs",
+                        "slug": "3-types-of-cvs",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Gx3kdoMnvHc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 types of CV formats:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Chronological CV</h5>\r\n</li>\r\n \t<li>\r\n<h5>Functional CV</h5>\r\n</li>\r\n \t<li>\r\n<h5>Combined CV</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will explain briefly 3 kinds of formats for CV writing as it will be explained in detail in the next 3 units.</h5>\r\n<h5>There are <strong>3 types of CV formats</strong> used today.</h5>\r\n<h5>So, here they are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Chronological CV</strong>: This format is the most used today as it is easy to read and clearly defines the job seeker’s work progression over the years. In other words, it does not hide anything. Most recruiters are happy when they receive such kind of CVs.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Functional CV</strong>: This format is used when job seekers have gaps in their work career and to hide that, they prefer to focus on their skills and achievements. This happens when job seekers are frequently shifting to different careers. Recruiters actually are skeptical when they receive such a format. Thus, the CV must be well written to grab the attention of the recruiter from the beginning.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Combined CV</strong>: This CV is usually longer than the other two because it combines both Chronological and Functional CV formats. Thus, the CV must clearly highlight the factual information about the job seeker including both work progression and strengths. Recruiters should be able to quickly learn what they need about the person looking for the job, just by skimming through the Combined CV prepared.</h5>\r\n</li>\r\n</ul>\r\n<h5>CV writing needs both time and effort to work hand by hand to prepare a clear format with decent content. Whatever kind of format you choose, we suggest you clearly and precisely define yourself and ensure that your CV is a reflection of who you are!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Which resume format is best for me to use and why?",
+                            "course-unit-atq-two": " I am applying to job offers in the career areas below:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 581,
+                                "order": 1,
+                                "question": "Which resume format is best for me to use and why?"
+                            },
+                            {
+                                "q_id": 582,
+                                "order": 2,
+                                "question": " I am applying to job offers in the career areas below:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 202,
+                            "title": "CV writing Complete Unit 3",
+                            "description": "CV writing Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have gaps in your work career that you would like to hide?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2023,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 904,
+                        "title": "7 Step Layout of a Chronological CV",
+                        "slug": "7-step-layout-of-a-chronological-cv",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "totzK-fkQtM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>7 step layout of how to write a ‘Chronological CV’:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Personal Details</h5>\r\n</li>\r\n \t<li>\r\n<h5>Career Objective</h5>\r\n</li>\r\n \t<li>\r\n<h5>Work Experiences</h5>\r\n</li>\r\n \t<li>\r\n<h5>Qualifications</h5>\r\n</li>\r\n \t<li>\r\n<h5>Skills</h5>\r\n</li>\r\n \t<li>\r\n<h5>Personal Interests</h5>\r\n</li>\r\n \t<li>\r\n<h5>Referees</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn how to write the most common CV called ‘Chronological CV’. However, job seekers are suggested to know when to use this type of application. Chronological CV is good for job seekers always looking for jobs in the same specific career area. It shows your work career progression making it the easiest to read and thus, the most used type of CV writing today.</h5>\r\n<h5>So, here is a <strong>7 step layout</strong> of how to write a <strong>‘Chronological CV’</strong>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Personal Details:</strong> This is written on the top of the CV. It includes information such as your name, email address and further contact details.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Career Objective:</strong> Here you are recommended to write about your job motivations, enthusiasm and to mention why <strong><em>you</em></strong> should be chosen for the job.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Work Experiences: </strong>Here all your work experiences should be mentioned in order, going backwards by date. All kinds of work related to the job offer are advised here. This includes volunteer jobs, part-time jobs and of course full-time jobs. Mention job titles, responsibilities and all achievements. Don’t leave gaps.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Qualifications:</strong> Here mention all your schools and colleges. Also, your grades and the courses and units that you have covered are advisable. But, remember to keep all information in reverse chronological order.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Skills:</strong> These should be different than your qualifications above. Mention the professional skills you have related to the job. For example, computer skills, problem-solving skills etc.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Personal Interests:</strong> This is optional but is very beneficial if your interests or hobbies match the job you are applying for.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Referees:</strong> These are the contact details of people that can recommend you maybe from a previous job for example. Make sure you have taken their permission before mentioning them on your CV.</h5>\r\n</li>\r\n</ul>\r\n<h5>So we suggest you follow the above layout in writing your ‘Chronological CV’. But <strong><em>always remember</em></strong> if you have gaps in your work career, this type of CV is not advisable since it emphasizes and shows these weaknesses!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My work experiences in order, going backwards by date, are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 583,
+                                "order": 1,
+                                "question": "My work experiences in order, going backwards by date, are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 203,
+                            "title": "CV writing Complete Unit 4",
+                            "description": "CV writing Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your CV focus on your work progression over the years instead of your skills?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2022,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 905,
+                        "title": "7 Step Layout of a Functional CV",
+                        "slug": "7-step-layout-of-a-functional-cv",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "kyKBwYPfLz4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>7 steps of how to write a ‘Functional CV’:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Personal Details</h5>\r\n</li>\r\n \t<li>\r\n<h5>Objectives</h5>\r\n</li>\r\n \t<li>\r\n<h5>Personal Profile</h5>\r\n</li>\r\n \t<li>\r\n<h5>Skills</h5>\r\n</li>\r\n \t<li>\r\n<h5>Accomplishments/Capabilities</h5>\r\n</li>\r\n \t<li>\r\n<h5>Education</h5>\r\n</li>\r\n \t<li>\r\n<h5>References</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn about the second type of CVs used which is the ‘Functional CV’. When gaps are available in your work experiences then go for ‘Functional CV’. This does not stress on your work progression but alternatively, emphasizes on your skills, achievements and what you are best at.</h5>\r\n<h5>So here are the <strong>7 steps</strong> <strong>of how to write a</strong> <strong>‘Functional CV’</strong>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Personal Details:</strong> Same as ‘Chronological CV’. This is written on the top of the CV. It includes information such as your name, email address and further contact details.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Objectives:</strong> Same as ‘Chronological CV’. Here you are recommended to write about your job motivations, enthusiasm and to mention why <strong><em>you</em></strong> should be chosen for the job.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Personal Profile:</strong> Here highlight the skills, achievements and work experience you possess. This section is like a summary of what the next sections will focus on.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Skills:</strong> Here is the main part of the ‘Functional CV’. Mention under bullet points the key skills you acquire. Usually for this kind of CV’s, transferable skills are what recruiters are looking for. Skills that you can use in more than one kind of job.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Accomplishments/Capabilities:</strong> This section too is the second important part of ‘Functional CV’. Also, use bullet points. Instead of focusing on a particular job, explain your accomplishments in details. Steps 4 and 5 should be written with clarity and in decreasing order of importance.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Education:</strong> Same as ‘Chronological CV’. Here mention all your schools and colleges. Also, your grades and the courses and units that you have covered are advisable. But, remember to keep all information in reverse chronological order.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>References: </strong>Same as ‘Chronological CV’. These are the contact details of people that can recommend you maybe from a previous job for example. Make sure you have taken their permission before mentioning them on your CV.</h5>\r\n</li>\r\n</ul>\r\n<h5>Remember in Functional CV; focus on the skills and accomplishments. You can always mention your job experiences but this will not be a main part in this kind of CV. Functional CVs are advisable when you have multiple job careers but this kind of CV is not preferable in industry. So, make sure you only use it when you have to!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Why do I need to focus on my accomplishments and skills in my CV?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 584,
+                                "order": 1,
+                                "question": "Why do I need to focus on my accomplishments and skills in my CV?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 204,
+                            "title": "CV writing Complete Unit 5",
+                            "description": "CV writing Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Is your CV applicable to job positions in other careers?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2021,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 906,
+                        "title": "3 Reasons Why a Combined CV is Most Appropriate",
+                        "slug": "3-reasons-why-a-combined-cv-is-most-appropriate",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "FW7nd-gd7GM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>A combined CV is used when:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>You have strong work experiences and many accomplishments.</h5>\r\n</li>\r\n \t<li>\r\n<h5>You don’t have gaps in your work progression.</h5>\r\n</li>\r\n \t<li>\r\n<h5>You don’t have weak skills and little achievements.</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will suggest when it is most appropriate to use a ‘Combined CV’. First, what is a<strong> ‘Combined CV’</strong>? As its name suggests, it is a CV that combines both Chronological and Functional CVs. This type of CV<strong> is used when</strong>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>You have<strong> strong work experiences</strong> and <strong>many accomplishments</strong>.</h5>\r\n</li>\r\n \t<li>\r\n<h5>You <strong>don’t have gaps</strong> in your work progression.</h5>\r\n</li>\r\n \t<li>\r\n<h5>You <strong>don’t have weak skills</strong> and <strong>little achievements</strong>.</h5>\r\n</li>\r\n</ul>\r\n<h5>So, a ‘Combined CV’ is when you want to sell both your work experiences and your strengths. This format is lengthier than the other 2 kinds of CVs. Therefore, it is very important that you try your best not to lose the interest of your recruiter reading this kind of CV!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My work experiences and accomplishments are: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 585,
+                                "order": 1,
+                                "question": "My work experiences and accomplishments are: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 205,
+                            "title": "CV writing Complete Unit 6",
+                            "description": "CV writing Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Is the Combined resume format the most appropriate for you?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2024,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 907,
+                        "title": "4 Important Things Employers Look For In a CV",
+                        "slug": "4-important-things-employers-look-for-in-a-cv",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "x3gX5SBolDo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 important questions recruiters ask themselves while reading CVs:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Has the job seeker used unconvincing, waste of time sentences?</h5>\r\n</li>\r\n \t<li>\r\n<h5>Is this CV particularly unique?</h5>\r\n</li>\r\n \t<li>\r\n<h5>How does the specified job seeker stand out from the rest of them?</h5>\r\n</li>\r\n \t<li>\r\n<h5>Why am I still reading this CV?</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn what employers look for while reading CVs. This helps you identify mistakes you have done while writing your own CV.</h5>\r\n<h5>So, here are the <strong>4 important questions recruiters ask themselves</strong> while reading CVs:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Has the job seeker used unconvincing, waste of time sentences?</strong> Avoid clichés. Using same phrases other candidates normally use doesn’t distinguish you from them. Rather focus on what you are really good at.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Is this CV particularly unique?</strong> Tailor your CV specifically for the job you are applying to.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>How does the specified job seeker stand out from the rest of them?</strong> Mention your point of differentiation. Mention why you should be chosen. Mention your achievements.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Why am I still reading this CV?</strong> This question when asked by a recruiter means that you have failed to attract his attention as quickly as possible. You have failed to efficiently highlight your most important skills and jobs, sufficient for the busy recruiter to call you.</h5>\r\n</li>\r\n</ul>\r\n<h5>In conclusion, CV writing is a skill job seekers are suggested to master in order to shape their path to a bright successful future!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "When checking my CV, I make sure it is:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 586,
+                                "order": 1,
+                                "question": "When checking my CV, I make sure it is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 206,
+                            "title": "CV writing Complete Unit 7",
+                            "description": "CV writing Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Did you customize your CV specifically to the job you are applying for?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2025,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 908,
+                        "title": "CV Writing - Post Test",
+                        "slug": "cv-writing-post-test",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 207,
+                            "title": "CV writing Post Test",
+                            "description": "CV writing Post Test- Raneen",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following is true about CVs?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "A CV is useful for everyone except jobseekers.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A CV contains information about your friends and family members.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "A CV helps you market yourself.",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 436,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following is/are important when writing a CV?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Presentation Only",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Content Only",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Both Presentation and Content",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 437,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A combined CV is usually longer than both Chronological and Functional CVs because it combines both. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 438,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "How many steps are included in the layout of a Chronological CV:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "3",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "6",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "7",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 439,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The two most important steps in the layout of a functional CV are:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Personal profile, Skills",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Accomplishments, Work progression",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Skills, Accomplishments",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 440,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A Combined CV is used when:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Gaps exists in your work progressions",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "You don’t have weak skills and little achievements",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "You have weak skills and little achievements",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 441,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "By learning what employers look for while reading CVs, you cannot identify mistakes you have done while writing your own CV. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 442,
+                                    "order": 6
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/cv.png",
+                "zip_path": "wp-content/uploads/2018/10/cv.png",
+                "level": "card"
+            }
+        ]
+    }
+}

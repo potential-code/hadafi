@@ -1,0 +1,460 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 114,
+        "title": "SME- Women Entrepreneurship Program",
+        "description": "SME",
+        "unit_count": 9,
+        "author_id": 1448,
+        "course_post_id": 3752,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "no_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": null,
+        "modules": [
+            {
+                "module_id": 114,
+                "title": "SME",
+                "description": "SME",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 3415,
+                        "title": "Customer Segment",
+                        "slug": "customer-segment",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "_OKmGVLzZcg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">Where are our most important customers?</h3>\r\nCustomers are the livelihood of every company and successful organizations understand their customers and recognize how to derive value for them. They know how to reach them and they are aware of how, and what types of relationships to build with them. Most importantly, from the enterprise perspective, successful companies know how to turn satisfied customers into revenue streams.",
+                            "course-unit-read-more": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">Key questions to answer:</h3>\r\n<ol>\r\n \t<li> For whom are you creating value?</li>\r\n \t<li> Who are your most important customers and how do you define them?</li>\r\n \t<li> Can you group your customer in to segments based on common characteristics?</li>\r\n \t<li>How do you describe the market you wish to operate in, for example is it a:</li>\r\n</ol>\r\n<ul>\r\n \t<li> Niche marke</li>\r\n \t<li> Mass market</li>\r\n \t<li> Segmented</li>\r\n \t<li> Diversified</li>\r\n \t<li>Multi-sided platform</li>\r\n</ul>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Who are your most important target customer segments (groups)?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1008,
+                                "order": 1,
+                                "question": "Who are your most important target customer segments (groups)?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 3417,
+                        "title": "Value Proposition",
+                        "slug": "value-proposition-3",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "XvGniXyphqY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">What do we offer each of our client segments?</h3>\r\nOur offer is what attracts our clients. It is the value that they are willing to pay for. This value can be described as a value proposition for each customer segment. It portrays a specific bundle of products and services. A business model may consist of one or several value propositions for each of its customer segments.",
+                            "course-unit-read-more": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">Key questions to answer:</h3>\r\n<ol>\r\n \t<li> What do we offer the market?</li>\r\n \t<li>What is the specific bundle of products and services we offer each of our customer segments?</li>\r\n \t<li> Which customer needs does each value proposition cover?</li>\r\n \t<li>Do we offer different service levels to different customer segments?</li>\r\n</ol>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Which customer needs does your value proposition address or solve?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1009,
+                                "order": 1,
+                                "question": "Which customer needs does your value proposition address or solve?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 3419,
+                        "title": "Channels",
+                        "slug": "channels",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "p-0ko3tB3Zs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">How do we reach each of our client segments?</h3>\r\nA company reaches its customers through various communication and distribution channels. They represent the interface between a company, its value propositions and its customers. These customer touch points include advertising, retail outlets, sales teams, websites, conferences, sales affiliates and many more. The means a company can use to reach its customers have multiplied over the years. This has left managers with a large set of design choices to reach their customers.",
+                            "course-unit-read-more": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">Key questions to answer:</h3>\r\n<ol>\r\n \t<li> Through which communication and distribution channels do we reach our markets?</li>\r\n \t<li>How well does each channel work?</li>\r\n \t<li>How expensive or cost efficient is each of our channels?</li>\r\n \t<li>Through which communication and distribution channels do we promote and deliver each value proposition?</li>\r\n \t<li> Through which channels do we reach each customer segment?</li>\r\n</ol>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Through which channel(s) do you reach your customers so they buy from you?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1010,
+                                "order": 1,
+                                "question": "Through which channel(s) do you reach your customers so they buy from you?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 3421,
+                        "title": "Customer Relationships",
+                        "slug": "customer-relationships",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "fqPEZAwXslk",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">How do we relate to our clients over time?</h3>\r\nGetting relationship management right in our business model is crucial today to satisfy customer’s expectations. For instance, customers paying a high price for a product or service will expect a high touch relationship, while customers paying a cheap price do not expect more than automated, yet customized relationships. A sound business model has a clear strategy for customer relationship management for each customer segment.",
+                            "course-unit-read-more": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">Key questions to answer:</h3>\r\n<ol>\r\n \t<li>Do we develop and maintain different types of client relationships in our business model (e.g. more or less intense, more or less personal)?</li>\r\n \t<li>How resource intensive is each of these client relationship types in terms of time consumption and other costs?</li>\r\n \t<li> For each client segment, which client relationship types and mechanisms do we develop and maintain?</li>\r\n</ol>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is the client relationship that you have? (One-Time purchase, Monthly subscription)",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1011,
+                                "order": 1,
+                                "question": "What is the client relationship that you have? (One-Time purchase, Monthly subscription)"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 3423,
+                        "title": "Revenue Streams",
+                        "slug": "revenue-streams",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "V8EF7vlUqBI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">How do we earn money?</h3>\r\nOur business model’s sustainability depends on the revenues we can capture from our value creating and customer facing activities. Revenue streams come from one or several segments of clients who are willing to pay for the value they get from our offer. These revenue streams come in the form of selling, lending, licensing, commissions, transaction fees or advertising fees.",
+                            "course-unit-read-more": "<div id=\"hadafiaccordianmodule\" class=\"accordian fusion-accordian hadafiaccordianmodule\">\r\n<div id=\"accordion-16047-1\" class=\"panel-group\">\r\n<div class=\"fusion-panel panel-default\">\r\n<div id=\"fd7ba40442e66b537\" class=\"panel-collapse collapse in\">\r\n<div class=\"panel-body toggle-content\">\r\n<h3 data-fontsize=\"24\" data-lineheight=\"26\">Key questions to answer:</h3>\r\n<ol>\r\n \t<li> What are our revenue streams?</li>\r\n \t<li> What are the revenue streams from each customer segment and value proposition?</li>\r\n \t<li> How much is each revenue stream’s contribution to overall revenues in terms of percentages?</li>\r\n</ol>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is your overall revenue (sales) projection for the year and how many units will you sell?*",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1012,
+                                "order": 1,
+                                "question": "What is your overall revenue (sales) projection for the year and how many units will you sell?*"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 3425,
+                        "title": "Key Resources",
+                        "slug": "key-resources",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "En2_bMAcLxo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">Based on which assets are we running our business?</h3>\r\nAt the basis of every business model there is a set of key resources a company must dispose of to make its business model work. These key resources include classical ones such as human resources and tangible assets. Increasingly, business models are also built on intangible assets that are difficult to quantify, such as brand equity and expertise of a specific domain.",
+                            "course-unit-read-more": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">Key questions to answer:</h3>\r\n<ul>\r\n \t<li>What are the key resources we rely on to run our business model?</li>\r\n \t<li>How does each of these resources relate to our value propositions and their corresponding customer segments, channels and relationships?</li>\r\n</ul>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the key resources you rely on to run your business?*",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1013,
+                                "order": 1,
+                                "question": "What are the key resources you rely on to run your business?*"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 3427,
+                        "title": "Key Activities",
+                        "slug": "key-activities",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "KkFsnGEwzIE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">What key activities do we need to run our business model?</h3>\r\nTo implement a business model a company needs to perform a number of key activities. It may perform these activities itself or get them done through a network of partners.",
+                            "course-unit-read-more": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">Key questions to answer:</h3>\r\n<ul>\r\n \t<li> What are the main activities we operate to run our business model?</li>\r\n \t<li>On which key resources do they rely?</li>\r\n \t<li> To which value propositions, channels or relationships do they contribute?</li>\r\n</ul>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the main activities you conduct in your day-to-day work?*",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1014,
+                                "order": 1,
+                                "question": "What are the main activities you conduct in your day-to-day work?*"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 3429,
+                        "title": "Key Partners",
+                        "slug": "key-partners",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "IK9gbtNl4AQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">With which partners do we leverage our business?</h3>\r\nToday’s Business Models are more and more the result of a network of partnerships, joint ventures, cooperation and alliances between different companies. Partners are involved, for example, to complement the value proposition, to bring in specialist competencies or to help deliver to clients.\r\n\r\nEvery company must ask itself if and how it can leverage its own business model by partnering with other companies. This includes the question of what a company wants to do by itself and what it wants to do with partners. It also includes the question of levering one’s own value proposition by combining it with the value proposition of strategic partners.",
+                            "course-unit-read-more": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">Key questions to answer:</h3>\r\n<ul>\r\n \t<li>Which partners and suppliers do we work with?</li>\r\n \t<li>Which key resources do they relate to?</li>\r\n \t<li>To which value propositions, channels or relationships do they contribute?</li>\r\n</ul>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Who are your key partners?*",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1015,
+                                "order": 1,
+                                "question": "Who are your key partners?*"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 3431,
+                        "title": "Cost Structure",
+                        "slug": "cost-structure",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "7dG1GhVS0aQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h3 data-fontsize=\"24\" data-lineheight=\"26\">Where are our most important costs?</h3>\r\nThe cost structure is a direct result of all the other building blocks of the business model. Ideally costs should be traceable back to each business model block. In this manual we will use a light approach by simply listing the most important costs incurred and only if easily possible will we link them to a building block.",
+                            "course-unit-read-more": "<p style=\"text-align: left;\"></p>\r\n\r\n<h3 style=\"text-align: left;\" data-fontsize=\"24\" data-lineheight=\"26\">Key questions to answer:</h3>\r\n<ul style=\"text-align: left;\">\r\n \t<li>What are the most important cost positions in our business model?</li>\r\n \t<li>Can the cost positions be easily connected to a business model building block?</li>\r\n \t<li>Can costs be calculated for each customer segment?</li>\r\n</ul>\r\n<p style=\"text-align: left;\"></p>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are your monthly costs and what is the profit percentage you make per product you sell?*",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 1016,
+                                "order": 1,
+                                "question": "What are your monthly costs and what is the profit percentage you make per product you sell?*"
+                            }
+                        ],
+                        "quiz": null
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": []
+    }
+}

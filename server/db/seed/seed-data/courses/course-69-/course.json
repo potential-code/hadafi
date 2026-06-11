@@ -1,0 +1,186 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 69,
+        "title": "المسؤولية الاجتماعية للشركات",
+        "description": "المسؤولية الاجتماعية للشركات",
+        "unit_count": 7,
+        "author_id": 0,
+        "course_post_id": 3710,
+        "settings": {
+            "completion_wall": "all_visible",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": null,
+        "modules": [
+            {
+                "module_id": 69,
+                "title": "المسؤولية الاجتماعية للشركات",
+                "description": "المسؤولية الاجتماعية للشركات - بوتنشل",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1494,
+                        "title": "المسؤولية الاجتماعية للشركات - الإختبار النهائي",
+                        "slug": "%d8%a7%d9%84%d9%85%d8%b3%d8%a4%d9%88%d9%84%d9%8a%d8%a9-%d8%a7%d9%84%d8%a7%d8%ac%d8%aa%d9%85%d8%a7%d8%b9%d9%8a%d8%a9-%d9%84%d9%84%d8%b4%d8%b1%d9%83%d8%a7%d8%aa-%d8%a7%d9%84%d8%b4%d9%87%d8%a7%d8%af",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10_ar.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 586,
+                            "title": "Corporate Social Responsibility Arabic PostTest",
+                            "description": "Corporate Social Responsibility Arabic PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "ما هي العناصر الثلاثة التي تستخدمها الشركات لقياس أداءها وفقها؟",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "الناس، الكوكب، الربح",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "المنتج، المكان، العملية",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "المنتج، السعر، المكان",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "الناس، المنتج، العملية",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 1344,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "عند دمج أشخاص من خلفيات متنوعة في مكان العمل، ينبغي على الشركات تأكيد شمولية الثقافة في المؤسسة، حيث يحظى الناس بالتقدير والاحترام والدعم. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1345,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "عند إطلاق برنامج ابتكار مفتوح، ستقوم بما يلي:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "الحصول على الأفكار من المجتمع، وتثقيف المجتمع حول الجوانب الرئيسية لقطاعك",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "دفع الكثير من المال للحصول على أفكار جديدة، والمساعدة على تثبيت علامتك التجارية",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "وضع الكثير من الجهد والوقت والمال لتحديد أهم المواهب، الحصول على الأفكار من المجتمع",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 1346,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "يُحمّل العملاء والحكومات والمساهمين الشركاتَ مسؤولية أكبر تجاه بيئاتها المحيطة كجزء من المسؤولية الاجتماعية للشركات. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1347,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "قد تكون البرامج التعليمية أدوات رائعة للمسؤولية الاجتماعية للشركات بالنسبة لعملك. فهي تساعدك على تثقيف أفراد المجتمع حول شيء مفيد بالنسبة لهم، ويكون لها تأثير إيجابي على المجتمع وذلك سيعود بالنفع على عملك أيضاً.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1348,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": []
+    }
+}

@@ -1,0 +1,910 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 31,
+        "title": "Financial Literacy",
+        "description": "Financial Literacy",
+        "unit_count": 8,
+        "author_id": 0,
+        "course_post_id": 3673,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2334,
+            "title": "Financial Literacy",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/financial-literacy-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/financial-literacy.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 31,
+                "title": "Financial Literacy",
+                "description": "Financial Literacy a course for potential",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 938,
+                        "title": "Financial Literacy PreTest",
+                        "slug": "financial-literacy-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 237,
+                            "title": "Financial Literacy PreTest",
+                            "description": "Financial Literacy PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following is true about Financial Plans?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "A financial plan decreases your cash flow.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A financial plan helps you control your expenses better.",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "A financial plan increases your stress levels.",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 509,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Salaries, pensions and remittances are kinds of expenses.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 510,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "All the following are fixed expenses except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Entertainment expenses",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Salaries",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Pensions",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 516,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "To calculate your gain/loss, you should:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Net Income + Net Expenses",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Net Income – Net Expenses",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Net Income / Net Expenses",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 517,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following are ways to manage your expenses except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Manage what you see as your essentials and non-essentials.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Pay all your debts on time.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Choose debts with high interests.",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 518,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Credit and debit cards help you access money without carrying amounts of cash with you all the time. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 519,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 939,
+                        "title": "5 Reasons Why You Need a Financial Plan",
+                        "slug": "5-reasons-why-you-need-a-financial-plan",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "RlAzZmh9-jE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>A financial plan is a plan you set to make sure you achieve your financial goals for the year.</h5>\r\n<h5>5 reasons why you need a financial plan:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Helps you <strong>save money to invest</strong> for future growth.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gets you <strong>ready for important life milestones</strong>.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Helps you<strong> manage </strong>sudden financial<strong> changes</strong> that can really affect your life.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Helps you <strong>control your expenses </strong>even better.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Helps you<strong> reduce your stress</strong> and gives you peace of mind.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn 5 reasons why you need a financial plan.</h5>\r\n<h5>Did you know that setting a plan as a guideline to know how your money should be managed, builds up your wealth? Well, Yes! A financial plan is a plan you set to make sure you achieve your financial goals for the year. Learning how to follow your plan, improves your financial situation.</h5>\r\n<h5>Here are the 5 reasons why you need a financial plan:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Helps you <strong>save money to invest</strong> for future growth: By monitoring your savings, you take right decisions on future investments while taking into consideration both your personal circumstances and objectives.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gets you <strong>ready for important life milestones</strong>: In life you go through vital milestones such us marriage, education or a bigger family, a bigger home. Whether using the money you have saved or borrowing money; following a financial plan helps you manage your money to put your dreams to reality.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Helps you<strong> manage </strong>sudden financial<strong> changes</strong> that can really affect your life. Being prepared for such uncomfortable circumstances like a bad year for example, a job loss or any economic slump keeps you secured at least for a while.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Helps you <strong>control your expenses </strong>even better: By monitoring your spending patterns and expenses, you can increase your cash flow and you can easily get back on track if you happen to go off limits!</h5>\r\n</li>\r\n \t<li>\r\n<h5>Helps you<strong> reduce your stress</strong> and gives you peace of mind: following a financial plan as a guide to your expenses and savings, gives you financial security for the coming years and even sometimes for a lifetime thus, helping you sleep better at night!</h5>\r\n</li>\r\n</ul>\r\n<h5>These 5 reasons are the main key points why planning financially is essential. So work your way through a clear, useful and highly accurate financial plan!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My financial goals for the year are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 419,
+                                "order": 1,
+                                "question": "My financial goals for the year are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 238,
+                            "title": "Financial Literacy complete unit 1",
+                            "description": "Financial Literacy complete unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "Give one reason why you need to prepare a financial plan? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 508,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 940,
+                        "title": "5 Common Sources of Income in a Household",
+                        "slug": "5-common-sources-of-income-in-a-household",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "yi89ZrEog6M",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Any source of money received by a household, usually on a regular basis, is called “Income”.</h5>\r\n<h5>Five common kinds of income in a household:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Salaries</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sales of products or services</h5>\r\n</li>\r\n \t<li>\r\n<h5>Pensions</h5>\r\n</li>\r\n \t<li>\r\n<h5>Profits from investments</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gifts or Remittances</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn about the 5 common kinds of income sources in a household.</h5>\r\n<h5>Where is money entering your household coming from? Your daily job, maybe extra cash you receive from after school tutoring, spouse’s income or a long distance family member helping out with your expenses.</h5>\r\n<h5>Any source of money received by a household, usually on a regular basis, is called “Income”.  A household needs income to meet its basic needs and to enjoy the wants it desires.</h5>\r\n<h5>Here are the five common kinds of income in a household:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Salaries: a fixed sum of money, usually received every month, for doing a particular job.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sales of products or services: making your own money by selling products or services. It can also be money received from selling handmade goods or providing vocational services in your free time. This can be a side income received in addition to your main salary.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Pensions: money received regularly, during years of employment, to be saved for retirement.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Profits from investments: for example, buying a property; hoping its value increases over time giving you profitable returns. Also, buying bonds or stocks can help you gain money from their profits (to be explained later in the coming courses).</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gifts or Remittances: rewards or money received without an effort. Usually money received from family working abroad to help in household expenses.</h5>\r\n</li>\r\n</ul>\r\n<h5>Without income we cannot survive and the more income we make the more chances we get to live life in our own way. So start working on increasing your income levels!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are my yearly sources of income and how much is the total? Is there any way I can increase that income?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 420,
+                                "order": 1,
+                                "question": "What are my yearly sources of income and how much is the total? Is there any way I can increase that income?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 239,
+                            "title": "Financial Literacy complete unit 2",
+                            "description": "Financial Literacy complete unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which range does your total monthly income fall into? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "< $2,000",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "$2,000 – $5,000",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": ">$5000",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 511,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 941,
+                        "title": "3 Main Categories of Expenses in a Household",
+                        "slug": "3-main-categories-of-expenses-in-a-household",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "FK2oBSXmKn0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Every household has many expenses but by learning how to classify your expenses you can start managing your money wisely<strong>. </strong>There are three categories of expenses: fixed, savings and variable expenses.</h5>\r\n<h5><strong>Fixed Expenses</strong>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Housing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Transport</h5>\r\n</li>\r\n \t<li>\r\n<h5>Essential Living Expenses</h5>\r\n</li>\r\n \t<li>\r\n<h5>Debt Payments</h5>\r\n</li>\r\n</ul>\r\n<h5><strong>Variable Expenses:</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5>Non-Essential/Discretionary Expenses</h5>\r\n</li>\r\n</ul>\r\n<h5><strong>Saving Expenses:</strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5>Money saved for retirement, education, emergencies or a bigger home.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Irregular expenses such as gifts and health charges.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn about the 3 main categories of expenses in a household.</h5>\r\n<h5>Do you feel overwhelmed every time the end of the month approaches? Are your costs out of control? Phone bills, car rent, debts, kid’s birthday parties and many more.</h5>\r\n<h5>All costs you pay, whether for buying a product or for taking a loan, are called expenses.</h5>\r\n<h5>Every household has many expenses but by learning how to classify your expenses you can start managing your money wisely. There are three categories of expenses: fixed, savings and variable expenses.</h5>\r\n<h5>Fixed expenses do not change over time and thus, are independent of your income change. They might change slightly but you know they are due on a regular basis. The following are <strong>fixed expenses</strong> in a household:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Housing: money you pay for rent of a house, electricity, heating and telephone bills.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Transport: money you spend on car rents, public transport, taxis and parking.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Essential Living Expenses: money spent on ‘needs’ rather than ‘wants’. Groceries and Education are examples of essential expenses.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Debt Payments: money that you owe and should be paid back on time to avoid debt accumulating. Cards, loans and mortgages are types of debts.</h5>\r\n</li>\r\n</ul>\r\n<h5>Variable expenses do change over time. When your income increases you tend to increase your variable expenses. The following are <strong>variable expenses</strong> in a household:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Non-Essential/Discretionary Expenses: money spent on ‘wants’ rather than ‘needs’. They are extra expenses that make us happy by allowing us to live in luxury. Vacation, clothing and entertainment are examples of discretionary expenses.</h5>\r\n</li>\r\n</ul>\r\n<h5><strong>Saving Expense</strong> is the money you need to save for future expenditures.</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Saving expenses in a household: money saved for future goal-oriented expenses such as retirement, education, emergencies or a bigger home. Savings can also be money kept aside for irregular expenses such as gifts and health charges.</h5>\r\n</li>\r\n</ul>\r\n<h5>As explained, there are many expenses in a household but all expenses fall under the 3 main categories fixed, variable and saving expenses. Know what your expenses are and try to classify them accordingly!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are my yearly expenses and how much is the total? Is there anyway I can decrease these expenses?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 421,
+                                "order": 1,
+                                "question": "What are my yearly expenses and how much is the total? Is there anyway I can decrease these expenses?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 240,
+                            "title": "Financial Literacy complete unit 3",
+                            "description": "Financial Literacy complete unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do your expenses change dramatically from one month to the next?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 512,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 942,
+                        "title": "3 Steps on How to Create a Yearly Budget",
+                        "slug": "3-steps-on-how-to-create-a-yearly-budget",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "bcQ6hV-a54U",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>A Budget helps you keep track of your expenses to make sure that you are spending less than your income.</h5>\r\n<ul>\r\n \t<li>\r\n<h5>steps to help you start budgeting:</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Add up your income (Net income)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Estimate your expenses</h5>\r\n</li>\r\n \t<li>\r\n<h5>Calculate the Difference</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>3 Steps on How to Create a Yearly Budget</h5>\r\n<h5>Hi, we already know why a financial plan is needed but in this video, you will learn how to create it. Some people use the word budgeting when talking about creating a financial plan.</h5>\r\n<h5>A Budget helps you keep track of your expenses to make sure that you are spending less than your income. It is advised to prepare a yearly budget to visualize how and where your money is going.</h5>\r\n<h5>Here are 3 steps to help you start budgeting:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Add up your income (Net income)</strong>: This is the first step in a budget plan. Add all kinds of income you are receiving in a year however, cut off any pay that you are not taking home. For example, if a percentage of your income is deducted automatically to pay taxes and health benefits then don’t include this specific amount of money in your total income. Any source of income should be added such as salaries, pensions and remittances. (Income already discussed in the previous course)</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Estimate your expenses</strong>: This is the second step of a budget plan. Estimating expenses is not as easy as it may seem especially if you’re a kind of person whose expenses change dramatically. If so, get a rounded estimate by calculating an average for this significantly changing expense. Find the sum of your expected expenditures including both fixed and flexible expenses. (Expenses already discussed in the previous course)</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Calculate the Difference: </strong>After calculating your Net Income and your Total Estimated Expenses, subtract the 2 amounts and get the difference. This result is the end product of your yearly budget plan. If your result is a (+ve) number, then you are spending less than your earnings. Congratulations, this is the amount of money you are gaining and you are a step towards building your wealth. But if your result is (-ve) number, then you are not spending within your means and the number you obtained is your loss. So move on to the next video to learn how to discipline yourself to follow your plan.</h5>\r\n</li>\r\n</ul>\r\n<h5>By following the above steps, you have successfully created your yearly budget! However, keep in mind that your budget plan should be flexible and you are advised to update it regularly according to your circumstances!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is my net loss or savings for the year?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 422,
+                                "order": 1,
+                                "question": "What is my net loss or savings for the year?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 241,
+                            "title": "Financial Literacy complete unit 4",
+                            "description": "Financial Literacy complete unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you spending within your means?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 513,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 943,
+                        "title": "4 Ways to Implement Good Budgeting",
+                        "slug": "4-ways-to-implement-good-budgeting",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "qG9cOcdpuco",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Knowing where to spend your money efficiently you can keep your expenses within your means; putting you on the right track for building a fulfilling future in all aspects of life.</h5>\r\n<ul>\r\n \t<li>\r\n<h5>steps on how to manage your expenses and thus, implement good budgeting:</h5>\r\n</li>\r\n \t<li>\r\n<h5>Move <strong>high debt payments to lower debt payments</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Pay all debts on time</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Build <strong>your credit profile</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Manage</strong> what <em>you see</em> as your <strong>essentials and non-essentials</strong> efficiently</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, did you know that creating a budget is not sufficient? Making sure you reach your financial goals, cover emergencies and pay bills on time is also essential in financial planning. By disciplining yourself to follow your budget you are acquiring good budgeting skills, making your life easier to live. However, good budgeting is encouraged  not only for building your money but also, most importantly for giving you the freedom to live life your own way; making every moment count.</h5>\r\n<h5>In this video, you will learn how to implement good budgeting, by starting with managing your expenses. Knowing where to spend your money efficiently you can keep your expenses within your means; putting you on the right track for building a fulfilling future in all aspects of life.</h5>\r\n<h5>The following are 4 steps on how to manage your expenses and thus, implement good budgeting:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Move <strong>high debt payments to lower debt payments: </strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose debts with minimum interests. For example, when you are not able to pay off your credit card in the same month, then you are better off taking loans since the interest rates are much better.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Take debts to cover assets rather than discretionary spending. Loans against property give you more time to pay them off and with a lower interest. This makes them easier to settle than personal loans.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Pay all debts on time</strong>: The most important key to good managing of debts is ensuring interests are kept at minimum. So, pay your monthly bills on time to avoid late fee and financial charges; thus making your debts easier to pay off.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Build <strong>your credit profile: </strong>Don’t sacrifice positive accounts for those that have already affected your credit. Just pay your old debts off when you can afford too. Build up your credit profile to build up your financial opportunities.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Manage</strong> what <em>you see</em> as your <strong>essentials and non-essentials</strong> efficiently:</h5>\r\n</li>\r\n \t<li>\r\n<h5>By ranking essentials and discretionary items in order of importance you can eliminate extra unnecessary expenses.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Use whatever is left from your income, only when your essential payments are fully covered first.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Extra money earned can be spent on non-essentials as a trade-off to saving however, controlling purchases and making rational spending decisions is vital.</h5>\r\n</li>\r\n</ul>\r\n<h5>So now manage your expenses and track your budget over time but most importantly, make sure you are doing it!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the things I will do to improve my financial situation?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 423,
+                                "order": 1,
+                                "question": "What are the things I will do to improve my financial situation?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 242,
+                            "title": "Financial Literacy complete unit 5",
+                            "description": "Financial Literacy complete unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you good at saving money?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 515,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 944,
+                        "title": "4 Essential Formal Financial Services that you Should Know About",
+                        "slug": "4-essential-formal-financial-services-that-you-should-know-about",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "gfMg8n0pI7c",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Part of financial planning is learning the services provided by your banks and other financial institutions.</h5>\r\n<h5>These institutions provide the following 4 essential services you can use today:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Insurance</h5>\r\n</li>\r\n \t<li>\r\n<h5>Savings Accounts</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cards</h5>\r\n</li>\r\n \t<li>\r\n<h5>Investments</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. Part of financial planning is learning the services provided by your banks and other financial institutions. In this video, you will learn about 4 essential ones available today.</h5>\r\n<h5>Such services improve your current financial situation by helping you make rational decisions about where your money should be allocated. Get to know these services well and what advantages they provide. Also, you are suggested to acknowledge the downgrades of these services to avoid life changing problems.</h5>\r\n<h5>These institutions provide the following 4 essential services you can use today:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Insurance</strong>: Money you pay for a company to provide you with future protection against financial, life and health losses. This type of service is common today since it helps customers sleep better at night knowing they are in safe hands.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Savings Accounts</strong>: You can open a savings account at a bank or through mobiles such as e-banking. If you don’t have access to a bank, postal saving accounts are still available. This account provides you with a safe convenient method for saving money, moving you financially forward.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Cards:</strong> Help you access money without carrying amounts of cash with you all the time. A debit card is a card that allows you to withdraw money only from the amount credited in your personal bank account. A credit card, however, allows you to borrow money from your card issuer (bank or financial institution). This amount is interest-free if paid back by the end of the month. Debit cards are more advisable since they free you from debt accumulation.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Investments: </strong>Purchasing bonds or stocks in the market. When buying stocks an investor becomes an owner in the company. However, by buying bonds an investor becomes a creditor to the company. The stockholder has a share in the profits if the company does well but the bondholder doesn’t. However, a bondholder gets paid before a shareholder in case of bankruptcy.</h5>\r\n</li>\r\n</ul>\r\n<h5>As explained, there are many financial services available. Analyzing the market and acknowledging both advantages and disadvantages of these services could help you make the right decision on what choices to take. But remember to take your precautions and pay your debts on time to stay safe!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Which financial services would I use to save my money?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 424,
+                                "order": 1,
+                                "question": "Which financial services would I use to save my money?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 243,
+                            "title": "Financial Literacy complete unit 6",
+                            "description": "Financial Literacy complete unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "Do you have a credit card? If so, do you have more than one?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 514,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 945,
+                        "title": "Financial Literacy PostTest",
+                        "slug": "financial-literacy-posttest",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 244,
+                            "title": "Financial Literacy PostTest",
+                            "description": "Financial Literacy PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following is true about Financial Plans?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "A financial plan decreases your cash flow.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A financial plan helps you control your expenses better.",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "A financial plan increases your stress levels.",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 520,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Salaries, pensions and remittances are kinds of expenses. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 521,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "All the following are fixed expenses except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Entertainment expenses",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Salaries",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Pensions",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 522,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "To calculate your gain/loss, you should:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Net Income + Net Expenses",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Net Income – Net Expenses",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Net Income / Net Expenses",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 523,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The following are ways to manage your expenses except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Manage what you see as your essentials and non-essentials.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Pay all your debts on time.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Choose debts with high interests.",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 524,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Credit and debit cards help you access money without carrying amounts of cash with you all the time. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 525,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/financial-literacy.png",
+                "zip_path": "wp-content/uploads/2018/10/financial-literacy.png",
+                "level": "card"
+            }
+        ]
+    }
+}

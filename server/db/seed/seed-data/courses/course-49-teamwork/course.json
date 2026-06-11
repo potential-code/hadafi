@@ -1,0 +1,884 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 49,
+        "title": "Teamwork",
+        "description": "Teamwork",
+        "unit_count": 8,
+        "author_id": 0,
+        "course_post_id": 3691,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2293,
+            "title": "Teamwork",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/teamwork-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/teamwork.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 49,
+                "title": "Teamwork",
+                "description": "Teamwork a course for potential",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1108,
+                        "title": "Teamwork PreTest",
+                        "slug": "teamwork-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 407,
+                            "title": "Teamwork PreTest",
+                            "description": "Teamwork PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Effective teamwork is essential for the following reasons except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Improves productivity",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Slowly responds to change",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Enhances problem solving",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 940,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is the first step for creating an exceptional teamwork in your business?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Verify Progress by monitoring your team regularly",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Thank the members of your team for their hard work",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Acknowledge the different skills you have by assigning a suitable task to each employee accordingly",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 941,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Equality and diversity in the workforce gives birth to new ideas raising your business to a whole new level. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 942,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "How many stages does a business go through during team development?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "3",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "5",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "1",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 943,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "If achieved correctly, collaboration between team members can really weaken your business performance. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 944,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Great teamwork cannot be achieved without proper management. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 945,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1109,
+                        "title": "5 Reasons Why Effective Teamwork is Important For All Organisations",
+                        "slug": "5-reasons-why-effective-teamwork-is-important-for-all-organisations",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "kYjqtLCNqSA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Teamwork is a term used for joining the efforts of bringing members in a project or business together to achieve a common goal.</h5>\r\n<h5>5 reasons why effective teamwork is essential in any organization:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Teamwork creates a smoother and looser structure by developing a friendly environment.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Teamwork encourages flexibility.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Teamwork enhances problem solving.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Teamwork improves productivity.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Teamwork motivates the workforce and creates a healthy environment.</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn about the importance of teamwork in your day to day work within business and outside of it.</h5>\r\n<h5>Teamwork is a term used for joining the efforts of bringing members in a project or business together to achieve a common goal. The members of the team work together effectively as a group with the aim of increasing productivity and performance.</h5>\r\n<h5>In this video, we will explain the 5 reasons why effective teamwork is essential in any organization:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Teamwork creates a smoother and looser structure by developing a friendly environment, where leaders are not trying to be bosses but rather work together with members as a team. This helps build strong bonds between the members.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Teamwork encourages flexibility since by working and communicating together teams enable different perspectives to be considered and thus allow the business to respond to change faster.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Teamwork enhances problem solving by combining different solutions, abilities and talents into one big productive unit and allows new ideas to flourish and goals to be achieved faster.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Teamwork improves productivity since the performance and knowledge of an individual is limited compared with a group of varied skill sets.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Teamwork motivates the workforce and creates a healthy environment between the team-members as which is essential given that most people spend time with their colleagues more than they do with their friends.</h5>\r\n</li>\r\n</ol>\r\n<h5>Smart leaders encourage good teamwork and give teams the authority to take decisions based on what they see is right. Smart individuals learn how to work well within a team since that is becoming more and more important in all fields of work.</h5>\r\n<h5>Great teamwork translates to great performance when it is managed well.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can teamwork benefit you and your organization the most?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 267,
+                                "order": 1,
+                                "question": "How can teamwork benefit you and your organization the most?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 408,
+                            "title": "Teamwork Complete Unit 1",
+                            "description": "Teamwork Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever tried to work effectively in a team before?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 946,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1110,
+                        "title": "5 Steps Creating an Exceptional Effective Team Work",
+                        "slug": "5-steps-creating-an-exceptional-effective-team-work",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "95x3HhKlLII",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Effective teamwork helps to combine a group of talents efficiently to reach a common goal.</h5>\r\n<h5>5 steps for creating an effective team work in your business:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Acknowledge the different skills you have by assigning a suitable task to each employee accordingly.</h5>\r\n</li>\r\n \t<li>\r\n<h5>When hiring, always try to accommodate a broad range of performances and experiences.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t be a boss! Give your employees access and authority to whatever they need to expand their horizons.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Verify Progress by monitoring your team regularly.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gratitude is always a key element for building trust, friendship and respect between the employees.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. Since one of the main elements of success in any organization is achieving excellence in team collaboration, we will show you in this video how to do it.</h5>\r\n<h5>Effective teamwork helps to combine a group of talents efficiently to reach a common goal.</h5>\r\n<h5>We suggest the following 5 steps for creating an effective team work in your business:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Acknowledge the different skills you have by assigning a suitable task to each employee accordingly. Keeping in mind the goal you want to achieve helps you maximize the use of talents available to get it.</h5>\r\n</li>\r\n \t<li>\r\n<h5>When hiring, always try to accommodate a broad range of performances and experiences. By diversifying the set of employees chosen for the project, you have the chance to view your goals and problems from more than one angle.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t be a boss! Give your employees access and authority to whatever they need to expand their horizons. Working well together and supporting each other will help you reach your goal faster.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Verify Progress by monitoring your team regularly. Checking that they are on the right path but always giving them a chance to do it on their own. This improves their confidence making them stronger and more responsible with time.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gratitude is always a key element for building trust, friendship and respect between the employees. Thanking them motivates new responsibilities with an ongoing effort to do things better in the future.</h5>\r\n</li>\r\n</ul>\r\n<h5>As explained, creating a team that you can count on and that can work together effectively is an important element of a successful business. Following the above 5 steps will guide you to a WOW exceptional teamwork of employees!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What do I need to do to ensure that I create an exceptional effective teamwork in my business?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 268,
+                                "order": 1,
+                                "question": "What do I need to do to ensure that I create an exceptional effective teamwork in my business?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 409,
+                            "title": "Teamwork Complete Unit 2",
+                            "description": "Teamwork Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you monitored your team regularly to verify their progress?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 947,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1111,
+                        "title": "5 Reasons Why Workforce Diversity Is Good For Business",
+                        "slug": "5-reasons-why-workforce-diversity-is-good-for-business",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "8aLQytUM5dU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Diversity is including many different aspects of society, tradition, culture, race, gender and background experiences into ones organization.</h5>\r\n<h5>Diversity in the workforce is needed for the following 5 reasons:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Diversity improves your connection with your clients showing that there are many shared interests between the both of you.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Diversity motivates your team to always give more.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Diversity opens up your way to different perspectives and opportunities in the future.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Equality and diversity in the workforce encourages individual contribution and responsibility.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Diversity leads to an improvement of your market share and therefore growth of your business.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn why diversity in the workforce is important.</h5>\r\n<h5>Diversity is including many different aspects of society, tradition, culture, race, gender and background experiences into one's organization. It can be considered as a strategy to a better productive growth in the years ahead.</h5>\r\n<h5>Diversity in the workforce is needed for the following 5 reasons:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>By combining different cultures and experiences you will have a broad range of understanding of what the consumer needs. This improves your connection with your clients showing that there are many shared interests between the both of you.</h5>\r\n</li>\r\n \t<li>\r\n<h5>By showing your team that your business is a source of acceptance to all differences makes them feel more trusted, respected and thus strong friendships will grow among all. By developing their social skills, you motivate them to always give more.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Once your business’s image has been settled as an open, un-discriminative and globally-accepted firm, a diverse range of employees will be attracted to work in your environment. This opens up your way to different perspectives and opportunities in the future.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Equality and diversity in the workforce encourages individual contribution and responsibility thus giving birth to new ideas raising your business to a whole new level.</h5>\r\n</li>\r\n \t<li>\r\n<h5>By applying diversity strategies, you fill gaps in your business giving your organization a competitive advantage. This leads to an improvement of your market share and therefore growth of your business.</h5>\r\n</li>\r\n</ul>\r\n<h5>The above 5 reasons will guide you to why smart businesses encourage diversity. As a summary, it can bring better opportunities, innovation, use of skills and thus excellent performance to your business!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can diversity benefit us the most?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 269,
+                                "order": 1,
+                                "question": "How can diversity benefit us the most?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 410,
+                            "title": "Teamwork Complete Unit 3",
+                            "description": "Teamwork Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your business accommodate a variety of cultures?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 948,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1112,
+                        "title": "5 Essential Stages of Team Development",
+                        "slug": "5-essential-stages-of-team-development",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "qtpY9zwuzFM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 essential stages that a business goes through during team development:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The first stage is the ‘Forming’ Stage. Over here, members are getting to know each other.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The second stage is the ‘Storming’ Stage. In this stage, conflicts arise.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Next comes the ‘Norming’ Stage. In this stage, members are starting to communicate together.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Now we reach the ‘Performing’ Stage. In this stage, a high-level of communication, understanding and trust has been achieved between the team members.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The last stage is the ‘Adjourning’ Stage. In this stage, the delegated roles have either been completed effectively or not.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn how a team is developed in a business.</h5>\r\n<h5>Building a team takes time and effort. Do not expect a group of people to work together smoothly for the first time. Without proper leadership and management skills, you will not be able to build an exceptional team. Communication between members is also very important when developing a team.</h5>\r\n<h5>The following are 5 essential stages that a business goes through during team development:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The first stage is the ‘Forming’ Stage. Over here, members are getting to know each other. They are trying to understand the roles that must be taken and the goals that are addressed to achieve. The leader at this point is working together with the colleagues directing them to what this is all about.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The second stage is the ‘Storming’ Stage. In this stage, conflicts arise. Members are uncomfortable with their fellow colleagues. Competition for roles and leadership arises. Differences in perspectives and experiences collide with each other. At this point, the leader steps in to reduce tension.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Next comes the ‘Norming’ Stage. In this stage, members are starting to communicate together. Trust is starting to build among them. By now, everyone knows what their role is. Leaders at this point are settling communications between members enabling the start of a stable teamwork.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Now we reach the ‘Performing’ Stage. In this stage, a high-level of communication, understanding and trust has been achieved between the team members. Individuals are working together efficiently to achieve their common goal. Group decision making, collaboration, motivation and effective development is happening here. At this point, leaders offer gratitude to the members individually and also as a team for their striving performance.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The last stage is the ‘Adjourning’ Stage. In this stage, the delegated roles have either been completed effectively or not. The goal has been achieved or not. According to the accomplishments, the team either becomes permanent or temporary. Some members are forced to go back to the early stages due to their incapability of achieving what was desired. Others remain as a stable team taking on more responsibilities on future projects.</h5>\r\n</li>\r\n</ul>\r\n<h5>As explained, team development goes through 5 stages that we advise to help you lead your employees to a joint effort. Achieving a hard-working, trustful and excelling teamwork is similar to achieving a VALUABLE GEM for your business. Over the years, if taken care of, its value increases giving prosperity to its owner!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What do I need to do to ensure my team work smoothly together?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 270,
+                                "order": 1,
+                                "question": "What do I need to do to ensure my team work smoothly together?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 411,
+                            "title": "Teamwork Complete Unit 4",
+                            "description": "Teamwork Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you tried to resolve conflicts between team members?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 949,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1113,
+                        "title": "6 Steps Building a Collaborative Team Environment",
+                        "slug": "6-steps-building-a-collaborative-team-environment",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "6v5dzeq7FOY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Team Collaboration in an organization is working with others efficiently leading to a productive future.</h5>\r\n<h5>6 steps we advise you to follow in order to build a collaborative team environment in your business:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Investing in social development.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Allowing your personal collaborate behavior to be visible so as to be a good example for all to follow.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Giving sufficient time to your members is important to encourage communication.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Training employees for the skills needed for collaboration is essential.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Always support group events, structure your team to have good network connections and encourage long distance shared interests.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Define roles and make it clear to all who has to do what.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. Team Collaboration in an organization is working with others efficiently leading to a productive future. In this video, we will suggest 6 steps that you can follow in order to build a collaborative team environment in your business. If achieved correctly, collaboration between team members can really strengthen your business performance.</h5>\r\n<h5>Here are the 6 steps we advise you to follow:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Investing in social development and making them accessible to employees at all times allows them to mingle comfortably with other colleagues within the business environment. Improving communication between them improves their performance both individually and as a team.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Allowing your personal collaborate behavior to be visible so as to be a good example for all to follow. Communicating diversely and filling gaps in any task needed, helps you set a good image in front of your team members encouraging the same performance.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Giving sufficient time to your members is important to encourage communication. Informal teaching on a daily basis builds trust and valuable bonds within the business team members.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Training employees for the skills needed for collaboration is essential. Some employees have the will to communicate but no skills. Without skills, effective team collaboration will not be achieved. Discuss the common goals, the reason behind the team’s existence, the methods used to resolve conflicts, the importance of diversification and program management abilities.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Always support group events, structure your team to have good network connections and encourage long distance shared interests. Building a strong community within one's organization is definitely the path to a successful business.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Define roles and make it clear to all who has to do what. But always keep a vague path to the common goal to give a chance to the team members to approach with different perspectives and strategies. This strengthens the relationship between the team members and gives them the power to solve issues effectively as a group!</h5>\r\n</li>\r\n</ul>\r\n<h5>As explained, team collaboration is essential to guide the path to a successful future. Over time, strong bonds within the organization will allow your business to evolve into a family-oriented community. Every individual’s participation is needed in achieving such a community. We suggest you follow the above steps to WOW your way to the creation of an exceptional productive family!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What do I need to do to ensure a collaborative team environment in my business?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 271,
+                                "order": 1,
+                                "question": "What do I need to do to ensure a collaborative team environment in my business?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 412,
+                            "title": "Teamwork Complete Unit 5",
+                            "description": "Teamwork Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "All members should be clear what roles each will be performing.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "",
+                                    "question_id": 2020,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1114,
+                        "title": "7 Ways to Know the Team Is Not OK",
+                        "slug": "7-ways-to-know-the-team-is-not-ok",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "uzUfYWdOZ2k",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>7 ways to help you know that your team is not ok:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>There is no commitment, neither to the other team members nor to the project itself.</h5>\r\n</li>\r\n \t<li>\r\n<h5>There is no decision making.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Members are not able to resolve conflicts or find solutions as a group.</h5>\r\n</li>\r\n \t<li>\r\n<h5>There is no proper communication and members are unable to reach an understanding.</h5>\r\n</li>\r\n \t<li>\r\n<h5>There is no group thinking and members are not able to accept differences and perspectives.</h5>\r\n</li>\r\n \t<li>\r\n<h5>There is no creativity.</h5>\r\n</li>\r\n \t<li>\r\n<h5>There are no effective leadership skills.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. Like in any business, problems will always tend to arise and teams sometimes will not work out. Do not panic. Use the 5 videos, you have already seen, to guide you in reorganizing your teams and to find out what went wrong.</h5>\r\n<h5>In this video, we will suggest 7 ways to help you know that your team is not ok:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>There is no commitment, neither to the other team members nor to the project itself. Here we have lack of effort individually and as a group.</h5>\r\n</li>\r\n \t<li>\r\n<h5>There is no decision making. Making the right choice as a group is something this team is not able to produce.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Members are not able to resolve conflicts or find solutions as a group. Tension is accumulating resulting in diminishing performance.</h5>\r\n</li>\r\n \t<li>\r\n<h5>There is no proper communication and members are unable to reach an understanding. Some members are always silent while some impose on others.</h5>\r\n</li>\r\n \t<li>\r\n<h5>There is no group thinking and members are not able to accept differences and perspectives.</h5>\r\n</li>\r\n \t<li>\r\n<h5>There is no creativity. Here we have limited talents, limited innovation and possibly wasting opportunities.</h5>\r\n</li>\r\n \t<li>\r\n<h5>There are no effective leadership skills. Great teamwork cannot be achieved without proper management. Leaders must know what to do and how, so the team can work.</h5>\r\n</li>\r\n</ul>\r\n<h5>These 7 ways will let you know that something is wrong. As explained, review all the previous videos to find what you have missed. Reorganize groups and build the skills of employees to improve teamwork. Set effective managers and leaders to guide the members on the right track to achieve team collaboration.</h5>\r\n<h5>To ensure a successful business, efficient teamwork is needed so we suggest you do WHATEVER you can to make it happen!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What things do I need to check to find out what went wrong with my team?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 272,
+                                "order": 1,
+                                "question": "What things do I need to check to find out what went wrong with my team?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 413,
+                            "title": "Teamwork Complete Unit 6",
+                            "description": "Teamwork Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you checked whether your team has difficulty taking the right decisions?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 951,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1115,
+                        "title": "Teamwork PostTest",
+                        "slug": "teamwork-posttest",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 414,
+                            "title": "Teamwork PostTest",
+                            "description": "Teamwork PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Effective teamwork is essential for the following reasons except:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Improves productivity",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Slowly responds to change",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Enhances problem solving",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 952,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is the first step for creating an exceptional teamwork in your business?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Verify Progress by monitoring your team regularly",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Thank the members of your team for their hard work",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Acknowledge the different skills you have by assigning a suitable task to each employee accordingly",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 953,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Equality and diversity in the workforce gives birth to new ideas raising your business to a whole new level. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 954,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "How many stages does a business go through during team development?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "3",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "5",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "1",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 955,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "If achieved correctly, collaboration between team members can really weaken your business performance. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 956,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Great teamwork cannot be achieved without proper management. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 957,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/teamwork.png",
+                "zip_path": "wp-content/uploads/2018/10/teamwork.png",
+                "level": "card"
+            }
+        ]
+    }
+}

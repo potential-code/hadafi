@@ -1,0 +1,1028 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 37,
+        "title": "Negotiation Skills",
+        "description": "Negotiation Skills",
+        "unit_count": 8,
+        "author_id": 0,
+        "course_post_id": 3679,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2320,
+            "title": "Negotiation Skills",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/negotiation-skills-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/negotiation.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 37,
+                "title": "Negotiation Skills",
+                "description": "Negotiation Skills- Potential",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 991,
+                        "title": "Negotiation Skills PreTest",
+                        "slug": "negotiation-skills-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 290,
+                            "title": "Negotiation Skills PreTest",
+                            "description": "Negotiation Skills PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "Negotiation makes you look demanding. This is why everyone would want to please you. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 642,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Gaining voluntary compliance from the other party falls within which pillar?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Emotional Control",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Time",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Decision Making Ability",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 643,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "“But I’m worth a lot more.” Saying this sentence is making which error?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Signaling to Closure",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Sticking to the Plan",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Taking It Personal",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 644,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What does a shaking leg tell you?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Body isn't relaxed",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Benchmark isn't set",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Rapport isn't built",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 645,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "“My way or the highway” is which attitude?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Exaggeration",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Sudden Mood Change",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Only One More",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Superiority",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 646,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Defensive pessimism is about:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "channeling your anxiety in positive ways",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "defending yourself against failure by quitting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "fighting pessimists to spread positive vibes",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 647,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 992,
+                        "title": "5 Ways Negotiation Enhances Any Discussion",
+                        "slug": "5-ways-negotiation-enhances-any-discussion",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "qdwyOdVmRK8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Negotiation is inevitable to get what you want while you build sustainable relationships with others.</h5>\r\n<h5>Negotiation increases your odds of winning a discussion in these 5 ways:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Reflects Your Critical Thinking</h5>\r\n</li>\r\n \t<li>\r\n<h5>Helps You Better Understand What You Want</h5>\r\n</li>\r\n \t<li>\r\n<h5>Handles the Concerns of Others</h5>\r\n</li>\r\n \t<li>\r\n<h5>Improves Your Persuasive Skills</h5>\r\n</li>\r\n \t<li>\r\n<h5>Increases People’s Likelihood of Approaching You</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will discover 5 ways negotiation increases the odds of getting what you want.</h5>\r\n<h5>Have you ever wanted something so badly but were afraid of not getting it? \"They won't agree. If I ask, the consequences will be disappointing. What I'm asking for is kind of impossible…\" and forward goes the unending trail of negative thoughts, until you realize that negotiation is simply about creating win-win situations.</h5>\r\n<h5>Here are 5 ways negotiation paves your way to enhance any discussion:</h5>\r\n<h5>1- Reflects Your Critical Thinking: When you negotiate, you are presenting arguments, reasons and other logical approaches, which make you appear analytical, smart and trustworthy. Consequently, others will be more motivated to reach an agreement with you.</h5>\r\n<h5>2- Helps You Better Understand What You Want: Negotiation takes you through the pros and cons of what you want, allowing you along the way to refine and redefine your needs, thus better focusing your energy on the desired outcomes.</h5>\r\n<h5>3- Handles the Concerns of Others: Just like negotiation makes your needs clearer, it also helps others identify exactly what they are concerned about. Through negotiation, you give them the chance not only to address their problems at once, but to also manage them through the resolutions you offer.</h5>\r\n<h5>4- Improves Your Persuasive Skills: As the saying goes, \"Practice makes perfect.\"  The more you negotiate with others, the more insights you will discover about human psychology. Hence, next time, you will approach your targets with more confidence and sell them your ideas in more powerful ways.</h5>\r\n<h5>5- Increases People's Likelihood of Approaching You: We usually say \"I don’t like working with X. He doesn't give and take.” First and foremost, negotiation proves that you are a flexible person, who doesn't adopt rigid beliefs but rather tries for creative solutions to make everyone satisfied.</h5>\r\n<h5>Eventually, negotiation makes you a winner, and people offer you what you want as if it is what they want too. Negotiation can start with any ordinary conversation and soon it becomes a skill you build on and use in your daily life, whether at work, home, in relationships, and the list goes on!!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is the next topic I will negotiate? What would my arguments be?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 372,
+                                "order": 1,
+                                "question": "What is the next topic I will negotiate? What would my arguments be?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 291,
+                            "title": "Negotiation Skills Complete Unit 1",
+                            "description": "Negotiation Skills Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How frequently do you negotiate during the same day?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Never ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Sometimes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Always",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 654,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 993,
+                        "title": "5 Pillars a Negotiation can’t Work Without",
+                        "slug": "5-pillars-a-negotiation-cant-work-without",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "AoKrVNNvgwo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Negotiation is not an easy task. The needs of each party rarely share a common ground, and establishing one requires a lot of effort from your side.</h5>\r\n<h5>Below are 5 pillars to consider every time you approach a negotiation:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Active Listening</h5>\r\n</li>\r\n \t<li>\r\n<h5>Emotional Control</h5>\r\n</li>\r\n \t<li>\r\n<h5>Time</h5>\r\n</li>\r\n \t<li>\r\n<h5>Decision Making Ability</h5>\r\n</li>\r\n \t<li>\r\n<h5>Ethics &amp; Reliability</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn 5 fundamental elements a negotiation can’t work without.</h5>\r\n<h5>Think of an empty construction space as the stage just before negotiation. You have your arguments, right? Those are building stones. Similarly, the other party has its arguments, building stones from another nature that might not work with yours. Wondering about the solution? Establish some fixed pillars, upon which you can handle even conflicting view points.</h5>\r\n<h5>Here are 5 pillars to consider in your back mind every time and for every negotiation.</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Active Listening: This powerful skill allows you to gather information about the other party and make them think you are on their side. Listen. Show understanding. Ask open-ended questions, and help them describe their problems more specifically.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Emotional Control: Keep your negative emotions in check although it is very possible that the discussion might frustrate you at times. However, giving lead to your emotions will negatively affect your thinking ability and might lead you to rush to the wrong thing to say or do.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Time: The longer you remain in control, the more you can use time to your benefit. Nobody likes to feel they’re in a rush or under pressure. Slow things down. Allow the other to talk and feel they are taking part in the decision process, while you gradually lead them to your resolution, instead of directly imposing it on them.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Decision Making Ability: While you abide by all the above, it is important be a firm decision maker. Remember you don’t want to give the impression that you are taking it slow because you are hesitant about what you really want. On the contrary, you should act decisively, either accept or reject a compromise.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Ethics &amp; Reliability: This pillar equally deserves the first and the last place. It is important at the beginning to establish an environment of trust and respect. But also at the end, you should stick to the promises of your resolution.</h5>\r\n</li>\r\n</ul>\r\n<h5><strong> </strong></h5>\r\n<h5>These are 5 basic pillars to kick start your negotiations, but that doesn’t mean you can’t spice them up with your own values and character traits that make you stand out as a successful negotiator, who breaks the rules but only after mastering them.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the key elements I need to keep in mind during a negotiation?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 373,
+                                "order": 1,
+                                "question": "What are the key elements I need to keep in mind during a negotiation?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 292,
+                            "title": "Negotiation Skills Complete Unit 2",
+                            "description": "Negotiation Skills Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which of these pillars is the hardest for you to match during a negotiation?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Active Listening",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Emotional Control ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Time",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Decision Making Ability",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Ethics & Reliability",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 655,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 994,
+                        "title": "5 Big NOs to Avoid During Negotiation",
+                        "slug": "5-big-nos-to-avoid-during-negotiation",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "EtrnTQaPixs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Negotiation is a demanding job. You have to plan, study all possibilities, watch the words you say, think twice at times and act promptly at others. That is only the beginning of the list, but at all costs, avoid falling into common pitfalls.</h5>\r\n<h5>Below are 5 issues that might drift you away from your negotiation goals:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Showing You’re the Final Decision Maker</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sticking to the Plan</h5>\r\n</li>\r\n \t<li>\r\n<h5>Taking It Personal</h5>\r\n</li>\r\n \t<li>\r\n<h5>Signaling to Closure</h5>\r\n</li>\r\n \t<li>\r\n<h5>Ignoring Future Prospects</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. This video warns you against 5 mistakes to avoid during negotiation.</h5>\r\n<h5>Do you dream of becoming a brilliant negotiator? If you are already watching this video, the answer is probably yes, you aspire to become what they call a street smart negotiator who seems to naturally perform well. But what if something you shouldn’t say suddenly slips out?</h5>\r\n<h5>Consider these 5 mistakes you preferably stay on your guards to avoid:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Showing You’re the Final Decision Maker: Even if you really are, don’t show it. Mention someone else you should refer to, whether a higher authority or a partner, because you neither want the opposing negotiators to pressure you with making a decision on the spot, nor think that you’re the only person they’ve got to manipulate.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Sticking to the Plan: A plan is necessary prior to negotiation, but if youstick to its rigid scenarios, you will risk losing many opportunities. Instead, maximize your focus during a negotiation and be flexible to figure out on spot-solutions, while your primary plan rests in the back of your mind, only as a guide but not more.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Taking It Personal: We go back to the pillar of emotional control in the previous video. Play it as calm as you can and show the opposing negotiators that you can’t be easily provoked or impressed. Even if they speak angrily, stay relaxed. It might be a trap to get you more emotional and less in control.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Signaling to Closure: When you say something like, “Ok, we are nearly getting there,” it shows that you are eager to finish. The other party, if skilled, will be very likely to seize this opportunity and rush through the conditions they still want to impose, knowing that you won’t protest any longer.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Ignoring Future Prospects: Sometimes a small successful deal turns out to be the start of many other great feats. Don’t underestimate the importance of any negotiation and always do your best. Regardless of the negotiation’s outcome, maintaining good relationships will benefit you one day.</h5>\r\n</li>\r\n</ul>\r\n<h5>Just like these NOs show you how things might go wrong, it is already easier to avoid them now that you are aware of them. After all, mistakes aren’t but opportunities to learn, change and improve.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the things I should avoid during my negotiation?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 374,
+                                "order": 1,
+                                "question": "What are the things I should avoid during my negotiation?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 293,
+                            "title": "Negotiation Skills Complete Unit 3",
+                            "description": "Negotiation Skills Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you believe that negotiations need that degree of precaution?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 656,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 995,
+                        "title": "5 Body Language Hacks to Improve your Negotiation Skills",
+                        "slug": "5-body-language-hacks-to-improve-your-negotiation-skills",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "hIV1s9GcZuw",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Understanding body language is inevitable to conduct a successful negotiation, knowing that non-verbal signs sometimes explain a lot more than what the other says.</h5>\r\n<h5>Below are 5 starting points to understand what reading body language is about:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Set a Benchmark</h5>\r\n</li>\r\n \t<li>\r\n<h5>Learn the Basics</h5>\r\n</li>\r\n \t<li>\r\n<h5>Defuse Tension</h5>\r\n</li>\r\n \t<li>\r\n<h5>Build Rapport</h5>\r\n</li>\r\n \t<li>\r\n<h5>Relax Your Body</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn how to approach negotiation at a non-verbal level.</h5>\r\n<h5>If you read again the title of this unit, you'd find out the definition of a skilled negotiator - someone who can communicate and also control their verbal and non-verbal signals. Body language is an ideal judge of people's behavior and constitutes more than 50% of any communication.</h5>\r\n<h5>As condensed and brief as possible, the 5 guidelines below point out almost all you should know:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Set a Benchmark: Body language is more or less universal, yet you can't apply it to everyone equally. First, you have to understand the person in front of you. For that purpose, start a light conversation asking questions whose answers you already know. This helps you observe how others behave when not under pressure, so that you later develop a more accurate reading of their body language.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Learn the Basics: A quick online research will give you the meaning of common gestures. For example, leaning forward is agreement, leaning backwards is disagreement, nodding the head is approval, frowning the eyebrows is suspicion, and looking away is disinterest. Learning about these will help you both interpret the other's response and control yours.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Defuse Tension: It is only natural that tension grows around the conflicting arguments during a negotiation. However, a positive mood is substantial for reaching an agreement, and it gives you the sense of power to be the one who gives back the conversation its positive vibes. Smile like you mean it, nod your head occasionally and maintain friendly eye contact.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Build Rapport: This is probably the best advice you would receive about running successful conversations. By nature, people feel safe and secure when surrounded with familiar things or people they feel they already know. The latter is your job. Gradually, try to mirror the person facing you, changing one gesture at a time until you are sitting and interacting exactly like them.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Relax Your Body: This most likely goes without saying, but probably you already feel tense finding out that you have to make all the above efforts other than already focus on what you want to say. In fact, a relaxed body does it all. It shows you're confident, positive and reliable.</h5>\r\n</li>\r\n</ul>\r\n<h5>Learning body language is not a study you accomplish overnight or after a few tests. It is a continuous process of reading people and deeply understanding how every person is unique, but all of that all starts from knowledge. The more you read, the more you know, and the better you become. Good luck!!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Some body language signs that I am already familiar with are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 375,
+                                "order": 1,
+                                "question": "Some body language signs that I am already familiar with are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 294,
+                            "title": "Negotiation Skills Complete Unit 4",
+                            "description": "Negotiation Skills Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What percentage do you attribute to the importance of body language?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "0 - 25%",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "25 - 50%",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "50 - 75%",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "75 - 100%",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 657,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 996,
+                        "title": "4 Traps to Escape During a Negotiation",
+                        "slug": "4-traps-to-escape-during-a-negotiation",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "DZp07-8h-a8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Familiarizing yourself with potential negative attitudes you might have to face increases your odds of winning a negotiation.</h5>\r\n<h5>Below are 4 attitudes to be wary about:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Exaggeration</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sudden Mood Change</h5>\r\n</li>\r\n \t<li>\r\n<h5>Only One More</h5>\r\n</li>\r\n \t<li>\r\n<h5>Superiority</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn 4 attitudes you shouldn't fall for in a negotiation.</h5>\r\n<h5>To many people, successful deals are measured by the maximum advantages one can gain. Some of those people are direct and make you consciously give them what they want. Others are indirect, and use controversially unethical behaviors to reach their target.</h5>\r\n<h5>Find out below, 4 attitudes you better get suspicious about:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Exaggeration: Negotiators would exaggerate to pressure you and make you feel guilty. For example, they would say \"No way, this is just impossible, you can't be serious.\" Don't get intimidated. Ask, \"Why do you say that? What are your concerns?\" Keep your position clear and be the one who puts the pressure by suggesting alternative ways to reach an agreement.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Sudden Mood Change: Your opposing negotiators might display at first great enthusiasm to make you feel how exciting it is to be close to an agreement and to encourage you to lay all your cards on the table. Suddenly, they become reluctant to agree or even negotiate, indirectly pressuring you to offer as much compromises as possible. Be a step ahead, and as soon as you detect a mood change, inquire about the reasons and argue about them.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Only One More: When your opposing negotiators need a lot of compromises from you, they will be cautious to tell you everything at once. Instead, they will present only one or two requests each time, mentioning them as one last point to add, so that you don’t feel you are giving up a lot. Make sure you count all their demands at the end.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Superiority: Many negotiators would attempt to be fully authoritative and impose their power and control, barely allowing you space to suggest or decide something else. If you can’t avoid a negotiation with those people, it’s advisable you stick to your position, back it up with logical arguments, or else announce that you will solve the problem yourself.</h5>\r\n</li>\r\n</ul>\r\n<h5>You can’t always predict the person you will have to talk to, and this can add to the uncertainty and stress of a negotiation. Build confidence in your position, prepare yourself for a possible letdown, and keep a flexible positive spirit. A problem might be one, but its solutions can be numerous.</h5>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is the most unpleasant character that I might face as a negotiator?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 376,
+                                "order": 1,
+                                "question": "What is the most unpleasant character that I might face as a negotiator?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 295,
+                            "title": "Negotiation Skills Complete Unit 5",
+                            "description": "Negotiation Skills Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How frequently have you come across similar attitudes?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Never ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Sometimes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Often",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Always",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 658,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 997,
+                        "title": "4 Steps to Handle Negotiation Anxiety",
+                        "slug": "4-steps-to-handle-negotiation-anxiety",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "56AvITeNcz0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>It is only natural to feel anxious before approaching a negotiation you still know nothing about its outcomes. But after all, a little dose of nervousness won't necessarily do you bad, but on the contrary it can be to your advantage.</h5>\r\n<h5>Follow these 4 steps:</h5>\r\n<h5>1- Reframe Anxiety as Excitement</h5>\r\n<h5>2- Prepare Yourself</h5>\r\n<h5>3- Focus On Opportunities</h5>\r\n<h5>4- Practice Regularly</h5>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will go through 4 steps to manage your anxiety towards negotiations.</h5>\r\n<h5>If after all these courses, you still feel intimidated to start a negotiation, you are not alone. In fact, theoretical learning is only the first step of nurturing the confident negotiator inside you. But remember, as much as negotiations make you feel nervous, eventually they will make yousmarter too.</h5>\r\n<h5>Below are 4 steps to relieve your nervousness before negotiation:</h5>\r\n<h5>1- Reframe Anxiety as Excitement: Most of the stress you feel before a negotiation, happens inside your mind. That’s good news because it means you can control it. Reframe your anxiety as excitement to face what's coming. Don’t leave area for discouraging thoughts. Instead, channel your energy to accomplish step 2.</h5>\r\n<h5>2- Prepare Yourself: Boost your confidence by trying to anticipate the situations you are about to face. “What if I am asked this? How should I answer? What if I talk about that? I think they would like it.” Finally, lower your expectations and prepare yourself for the worst, a technique called defensive pessimism.</h5>\r\n<h5>3- Focus On Opportunities: Now that you have prepared, you can consider that you have done your best. Why think about all the ways you might fail? There's an equal possibility that things will go extremely well. Channel your thoughts, and you will be more likely to make the right decisions.</h5>\r\n<h5>4- Practice Regularly: As you pass from one negotiation to another, you will be able to identify your weak points to work on them and your strong points to sharpen other skills. Research supports that if you negotiate regularly, you will become more familiar with the possiblescenarios and situations. Hence, you will be less affected by the negative effects of anxiety.</h5>\r\n<h5>With this frame of mind, soon you will start to recognize the significance and frequency of negotiations in our daily life. They are part of almost every conversation, so you will have tons of opportunities to practice your skills. You don’t have to wait for the real situation.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the thoughts I should have before starting a negotiation?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 377,
+                                "order": 1,
+                                "question": "What are the thoughts I should have before starting a negotiation?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 296,
+                            "title": "Negotiation Skills Complete Unit 6",
+                            "description": "Negotiation Skills Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Usually how stressed do you feel before a negotiation?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Very Stressed",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Stressed",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Neutral",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Confident",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Very Confident",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 659,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 998,
+                        "title": "Negotiation Skills PostTest",
+                        "slug": "negotiation-skills-posttest",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 297,
+                            "title": "Negotiation Skills PostTest",
+                            "description": "Negotiation Skills PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "Negotiation makes you look demanding. This is why everyone would want to please you. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 648,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Gaining voluntary compliance from the other party falls within which pillar?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Emotional Control",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Time",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Decision Making Ability",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 649,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "“But I’m worth a lot more.” Saying this sentence is making which error?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Signaling to Closure",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Sticking to the Plan",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Taking It Personal",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 650,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What does a shaking leg tell you?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Body isn't relaxed",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Benchmark isn't set",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Rapport isn't built",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 651,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "“My way or the highway” is which attitude?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Exaggeration",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Sudden Mood Change",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Only One More",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Superiority",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 652,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Defensive pessimism is about:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "channeling your anxiety in positive ways",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "defending yourself against failure by quitting",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "fighting pessimists to spread positive vibes",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 653,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/negotiation.png",
+                "zip_path": "wp-content/uploads/2018/10/negotiation.png",
+                "level": "card"
+            }
+        ]
+    }
+}

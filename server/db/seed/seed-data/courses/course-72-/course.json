@@ -1,0 +1,455 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 72,
+        "title": "برنامج الأربع والعشرون دقيقة للتسويق",
+        "description": "برنامج الأربع والعشرون دقيقة للتسويق",
+        "unit_count": 14,
+        "author_id": 0,
+        "course_post_id": 3713,
+        "settings": {
+            "completion_wall": "all_visible",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": null,
+        "modules": [
+            {
+                "module_id": 72,
+                "title": "24min Marketing Arabic",
+                "description": "24min Marketing Arabic",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1536,
+                        "title": "برنامج الأربع والعشرون دقيقة للتسويق - الإختبار النهائي",
+                        "slug": "%d8%a7%d9%84%d8%b4%d9%87%d8%a7%d8%af%d8%a9-%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d8%ac-%d8%a7%d9%84%d8%aa%d8%b3%d9%88%d9%8a%d9%82",
+                        "order": 140,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 628,
+                            "title": "Marketing Arabic post test",
+                            "description": "Marketing Arabic Quiz",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "ما هو الفرق بين استراتيجية تسويقية وتكتيك تسويقي؟",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "تستخدم التكتيكات لتحديد الخطوط العريضة للأهداف الاوسع نطاقاً وتحقيق التقدم للشركة برمتها",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "تركز الاستراتيجية على الصورة الكبيرة في حين تحدد التكتيكات الأفعال التي تم تنفيذها",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "تقوم الاستراتيجية على الأمور المنفذة من أجل تحقيق كل هدف من أهدافك التسويقية",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "لا أختار أي جواب من الأجوبة السابقة",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 1444,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "لا تعتبر مؤشرات الأداء الأساسية بهامّة ولا يجب أن تكون جزءاً من خطتك التسويقية",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 1445,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "تُعرف هيكلية الفريق التسويقي التي تعيّن الموظفين والموارد في مناطق أو مواقع محددة بـِ: ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "هيكلية تسويق مرنة",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "فريق التسويق المستهدف",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "منظمة جغرافية",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "لا أختار أي جواب من الأجوبة السابقة",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 1446,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "وسائل التواصل الاجتماعي هي طريقة فعالة لـِ: ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "بناء الثقة ونشر الوعي",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "الترويج لمنتجات جديدة أو خدمات",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "توزيع المحتوى",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "تحسين خدمة العميل",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "كل ما سبق ذكره",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"5\";}",
+                                    "question_id": 1447,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "معدل التحويل هو مقياس لتعقّب:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "عدد الأشخاص الذين قاموا بتحميل كتاب الكتروني أو ورقة بيضاء",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "النسبة المئوية للزائرين الذين أكملوا فعلاً مطلوباً",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "النسبة المئوية لعدد الأشخاص الذين زاروا صفحة على الانترنت",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "كل ما سبق ذكره",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 1448,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "تساعدك قيمة العملاء لمدى الحياة على تحديد:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "الكلفة الاجمالية لاقتناء عميل",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "كلفة تحويل الزوار الى مستخدمين",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "القيمة الاجمالية للعميل بالنسبة الى مرحلة معينة من الوقت",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "لا أختار أي جواب من الأجوبة السابقة",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 1449,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "لا يعد تصميم رسائل البريد الإلكتروني للهواتف المحمولة والأجهزة اللوحية أمرًا   مهمًا نظرًا لأن يستخدم المستخدم البريد الإلكتروني عادتاً عبر الحاسوب الخاص به في المكتب  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 1450,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "يعتبر وجود استراتيجية لوسائل التواصل الاجتماعي أمراً مهماً للأسباب التالية:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "إنها مجانية وسهلة لتحقيق النتائج",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "تساعد شركتك على التواصل والاستماع إلى الجمهور",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "تستبدل جهود التسويق والعلاقات العامة التقليدية",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "ستساعدك على الانتشار بشكل واسع وتحقيق النتائج في فترة وجيزة",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 1451,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "من المهم أن تحسّن موقعك الإلكتروني لمحركات البحث على أن تحسّنها للزوار ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 1452,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "يعدّ تحميل محتواك إلى موقعك الإلكتروني كافياً للناس لكي يعثروا عليه",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1453,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "أي من العبارات التالية حول نماذج الإيرادات تعتبر غير صحيحة؟",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "سيدفع المعلنون للوصول إلى جمهورك إذا استوفى المعايير الخاصة بهم",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "يمكن للعلامات التجارية أن تلتمس الجهات الراعية بهدف المساعدة في تغطية التكاليف وتوليد الأرباح",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "يمكن للشركات جمع الإيرادات من خلال إحالة العملاء إلى أطراف ثالثة",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "لا تعتبر ملفات المستخدم الشخصية مصدراً مجدياً للإيرادات",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 1454,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "تقتصر الشركات على نوع واحد من نماذج الإيرادات",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 1455,
+                                    "order": 11
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "___________________  يعني فهم وجهات نظرهم الرئيسية، وفهم احتياجاتهم، وفهم أهدافهم ووجود خطة واضحة لمعالجتها عندما يحين الوقت",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "حدّد جمهورك المستهدف",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "حدّد خطة التوزيع الخاصة بك",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "حدّد الموردين والموزعين لديك",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 1456,
+                                    "order": 12
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "_________________   هو ما يفكر فيه الناس عادة عندما يسمعون بالإعلانات، إنها إعلاناتك على الراديو، وإعلاناتك التلفزيونية، وإعلاناتك المطبوعة أيضاً.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "التسويق الداخلي",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "التسويق الخارجي",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "الفوائد التنافسية",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "العروض",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 1457,
+                                    "order": 13
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": " البودكاست هو صوت عند الطلب حتى يتمكن الناس من الاستماع إلى ما تودّ قوله في أي وقت خلال اليوم. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 1458,
+                                    "order": 14
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": []
+    }
+}

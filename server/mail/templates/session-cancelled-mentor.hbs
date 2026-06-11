@@ -1,0 +1,32 @@
+{{#> layout}}
+
+  <p style="margin:0 0 20px;font-family:'Noto Sans',system-ui,sans-serif;font-size:15px;line-height:1.65;color:#1A0A12;">
+    Hi <strong>{{mentorName}}</strong>,
+  </p>
+
+  <p style="margin:0 0 20px;font-family:'Noto Sans',system-ui,sans-serif;font-size:15px;line-height:1.65;color:#1A0A12;">
+    <strong style="color:#9f2063;">{{smeName}}</strong> has cancelled their upcoming session with you.
+  </p>
+
+  <!-- Cancelled session info box -->
+  <table cellpadding="0" cellspacing="0" border="0" role="presentation" width="100%"
+         style="margin:0 0 28px;">
+    <tr>
+      <td style="background-color:#fff5f5;border-left:4px solid #f43f5e;border-radius:0 8px 8px 0;
+                 padding:16px 20px;">
+        <p style="margin:0 0 4px;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:11px;font-weight:700;letter-spacing:0.08em;
+                  text-transform:uppercase;color:#f43f5e;">Cancelled Session</p>
+        <p style="margin:0;font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:15px;font-weight:600;color:#1A0A12;">{{sessionDate}}</p>
+      </td>
+    </tr>
+  </table>
+
+  <p style="margin:0;font-family:'Noto Sans',system-ui,sans-serif;font-size:15px;line-height:1.65;color:#1A0A12;">
+    That time slot is now available again and can be booked by other mentees. Log in to your
+    <a href="{{siteUrl}}/mentor/sessions" style="color:#9f2063;text-decoration:underline;">mentor dashboard</a>
+    to manage your availability.
+  </p>
+
+{{/layout}}

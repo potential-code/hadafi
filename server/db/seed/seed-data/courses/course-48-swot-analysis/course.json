@@ -1,0 +1,798 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 48,
+        "title": "SWOT Analysis",
+        "description": "Learn the key steps involved in conducting a SWOT analysis for your business",
+        "unit_count": 7,
+        "author_id": 0,
+        "course_post_id": 3690,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2295,
+            "title": "SWOT Analysis",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/swot-analysis-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/swot.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 48,
+                "title": "SWOT Analysis",
+                "description": "Learn the key steps involved in conducting a SWOT analysis for your business",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1101,
+                        "title": "SWOT Analysis Pretest",
+                        "slug": "swot-analysis-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 400,
+                            "title": "SWOT Analysis Pretest",
+                            "description": "SWOT Analysis Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which one of the following is a true definition of SWOT?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Strengths, Wishes, Opportunities and Tests",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Skills, Work-tasks, Openings and Tests",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Strengths, Weaknesses, Opportunities and Threats",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Strengths, Weaknesses, Organization and Threats",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 927,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is a SWOT analysis used for?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Brainstorming tool",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "To analyze business opportunities",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "To look at marketing objectives",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 928,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1102,
+                        "title": "3 Questions to Ask yourself to Determine the Strengths in a SWOT Analysis",
+                        "slug": "3-questions-ask-determine-strengths-swot-analysis",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Bkh3sJ5SDAA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>When doing a SWOT analysis, the first step is to determine the strengths of your business, or product or project. The strengths refer to positive things that are within your control and allow you to have an advantage over others. When applying this to a business, areas that are in your control include the team, your financial positions, your experience or processes.</h5>\r\n<h5>Here are 3 questions to ask yourself to help in determining your strengths:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>What makes us unique and different from others?</h5>\r\n</li>\r\n \t<li>\r\n<h5>What do people or customers praise us for?</h5>\r\n</li>\r\n \t<li>\r\n<h5>What gives us an advantage over others?</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are your company’s strengths?  ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 273,
+                                "order": 1,
+                                "question": "What are your company’s strengths?  "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 401,
+                            "title": "SWOT Analysis  Complete Unit 1",
+                            "description": "SWOT Analysis  Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have customers praised you for certain strengths found in your company that were not available in others?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 935,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1103,
+                        "title": "3 Questions to Ask yourself to Determine the Weaknesses in a SWOT Analysis",
+                        "slug": "3-questions-ask-determine-weaknesses-swot-analysis",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "h-Nya5Fne6I",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>When doing a SWOT analysis, the second step is to determine the weaknesses of your business, or product or project. The weaknesses refer to negative things that are within your control and that could put you at a dis-advantage over others. When applying this to a business, areas that are in your control include the team, your financial positions, your experience or processes.</h5>\r\n<h5>Here are 3 questions to ask yourself to help in determining your weaknesses:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>What can we improve on in our business or product?</h5>\r\n</li>\r\n \t<li>\r\n<h5>What do people or customers tell us that we need to improve?</h5>\r\n</li>\r\n \t<li>\r\n<h5>What are things we need to be avoiding?</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are your company’s weaknesses? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 274,
+                                "order": 1,
+                                "question": "What are your company’s weaknesses? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 402,
+                            "title": "SWOT Analysis  Complete Unit 2",
+                            "description": "SWOT Analysis  Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have customers ever told you that you need to improve in certain aspects of your business?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 936,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1104,
+                        "title": "3 Questions to Ask yourself to Determine the Opportunities in a SWOT Analysis",
+                        "slug": "3-questions-ask-determine-opportunities-swot-analysis",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "szoXdQmFEns",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>When doing a SWOT analysis, the 3rd step is to determine the opportunities facing your business, or product or project. The opportunities refer to positive things that are outside of your control and that could have an effect on you. When applying this to a business, areas that are outside of your control include the future trends, economic, laws or political issues.</h5>\r\n<h5>Here are 3 questions to ask yourself to help in determining your opportunities:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>What are technological trends that could give you an advantage?</h5>\r\n</li>\r\n \t<li>\r\n<h5>Are there any laws, policies or economic situations that work in your favor?</h5>\r\n</li>\r\n \t<li>\r\n<h5>Are there any events taking place that you can leverage?</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are your company’s opportunities?  ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 275,
+                                "order": 1,
+                                "question": "What are your company’s opportunities?  "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 403,
+                            "title": "SWOT Analysis  Complete Unit 3",
+                            "description": "SWOT Analysis  Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever faced any economic situations working in your favor?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 937,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1105,
+                        "title": "3 Questions to Ask yourself to Determine the Threats in a SWOT Analysis",
+                        "slug": "3-questions-to-ask-yourself-to-determine-the-threats-in-a-swot-analysis",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "TSYRSO6IwK0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>When doing a SWOT analysis, the 4th step is to determine the threats facing your business, or product or project. The threats refer to negative things that are outside of your control and that could have an effect on you. When applying this to a business, areas that are outside of your control include the future trends, economic, laws or political issues.</h5>\r\n<h5>Here are 3 questions to ask yourself to help in determining your threats:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>What are technological trends that could disrupt or affect us negatively?</h5>\r\n</li>\r\n \t<li>\r\n<h5>Are there any laws, policies or economic situations that could impact us in a negative way?</h5>\r\n</li>\r\n \t<li>\r\n<h5>Are there any market financial risks that could be affecting us?</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are your company’s threats?  ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 276,
+                                "order": 1,
+                                "question": "What are your company’s threats?  "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 404,
+                            "title": "SWOT Analysis  Complete Unit 4",
+                            "description": "SWOT Analysis  Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you ever faced any laws or policies that impacted you in a negative way?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 938,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1106,
+                        "title": "4 Areas to Help you in Taking Action after your SWOT Analysis",
+                        "slug": "4-areas-help-taking-action-swot-analysis",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "DNWqjc33uvk",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>By completing the above 4 steps, you can then have a good overview of the current situation and be able to take a decision about moving forward.</h5>\r\n<h5>As next steps, you can put the actions needed to make use of the analysis. These would include:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Leverage your strength and expand what you are doing well</h5>\r\n</li>\r\n \t<li>\r\n<h5>Minimize your weaknesses and avoid things that are not working</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be prepared to make use of the opportunities that could be coming your way</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be prepared to reduce the impact of threats that you could be facing</h5>\r\n</li>\r\n</ol>\r\n<h5>As the saying goes, chance favors the prepared mind and through the SWOT analysis, you would be better prepared.</h5>",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can you use your strengths to take advantage of the opportunities and to avoid real and potential threats?",
+                            "course-unit-atq-two": "How can you use your opportunities to overcome the weaknesses you are experiencing?",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 277,
+                                "order": 1,
+                                "question": "How can you use your strengths to take advantage of the opportunities and to avoid real and potential threats?"
+                            },
+                            {
+                                "q_id": 278,
+                                "order": 2,
+                                "question": "How can you use your opportunities to overcome the weaknesses you are experiencing?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 405,
+                            "title": "SWOT Analysis  Complete Unit 5",
+                            "description": "SWOT Analysis  Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you well-prepared to make use of the opportunities and reduce the impact of threats that may be coming your way?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 939,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1107,
+                        "title": "SWOT Analysis Posttest",
+                        "slug": "swot-analysis-certificate",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 406,
+                            "title": "SWOT Analysis Posttest",
+                            "description": "SWOT Analysis Posttest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which one of the following is a true definition of SWOT?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Strengths, Wishes, Opportunities and Tests",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Skills, Work-tasks, Openings and Tests",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Strengths, Weaknesses, Opportunities and Threats",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Strengths, Weaknesses, Organization and Threats",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 929,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is a SWOT analysis used for?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Brainstorming tool",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "To analyze business opportunities",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "To look at marketing objectives",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 930,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which one of the following is the true distinction between the SWOT aspects?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "S and O are internal factors whereas W and T are external factors",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "S and T are internal factors whereas W and O are external factors",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "S, W and O are internal factors, whereas O is an external factor",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "S and W are internal factors whereas O and T are external factors",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 931,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The areas that are in your control when analyzing your strengths are:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Your Team Composition, Laws and Regulations, Financial Position",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Future Trends, Financial Position and your Experiences",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Your Experiences and Processes, Team Composition and Financial Position",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 932,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "In a SWOT analyses, Weaknesses are  internal characteristics that place the business at a disadvantage against competitors. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 933,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Performing a SWOT analysis allows a business to gain insights into its internal factors and to relate these insights to the external factors posed by the marketplace in which the business operates. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 934,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/swot.png",
+                "zip_path": "wp-content/uploads/2018/10/swot.png",
+                "level": "card"
+            }
+        ]
+    }
+}

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Redesign — Full Preview</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0a000f; font-family: 'Inter', system-ui, -apple-system, sans-serif; min-height: 100vh; }
+
+  /* ── HERO WRAPPER ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0D0008 0%, #0f0520 60%, #1a0418 100%);
+  }
+
+  /* Grid background */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(159,32,99,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(159,32,99,0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 80% at 20% 50%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 20% 50%, black 30%, transparent 100%);
+  }
+
+  /* Glow orbs */
+  .glow-primary {
+    position: absolute;
+    top: -10%;
+    left: -8%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(159,32,99,0.22) 0%, transparent 70%);
+    filter: blur(60px);
+    animation: breathe 9s ease-in-out infinite;
+  }
+  .glow-violet {
+    position: absolute;
+    bottom: -5%;
+    left: 30%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(76,29,110,0.3) 0%, transparent 70%);
+    filter: blur(50px);
+    animation: breathe 11s ease-in-out infinite reverse;
+  }
+
+  /* ── LEFT COLUMN ── */
+  .hero-left {
+    position: relative;
+    z-index: 10;
+    width: 55%;
+    padding: 0 0 0 8%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Badge pill */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 12px 5px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(12px);
+    width: fit-content;
+    margin-bottom: 20px;
+    animation: fadeUp 0.5s ease both;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #e83e94;
+    box-shadow: 0 0 8px #e83e94, 0 0 16px rgba(232,62,148,0.4);
+    flex-shrink: 0;
+    animation: dotPulse 2.5s ease-in-out infinite;
+  }
+  .badge-text { font-size: 11px; color: rgba(255,255,255,0.65); letter-spacing: 0.1em; text-transform: uppercase; }
+  .badge-sep { color: rgba(255,255,255,0.25); font-size: 10px; }
+  .badge-free { font-size: 11px; color: rgba(255,255,255,0.5); }
+
+  /* Eyebrow */
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #e83e94;
+    margin-bottom: 10px;
+    animation: fadeUp 0.5s 0.1s ease both;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 20px; height: 1px;
+    background: linear-gradient(90deg, #e83e94, transparent);
+  }
+
+  /* Headline */
+  .headline {
+    font-size: clamp(36px, 4.2vw, 54px);
+    font-weight: 800;
+    line-height: 1.07;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .headline-line1 { animation: fadeUp 0.6s 0.15s ease both; }
+  .headline-line2 {
+    color: #fff;
+    animation: fadeUp 0.6s 0.25s ease both;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0 10px;
+  }
+  .headline-accent {
+    background: linear-gradient(90deg, #e83e94 0%, #c42b7a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Benefit chips */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 18px;
+    margin-bottom: 20px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 11px;
+    border-radius: 5px;
+    border: 1px solid rgba(159,32,99,0.35);
+    background: rgba(159,32,99,0.07);
+    font-size: 11.5px;
+    font-weight: 500;
+    color: rgba(232,62,148,0.9);
+    cursor: default;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+  }
+  .chip:hover {
+    border-color: rgba(232,62,148,0.55);
+    background: rgba(159,32,99,0.15);
+    box-shadow: 0 0 14px rgba(232,62,148,0.15);
+    transform: translateY(-1px);
+  }
+  .chip-icon { font-size: 12px; }
+  .chip:nth-child(1) { animation: chipIn 0.4s 0.45s ease both; }
+  .chip:nth-child(2) { animation: chipIn 0.4s 0.55s ease both; }
+  .chip:nth-child(3) { animation: chipIn 0.4s 0.65s ease both; }
+  .chip:nth-child(4) { animation: chipIn 0.4s 0.75s ease both; }
+  .chip:nth-child(5) { animation: chipIn 0.4s 0.85s ease both; }
+
+  /* Subtext */
+  .subtext {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.55);
+    max-width: 430px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+
+  /* CTA row */
+  .cta-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    animation: fadeUp 0.6s 0.6s ease both;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 13px 26px;
+    background: #9f2063;
+    color: #fff;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 24px rgba(159,32,99,0.45), 0 0 0 1px rgba(159,32,99,0.3);
+    transition: all 0.2s ease;
+    letter-spacing: 0.01em;
+  }
+  .btn-primary:hover {
+    background: #c42b7a;
+    box-shadow: 0 6px 32px rgba(159,32,99,0.6), 0 0 0 1px rgba(196,43,122,0.4);
+    transform: translateY(-1px);
+  }
+  .btn-primary svg { width: 15px; height: 15px; }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 20px;
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.65);
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.09); color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.18); }
+
+  /* Trust strip */
+  .trust {
+    display: flex;
+    gap: 28px;
+    margin-top: 36px;
+    animation: fadeUp 0.6s 0.75s ease both;
+    align-items: flex-start;
+  }
+  .trust-item { display: flex; flex-direction: column; gap: 2px; }
+  .trust-num {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-shadow: 0 0 18px rgba(232,62,148,0.45);
+  }
+  .trust-label { font-size: 10.5px; color: rgba(255,255,255,0.38); letter-spacing: 0.04em; text-transform: uppercase; }
+  .trust-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.08); align-self: center; }
+
+  /* ── RIGHT COLUMN (placeholder) ── */
+  .hero-right {
+    position: relative;
+    z-index: 10;
+    width: 45%;
+    height: calc(100vh - 8rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 5%;
+  }
+  .chatbot-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.2);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+  .chatbot-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #9f2063, #e83e94, transparent);
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes chipIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes breathe {
+    0%,100% { opacity: 0.7; transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.08); }
+  }
+  @keyframes dotPulse {
+    0%,100% { box-shadow: 0 0 6px #e83e94, 0 0 12px rgba(232,62,148,0.3); }
+    50%      { box-shadow: 0 0 10px #e83e94, 0 0 22px rgba(232,62,148,0.5); }
+  }
+  @keyframes shimmer {
+    0%,100% { opacity: 0.4; }
+    50%      { opacity: 1; }
+  }
+
+  /* ── ANNOTATION PANEL ── */
+  .annotations {
+    padding: 24px 36px;
+    background: #111;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .annotations h3 { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .ann-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .ann-item { background: rgba(255,255,255,0.04); border-radius: 8px; padding: 12px 14px; border: 1px solid rgba(255,255,255,0.06); }
+  .ann-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #e83e94; margin-bottom: 5px; }
+  .ann-desc { font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="glow-primary"></div>
+  <div class="glow-violet"></div>
+
+  <!-- LEFT COLUMN -->
+  <div class="hero-left">
+
+    <!-- Badge pill -->
+    <div class="badge">
+      <div class="badge-dot"></div>
+      <span class="badge-text">SME Empowerment Program</span>
+      <span class="badge-sep">·</span>
+      <span class="badge-free">100% Free, Global</span>
+    </div>
+
+    <!-- Eyebrow -->
+    <div class="eyebrow">AI-Powered Business Growth</div>
+
+    <!-- Headline -->
+    <div class="headline">
+      <div class="headline-line1">The Free AI Program</div>
+      <div class="headline-line2">Built for <span class="headline-accent">SMEs &amp; Startups.</span></div>
+    </div>
+
+    <!-- Benefit chips -->
+    <div class="chips">
+      <div class="chip"><span class="chip-icon">⚡</span> Save Costs</div>
+      <div class="chip"><span class="chip-icon">🤖</span> Automate Workflows</div>
+      <div class="chip"><span class="chip-icon">📈</span> Grow Revenue</div>
+      <div class="chip"><span class="chip-icon">🧠</span> AI Mentors</div>
+      <div class="chip"><span class="chip-icon">🌍</span> 50+ Countries</div>
+    </div>
+
+    <!-- Subtext -->
+    <p class="subtext">
+      Access AI training, expert mentors, business tools &amp; live events — completely free, for SMEs &amp; startups in 50+ countries.
+    </p>
+
+    <!-- CTA row -->
+    <div class="cta-row">
+      <button class="btn-primary">
+        Get Started
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </button>
+      <button class="btn-ghost">Login</button>
+    </div>
+
+    <!-- Trust strip -->
+    <div class="trust">
+      <div class="trust-item">
+        <span class="trust-num">300k+</span>
+        <span class="trust-label">SMEs Reached</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <span class="trust-num">50+</span>
+        <span class="trust-label">Countries</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <span class="trust-num">Since 2010</span>
+        <span class="trust-label">Founded</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT COLUMN (chatbot placeholder) -->
+  <div class="hero-right">
+    <div class="chatbot-placeholder">← Chatbot unchanged</div>
+  </div>
+</div>
+
+<!-- ANNOTATION PANEL -->
+<div class="annotations">
+  <h3>What's changing — and why</h3>
+  <div class="ann-grid">
+    <div class="ann-item">
+      <div class="ann-tag">Headline</div>
+      <div class="ann-desc">Reduced from 3.5rem 9-word line to 2 clean lines. Eyebrow label adds context without adding weight. "Built for SMEs &amp; Startups." targets the audience directly — no ambiguity.</div>
+    </div>
+    <div class="ann-item">
+      <div class="ann-tag">Benefit Chips</div>
+      <div class="ann-desc">Replace the 45-word subtext wall. Each chip is a scannable value prop that slides in staggered. On hover: glow pulse + 1px lift. Tech feel matches animation direction C.</div>
+    </div>
+    <div class="ann-item">
+      <div class="ann-tag">Subtext</div>
+      <div class="ann-desc">Cut from 45 words to ~22. One clear sentence covering what (training, mentors, tools), how much (free), and who (SMEs in 50+ countries). Every word earns its place.</div>
+    </div>
+    <div class="ann-item">
+      <div class="ann-tag">Trust Strip</div>
+      <div class="ann-desc">Numbers get a pink glow shadow and animated roll-up counter on page load (300,000 counts up over 1.2s). Dividers add structure. Labels moved below numbers for cleaner hierarchy.</div>
+    </div>
+    <div class="ann-item">
+      <div class="ann-tag">Background</div>
+      <div class="ann-desc">Subtle grid overlay masked to the left side — reinforces the tech aesthetic without competing with the chatbot. Existing glow blobs stay but are tuned down 10%.</div>
+    </div>
+    <div class="ann-item">
+      <div class="ann-tag">CTA Buttons</div>
+      <div class="ann-desc">Primary gets a stronger shadow glow (brand pink). Ghost becomes secondary-weight. Both get spring-physics hover. Arrow icon on primary reinforces directionality.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

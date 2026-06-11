@@ -1,0 +1,1931 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 91,
+        "title": "24 Minute MBA",
+        "description": "The 24minMBA is a Free Blended Learning Business Skills Development Program",
+        "unit_count": 14,
+        "author_id": 0,
+        "course_post_id": 3731,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2520,
+            "title": "24 Minute MBA",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/24-minute-mba-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Untitled-1.jpg",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 91,
+                "title": "24minMBA",
+                "description": "In today&apos;s fast paced business world, we need to continually be at the top of our game, armed with a set of key skills that are effective in helping us stand out and excel. However, we don&apos;t have as much time for personal development, we are surrounded by an overwhelming amount of information and we don&apos;t know where to start.(-new-line-)\nThrough the 24min MBA Program, we aim to provide a simple playlist of videos that provide practical tips on essential business skills for aspiring professionals. This playlist would be supported by a set of resources that would be available to the participants.",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 2494,
+                        "title": "24 Minute MBA Pretest",
+                        "slug": "24-minute-mba-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 810,
+                            "title": "24 minute MBA Pretest",
+                            "description": "24 minute MBA Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What are the four essential leadership skills everyone should follow? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Idealistic, Problem Solver, Organize others work, Allocate Resources",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Lead by example, Passionate, Authentic, Recognize others work",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Idealistic, Problem Solver, Organize others work, Recognize others work",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Passionate, Organize others work, Allocate Resources, Authentic",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "2",
+                                    "question_id": 2010,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the four parts of Daniel Goleman Model?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Self-awareness, Self-management, Social awareness, Relationship management ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Empathy, Self-awareness, Self-management, Social awareness",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Internal Motivation, Communication, Social awareness, Relationship management",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Conflict Management, Internal Motivation, Empathy, Self-awareness",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "1",
+                                    "question_id": 2011,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the three most important financial statements? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Statement of Retained Earnings, Cash Flow Statement, Trial Balance",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Specific Journals, Trial Balance, Balance Sheet",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Cash Flow Statement, Statement of Retained Earnings, Trial Balance",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Balance Sheet, Income Statement, Cash Flow Statement",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "4",
+                                    "question_id": 2012,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When seeking funders you should keep in mind: ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Financial Position of the company",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Strength of your strategy ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Strength of your team",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Activity with already exciting clients ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "5",
+                                    "question_id": 2013,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2495,
+                        "title": "Setting up Business Strategy",
+                        "slug": "business-strategy-3",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Ba7eeC840lo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "The 3 essential considerations to keep in mind when putting a strategy are:\r\n<ul>\r\n \t<li>Define your mission</li>\r\n \t<li>Identify short-term goals</li>\r\n \t<li>Create KPIs</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video we will learn the essential aspects of setting up a strategy for your business. A solid Strategy helps a business focus the energy of its staff and make use of its resources to ensure long term success and growth. Without a good strategy companies loose focus and end up failing on the long run.</h5>\r\n<h5>To setup a strategy, you need to think about 3 key considerations:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Define your mission as a business. What do you do, how do you do it and for whom do you do it? The key here is to determine what sets you apart from the competition</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identify a few goals for the coming 1 to 3 years that if met, would ensure that you are delivering the right services to the right clients and are maintaining a healthy business</h5>\r\n</li>\r\n \t<li>\r\n<h5>Break up the goals and set monthly key performance indicators (KPIs) that you need to track and cascade to each department and employee so everyone is clear about how they contribute to the overall goals.</h5>\r\n</li>\r\n</ol>\r\n<h5>By following these 3 key considerations and continuously tracking progress of the KPIs across departments and individuals, you can ensure that you would be on your way to reaching your goals and fulfilling your mission. Remember, what gets measured gets done!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "John is heading a consulting services business and wants to create a new strategy for the organization to guide it for the next 3 years and align his team. Being a consulting business, they get requested to do many different kinds of tasks, but in order to grow, John knows that they need to focus. He then identifies that his strategy is to focus on the areas of customer service improvement where the company has had good successes and in-house expertise.\r\n\r\nMission: Our company helps organizations improve their customer service to increase loyalty, repeat business and long-term sustainability of businesses.\r\n\r\nGoals:\r\n1- Be positioned as a leader in this space by getting publicity for our work.\r\n2- Coming up with a proprietary framework for our services.\r\n3- Win projects from the best brands in the industry.",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is your company’s mission? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 824,
+                                "order": 1,
+                                "question": "What is your company’s mission? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 811,
+                            "title": "24minMBA Complete Unit 1",
+                            "description": "24minMBA Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your company have a clear strategy? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2009,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2496,
+                        "title": "Developing Innovation",
+                        "slug": "innovation",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "5nUkWTZRVTc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 4 steps to help in developing your next innovation are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Identify the problem</h5>\r\n</li>\r\n \t<li>\r\n<h5>Ideate</h5>\r\n</li>\r\n \t<li>\r\n<h5>Prototype</h5>\r\n</li>\r\n \t<li>\r\n<h5>Evaluate &amp; Refine</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, you will learn 4 steps that will guide you in developing your Next Innovation. Innovation can be summarised as the process of coming up with a new idea, product, service, or experience that customers would be willing to pay for. It is a key success factor for businesses these days since competition in the business world is fierce and innovation offers a way to differentiate and stay relevant to clients.</h5>\r\n<h5>Here is a simple 4 step process to help guide your innovation process:</h5>\r\n<div>\r\n<ol>\r\n \t<li>\r\n<h5>Understand the problem that you are addressing, the users that are affected, the technology that is available, the competitors offerings</h5>\r\n</li>\r\n \t<li>\r\n<h5>Spend some time coming up with as many ideas as possible, regardless of how good they are (Ideate)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose one or two of the best ideas – which could be a collection of a few ideas combined into one – and rapidly prototype them</h5>\r\n</li>\r\n \t<li>\r\n<h5>Evaluate and Refine by getting your target users to give you their feedback and suggestions on the prototype that you created .</h5>\r\n</li>\r\n</ol>\r\n<h5>As this innovation process becomes ingrained into your business the process can be conducted periodically all through the organisation with the involvement of all staff.</h5>\r\n<h5>As Alan Kay said, The best way to predict the future is to invent it!</h5>\r\n</div>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What problem are you facing in your business?",
+                            "course-unit-atq-two": "Give one idea of how you can solve this?",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 825,
+                                "order": 1,
+                                "question": "What problem are you facing in your business?"
+                            },
+                            {
+                                "q_id": 826,
+                                "order": 2,
+                                "question": "Give one idea of how you can solve this?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 812,
+                            "title": "24minMBA Complete Unit 2",
+                            "description": "24minMBA Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "How long would it take you to create this prototype? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "single_line",
+                                    "question_id": 1980,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "open",
+                                    "text": "Where will you test this prototype? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "single_line",
+                                    "question_id": 1981,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2497,
+                        "title": "Leadership Skills",
+                        "slug": "leadership-skills-2",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "3Mb6vqOSV-Y",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 4 essential leadership skills everyone should follow are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Lead by Example</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Passionate</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Authentic</h5>\r\n</li>\r\n \t<li>\r\n<h5>Recognize others’ work</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, you will learn 4 essential leadership skills that will help you in any leadership role. Successful leaders can be charismatic, quiet, introvert, social and as such everyone can be a leader.</h5>\r\n<h5>I will give you 4 practical leadership tips that anyone can apply:</h5>\r\n<div>\r\n<ol>\r\n \t<li>\r\n<h5>Lead by Example. The best way to engage others is to be the first to do what you are asking them to do. Practice what you preach.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Passionate about what you are doing. If you are not excited about your work, then you can’t expect to motivate others to do it.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be Authentic by reflecting the values and character that make you who you are. Don’t try to be someone you are not.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Recognize the good work of others around you no matter how small that work may be.</h5>\r\n</li>\r\n</ol>\r\n<h5>Leadership is needed in many situations and by following the 4 tips of leading by example, being passionate and authentic, you can ensure that others would be motivated to follow your lead.</h5>\r\n<h5>As John Maxwell said, A leader is one who knows the way, goes the way and shows the way!</h5>\r\n</div>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Which leadership characteristic represents you best as a leader?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 827,
+                                "order": 1,
+                                "question": "Which leadership characteristic represents you best as a leader?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 813,
+                            "title": "24minMBA Complete Unit 3",
+                            "description": "24minMBA Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "In your opinion, what is the most important leadership characteristic that successful leaders should possess? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Lead by example",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Passionate",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Authentic",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Recognize & value good work",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Empathy",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1982,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you believe that coaching is needed for leadership development? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1983,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2498,
+                        "title": "Organizational Behavior",
+                        "slug": "organizational-behavior",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "o7OgvN-iT9c",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>To build your team, you need to think about 3 key considerations:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Hire Right</h5>\r\n</li>\r\n \t<li>\r\n<h5>Give Opportunities for Development</h5>\r\n</li>\r\n \t<li>\r\n<h5>Fire Fast</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn what it takes to build the right team in your organisation. You never know what to expect in business and unless you have the right team in place, it would be very hard for a company to navigate the challenges and make use of the opportunities that arise.</h5>\r\n<h5>To build your team, you need to think about 3 key considerations:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Hire right by making sure that you are getting people that are in line with your values, culture and are passionate about what you are doing</h5>\r\n</li>\r\n \t<li>\r\n<h5>Give opportunities for development by having your team members do job rotations, get put on special projects, pursue some side projects and be responsible for their learning</h5>\r\n</li>\r\n \t<li>\r\n<h5>Fire Fast when there is a mismatch between the individuals attitude and your objectives or strategy. Don’t let things linger so that it doesn’t spill over to others.</h5>\r\n</li>\r\n</ol>\r\n<h5>By following these 3 key considerations and continuously rewarding – even if it is a slap on the back – great behaviors and performance you will ensure that you have a cohesive team that is all rowing in the same direction. Remember, your talent is your most important asset!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What defines your company’s culture? ",
+                            "course-unit-atq-two": "How are you developing your team? ",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 828,
+                                "order": 1,
+                                "question": "What defines your company’s culture? "
+                            },
+                            {
+                                "q_id": 829,
+                                "order": 2,
+                                "question": "How are you developing your team? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 814,
+                            "title": "24minMBA Complete Unit 4",
+                            "description": "24minMBA Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What defines your company’s culture? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "single_line",
+                                    "question_id": 1984,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "How are you developing your team? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Job Rotation or On the Job Shadowing",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Online Courses",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Public Face to Face Courses",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "In house training courses",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1985,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Would you like to try an online training course? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1986,
+                                    "order": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2499,
+                        "title": "Marketing Campaigns",
+                        "slug": "marketing",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "8NkvmHNAPuo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>To launch any marketing campaign think of these 3 steps:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Identify the Target Segment</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identify your Value proposition</h5>\r\n</li>\r\n \t<li>\r\n<h5>Have a call to action</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, you will learn 3 basic steps needed to launch any marketing campaign. You might have the best product at the best price, but if no one is going to know about it, then you will be out of business soon.</h5>\r\n<h5>To launch any marketing campaign think of these 3 steps:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Identify the Target Segment that has the most to gain from your product or service. The more niche that segment is, the easier it would be to identify the best way to reach them.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Identify your Value proposition by articulating what makes you different and why that target segment should go out of their way to get hold of your product or service.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Have a call to action for the recipients of your campaign. It could be a sign up process, a simple buying process, or a test drive.</h5>\r\n</li>\r\n</ol>\r\n<h5>These three steps can guide you through any campaign, and with today’s online marketing channels, you can ensure that you reach the right audiences effectively and be able to continuously tweak your campaigns for maximum performance.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Who are your target audience? ",
+                            "course-unit-atq-two": "What is your value proposition to them? ",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 830,
+                                "order": 1,
+                                "question": "Who are your target audience? "
+                            },
+                            {
+                                "q_id": 831,
+                                "order": 2,
+                                "question": "What is your value proposition to them? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 815,
+                            "title": "24minMBA Complete Unit 5",
+                            "description": "24minMBA Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What’s your call to action for them? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "single_line",
+                                    "question_id": 1987,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Would you like support to create a lead generation campaign for your organization? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1988,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2500,
+                        "title": "Essential Sales Skills",
+                        "slug": "sales",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "S9jZOLtyCOo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The <b>The Two essential sales skills which should always be in balance are</b>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><b>Empathy</b> to understand client needs</h5>\r\n</li>\r\n \t<li>\r\n<h5><b>Ego</b> to close business</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn what it takes to sell your products and services. Sales is a fundamental aspect of any business as it aims to match the needs of the clients with the benefits that your product or service can provide to these clients. Without sales there is no business.</h5>\r\n<h5>The most successful sales people exhibit two essential skills:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>They have Empathy by being able to put themselves in the shoes of the customer and understand the client’s needs and requirements.</h5>\r\n</li>\r\n \t<li>\r\n<h5>They have Ego which drives them to overcome rejections and obstacles so that they can close the deal in a way that is good for them and the company.</h5>\r\n</li>\r\n</ol>\r\n<h5>These two skills are necessary and need to be in balance at all time. Every person in the organisation can apply these skills since everyone is involved in selling something to someone. Remember, nothing really happens in a business until someone sells something!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What does your team embrace? More Ego or More Empathy or A balance of Ego and Empathy ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 832,
+                                "order": 1,
+                                "question": "What does your team embrace? More Ego or More Empathy or A balance of Ego and Empathy "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 816,
+                            "title": "24minMBA Complete Unit 6",
+                            "description": "24minMBA Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Would you be interesting in taking a practical online Sales Course? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1989,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2501,
+                        "title": "Emotional Intelligence",
+                        "slug": "emotional-intelligence-3",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Etf3tC5S0Dg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The four parts of Daniel Goleman Model are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Self-awareness</h5>\r\n</li>\r\n \t<li>\r\n<h5>Self-management</h5>\r\n</li>\r\n \t<li>\r\n<h5>Social awareness</h5>\r\n</li>\r\n \t<li>\r\n<h5>Relationship management</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, we will talk about the Daniel Goleman Model, which is actually the model and the frame work that makes sense of emotional intelligence. You can see there are four parts through the model.</h5>\r\n<h5>The first part is about the self-awareness and what this means is about how aware am I about how I react to a sensation, to a situation. When some things happen, how does this trigger me? Whether positively or negatively, what are the emotions for me? Am I happy? Am I upset? Am I anxious? What is it? What’s the feeling that I have? This is self-awareness and it starts there with how much do I know about my emotions.</h5>\r\n<h5>The second part is about the self-management, which is what do I do with this emotion. Now that I know that I am angry, what am I going to do about it. Am I going to manage it, or do I just disperse the anger out and just comes out as being aggressive towards others. So this is the self-management, this is what happens or the front part of the brain that controls it and decides for me what am I going to do about it.</h5>\r\n<h5>If you think when you really want to come out with an idea or thinking too much, you normally go like this right. This is an instinctive gesture or something that we do and this is really about stimulating this front part to manage the brain for us, the rational and logical and thinking part.</h5>\r\n<h5>Then the second part of the module, which is the bottom part, is really about the social and the first part of the bottom part is the social awareness. What this talks to is about how aware am I about the society or the community around me. So what do I know about the other person? Is he or she upset? Are they motivated? Are they demotivated? Are they happy about what they are doing or not. And this becomes the social awareness, so the awareness of the feeling and emotions of the other people around you.</h5>\r\n<h5>Actually the three parts of the module, they work in favor or they service the last part of the model which is the relationship management. So all this information which is basically the self-awareness, the self-management, and the social awareness, is for the sake or enabler’s to enable me to better manage the relationship with others and this is an essence to what emotional intelligence is all about.</h5>\r\n<h5>The better I become at managing this model and working with all those four pieces, the more emotionally intelligent I become.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 817,
+                            "title": "24minMBA Complete Unit 7",
+                            "description": "24minMBA Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you think you are emotionally intelligent?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Can’t say ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1990,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you work on improving your emotional intelligence? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Don’t Know how ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1991,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you think it’s hard for a person to improve his level of emotional intelligence? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1992,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Would you be interested in an assessment of your teams’ emotional intelligence? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1993,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2502,
+                        "title": "Legal Documentations",
+                        "slug": "legal",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "RhBc27Hr1Qw",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 5 important legal documents to have in any organization are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Incorporation documents</h5>\r\n</li>\r\n \t<li>\r\n<h5>Employment contract</h5>\r\n</li>\r\n \t<li>\r\n<h5>Mutual Non-Disclosure Agreement</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sales contract</h5>\r\n</li>\r\n \t<li>\r\n<h5>Trademark</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, you will learn about important legal documents that should be drafted in any organisation. Legal documents allow you to operate and help protect your business and the investments that you have made in it. Five Important legal documents to have available are:</h5>\r\n<div>\r\n<ol>\r\n \t<li>\r\n<h5>The incorporation documents which provide you with a license to operate in a country.</h5>\r\n</li>\r\n \t<li>\r\n<h5>An employment contract that you have employees sign as they join your company. This can include a probation period followed by a full time employment period.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A mutual Non-Disclosure Agreement or NDA which protects confidential information that you are providing others or others are providing you.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A sales contract that includes the general terms and conditions that are associated with the sales of your products or service including payment terms.</h5>\r\n</li>\r\n \t<li>\r\n<h5>A trademark that protects your brand and name from being used by others.</h5>\r\n</li>\r\n</ol>\r\n<h5>Have these contracts ready as your conduct your daily business since it’s better to be safe than sorry!</h5>\r\n</div>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 818,
+                            "title": "24minMBA Complete Unit 8",
+                            "description": "24minMBA Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a full time lawyer in your company?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2014,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2503,
+                        "title": "Financial Reporting Today",
+                        "slug": "business-finance-2",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "LQ0sxysmbk0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 most Important Financial Statements are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Balance Sheet</h5>\r\n</li>\r\n \t<li>\r\n<h5>Profit or Loss Statement – P&amp;L</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cash Flow statement</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about the most important financial statements in any organisation. Financial statements help to manage your business by showing you where the money came from, where it went and where is it now, allowing you in turn to ensure that you have a healthy business.</h5>\r\n<h5>The three most Important Financial Statements are:</h5>\r\n<div>\r\n<ol>\r\n \t<li>\r\n<h5>The Balance Sheet which highlights the assets – what you own, liabilities – what you owe, and capital – what is owed to owners. Assets = liabilities + capital.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The Profit or Loss Statement – P&amp;L for short – also called Income statement includes how much sales or revenue you made over the year less the expenses.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The Cash Flow statement includes in the Inflows and outflows of cash in the company.</h5>\r\n</li>\r\n</ol>\r\n<h5>This document is updated on a monthly basis since you always need to ensure you have enough cash to pay for your expenses.</h5>\r\n<h5>As the saying says – cash is king!</h5>\r\n</div>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "List the Financial Reports that you rely on for your company:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 833,
+                                "order": 1,
+                                "question": "List the Financial Reports that you rely on for your company:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 819,
+                            "title": "24minMBA Complete Unit 9",
+                            "description": "24minMBA Complete Unit 9",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you looking for bank financing? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1994,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2504,
+                        "title": "Project management",
+                        "slug": "project-management-2",
+                        "order": 110,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "6LRJ-CsZda4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The <b>3 Considerations in Implementing Successful Projects include</b>:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>An agreement on the acceptable <b>quality</b></h5>\r\n</li>\r\n \t<li>\r\n<h5>A budget for the <b>costs</b></h5>\r\n</li>\r\n \t<li>\r\n<h5>An accepted <b>time</b> period for implementation</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, you will learn about how to implement successful projects. Projects are launched all the time across organisations whether they are internal or external. It’s important to ensure successful project implementations so as to avoid a loss of a lot of time, money and in some cases reputations.</h5>\r\n<h5>Successful Project Management takes into account the following considerations:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>An agreement on the acceptable quality level of the output of the project. As an example, if the project is to send a person to the moon, the quality requirements would be dramatically high.</h5>\r\n</li>\r\n \t<li>\r\n<h5>An budget for the costs that would be incurred to deliver the project.</h5>\r\n</li>\r\n \t<li>\r\n<h5>An accepted time period during which the project should be completed.</h5>\r\n</li>\r\n</ol>\r\n<h5>The three aspects are all related to each other and as such are set out at the beginning of the project and are tracked all through the implementation of the project. If there is a need to improve any one of the three elements, that would have an impact on the other two elements. Everyone in the organisation should learn these three basic aspects to projects and defining them at the beginning would help save a lot of costs, time and effort.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is your main challenge when managing a project? Time or Quality or Cost? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 834,
+                                "order": 1,
+                                "question": "What is your main challenge when managing a project? Time or Quality or Cost? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 820,
+                            "title": "24minMBA Complete Unit 10",
+                            "description": "24minMBA Complete Unit 10",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have full time project managers in your company?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2015,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2505,
+                        "title": "Information Technology",
+                        "slug": "operations",
+                        "order": 120,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "o7lyPWar4FI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 3 Things you should know about your ICT environment are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Move your applications to the cloud</h5>\r\n</li>\r\n \t<li>\r\n<h5>Standardize your various hardware devices</h5>\r\n</li>\r\n \t<li>\r\n<h5>Focus on your needs and not on the features of products</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, you will learn what are the key drivers of information, communications and technology happening in organisations. ICT is an indispensable tool for running any business since it provides a way to connect your talent, clients, suppliers and increases productivity within your organisation.</h5>\r\n<h5>3 Important aspects that you need to take into account when evaluating ICT setups:</h5>\r\n<div>\r\n<ol>\r\n \t<li>\r\n<h5>If you can move your applications to the cloud it would be better since it would save you maintenance, backing up data, paying up front for licenses.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Standardise your various hardware devices so that it would become easier for you to manage and maintain.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Focus on your needs and not on the features of products. Don’t get distracted by the bells and whistles. Innovations are continuously taking place in the ICT space so you need to stay aware of tools and applications that could be of use to you.</h5>\r\n</li>\r\n</ol>\r\n<h5>Remember, ICT should be used to help you become more productive so keep it simple!</h5>\r\n</div>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Are you utilizing the three different aspects of ICT mentioned above? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 835,
+                                "order": 1,
+                                "question": "Are you utilizing the three different aspects of ICT mentioned above? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 821,
+                            "title": "24minMBA Complete Unit 11",
+                            "description": "24minMBA Complete Unit 11",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you looking at purchasing any hardware in the coming 3 months for your company? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Computers/Tablets",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Servers",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Storage",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Networking",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2016,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Are you looking at purchasing any software in the coming 3 months for your company? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Office Applications",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "CRM",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "ERP",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2017,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2506,
+                        "title": "Business Expansion",
+                        "slug": "expansion",
+                        "order": 130,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "o7vu4_8MCsw",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 4 considerations to keep in mind when talking to funders are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Financial statements</h5>\r\n</li>\r\n \t<li>\r\n<h5>Strength of your strategy</h5>\r\n</li>\r\n \t<li>\r\n<h5>Strength of the management team</h5>\r\n</li>\r\n \t<li>\r\n<h5>Traction with existing clients or users</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video you will learn about what you should focus on when you want to expand your business. As the businesses become more successful, you may look for an expansion of your business by getting access to funders which could provide you with capital or debt.</h5>\r\n<h5>Four things that funders look for when backing a business:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>The financial statements to ensure that the business is healthy and that with more money it can be even healthier.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The strength of the strategy to ensure that competitors wouldn’t be easily able to challenge your offerings.</h5>\r\n</li>\r\n \t<li>\r\n<h5>The strength of the team that is managing the business and how well can that team overcome challenges and attract more great talent.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Traction that the business already has with clients or users which give credibility that the products or services that are being offered are in high demand. The leadership team would need to assess which route to take when seeking funding or whether to keep on growing the business from within by re-investing the profits.</h5>\r\n</li>\r\n</ol>\r\n<h5>In all cases, continuously thinking about the above 4 considerations would help guide you toward prosperity.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 822,
+                            "title": "24minMBA Complete Unit 12",
+                            "description": "24minMBA Complete Unit 12",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your company have in place",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Audited Financial Statements",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A Clear Strategy",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "A Strong Team",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Repeat Customers ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1995,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Is your organization looking for investment (funding) to grow? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 1996,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2507,
+                        "title": "24 minute MBA Posttest",
+                        "slug": "certificate",
+                        "order": 140,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 823,
+                            "title": "24minMBA Post Test",
+                            "description": "24minMBA Post Test",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 3 essential considerations to keep in mind when setting up a strategy?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Define your mission, Short Term Goals, Create KPI’s",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Define your mission, vision, Goals",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Define your short term goals, Long term goals, mission",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Set up a SWOT Analyses, Marketing Plan, Strategic Plan",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 1997,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The best way to predict the future is to invent it. What are the 4 steps that will guide you in developing your Next Innovation? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Set up a strategy, Create, Ideate, Prototype",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Ideate, Prototype, Organize, Plan",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Identify a problem, Ideate, Prototype, Evaluate & Refine",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Identify a problem, Organize, Plan, Evaluate & Refine",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 1998,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the four essential leadership skills everyone should follow? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Idealistic, Problem Solver, Organize others work, Allocate Resources",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Lead by example, Passionate, Authentic, Recognize others work",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Idealistic, Problem Solver, Organize others work, Recognize others work",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Passionate, Organize others work, Allocate Resources, Authentic",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 1999,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the three consideration for building the write team for your organization? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Hire Right, Room for Development, Fire Fast",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Provide Incentives, Don’t fire fast, Hire Fast",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Don’t Fire Fast, Room for Development, Rotate Employees",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Rotate Employees, Provide Incentives, Room Development",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2000,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the three basic steps needed to lunch any marketing campaign? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Identify the Target Segment, Identify your Value proposition, Have a call to action",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Identify the Target Market, Niche Market, Multi-side Market",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Have a call to action, Prepare Integrated Campaigns, Direct Mail,",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Prepare Direct Mails, Identify the Target Market, Have a call to action",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2001,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the two essential sales skills?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Business Acumen, Performance Management",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Empathy, Ego",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Listen, Contact without purpose",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Communicate, over familiarity",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 2002,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the four parts of Daniel Goleman Model?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Self-awareness, Self-management,  Social awareness, Relationship management",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Empathy, Self-awareness, Self-management,  Social awareness",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Internal Motivation, Communication, Social awareness, Relationship management",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Conflict Management, Internal Motivation, Empathy, Self-awareness",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2003,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "___________________ protects confidential information that you are providing others or others are providing you.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Incorporation documents",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Employment contract",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Mutual Non-Disclosure Agreement",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Sales contract",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "Trademark",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2004,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the three most important financial statements? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Balance Sheet, Income Statement, Cash Flow Statement",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Statement of Retained Earnings, Cash Flow Statement, Trial Balance",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Specific Journals, Trial Balance, Balance Sheet",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Cash Flow Statement, Statement of Retained Earnings, Trial Balance",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2005,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the 3 considerations to take in account when implementing successful projects? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Quality, Time, Cost",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Time, Money, Reputation",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Quality, Quantity, Productivity",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Budgeting, Planning, Monitoring",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2006,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What are the three aspects you should take into account when evaluating ICT setups?  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Move your applications to the cloud, Standardize your various hardware devices, Focus on your needs",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Move your applications to the cloud, Standardize your various hardware devices, focus on the features of products",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Focus on the features of products, Keep your ICT complicated, Move your applications to the cloud",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Keep your ICT complicated, Standardize your various hardware devices, Focus on your needs",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2007,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When seeking funders you should keep in mind: ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Financial Position of the company",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Strength of your strategy",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Strength of your team",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Activity with already exciting clients",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 5,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"5\";}",
+                                    "question_id": 2008,
+                                    "order": 11
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/03/Untitled-1.jpg",
+                "zip_path": "wp-content/uploads/2020/03/Untitled-1.jpg",
+                "level": "card"
+            }
+        ]
+    }
+}

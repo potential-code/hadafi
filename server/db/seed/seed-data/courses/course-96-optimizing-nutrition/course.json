@@ -1,0 +1,1508 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 96,
+        "title": "Optimizing Nutrition",
+        "description": "Optimizing Nutrition",
+        "unit_count": 10,
+        "author_id": 0,
+        "course_post_id": 3736,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2716,
+            "title": "Optimizing Nutrition",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/optimizing-nutrition-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Optimizing-Nutrition.jpg",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 96,
+                "title": "Optimizing Nutrition",
+                "description": "Optimizing Nutrition - a potential course",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 2606,
+                        "title": "Optimizing Nutrition Pretest",
+                        "slug": "optimizing-nutrition-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "A3glSrkt80k",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 847,
+                            "title": "Optimizing Nutrition Pretest",
+                            "description": "Optimizing Nutrition Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "The only essential macronutrient is carbohydrate.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2084,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The slow digesting carbohydrate is called a:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Complex carbohydrate",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Simple carbohydrate",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Easy carbohydrate",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2085,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The key to choosing a healthy carbohydrate source is:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Finding a slow digesting carb",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Finding a carb that is low in toxins such as pesticides",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Finding a carb that you are not intolerant to",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2086,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What’s the difference between omega-3 and omega-6?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Omega-3 is anti-inflammatory whereas omega-6 is pro-inflammatory",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Omega-3 is pro-inflammatory whereas omega-6 is anti-inflammatory",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Omega-3 and omega-6 have similar effects",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2087,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Protein is not essential for life.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2088,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Protein is essential for tissue growth.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2089,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Fasting strengthens the immune system by:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Killing damaged cells and rebuilding",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Using energy from body fat to fight disease",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Eliminating the symptoms because of a lack of energy",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2090,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Pesticides and herbicides are a problem because they:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Cause brain fog",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Damage cells",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2091,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Additives such as MSG occur naturally in the brain.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2092,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Intermittent fasting is a type of fasting that occurs every day.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2093,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Fasting for over 24 hours can be done without preparation",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2094,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The glycemic index is a number assigned to different foods. The higher the number, the slower that food digests.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2095,
+                                    "order": 11
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Glycemic index and low carb diets have one thing in common which is:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "They both adjust carbohydrate intake.",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "They both adjust fat intake.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "They both adjust protein intake.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2096,
+                                    "order": 12
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2607,
+                        "title": "3 Macronutrients that Make Up our Food",
+                        "slug": "3-macronutrients-make-food",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Tokw9GE9hkQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 macronutrients that make up our food:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fat</h5>\r\n</li>\r\n \t<li>\r\n<h5>Protein</h5>\r\n</li>\r\n \t<li>\r\n<h5>Carbohydrate</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will discuss the 3 macronutrients that make up our food. Understanding these macronutrients and their role in human health can help you to determine the types and amounts of food that you should eat. Why is this important? It’s because your mental clarity, energy, and therefore productivity, is linked to the way you eat. We will clarify which macronutrients are essential and which macronutrients are non-essential. This will give you a better understanding of what contributes to elevated productivity.</h5>\r\n<h5>Here are the 3 macronutrients:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fat</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fat is the most misunderstood macronutrient of the bunch. Fat is an essential macronutrient and is important in regulating the balance of hormones in the body. The good kinds of fat include: Saturated fat (which includes things like grass fed butter, coconut oil and animal fats), monounsaturated fat (which includes things like olive oil, avocados and nuts) and polyunsaturated fats (which include things like fish, chia seeds and flax seeds)</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Protein</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Protein is also an essential macronutrient. This macronutrient is essential for tissue growth and can act as a fuel source. It is essential to life. Sources of protein include: beef, chicken, fish, beans and yogurt.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Carbohydrate</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Carbohydrate is a non-essential macronutrient. It is a fuel source that is readily available for the body to use. Since carbohydrates are non-essential, you don’t actually require them because your body can use fat for fuel or derive carbohydrates from protein. Carbohydrates can be broken down into two categories: complex (slow digesting) and simple (fast digesting). Complex carbohydrates are preferred for optimal health and brain function. Carbohydrates are foods like: potatoes, fruit, sugar, pasta and rice.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>Understanding the 3 macronutrients can help you to determine what amounts of each you require in order to make your brain work as efficiently as it can. The balance of macronutrients is different for everyone and differs based on genetics and your unique ancestral past.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Currently, my diet is mostly compromised of:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 860,
+                                "order": 1,
+                                "question": "Currently, my diet is mostly compromised of:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 848,
+                            "title": "Optimizing Nutrition Complete Unit 1",
+                            "description": "Optimizing Nutrition Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What is your favorite meal mainly comprised of?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Protein",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Carbs",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Fat",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2101,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2608,
+                        "title": "3 Clean Sources of Carbohydrates",
+                        "slug": "3-clean-sources-carbohydrates",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "ZSLfsJca0RU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 clean sources of carbohydrates:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Sweet Potato</h5>\r\n</li>\r\n \t<li>\r\n<h5>Rice</h5>\r\n</li>\r\n \t<li>\r\n<h5>Berries</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at 3 clean sources of carbohydrates. Carbohydrates are non-essential and therefore are not required. In fact, for most people, reducing them to low levels and replacing them with healthy fats can result in above average brain function. With that being said, it doesn’t hurt to include healthy carbs.</h5>\r\n<h5>Here are 3 clean sources of carbohydrates:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Sweet Potato</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Sweet potato is a complex carbohydrate which means that it digests slowly enough for the body to know how to handle it.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Rice</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Rice is a great source of carbohydrates and comes in multiple forms. Brown rice is usually seen as the healthier alternative but can actually cause digestive issues in some people. Determining what is best for you is ideal, rather than following common advice.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Berries</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Berries are great sources of carbohydrates for the simple fact that they include plenty of fiber. Fiber is useful in reducing the speed of digestion of sugars. Blueberries, raspberries and blackberries make for great brain snacks that will not cause a crash like most other high sugar fruits.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>An abundance of sugar or fast digesting carbs will slow you down and should be avoided for long term health. Replacing junk foods with these sources of carbohydrates is a great first step to achieving optimal brain function and productivity. The key to finding the perfect carbohydrate source is looking for sources that digest slowly, are low in toxic chemicals like pesticide and looking for sources that you do not have any intolerances to.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I am going to start by replacing one of my carbohydrate sources with ________________ instead.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 861,
+                                "order": 1,
+                                "question": "I am going to start by replacing one of my carbohydrate sources with ________________ instead."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 849,
+                            "title": "Optimizing Nutrition Complete Unit 2",
+                            "description": "Optimizing Nutrition Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How often do you consume carbohydrates?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Never ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Once a day",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Twice a day",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Over three times a day",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2102,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2609,
+                        "title": "6 Healthy Sources of Fat",
+                        "slug": "6-healthy-sources-fat",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "d_YooiwpJeA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>6 healthy sources of fat:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Olive oil</h5>\r\n</li>\r\n \t<li>\r\n<h5>Almonds</h5>\r\n</li>\r\n \t<li>\r\n<h5>Avocados</h5>\r\n</li>\r\n \t<li>\r\n<h5>Grass fed butter</h5>\r\n</li>\r\n \t<li>\r\n<h5>Coconut oil</h5>\r\n</li>\r\n \t<li>\r\n<h5>Salmon</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at 6 healthy sources of fat. Fat is essential for numerous bodily functions including the production of hormones and the absorption of nutrients. Did you know that 60 percent of your brain is made out of fat? On top of that, vitamins A, D, E and K are fat soluble which means that they require fat in order to be absorbed. The only fat that should be avoided at all costs is trans-fat.</h5>\r\n<h5>Here are 6 healthy sources of fat:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Olive oil</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Olives and olive oil provide a healthy source of monounsaturated fat</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Almonds</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Almonds are high in fiber and provide a healthy source of monounsaturated fat</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Avocados</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Avocados and avocado oil provide a healthy source of monounsaturated fat</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Grass fed butter</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Grass-fed butter is butter that is made from the milk of a grass-fed cow. This provides a clean source of saturated fat.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Coconut oil</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Coconut oil (and other natural coconut food) provides a healthy source of saturated fat.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Salmon</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Salmon is a strong source of polyunsaturated omega-3 fats. Omega-3 is an important anti-inflammatory fat. Omega 3 opposes the inflammation that is created by omega 6 (which is pro-inflammatory). Ideally, omega 6 and omega 3 amounts should be equal throughout the day.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>Being conscious of the amounts of different kinds of fat that you’re eating will help to ensure that you maintain a clean, consistent flow of energy to your brain. It is also important to note that saturated fat is only a danger if you consume a lot of refined carbohydrates like white flour and sugar. It is clear that refined carbohydrates are the real villain, not fat.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My main source of healthy fat currently comes from:",
+                            "course-unit-atq-two": "I am going to add _____________ for fat in my diet.",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 862,
+                                "order": 1,
+                                "question": "My main source of healthy fat currently comes from:"
+                            },
+                            {
+                                "q_id": 863,
+                                "order": 2,
+                                "question": "I am going to add _____________ for fat in my diet."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 850,
+                            "title": "Optimizing Nutrition Complete Unit 3",
+                            "description": "Optimizing Nutrition Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How much of an effort do you make to consume healthy fats?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "I avoid fat as much as I can",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "I eat a moderate amount",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "I consume large amounts of fats from several sources",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2103,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2610,
+                        "title": "7 Clean Sources of Protein",
+                        "slug": "7-clean-sources-protein",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "9rX5B4LNbOY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>7 clean sources of protein:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Beef</h5>\r\n</li>\r\n \t<li>\r\n<h5>Chicken</h5>\r\n</li>\r\n \t<li>\r\n<h5>Eggs</h5>\r\n</li>\r\n \t<li>\r\n<h5>Lentils</h5>\r\n</li>\r\n \t<li>\r\n<h5>Beans</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cottage cheese</h5>\r\n</li>\r\n \t<li>\r\n<h5>Fish</h5>\r\n</li>\r\n</ul>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will cover 7 clean protein sources that can be added to your diet for maximized productivity, brain energy and overall health. Protein is essential for tissue growth and energy. This macronutrient is therefore very important if your goal is muscle growth or proper brain function. As with every other macronutrient, having too much of it would not be optimal. It is up to you to understand where you feel your best.</h5>\r\n<h5>Here are 7 clean sources of protein:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Beef</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Beef is the most complete protein that is available to us. It is also versatile in that it is served in so many different ways.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Chicken</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Chicken is also a complete protein that is easy to digest and very versatile.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Eggs</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Eggs provide a mix of complete protein and saturated fat. This is a wonderful choice for breakfast.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Lentils</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Lentils are a wonderful alternative for vegans or vegetarians.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Beans</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Beans such as kidney beans, black beans and red beans all offer a wonderful source of clean protein while also being vegan and vegetarian friendly.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Cottage cheese</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Cottage cheese is very high in protein and can be used in many different recipes. However, cottage cheese is not the only cheese that is high in protein. Typically, any milk product is high in protein.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Fish</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fish such as sardines, salmon, tilapia and cod are great complete sources of protein which also provide a strong source of omega-3.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>With all of these protein sources, it is important to keep in mind that meats should be fed appropriately in order to deliver appropriate nutrients. If you can’t find organic, grass-fed meats, it is ok to stick with traditional meats. As for lentils and beans, it is important to make sure that they are grown organically in order to avoid any harmful pesticides and herbicides.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My favorite source of protein is currently:",
+                            "course-unit-atq-two": "A source of protein that I was unaware of is:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 864,
+                                "order": 1,
+                                "question": "My favorite source of protein is currently:"
+                            },
+                            {
+                                "q_id": 865,
+                                "order": 2,
+                                "question": "A source of protein that I was unaware of is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 851,
+                            "title": "Optimizing Nutrition Complete Unit 4",
+                            "description": "Optimizing Nutrition Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you vegetarian?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2104,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "How often do you eat meat?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Once a week",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Twice a week",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Once a day",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Multiple times a day",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2105,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2611,
+                        "title": "3 Reasons why Fasting is so Powerful",
+                        "slug": "3-reasons-fasting-powerful",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "-vSN2yG-Gnk",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 reasons why fasting is so powerful:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Immunity</h5>\r\n</li>\r\n \t<li>\r\n<h5>Brain function</h5>\r\n</li>\r\n \t<li>\r\n<h5>Energy Usage</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at the power of fasting. Fasting has been demonized over the last 50 years. Its’ therapeutic effects spill over to improved brain function, improved energy usage and longevity. Understanding the benefits may shed some light on why it might make sense for you to give it a try.</h5>\r\n<h5>Here are 3 reasons why fasting is so powerful:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Immunity</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fasting is a process in which your body is forced to remove the cells within your body that are damaged and replace them with regenerated ones. This proves essential for the strength of your immune system.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Brain Function</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fasting for longer than 2 days allows your body to tap into fat stores in the body. When fasting for more than 2 days, the stored fat in your body is converted into molecules called ketones which fuel the brain much more powerfully than sugar.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Energy Usage</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fasting allows your body to re-learn how to use fat. Re-learning how to use fat can allow your body to prefer to use fuel that you eat, rather than store it.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>Fasting is a very powerful tool but there is still a right and wrong way of doing it. An appropriate amount of research should be done before continuing with this for the first time. With the right amount of research, you may find it much easier to fast than you initially expected.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I would like to eliminate ______________ (sickness, brain fog, lack of energy) from occurring in my life.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 866,
+                                "order": 1,
+                                "question": "I would like to eliminate ______________ (sickness, brain fog, lack of energy) from occurring in my life."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 852,
+                            "title": "Optimizing Nutrition Complete Unit 5",
+                            "description": "Optimizing Nutrition Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you fasted before?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2106,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "How long is your longest fast?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Never fasted before",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "10-12 hours",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "13-18 hours",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "18+ hours",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2107,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2612,
+                        "title": "4 Foods or Chemicals that Destroy Brain Function",
+                        "slug": "4-foods-chemicals-destroy-brain-function",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "j01vqZq1CWc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 foods or chemicals that destroy brain function:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Pesticides and herbicides</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sugar</h5>\r\n</li>\r\n \t<li>\r\n<h5>Vegetable oil</h5>\r\n</li>\r\n \t<li>\r\n<h5>Additives</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at 4 foods or chemicals that destroy brain function. The connection between what people eat and how it makes them feel is often ignored. Food is the most important factor in determining your brains capability.</h5>\r\n<h5>Here are 4 foods or chemicals that destroy brain function:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Pesticides and Herbicides</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fruits and vegetables are often coated in chemicals that interfere with proper brain function. This manifests as brain fog, a lack of alertness and interruptions in short term memory.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Sugar</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Sugar is the most dangerous of common foods available today. Sugar causes inflammation which can interfere with adequate brain function and it also causes a misuse of hormones that regulate energy. This results in a feeling of grogginess.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Vegetable oils</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Vegetable oils are very heavy in omega-6 fats which are pro-inflammatory and they contain dangerous trans-fats. Vegetable oils that cause problems include: canola, soybean, corn, sunflower and safflower oils.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Additives</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Additives such as MSG are very unhealthy. MSG in particular, is a neurotransmitter that can cause damage to cells, when available in excess. It also influences blood sugar regulation which affects the utilization of fuel in your cells.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>Being aware of the potential dangers that are hiding in our foods can allow for a more energized and productive day.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I am going to start by eliminating:",
+                            "course-unit-atq-two": "The item that will take the longest to eliminate will be:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 867,
+                                "order": 1,
+                                "question": "I am going to start by eliminating:"
+                            },
+                            {
+                                "q_id": 868,
+                                "order": 2,
+                                "question": "The item that will take the longest to eliminate will be:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 853,
+                            "title": "Optimizing Nutrition Complete Unit 6",
+                            "description": "Optimizing Nutrition Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How many of the foods or chemicals listed do you suspect you currently consume?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "1",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "2",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "3",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "4",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2108,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2613,
+                        "title": "3 Ways to Implement Fasting into your Life",
+                        "slug": "3-ways-implement-fasting-life",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "2rEDnPFjlbU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 ways to implement fasting into your life:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Intermittent fasting</h5>\r\n</li>\r\n \t<li>\r\n<h5>Single day fasting</h5>\r\n</li>\r\n \t<li>\r\n<h5>Extended fasting</h5>\r\n</li>\r\n</ul>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will explore 3 different ways to implement fasting into your routine. As discussed in an earlier video, fasting can provide a tremendous number of health benefits. Another benefit of fasting is that you do not require energy to digest food. This provides you with more blood flow to the brain, which results in better focus and productivity.</h5>\r\n<h5>3 ways to implement fasting into your life:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Intermittent fasting</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Intermittent fasting is a type of fasting that is done every day. For example, eating between 1pm and 9pm and then fasting until 1pm the next day is an example of an intermittent fast with an 8 hour feeding window. Adjusting this feeding window to suit your needs is ideal.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Single day fasting</h5>\r\n<ul>\r\n \t<li>\r\n<h5>This type of fasting is when you fast for 24 hour chunks. This could be once a week or multiple times a week depending on how you choose to structure your routine. With practice, this becomes easier and your day-to-day energy will get better and better.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Extended fasting</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Fasting for more than 2 days is also a useful tool but should be done less often. This type of fasting is very therapeutic for resetting energy utilization, strengthening immunity and weight loss</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>Understanding how to properly integrate fasting into your life can allow for many improvements in energy and focus. This habit is a very useful tool and may be how we were meant to eat from an evolutionary perspective.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The fasting structure that fits best into my schedule is:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 869,
+                                "order": 1,
+                                "question": "The fasting structure that fits best into my schedule is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 854,
+                            "title": "Optimizing Nutrition Complete Unit 7",
+                            "description": "Optimizing Nutrition Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How long have you lasted without food in the past?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "6 hours",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "12 hours",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "18+ hours",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2109,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2614,
+                        "title": "2 Different Feeding Structures",
+                        "slug": "2-different-feeding-structures",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "j7jx1f0hFMg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>2 different feeding structures:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Low carb or keto</h5>\r\n</li>\r\n \t<li>\r\n<h5>Low glycemic diet</h5>\r\n</li>\r\n</ul>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at 2 different meal structures. In previous videos, we have explored the foundational concepts of proper feeding. We will now look at 2 ways to implement this information into a structured approach.</h5>\r\n<h5>Here are 2 different feeding structures:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Low carb or Keto</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Low carb diets such as the paleo diet emphasize healthy animal meats, healthy fats, plenty of green vegetables, but very low carbohydrates. In keto, the only difference is that the carbohydrates are much lower. In keto, the only source of carbs becomes green vegetables. A sample meal would include a palm sized portion of protein, about 4 tablespoons of oil or a cup of nuts and an abundance of green vegetables. Basically, in a typical day, you would just make an effort to avoid carbohydrates. These options may be more suitable for those who have type 2 diabetes or suffer from a chronic lack of energy.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Low Glycemic diet</h5>\r\n<ul>\r\n \t<li>\r\n<h5>In low glycemic diets, you look to only consume carbohydrates that are slower to digest. In order to determine the speed of digestion of carbohydrates, you can refer to a glycemic index (which is easily found through Google). The glycemic index indicates the speed of digestion of different foods on a scale of 1 to 100. The higher the number, the faster the digestion. It is best to aim to consume carbohydrates with a glycemic index below 50.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>These two approaches both work very well for ensuring the best brain function that you can achieve. However, each one suits different people, depending on the routine.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The diet approach that is better suited for me is: ",
+                            "course-unit-atq-two": "I will start changing my diet by:",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 870,
+                                "order": 1,
+                                "question": "The diet approach that is better suited for me is: "
+                            },
+                            {
+                                "q_id": 871,
+                                "order": 2,
+                                "question": "I will start changing my diet by:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 855,
+                            "title": "Optimizing Nutrition Complete Unit 8",
+                            "description": "Optimizing Nutrition Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you used the glycemic index before?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2110,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Have you attempted a low carb diet before?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2111,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2615,
+                        "title": "Optimizing Nutrition PostTest",
+                        "slug": "optimizing-nutrition-posttest",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 856,
+                            "title": "Optimizing Nutrition PostTest",
+                            "description": "Optimizing Nutrition PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "The only essential macronutrient is carbohydrate.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2075,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The slow digesting carbohydrate is called a:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Complex carbohydrate",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Simple carbohydrate",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Easy carbohydrate",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2076,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The key to choosing a healthy carbohydrate source is:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Finding a slow digesting carb",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Finding a carb that is low in toxins such as pesticides",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Finding a carb that you are not intolerant to",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2077,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What’s the difference between omega-3 and omega-6?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Omega-3 is anti-inflammatory whereas omega-6 is pro-inflammatory",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Omega-3 is pro-inflammatory whereas omega-6 is anti-inflammatory",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Omega-3 and omega-6 have similar effects",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2078,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Protein is not essential for life.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2079,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Protein is essential for tissue growth.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2080,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Fasting strengthens the immune system by:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Killing damaged cells and rebuilding",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Using energy from body fat to fight disease",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Eliminating the symptoms because of a lack of energy",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2081,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Pesticides and herbicides are a problem because they:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Cause brain fog",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Damage cells",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2082,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Additives such as MSG occur naturally in the brain.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2083,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Intermittent fasting is a type of fasting that occurs every day.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2097,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Fasting for over 24 hours can be done without preparation.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2098,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "The glycemic index is a number assigned to different foods. The higher the number, the slower that food digests.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2099,
+                                    "order": 11
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Glycemic index and low carb diets have one thing in common which is:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "They both adjust carbohydrate intake.",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "They both adjust fat intake",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "They both adjust protein intake.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2100,
+                                    "order": 12
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/03/Optimizing-Nutrition.jpg",
+                "zip_path": "wp-content/uploads/2020/03/Optimizing-Nutrition.jpg",
+                "level": "card"
+            }
+        ]
+    }
+}

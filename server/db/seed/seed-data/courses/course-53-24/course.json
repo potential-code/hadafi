@@ -1,0 +1,36 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 53,
+        "title": "برنامج 24 دقيقة لاساسيات المحاسبة",
+        "description": "برنامج 24 دقيقة لاساسيات المحاسبة",
+        "unit_count": 15,
+        "author_id": 0,
+        "course_post_id": 3695,
+        "settings": {
+            "completion_wall": "all_visible",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": null,
+        "modules": [
+            {
+                "module_id": 53,
+                "title": "برنامج 24 دقيقة لاساسيات المحاسبة",
+                "description": "برنامج 24 دقيقة لاساسيات المحاسبة - بوتنشل",
+                "order": 1,
+                "number": 1,
+                "units": []
+            }
+        ]
+    },
+    "assets": {
+        "images": []
+    }
+}

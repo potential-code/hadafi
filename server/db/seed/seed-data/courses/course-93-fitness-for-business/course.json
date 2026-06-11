@@ -1,0 +1,1088 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 93,
+        "title": "Fitness For Business",
+        "description": "Tips to stay in shape for busy professionals",
+        "unit_count": 9,
+        "author_id": 0,
+        "course_post_id": 3733,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2722,
+            "title": "Fitness For Business",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/fitness-business-prettest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Fitness-for-business-personel.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 93,
+                "title": "Fitness For Business",
+                "description": "Tips to stay in shape for busy professionals",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 2583,
+                        "title": "Fitness for Business Prettest",
+                        "slug": "fitness-business-prettest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "A3glSrkt80k",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 824,
+                            "title": "Fitness for Business Pretest",
+                            "description": "Fitness for Business Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "‘Jumping  Jack’ is considered as which of the following:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Abs and Butt workout",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Warm Up exercise ",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Thighs exercise",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 2040,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "‘Air squats’ are a good exercise because:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "It tightens the upper body",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "It makes your arms work well",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "It tightens the lower body",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2041,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "‘Pushups’ come in different forms. Which of the following is not a pushup exercise?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Warm Up",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Wide Grip",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Polymetric",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2042,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "‘Lunges’ is a leg exercise. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2043,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "‘Abdominal’ exercises come in only one form. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2044,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The ‘burpee’ exercise is very beneficial because:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "It burns the most amount of fat",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "It is an exercise loved by all",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Every single person can do it",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2045,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "&apos;Put your foot behind you and you try to lean back as much as possible&apos;. This type of stretching is called:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Quad Stretch",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Butterfly Stretch",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Basic Stretch",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2046,
+                                    "order": 6
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2584,
+                        "title": "How to do Warm Up Exercises",
+                        "slug": "how-to-do-warm-up-exercises",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Bs1FUxpiTz4",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The first warm up exercise that you should start with is the Jumping Jack. It is a basic move that you can do all the time and is a good warm up exercise.</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Stand straight</h5>\r\n</li>\r\n \t<li>\r\n<h5>Jump</h5>\r\n</li>\r\n</ol>\r\n<h5>You should do between 50 to 100 jumps before moving to the second exercise.</h5>\r\n<h5>The second warm up exercise is the shuffling legs between 1 to 2 minutes.</h5>\r\n<h5>The third warm up exercise is high knees where you alternate your knees with a jump.</h5>",
+                            "course-unit-read-more": "<h5>We are going to do a couple of warm up exercises. So, basically when you want to start training you have to warm up so you get the blood rushing through your system and your nice and warm..</h5>\r\n<h5>You can do the jumping Jack. The jumping jack you start up straight and then you just jump..straight..jump... (as shown in video)</h5>\r\n<h5>Side angle is basically you just opening and closing your arms and your feet.</h5>\r\n<h5>Now the second warm up exercise is a shuffle. You basically set a time on your phone or your stop watch and you just shuffle or you can do a quick shuffle (shown in the video)...You can hear those feet. That is a quick shuffle.</h5>\r\n<h5>The third warm up exercise is high knees. Basically, you just alternate your knees with a slight jump (shown in the video). You do those three exercises and you get warmed up and once you are warmed up, you can start going to the second exercise...</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Every morning, I start with the following warm up exercises:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 882,
+                                "order": 1,
+                                "question": "Every morning, I start with the following warm up exercises:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 825,
+                            "title": "Fitness for Business Complete Unit 1",
+                            "description": "Fitness for Business Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How often do you exercise?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Never",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Daily",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Once a week",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2026,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2585,
+                        "title": "How to do Air Squats",
+                        "slug": "how-to-do-air-squat",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "8FfnWFWLJZ8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>After you have warmed up really well, you can start with the <strong>air squat</strong>. You should stand your feet parallel to your shoulders and squat down and up. You can do 20 squats. You can do as well a jump squat.</h5>",
+                            "course-unit-read-more": "<h5>After you have warmed up really well and you got the blood pumped up in your body and your nice and warm, you can start with the <strong>air squat.</strong></h5>\r\n<h5>Air squat is you stand your feet parallel to your shoulders and then you just squat down and squat back up. So basically if you see it from a side angle,  you come down 90 degrees and then come back up. And the feet are planted on the ground ..Don't drop down on your toes or lift your feet. You have to be flat..and down.. and back up..So, you can do 20 squats..</h5>\r\n<h5>For the more advanced people, you can do jump squat. So basically, you squat down.. you jump.. you squat down and jump and squat down (shown in the video) ..Seeing it from a side angle: squat jump jump jump ..that's it!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I prefer doing  ______________ air squats a day.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 883,
+                                "order": 1,
+                                "question": "I prefer doing  ______________ air squats a day."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 826,
+                            "title": "Fitness for Business Complete Unit 2",
+                            "description": "Fitness for Business Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are ‘Air Squats’ considered part of your daily exercise?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2027,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2586,
+                        "title": "How to do Pushups",
+                        "slug": "how-to-do-pushups",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "pbvS8SleY_0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Another basic exercise is pushups. Drop down on the floor and then come down and push back up. You can do between 15 to 20 pushups. There are many types of pushups that you can do, for example:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Diamond Pushups</h5>\r\n</li>\r\n \t<li>\r\n<h5>Wide Grip Pushups</h5>\r\n</li>\r\n \t<li>\r\n<h5>Plyometric Pushups</h5>\r\n</li>\r\n</ul>\r\n<h5>You can do these types of pushups at home or anywhere.</h5>",
+                            "course-unit-read-more": "<h5>Another basic exercise is the pushup. You can do it anywhere. Just drop down on the floor (as shown in video).. your back straight, you come down touch your chest and then you push back up. You come down, touch and back up...touch, back up. 3..4..5..and you can keep going to 10, 15, 20 ..25.</h5>\r\n<h5>There is a couple of variety of pushups. You can do:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Standard Pushup</h5>\r\n</li>\r\n \t<li>\r\n<h5>Wide Pushup</h5>\r\n</li>\r\n \t<li>\r\n<h5>Diamond Pushup</h5>\r\n</li>\r\n</ol>\r\n<h5>The diamond pushup concentrates on the triceps. You got to put your hands like a diamond shape, you come down.. back up..down..back up..</h5>\r\n<h5>Or you can do a wide pushup. You put your hands wide apart..come down touch your chest..back up.. touch your chest..back up</h5>\r\n<h5>And for someone who wants to do a more advanced pushup, apply polymetric pushup or you can jump a bit.you can do those. 10,15,20 of those is very good.</h5>\r\n<h5>You do the pushup..you jump and clap..you jump and clap (as shown in the video)..</h5>\r\n<h5>Those are some of the pushups you can do at home or anywhere...</h5>\r\n<h5></h5>\r\n<h5></h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "When I want to advance in my pushup exercise, I try to: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 884,
+                                "order": 1,
+                                "question": "When I want to advance in my pushup exercise, I try to: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 827,
+                            "title": "Fitness for Business Complete Unit 3",
+                            "description": "Fitness for Business Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What type of pushup do you exercise?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Wide Grip Pushup",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Diamond Pushup",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Standard Pushup",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2028,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2587,
+                        "title": "How to do Lunges",
+                        "slug": "how-to-do-lunges",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "3jW3juxU7Cw",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Another exercise that can burn a lot of fat is the lunges. You stand straight up and you lunge forward. If you want a more advanced exercise you can do the jump lunge.  It gets the heart rate pumping and as the heart rate is pumping, it means you are burning fat.</h5>",
+                            "course-unit-read-more": "<h5>Another leg exercise you can do and also burns a lot of fat is the 'Lunges'. Basically, you stand straight up and you lunge forward (as video) and then you go back..second leg..it's an alternating lunge. So you see as a side view, when you lunge the knee has to be in front of the shin at all times. Lunge..back up..lunge..back up..</h5>\r\n<h5>If you are more advanced, you can do the jump lunge. The jump lunge is basically, you have to alternate lunges with a slight jump. It gets the heart rate pumping. When the heart rate is pumping, you are burning fat.. So, it is a very good exercise to do!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "'Lunges' exercise is useful for me because:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 885,
+                                "order": 1,
+                                "question": "'Lunges' exercise is useful for me because:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 828,
+                            "title": "Fitness for Business Complete Unit 4",
+                            "description": "Fitness for Business Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you tried the ‘jump lunge’ exercise?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2029,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2588,
+                        "title": "How to do Abdominal Exercises",
+                        "slug": "how-to-do-abdominal-exercises",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "-yqlfam9OYI",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Here are a few abdominal exercises:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Standard Crunch</h5>\r\n</li>\r\n \t<li>\r\n<h5>Leg Raise</h5>\r\n</li>\r\n \t<li>\r\n<h5>Reverse Crunch</h5>\r\n</li>\r\n \t<li>\r\n<h5>Standard Bicycles Exercise</h5>\r\n</li>\r\n</ul>\r\n<h5>After you finish working on your abs you can end it up with the Plank position for one to two minutes.</h5>",
+                            "course-unit-read-more": "<h5>We are going to be doing a couple of abdominal exercises, which are Abs exercises that everyone is always asking about them. So, we will do a few.</h5>\r\n<h5>We will start with a standard crunch.</h5>\r\n<h5>Starting position.. come up...squeeze..come up..squeeze..back down. So, you can do 10 to 20. If you are feeling good, you can start with 30 then, the following Abs exercise will be 10-15. Basically, you can do 30 crunches..rest for 30 seconds, exactly 30 seconds.. and then you can go on to the second exercise and do a leg raise..</h5>\r\n<h5>You raise your legs up..back down..up..back down..(as shown in the video) ..Or you can do a reverse crunch.. basically from starting position, bring your knees in..touch your elbows back down..bring your knees in..touch your elbows back down..</h5>\r\n<h5>Or you can do the standard bicycle leg exercise which you do extended leg bicycle..you can do that for a minute..or you count up to 50..</h5>\r\n<h5>Once you have finished those exercise, you can do the Plank..simple..</h5>\r\n<h5>You basically do the pushup position but on your elbows...your head is up..you stay in this position for a minute to a minute and a half. At that time, your stomach will be squeezing and your burning a lot of fat.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "After finishing my standard crunch exercise, I can end it with:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 886,
+                                "order": 1,
+                                "question": "After finishing my standard crunch exercise, I can end it with:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 829,
+                            "title": "Fitness for Business Complete Unit 5",
+                            "description": "Fitness for Business Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How many standard bicycle leg exercises do you do on a regular basis? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "10",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "20",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "30",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "none",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2030,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2589,
+                        "title": "How to do Burpees",
+                        "slug": "how-to-do-burpee",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "C4oL4GL3m8w",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The burpee exercise is one of the most hated exercises but it is the exercise that burns the most fats possible. In order to increase your blood rate you need to at least 5 or 10.</h5>",
+                            "course-unit-read-more": "<h5>Now we are going to be doing the burpee exercise. The burpee exercise is one of the most hated exercises but it is the exercise that burns the most fats possible.</h5>\r\n<h5>I am going to do for beginners and for advanced. Basically, all you have to do is you drop down..you kick your feet back..you kick them back straight and you stand up.</h5>\r\n<h5>It's very basic so you are down..straight..down..straight..so basically, you are coming down to the floor and your standing back up. If you do just 10 repetitions between 5 - 10, you'll burn a whole lot of fat. So basically if you do it.. you drop down, you jump one..you jump two.. three...four..five.. So, as you can see (in the video) I just did five, my blood rate is high, I'm pumped and burning fat..I'm burning all the visceral fat in that surrounding area in my stomach. So, this is what you have to do to burn fat.</h5>\r\n<h5>You do 5-10 and look I am tired!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "It is important to include the burpee exercise in my daily routine because:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 887,
+                                "order": 1,
+                                "question": "It is important to include the burpee exercise in my daily routine because:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 830,
+                            "title": "Fitness for Business Complete Unit 6",
+                            "description": "Fitness for Business Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Is the burpee exercise part of your daily routine?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2031,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2590,
+                        "title": "How to do Stretching Exercises",
+                        "slug": "how-to-do-stretching-exercises",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "H02S1fxIRf8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Here are some stretching exercises that must be done after the training:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Lay down on the floor and try to reach your toes</h5>\r\n</li>\r\n \t<li>\r\n<h5>The quad stretch</h5>\r\n</li>\r\n \t<li>\r\n<h5>Lay down to the floor and squeeze your knee towards you and then twist</h5>\r\n</li>\r\n \t<li>\r\n<h5>Butterfly stretch</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>We are going to do a couple of stretching exercises. So basically, once you are done training and it shouldn't take like more than 2o minutes to do the exercises that we just did. You lay down on the floor and you reach 10 times to the tip of your toes. So 1,2,3 until you reach 10. Then, you do the second leg..1..2..3..same thing and then you can open your legs as wide as possible and you can alternate 1..2..3..until you reach 10 (as video).</h5>\r\n<h5>Another thing you can do is the quad stretch. So basically, you put your foot behind you and you try to lean back as much as possible. If you can do that for 30 seconds, that would be good. Then you do the second leg, same thing. You do it for 30 seconds and then that's it.</h5>\r\n<h5>Once you have done that, you can lay flat on the floor..squeeze your leg/knee towards you and then put your hand there and twist..ok..This is very good for your lower back and your entire body.</h5>\r\n<h5>And then, you do the butterfly stretch. Basically, you bring your feet towards you and you try to squeeze your knees down to the floor..back straight..that’s it!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "After my exercise, I spend _____ minutes stretching my muscles.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 888,
+                                "order": 1,
+                                "question": "After my exercise, I spend _____ minutes stretching my muscles."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 831,
+                            "title": "Fitness for Business Complete Unit 7",
+                            "description": "Fitness for Business Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you think stretching your muscles is important after every exercise?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2032,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2591,
+                        "title": "Fitness for Business Posttest",
+                        "slug": "fitness-business-posttest",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 832,
+                            "title": "Fitness for Business Posttest",
+                            "description": "Fitness for Business Posttest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "‘Jumping  Jack’ is considered as which of the following:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Abs and Butt workout",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Warm Up exercise",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Thighs exercise",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 2033,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "‘Air squats’ are a good exercise because:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "It tightens the upper body",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "It makes your arms work well",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "It tightens the lower body",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2034,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "‘Pushups’ come in different forms. Which of the following is not a pushup exercise?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Warm Up",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Wide Grip",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Polymetric",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2035,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "‘Lunges’ is a leg exercise. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2036,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "‘Abdominal’ exercises come in only one form. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2037,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The ‘burpee’ exercise is very beneficial because:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "It burns the most amount of fat",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "It is an exercise loved by all",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Every single person can do it",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2038,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "&apos;Put your foot behind you and you try to lean back as much as possible&apos;. This type of stretching is called:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Quad Stretch",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Butterfly Stretch",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Basic Stretch",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 2039,
+                                    "order": 6
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/03/Fitness-for-business-personel.png",
+                "zip_path": "wp-content/uploads/2020/03/Fitness-for-business-personel.png",
+                "level": "card"
+            }
+        ]
+    }
+}

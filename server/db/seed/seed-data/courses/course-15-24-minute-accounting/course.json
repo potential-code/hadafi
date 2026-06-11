@@ -1,0 +1,1832 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:22+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 15,
+        "title": "24 Minute Accounting",
+        "description": "Develop your understanding of Accounting Principles",
+        "unit_count": 15,
+        "author_id": 0,
+        "course_post_id": 3659,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2364,
+            "title": "24 Minute Accounting",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/24-minute-accounting-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/accounting.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 15,
+                "title": "24 minute Accounting",
+                "description": "Develop your understanding of Accounting Principles",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 782,
+                        "title": "24 Minute Accounting Pretest",
+                        "slug": "24-minute-accounting-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 81,
+                            "title": "24 minute Accounting Pretest",
+                            "description": "24 minute Accounting Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Management Accountants are responsible for? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Budgeting, Strategic Planning, Risk Analysis",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Verify Purchase Orders against supplier’s invoices, Paying according to a budget",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Following accounting policies & procedures",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Looking after petty cash, Deposits daily cash, Cheque collections",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 183,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The ____________ provides that we should always separately record the transactions of a business and its owners.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Separate Entity Principle",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Accounting Equation Concept",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Going Concern Concept",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Duel Effect Principle",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 184,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which two accounting reports are generated at the end of the Accounting Cycle?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Changes in Owners’ Equity, Profit & Loss Statement",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Income Statement, Profit & Loss Statement",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Profit & Loss Statement, Balance Sheet",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Balance Sheet, Budget Variance Report",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 185,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Fixed Assets are fixed because they? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Cannot be moved from one place to another",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Will be converted into cash within 12 months",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "May have been purchased half way through an Accounting Period",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Help to generate revenue and are not intended to be converted into cash within 12 months",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 186,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 783,
+                        "title": "24 minute Accounting Course Overview",
+                        "slug": "24-minute-accounting-course-overview",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "or6o4PxsNr8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The three types of financial reports used in making better informed business decisions are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Profit & Loss / Income Statement</h5>\r\n</li>\r\n \t<li>\r\n<h5>Balance Sheet</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cash Flow Statement</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Welcome to the 24 minute Accounting course. In this video, you will learn what is accounting and why it is important in business. They say that Accounting is the “language of Business”. It is the process of analysing, recording and processing financial data related to a certain organization by using a specific accounting program or system. Accounting is performed to provide financial information about an organization. You should be focusing to see how financially healthy your organization is now, and whether it can survive in the future. Once all transactions have been processed within an Accounting period, <strong>three (3) types of financial reports </strong>are generated to be used in making better informed business decisions. These financial reports are as follows:</h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Profit & Loss / Income Statement</strong> –This report highlights to the management whether the business is making or losing money, as well as where the business is incurring a lot of expenses.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5><strong>Balance Sheet</strong> – This report gives a snapshot of the business as a whole. What assets owned by the business are shown how they are financed, either via debts capital invested.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5><strong>Cash Flow Statement</strong> – This report informs the owners and managers how cash is \"flowing\" through the business for a period of time. A business needs a healthy cash flow to survive.</h5>\r\n</li>\r\n</ol>\r\n<h5>As owners and managers of the business, understanding Accounting will either help your business survive or make it sink, depending on the decisions you make…..of course. It is important to be able to count how many apples, oranges & bananas you have (if you are in the fruit business) instead of saying I have a ‘Fruit Salad’. Accounting provides clarity for better decision making. So understand your figures and back your results for the future.</h5>",
+                            "course-unit-quotes": "<h5>Behind every good business is a great Accountant - Henry Ejdelbaum</h5>",
+                            "course-unit-case-study": "<h5>Jennifer just graduated from university and decided to use her father’s help to open up her own Graphic Design business – The Right Angle. As a new entrepreneur, she will need to use the Profit & Loss, Balance Sheet and the cash flow statements to fully understand the direction that her business is taking. As 90% of all start-ups fail, she wants to be in the top 10 percentile that do succeed. With proper management of the company’s finances, her business could grow.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The types of financial reports that should be prepared to help me make better business decisions are:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 654,
+                                "order": 1,
+                                "question": "The types of financial reports that should be prepared to help me make better business decisions are:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 82,
+                            "title": "Accounting English Complete Unit 1",
+                            "description": "Accounting English Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "To customize your go to market sheet, fill in below your full name, job title and company name.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "single_line",
+                                    "question_id": 152,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 784,
+                        "title": "Accounting Department Structure",
+                        "slug": "accounting-department-structure",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "G0wC5i-G5wQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>A typical Accounting Department can be structured as:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>CFO or Chief Financial Officer</h5>\r\n</li>\r\n \t<li>\r\n<h5>Chief Accountant</h5>\r\n</li>\r\n \t<li>\r\n<h5>Management Accountant</h5>\r\n</li>\r\n \t<li>\r\n<h5>Payroll &amp; Fixed Assets Accountant</h5>\r\n</li>\r\n \t<li>\r\n<h5>Accounts Payable (AP) Officer</h5>\r\n</li>\r\n \t<li>\r\n<h5>Accounts Receivable (AR) Officer</h5>\r\n</li>\r\n \t<li>\r\n<h5>Assistant Accountants</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn about the organisational structure of a typical Accounting Department.</h5>\r\n<h5>The Accounting Department is an integral department of any business or organization.</h5>\r\n<h5>With a proper structure in place, everyone within the department would have a set of roles &amp; duties that are under their responsibility. In smaller companies all the below functions could be handled by one person</h5>\r\n<h5>A typical Accounting Department can be structured around the following functions:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>CFO or Chief Financial Officer –is responsible for the financial planning, record-keeping, as well as financial reporting to higher management. The CFO is also referred to as “the right hand of the CEO”.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Chief Accountant – The Chief Accountant has many duties &amp; responsibilities, namely managing his accounting team, and generating financial statements.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Management accountants are risk managers, budgeters, planners, strategists and decision makers. They do the work that helps the company's owner, manager or board of directors make better decisions. They are also responsible for cost accounting functions in organizations that manufacture products.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Payroll &amp; Fixed Assets Accountants looks after the processing of all the organization’s payroll, paying taxes on salaries, deductions for pensions, social security subscriptions etc. Depending on the size of the department, they could also be responsible for managing &amp; registering the organization’s fixed assets.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Accounts Payable (AP) Officer responsible for managing the accounts payable for the company. They reconcile suppliers’ statements, verify that Purchase Orders are available, and prepare the payments for the suppliers.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Accounts Receivable (AR) Officer responsible for managing the debtors (or accounts receivables) of the organization. They invoice their customers and follow up for payment. Their role is very important, as the quicker invoices are settled, the healthier the company will be, as there would be more funds to use in the operations.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Assistant Accountants –generally looks after petty cash, deposits daily cash and cheque collections, as well as processing other journal entries.</h5>\r\n</li>\r\n</ul>\r\n<h5>When the structure is clear, duties are well known and you have the right people with the right qualifications &amp; experiences, then you will be able to “Count” on your department to manage your organization’s funds.</h5>",
+                            "course-unit-quotes": "<h5>Welcome to the Accounting Department, where everyone Counts. Anonymous</h5>",
+                            "course-unit-case-study": "<h5>The management of Rose Soaps is having trouble fully understanding the profitability of a specific product line. The Chief Accountant does not have the time, nor do the other members of the accounting team have the skill to understand all costs of the manufacturing process. As a result, the management decide to hire a Management Accountant to be able to monitor, control as well as report on cost accounting issues which will allow for better decision making<strong>.  </strong></h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My accounting department ensures that:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 655,
+                                "order": 1,
+                                "question": "My accounting department ensures that:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 83,
+                            "title": "Accounting English Complete Unit 2",
+                            "description": "Accounting English Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How is your Accounting department structured? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "A one man show ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A fully developed department ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "All accounting work is outsourced",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 156,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 785,
+                        "title": "Which Accounting System to Use?",
+                        "slug": "which-accounting-system-to-use",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "iINwlLcDYWA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The three types of accounting systems that are available to be utilized by an organization are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Off the Shelf</h5>\r\n</li>\r\n \t<li>\r\n<h5>Customized</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cloud Accounting</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn what Accounting systems are available and what are the benefits and downfalls of each.</h5>\r\n<h5>A system or accounting package is required to be able to collect, store and process financial and accounting data that will be used by decision makers.</h5>\r\n<h5>Accounting packages or systems will allow for generating accurate reports that would provide managers and other users to base their decisions on. Without a proper system, all you will have is non-informative data.</h5>\r\n<h5>There are three (3) types of accounting systems that are available to be utilized by an organization:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Off the Shelf – Off-the-shelf packages are ready made accounting systems that are ready for use, and generally provide the basics of an accounting system. The benefits are that the system would be relatively cheaper than other systems. The disadvantages of this type of system, is that if you require add-ons because your business changes, then they will probably charge you extra. Also, the “Off-the-Shelf software may require you to change your process’ to fit the software.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Customized – Depending on the complexity of your organization, a customized system may be the best fit for you. The benefits are that the system would “fit your organization like a glove”. The drawback of this system can be that it can be pricey, as you would be employing the expertise of IT professionals to develop the system only for you.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Cloud Accounting – This system involves using an accounting system that is based on the cloud or a pay-as-you-go model. The benefits of using this system is that you only pay small monthly subscription fees, have access to your data wherever you go, and you can save on capital expenditure (for the cost of the hardware for the software). The drawbacks of this system are that you will require a good internet connection. Also, there is a big risk that the Cloud Accounting System that you choose will not allow you to back up your data.</h5>\r\n</li>\r\n</ol>\r\n<h5>Making the “Good Decision” on which accounting system to use will be based on the size and complexity of the organization. Once the decision is made, then the whole department will need to be on board, in view of making the use of the system a success.</h5>",
+                            "course-unit-quotes": "<h5>You are only as good as the system that you use. Sami Charafeddine</h5>",
+                            "course-unit-case-study": "<h5>Western Retailers had been using an old outdated accounting system. Simon was complaining to the other part owners (Jessica &amp; John) as to why accounting reports were taking so long to be prepared. When the Chief Accountant was questioned this, he explained that verifying the results was a lengthy process, as a lot of manual entries had to be conducted to reach a correct picture of the business’ financial performance. The three partners decide to change the accounting system that they are currently using to a more up-to-date off the shelve accounting system. As Western Retailers is just a retail business, the accounting system does not need to be as complex as for other businesses; just a system that is able manage the general accounting operations, and provide accurate accounting information.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The accounting system that I use in my business involves:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 656,
+                                "order": 1,
+                                "question": "The accounting system that I use in my business involves:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 84,
+                            "title": "Accounting English Complete Unit 3",
+                            "description": "Accounting English Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What type of Accounting system does your organization use ? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Off-the-Shelf ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Cloud Accounting  ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Customized Accounting System ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 157,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 786,
+                        "title": "Accounting Concepts",
+                        "slug": "accounting-concepts",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "-GPrz7rfZ9c",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The seven major Accounting Concepts are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Going Concern</h5>\r\n</li>\r\n \t<li>\r\n<h5>Accounting Equation</h5>\r\n</li>\r\n \t<li>\r\n<h5>Accounting Period</h5>\r\n</li>\r\n \t<li>\r\n<h5>Consistency</h5>\r\n</li>\r\n \t<li>\r\n<h5>Unit of Measure</h5>\r\n</li>\r\n \t<li>\r\n<h5>Accrual</h5>\r\n</li>\r\n \t<li>\r\n<h5>Matching</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn what Accounting Concepts are and why they are Integral to Accounting.</h5>\r\n<h5>Accounting Concepts are the basis or underlining rules (fundamentals) that guide the process of accounting.</h5>\r\n<h5>By developing these concepts, the structure is set for all Accounting Professionals to follow, thus standardizing the Accounting system.</h5>\r\n<h5>There are many Accounting Concepts that form the basis of Accounting, however due to time constraints; we will look at the seven major ones now.</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Going Concern – The assumption is that a company or entity will be able to continue operating for a period of time that is sufficient to carry out its commitments, obligations, objectives, and so on.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Accounting Equation – The accounting equation is: Assets = Liabilities + Proprietorship (or Shareholder Equity). This equation is the foundation of double entry accounting</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Accounting Period – This is the period in which an entity’s financial reports are prepared for. Many entities close their books yearly on the 31st of December, whilst others close their books (yearly) on the 30th of June every year in following their country’s ‘Tax Year Calendar’.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Consistency – The consistency principle states that, once you adopt an accounting principle or method, continue to follow it consistently in future accounting periods. You are only allowed to change an accounting principle or method if the new version in some way improves reported financial results; i.e. depicts a much accurate picture – Accounting wise.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Unit of Measure – The unit of measure concept is a standard convention used in accounting, under which all transactions must be consistently recorded using the same currency. If a transaction involves receipts or payments in a different currency, then the amount(s) should be converted to the home (base).Without a common unit of measure, it would be impossible to produce financial statements. You can’t add five (5) oranges to two (2) apples.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Accrual – The accrual concept in accounting means that all expenses and revenues are recorded in the period that they occur in, whether or not cash is involved. The benefit of the accrual approach is that financial statements reflect all the expenses associated with the reported revenues for an accounting period.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Matching - The matching concept exists only in accrual accounting (Cash Accounting will be discussed later on). This principle requires that you match revenues with the expenses incurred to earn those revenues, and that you report them both at the same time.</h5>\r\n</li>\r\n</ul>\r\n<h5>All accounting personnel, whether it is from the CFO to the accounts assistant, are required to follow the Accounting concepts whilst performing their accounting duties, especially during the Accounting Cycle. Accounting standards are based on these concepts.</h5>\r\n<h5>Accounting Concepts are set up for a reason and that reason is to provide a structure for the accounting profession. If everyone followed their own rules, then there would be havoc, and unreliable financial reports and information going around, driving bad decision making to take place.</h5>",
+                            "course-unit-quotes": "<h5>Life is like accounting, everything must be in balance. Unknown</h5>",
+                            "course-unit-case-study": "<h5>Jennifer just completed two major projects; one for a client in the UK and another in America. The UK project was for £4,000 and the project in America was invoiced for $8,000. Due to an oversight by the accountant, he recorded the UK invoice in the accounting system as 4,000 pounds sterling, Unaware of the “Unit of Measure” concept, the accountant generates a Profit & Loss report for the month showing that The Right Angle had generated $12,000 worth of service income. Due to the reasonable margins placed on the projects, Jennifer did not expect to make a loss in that month. She was unaware of the invoicing mistake until she questioned the accountant to check why a loss was made, which turned out that almost $1,700 worth of income was not recorded in the system.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "It is important to make sure that my accounting team is fully aware of the following concepts:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 657,
+                                "order": 1,
+                                "question": "It is important to make sure that my accounting team is fully aware of the following concepts:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 85,
+                            "title": "Accounting English Complete Unit 4",
+                            "description": "Accounting English Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you think your organization follows all of these accounting concepts?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "I am not aware",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 158,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 787,
+                        "title": "Double Entry Principle",
+                        "slug": "double-entry-principle",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "jpK7yNOGYZY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The three rules to the Double Entry principle are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The Dual effect principle</h5>\r\n</li>\r\n \t<li>\r\n<h5>The Separate Entity principle</h5>\r\n</li>\r\n \t<li>\r\n<h5>The Accounting Equation</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn about the basics of accounting; why you need to Debit and Credit accounts.</h5>\r\n<h5>In order to record financial transactions related to an organization, you need to understand which accounts are affected. There will be a Debit and a Credit for each transaction; the Double Entry principle.</h5>\r\n<h5>Each transaction will impact at least one type of balance sheet account; an asset, a liability, an equity, or one type of an expense, or a revenue account, or even a combination of both. The total debits can be one or more class of accounts, or both debits &amp; credits can be passed in the same class of accounts. The net result is that all debits should equal all credits for each transaction.</h5>\r\n<h5>The Rules to the Double Entry principle are as follows:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The Dual effect principle – The phrase ‘balancing the books’ comes from this principle.  This principle is the foundation of accounting. This concept states that every transaction has a dual or double effect and should therefore be recorded in two places.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>The Separate Entity principle – This is the basic accounting concept that we should always separately record the transactions of a business and its owners. The owners’ personal transactions are not included in the books of the business, unless it affects the business</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>The Accounting Equation – The accounting equation is: Assets = Liabilities + Shareholder Equity. Actually, the accounting equation displays that all assets are either financed by borrowing money or paying with the money of the company's shareholders. In balancing the books, the balance sheet will always reflect this equation.</h5>\r\n</li>\r\n</ul>\r\n<h5>Each account, be it an asset, expense or even a shareholder’s equity account, can be viewed as a ledger, with the left side representing the Debit or Dr (for short) or a Credit side (Cr. for short) on the right hand side. Prior to computerized accounting systems, physical T – Ledger systems were used, which are still taught today.</h5>\r\n<h5>Two rules that need to be remembered and followed in processing transactions, are as follows:</h5>\r\n<h5>↑ in an Asset or an Expense is recorded as a Debit</h5>\r\n<h5>↑ in a Liability, an Equity account or Revenue is recorded as a Credit</h5>\r\n<h5>By making sure that every transaction that is processed Debit &amp; Credit in two accounts with the same net value, then you are half way there to making sure that your financials are reflected correctly.</h5>",
+                            "course-unit-quotes": "<h5>I invented the double-entry accounting system during the Italian Renaissance era. Luca Pacioli</h5>",
+                            "course-unit-case-study": "<h5>At the end of the accounting period, Simon requested to see a detailed Profit &amp; Loss statement for Western Retailers, as something did not add up. The total telephone bill for the year only showed to be $250, even though he knows that every month’s telephone bill is within the range of $150 - $230 per month. Once the accountant provided Simon with a detailed ledger report for the telephone account, it was clear that in some months, the accountant had processed the telephone bills by crediting the account, instead of debiting the account. Not only was the telephone account incorrect, but also the cash account, as he had followed the Duel effect principle, but not the rule of processing a increase in an asset.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "As a net result, I should ensure that all my debits should __________ all my credits. ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 658,
+                                "order": 1,
+                                "question": "As a net result, I should ensure that all my debits should __________ all my credits. "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 86,
+                            "title": "Accounting English Complete Unit 5",
+                            "description": "Accounting English Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you aware of the Double Entry principle? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 159,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 788,
+                        "title": "Accounting Cycle",
+                        "slug": "accounting-cycle",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "z5LzUPIP-JA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The 7 steps in completing the Accounting Cycle are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Source Documents / Transactions</h5>\r\n</li>\r\n \t<li>\r\n<h5>Journal Entries</h5>\r\n</li>\r\n \t<li>\r\n<h5>Posting / Ledger</h5>\r\n</li>\r\n \t<li>\r\n<h5>Trial Balance</h5>\r\n</li>\r\n \t<li>\r\n<h5>Adjustments</h5>\r\n</li>\r\n \t<li>\r\n<h5>Closing Accounts &amp; Stock Valuation</h5>\r\n</li>\r\n \t<li>\r\n<h5>Financial Statements</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn what the 7 steps in completing the Accounting Cycle are.</h5>\r\n<h5>The Accounting Cycle is the term used to depict the collective process of recording transactions and processing them through the accounting system.</h5>\r\n<h5>The purpose of the Accounting cycle is to reach the final stages of closing the books &amp; releasing the entity’s financial statements. This process is perpetual, whereby it is completed at the end of the Accounting period and restarts at the beginning of the new period.</h5>\r\n<h5>The seven stages of the Accounting Cycle are as follows:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Source Documents / Transactions – Financial Transactions start the process, whereby data is collected and analysed from source documents. These documents include such things as invoices, receipts, bank account documents (i.e. statements &amp; bank advices), etc that reflect transactions &amp; events that have taken place related to an entity. These transactions can be for the sale of goods or services, payments to suppliers, employees, loans, the purchase or sale of assets, or even capital that is injected or taken out of the entity.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Journal Entries – Transactions are recorded in the appropriate journals related to the transactions in a chronological order. Sales transactions are reordered in the Sales Journal, Stock purchases transactions are recorded in the Purchases Journal, all Cash transactions are either recorded in the Cash Payments or Cash Receipts Journal, whilst the General journal is used for all other transactions that are not recorded in any of the journals above, such as adjustments of accounts.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Posting / Ledger – The transactions are posted to the accounting Ledgers that they impact, whereby these accounts form part of the General Ledger. Each transaction will impact two accounts; one as a Debit &amp; one as a Credit, depending on the actual transaction.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Trial Balance – Depending when you close your Accounting Period, you will need to run a Trial Balance report, making sure that all your Debit accounts equal all your Credit accounts. From the Trial Balance, you will be able to see the current balances of all your accounts.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Adjustments – Adjusting entries are accounting journal entries that reflect an entity's accounting records to the accrual basis of accounting. Prepayment &amp; Accrual entries are processed for the related Revenues and Expenses that follow the Accrual Accounting Concept.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Closing Accounts &amp; Stock Valuation – Trading entities will need to perform physical stock checks to make sure that their books reflect the correct actual stock position. Any discrepancies will need to be adjusted in the books before closure. All Revenue &amp; Expense accounts are closed off to the Profit &amp; Loss Summary account once all the accounts have been seen as being accurate. The net result of the P&amp;L summary will equal the net profit or loss that the business incurred during the period, whereby it is transferred over to the Retained Earnings account.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Financial Statements – once the books have been closed, the Financial Statements are generated and released to internal managers. These include the Profit &amp; Loss (or Income Statement) and Balance Sheet.</h5>\r\n</li>\r\n</ul>\r\n<h5>Depending on the size and structure of the Accounts department, you may have only one or many more people involved in the Accounting Cycle.</h5>\r\n<h5>As they say – “Garbage in Garbage Out”, so make sure your accounting professionals complete the Accounting Cycle with care so that the end result (Financial Statements) is a true reflection of the financial performance of your entity.</h5>",
+                            "course-unit-quotes": "<h5>A Doctor’s mistake is buried, a Lawyer’s mistake is imprisoned, a Pharmacist’s mistake is poisoned and an Accountant’s mistake is Adjusted, Corrected &amp; Reconciled!  Fieryruby</h5>",
+                            "course-unit-case-study": "<h5>On 31<sup>st</sup> of December, the Chief Accountant at Western Retailers tasked his accounting team to help him in conducting a physical stock check of all inventories in their warehouse. After completing the stock check, there was a lot of discrepancies found for Products X, Y and Z. As these three products were all supplied from the same manufacture – Rose Soaps, it was easy to track via the use of the Statement of Account that the last shipment documents/invoice were not sent to the accounts department to record the stock purchase in the accounting records of Western Retailers.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I have to ensure that my accounting professionals are carefully undergoing the following stages of the accounting cycle:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 659,
+                                "order": 1,
+                                "question": "I have to ensure that my accounting professionals are carefully undergoing the following stages of the accounting cycle:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 87,
+                            "title": "Accounting English Complete Unit 6",
+                            "description": "Accounting English Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you aware of the 7 step accounting cycle? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 160,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 789,
+                        "title": "Chart of Accounts",
+                        "slug": "chart-of-accounts",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "AkUeLUvhCPU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The Chart of Accounts is segregated into the following account groupings:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Current Assets (CA)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Non-current Assets (NCA)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Current Liabilities (CL)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Non-current Liabilities (NCL)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Equity</h5>\r\n</li>\r\n \t<li>\r\n<h5>Revenue</h5>\r\n</li>\r\n \t<li>\r\n<h5>Cost of Sales (Goods Sold)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Expenses</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn what a Chart of Accounts is and why it is important in setting up the chart correctly from day 1.</h5>\r\n<h5>The chart of accounts is a listing of all account ledgers used in the general ledger of an organization. These accounts come from two places; the Balance Sheet and from the Profit and Loss Statement.</h5>\r\n<h5>The chart is used by the accounting software to aggregate information into an entity's financial statements. The chart is sorted in order by account number, whereby certain accounts are grouped under a specific heading, thus easing the task of locating specific accounts.</h5>\r\n<h5>The Chart of Accounts is segregated into the following account groupings:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Current Assets (CA) – Includes all accounts that account for what the company owns and are expected to be converted into cash within in the next 12 months. Such accounts like cash in banks, petty cash, accounts receivable (money collected from customers), and inventory are included under CA’s.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Non-current Assets (NCA) – all assets that are owned by the organization that help to generate revenue and have a lifespan of more than 12 months, such as buildings, furniture, and equipment are included under NCA’s.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Current Liabilities (CL) – All accounts that represent debts (or obligations) that the organization must pay over the next 12 months, such as accounts payable (bills from suppliers, contractors, and consultants, etc), interest on loans payable, etc are included under CL’s</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"4\">\r\n \t<li>\r\n<h5>Non-current Liabilities (NCL) – all liabilities that need to be paid by the organization in more than 12 months, such as bank loans, bonds payable etc included under NCL’s.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"5\">\r\n \t<li>\r\n<h5>Equity – Includes all accounts that track the owners of the company and their claims against the company’s assets. These include any capital (cash or other assets) invested in the company, any money withdrawn out of the company, as well as any profits that have been reinvested in the company.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"6\">\r\n \t<li>\r\n<h5>Revenue – Includes all accounts that record the sales of goods and services of the organization, as well as any other revenue that is generated by the company by other means, like the sale of fixed assets.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"7\">\r\n \t<li>\r\n<h5>Cost of Sales (Goods Sold) – trading companies will use a Cost of Goods Sold heading (and account). All accounts that track the direct costs involved in selling the company’s goods or services are included under this heading.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"8\">\r\n \t<li>\r\n<h5>Expenses – This group includes all accounts that track expenses that relate to running the business which aren’t directly tied to the sale of individual products or services. These accounts are also referred to as Overhead Accounts.</h5>\r\n</li>\r\n</ol>\r\n<h5>It is the responsibility of the Chief Accountant to draw up the Chart of accounts that his organization will follow.</h5>\r\n<h5>With proper segregation of the accounts, members of the accounting department will be able to easily account for transactions in a logical manner that will help generate proper and clearer accounting reports.</h5>",
+                            "course-unit-quotes": "<h5>Accounting is like a puzzle: Putting together all the pieces to form the whole picture of where you have been and where you can go. Mary B. Riley</h5>",
+                            "course-unit-case-study": "<h5>Rose soaps purchased many assets over the course of the year. As they had been following an organized Chart of Accounts, it was easy for the Fixed Asset Accountant to allocate the next account number for that specific asset class. The systematic numbering of all accounts also helps in grouping similar accounts together, like expenses in the Profit &amp; Loss Statement to show only subtotals for specific account headings. It is inappropriate to have an expanded list of hundreds of accounts in a P&amp;L or Balance Sheet. If a specific expense heading seems to be incorrect, then a detailed report of that sub class can be requested.</h5>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "All the accounts in my business should be properly segregated according to the following account groupings:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 660,
+                                "order": 1,
+                                "question": "All the accounts in my business should be properly segregated according to the following account groupings:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 88,
+                            "title": "Accounting English Complete Unit 7",
+                            "description": "Accounting English Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your organization have an easy-to-follow Chart of Accounts? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 161,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 790,
+                        "title": "Recognition of Revenue",
+                        "slug": "recognition-of-revenue",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "tfZDMGhHZlg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The four types of transactions where Recognition of revenue takes place are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Sale of Inventory</h5>\r\n</li>\r\n \t<li>\r\n<h5>Services Rendered</h5>\r\n</li>\r\n \t<li>\r\n<h5>Use of Company Assets</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sale of Other Assets</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn how to record (or recognize) revenue in your accounts.</h5>\r\n<h5>Depending on the type of business that you are operating, there is a different method available to you to use in recognizing revenue.</h5>\r\n<h5>Remember, as per accrual accounting, revenue is only recognized once it has been earned. We do not want to manipulate our records to show a ‘Rosier picture today only to be proven wrong in the future.</h5>\r\n<h5>There are four (4) types of transactions where Recognition of revenue takes place:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Sale of Inventory – Once inventory has been shipped to / or delivered to your clients, then you can recognize this as the date of sale and invoice your client accordingly.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Services Rendered – Revenues from rendering services are recognized when services are completed and billed. Depending on the agreement with your client, you may be able to partially invoice them at different stages of the contract / project, whereby you only invoice for the work completed.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Use of Company Assets – Revenue from permission to use company's assets (e.g. interests for using money, rent for using <a href=\"https://en.wikipedia.org/wiki/Fixed_assets\">fixed assets</a>, and royalties for using <a href=\"https://en.wikipedia.org/wiki/Intangible_assets\">intangible assets</a>) is recognized as time passes or as assets are used</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"4\">\r\n \t<li>\r\n<h5>Sale of Other Assets – Revenue from selling an asset other than inventory is recognized at the <a href=\"https://en.wikipedia.org/wiki/Point_of_sale\">point of sale</a>, when it takes place. For example, if machinery is sold, the funds received (Cash or other assets) are recorded as revenue earned.</h5>\r\n</li>\r\n</ol>\r\n<h5>It is the responsibility of the CFO and / or the Chief Accountant to spell out when the organization needs to invoice their clients.</h5>\r\n<h5>It is easy to manipulate sales figures in a bad or mediocre year. In accordance with accounting rules and regulations, revenue can only be recognized once it is earned. Don’t be caught out as going against the grain, as you never know when you will be audited.</h5>",
+                            "course-unit-quotes": "<h5>In line with this trend, revenue recognition on a number of larger banking projects will occur later than anticipated. Kevin Ashton</h5>",
+                            "course-unit-case-study": "<h5>Jennifer had just won a contract to complete a large branding project for Rose Soaps. The project will take 4 months to complete and is valued for $10,000. The project is half way complete, however because it is the end of the Accounting period, she wants to invoice the full amount to show better financial results for the year. She informs her accountant to invoice the full amount of the contract before the year end. Her qualified accountant informs her that it is advisable not to do so because of the recognition of service revenue concept. He also provided that according to the matching principle, all revenues earned must be matched against those expenses incurred that helped to generate those revenues. If the whole contract is invoiced in one period, then by the time the actual work has been completed, there would be some expenses incurred against which there will be no revenues to match against, which would reflect an incorrect picture of the company’s Profit &amp; Loss statement.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 89,
+                            "title": "Accounting English Complete Unit 8",
+                            "description": "Accounting English Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your organization generate revenue from more than one source? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 162,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 791,
+                        "title": "Accounting for Inventories",
+                        "slug": "accounting-for-inventories",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "7tyF172KDoM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The four methods available to value an organization’s closing stock are:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>FIFO – First In First Out method</h5>\r\n</li>\r\n \t<li>\r\n<h5>LIFO – the Last in First Out method</h5>\r\n</li>\r\n \t<li>\r\n<h5>Weighted Average (WA)</h5>\r\n</li>\r\n \t<li>\r\n<h5>Specific Identification</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn how to account for (value) Inventories, or stock (as most people refer to it).</h5>\r\n<h5>For some organizations, sale of Inventories represents most, if not all, the revenues generated. We need to remember that :</h5>\r\n<h5>Opening Stock + Purchases – Closing Stock will give you Cost of Goods Sold (COGS).</h5>\r\n<h5>Accounting for inventories (COGS) correctly will impact your financial results.</h5>\r\n<h5>Unless you sell all the inventories that you purchase within an accounting period, you will need to account for the remaining inventories on hand. Depending on how you value your closing inventories, your Gross Margins will be impacted.</h5>\r\n<h5>There are four (4) methods available to value an organization’s stock. Depending on the type of stock being sold, there will be a more suitable method that you should use.</h5>\r\n<ol>\r\n \t<li>\r\n<h5>FIFO – First In First Out is a method whereby it is assumed that you sell your older stock first and the ending stock is your newest purchases. It is very common for businesses to use the FIFO method if they trade in foodstuffs and other goods that have a limited shelf life, because the oldest goods need to be sold before they pass their sell-by date.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>LIFO – the Last in First Out method assumes that you sell your newer stock first and your remaining stock is from your opening stock and your earlier purchases. Industries such as mining and lumber, prefer to use LIFO as they stack their heavy inventory in piles, and tend to sell off the newest inventory (at the top of the pile) first.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Weighted Average (WA) – The weighted average method uses the formula: Total cost of items in inventory available for sale divided by total number of units available for sale. Therefore each unit is assigned the same cost. Agriculture, Petroleum and Pharmaceutical companies use the weighted average method, as it is hard for them to determine the cost of their closing stocks, and WA is a much fairer valuation method.</h5>\r\n</li>\r\n \t<li>\r\n<h5> Specific Identification – this method requires a detailed physical stock count to take place, so that the company knows exactly how many units of each stock keeping unit (SKU’s) bought on specific dates remained at yearend inventory. This is a more time consuming method, however it will generate the most accurate results. This method is more suitable for “Big Ticket” items, or items that have high sales prices.</h5>\r\n</li>\r\n</ol>\r\n<h5>The CFO and / or the Chief Accountant need to decide on which method of accounting for inventories needs to be followed by their organization. Once this decision has been taken, it should be followed during the accounting period.</h5>\r\n<h5>If the cost of buying inventory were the same every year, it would make no difference whether a business used LIFO, FIFO or Weighted Average. However, as costs do change, then you will need to use the method that would provide you with a fair evaluation method. You don’t want to be fooled with the value of your inventory, or even your financial results, so use the most appropriate valuation method and stick by it!</h5>",
+                            "course-unit-quotes": "<h5>The more inventory a company has, the less likely they will have what they need. Taiichi Ohno</h5>",
+                            "course-unit-case-study": "<h5>The ingredients that Rose Soaps use to manufacture their products are oils, fats, and other chemicals. As a result that these raw materials are in liquid form and held in large containers, it is very difficult to be able to identify from which batch (or shipment) of supplies they all came from. Most of the raw materials came from different suppliers over the year, whereby there were variations in the costs of these materials. Due to this, the Management Accountant followed the Weighted Average method to value the company’s closing stock.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 90,
+                            "title": "Accounting English Complete Unit 9",
+                            "description": "Accounting English Complete Unit 9",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your organization sell inventory? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 163,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 792,
+                        "title": "Accounting for Fixed Assets",
+                        "slug": "accounting-for-fixed-assets",
+                        "order": 110,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "1ITNNA5nnek",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The fixed assets are shown in the financial statements in form of Historical Cost or Revalued Price. All fixed assets need to depreciated in one of the following ways:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Straight Line method</h5>\r\n</li>\r\n \t<li>\r\n<h5>Diminishing Value</h5>\r\n</li>\r\n \t<li>\r\n<h5>Units of Use</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn about accounting for Fixed Assets and how it impacts both the Income Statement and Balance Sheet.</h5>\r\n<h5>Fixed assets are assets that are purchased by an organization for long-term use that help generate income. Examples of fixed assets are land purchased for investment or use, buildings, factories, machinery and equipment.</h5>\r\n<h5>Fixed Assets are also referred to as Non-Current Assets, as these assets will not (or should not) be converted into cash within the next 12 months.</h5>\r\n<h5>Fixed assets appear in the financial records at their net book value, which is its original cost, minus accumulated depreciation. Because of ongoing depreciation, the net book value of an asset is always declining.</h5>\r\n<h5>These fixed assets are shown in the financial statements in two ways:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Historical Cost – once a fixed asset is purchased, it has to be recorded in our financial records. The purchase price paid (to the supplier) has to be added to any import duties, other taxes paid, as well as any expenses/costs paid to bringing the asset to the working condition of its intended use, such as set up and consultancy fees.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Revalued Price – as fixed assets are utilized, the value of these assets decrease. This is what leads to the Depreciation principle. Depending on the class of asset, a specific depreciation rule will be applied.</h5>\r\n</li>\r\n</ul>\r\n<h5>Depreciation is the allocation of the cost of a fixed asset over its useful life to match a cost against revenues that this asset helped to generate.</h5>\r\n<h5>There are three main depreciation methods used:</h5>\r\n<h5>Straight Line method – this method allocates the value of the asset over the estimated life of that asset. For example, computers &amp; laptops have a 3 year life with no residual value at the end. Therefore the cost of these assets would be depreciated equally over three years.</h5>\r\n<h5>Diminishing Value - allows companies to write off their assets faster in earlier years than the straight-line depreciation method and to write off a smaller amount in the later years, as the asset would be working harder / used more in the earlier years of its life.\r\nUnits of Use – This method allocates depreciation expense according to a fixed rate per unit of production. Under this method, one must first determine the cost per one production unit and then multiply that cost per unit with the total number of units the company produces within an accounting period to determine its depreciation expense.\r\nOnce the depreciation expense has been calculated, you would need to Debit the depreciation expense and Credit the Accumulated Depreciation account. The expense account would be closed off at the end of the accounting period, and the Accumulated Depreciation account would be shown as a negative Current Asset in the Balance Sheet, being deducted from the specific class of asset that is being depreciated.</h5>\r\n<h5>Accounting Standards have been drawn up for companies to follow, so that everyone is treating their asset class in the same way, and that there is no way of manipulation with their Financial Results.</h5>",
+                            "course-unit-quotes": "<h5>A lot of assets suddenly become valueless. Michael Cuda</h5>",
+                            "course-unit-case-study": "<h5>Rose Soups recently purchased a new soap manufacturing machine from Spain. In order to get the machine in working order, some modifications were needed to produce the specific purpose the machine was intended for. The Chief Accountant instructed the Fixed Asset Accountant to take into account the costs of modification, taxes paid, along with all the shipping &amp; handling charges paid on the machine when he was registering the soap machine as a fixed asset in the accounting records. That total amount will be used as the base from which depreciation will be charged.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 91,
+                            "title": "Accounting English Complete Unit 10",
+                            "description": "Accounting English Complete Unit 10",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your organization have more than one type of asset class? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Unsure",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 164,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 793,
+                        "title": "Income Statement",
+                        "slug": "income-statement",
+                        "order": 120,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "QJU02ZDCvHE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The two main sections of an Income Statement are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Operational</h5>\r\n</li>\r\n \t<li>\r\n<h5>Non Operational</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn about the Income Statement. This statement can also be referred to as a P &amp; L (Profit &amp; Loss) or Earnings Statement.</h5>\r\n<h5>The Income Statement is one of the most important Financial Statements that a company produces. It measures the financial performance over a given period of time. You can run the statement for a month, a quarter, year to date, or even for a whole year.</h5>\r\n<h5>All businesses, companies and even NGO’s need to know how they performed; did they make a profit or a loss, or in the event of NGO’s, where did their funding go.</h5>\r\n<h5>The Income Statement is set out in two main sections; Operational &amp; Non Operational.</h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Operational</strong> – this section is associated to the regular activities of the business. This section is split into three (3) main sections:</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Revenues – all sales income is recorded in this section</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Cost of Sales – all direct costs related to the sales, be it costs of the products sold or the services provided, are all mentioned here.</h5>\r\n</li>\r\n</ul>\r\n<ul>\r\n \t<li>\r\n<h5>Overhead or Operational expenses – all expenses that help you to run your operations like office rent, salaries, telephone expenses, etc, are included here.</h5>\r\n</li>\r\n</ul>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5><strong>Non Operational</strong> – All revenues and expenses that are not within the regular business activities are included here. For example, if you are in the business of producing canned food, then the proceeds from selling equipment or a company car is recorded here.Now there are two main figures that you should focus on.</h5>\r\n</li>\r\n</ol>\r\n<ul>\r\n \t<li>\r\n<h5>Gross Profit (GP) margin</h5>\r\n</li>\r\n \t<li>\r\n<h5>Net Profit (NP) margin</h5>\r\n</li>\r\n</ul>\r\n<h5>With healthy GP &amp; NP margins, your business is shore to be on the fast track to success, however don’t forget that your Balance Sheet &amp; Cash flow statements are just as important.</h5>",
+                            "course-unit-quotes": "<h5>People will just walk away if they don’t have a healthy Income Statement. Francis Gaskins</h5>",
+                            "course-unit-case-study": "<h5>In order to deliver more products to their clients, Western Retailers had to sell off their old fleet of distribution vans and upgrade them to new delivery trucks. In order to provide a clearer picture for the owners, the Chief Accountant showed all the proceeds from the sale of the old fleet under the Non Operational section of the Income Statement. In later years when comparing the profitability of two different accounting periods, it will be obvious to see that in one period there was income from the sale of the fleet, whilst in another there was no extraordinary (or Non-Operational) income, thus allowing to come to a result with no misconceptions.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My income statement should include the following:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 661,
+                                "order": 1,
+                                "question": "My income statement should include the following:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 92,
+                            "title": "Accounting English Complete Unit 11",
+                            "description": "Accounting English Complete Unit 11",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you understand the structure of the Income Statement?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 165,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 794,
+                        "title": "Balance Sheet",
+                        "slug": "balance-sheet",
+                        "order": 130,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "lr50XMMnU28",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The balance sheet follows the accounting equation concept of Assets = Liabilities + Equity. The three main use of the Balance Sheet are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>To determine if Working Capital is sufficient</h5>\r\n</li>\r\n \t<li>\r\n<h5>To know the Net Worth of the business</h5>\r\n</li>\r\n \t<li>\r\n<h5>To see if the company can sustain future operations</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn about the Balance Sheet.</h5>\r\n<h5>A Balance Sheet is another important financial Statement that a company produces & you should follow. Put simply, it is a “Snapshot of the business, showing what assets the organization owns and how they are financed, whether with debt (liabilities) or with Equity. Some people may even refer to this as a Statement of Financial Position.</h5>\r\n<h5>Assets are split into:</h5>\r\n<h5>Current Assets – are assets that can be converted into cash within the short term (12 months). These include items like cash in the bank, inventories & Accounts Receivables.</h5>\r\n<h5>Non-Current Assets – are assets that help a business to generate income, such as Equipment, Vehicles, Land, etc.</h5>\r\n<h5>Liabilities are split into:</h5>\r\n<h5>Current Liabilities – are debts that need to be paid back within a 12 month period. These include debts to suppliers, short term loans, payments to local municipalities, tax authorities etc.</h5>\r\n<h5>Non-Current Liabilities – these include long term loans from banks, bonds payable and long-term lease obligations.</h5>\r\n<h5>Equity / Capital are split into:</h5>\r\n<h5>Share Capital – funds invested in the business</h5>\r\n<h5>Retained Earnings – an accumulation of profits (or losses) that have been generated by the business.</h5>\r\n<h5>There are three (3) main uses of the Balance Sheet.</h5>\r\n<ol>\r\n \t<li>\r\n<h5>To determine if Working Capital is sufficient – Being able to pay off all your short term debt with your current assets will keep your managers and other stakeholders at ease.</h5>\r\n</li>\r\n \t<li>\r\n<h5>To know the Net Worth of the business – The net worth of a company provides investors and other interested parties with a quick snapshot of a company's financial strength. It represents how much value would remain if the business closed its doors and settled all of its debts.</h5>\r\n</li>\r\n \t<li>\r\n<h5>To see if the company can sustain future operations – as the economy (& demand for your products and services) go up and down, there should be enough assets to cover your overheads, in riding the wave of low sales.</h5>\r\n</li>\r\n</ol>\r\n<h5>At the end of the accounting period, it is the responsibility of the Chief Accountant to make sure that the books have been closed correctly and accounting standards & policies have been followed.</h5>\r\n<h5>Just analyzing the Balance Sheet will not provide the full picture. Using the other two reports; the Income & Cash Flow Statements along with Balance Sheet will allow you to proper analyse the organization with the use of Ratios and other financial tools to make important and better informed business decisions.</h5>",
+                            "course-unit-quotes": "<h5>The two most important things in any company do not appear in their balance sheet: its reputation and its people. Henry Ford</h5>",
+                            "course-unit-case-study": "<h5>Rose Soaps needed a quick influx of cash to purchase a competitor’s factory as they were closing down their operations. The company found that it was to their benefit to purchase the factory and its equipment. The CEO and CFO both met with their company’s bank manager to seek a quick loan. The bank requested to see the company’s last audit report as well as the latest Balance Sheet to understand whether Rose Soaps would be able to repay the loan over the loan period. After viewing these reports, the bank was confident that there was no risk that Rose Soaps’ operations would stop, and that Rose Soaps had a healthy Working Capital – enough funds to settle all short term debts in short time (if required).</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "My balance sheet should include the following:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 662,
+                                "order": 1,
+                                "question": "My balance sheet should include the following:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 93,
+                            "title": "Accounting English Complete Unit 12",
+                            "description": "Accounting English Complete Unit 12",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you seen a Balance Sheet before?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 166,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you understand the different components to a Balance Sheet? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 167,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 795,
+                        "title": "Auditing for your Business",
+                        "slug": "auditing-for-your-business",
+                        "order": 140,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "LbFSDyFXCsk",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>There three main differences between internal &amp; external auditors are: <strong> </strong></h5>\r\n<ul>\r\n \t<li>\r\n<h5>Appointment</h5>\r\n</li>\r\n \t<li>\r\n<h5>Objectives</h5>\r\n</li>\r\n \t<li>\r\n<h5>Responsibilities</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video you will learn about audits and the differences between Internal &amp; External audits. Audits are official inspections of an organization's accounts, typically conducted by an independent body. Many large organizations also have their own Internal Audit departments. Audits are conducted to confirm that an organization is operating within the guidelines (standards) set by Accounting bodies that govern that organization. Audits are also conducted so as to ascertain that the financial results are presented fairly and that there is no fraud taking place in the organization. There are many differences between internal &amp; external auditors. These can be split into three sections:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Appointment – Internal Auditors are company employees, whilst External Auditors are appointed by a Share holders’ vote and guided by the directors of the company.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Objectives – The objectives of Internal Auditors, is to examine issues related to company business practices and risks, whilst the objectives of External Auditors is to examine the financial records and issue an opinion on the financial statements of the company.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Responsibilities – The Internal Audit department is responsible to the company’s senior management, whereby External Auditors are held responsible to shareholders.</h5>\r\n</li>\r\n</ol>\r\n<h5>Internal audits are conducted throughout the year, moving from one department to another, whereby their internal audit reports are used by management. External audits are conducted yearly at the close of an organization’s accounts. The (external) audit reports that are generated are not only used by external parties (as mentioned earlier), but also by internal management for Budget meetings, Strategic planning and Annual reviews. If you are a publicly listed firm, a large organization, or just a company that is looking for funding from investors of lenders, favorable opinions on your financial statements by external auditors will help you along your way. If you are lucky to have an Internal Audit department within your organization, then they will guide you in making sure that the company’s results are fair and accurate before the External Auditors come waltzing through your company.</h5>",
+                            "course-unit-quotes": "<h5>Two-thirds of the Earth's surface is covered with water. The other third is covered with Auditors from Headquarters. Norman Ralph Augustine</h5>",
+                            "course-unit-case-study": "<h5>John (part owner of Western Retailers) decided that he wanted to sell his share in Western Retails to Sami. Sami, a finance professional, had a look at the financial reports of the company. However, as he knows that there are always many problems with companies following accounting principles and concepts, Sami requested to bring in an independent audit firm to audit the financial reports of Wester Retailers, as he wanted to know whether to invest in the company. Understanding that John had some financial problems, Sami wanted to make John a counter offer for his share in the company based on the audit reports. With his reliance on the company’s audited reports, Sami’s counter offer was successful, saving 12.5% on John’s original offer.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Having an Internal Audit department in my business is beneficial because:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 663,
+                                "order": 1,
+                                "question": "Having an Internal Audit department in my business is beneficial because:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 94,
+                            "title": "Accounting English Complete Unit 13",
+                            "description": "Accounting English Complete Unit 13",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your organization have an Internal Audit department? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 168,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Have you interacted with an external auditor before? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 169,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 796,
+                        "title": "24 minute Accounting Posttest",
+                        "slug": "accounting-certificate",
+                        "order": 150,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 95,
+                            "title": "Accounting English Post Test",
+                            "description": "Accounting English Quiz",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Which three (3) financial statements are the most important for a business?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Balance Sheet, Changes in Owner’s Equity, and Budget Variance Analysis report",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Income Statement, Cash Flow Statement and Balance Sheet",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Cash Flow Statement, Loan Repayment Schedule, Profit & Loss statement",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 170,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Management Accountants are responsible for? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Budgeting, Strategic Planning, Risk Analysis",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Following accounting policies & procedures",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Verify Purchase Orders against supplier’s invoices, and paying according to a budget",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Looking after petty cash, Deposits daily cash and Cheque collections",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 171,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "In order to start using a new accounting system (or migrating to a new one), whether it is customized, off-the-shelf, or a cloud accounting system, the personnel that need to be “on board” for the system to be a success are:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "The CEO, CFO & Shareholders",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "The whole Accounting Department",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "The IT Department",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Human Resource Department",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 172,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The __________ concept in accounting means that all expenses and revenues are recorded in the period that they occur in, whether or not cash is involved.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Consistency",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Accounting Period",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Matching",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Accrual",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 173,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The ____________ provides that we should always separately record the transactions of a business and its owners.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Separate Entity Principle",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Accounting Equation Concept",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Going Concern Concept",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Duel Effect Principle",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 174,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which two accounting reports are generated at the end of the Accounting Cycle?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Changes in Owners’ Equity, Profit & Loss Statement",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Income Statement, Profit & Loss Statement",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Profit & Loss Statement, Balance Sheet",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Balance Sheet, Budget Variance Report",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 175,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Debts that need to be paid within 12 months are recorded as ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Current Liabilities",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Current Assets",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Non Current Liabilities",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Expenses",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 176,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "If you receive an order for 1,000 units on the last day of your accounting period, will you be allowed to bill your customer for the full 1,000 units? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes, because an order is just like a sale",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No, because the goods have not been delivered yet",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "No, because I want to keep this large order for the next accounting period",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Yes, because a 1,000 unit order is material",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 177,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "If you overvalued your Closing Stock at the end of the accounting period, the impact will be a(n) __________ in your COGS which would lead to a(n) ___________ in Net Profit.  ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Decrease, Decrease",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Increase, Increase",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Increase, Decrease",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Decrease, Increase",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 178,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Fixed Assets are fixed because they? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Cannot be moved from one place to another",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Will be converted into cash within 12 months",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "May have been purchased half way thru an Accounting Period",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Help to generate revenue and are not intended to be converted into cash within 12 months",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 179,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When should an Income Statement be produced to fully understand the performance of the business? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Monthly",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Quarterly",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "End of Accounting Period",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 180,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which Accounting reports should be analysed to understand the financial position of an organization? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Cash Flow Statement",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Income Statement",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Budget Variance Report",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Balance Sheet",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 181,
+                                    "order": 11
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Internal Auditors report to _____________. Their Audit reports are conducted throughout the year for the purpose of examining issues related to company’s _______________ and ____________? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Shareholders, Financial Reports, 5 Year Business Plan",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Senior Management, Business Practices, Risks",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Chief Accountant, Market Share, Performance Analysis",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Board of Directors, Risks, Budgets",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 182,
+                                    "order": 12
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/accounting.png",
+                "zip_path": "wp-content/uploads/2018/10/accounting.png",
+                "level": "card"
+            }
+        ]
+    }
+}

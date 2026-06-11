@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX "offer_redemptions_pi_unique_idx" ON "offer_redemptions" USING btree ("stripe_payment_intent_id") WHERE "offer_redemptions"."stripe_payment_intent_id" IS NOT NULL;

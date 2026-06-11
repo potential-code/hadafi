@@ -1,0 +1,611 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 107,
+        "title": "Launch your Business",
+        "description": "Launch your Business",
+        "unit_count": 12,
+        "author_id": 1448,
+        "course_post_id": 3745,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "no_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": null,
+        "modules": [
+            {
+                "module_id": 107,
+                "title": "Launch your Business",
+                "description": "Launch your Business",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 2849,
+                        "title": "Innovation Design Thinking",
+                        "slug": "innovation-design-thinking",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Tell us a little bit about yourself. Are you a:",
+                            "course-unit-atq-two": "Tell us a little about your project (200 words)",
+                            "atqq_3": "What is your customer need or problem?",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 927,
+                                "order": 1,
+                                "question": "Tell us a little bit about yourself. Are you a:"
+                            },
+                            {
+                                "q_id": 928,
+                                "order": 2,
+                                "question": "Tell us a little about your project (200 words)"
+                            },
+                            {
+                                "q_id": 926,
+                                "order": 3,
+                                "question": "What is your customer need or problem?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2851,
+                        "title": "Innovation Process Prototype",
+                        "slug": "innovation-process-prototype",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Which idea is the best idea for you to create a prototype for?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 929,
+                                "order": 1,
+                                "question": "Which idea is the best idea for you to create a prototype for?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2853,
+                        "title": "Innovation Process Evaluate",
+                        "slug": "innovation-process-evaluate",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What would be the ways in which you can evaluate the user feedback for the prototype?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 930,
+                                "order": 1,
+                                "question": "What would be the ways in which you can evaluate the user feedback for the prototype?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2855,
+                        "title": "Business Model External Factors",
+                        "slug": "business-model-external-factors",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>Julie is developing an app that helps students engage better in Science, Tech, Engineering, Arts and Math (STEAM). As she starts to define her customers, she tries to focus and identify the actual users of the app who would be 10-13 year olds, but then debates whether the customers are the parents of these students or the schools in which the students studies. Julie decides to target the schools in her region as primary customers since she thinks that it could be easier to market to them.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": " Who are your most important target customer segments (groups)?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 931,
+                                "order": 1,
+                                "question": " Who are your most important target customer segments (groups)?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2857,
+                        "title": "Value Proposition",
+                        "slug": "value-proposition",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>As Julie defines the value proposition to schools for her STEAM application, she finds research that shows how the engagement in STEAM educational apps can help students do better in their school and later careers. Her value proposition to the school is that by using her app, schools can stay in touch with their students after school hours, position themselves as innovators and could generate sales in the app through additional fees.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Which customer needs does your value proposition address or solve?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 932,
+                                "order": 1,
+                                "question": "Which customer needs does your value proposition address or solve?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2859,
+                        "title": "5 Common Customer Relationship Types",
+                        "slug": "5-common-customer-relationship-types",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>Instead of selling the app upfront and losing the possibility of selling more services in the future, Julie decides to have the schools she is targeting \"pay as they go\" by paying for the active number of students using the apps per month. This way, they don't have to invest a big amount of money upfront and would maintain an ongoing relationship with Julie's company.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is the client relationship that you have? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 933,
+                                "order": 1,
+                                "question": "What is the client relationship that you have? "
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2861,
+                        "title": "Channel Strategies",
+                        "slug": "channel-strategies-2",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>By defining her focused customer segments as schools in her district, Julie knows that she can reach these schools through direct sales in the beginning by visiting them in person and explaining the product, but in the future she would need to either use an online marketing to reach schools in other locations or have a self service model for the schools to sign up to use the application for their students.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Through which channel(s) do you reach your customers so they buy from you?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 934,
+                                "order": 1,
+                                "question": "Through which channel(s) do you reach your customers so they buy from you?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2863,
+                        "title": "Key Revenue Streams used in Businesses",
+                        "slug": "key-revenue-streams-used-in-businesses",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>The key revenue stream that Julie wants to use for her app is a subscription model where schools pay $2 per student per month. Given the number of schools in her district and the number of students that they have between the age of 10-13 years, Julie estimates that if she gets 10% of those students to sign up, she could have 10,000 subscriptions by the end of the year, resulting in $20,000 per month of revenue.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is your overall revenue (sales) projection for the year and how many units will you sell?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 935,
+                                "order": 1,
+                                "question": "What is your overall revenue (sales) projection for the year and how many units will you sell?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2865,
+                        "title": "Business Model Internal Factors",
+                        "slug": "business-model-internal-factors",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>The most important resources in Julie's business, that are essential to the survival of that business, are her STEAM expert and the application developer; both of which have been with her from the start of the project. All the other resources could be outsourced and there is no need for any major physical assets.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the key resources you rely on to run your business?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 936,
+                                "order": 1,
+                                "question": "What are the key resources you rely on to run your business?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2867,
+                        "title": "Key Partnerships for your Business",
+                        "slug": "key-partnerships-for-your-business",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>In enhancing her credibility, Julie needs to partner with the local school district authority as well as creating a partnership with an international STEAM curriculum provider to license some of the content from them.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Who are your key partners?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 937,
+                                "order": 1,
+                                "question": "Who are your key partners?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2869,
+                        "title": "Key Activities that your Business Engages in",
+                        "slug": "key-activities-that-your-business-engages-in",
+                        "order": 110,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>Julie knows that her most important activity over the coming period is great marketing and branding of her app and great customer service to the schools that are buying the app. She knows that she would need to organize a roadshow to explain the system and train administrators in the school on how to use the system.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the main activities you conduct in your day-to-day work?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 938,
+                                "order": 1,
+                                "question": "What are the main activities you conduct in your day-to-day work?"
+                            }
+                        ],
+                        "quiz": null
+                    },
+                    {
+                        "unit_id": 2871,
+                        "title": "Two Important Cost Structures in Your Business",
+                        "slug": "two-important-cost-structures-in-your-business",
+                        "order": 120,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>Julie knows that she needs to keep the cost of operation as low as possible so that she doesn't increase the running costs which are the bulk of her costs. She calculates that her monthly running costs are about $10,000 in salaries - including hers and her 2 colleagues - $5,000 in marketing and related expenses. The cost per student for the hosting and infrastructure for her app are $50 per month. So her profit per student is $1.5 and as such, she calculates that she can break even once she has 10,000 students per month on the application.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": " What are the most important cost positions in your business model?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 939,
+                                "order": 1,
+                                "question": " What are the most important cost positions in your business model?"
+                            }
+                        ],
+                        "quiz": null
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": []
+    }
+}

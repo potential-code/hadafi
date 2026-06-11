@@ -1,0 +1,1480 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 41,
+        "title": "Podcast",
+        "description": "Podcast",
+        "unit_count": 10,
+        "author_id": 0,
+        "course_post_id": 3683,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2309,
+            "title": "Podcast",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/podcast-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/podcast.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 41,
+                "title": "Podcast",
+                "description": "Podcast - Potential Course",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 1030,
+                        "title": "Podcast PreTest",
+                        "slug": "podcast-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 329,
+                            "title": "Podcast Pretest",
+                            "description": "Podcast Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Having a podcast allows you to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Develop a more personal connection with your listeners",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Spread your brand",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Interview notable figures",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 727,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A Q&A podcast structure is when you answer questions that you haven’t found the answer to, on your podcast.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 728,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A conversational podcast structure must involve two or more people.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 729,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A podcast can focus on which of the following?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Your profession, your passion or your business",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Your product, your profession or your business",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Your profession, your life problems or your passions",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 730,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Following a structured style requires that you do your research on your guest.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 731,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is a benefit of the conversational structure?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "It’s relaxed",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Listeners gain more out of it",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "You must be prepared for it",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 732,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is an affiliate link?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "A link to your website",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A link to another site in which you gain commission off of sales or clicks",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "A link to online videos",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 733,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Free material can be used to gather email addresses. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 734,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A podcast helps to bring listener attention to your other platforms because:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Some people prefer audio over anything else",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Podcasts are listened to by everyone",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "You can convince people through your podcast",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 735,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Encouraging that listeners leave a review or rating is important because:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "It makes you feel good about yourself ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "It improves the visibility of your podcast",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "It shows your competition that you’re better",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 748,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Audacity is a video editing software. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 749,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Audacity and auphonic have similar functions.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 750,
+                                    "order": 11
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1031,
+                        "title": "3 Reasons to Utilize the Powers of Podcasting",
+                        "slug": "3-reasons-utilize-powers-podcasting",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "QQ7x6vPPEds",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 Reasons to utilize the powers of podcasting:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Personal connection to your audience</h5>\r\n</li>\r\n \t<li>\r\n<h5>Spread your brand</h5>\r\n</li>\r\n \t<li>\r\n<h5>Interview notable figures</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at the reasons why you should consider starting your own podcast. In this world of immediate accessibility of information, podcasting is becoming a leading medium. Podcasts are audio (sometimes with video) recordings that are very similar to radio talk shows. Podcasts can feature interviews, conversations or just general information. Podcasts can be found that cover a wide variety of topics. Here are 3 reasons to utilize the powers of podcasting:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Personal connection to your audience</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Podcasts tend to have a very personal tone. It’s almost as if the podcast host is talking directly to you. Utilizing this aspect of podcasting can allow you to develop a personal connection with your followers.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Spread your brand</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Podcasting gives you the ability to spread the word on the other aspects of your brand such as your website, YouTube channel, online store, etc.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Interview notable figures</h5>\r\n<ul>\r\n \t<li>\r\n<h5>If you decide to incorporate an interview component to your podcast, you can begin to interview notable figures within your line of work. This can provide valuable advice to you and your following.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>Podcasts are now more popular than they ever have been. The growth of this type of media shows just how convenient it is. People can pick up an audio podcast and listen to it on the go. It makes for a great place to gain popularity among those who do not have time for other mediums such as books or videos.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The aspect of podcasting that I am most intrigued by is:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 335,
+                                "order": 1,
+                                "question": "The aspect of podcasting that I am most intrigued by is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 330,
+                            "title": "Podcast Complete Unit 1",
+                            "description": "Podcast Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you currently have an online brand?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 751,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you listen to podcasts?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 752,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1032,
+                        "title": "3 Different Podcasting Structures",
+                        "slug": "3-different-podcasting-structures",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "zMTpGv4HxPg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 different podcasting structures:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Interview</h5>\r\n</li>\r\n \t<li>\r\n<h5>Q&amp;A</h5>\r\n</li>\r\n \t<li>\r\n<h5>Conversational</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will explore three different podcasting structures. Podcasts come in many forms and vary based on the type of audience, the main topics discussed and the average length of the shows. Before starting a podcast it helps to be clear on what type of podcast you want. Keep in mind that you can also incorporate many different structures depending on the content. Here are 3 different podcasting structure:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Interview</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The interview structure involves preparation. This approach will provide answers to many questions that you or your listeners may have about a specific topic.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Q&amp;A</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Questions and answers podcasts allow your listeners to send you their questions so that you can answer them during a podcast episode.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Conversational</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Conversational style podcasts are more informal. It allows for the host to hold a conversation with a guest without any particular structure. This structure can also work if the host has a conversation with the audience.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>These structure suit different topics. It’s up to you to determine the dynamic that suits your podcast topic best. Sometimes it is better to start with something and adjust as you go. Either way, it’s helpful to know your options when it comes to the type of delivery you can go to with your podcast.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Based on what my ideal podcast would look like, I would prefer a(n) _______________ (Interview, Q&A or conversational) structure.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 336,
+                                "order": 1,
+                                "question": "Based on what my ideal podcast would look like, I would prefer a(n) _______________ (Interview, Q&A or conversational) structure."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 331,
+                            "title": "Podcast Complete Unit 2",
+                            "description": "Podcast Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you conducted a formal interview before?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 753,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you like engaging in interesting conversations with people you know or new people that you meet?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 754,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1033,
+                        "title": "3 Approaches that will Help you Determine your Podcast Focus",
+                        "slug": "3-approaches-will-help-determine-podcast-focus",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "pJ6HeQW70pA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 approaches that will help you determine your podcast focus:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Connected to your profession?</h5>\r\n</li>\r\n \t<li>\r\n<h5>Passion Project</h5>\r\n</li>\r\n \t<li>\r\n<h5>Extension of your Business</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will show you a few approaches that can help you determine what your podcast should focus on. Knowing what to focus on depends on what your goals and passions are. A podcast can serve many functions, all of which can benefit listeners in different ways. Here are 3 approaches that will help you determine your podcast focus:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Connected to your profession?</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Do you want to relate your podcast to your profession? Your podcast can act as a medium for you to express the latest and greatest developments in your professional industry.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Passion project</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Your podcast can be unrelated to your profession. It can instead be a reflection of your passions in life. You would be surprised how many listeners this type of podcast can attract.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Extension of your business</h5>\r\n<ul>\r\n \t<li>\r\n<h5>If you own your own business and are trying to grow, a podcast can be perfect to spread your brand. Aside from spreading your brand, it can also provide listeners with valuable content that will potentially build their interest in your paid services. You can also use the podcast to direct listeners to your website which can encourage them to sign up for your email list.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>As you can see, a podcast can serve so many functions. However, either function does not take away from the listener experience. Under each structure, there will still be people that find your content to be valuable.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "A podcast could help me with:",
+                            "course-unit-atq-two": "I could create a podcast based on (my profession, my passion, my business): ",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 337,
+                                "order": 1,
+                                "question": "A podcast could help me with:"
+                            },
+                            {
+                                "q_id": 338,
+                                "order": 2,
+                                "question": "I could create a podcast based on (my profession, my passion, my business): "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 332,
+                            "title": "Podcast Complete Unit 3",
+                            "description": "Podcast Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you passionate about your profession?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 755,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you own a business that could benefit from a podcast?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 756,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1034,
+                        "title": "2 Interview Techniques that you can Utilize in your Podcast",
+                        "slug": "2-interview-techniques-can-utilize-podcast",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "0AolojjZQqE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>2 interview techniques that you can utilize in your podcast:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Conversational</h5>\r\n</li>\r\n \t<li>\r\n<h5>Structured</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at a couple different types of interviews that you can hold on a podcast. If you listen to podcasts, you know that they can follow a wide range of interview styles. It really only falls into two main categories. Here are 2 interview techniques that you can utilize in your podcast:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Conversational</h5>\r\n<ul>\r\n \t<li>\r\n<h5>The conversational style aims at being more relaxed. It doesn’t have a defined structure, other than to begin having a conversation with your guest and letting the conversation go wherever it does.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Structured</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Following a more structured style means that you have done your research on your guest and prepared a set of interesting questions. This is generally better if there is specific information that you or your listeners are looking to learn.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>What style suits you better? Both of these approaches provide you with plenty of insights and information from your guest. In the end, it comes down to what you feel more comfortable executing. Are you more comfortable with structure? Or do you prefer to go with the flow? These questions will help you determine which style is better suited for you.</h5>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "If I were to interview people, I would prefer a ____________________ (conversational or structured) type of interview.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 339,
+                                "order": 1,
+                                "question": "If I were to interview people, I would prefer a ____________________ (conversational or structured) type of interview."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 333,
+                            "title": "Podcast Complete Unit 4",
+                            "description": "Podcast Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you listen to interviews or interesting conversations?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 757,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1035,
+                        "title": "3 Unique Ways to Gain Sponsorship for your Podcast",
+                        "slug": "3-unique-ways-gain-sponsorship-podcast",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "DL0EbOu0zH0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 unique ways to gain sponsorship for your podcast:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Popularity</h5>\r\n</li>\r\n \t<li>\r\n<h5>Affiliate Links</h5>\r\n</li>\r\n \t<li>\r\n<h5>Send Out Emails</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at different ways that you can gain sponsors for your podcast. With podcasting comes some expenses and a lot of time spent on editing and recording. Gaining sponsors makes this experience more worth the time and money. Here are 3 unique ways to gain sponsorship for your podcast:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Popularity</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Through popularity, you may be approached by companies that want to be featured on your podcast in exchange for sponsorship. This is the easiest form of sponsorship.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Affiliate links</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Affiliate links can be set up through online stores like Amazon. Affiliate links are specific links that you encourage your listeners to use when they require products from sites like amazon. When your listeners use these links to access websites that you’ve set them up with, you will make a percentage of the sales.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Send out emails</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Sending out emails to potential sponsors can allow you to negotiate sponsorship deals. Often times, companies require that you take 30 seconds out of your show to talk about one of their products. The advertising time can be negotiated with other details once you reach an interested company through emails.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>Sponsorship can help to make the podcasting journey worth the time and it can potentially become a trusted income source. Gaining sponsorship can give your listeners access to exclusive discounts on products and it can give you sponsorship income.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I am most likely to gain sponsorship through:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 340,
+                                "order": 1,
+                                "question": "I am most likely to gain sponsorship through:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 334,
+                            "title": "Podcast Complete Unit 5",
+                            "description": "Podcast Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you listened to any podcasts which feature advertisements?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 758,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1036,
+                        "title": "2 Benefits of Connecting your Podcast with your Other Platforms",
+                        "slug": "2-benefits-connecting-podcast-platforms",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "33J5NtKjJEM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>2 benefits of connecting your podcast with your other platforms:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Free Material/Email Addresses</h5>\r\n</li>\r\n \t<li>\r\n<h5>Bringing Attention To Your Other Work</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at how podcasting can create a synergy between all of your platforms. If you currently have other media platforms, it is important to make sure they are somehow linked. This allows for a flow of users between all of your different platforms. Here are the 2 benefits of connecting your podcast with your other online mediums:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Free material/email addresses</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Offering valuable free material encourages your listeners to go to your website to download it. This may be a great opportunity to ask people for their email addresses in exchange for the free material. Having an email list can allow you to email people new podcast episodes and potentially new product offers.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Bringing attention to your other work</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Your other work which could include books, a website or a blog can direct readers to your podcast. Your podcast can also direct your listeners to your other work.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>A podcast can serve so many functions, one of which is expanding your personal or professional brand. Some people prefer to have their information delivered through audio, some prefer writing and some prefer video. Delivering an audio podcast will spread your work to those who may not have otherwise heard of it.</h5>\r\n<h5><strong> </strong></h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I could create a free _____________ to attract listeners to give their email addresses in exchange.",
+                            "course-unit-atq-two": "I can use a podcast to lead users to my _____________ (website, book, youtube channel, etc.)",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 341,
+                                "order": 1,
+                                "question": "I could create a free _____________ to attract listeners to give their email addresses in exchange."
+                            },
+                            {
+                                "q_id": 342,
+                                "order": 2,
+                                "question": "I can use a podcast to lead users to my _____________ (website, book, youtube channel, etc.)"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 335,
+                            "title": "Podcast Complete Unit 6",
+                            "description": "Podcast Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have any other online platforms?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 759,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Are you opposed to the idea of giving away free material?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 760,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1037,
+                        "title": "4 Ways to Increase Podcast Popularity",
+                        "slug": "4-ways-increase-podcast-popularity",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "LGktseEej6k",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>4 ways to increase podcast popularity:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Social Media Ads</h5>\r\n</li>\r\n \t<li>\r\n<h5>Encourage Reviews/Ratings</h5>\r\n</li>\r\n \t<li>\r\n<h5>Guest Blogging</h5>\r\n</li>\r\n \t<li>\r\n<h5>Guest Appearances on Other Podcasts</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will explore a few different ways to increase your podcast’s popularity. Building a popular podcast comes down to whether it’s delivering valuable information or quality entertainment. When the content is excellent, the only thing left is advertising. Here are 4 ways to increase podcast popularity:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Social media ads</h5>\r\n<ul>\r\n \t<li>\r\n<h5>There is great value in advertising on twitter, Instagram and especially Facebook. Social media can allow for the spread of your brand and/or podcast when people begin to share it with their friends. Facebook also allows for the option of paid advertising that will expose your podcast to a wider range of people.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Encourage reviews/ratings</h5>\r\n<ul>\r\n \t<li>\r\n<h5>When people review your podcast, it appears to more people on podcasting websites. The rating systems are set up to allow the highest and most rated shows to appear on the top of lists. Encouraging listeners to rate and review your podcast can help you to build a stronger presence on podcasting websites.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Guest blogging</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Blogging on popular websites or blogs can help you to gain a larger audience. This can be done by reaching out to the gatekeepers of large websites or popular blogs. The only stipulation is that you provide valuable content. Doing this gives you the opportunity to encourage readers to check out your podcast or blog.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Guest appearances on other podcasts</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Making appearances on other popular podcasts gives you the opportunity to mention your podcast which works in a similar manner to the guest blogging tactic. However, making guest appearances requires that you can provide some kind of info or entertainment to the podcast that you’re featured on.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>There are many ways to go about gaining popularity. Most of the strategies mentioned in this video are using the same fundamental idea. Find places where you can gain exposure and get the attention of the right people.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Popular websites or blogs that relate to my ideal podcast topic are:",
+                            "course-unit-atq-two": "My expertise in ________________ can allow me to be a guest on notable podcasts.",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 343,
+                                "order": 1,
+                                "question": "Popular websites or blogs that relate to my ideal podcast topic are:"
+                            },
+                            {
+                                "q_id": 344,
+                                "order": 2,
+                                "question": "My expertise in ________________ can allow me to be a guest on notable podcasts."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 336,
+                            "title": "Podcast Complete Unit 7",
+                            "description": "Podcast Complete Unit 7",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you already have a social media presence?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 761,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have a blog?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 762,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1038,
+                        "title": "5 Essential Podcasting Tools that you Should Know about",
+                        "slug": "5-essential-podcasting-tools-know",
+                        "order": 90,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "n2rQSue7Qgw",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 essential podcasting tools:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Call Recorder for Skype</h5>\r\n</li>\r\n \t<li>\r\n<h5>Audacity</h5>\r\n</li>\r\n \t<li>\r\n<h5>Camtasia</h5>\r\n</li>\r\n \t<li>\r\n<h5>Libsyn</h5>\r\n</li>\r\n \t<li>\r\n<h5>Auphonic</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will look at a few essential tools that you may require to begin podcasting. Using the right tools can make all of the difference when it comes to sound quality and podcast availability. Here are 5 essential podcasting tool:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Call recorder for skype</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Call recorder for skype is a tool that records audio and video of a conversation over skype. This tool is great because it splits the audio tracks of both callers, allowing for easier editing after the recording.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Audacity</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Audacity is a valuable audio editing tool that has many different features include trimming audio clips, improving sound quality of clips and muting certain segments of clips.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Camtasia</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Camtasia gives you the ability to record your computer screen which can be useful if you have a web cam application open that shows your face as you speak. This can also allow you to record certain procedures or lessons that you want to feature on your podcast.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Libsyn podcast hosting</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Libsyn allows you to upload your podcast to an online server. Libsyn also provides you with links that you can use to upload your podcast to sites such as itunes or stitcher.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n \t<li>\r\n<h5>Auphonic</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Audiophonic is an online tool that can be used to improve the sound quality of your podcast. This is an easier solution to sound quality that the manual adjustment required in audacity.</h5>\r\n</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n<h5>These tools will give you a limitless amount of possibilities. Utilizing all of them can propel you to establish a strong podcasting presence and the content will be of great use to your listeners.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The most important tool for my podcast would be:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 345,
+                                "order": 1,
+                                "question": "The most important tool for my podcast would be:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 337,
+                            "title": "Podcast Complete Unit 8",
+                            "description": "Podcast Complete Unit 8",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you have any experience with the programs listed?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "YES",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "NO",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 763,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 1039,
+                        "title": "Podcast PostTest",
+                        "slug": "podcast-posttest",
+                        "order": 100,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 338,
+                            "title": "Podcast Posttest",
+                            "description": "Podcast Posttest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Having a podcast allows you to:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Develop a more personal connection with your listeners",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Spread your brand",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Interview notable figures",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 736,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A Q&A podcast structure is when you answer questions that you haven’t found the answer to, on your podcast.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 737,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A conversational podcast structure must involve two or more people.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 738,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A podcast can focus on which of the following?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Your profession, your passion or your business",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Your product, your profession or your business",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Your profession, your life problems or your passions",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 739,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Following a structured style requires that you do your research on your guest.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 740,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is a benefit of the conversational structure?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "It’s relaxed",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Listeners gain more out of it",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "You must be prepared for it",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "All of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 741,
+                                    "order": 5
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is an affiliate link?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "A link to your website",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "A link to another site in which you gain commission off of sales or clicks",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "A link to online videos",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 742,
+                                    "order": 6
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Free material can be used to gather email addresses. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 743,
+                                    "order": 7
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "A podcast helps to bring listener attention to your other platforms because:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Some people prefer audio over anything else",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Podcasts are listened to by everyone",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "You can convince people through your podcast",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"1\";}",
+                                    "question_id": 744,
+                                    "order": 8
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Encouraging that listeners leave a review or rating is important because:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "It makes you feel good about yourself",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "It improves the visibility of your podcast",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "It shows your competition that you’re better",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "None of the above",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 745,
+                                    "order": 9
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Audacity is a video editing software. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 746,
+                                    "order": 10
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Audacity and auphonic have similar functions.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 747,
+                                    "order": 11
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/podcast.png",
+                "zip_path": "wp-content/uploads/2018/10/podcast.png",
+                "level": "card"
+            }
+        ]
+    }
+}

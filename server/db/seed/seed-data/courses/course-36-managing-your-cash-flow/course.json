@@ -1,0 +1,799 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 36,
+        "title": "Managing your Cash Flow",
+        "description": "Keep your business healthy through better cash management",
+        "unit_count": 7,
+        "author_id": 0,
+        "course_post_id": 3678,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2322,
+            "title": "Managing your Cash Flow",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/managing-cash-flow-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/cash-flow.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 36,
+                "title": "Managing your Cash Flow",
+                "description": "Keep your business healthy through better cash management",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 984,
+                        "title": "Managing your Cash Flow Pretest",
+                        "slug": "managing-cash-flow-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 283,
+                            "title": "Managing your Cash Flow Pretest",
+                            "description": "Managing your Cash Flow Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "The most important step in managing your cash flow, is to :",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Track your Expenditures",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Categorise your Expenditures",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Get Paid Quickly",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Hold on to your cash",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 640,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Proceeding from the sale of a fixed asset should be recorded in the following section of a Cash flow statement : ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Financing Activities",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Investing Activities",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Operating Activities",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 641,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 985,
+                        "title": "5 Tips for Getting Paid Quickly",
+                        "slug": "5-tips-getting-paid-quickly",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "5N_IavDq2bQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 Tips for Getting Paid Quickly:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Invoice a job as soon as possible</h5>\r\n</li>\r\n \t<li>\r\n<h5>Require down payments or phased payments</h5>\r\n</li>\r\n \t<li>\r\n<h5>Send invoices by email</h5>\r\n</li>\r\n \t<li>\r\n<h5>Accept Credit Card Payments</h5>\r\n</li>\r\n \t<li>\r\n<h5>Offer a discount for early payments</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn 5 tips that would help you in getting paid quickly</h5>\r\n<h5>Cash in hand is essential for running of a business, so the more you are able to get paid quickly the more you can have your cash working for you.</h5>\r\n<h5>Here are 5 Tips for Getting Paid Quickly:</h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Invoice a job as soon as possible</strong>, such as when a job is done or item is shipped instead of waiting till the end of the month</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Require down payments or phased payments </strong>by not waiting for payments at the end of the entire service or product delivery</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Send invoices by email </strong>instead of sending by post and if the client requires an original invoice, then send it following the email by express courier</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Accept Credit Card Payments </strong>which would allow you to collect funds immediately from the client when they purchase your product or service</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Offer a discount for early payments </strong>instead of giving a discount to the client on the selling price offer the discount if they pay early</h5>\r\n</li>\r\n</ol>\r\n<h5>Getting cash into your business as soon as possible and holding on it as long as possible are essential elements of good cash flow management.</h5>",
+                            "course-unit-quotes": "Cash is king, Get every drop of cash you can get and hold onto it. Jack Welk",
+                            "course-unit-case-study": "<h5>The Right Look - a graphic designer business owned solely by Jennifer was facing some financial problems; not being able to pay her employees & suppliers on time. Her business had a lot of projects, however they were slow payers. When she called her clients, she heard the same thing – “we are waiting a payments to come in”. The cost of taking out an overdraft, or even a personal loan would cost her in the range of 12 – 17%, however she decided to offer her clients a 7.5% discount if they pay within 1 week of the invoice date. She found that many clients took her up on her offer, and she was in a comfortable position to pay most of her expenses at month end.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "How can I ensure that I get paid quickly?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 378,
+                                "order": 1,
+                                "question": "How can I ensure that I get paid quickly?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 284,
+                            "title": "Cash Flow Complete Unit 1",
+                            "description": "Cash Flow Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your project have problems making payments every month?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 630,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 986,
+                        "title": "5 Steps for Managing your Cash Flow",
+                        "slug": "5-steps-managing-cash-flow",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "mEaS9B1XU_E",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 Steps for Managing Your Cash Flow:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Categories’ Your Expenditures</h5>\r\n</li>\r\n \t<li>\r\n<h5>Track your Expenditures</h5>\r\n</li>\r\n \t<li>\r\n<h5>Get Paid Quickly</h5>\r\n</li>\r\n \t<li>\r\n<h5>Hold on to Your Cash</h5>\r\n</li>\r\n \t<li>\r\n<h5>Monitor Regularly</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn how to manage your cash flow.</h5>\r\n<h5>Cash flow is the flow of money in and out of your company. Cash is what keeps your business alive and knowing if you will be able to pay your bills and handle seasonal fluctuations through a cash flow statement is one of your most important tools.</h5>\r\n<h5>Here are <strong>5 Steps for Managing Your Cash Flow</strong>:</h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Categorise Your Expenditures </strong>based on your businesses’ periodical payments</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Track your Expenditures </strong>by ensuring that you capture each payment and documenting it during the period it occurs.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Get Paid Quickly </strong>by invoicing as soon as possible, require down payments, send invoices by email or courier, offer discount for early payments, accept credit card payments</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Hold on to Your Cash </strong>as long as possible by requesting longer payment terms, paying as late as you can, paying by credit card to get an extended grace period</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Monitor Regularly </strong>by using short-term and long-term forecasting to help you identify any possible shortages before they happen</h5>\r\n</li>\r\n</ol>\r\n<h5>The saying says: Cash is King, so treat your cash like one.</h5>",
+                            "course-unit-quotes": "Making more money will not solve your problems if cash flow management is your problem. Robert Kiyosaki",
+                            "course-unit-case-study": "<h5>“Rose Soaps” - a manufacturing business employed a new Finance Manager because the CEO felt that he was not provided with accurate & timely information. The first line of business that the new Finance Manager requested from his new accounts team was to start reporting on the business’ cash flow situation. With proper clarity and understanding of the business’ cash movement, the Accounts team could plan for all the necessary payments to be made on time – something that was not done under the previous Finance Manager.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "It is important to track my expenditures as such and why?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 379,
+                                "order": 1,
+                                "question": "It is important to track my expenditures as such and why?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 285,
+                            "title": "Cash Flow Complete Unit 2",
+                            "description": "Cash Flow Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Does your company / business prepare Cash flow statements on a monthly basis?\n",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 631,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 987,
+                        "title": "5 Ways in which Business Cards Offer Better Advantages than Checks",
+                        "slug": "5-ways-in-which-business-cards-offer-better-advantages-than-checks",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "WRhulfnrYFE",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 advantages of using cards instead of checks in your business:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Payment Flexibility</h5>\r\n</li>\r\n \t<li>\r\n<h5>Rewards</h5>\r\n</li>\r\n \t<li>\r\n<h5>Online Reporting</h5>\r\n</li>\r\n \t<li>\r\n<h5>Business Discounts</h5>\r\n</li>\r\n \t<li>\r\n<h5>Pay Online</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, you will learn why using business cards is can give you better advantages than using checks for your business.</h5>\r\n<h5>As more and more financial transactions in business are migrating from traditional use of checks to the modern use of business cards, small and medium businesses are finding much more convenience and efficiency.</h5>\r\n<h5>Here are <strong>5 </strong><strong>advantages of using cards instead of checks in your business</strong>:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Improved <strong>payment flexibility </strong>with also financing option</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong> Rewards</strong> for business spending</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong> Online reporting </strong>to reduce record-keeping time</h5>\r\n</li>\r\n \t<li>\r\n<h5>Special <strong>business discounts</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Ability to <strong>pay online </strong></h5>\r\n</li>\r\n</ol>\r\n<h5>Businesses can make use of these advantages and be able to pass them on to the employees of the business for added convenience. It is easy and secure to provide business cards to your key team members, whereas providing them with check books might not be the wisest thing to do.</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>Western Retailers - a retail business that is owned by three partners has a policy that any two of the three partners are authorized to sign banks cheques on behalf of the company. Western Retailers faced a financial problem when one of the partners took his annual leave vacation overseas, and another partner fell sick and was admitted to hospital. Unable to issue cheques or sign a cash cheque to withdraw money, the Finance Manager was forced to withdraw his personal funds to cover the company’s expenses and cash requirements until one of the partners where able to sign the bank cheques. Had the company taken out a “Business Debit Card” with their bank, they would have been able to withdraw cash from the ATM to settle the urgent payments without any problems or using employees’ personal funds.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I prefer using business cards rather than checks because cards offer:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 380,
+                                "order": 1,
+                                "question": "I prefer using business cards rather than checks because cards offer:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 286,
+                            "title": "Cash Flow Complete Unit 3",
+                            "description": "Cash Flow Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "How difficult and time consuming is it for your company to make bank transfers or write out cheques to your suppliers?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Very Difficult  ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Somewhat  Difficult  ",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Not Difficult at all",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 632,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 988,
+                        "title": "7 Reasons Why you should Prepare a Cash Flow Projection",
+                        "slug": "7-reasons-prepare-cash-flow-projections",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "YOCQY6jsoHQ",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>7 Reasons why you should prepare a Cash Flow Projection:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Helpful in Planning</h5>\r\n</li>\r\n \t<li>\r\n<h5>Forecasting the Future needs</h5>\r\n</li>\r\n \t<li>\r\n<h5>Maintenance of sufficient cash Balance</h5>\r\n</li>\r\n \t<li>\r\n<h5>Controlling Cash Expenditure</h5>\r\n</li>\r\n \t<li>\r\n<h5>Evaluation of Performance</h5>\r\n</li>\r\n \t<li>\r\n<h5>Testing the Influence of proposed Expansion Programme</h5>\r\n</li>\r\n \t<li>\r\n<h5>Basis of finance Co-ordination</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi. In this video, we will learn why it is important to have a Cash Budget.</h5>\r\n<h5>Cash budget is an important tool in the hands of financial management for the planning and control of the working capital to ensure the solvency of the firm, and thus, ensure that you have enough cash on hand. A business should have <u>at least</u> 90 days of cash on hand to ensure they remain healthy financially.</h5>\r\n<h5>Here are 7 Reasons why you should prepare a Cash Flow Projection:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>It is <strong>Helpful in Planning. </strong>Cash budget helps planning for the most efficient use of cash when there is a oversupply and what to do when it is low</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Forecasting the Future needs. </strong>Cash budget forecasts the future needs of funds, its time and the amount well in advance.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Maintenance of sufficient cash Balance. </strong>Cash is the basis of liquidity of the enterprise and a Cash budget helps in maintaining the liquidity.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Controlling Cash Expenditure. </strong>Cash budget acts as a controlling device of various departments expenses</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Evaluation of Performance. </strong>Cash budget acts as a standard for evaluating the financial performance.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Testing the Influence of proposed Expansion Programme. </strong>Cash budget forecasts the inflows from a proposed expansion or investment programme and testify its impact on cash position.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Basis of finance Co-ordination. </strong>Cash budget helps in coordinating the various finance functions, such as sales, credit, investment, working capital etc.</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-quotes": "Money should not, and must not, change our commitment to solving problems and building this state. Dave Freudenthal",
+                            "course-unit-case-study": "<h5>“Rose Soaps” had just received the biggest order for the year to be delivered to Western Retailers in two months’ time. Due to the size of the order and the cost of materials needed to produce the product, the Finance manager had to sit down with the Production manager to see the financial requirements at each weekly and monthly intervals with the suppliers. With this information, the Finance manager was able to incorporate this information into the Cash Flow report, so that he is aware as to how much Cash is required to be available in the bank accounts at the end of every week and month so that the payments to the suppliers would be met. At the end of the first month, the report showed that Rose Soaps will be in shortage of cash. In order to cover this shortage, the Finance manager was able to negotiate with a few clients to settle their invoices within 10 days by providing them with a special 7.5% discount. As the margins on the large order to Western Retailers is 37%, providing the 7.5% discount was the correct decision to make so as to be in a position to settle all the required payments, and not to jeopardize the deal with Western Retailers.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Having a cash budget helps me control my:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 381,
+                                "order": 1,
+                                "question": "Having a cash budget helps me control my:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 287,
+                            "title": "Cash Flow Complete Unit 4",
+                            "description": "Cash Flow Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you think if proper Cash flow reporting occurred in your company / business, it would be more successful? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 633,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 989,
+                        "title": "3 Essential Sections of a Cash Flow Statement",
+                        "slug": "3-essential-sections-cash-flow-statement",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "79QAdBEghsc",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>3 sections that should be included in a cash flow statement:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Operating Activities</h5>\r\n</li>\r\n \t<li>\r\n<h5>Investing Activities</h5>\r\n</li>\r\n \t<li>\r\n<h5>Financing Activities</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-read-more": "<h5>Hi, In this video you will learn about the 3 sections that a cash flow statement should include.</h5>\r\n<h5>Cash is king as the saying goes, so documenting cash inflows and outflows in the form of a cash flow statement is essential in any business. No matter how well the business is doing, if cash in the company isn’t managed well, it could go bankrupt.</h5>\r\n<h5>Here are <strong>3 sections </strong>that should be included <strong>in a cash flow statement:</strong></h5>\r\n<ol>\r\n \t<li>\r\n<h5><strong>Operating Activities </strong>covers all cash inflows or outflows related to the running of the business including sales, interest revenue, dividend revenue representing cash in and stock purchases, payroll, Taxes, rent, utilities etc..</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Investing Activities </strong>covers all transactions involving the purchase or sale of assets, securities, mergers and acquisitions, in essence items that are not directly linked to the day to day operation of your business</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Financing Activities </strong>include flow of cash to and from investors –equity financing or creditors –debt financing</h5>\r\n</li>\r\n</ol>\r\n<h5>So as a summary Operating, Investing and Financing activities should be clearly present in the cash flow statement that a finance manager prepares on at least a monthly basis.</h5>\r\n<h5>Good management manages cash well!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "<h5>In order to deliver more products to their clients, Western Retailers had to sell off their old fleet of distribution vans and upgrade them to new delivery trucks. As the payment was made in three installments, the full outlays (payments) less the disposal value of the old vans were recorded in the Investing Activities section of the Cash Flow statement. Even though a loss was made on the old vans, the new fleet is expected to be more cost efficient in the long run.</h5>",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I should include __________________(operating activities, investing activities, financing activities) in my cash flow statement.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 382,
+                                "order": 1,
+                                "question": "I should include __________________(operating activities, investing activities, financing activities) in my cash flow statement."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 288,
+                            "title": "Cash Flow Complete Unit 5",
+                            "description": "Cash Flow Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you seen an actual Cash flow statement?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 634,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 990,
+                        "title": "Managing your Cash Flow Posttest",
+                        "slug": "managing-cash-flow-certificate",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 289,
+                            "title": "Cash Flow Post Test",
+                            "description": "Cash Flow English Quiz",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "If goods have been shipped to the client at the beginning of the month, when should you send them the invoice to be paid quickly?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Wait till the end of the month",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "On the same day",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "The next working day",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 635,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The most important step in managing your cash flow is to :",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Track your Expenditures",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Categorize you’re Expenditures",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Get Paid Quickly",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Hold on to your cash",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 636,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "The advantages of using business cards instead of bank cheques to make payments are all of the following except :",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Payment process is easy",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Ability to pay online",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Authorized signatories are required to personally make the payment",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Rewards & Discounts are available",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 637,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Businesses are said to be successful in hard business times when they properly manage their cash flow. Cash Flow projections will : ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Identify marketing opportunities",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Save your company money",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Identify who should be promoted from one position to another",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Help manage and control Cash Expenditures",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"4\";}",
+                                    "question_id": 638,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Proceeds from the sale of a fixed asset should be recorded in the following section of a Cash flow statement : ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Financing Activities",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Investing Activities",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Operating Activities",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 639,
+                                    "order": 4
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/cash-flow.png",
+                "zip_path": "wp-content/uploads/2018/10/cash-flow.png",
+                "level": "card"
+            }
+        ]
+    }
+}

@@ -1,0 +1,608 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 94,
+        "title": "Nutrition Tips",
+        "description": "Nutrition Tips, A Guide for a Healthy Life",
+        "unit_count": 6,
+        "author_id": 0,
+        "course_post_id": 3734,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2720,
+            "title": "Nutrition Tips",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/nutrition-tips-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Nutritiontips.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 94,
+                "title": "Ramadan Nutrition Tips",
+                "description": "The Ramadan Nutrition Tips, A Guide for a Healthy Fasting",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 2592,
+                        "title": "Nutrition Tips Pretest",
+                        "slug": "nutrition-tips-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "A3glSrkt80k",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 833,
+                            "title": "Ramadan Nutrition Tips Pretest",
+                            "description": "Ramadan Nutrition Tips Pretest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "Foods you need to avoid during suhoor are those with low sodium, as they increase your thirst levels. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2047,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When breaking your fast, start up by:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Consuming 1-2 dates or a piece of fruit",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Eating Whole-grain foods",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Drinking 2 glasses of water",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Drinking 2 glasses of yogurt ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "3",
+                                    "question_id": 2048,
+                                    "order": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2593,
+                        "title": "4 Things that is Good for your Suhoor Meal",
+                        "slug": "4-things-that-is-good-for-your-suhoor-meal",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "BUsPXqsAk0U",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>The four things that are good for your suhoor meal:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>2 glasses of water</h5>\r\n</li>\r\n \t<li>\r\n<h5>Foods that are made up of complex carbohydrates</h5>\r\n</li>\r\n \t<li>\r\n<h5>Whole-grain foods</h5>\r\n</li>\r\n \t<li>\r\n<h5>Eggs</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>My name is Rania Salha.  I am an Australian Nutritionist and will be giving you tips regarding the Suhoor (pre-dawn) meal during the upcoming holy month of Ramadan.</h5>\r\n<h5>Many skip this important meal, as it requires getting up very early to prepare a meal.  So, why is Suhoor important? Well, it allows your body to refuel and sustain itself for a long day ahead.  Consuming food during Suhoor allows a more easier and tolerable fast.</h5>\r\n<h5>However, what you eat during this time is vital.  This meal should include food items that keep you feeling full and vitalized.  So, what kind of food should one ingest?</h5>\r\n<ol>\r\n \t<li>\r\n<h5>As soon as you wake, you should consume 2 glasses of water. This should be your first goal.  Even if you decide not to consume anything else.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Your next goal is to consume foods that are made up of complex carbohydrates. This includes, dairy foods, fruits, dates, vegetables and whole-grain products. They are important because they refrain from making you feel weak and moody, as well as helping to maintain your concentration and energy stabilized.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Whole-grain foods are a great option. They are rich in fiber, which keep you feeling full over a longer period. Such foods include anything whole-wheat; bagels, rice cakes, breads, cereals (oats and Weet-bix are wonderful choices).  A great kick-start is my favorite, jumbo oats with couple spoons of Laban/fresh milk, fresh fruits, and raw almonds with a drizzle of honey.</h5>\r\n</li>\r\n</ol>\r\n<h5>These kinds of food are ideal, since they really keep you feeling full and satisfied through the day. They also promote a more comfortable feeling in your stomach.</h5>\r\n<ol start=\"4\">\r\n \t<li>\r\n<h5>Eggs are also a wonderful option. They are high in protein and give your body energy.  However, you should refrain from frying eggs and instead opt for poached or boiled eggs.  These go great with whole-grain bread topped with avocado slices.</h5>\r\n</li>\r\n</ol>\r\n<h5>These simple foods are also rich in antioxidants, vitamins and minerals that your body doesn’t miss out on throughout the day.  They are also critical in assisting your body to function more easily during the day.</h5>",
+                            "course-unit-quotes": "<h5>Our food should be our medicine and our medicine should be our food. Hippocrates</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I always make sure my Suhoor meal includes the following:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 878,
+                                "order": 1,
+                                "question": "I always make sure my Suhoor meal includes the following:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 834,
+                            "title": "Ramadan Nutrition Tips Complete Unit 1",
+                            "description": "Ramadan Nutrition Tips Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What do you usually have as your suhoor meal? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 2049,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2594,
+                        "title": "4 Foods that you Should Avoid During Suhoor",
+                        "slug": "4-foods-that-you-should-avoid-during-suhoor",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "59K5JPXdHF8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Four types of food you should definitely avoid during Suhoor:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Foods packed with sodium</h5>\r\n</li>\r\n \t<li>\r\n<h5>Anything high in refined sugars</h5>\r\n</li>\r\n \t<li>\r\n<h5>Simple carbohydrates</h5>\r\n</li>\r\n \t<li>\r\n<h5>Fried foods</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>We have explained in the previous video, what are the foods that you should eat for Suhoor. Here are four types of food you should definitely avoid during Suhoor.</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Foods you need to avoid are those packed with sodium, as they increase your thirst levels. This includes foods such as processed cold meats, chips, salted nuts and fast foods.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Anything high in refined sugars, which are manufactured sugar, should also be avoided. Even though they give you the much needed boost you need, not long after this boost in energy quickly drops and causes lethargy and an increased level of appetite.  Definitely, something you don’t need while fasting.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>This goes the same for simple carbohydrates, such as white bread, fruit juice, chocolate bars and other packaged goods. These will make you hungry sooner.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"4\">\r\n \t<li>\r\n<h5>Fried foods are also a big no-no, as they wreak havoc on your stomach making you feel lethargic, increases chances of diarrhea, heartburn and of course provide no nutritional benefits.</h5>\r\n</li>\r\n</ol>\r\n<h5>Always remember, that preparation is also key.  You don’t want to get up early and prepare a meal in a rush, thus resorting to unhealthy options.  Remember to prepare yourself the night before so, that when you wake all you have to do is sit and enjoy a satisfying and peaceful meal.</h5>\r\n<h5>So, take on these tips to help you ease your way through a long fasting day.</h5>",
+                            "course-unit-quotes": "<h5>If you don't eat according to your goals, don't expect to reach them.</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I should make sure I avoid the following foods during Suhoor:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 879,
+                                "order": 1,
+                                "question": "I should make sure I avoid the following foods during Suhoor:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 835,
+                            "title": "Ramadan Nutrition Tips Complete Unit 2",
+                            "description": "Ramadan Nutrition Tips Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What is the food that you are trying to avoid during suhoor? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 2050,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2595,
+                        "title": "General Tips for Better Fasting Throughout the Day",
+                        "slug": "general-tips-better-fasting-throughout-day",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "x9Ll0iksDxM",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>8 tips can pave the way for a more smoother and enjoyable Ramadan fast:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Consume a satisfying Iftar meal, but do not overeat</h5>\r\n</li>\r\n \t<li>\r\n<h5>Increase intake of fluids</h5>\r\n</li>\r\n \t<li>\r\n<h5>Sleep early</h5>\r\n</li>\r\n \t<li>\r\n<h5>Avoid staying out in the sun</h5>\r\n</li>\r\n \t<li>\r\n<h5>Avoid fried and heavy foods</h5>\r\n</li>\r\n \t<li>\r\n<h5>Give your body at least one hour after consuming your Iftar meal</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose the right Carbohydrates</h5>\r\n</li>\r\n \t<li>\r\n<h5>Exercise</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>The Holy month of Ramadan will occur during the summer months of the year.  This means that the effect of dehydration can lead to lethargic feelings and headaches.  In addition, the late night meals and early wake ups (to eat the Suhoor meal) can further lead to higher levels of irritability.</h5>\r\n<h5>The following 8 tips can pave the way for a more smoother and enjoyable Ramadan fast:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Consume a satisfying Iftar meal, but <strong>do not overeat</strong>. I can only imagine that your thoughts during the day center around what foods you will be consuming later that night.  Mind you that this is a very bad habit that you should break.  Ramadan is a month of inner healing and peace.  So, instead of thinking about what the Iftar menu is, think about how fortunate you are than others.</h5>\r\n</li>\r\n</ol>\r\n<h5>Not only does overeating promote weight gain, but also causes you to feel sluggish and interrupt a peaceful night’s sleep.</h5>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5><strong>Increase intake of fluids</strong>. Water is always the best source of fluid for your body.  Drink water throughout the evening until it is time to sleep.  Keep a bottle of water at your bedside, so you drink during the night.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5><strong>Sleep early</strong>, so you can wake up to have the Suhoor meal.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"4\">\r\n \t<li>\r\n<h5><strong>Avoid staying out in the sun</strong>. If your job requires you to be outdoors, try and reduce your exposure to the sun by being in shady areas, wear appropriate clothing and sun hats.  For others, limit yourself to be being physically active, stay in cool areas and rest as much as possible.  Limit the amount of exercise you do this month and reside to reducing your workouts to evening times after breaking your fast.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"5\">\r\n \t<li>\r\n<h5><strong>Avoid fried and heavy foods</strong>. They put high amounts of burden on your gut after a long day of no foods and fluids. The counter effect is heart burn and indigestion.  Limit these.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"6\">\r\n \t<li>\r\n<h5>Give your body at least one hour after consuming your Iftar meal, so your body can refuel and replenish itself before consuming anything else. You don’t want to overburden your gut.  Be mindful to the amount of sweets and desserts you eat.  Remember, moderation is always the key, even when not fasting.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"7\">\r\n \t<li>\r\n<h5><strong>Choose the right Carbohydrates. </strong>Complex carbohydrates such as lentils, beans, quinoa, brown rice, low-fat dairy, fruits and vegetables as well as whole wheat pasta are released slowly, making you feel satiated for a longer period of time. They have lots of fiber, potassium and magnesium all of which are important for the body after a day of deprivation. Complex carbs also aid in digestion and assists in keeping your blood sugar levels stable.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"8\">\r\n \t<li>\r\n<h5>For those who follow a regular workout routine, fasting can present challenges; however, it’s not impossible to continue exercising during Ramadan. The best time to work out is at night, or before Suhoor, because the body is hydrated then.</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-quotes": "<h5>The food you eat can be either the safest and most powerful form of medicine or the slowest form of poison.  Ann Wigmore</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "I should increase intake of ________ and avoid _________in the holy month of Ramadan.",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 880,
+                                "order": 1,
+                                "question": "I should increase intake of ________ and avoid _________in the holy month of Ramadan."
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 836,
+                            "title": "Ramadan Nutrition Tips Complete Unit 3",
+                            "description": "Ramadan Nutrition Tips Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Compared to other months, in Ramadan, you normally:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Eat healthier",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Exercise more",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Do Both ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2051,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2596,
+                        "title": "Tips When Breaking Fast",
+                        "slug": "tips-breaking-fast",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "e5StWSZSQVU",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Four key steps when breaking fast:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Start off by drinking 2 glasses of water</h5>\r\n</li>\r\n \t<li>\r\n<h5>Consume 1-2 dates or a piece of fruit</h5>\r\n</li>\r\n \t<li>\r\n<h5>Don’t overload yourself with food immediately</h5>\r\n</li>\r\n \t<li>\r\n<h5>Finish with Main Meal</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>After a long day without fluids and food it is important to break fast correctly.  Your body has been deprived of food and water, which puts it at a point dehydration and your sugar levels would have hit a low.  So, it is crucial to slowly hydrate your body as well as slowly lift your sugar levels prior to your meals</h5>\r\n<h5>Four key steps when breaking fast:</h5>\r\n<ol>\r\n \t<li>\r\n<h5>Start off by drinking 2 glasses of water to rehydrate your body.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"2\">\r\n \t<li>\r\n<h5>Consume 1-2 dates or a piece of fruit to gradually raise your low sugar levels.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"3\">\r\n \t<li>\r\n<h5>Don’t overload yourself with food immediately. Start off by taking in a small bowl of soup.  Or opt for a generous amount of salad either alone or along with your soup.  Eating too much right away can cause your digestive system to feel overworked.  This overload causes heartburn, constipation or diarrhea and makes you feel sluggish.</h5>\r\n</li>\r\n</ol>\r\n<ol start=\"4\">\r\n \t<li>\r\n<h5>Finish with Main Meal. Make you sure you consume one type of protein with your meal. This can be either a piece of fish, chicken or beef/lamb.  Don’t forget to include vegetables with your meal.  Not only are they enriched with vitamins and minerals you missed during the day, but they are also enriched with fiber that keep you feeling satisfied.</h5>\r\n</li>\r\n</ol>",
+                            "course-unit-quotes": "<h5>The doctor of the future will no longer treat the human frame with drugs, but will rather cure and prevent disease with nutrition. Thomas Edison</h5>",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "Breaking fast correctly is very important thus, I should make sure I: ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 881,
+                                "order": 1,
+                                "question": "Breaking fast correctly is very important thus, I should make sure I: "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 837,
+                            "title": "Ramadan Nutrition Tips Complete Unit 4",
+                            "description": "Ramadan Nutrition Tips Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Compared to other months, in Ramadan, do you end up:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Eating more",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Eating less",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2052,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2597,
+                        "title": "Nutrition Tips Posttest",
+                        "slug": "ramadan-nutrition-tips-quiz",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 838,
+                            "title": "Ramadan Nutrition Tips Post Test",
+                            "description": "Ramadan Nutrition Tips Quiz",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "Foods that are made up of complex carbohydrates help maintain your concentration levels and also keep your energy levels stabilized.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 2053,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Foods you need to avoid during suhoor are those with low sodium, as they increase your thirst levels. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2054,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "In Ramadan, you should:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Overeat, increase intake of fluids and exercise",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Avoid fried and heavy foods, increase intake of fluids, and avoid staying out in the sun",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Choose the right Carbohydrates, avoid exercising, and sleep all day",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Sleep early, decrease intake of fluids and avoid staying out in the sun",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 2055,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "When breaking your fast, start up by:\n",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Consume 1-2 dates or a piece of fruit",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Eating Whole-grain foods",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Drinking 2 glasses of water",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 4,
+                                            "text": "Drinking 2 glasses of yogurt",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2056,
+                                    "order": 3
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/03/Nutritiontips.png",
+                "zip_path": "wp-content/uploads/2020/03/Nutritiontips.png",
+                "level": "card"
+            }
+        ]
+    }
+}

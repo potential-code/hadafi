@@ -1,0 +1,859 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:24+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 95,
+        "title": "Problem Solving",
+        "description": "Potential Course",
+        "unit_count": 8,
+        "author_id": 0,
+        "course_post_id": 3735,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2718,
+            "title": "Problem Solving",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/problem-solving-pre-test/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2020/03/Problem-Solving.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 95,
+                "title": "Problem Solving",
+                "description": "Potential Course",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 2598,
+                        "title": "Problem Solving  Pre-Test",
+                        "slug": "problem-solving-pre-test",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 839,
+                            "title": "Problem Solving PreTest",
+                            "description": "",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "It is important to know how to solve your problems because:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "It helps you make the right to move forward.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "It helps you tackle the challenges you face in an appropriate way.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "a and b",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2064,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A good problem solver thinks he is always right and never considers other possible solutions.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2065,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Defining the problem is the last step in problem solving. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2066,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Fish Technique focuses on:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "The 5 Whys",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Cause and Effect",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Problem Challenges",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 2067,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following are techniques used today to solve problems:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Fish Technique",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "5 Step Approach",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "a and b",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2068,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Implementing a solution is the final step in problem solving. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2069,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2599,
+                        "title": "3 Reasons Why It’s Important to Know How to Solve Problems in an Organization",
+                        "slug": "3-reasons-why-its-important-to-know-how-to-solve-problems-in-an-organization",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "Rsw3EjsTzR8",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Problem solving is filling the gap that exists between the solution and the actual point the business is at.</h5>\r\n<h5>Knowing how to do that is important and here are 3 reasons why:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Knowing how to solve problems enables your business to make the right decisions.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Problem solving ensures that these challenges are tackled in the appropriate way.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Problem solving shapes the world in a positive manner.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Hi, in this video we will suggest 3 reasons why it’s important to know how to solve problems in an organization.</h5>\r\n<h5>For a business, problem solving is removing the obstacles it faces on the path of its goal achievement. It is filling the gap that exists between the solution and the actual point the business is at. Knowing how to do that is important and here are 3 reasons why:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Decision making, however small, is needed every day in an organization. Knowing how to solve problems enables your business to make the right decisions to move forward towards a better future.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Big and small challenges are encountered regularly in a business. Problem solving ensures that these challenges are tackled in the appropriate way allowing new opportunities to arise.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Problem solving shapes the world in a positive manner bringing the best out of every business and thus every individual.</h5>\r\n</li>\r\n</ul>\r\n<h5>Problems are everywhere. Problems happen inside and outside an organization. Knowing how to solve these problems makes life a happier place to be in!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n         <li><a href=\"https://www.potential.com/articles/six-steps-develop-effective-problem-solving-process/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Six Steps to Develop an Effective Problem-Solving Process</a></li>\r\n         <li><a href=\"https://www.potential.com/articles/5-essential-steps-to-resolve-a-conflict-at-work/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Essential Steps to Resolve a Conflict at Work</a></li>\r\n         <li><a href=\"https://www.potential.com/articles/start-up-problems-101-clue-it-includes-those-pesky-workers-compensation-lawyers/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Start Up Problems 101 — Clue, It Includes Those Pesky Worker’s Compensation Lawyers!</a></li>\r\n\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are my goals for the year? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 872,
+                                "order": 1,
+                                "question": "What are my goals for the year? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 840,
+                            "title": "3 Reasons Why It’s Important to Know How to Solve Problems in an Organization",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "List the obstacles that are stopping you from reaching your goals:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 2058,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2600,
+                        "title": "6 Qualities of Exceptional Problem Solvers",
+                        "slug": "6-qualities-of-exceptional-problem-solvers",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "oK6XE-3MRTA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>6 qualities suggested in helping you become an excellent problem solver:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Good problem solvers are good thinkers.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Good problem solvers consider problems as new challenges and opportunities.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Good problem solvers regularly improve communication between their employees.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Good problem solvers keep egos aside.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Good problem solvers encourage creativity and new ideas.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Good problem solvers are able to eliminate the problem from reoccurring.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In our world today, every business faces problems sometimes on a daily basis. Since removing obstacles is essential along your business’s path to success, this video shows you 6 qualities suggested in helping you become an excellent problem solver.</h5>\r\n<h5>So here are 6 qualities for an exceptional, high-standard problem solver:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Good problem solvers are good thinkers that are able to combine the right feelings with the right logic to produce an accurate solution. They are aware of what is actually happening and always take problematic issues in an objective manner.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Good problem solvers consider problems as new challenges and opportunities. They learn from what they encounter and consider it as a wonderful life experience.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Good problem solvers regularly improve communication between their employees. This encourages members to accept solutions proposed by others thus finding the best strategy to solving the problem.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Good problem solvers keep egos aside. They don’t care who finds the solution but what’s important is solving the problem quickly and effectively.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Good problem solvers encourage creativity and new ideas in finding solutions to problems faced in the business. They are able to vision if these solutions are going to work to achieve the effect desired.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Good problem solvers are able to find the right root causes of the problem faced and thus eliminate the problem from reoccurring. Getting rid of problems <strong><em>once and for all</em></strong> is the aim of every organization striving success!</h5>\r\n</li>\r\n</ul>\r\n<h5>Everyone in your organization is advised to follow the steps above to be able to solve any problem, however small, in the best way possible. Keep in mind that big complex problems are always made up of smaller simpler problems. Eliminating these small problems allows the bigger problem to gradually disappear. So follow these steps to WOW yourself to an exceptional one-of-a kind problem solver that can tackle almost anything!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n         <li><a href=\"https://www.potential.com/articles/six-steps-develop-effective-problem-solving-process/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Six Steps to Develop an Effective Problem-Solving Process</a></li>\r\n         <li><a href=\"https://www.potential.com/articles/5-essential-steps-to-resolve-a-conflict-at-work/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Essential Steps to Resolve a Conflict at Work</a></li>\r\n         <li><a href=\"https://www.potential.com/articles/start-up-problems-101-clue-it-includes-those-pesky-workers-compensation-lawyers/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Start Up Problems 101 — Clue, It Includes Those Pesky Worker’s Compensation Lawyers!</a></li>\r\n\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is stopping me from accomplishing my goals?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 873,
+                                "order": 1,
+                                "question": "What is stopping me from accomplishing my goals?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 841,
+                            "title": "6 Qualities of Exceptional Problem Solvers",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you considering solutions proposed by your fellow colleagues?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2059,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2601,
+                        "title": "5 Precautions to Take Defining the Problem",
+                        "slug": "defining-the-problem",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "QypfTJu8os0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Defining the problem is not as easy as it sounds.</h5>\r\n<h5>5 precautions you should take while defining your problem:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>State your problem in a broad manner.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gather information and facts about the issue, the impact it has, and the consequences encountered.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure this is the actual problem.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Do not confuse symptoms of the problem with the actual problem itself.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Do not confuse problems with opportunities.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>There are many techniques your business can follow to help solve problems effectively. The most important thing to do is to be able to define your problem correctly. <strong> </strong>Defining the problem is not as easy as it sounds. If the problem was not defined accurately, you will be wasting your time searching solutions for something which is not an issue to begin with.</h5>\r\n<h5>In this video, we will suggest 5 precautions to take defining your problem so here they are:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>State your problem in a broad manner.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gather information and facts about the issue, the impact it has, and the consequences encountered.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Make sure this is the actual reason/problem preventing you from reaching your goal.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Do not confuse symptoms of the problem with the actual problem itself.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Do not confuse problems with opportunities ‘under disguise’ that you can take advantage of.</h5>\r\n</li>\r\n</ul>\r\n<h5>It is advisable to spend more time defining the problem then solving it. Once the problem has been defined accurately, the solution will be way easier to find!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n         <li><a href=\"https://www.potential.com/articles/six-steps-develop-effective-problem-solving-process/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Six Steps to Develop an Effective Problem-Solving Process</a></li>\r\n         <li><a href=\"https://www.potential.com/articles/5-essential-steps-to-resolve-a-conflict-at-work/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Essential Steps to Resolve a Conflict at Work</a></li>\r\n         <li><a href=\"https://www.potential.com/articles/start-up-problems-101-clue-it-includes-those-pesky-workers-compensation-lawyers/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Start Up Problems 101 — Clue, It Includes Those Pesky Worker’s Compensation Lawyers!</a></li>\r\n\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "One specific problem I am currently facing in my business is:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 874,
+                                "order": 1,
+                                "question": "One specific problem I am currently facing in my business is:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 842,
+                            "title": "Defining the Problem",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you checked that the problem you have is an actual problem and you have not mistakenly ignored a “hidden opportunity”? ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2063,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2602,
+                        "title": "7 Steps of the Unique Problem Solving Strategy ‘Fish Technique’",
+                        "slug": "7-steps-of-the-unique-problem-solving-strategy-fish-technique",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "RNLMQhAV0Io",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>‘Fish Technique’ is one of the most used techniques in today’s organizations.</h5>\r\n<h5>7 steps for the unique problem solving Fish Technique:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Write the problem down on the right side of a white sheet of paper.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Draw a straight line from the problem all the way across to the left side of the paper.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Connect each cause with a line to the spine of the fish.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gather more information and find possible causes for the causes in point 3 above. Connect these with smaller lines to the main causes in point 3.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Brainstorm many possible solutions.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Decide on the most appropriate solution to implement and take action.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Feedback is very essential in making sure of the impact of the solution.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn about one of the best-known techniques used in all organizations to solve problems. This technique is called ‘Fish Technique’ and it focuses on cause and effect. Using this helps businesses find the root causes of the problem thus defining their problems accurately.</h5>\r\n<h5>The reason for the name is that the diagram used in this technique is shaped like the skeleton bones of a fish.</h5>\r\n<h5>Here are the 7 steps for the unique problem solving Fish Technique:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Write the problem down on the right side of a white sheet of paper. This represents the head of the fish.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Draw a straight line from the problem all the way across to the left side of the paper. This line represents the backbone of the fish.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Write down causes of the problem, connecting each cause with a line to the spine of the fish. These represent the first bones of the fish diagram.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Gather more information and find possible causes for the causes in point 3 above. Connect these with smaller lines to the main causes in point 3. These will represent the smaller fine bones of the fish. In this way you will break down the problem into the main root causes making it clearer what the actual problem is.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Brainstorm many possible solutions. Solutions are ones that eliminate the root cause preventing the problem from reoccurring.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Decide on the most appropriate solution to implement and take action. The best solution may be the one that meets the business’s interest. Factors such as cost, duration and complexity must be taken into consideration while finding the appropriate solution.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Feedback is very essential in making sure of the impact of the solution. In other words, making sure your solution has not created extra problems and has removed what was an obstacle in your business’s path to success.</h5>\r\n</li>\r\n</ul>\r\n<h5>As explained, ‘Fish Technique’ is one of the most used techniques in today’s organizations. We suggest you use it in finding excellent solutions to your problems making it a unique challenging experience!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n         <li><a href=\"https://www.potential.com/articles/six-steps-develop-effective-problem-solving-process/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Six Steps to Develop an Effective Problem-Solving Process</a></li>\r\n         <li><a href=\"https://www.potential.com/articles/5-essential-steps-to-resolve-a-conflict-at-work/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Essential Steps to Resolve a Conflict at Work</a></li>\r\n         <li><a href=\"https://www.potential.com/articles/start-up-problems-101-clue-it-includes-those-pesky-workers-compensation-lawyers/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Start Up Problems 101 — Clue, It Includes Those Pesky Worker’s Compensation Lawyers!</a></li>\r\n\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "The fish diagram for my problem looks like this:",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 875,
+                                "order": 1,
+                                "question": "The fish diagram for my problem looks like this:"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 843,
+                            "title": "7 Steps of the Unique Problem Solving Strategy ‘Fish Technique’",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "What are the causes for your problem? And what are the causes of “those” causes?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 2060,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2603,
+                        "title": "‘5 Step Approach’ Alternative Problem Solving Strategy",
+                        "slug": "5-step-approach-alternative-problem-solving-strategy",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "KIbCw_490PA",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>5 Steps involved in the ‘5 Step Problem Solving Approach’ technique:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>State the problem clearly and specifically.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Think of two or more strategies to find out what the root causes of the problems are.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose the best strategies from the ones you have mentioned in step 2.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Try out the strategy and determine if that is really the root cause of the problem.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Measure your final result.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn about another technique called the ‘5 Step Problem Solving Approach’. This technique also helps businesses solve the problems they face on a daily basis.</h5>\r\n<h5>Here are the 5 Steps involved in this technique:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>State the problem clearly and specifically. Write down how it happened, when it happened, where etc.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Think of two or more strategies to find out what the root causes of the problems are.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Choose the best strategies from the ones you have mentioned in step 2.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Try out the strategy and determine if that is really the root cause of the problem.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Measure your final result. If your problem has disappeared, then WOW it is done! If not, then go back to step 2, choose another strategy and try it out. Keep doing this till you find the root cause and have eliminated the problem.</h5>\r\n</li>\r\n</ul>\r\n<h5>Analyzing and solving problems are things we face every day. You can follow one or more of the above techniques in both your business and daily life experiences. Be certain that this technique, as well as many others, is a method for making problem solving simpler and more fun!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n         <li><a href=\"https://www.potential.com/articles/six-steps-develop-effective-problem-solving-process/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Six Steps to Develop an Effective Problem-Solving Process</a></li>\r\n         <li><a href=\"https://www.potential.com/articles/5-essential-steps-to-resolve-a-conflict-at-work/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Essential Steps to Resolve a Conflict at Work</a></li>\r\n         <li><a href=\"https://www.potential.com/articles/start-up-problems-101-clue-it-includes-those-pesky-workers-compensation-lawyers/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Start Up Problems 101 — Clue, It Includes Those Pesky Worker’s Compensation Lawyers!</a></li>\r\n\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What is the root cause for my problem?  What solution do I need to get rid of it?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 876,
+                                "order": 1,
+                                "question": "What is the root cause for my problem?  What solution do I need to get rid of it?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 844,
+                            "title": "‘5 Step Approach’ Alternative Problem Solving Strategy",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "open",
+                                    "text": "List the possible reasons why you think your problem has occurred?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "small_textarea",
+                                    "question_id": 2061,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2604,
+                        "title": "5 Ways to Know Your Solution Has Worked",
+                        "slug": "5-ways-to-know-your-solution-has-worked",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "mkf0jQWab5g",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>It is not only important to find a solution to the problem you are facing, but what is most important is to make sure that the solution you have implemented was actually successful.</h5>\r\n<h5>5 ways we advise you to follow for a period of time after implementing a solution:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Regularly checking that you are on the path of achieving your goals.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Getting feedback from employees and customers by using surveys.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Checking if there is any chance for the problem to reoccur.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Checking the process manually in a business can sometimes help.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Analyzing the performance of your business before and after the problem has been solved.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>Sometimes after solving a problem in your business, you realize that the solution you thought was perfect was actually creating more problems in the long run. Thus, it is not only important to find a solution to the problem you are facing, but what is most important is to make sure that the solution you have implemented was actually successful. In this video, we suggest 5 ways to help you know that your solution has worked.</h5>\r\n<h5>Here are the 5 ways we advise you to follow for a period of time after implementing a solution:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Regularly checking that you are on the path of achieving your goals.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Getting feedback from employees and customers by using surveys.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Checking if there is any chance for the problem to reoccur.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Checking the process manually in a business can sometimes help.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Analyzing the performance of your business before and after the problem has been solved.</h5>\r\n</li>\r\n</ul>\r\n<h5>As explained, implementing solutions is not the final step in problem solving. To become an exceptional problem solver you must further do the final step of always checking that what you have done has perfectly worked. Following the above 5 steps assures your business <strong><em>minimal </em></strong>problems in the future!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n         <li><a href=\"https://www.potential.com/articles/six-steps-develop-effective-problem-solving-process/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Six Steps to Develop an Effective Problem-Solving Process</a></li>\r\n         <li><a href=\"https://www.potential.com/articles/5-essential-steps-to-resolve-a-conflict-at-work/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">5 Essential Steps to Resolve a Conflict at Work</a></li>\r\n         <li><a href=\"https://www.potential.com/articles/start-up-problems-101-clue-it-includes-those-pesky-workers-compensation-lawyers/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Start Up Problems 101 — Clue, It Includes Those Pesky Worker’s Compensation Lawyers!</a></li>\r\n\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the measures you will take to ensure that the solution you have implemented is successful?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 877,
+                                "order": 1,
+                                "question": "What are the measures you will take to ensure that the solution you have implemented is successful?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 845,
+                            "title": "5 Ways to Know Your Solution Has Worked",
+                            "description": "",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Have you checked that the solution to your problem was actually successful?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 2062,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 2605,
+                        "title": "Problem Solving - Post Test",
+                        "slug": "problem-solving-post-test",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 846,
+                            "title": "Problem Solving Post Test",
+                            "description": "Problem Solving Post Test",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "It is important to know how to solve your problems because:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "It helps you make the right to move forward.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "It helps you tackle the challenges you face in an appropriate way.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "a and b",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2057,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "A good problem solver thinks he is always right and never considers other possible solutions.",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2070,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Defining the problem is the last step in problem solving. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2071,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Fish Technique focuses on:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "The 5 Whys",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Cause and Effect",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Problem Challenges",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 2072,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which of the following are techniques used today to solve problems:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Fish Technique",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "5 Step Approach",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "a and b",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 2073,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Implementing a solution is the final step in problem solving. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 2074,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2020/03/Problem-Solving.png",
+                "zip_path": "wp-content/uploads/2020/03/Problem-Solving.png",
+                "level": "card"
+            }
+        ]
+    }
+}

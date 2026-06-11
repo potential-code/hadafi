@@ -1,0 +1,900 @@
+{
+    "schema_version": "1.0",
+    "exported_at": "2026-05-19T05:51:23+00:00",
+    "source_site": "https://smeep.potential.org",
+    "course": {
+        "course_id": 23,
+        "title": "Critical Thinking",
+        "description": "Critical Thinking",
+        "unit_count": 8,
+        "author_id": 0,
+        "course_post_id": 3666,
+        "settings": {
+            "completion_wall": "completion_wall",
+            "use_certificate": "use_certs",
+            "user_access": "default_hide",
+            "unit_advancement": "manual",
+            "prerequisites": [],
+            "payments_type": "free",
+            "payments_price": "0.00"
+        },
+        "card": {
+            "card_post_id": 2349,
+            "title": "Critical Thinking",
+            "content": "",
+            "course_unit_number": "",
+            "course_time": "",
+            "course_unit_link": "https://smeep.potential.org/module-1/critical-thinking-pretest/",
+            "course_image_url": "https://smeep.potential.org/wp-content/uploads/2018/10/criticat-thinking.png",
+            "featured_image_url": null
+        },
+        "modules": [
+            {
+                "module_id": 23,
+                "title": "Critical Thinking",
+                "description": "Critical Thinking a course for potential",
+                "order": 1,
+                "number": 1,
+                "units": [
+                    {
+                        "unit_id": 871,
+                        "title": "Critical Thinking PreTest",
+                        "slug": "critical-thinking-pretest",
+                        "order": 10,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 170,
+                            "title": "Critical Thinking PreTest",
+                            "description": "Critical Thinking PreTest",
+                            "type": "quiz_noblock",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "Critical Thinking is a skill you attain developing your judgments by thinking close mindedly, logically and coherently. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 365,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What kind of thinker listens to what others have to say?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Naive",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Selfish",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Fair-minded",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 366,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is the first stage in critical thinking development?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Analyzing the data you have collected",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Acquiring sufficient knowledge to be able to point out the main topic that is being addressed",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Interpreting and evaluating data",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 367,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Being self-aware and rational are both qualities of a successful thinker. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 368,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Our minds can:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "trick us in believing that it was the right thing to do",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "mislead us to believe something is better just by comparing it to something else",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "all the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 369,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Depending on others to do the thinking is a not a quality that a critical thinker possesses. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 370,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 872,
+                        "title": "7 Reasons Why Critical Thinking is Important",
+                        "slug": "7-reasons-why-critical-thinking-is-important",
+                        "order": 20,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "0Rr5hfzYWi0",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Critical thinking is a skill you attain developing your judgments by thinking open mindedly, logically and coherently.</h5>\r\n<h5>7 reasons why we advise practicing critical thinking skills:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Critical thinking encourages <strong>learning. </strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinking improves your <strong>self-evaluation. </strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinking promotes good <strong>language and presentation skills. </strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinking encourages <strong>creativity and innovation</strong>.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinking encourages good <strong>decision-making.</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinking encourages <strong>scientific discoveries and theories.</strong>.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinking keeps us <strong>up-to-date with our</strong> <strong>21<sup>st</sup> century economy</strong>.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this unit, you will learn why critical thinking is important in our everyday lives.</h5>\r\n<h5>Critical Thinking is a skill you attain developing your judgments by thinking open mindedly, logically and coherently. By becoming a good critical thinker, you become a more independent and self-directed learner. Every person can improve their critical thinking skills helping them take accurate decisions in their daily life routines at school, university, organization or simply at home.</h5>\r\n<h5>Here are the 7 reasons why we advise practicing critical thinking skills:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Critical thinking encourages <strong>learning</strong> how to think critically teaches you to be more independent. You do not rely on others and you take full ownership of your strengths and weaknesses. This helps you avoid mistakes improving your judgmental and evaluation skills to a whole new level.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinking improves your <strong>self-evaluation. </strong>Thinking with reason and making logical justifications helps reflect your own values and decisions in good way. Critical thinking is considered as an important asset for one’s own well-being.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinking promotes good <strong>language and presentation skills. </strong>By thinking critically you can present your thoughts in an organized manner. Analyzing your data logically helps you express your idea more effectively.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinking encourages <strong>creativity and innovation</strong>. By thinking ‘out-of-the-box’, you come up with new ideas and creative solutions allowing you to explore alternative options. As opposed to narrow thinking, critical thinking frees your mind and motivates you to understand other situations around you.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinking encourages good <strong>decision-making.</strong> Being a good, systematic and logical thinker allows you to coherently outline possible solutions to your problems. By doing that you can then easily visualize the best of these solutions and thus, apply it accordingly.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinking encourages <strong>scientific discoveries and theories</strong>. Science involves theory creation. However, in order to confirm these scientific theories both experimentation and reason are necessary. So critical thinking is and will always be one of the main foundations of science.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinking keeps us <strong>up-to-date with our</strong> <strong>21<sup>st</sup> century economy</strong>. As you already know, our economy today is based on information and technology. It is changing quickly and effectively. Analyzing information and solving problems systematically helps us adapt to this fast-changing workplace.</h5>\r\n</li>\r\n</ul>\r\n<h5>So as explained, it is vital to possess good critical thinking skills full of reason and logic. Learning how to master thinking analytically and systematically is considered a valuable asset for any career!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/critical-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Critical Thinking: Become an Exceptional Critical Thinker</a></li>\r\n \t<li><a href=\"https://www.potential.com/interpersonal-skills/7-key-tips-to-develop-strategic-thinking-in-your-organization/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Key Tips to Develop Strategic Thinking in Your Organization</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "A topic that I need to think about (could be a problem that I need to solve and evaluate, an idea that I need to plan or a decision that I need to take):",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 603,
+                                "order": 1,
+                                "question": "A topic that I need to think about (could be a problem that I need to solve and evaluate, an idea that I need to plan or a decision that I need to take):"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 171,
+                            "title": "Critical Thinking Complete Unit 1",
+                            "description": "Critical Thinking Complete Unit 1",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "What quality describes your way of thinking:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Decisive",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Creative",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Others ",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 372,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 873,
+                        "title": "3 Types of Thinkers",
+                        "slug": "3-kinds-of-thinkers",
+                        "order": 30,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "SXwO3v_jwQY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Critical thinking can be taught at an early age.</h5>\r\n<h5>As we grow up most youth could be categorized in one of the following categories of thinkers:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Naive thinkers </strong>believe everything they hear.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Selfish thinkers </strong>are smart but they don’t care about others.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Fair-minded thinkers </strong>don’t believe everything they hear.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, we will discuss the types of thinkers and how critical thinking is relevant to everyone.</h5>\r\n<h5>Critical thinking can be taught at an early age and the younger you start the faster and easier it is to master thinking helping you become an excellent leader in the future.</h5>\r\n<h5>As we grow up most youth could be categorized in one of the following categories of thinkers:</h5>\r\n<ul>\r\n \t<li>\r\n<h5><strong>Naive thinkers </strong>believe everything they hear. They don’t like to ask questions and they go along with whatever their friends say or tell them to do. They don’t bother themselves to think, they rely on those around them to do the thinking.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Selfish thinkers </strong>are smart, but they don’t care about others. They think a lot but only to manipulate other kids to get what they want, regardless of who gets hurt. It’s great if these thinkers redirect this intelligence towards good behavior rather than bad.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Fair-minded thinkers </strong>don’t believe everything they hear. They are smart and empathetic. They love to learn, ask a lot of questions and care dearly about others. Such thinkers have the potential to become great, wise critical thinkers that will make a difference in this world.</h5>\r\n</li>\r\n</ul>\r\n<h5>It’s our role as a society to help everyone become more fair-minded thinkers. Doing that is the first step towards bringing up successful future decision makers and problem solvers!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/critical-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Critical Thinking: Become an Exceptional Critical Thinker</a></li>\r\n \t<li><a href=\"https://www.potential.com/interpersonal-skills/7-key-tips-to-develop-strategic-thinking-in-your-organization/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Key Tips to Develop Strategic Thinking in Your Organization</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What kind of a thinker am I? How do I classify myself?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 604,
+                                "order": 1,
+                                "question": "What kind of a thinker am I? How do I classify myself?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 172,
+                            "title": "Critical Thinking Complete Unit 2",
+                            "description": "Critical Thinking Complete Unit 2",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you sometimes think selfishly?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 371,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 874,
+                        "title": "6 Stages of Critical Thinking Development",
+                        "slug": "6-stages-of-critical-thinking-development",
+                        "order": 40,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "yxKV0OBHiIo",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Critical thinking involves a number of significant steps you are advised to follow.</h5>\r\n<h5>So here are the 6 stages of Critical Thinking Development:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Acquiring sufficient <strong>knowledge</strong> to be able to point out the main topic that is being addressed.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Comprehending</strong> well what you have attained in stage 1 by relating it to what you already know.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Applying </strong>what you have already acquired and comprehended to an actual project.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Analyzing</strong> the data you have collected by breaking it into smaller steps in order to understand the details clearly.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Synthesizing</strong> the data researched by statistically combining them together and logically linking the relevant information to the topic issued.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Interpreting and evaluating</strong> data after it has been analyzed and synthesized is important to draw valid conclusions.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, you will learn what stages you go through becoming a critical thinker.</h5>\r\n<h5>Practicing good critical thinking at an early stage makes it easier to further enhance your way of thinking. Critical thinking involves a number of significant steps you are advised to follow. The order of the steps listed below is very important.</h5>\r\n<h5>So here are the 6 stages of Critical Thinking Development:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Acquiring sufficient <strong>knowledge</strong> to be able to point out the main topic that is being addressed. Learning more and educating yourself about the environment around you gives you a clearer picture of what is actually needed.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Comprehending</strong> well what you have attained in stage 1 by relating it to what you already know. Researching data happens in this stage. Building up your information helps you understand well what issue is placed on hand.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Applying </strong>what you have already acquired and comprehended to an actual project. Visualizing the information you have by making it applicable to your daily life.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Analyzing</strong> the data you have collected by breaking it into smaller steps in order to understand the details clearly. Interpreting and organizing the data collected by looking for similarities and differences. At this stage, data can be placed in charts or graphs.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Synthesizing</strong> the data researched by statistically combining them together and logically linking the relevant information to the topic issued. This is closely connected to determining the importance of the data analyzed.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Interpreting and evaluating</strong> data after it has been analyzed and synthesized is important to draw valid conclusions. This stage involves finding solutions and taking wise decisions accordingly. Sometimes letting your emotions take over can push the evaluation to an earlier stage. Never rush into this stage. Evaluation should be the last stage of critical thinking.</h5>\r\n</li>\r\n</ul>\r\n<h5>So we advise you to follow each stage above while making decisions in your business. Becoming more experienced with critical thinking enables you to assess your own learning styles thus strengthening your abilities!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/critical-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Critical Thinking: Become an Exceptional Critical Thinker</a></li>\r\n \t<li><a href=\"https://www.potential.com/interpersonal-skills/7-key-tips-to-develop-strategic-thinking-in-your-organization/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Key Tips to Develop Strategic Thinking in Your Organization</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What data do I already have about the topic I am addressing?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 605,
+                                "order": 1,
+                                "question": "What data do I already have about the topic I am addressing?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 173,
+                            "title": "Critical Thinking Complete Unit 3",
+                            "description": "Critical Thinking Complete Unit 3",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you know how to analyze, synthesize and interpret data after collecting it?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 373,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 875,
+                        "title": "5 Qualities of a High-Standard Critical Thinker",
+                        "slug": "5-qualities-of-a-high-standard-critical-thinker",
+                        "order": 50,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "zGeVnJF-Bzg",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>You should work to improve certain qualities in order to become an excellent thinker.</h5>\r\n<h5>Here are 5 qualities of an exceptional critical thinker:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Excellent thinkers are <strong>fair-minded</strong>.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Making no personal judgments</strong> is a quality of a high-standard thinker.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinkers are best when they don’t believe everything they have is true. Regularly <strong>checking the credibility of their sources</strong> makes them less likely to fall for traps.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Being <strong>self-aware and rational</strong> are both qualities of a successful thinker.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Excellent thinkers believe that <strong>mastering efficiency</strong> is the key to a successful business.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, you will learn 5 qualities of an exceptional critical thinker.</h5>\r\n<h5>In our lives today, we explain what we see using logical justifications. In business projects, a problem is solved when we find the source causing it by gathering enough information to prove it.  Mastering this way of thinking takes time and effort. You should work to improve certain qualities in order to become an excellent thinker.</h5>\r\n<h5>Here are 5 qualities of an exceptional critical thinker:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Excellent thinkers are <strong>fair-minded</strong>. They accept other perspectives and have sufficient comprehensive skills to examine problems from all sides.</h5>\r\n</li>\r\n \t<li>\r\n<h5><strong>Making no personal judgments</strong> is a quality of a high-standard thinker. By relying on facts rather than opinions and emotions, these thinkers make wise decisions.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Critical thinkers are best when they don’t believe everything they have is true. Regularly <strong>checking the credibility of their sources</strong> makes them less likely to fall for traps.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Being <strong>self-aware and rational</strong> are both qualities of a successful thinker. A good thinker knows his strengths and weakness and therefore approaches them wisely. Believing in the voice of reason and logic, critical thinkers can solve problems in a healthy and efficient way.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Excellent thinkers believe that <strong>mastering efficiency</strong> is the key to a successful business. They believe it is important to be smarter not to work harder. For example, discovering shortcuts if time is an important factor in your project.</h5>\r\n</li>\r\n</ul>\r\n<h5>We advise that you follow the suggested qualities mentioned above in order to WOW yourself to become a one-of-a-kind, talented critical thinker that all businesses dream to have on board!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/critical-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Critical Thinking: Become an Exceptional Critical Thinker</a></li>\r\n \t<li><a href=\"https://www.potential.com/interpersonal-skills/7-key-tips-to-develop-strategic-thinking-in-your-organization/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Key Tips to Develop Strategic Thinking in Your Organization</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What do I have to do to ensure I become a more fair-minded thinker (about the topic I am addressing)? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 606,
+                                "order": 1,
+                                "question": "What do I have to do to ensure I become a more fair-minded thinker (about the topic I am addressing)? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 174,
+                            "title": "Critical Thinking Complete Unit 4",
+                            "description": "Critical Thinking Complete Unit 4",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Do you regularly check the credibility of your sources?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 374,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 876,
+                        "title": "5 Common Mistakes Our Thinking Mind Can Make",
+                        "slug": "5-common-mistakes-our-thinking-mind-can-make",
+                        "order": 60,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "CiZr6-Mm8EY",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>Here are 5 common mistakes that we can do while thinking:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Our mind subconsciously <strong>looks for information that confirms what we already know</strong>.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Our mind naturally <strong>makes us feel our losses far more than we feel our gains</strong>.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Our mind allows us to make <strong>incorrect predictions</strong></h5>\r\n</li>\r\n \t<li>\r\n<h5>After our decision has been made and we realize we have not made the right choice, our mind <strong>tricks us in believing that it was the right thing to do</strong> just to make us feel better.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Instead of making right decisions based on facts, our mind often <strong>misleads us to believe something is better</strong> just by comparing it to something else.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, we will discuss 5 common tricks our human mind can sometimes play with us.</h5>\r\n<h5>The human mind controls every aspect of our lives. We can program our mind to take the right decisions by separating facts from our personal opinions and emotions. We can train the way we think making us more rational and self-aware. Knowing what we do wrong helps us control our mistakes and prevent us from repeating them. However, even if we think we have everything under control our mind sometimes tricks us unintentionally.</h5>\r\n<h5>Here are 5 common mistakes that we can do while thinking:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Our mind subconsciously <strong>looks for information that confirms what we already know</strong>. The brain prefers to keep us in our ‘comfort zone‘ where we don’t question our beliefs. Instead of looking for differences, it makes us feel safer staying just the way we are.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Our mind naturally <strong>makes us feel our losses far more than we feel our gains</strong>. Worrying persistently about any kind of cost that we have paid for never lets us move forward. Cost does not always have to mean money. It could also be our time and effort that we have lost and could never get back.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Our mind<strong> allows us to make</strong> <strong>incorrect predictions</strong> Subconsciously allowing our emotions to take control, we can make wrong decisions just because we really wish for it to be this way.</h5>\r\n</li>\r\n \t<li>\r\n<h5>After our decision has been made and we realize we have not made the right choice, our mind <strong>tricks us in believing that it was the right thing to do</strong> just to make us feel better.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Instead of making right decisions based on facts, our mind often <strong>misleads us to believe something is better just by comparing it to something else</strong>. It might not be the right choice, but it is certainly the one that looks more attractive.</h5>\r\n</li>\r\n</ul>\r\n<h5>All the above mistakes can be prevented when you train your mind to think critically. Being self-aware of what you can do wrong before doing it, increases the chances of you avoiding it!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "<ul>\r\n \t<li><a href=\"https://www.potential.com/articles/critical-thinking/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">Critical Thinking: Become an Exceptional Critical Thinker</a></li>\r\n \t<li><a href=\"https://www.potential.com/interpersonal-skills/7-key-tips-to-develop-strategic-thinking-in-your-organization/?utm_source=courses\" target=\"_blank\" rel=\"noopener\">7 Key Tips to Develop Strategic Thinking in Your Organization</a></li>\r\n</ul>",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "While thinking critically, what mistakes should I make sure I avoid? ",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 607,
+                                "order": 1,
+                                "question": "While thinking critically, what mistakes should I make sure I avoid? "
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 175,
+                            "title": "Critical Thinking Complete Unit 5",
+                            "description": "Critical Thinking Complete Unit 5",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "In your past experiences, have you made many wrong decisions while trying to find solutions or justifications to a certain problem or disagreement?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 375,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 877,
+                        "title": "6 Ways to Develop Good Critical Thinkers",
+                        "slug": "6-ways-to-develop-good-critical-thinkers",
+                        "order": 70,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": "4Gxvbdzl4qs",
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "<h5>6 ways we suggest to help individuals become good critical thinkers include:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Try to explain thoroughly and be clear when expressing an idea.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be accurate in your thinking by researching facts to decide what is real and what is not.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Use logic and reason to reach an evaluation.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Link related information to the situation being experienced to be relevant while expressing your thoughts.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be fair and always feel for others are bound to be good thinkers in the future.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Kids should be guided to be able to think for themselves.</h5>\r\n</li>\r\n</ul>",
+                            "course-unit-read-more": "<h5>In this video, you will learn how to help yourself and those around you become great critical thinkers.</h5>\r\n<h5>6 ways we suggest to help individuals become good critical thinkers include:</h5>\r\n<ul>\r\n \t<li>\r\n<h5>Try to explain thoroughly and be clear when expressing an idea. Keep asking questions until they completely understand what is going on. By strengthening your knowledge level, you become good thinkers.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be accurate in your thinking by researching facts to decide what is real and what is not.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Use logic and reason to reach an evaluation. This should allow you to fit things together and to make correct assumptions bringing you closer to a valid conclusion.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Link related information to the situation being experienced to be relevant while expressing your thoughts.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Be fair and always feel for others are bound to be good thinkers in the future. Being able to listen to alternative perspectives is one of the key elements of a successful thinker. Therefore, parents should work on raising empathetic kids.</h5>\r\n</li>\r\n \t<li>\r\n<h5>Kids should be guided to be able to think for themselves. Depending on parents to do the thinking is limiting a kid’s judgmental and decision making potentials.</h5>\r\n</li>\r\n</ul>\r\n<h5>Raising a good thinker means that you are raising a quick learner, an excellent problem solver, a creative thinker and thus, a successful individual in the future!</h5>",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "",
+                            "course-unit-atq-one": "What are the things I need to ensure that I do to become a good critical thinker?",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [
+                            {
+                                "q_id": 608,
+                                "order": 1,
+                                "question": "What are the things I need to ensure that I do to become a good critical thinker?"
+                            }
+                        ],
+                        "quiz": {
+                            "quiz_id": 176,
+                            "title": "Critical Thinking Complete Unit 6",
+                            "description": "Critical Thinking Complete Unit 6",
+                            "type": "survey",
+                            "pass_mark": 50,
+                            "attempts_allowed": -1,
+                            "show_answers": "no_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "multi",
+                                    "text": "Are you trying to find logical justifications to why things are happening?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Yes",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "No",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "question_id": 376,
+                                    "order": 0
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "unit_id": 878,
+                        "title": "Critical Thinking PostTest",
+                        "slug": "critical-thinking-posttest",
+                        "order": 80,
+                        "status": "publish",
+                        "content": "",
+                        "media": {
+                            "youtube_video_id": null,
+                            "banner_image_url": null,
+                            "featured_image_url": null,
+                            "pdf_template_url": null
+                        },
+                        "meta": {
+                            "course-unit-read": "",
+                            "course-unit-read-more": "",
+                            "course-unit-quotes": "",
+                            "course-unit-case-study": "",
+                            "course-unit-last-related-content": "",
+                            "course-unit-customrelated": "",
+                            "course-unit-page-show-game": "",
+                            "course-unit-page-show-related": "",
+                            "course-unit-page-ads": "",
+                            "action_plan": "",
+                            "templates_title": "",
+                            "atq_btn": "",
+                            "course-unit-atq-link": "https://smeep.potential.org/wp-content/themes/blankslate/tcpdf/examples/at_10.php",
+                            "course-unit-atq-one": "",
+                            "course-unit-atq-two": "",
+                            "atqq_3": "",
+                            "atqq_4": "",
+                            "atqq_5": "",
+                            "limit_chars": "",
+                            "bot_html": "",
+                            "bot_script": "",
+                            "course-unit-formid": "",
+                            "formid_tooltip": ""
+                        },
+                        "action_plan_questions": [],
+                        "quiz": {
+                            "quiz_id": 177,
+                            "title": "Critical Thinking PostTest",
+                            "description": "Critical Thinking PostTest",
+                            "type": "quiz_block",
+                            "pass_mark": 80,
+                            "attempts_allowed": -1,
+                            "show_answers": "show_answers",
+                            "timer": {
+                                "mode": "no_timer",
+                                "limit_minutes": 15
+                            },
+                            "questions": [
+                                {
+                                    "type": "truefalse",
+                                    "text": "Critical thinking is a skill you attain developing your judgments by thinking close mindedly, logically and coherently. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "false",
+                                    "question_id": 377,
+                                    "order": 0
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Which kind of thinker listens to what others have to say?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Naive",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Selfish",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Fair-minded",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 378,
+                                    "order": 1
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "What is the first stage in critical thinking development?",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "Analyzing the data you have collected",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "Acquiring sufficient knowledge to be able to point out the main topic that is being addressed",
+                                            "is_correct": true
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "Interpreting and evaluating data",
+                                            "is_correct": false
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"2\";}",
+                                    "question_id": 379,
+                                    "order": 2
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Being self-aware and rational are both qualities of a successful thinker. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 380,
+                                    "order": 3
+                                },
+                                {
+                                    "type": "multi",
+                                    "text": "Our minds can:",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "answers": [
+                                        {
+                                            "index": 1,
+                                            "text": "trick us in believing that it was the right thing to do.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 2,
+                                            "text": "mislead us to believe something is better just by comparing it to something else.",
+                                            "is_correct": false
+                                        },
+                                        {
+                                            "index": 3,
+                                            "text": "all the above",
+                                            "is_correct": true
+                                        }
+                                    ],
+                                    "correct_answer_raw": "a:1:{i:0;s:1:\"3\";}",
+                                    "question_id": 381,
+                                    "order": 4
+                                },
+                                {
+                                    "type": "truefalse",
+                                    "text": "Depending on others to do the thinking is a not a quality that a critical thinker possesses. ",
+                                    "image": "",
+                                    "hint": "",
+                                    "explanation": "",
+                                    "answer_type": "",
+                                    "correct_answer": "true",
+                                    "question_id": 382,
+                                    "order": 5
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "assets": {
+        "images": [
+            {
+                "role": "card_image",
+                "url": "https://smeep.potential.org/wp-content/uploads/2018/10/criticat-thinking.png",
+                "zip_path": "wp-content/uploads/2018/10/criticat-thinking.png",
+                "level": "card"
+            }
+        ]
+    }
+}

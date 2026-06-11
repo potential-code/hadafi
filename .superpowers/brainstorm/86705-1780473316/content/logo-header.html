@@ -1,0 +1,66 @@
+<h2>Should the Smeep logo appear in the PDF header?</h2>
+<p class="subtitle">The logo is available at <code>client/public/images/SMEEP-logo.png</code> — it can be embedded in the header banner.</p>
+
+<div class="cards">
+
+  <!-- Option A: Logo in header -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#fdf5f9;padding:16px;border-bottom:1px solid #f7e8f0;">
+      <div style="background:white;border-radius:6px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.12);font-family:sans-serif;">
+        <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);padding:14px 16px 12px;display:flex;align-items:center;justify-content:space-between;">
+          <div>
+            <div style="color:rgba(255,255,255,0.65);font-size:8px;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">SMEEP AI Business Assistant</div>
+            <div style="color:white;font-weight:700;font-size:14px;margin-bottom:2px;">Business Plan</div>
+            <div style="color:rgba(255,255,255,0.8);font-size:9px;">My Startup · June 2026</div>
+          </div>
+          <!-- Logo placeholder -->
+          <div style="width:36px;height:36px;background:rgba(255,255,255,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.2);">
+            <div style="color:white;font-weight:800;font-size:10px;letter-spacing:-0.5px;">SM</div>
+          </div>
+        </div>
+        <div style="padding:10px 14px 8px;">
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:5px;">
+            <div style="width:3px;height:11px;background:#9f2063;border-radius:2px;"></div>
+            <div style="color:#9f2063;font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:0.5px;">Executive Summary</div>
+          </div>
+          <div style="color:#374151;font-size:8px;line-height:1.5;">Our company provides innovative solutions...</div>
+        </div>
+        <div style="padding:4px 14px;background:#f9fafb;border-top:1px solid #f3f4f6;">
+          <div style="color:#9CA3AF;font-size:7px;text-align:center;">SMEEP · potential.com · Page 1 of 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Logo in header (Recommended)</h3>
+      <p>Smeep logo sits top-right of the gradient banner. Reinforces brand identity throughout the document — especially when the user receives it by email.</p>
+    </div>
+  </div>
+
+  <!-- Option B: No logo, text-only header -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#fdf5f9;padding:16px;border-bottom:1px solid #f7e8f0;">
+      <div style="background:white;border-radius:6px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.12);font-family:sans-serif;">
+        <div style="background:linear-gradient(120deg,#9f2063,#7a1a4c);padding:14px 16px 12px;">
+          <div style="color:rgba(255,255,255,0.65);font-size:8px;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">SMEEP AI Business Assistant</div>
+          <div style="color:white;font-weight:700;font-size:14px;margin-bottom:2px;">Business Plan</div>
+          <div style="color:rgba(255,255,255,0.8);font-size:9px;">My Startup · June 2026</div>
+        </div>
+        <div style="padding:10px 14px 8px;">
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:5px;">
+            <div style="width:3px;height:11px;background:#9f2063;border-radius:2px;"></div>
+            <div style="color:#9f2063;font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:0.5px;">Executive Summary</div>
+          </div>
+          <div style="color:#374151;font-size:8px;line-height:1.5;">Our company provides innovative solutions...</div>
+        </div>
+        <div style="padding:4px 14px;background:#f9fafb;border-top:1px solid #f3f4f6;">
+          <div style="color:#9CA3AF;font-size:7px;text-align:center;">SMEEP AI Business Assistant · potential.com · Page 1 of 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Text-only header</h3>
+      <p>Cleaner header without the logo image dependency. Avoids the need to resolve the image file path at runtime on the server.</p>
+    </div>
+  </div>
+
+</div>

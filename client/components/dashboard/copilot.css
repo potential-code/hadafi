@@ -1,0 +1,569 @@
+.smeep-copilot .copilotKitChat,
+.smeep-copilot .copilotKitWindow {
+  border-radius: 1rem;
+  border: 1px solid var(--color-brand-surface-2);
+  background: #fdf5f9;
+}
+
+.smeep-copilot {
+  --copilot-kit-primary-color: #9f2063;
+  --copilot-kit-contrast-color: #ffffff;
+  --copilot-kit-background-color: #fdf5f9;
+  --copilot-kit-secondary-color: #fdf5f9;
+  --copilot-kit-secondary-contrast-color: #1a0a12;
+  --copilot-kit-separator-color: #f7e8f0;
+  --copilot-kit-muted-color: #6b7280;
+}
+
+.smeep-copilot .copilotKitChat,
+.smeep-copilot .copilotKitWindow,
+.smeep-copilot .copilotKitMessages,
+.smeep-copilot .copilotKitInputContainer {
+  border-radius: 0;
+  border: 0;
+}
+
+/* Chat fills its container — parent uses position:relative + absolute inset-0 */
+.smeep-copilot .copilotKitChat {
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Grid layout: messages fill all remaining space (1fr), input sits below (auto).
+   This is more reliable than flex because 1fr resolves against the grid track's
+   available space, not the parent's height which may not be "definite" for flex. */
+.smeep-copilot .copilotKitChatBody {
+  display: grid !important;
+  grid-template-rows: 1fr auto !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Messages fills its 1fr grid cell and scrolls internally (V1 / landing) */
+.smeep-copilot .copilotKitMessages {
+  overflow-y: auto !important;
+  min-height: 0 !important;
+  background-color: #fdf5f9 !important;
+}
+
+/* Padding around messages so bubbles don't touch the card edges (V1 / landing) */
+.smeep-copilot .copilotKitMessagesContainer {
+  padding: 16px 14px 8px !important;
+}
+
+/* ===== V2 dashboard chat fixes (scoped to .smeep-assistant-chat) ===== */
+
+/* Fill the entire chat panel with the brand light-pink so the scroll area,
+   the gap below cards, and the space beside card strips all match the message
+   bubble background instead of showing the parent container's white. */
+.smeep-assistant-chat {
+  background-color: #fdf5f9 !important;
+}
+
+/* In V2, StickToBottom owns all scrolling. The generic .smeep-copilot rule
+   above sets overflow-y: auto on copilotKitMessages, which also enables
+   overflow-x and causes a horizontal scrollbar whenever card-strip arrow
+   buttons bleed outside the container (they use -left-3 / -right-3).
+   Override to hidden so neither axis creates a spurious scrollbar. */
+.smeep-assistant-chat .copilotKitMessages {
+  overflow: hidden !important;
+}
+
+/* V2 absolutely positions the input bar at bottom-0 of copilotKitChat, which
+   makes the StickToBottom scroll area (and its scrollbar) fill the full height of
+   the container — right behind the input. Switching the overlay to static flow
+   fixes both problems: StickToBottom (flex-1) now only fills the space above the
+   input, so the scrollbar ends flush with the top of the input bar and no messages
+   are hidden behind it. */
+.smeep-assistant-chat [data-testid="copilot-input-overlay"] {
+  position: static !important;
+  pointer-events: auto !important;
+}
+
+/* V2 wraps messages in a max-w-3xl mx-auto centered div inside
+   [data-testid="copilot-scroll-content"]. On panels wider than 48 rem this
+   creates equal centering margins that appear as white space on both sides.
+   Expand to full width to remove them. */
+.smeep-assistant-chat [data-testid="copilot-scroll-content"] > div {
+  max-width: 100% !important;
+  margin-inline: 0 !important;
+}
+
+/* Horizontal breathing room around message bubbles so avatars don't touch the
+   panel edge, plus a small top gap and a fixed bottom clearance. The dynamic
+   paddingBottom V2 sets inline (to keep content above the absolute-positioned
+   input) is no longer needed now that the input flows in the document. */
+.smeep-assistant-chat [data-testid="copilot-scroll-content"] {
+  padding: 8px 8px 24px !important;
+}
+
+/* Input container never shrinks (grid auto row already handles this) */
+.smeep-copilot .copilotKitInputContainer {
+  flex-shrink: 0 !important;
+}
+
+.smeep-copilot .copilotKitInput {
+  border-radius: 0.75rem !important;
+}
+
+.smeep-copilot .copilotKitUserMessage {
+  background: linear-gradient(135deg, #9f2063, #7a1a4c) !important;
+  color: white !important;
+  border-radius: 1rem 1rem 0.25rem 1rem !important;
+}
+
+.smeep-copilot .copilotKitAssistantMessage {
+  background: #fdf5f9 !important;
+  color: #1a0a12 !important;
+  border-radius: 1rem 1rem 1rem 0.25rem !important;
+}
+
+/* Suggestion chips — real CopilotKit selector: .copilotKitMessages footer .suggestions .suggestion */
+.smeep-copilot .copilotKitMessages footer .suggestions .suggestion {
+  border: 1.5px solid #e8b4d0 !important;
+  background: #fdf5f9 !important;
+  color: #9f2063 !important;
+  border-radius: 999px !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+  padding: 6px 16px !important;
+  line-height: 1.4 !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: all 0.15s ease !important;
+  box-shadow: none !important;
+}
+
+.smeep-copilot .copilotKitMessages footer .suggestions button {
+  display: inline-flex !important;
+  align-items: center !important;
+  color: #9f2063 !important;
+}
+
+.smeep-copilot .copilotKitMessages footer .suggestions .suggestion:hover,
+.smeep-copilot .copilotKitMessages footer .suggestions button:not(:disabled):hover {
+  background: #9f2063 !important;
+  color: white !important;
+  border-color: #9f2063 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(159, 32, 99, 0.25) !important;
+}
+
+.smeep-copilot .copilotKitButton {
+  background: #9f2063 !important;
+}
+.smeep-copilot .copilotKitButton:hover {
+  background: #7a1a4c !important;
+}
+
+/* ===== Floating popup (DashboardCopilotPopup) ===== */
+
+/* The launcher bubble bottom-right */
+.smeep-copilot-popup .copilotKitButton {
+  background: linear-gradient(135deg, #9f2063, #7a1a4c) !important;
+  box-shadow:
+    0 10px 30px -8px rgba(159, 32, 99, 0.55),
+    0 4px 12px -4px rgba(26, 10, 18, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 999px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+}
+.smeep-copilot-popup .copilotKitButton:hover {
+  background: linear-gradient(135deg, #b6256f, #8a1c55) !important;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow:
+    0 14px 36px -8px rgba(159, 32, 99, 0.7),
+    0 6px 16px -4px rgba(26, 10, 18, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+}
+.smeep-copilot-popup .copilotKitButton svg {
+  color: white !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* The popup window */
+.smeep-copilot-popup .copilotKitWindow {
+  border-radius: 1.25rem !important;
+  border: 1px solid #f1d6e3 !important;
+  background: white !important;
+  box-shadow:
+    0 30px 60px -20px rgba(26, 10, 18, 0.25),
+    0 12px 28px -10px rgba(159, 32, 99, 0.18) !important;
+  overflow: hidden !important;
+  width: min(384px, calc(100vw - 2rem)) !important;
+  height: min(620px, calc(100vh - 7rem)) !important;
+}
+
+/* Header bar — branded gradient */
+.smeep-copilot-popup .copilotKitHeader {
+  background: linear-gradient(135deg, #9f2063 0%, #7a1a4c 100%) !important;
+  color: white !important;
+  border-bottom: 0 !important;
+  padding: 0.875rem 1rem !important;
+}
+.smeep-copilot-popup .copilotKitHeader * {
+  color: white !important;
+}
+.smeep-copilot-popup .copilotKitHeader button {
+  color: white !important;
+  opacity: 0.85;
+}
+.smeep-copilot-popup .copilotKitHeader button:hover {
+  opacity: 1;
+}
+
+/* Mobile: take more of the screen */
+@media (max-width: 480px) {
+  .smeep-copilot-popup .copilotKitWindow {
+    width: calc(100vw - 1rem) !important;
+    height: calc(100vh - 6rem) !important;
+    border-radius: 1rem !important;
+  }
+  .smeep-copilot-popup .copilotKitButton {
+    width: 52px !important;
+    height: 52px !important;
+  }
+}
+
+/* ===== Dark landing chat theme (.smeep-landing-dark parent) ===== */
+
+.smeep-landing-dark {
+  --smeep-btn-idle-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* Override CopilotKit CSS variables for dark context */
+.smeep-landing-dark .smeep-copilot {
+  --copilot-kit-background-color: transparent;
+  --copilot-kit-secondary-color: rgba(255, 255, 255, 0.06);
+  --copilot-kit-separator-color: rgba(255, 255, 255, 0.08);
+  --copilot-kit-muted-color: rgba(255, 255, 255, 0.40);
+  --copilot-kit-secondary-contrast-color: rgba(255, 255, 255, 0.88);
+}
+
+/* Transparent chat shell */
+.smeep-landing-dark .smeep-copilot .copilotKitChat,
+.smeep-landing-dark .smeep-copilot .copilotKitWindow {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+/* Transparent messages scroll area */
+.smeep-landing-dark .smeep-copilot .copilotKitMessages {
+  background-color: transparent !important;
+}
+
+/* Transparent input outer container with dark top border */
+.smeep-landing-dark .smeep-copilot .copilotKitInputContainer {
+  background: transparent !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Dark glass bot bubble */
+.smeep-landing-dark .smeep-bot-bubble {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.90) !important;
+}
+
+/* Bot bubble markdown content */
+.smeep-landing-dark .smeep-bot-bubble p,
+.smeep-landing-dark .smeep-bot-bubble li,
+.smeep-landing-dark .smeep-bot-bubble strong,
+.smeep-landing-dark .smeep-bot-bubble em,
+.smeep-landing-dark .smeep-bot-bubble h1,
+.smeep-landing-dark .smeep-bot-bubble h2,
+.smeep-landing-dark .smeep-bot-bubble h3,
+.smeep-landing-dark .smeep-bot-bubble code {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.smeep-landing-dark .smeep-bot-bubble a {
+  color: rgba(232, 62, 148, 0.95) !important;
+}
+
+/* Copy button in dark mode */
+.smeep-landing-dark .smeep-bot-bubble button {
+  color: rgba(255, 255, 255, 0.22) !important;
+}
+
+/* Dark typing indicator bubble */
+.smeep-landing-dark .smeep-typing-bubble {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Input wrap focus highlight — light (dashboard) */
+.smeep-chat-input-wrap {
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.smeep-chat-input-wrap:focus-within {
+  border-color: rgba(159, 32, 99, 0.45) !important;
+  box-shadow: 0 0 0 3px rgba(159, 32, 99, 0.14), 0 0 12px rgba(159, 32, 99, 0.10);
+}
+
+/* Dark input wrapper */
+.smeep-landing-dark .smeep-chat-input-wrap {
+  background: rgba(0, 0, 0, 0.40) !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+}
+
+/* Input wrap focus highlight — dark (hero chatbot) */
+.smeep-landing-dark .smeep-chat-input-wrap:focus-within {
+  border-color: rgba(159, 32, 99, 0.60) !important;
+  box-shadow: 0 0 0 3px rgba(159, 32, 99, 0.22), 0 0 18px rgba(159, 32, 99, 0.18);
+}
+
+/* Dark textarea text and placeholder */
+.smeep-landing-dark .smeep-chat-textarea {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.smeep-landing-dark .smeep-chat-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.28) !important;
+}
+
+/* Dark hint text */
+.smeep-landing-dark .smeep-chat-hint {
+  color: rgba(255, 255, 255, 0.20) !important;
+}
+
+/* Dark scrollbar */
+.smeep-landing-dark .smeep-copilot .copilotKitMessages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.smeep-landing-dark .smeep-copilot .copilotKitMessages::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+.smeep-landing-dark .smeep-copilot .copilotKitMessages::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 999px !important;
+}
+
+.smeep-landing-dark .smeep-copilot .copilotKitMessages::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+}
+
+/* ===== Inline suggestion pills — rendered inside bot message bubbles ===== */
+
+.smeep-suggestion-pills {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  padding-bottom: 4px !important;
+}
+
+.smeep-suggestion-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  text-align: left !important;
+  border-radius: 999px !important;
+  border: 1.5px solid #e8b4d0 !important;
+  background: #fdf5f9 !important;
+  color: #9f2063 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  font-family: inherit !important;
+  padding: 6px 14px !important;
+  cursor: pointer !important;
+  white-space: normal !important;
+  width: auto !important;
+  transition: background 0.15s ease, color 0.15s ease,
+              border-color 0.15s ease, transform 0.15s ease,
+              box-shadow 0.15s ease;
+}
+
+.smeep-suggestion-pill--selected {
+  background: #9f2063 !important;
+  color: #ffffff !important;
+  border-color: #9f2063 !important;
+  box-shadow: 0 2px 8px rgba(159, 32, 99, 0.25) !important;
+}
+
+.smeep-suggestion-pill:hover:not(:disabled) {
+  background: #9f2063 !important;
+  color: #ffffff !important;
+  border-color: #9f2063 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(159, 32, 99, 0.25) !important;
+}
+
+.smeep-suggestion-pill:active:not(:disabled) {
+  transform: translateY(0) !important;
+  box-shadow: none !important;
+}
+
+.smeep-suggestion-pill:disabled {
+  opacity: 0.4 !important;
+  cursor: not-allowed !important;
+}
+
+/* "Confirm selection" button — multi-select only */
+.smeep-confirm-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-top: 2px !important;
+  margin-bottom: 0 !important;
+  padding: 7px 18px !important;
+  border-radius: 999px !important;
+  background: #9f2063 !important;
+  color: #fff !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  font-family: inherit !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 8px rgba(159, 32, 99, 0.3) !important;
+}
+
+.smeep-confirm-btn:hover:not(:disabled) {
+  background: #7a1a4c !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(159, 32, 99, 0.4) !important;
+}
+
+.smeep-confirm-btn:active:not(:disabled) {
+  transform: translateY(0) !important;
+}
+
+.smeep-confirm-btn:disabled {
+  opacity: 0.35 !important;
+  cursor: not-allowed !important;
+}
+
+/* "Generate more options" ghost button — appears below the pill row */
+.smeep-more-options-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: rgba(159, 32, 99, 0.6);
+  font-size: 11px;
+  font-weight: 500;
+  font-family: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+
+.smeep-more-options-btn:hover:not(:disabled) {
+  color: #9f2063;
+}
+
+.smeep-more-options-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===== Markdown typography inside bot bubbles and document preview ===== */
+
+.smeep-bot-bubble h1,
+.smeep-bot-bubble h2,
+.smeep-doc-preview h1,
+.smeep-doc-preview h2 {
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #1a0a12 !important;
+  margin: 10px 0 4px !important;
+  line-height: 1.3 !important;
+}
+
+.smeep-bot-bubble h3,
+.smeep-doc-preview h3 {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #1a0a12 !important;
+  margin: 8px 0 3px !important;
+  line-height: 1.3 !important;
+}
+
+.smeep-bot-bubble h1:first-child,
+.smeep-bot-bubble h2:first-child,
+.smeep-bot-bubble h3:first-child,
+.smeep-doc-preview h1:first-child,
+.smeep-doc-preview h2:first-child {
+  margin-top: 2px !important;
+}
+
+.smeep-bot-bubble p,
+.smeep-doc-preview p {
+  margin: 4px 0 !important;
+  line-height: 1.55 !important;
+}
+
+.smeep-bot-bubble ul,
+.smeep-bot-bubble ol,
+.smeep-doc-preview ul,
+.smeep-doc-preview ol {
+  padding-left: 18px !important;
+  margin: 4px 0 !important;
+}
+
+.smeep-bot-bubble li,
+.smeep-doc-preview li {
+  margin: 2px 0 !important;
+  line-height: 1.5 !important;
+}
+
+.smeep-bot-bubble ul > li,
+.smeep-doc-preview ul > li {
+  list-style-type: disc !important;
+}
+
+.smeep-bot-bubble ol > li,
+.smeep-doc-preview ol > li {
+  list-style-type: decimal !important;
+}
+
+.smeep-bot-bubble strong,
+.smeep-doc-preview strong {
+  font-weight: 700 !important;
+}
+
+.smeep-bot-bubble em,
+.smeep-doc-preview em {
+  font-style: italic !important;
+}
+
+.smeep-bot-bubble hr,
+.smeep-doc-preview hr {
+  border: none !important;
+  border-top: 1px solid #f0d8e7 !important;
+  margin: 10px 0 !important;
+}
+
+.smeep-bot-bubble code,
+.smeep-doc-preview code {
+  font-size: 11px !important;
+  background: #f7e8f0 !important;
+  border-radius: 3px !important;
+  padding: 1px 4px !important;
+  font-family: ui-monospace, monospace !important;
+}
+
+/* Dark mode overrides for bot bubble markdown */
+.smeep-landing-dark .smeep-bot-bubble h1,
+.smeep-landing-dark .smeep-bot-bubble h2,
+.smeep-landing-dark .smeep-bot-bubble h3 {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.smeep-landing-dark .smeep-bot-bubble hr {
+  border-top-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.smeep-landing-dark .smeep-bot-bubble code {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
