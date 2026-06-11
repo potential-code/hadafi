@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { Check, ArrowRight } from 'lucide-react'
+import { ArrowRight, Check, GraduationCap, Sparkles, UserCheck, Gift } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ABOUT, REDESIGN_ASSETS } from '@/lib/constants'
@@ -12,12 +12,12 @@ import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const HIGHLIGHTS = [
-  'Free training & live events',
-  'AI mentors available 24/7',
-  'Private 1:1 expert sessions',
-  'Exclusive partner offers',
-]
+const FEATURES = [
+  { icon: GraduationCap, label: 'Free Training & Events', desc: 'Courses, webinars, and live sessions — always free' },
+  { icon: Sparkles,      label: 'AI Mentors 24/7',        desc: 'Instant guidance and answers, any time you need' },
+  { icon: UserCheck,     label: '1-on-1 Expert Sessions', desc: 'Book private time with real industry specialists' },
+  { icon: Gift,          label: 'Partner Offers',         desc: 'Exclusive discounts and deals for members only' },
+] as const
 
 const STATS = [
   { value: 100000, display: '100K+', label: 'Women entrepreneurs' },
@@ -115,7 +115,7 @@ export function AboutSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 text-brand-text-muted leading-relaxed"
           >
-            {ABOUT.body}
+            A free global program by Potential.org — built for women entrepreneurs ready to start, grow, and lead.
           </motion.p>
 
           {/* GSAP Stat counters */}
@@ -138,23 +138,25 @@ export function AboutSection() {
             ))}
           </div>
 
-          <ul className="mt-7 grid sm:grid-cols-2 gap-3">
-            {HIGHLIGHTS.map((h, i) => (
-              <motion.li
-                key={h}
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
+          {/* Feature cards */}
+          <div className="mt-7 grid grid-cols-2 gap-3">
+            {FEATURES.map(({ icon: Icon, label, desc }, i) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.05 * i + 0.3, duration: 0.4 }}
-                className="flex items-center gap-3 text-sm font-medium text-brand-text-primary"
+                transition={{ delay: 0.07 * i + 0.3, duration: 0.4 }}
+                className="flex flex-col gap-2 p-4 rounded-2xl bg-white border border-brand-surface-2 shadow-sm hover:border-brand-primary/30 hover:shadow-md transition-all duration-200"
               >
-                <span className="w-6 h-6 rounded-full bg-brand-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Check className="w-3.5 h-3.5 text-brand-primary" />
-                </span>
-                {h}
-              </motion.li>
+                <div className="w-8 h-8 rounded-xl bg-brand-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-4 h-4 text-brand-primary" />
+                </div>
+                <p className="text-sm font-semibold text-brand-text-primary leading-tight">{label}</p>
+                <p className="text-[12px] text-brand-text-muted leading-snug">{desc}</p>
+              </motion.div>
             ))}
-          </ul>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
