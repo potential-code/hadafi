@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, useCallback, useEffect } from 'react'
+import { useRef, useState, useCallback, useEffect, type CSSProperties } from 'react'
 import { useRouter } from 'next/navigation'
 import { CopilotKit, useCopilotAction, useCopilotReadable } from '@copilotkit/react-core'
 import { CopilotChat } from '@copilotkit/react-ui'
@@ -77,7 +77,7 @@ interface LoginData {
 // ---------------------------------------------------------------------------
 const GLASS_TRANSITION = 'backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease, background 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease'
 
-const LIGHT_GLASS: React.CSSProperties = {
+const LIGHT_GLASS: CSSProperties = {
   background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
   backdropFilter: 'blur(12px)',
   WebkitBackdropFilter: 'blur(12px)',
@@ -86,7 +86,7 @@ const LIGHT_GLASS: React.CSSProperties = {
   transition: GLASS_TRANSITION,
 }
 
-const FULL_GLASS: React.CSSProperties = {
+const FULL_GLASS: CSSProperties = {
   background: 'linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%)',
   backdropFilter: 'blur(24px)',
   WebkitBackdropFilter: 'blur(24px)',
