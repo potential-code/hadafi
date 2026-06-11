@@ -1,8 +1,13 @@
 // Hero section
 export const HERO = {
   headline: 'Start and Grow Your Business with Hadafi',
-  subtext:
-    "Join Hadafi, the ultimate program designed to empower women entrepreneurs like you. Whether you're just starting out or looking to grow your business, Hadafi provides free tools, training, and resources you need to succeed—powered by cutting-edge AI.",
+  badge: 'AI-Powered · Free · Global',
+  pills: ['AI Mentors', 'Expert Coaching', 'Live Events', 'Free Tools'] as const,
+  checklist: [
+    'Free training courses and AI tools, no experience needed',
+    '1-on-1 sessions with human mentors and industry experts',
+    'Join 100,000+ entrepreneurs from 50+ countries',
+  ] as const,
   ctaLabel: 'Sign Up Free',
   ctaHref: '/sign-up',
   loginLabel: 'Login',
