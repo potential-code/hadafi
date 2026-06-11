@@ -73,6 +73,29 @@ interface LoginData {
 }
 
 // ---------------------------------------------------------------------------
+// Glass style constants — module-scoped to avoid object recreation on each render
+// ---------------------------------------------------------------------------
+const GLASS_TRANSITION = 'backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease, background 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease'
+
+const LIGHT_GLASS: React.CSSProperties = {
+  background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+  backdropFilter: 'blur(12px)',
+  WebkitBackdropFilter: 'blur(12px)',
+  border: '1px solid rgba(255,255,255,0.08)',
+  boxShadow: '0 6px 32px rgba(0,0,0,0.40)',
+  transition: GLASS_TRANSITION,
+}
+
+const FULL_GLASS: React.CSSProperties = {
+  background: 'linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%)',
+  backdropFilter: 'blur(24px)',
+  WebkitBackdropFilter: 'blur(24px)',
+  border: '1px solid rgba(255,255,255,0.10)',
+  boxShadow: '0 8px 48px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 80px rgba(159,32,99,0.10)',
+  transition: GLASS_TRANSITION,
+}
+
+// ---------------------------------------------------------------------------
 // System prompt
 // ---------------------------------------------------------------------------
 
@@ -547,27 +570,6 @@ function LandingRegistrationChatInner() {
       }
     },
   })
-
-  // ── Glass style constants ──────────────────────────────────────────────────
-  const GLASS_TRANSITION = 'backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease, background 0.5s ease, box-shadow 0.5s ease'
-
-  const LIGHT_GLASS: React.CSSProperties = {
-    background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
-    backdropFilter: 'blur(12px)',
-    WebkitBackdropFilter: 'blur(12px)',
-    border: '1px solid rgba(255,255,255,0.08)',
-    boxShadow: '0 6px 32px rgba(0,0,0,0.40)',
-    transition: GLASS_TRANSITION,
-  }
-
-  const FULL_GLASS: React.CSSProperties = {
-    background: 'linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%)',
-    backdropFilter: 'blur(24px)',
-    WebkitBackdropFilter: 'blur(24px)',
-    border: '1px solid rgba(255,255,255,0.10)',
-    boxShadow: '0 8px 48px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 80px rgba(159,32,99,0.10)',
-    transition: GLASS_TRANSITION,
-  }
 
   // ── Render ─────────────────────────────────────────────────────────────────
   return (
