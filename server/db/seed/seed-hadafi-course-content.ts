@@ -169,14 +169,10 @@ console.log(`[seed-hadafi-course-content] ${folders.length} course folders found
 let seeded = 0
 let skippedCount = 0
 
-// Skip course-109 (Norwegian placeholder with no content)
-const SKIP_WP_IDS = new Set([109])
-
 for (const folder of folders) {
   const m = folder.match(/course-(\d+)-/)
   if (!m) { skippedCount++; continue }
   const wpCourseId = parseInt(m[1], 10)
-  if (SKIP_WP_IDS.has(wpCourseId)) { skippedCount++; continue }
 
   // Read course.json
   const wpExport: WpExport = JSON.parse(
