@@ -80,7 +80,7 @@ export function HeroSection() {
               {HERO.pills.map((pill) => (
                 <span
                   key={pill}
-                  className="px-3 py-1 rounded-full text-xs text-white/80 border border-brand-primary/30 bg-brand-primary/10"
+                  className="px-3 py-1 rounded-full text-xs text-white/80 border border-brand-primary/30 bg-brand-primary/10 cursor-default select-none transition-all duration-200 hover:bg-brand-primary/25 hover:border-brand-primary/60 hover:text-white hover:scale-105 hover:shadow-[0_0_12px_rgba(228,22,116,0.35)]"
                 >
                   {pill}
                 </span>

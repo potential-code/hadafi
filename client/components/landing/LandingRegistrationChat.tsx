@@ -591,7 +591,6 @@ function LandingRegistrationChatInner() {
             alt="Hana"
             className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white/30"
           />
-          <div className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-green-400 border-2 border-white/20 shadow-[0_0_6px_rgba(74,222,128,0.7)]" />
         </div>
         <div>
           <p className="text-white text-sm font-semibold leading-tight">Hana</p>
@@ -607,7 +606,7 @@ function LandingRegistrationChatInner() {
             <div
               className="w-24 h-24 lg:w-36 lg:h-36 rounded-full overflow-hidden"
               style={{
-                boxShadow: '0 0 0 3px rgba(255,255,255,0.12), 0 0 0 8px rgba(228,22,116,0.22), 0 0 50px rgba(228,22,116,0.45), 0 16px 40px rgba(0,0,0,0.45)',
+                boxShadow: '0 0 50px rgba(228,22,116,0.40), 0 16px 40px rgba(0,0,0,0.45)',
               }}
             >
               <img
@@ -616,7 +615,6 @@ function LandingRegistrationChatInner() {
                 className="w-full h-full object-cover object-top"
               />
             </div>
-            <div className="absolute bottom-1 right-1 w-3.5 h-3.5 lg:w-4 lg:h-4 rounded-full bg-green-400 border-2 border-white/20 shadow-[0_0_10px_rgba(74,222,128,0.7)]" />
           </div>
 
           {/* Text */}
