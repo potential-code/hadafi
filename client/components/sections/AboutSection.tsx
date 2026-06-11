@@ -154,7 +154,7 @@ export function AboutSection() {
                   data-stat={s.value}
                   className="text-2xl sm:text-3xl font-extrabold text-gradient-magenta leading-none"
                 >
-                  {reduced ? s.display : '0'}
+                  {s.display}
                 </div>
                 <p className="text-[11px] sm:text-xs text-brand-text-muted mt-1.5 font-medium">
                   {s.label}
