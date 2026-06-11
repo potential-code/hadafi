@@ -133,7 +133,7 @@ export function AboutSection() {
                 <div className="absolute top-0 left-3 right-3 h-px rounded-full bg-gradient-to-r from-transparent via-brand-primary/50 to-transparent" />
                 {/* Watermark icon */}
                 <Icon
-                  className="absolute -bottom-3 -right-3 w-16 h-16 text-brand-primary opacity-[0.09] group-hover:opacity-[0.16] transition-opacity duration-300 pointer-events-none"
+                  className="absolute -bottom-3 -left-3 w-16 h-16 text-brand-primary opacity-[0.18] group-hover:opacity-[0.28] transition-opacity duration-300 pointer-events-none"
                   strokeWidth={1}
                 />
                 {/* Text */}
