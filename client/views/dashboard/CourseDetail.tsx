@@ -189,6 +189,14 @@ export default function CourseDetailPage() {
   const activeItem = navItems[activeIdx] ?? null
   const isLast = activeIdx === navItems.length - 1
 
+  const hasActionPlanQuestions = course?.modules.some((m) =>
+    m.units.some((u) =>
+      u.blocks.some((b) =>
+        b.questions.some((q) => q.kind === 'action-plan')
+      )
+    )
+  ) ?? false
+
   const handleComplete = useCallback(() => {
     queryClient.invalidateQueries({ queryKey: ['learner-course', courseId] })
   }, [queryClient, courseId])
@@ -386,7 +394,7 @@ export default function CourseDetailPage() {
         course={course}
         activeItem={activeItem}
         onViewCertificate={course.enableCertificate && course.progressPercentage >= 100 ? handleViewCertificate : undefined}
-        onDownloadActionPlan={course.progressPercentage >= 100 ? handleDownloadActionPlan : undefined}
+        onDownloadActionPlan={course.progressPercentage >= 100 && hasActionPlanQuestions ? handleDownloadActionPlan : undefined}
       />
 
       {/* Mobile menu trigger */}

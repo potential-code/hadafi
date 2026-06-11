@@ -6,9 +6,9 @@ import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
 import {
   BookUser,
   Building2,
-  GraduationCap,
+  // GraduationCap, // hidden until re-enabled (university)
   Landmark,
-  Rocket,
+  // Rocket,        // hidden until re-enabled (incubator)
   TrendingUp,
   Users,
 } from 'lucide-react'
@@ -31,12 +31,13 @@ import type { AnalyticsRange } from '@/lib/api/adminAnalytics'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 const TYPE_CONFIG = [
-  { key: 'expert'     as const, label: 'Expert',     icon: <BookUser      className="w-9 h-9" />, accent: 'bg-brand-primary',      delay: 0    },
-  { key: 'vc'         as const, label: 'VC',          icon: <TrendingUp    className="w-9 h-9" />, accent: 'bg-brand-violet',       delay: 0.05 },
-  { key: 'government' as const, label: 'Government',  icon: <Landmark      className="w-9 h-9" />, accent: 'bg-brand-primary-dark', delay: 0.1  },
-  { key: 'corporate'  as const, label: 'Corporate',   icon: <Building2     className="w-9 h-9" />, accent: 'bg-brand-primary',      delay: 0.15 },
-  { key: 'university' as const, label: 'University',  icon: <GraduationCap className="w-9 h-9" />, accent: 'bg-brand-violet',       delay: 0.2  },
-  { key: 'incubator'  as const, label: 'Incubator',   icon: <Rocket        className="w-9 h-9" />, accent: 'bg-brand-primary-dark', delay: 0.25 },
+  { key: 'expert'     as const, label: 'Expert',     icon: <BookUser   className="w-9 h-9" />, accent: 'bg-brand-primary',      delay: 0    },
+  { key: 'vc'         as const, label: 'Supporter',  icon: <TrendingUp className="w-9 h-9" />, accent: 'bg-brand-violet',       delay: 0.05 },
+  { key: 'government' as const, label: 'Government', icon: <Landmark   className="w-9 h-9" />, accent: 'bg-brand-primary-dark', delay: 0.1  },
+  // --- Hidden until re-enabled ---
+  // { key: 'corporate'  as const, label: 'Corporate',   icon: <Building2     className="w-9 h-9" />, accent: 'bg-brand-primary',      delay: 0.15 },
+  // { key: 'university' as const, label: 'University',  icon: <GraduationCap className="w-9 h-9" />, accent: 'bg-brand-violet',       delay: 0.2  },
+  // { key: 'incubator'  as const, label: 'Incubator',   icon: <Rocket        className="w-9 h-9" />, accent: 'bg-brand-primary-dark', delay: 0.25 },
 ]
 
 function StakeholderTypeCard({
@@ -97,12 +98,14 @@ const LINE_COLORS: Record<string, string> = {
   expert:     '#9f2063',
   vc:         '#4c1d6e',
   government: '#e83e94',
-  corporate:  '#c42b7a',
-  university: '#7a1a4c',
-  incubator:  '#8b5cf6',
+  // --- Hidden until re-enabled ---
+  // corporate:  '#c42b7a',
+  // university: '#7a1a4c',
+  // incubator:  '#8b5cf6',
 }
 
-const LINE_KEYS = ['expert', 'vc', 'government', 'corporate', 'university', 'incubator'] as const
+// const LINE_KEYS = ['expert', 'vc', 'government', 'corporate', 'university', 'incubator'] as const
+const LINE_KEYS = ['expert', 'vc', 'government'] as const
 
 interface Props {
   range: AnalyticsRange
@@ -127,7 +130,7 @@ export function AnalyticsStakeholdersTab({ range }: Props) {
   return (
     <div className="space-y-6">
       {/* KPI cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
         {TYPE_CONFIG.map((t) => (
           <StakeholderTypeCard
             key={t.key}
@@ -163,7 +166,7 @@ export function AnalyticsStakeholdersTab({ range }: Props) {
                       key={key}
                       type="monotone"
                       dataKey={key}
-                      name={key.charAt(0).toUpperCase() + key.slice(1)}
+                      name={key === 'vc' ? 'Supporter' : key.charAt(0).toUpperCase() + key.slice(1)}
                       stroke={LINE_COLORS[key]}
                       strokeWidth={2}
                       dot={false}

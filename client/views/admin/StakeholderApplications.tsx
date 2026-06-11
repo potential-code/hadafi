@@ -44,11 +44,12 @@ interface StakeholderApplication {
 // ---------------------------------------------------------------------------
 
 const TYPE_META: Record<string, { label: string; badge: string; subtitle: string }> = {
-  vc: { label: 'VCs', badge: 'VC', subtitle: 'Venture capital stakeholder submissions.' },
+  vc: { label: 'Supporters', badge: 'Supporter', subtitle: 'Community supporter submissions.' },
   government: { label: 'Government', badge: 'Government', subtitle: 'Government stakeholder submissions.' },
-  university: { label: 'University', badge: 'University', subtitle: 'University stakeholder submissions.' },
-  corporate: { label: 'Corporates', badge: 'Corporate', subtitle: 'Corporate stakeholder submissions.' },
-  incubator: { label: 'Incubator', badge: 'Incubator', subtitle: 'Incubator stakeholder submissions.' },
+  // --- Hidden until re-enabled ---
+  // university: { label: 'University', badge: 'University', subtitle: 'University stakeholder submissions.' },
+  // corporate: { label: 'Corporates', badge: 'Corporate', subtitle: 'Corporate stakeholder submissions.' },
+  // incubator: { label: 'Incubator', badge: 'Incubator', subtitle: 'Incubator stakeholder submissions.' },
 }
 
 const PAGE_SIZE = 20

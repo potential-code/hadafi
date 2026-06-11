@@ -34,11 +34,12 @@ export const FOOTER_LINKS = {
   ],
   stakeholderLinks: [
     { label: 'Experts', href: '/#stakeholder' },
-    { label: 'VCs', href: '/#stakeholder' },
+    { label: 'Supporters', href: '/#stakeholder' },
     { label: 'Government Entities', href: '/#stakeholder' },
-    { label: 'Corporate Sponsors', href: '/#stakeholder' },
-    { label: 'Universities', href: '/#stakeholder' },
-    { label: 'Incubators', href: '/#stakeholder' },
+    // --- Hidden until re-enabled ---
+    // { label: 'Corporate Sponsors', href: '/#stakeholder' },
+    // { label: 'Universities', href: '/#stakeholder' },
+    // { label: 'Incubators', href: '/#stakeholder' },
   ],
 } as const
 

@@ -87,10 +87,10 @@ export const STAKEHOLDER = {
     },
     {
       kind: 'vc',
-      title: 'VC Program',
+      title: 'Supporters',
       description:
-        'Join as a VC, PE, bank, or financing firm to identify women-led businesses you can fund or finance!',
-      ctaLabel: 'Join as a VC',
+        'Join as a Community Supporter and share the program with your community of women entrepreneurs!',
+      ctaLabel: 'Join as a Supporter',
       ctaHref: '#',
       image: '/images/redesign/stakeholder-2-vc.png',
     },
@@ -103,33 +103,36 @@ export const STAKEHOLDER = {
       ctaHref: '#',
       image: '/images/redesign/stakeholder-3-government.png',
     },
-    {
-      kind: 'corporate',
-      title: 'Corporate Program',
-      description:
-        'Join as a corporate sponsor to offer your solutions to women-led businesses or support the program!',
-      ctaLabel: 'Join as a Corporate',
-      ctaHref: '#',
-      image: '/images/redesign/stakeholder-4-corporate.png',
-    },
-    {
-      kind: 'university',
-      title: 'University Program',
-      description:
-        'Join as a university or think tank to share your faculty expertise and further your research on women entrepreneurship!',
-      ctaLabel: 'Join as a University',
-      ctaHref: '#',
-      image: '/images/redesign/stakeholder-5-university.png',
-    },
-    {
-      kind: 'incubator',
-      title: 'Incubator Program',
-      description:
-        'Join as a chamber, incubator, co-working space, or NGO and extend the program to women entrepreneurs in your community!',
-      ctaLabel: 'Join as an Incubator',
-      ctaHref: '#',
-      image: '/images/redesign/stakeholder-6-incubator.png',
-    },
+    // --- Hidden until re-enabled: Corporate Program ---
+    // {
+    //   kind: 'corporate',
+    //   title: 'Corporate Program',
+    //   description:
+    //     'Join as a corporate sponsor to offer your solutions to women-led businesses or support the program!',
+    //   ctaLabel: 'Join as a Corporate',
+    //   ctaHref: '#',
+    //   image: '/images/redesign/stakeholder-4-corporate.png',
+    // },
+    // --- Hidden until re-enabled: University Program ---
+    // {
+    //   kind: 'university',
+    //   title: 'University Program',
+    //   description:
+    //     'Join as a university or think tank to share your faculty expertise and further your research on women entrepreneurship!',
+    //   ctaLabel: 'Join as a University',
+    //   ctaHref: '#',
+    //   image: '/images/redesign/stakeholder-5-university.png',
+    // },
+    // --- Hidden until re-enabled: Incubator Program ---
+    // {
+    //   kind: 'incubator',
+    //   title: 'Incubator Program',
+    //   description:
+    //     'Join as a chamber, incubator, co-working space, or NGO and extend the program to women entrepreneurs in your community!',
+    //   ctaLabel: 'Join as an Incubator',
+    //   ctaHref: '#',
+    //   image: '/images/redesign/stakeholder-6-incubator.png',
+    // },
   ],
 } as const
 
@@ -143,9 +146,12 @@ export type StakeholderKind =
 
 // CTA Banner
 export const CTA_BANNER = {
-  heading: 'Start Your Business Journey\nJoin the Program for Free!',
-  ctaLabel: 'Sign Up Free',
+  heading: 'Step Into Leadership –\nJoin the Women\'s Empowerment Movement!',
+  subtext: 'Join over 100,000 women entrepreneurs worldwide. Access free training, AI mentors, and expert sessions to launch and grow your business.',
+  ctaLabel: 'Join the Program for Free!',
   ctaHref: '/sign-up',
+  loginLabel: 'Already a member? Log in',
+  loginHref: '/login',
 } as const
 
 // Courses section — condensed to 3 tabs
@@ -157,9 +163,9 @@ export const COURSES = {
       name: 'Transform with AI',
       modules: [
         {
-          title: 'AI for Growth: The Practical Guide',
+          title: 'AI for Growth: The Practical Women Entrepreneurs Guide',
           units: [
-            'The AI Opportunity for SMEs',
+            'The AI Opportunity for Women Entrepreneurs',
             'AI Readiness - Upskill Your Teams',
             'Augmented Intelligence - Chat-Based Tools',
             'Automating Business Processes with AI Agentic Tools',
@@ -170,7 +176,7 @@ export const COURSES = {
       ],
     },
     {
-      name: 'Digitize Your Business',
+      name: 'Hadafi Business Model',
       modules: [
         {
           title: 'Evolving Your Business',
@@ -227,20 +233,37 @@ export const COURSES = {
       name: 'Additional Courses',
       modules: [
         {
-          title: 'Cash Flow Management',
-          units: ['Cash Flow Fundamentals', 'Managing Receivables', 'Cost Reduction Strategies'],
+          title: 'Managing your Cash Flow',
+          units: [
+            '5 Tips for Getting Paid Quickly',
+            '5 Steps for Managing your Cash Flow',
+            '5 Ways in which Business Cards Offer Better Advantages than Checks',
+            '7 Reasons Why you should Prepare a Cash Flow Projection',
+            '3 Essential Sections of a Cash Flow Statement',
+          ],
         },
         {
           title: 'Negotiation Skills',
-          units: ['Negotiation Fundamentals', 'Winning Strategies', 'Real-world Scenarios'],
+          units: [
+            '5 Ways Negotiation Enhances Any Discussion',
+            '5 Pillars a Negotiation can\'t Work Without',
+            '5 Big NOs to Avoid During Negotiation',
+            '5 Body Language Hacks to Improve your Negotiation Skills',
+            '4 Traps to Escape During a Negotiation',
+            '4 Steps to Handle Negotiation Anxiety',
+          ],
         },
         {
           title: 'Starting a Blog Online',
           units: [
-            'Choosing your niche and platform',
-            'Setting up your blog',
-            'Writing your first posts',
-            'Growing your audience',
+            '5 Ways a Blog Can Improve Your Service',
+            '3 Ways to Create a Successful Blog',
+            '4 Tactics to Attracting Improved Readership',
+            '3 Steps to Portray Your Unique Story',
+            '3 Reasons to Maintain Blog Post Consistency',
+            '3 Choices to Make When Starting Your Blog',
+            '5 Steps to Getting Your Blog Started',
+            '12 Steps to Self-Hosting Your Blog',
           ],
         },
       ],

@@ -159,7 +159,7 @@ export async function sendMail(options: SendMailOptions): Promise<void> {
   const transporter = await getTransporter();
 
   await transporter.sendMail({
-    from: fromEmail,
+    from: `Hadafi Team <${fromEmail}>`,
     to,
     subject,
     html,

@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { createCanvas } from '@napi-rs/canvas'
+import { createCanvas, loadImage } from '@napi-rs/canvas'
 import { db } from '../../db'
 import {
   courses, assessments, courseEnrollments, courseCertificates,
@@ -59,109 +59,78 @@ export async function canIssueCertificate(
   return { canIssue: true }
 }
 
-/**
- * Renders a certificate PNG to disk using @napi-rs/canvas.
- * Canvas is 1200×850 px with brand colours matching the platform design system.
- *
- * @param certId            - The certificate UUID (used as the filename).
- * @param certificateNumber - Formatted cert reference string (e.g. CERT-17…-ABC).
- * @param userFullName      - Learner's display name.
- * @param courseTitle       - Title of the completed course.
- * @param issuedAt          - Date the certificate was issued.
- * @returns The relative URL stored in the DB (e.g. `/uploads/certificates/{certId}.png`).
- */
+// Path to the Potential certificate template (1024×724 px).
+// process.cwd() is always the server/ directory at runtime.
+const CERT_TEMPLATE = path.join(process.cwd(), '..', 'client', 'public', 'images', 'certificate-template.jpg')
+
 async function renderCertificatePng(
   certId: string,
-  certificateNumber: string,
+  _certificateNumber: string,
   userFullName: string,
   courseTitle: string,
   issuedAt: Date,
 ): Promise<{ relativeUrl: string; absoluteFilePath: string }> {
+  // Match the template's native aspect ratio (1024×724) scaled up for quality.
   const WIDTH = 1200
-  const HEIGHT = 850
+  const HEIGHT = 849  // 724 * (1200/1024) = 848.4 → 849
   const canvas = createCanvas(WIDTH, HEIGHT)
   const ctx = canvas.getContext('2d')
 
-  // ── Background ────────────────────────────────────────────────────────────
-  ctx.fillStyle = '#FDF5F9'
-  ctx.fillRect(0, 0, WIDTH, HEIGHT)
+  // ── Background template ───────────────────────────────────────────────────
+  const template = await loadImage(CERT_TEMPLATE)
+  ctx.drawImage(template, 0, 0, WIDTH, HEIGHT)
 
-  // ── Top banner (brand primary) ────────────────────────────────────────────
-  ctx.fillStyle = '#9f2063'
-  ctx.fillRect(0, 0, WIDTH, 180)
+  // All text uses the template's dark-purple palette for consistency.
+  const TEXT_COLOR = '#2d1147'
 
-  // ── Accent strip ─────────────────────────────────────────────────────────
-  ctx.fillStyle = '#e83e94'
-  ctx.fillRect(0, 180, WIDTH, 20)
-
-  // ── Banner text ───────────────────────────────────────────────────────────
-  ctx.fillStyle = '#ffffff'
-  ctx.font = 'bold 52px sans-serif'
+  // ── Learner name (sits on the first dotted line, ~38% from top) ───────────
+  // First line y in original 724px image ≈ 278px → 278 * (849/724) ≈ 326
   ctx.textAlign = 'center'
-  ctx.fillText('Certificate of Completion', WIDTH / 2, 100)
+  ctx.fillStyle = TEXT_COLOR
+  ctx.font = 'bold 52px sans-serif'
 
-  // ── "This certifies that" ─────────────────────────────────────────────────
-  ctx.fillStyle = '#6b7280'
-  ctx.font = '26px sans-serif'
-  ctx.fillText('This certifies that', WIDTH / 2, 260)
+  const NAME_Y = 326
+  // Clamp name to one line — shrink font if it overflows
+  const MAX_NAME_WIDTH = 820
+  if (ctx.measureText(userFullName).width > MAX_NAME_WIDTH) {
+    ctx.font = 'bold 38px sans-serif'
+  }
+  ctx.fillText(userFullName, WIDTH / 2, NAME_Y)
 
-  // ── Learner name ──────────────────────────────────────────────────────────
-  ctx.fillStyle = '#1f2937'
-  ctx.font = 'bold 54px sans-serif'
-  ctx.fillText(userFullName, WIDTH / 2, 330)
-
-  // ── "has successfully completed" ──────────────────────────────────────────
-  ctx.fillStyle = '#6b7280'
-  ctx.font = '26px sans-serif'
-  ctx.fillText('has successfully completed', WIDTH / 2, 390)
-
-  // ── Course title (wrap if wider than 800 px) ──────────────────────────────
-  ctx.fillStyle = '#9f2063'
+  // ── Course title (sits on the second dotted line, ~56% from top) ──────────
+  // Second line y in original ≈ 404px → 404 * (849/724) ≈ 473
   ctx.font = 'bold 40px sans-serif'
-  const MAX_TITLE_WIDTH = 800
-  const titleMeasure = ctx.measureText(courseTitle)
-  if (titleMeasure.width > MAX_TITLE_WIDTH) {
-    // Simple word-wrap: split into two lines
+  const COURSE_Y = 473
+  const MAX_COURSE_WIDTH = 820
+
+  if (ctx.measureText(courseTitle).width > MAX_COURSE_WIDTH) {
+    // Word-wrap into two lines
     const words = courseTitle.split(' ')
     let line1 = ''
     let line2 = ''
     for (const word of words) {
       const test = line1 ? `${line1} ${word}` : word
-      if (ctx.measureText(test).width > MAX_TITLE_WIDTH && line1) {
+      if (ctx.measureText(test).width > MAX_COURSE_WIDTH && line1) {
         line2 = line2 ? `${line2} ${word}` : word
       } else {
         line1 = test
       }
     }
-    ctx.fillText(line1, WIDTH / 2, 440)
-    if (line2) ctx.fillText(line2, WIDTH / 2, 490)
+    ctx.fillText(line1, WIDTH / 2, COURSE_Y - 22)
+    if (line2) ctx.fillText(line2, WIDTH / 2, COURSE_Y + 24)
   } else {
-    ctx.fillText(courseTitle, WIDTH / 2, 450)
+    ctx.fillText(courseTitle, WIDTH / 2, COURSE_Y)
   }
 
-  // ── Divider line ──────────────────────────────────────────────────────────
-  ctx.strokeStyle = '#e5e7eb'
-  ctx.lineWidth = 1
-  ctx.beginPath()
-  ctx.moveTo(200, 510)
-  ctx.lineTo(1000, 510)
-  ctx.stroke()
-
-  // ── Issue date ────────────────────────────────────────────────────────────
+  // ── Date (bottom-left, below the DATE label, ~82% from top) ──────────────
+  // Date underline y in original ≈ 593px → 593 * (849/724) ≈ 695
+  // DATE label x in original ≈ 155px → 155 * (1200/1024) ≈ 182
   const formattedDate = issuedAt.toLocaleDateString('en-GB', {
-    day: '2-digit', month: 'long', year: 'numeric',
+    day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC',
   })
-  ctx.fillStyle = '#9ca3af'
-  ctx.font = '22px sans-serif'
-  ctx.fillText(`Issued: ${formattedDate}`, WIDTH / 2, 560)
-
-  // ── Certificate number ────────────────────────────────────────────────────
-  ctx.font = '20px sans-serif'
-  ctx.fillText(`Certificate No: ${certificateNumber}`, WIDTH / 2, 600)
-
-  // ── Bottom footer strip ───────────────────────────────────────────────────
-  ctx.fillStyle = '#9f2063'
-  ctx.fillRect(0, 820, WIDTH, 30)
+  ctx.textAlign = 'left'
+  ctx.font = '26px sans-serif'
+  ctx.fillText(formattedDate, 182, 690)
 
   // ── Write to disk ─────────────────────────────────────────────────────────
   const certDir = getCertDir()
@@ -169,8 +138,7 @@ async function renderCertificatePng(
 
   const filename = `${certId}.png`
   const absoluteFilePath = path.join(certDir, filename)
-  const pngBuffer = canvas.toBuffer('image/png')
-  fs.writeFileSync(absoluteFilePath, pngBuffer)
+  fs.writeFileSync(absoluteFilePath, canvas.toBuffer('image/png'))
 
   return {
     relativeUrl: `/uploads/certificates/${filename}`,

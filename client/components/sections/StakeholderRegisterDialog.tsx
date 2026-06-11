@@ -16,7 +16,7 @@ const COUNTRIES = getCountryDataList()
 
 const TITLE: Record<StakeholderKind, string> = {
   expert: 'Join as an Expert',
-  vc: 'Join as a VC',
+  vc: 'Join as a Supporter',
   government: 'Join as a Government',
   corporate: 'Join as a Corporate',
   university: 'Join as a University',

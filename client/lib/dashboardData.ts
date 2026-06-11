@@ -57,6 +57,7 @@ export type LiveSessionItem = {
 }
 
 export type FaqItem = { q: string; a: string }
+export type FaqTab = { tab: string; items: FaqItem[] }
 
 // ─── Course learning content ──────────────────────────────────────────────
 export type LearningBlockBase = {
@@ -362,13 +363,61 @@ export const LIVE_SESSIONS: LiveSessionItem[] = [
   { id: 'ls4', title: 'Use Data to Grow Your Business', description: 'Event details to be placed here for each event.', date: '2026-06-01', time: '5:00 PM / GST · UAE time', rsvp: false },
 ]
 
-export const FAQS: FaqItem[] = [
-  { q: 'Is Hadafi really free?', a: 'Yes — Hadafi is 100% free for women entrepreneurs. There are no hidden fees and no credit card required.' },
-  { q: 'How do I book a session with a human mentor?', a: 'Open Programme Mentors, choose a mentor that fits your needs, and click Book Session. We will email you a calendar invite.' },
-  { q: 'What can the AI Business Assistant do?', a: 'It can draft a business plan, marketing plan, product proposal, generate ideas, and answer Hadafi-related questions tailored to your business.' },
-  { q: 'How are certificates issued?', a: 'You earn a certificate automatically when you complete all units in a module. They appear under Certifications and can be downloaded as PDF.' },
-  { q: 'Can I redeem multiple partner offers?', a: 'Yes — most offers can be stacked. Some have eligibility restrictions which are listed on the offer details page.' },
-  { q: 'How do I delete my account?', a: 'Email us at hadafi@potential.com from your registered address and we will remove your account within 7 working days.' },
+export const FAQ_TABS: FaqTab[] = [
+  {
+    tab: 'Basics',
+    items: [
+      { q: 'What is the Hadafi Program?', a: "Hadafi is a women's entrepreneurship empowerment program providing AI tools, mentorship, training, and exclusive offers to help women start or grow their businesses." },
+      { q: 'Who can register?', a: 'The program is open for all women entrepreneurs, business owners, business leaders, and any top-level manager in startups and small and medium businesses.' },
+      { q: 'Why should I register to the program?', a: 'Participants will benefit from a great learning opportunity, through self-service online training which will offer expert guidance on the process of digitizing your business. Webinars and coaching sessions will also be held for you to enhance your learning and planning further.' },
+      { q: 'Is the program limited to any geographic areas?', a: 'The program is open for all countries and nationalities all over the world.' },
+      { q: 'Is this program free or paid?', a: 'The program is free of charge to all participants.' },
+      { q: 'If I joined the Hadafi program in previous rollouts, could I join again?', a: 'Participants from previous rollouts are welcomed to register again and benefit from the program.' },
+      { q: 'How can I partner with Hadafi?', a: 'Partners can engage through white-labeling for their community or sponsoring the international version for global reach.' },
+      { q: 'What are the benefits of white-labeling Hadafi?', a: 'White-labeling allows you to: Launch a ready-to-use platform with custom branding. Access participant data and impact reports. Include your own offers and resources.' },
+      { q: 'What does sponsorship include?', a: 'Sponsorship includes: Branding visibility on the platform and marketing materials. Opportunities to include offers for women entrepreneurs. Invitations to events and speaking opportunities.' },
+      { q: 'Can the program be customized for my organization?', a: 'Yes, white-labeling offers full customization with your branding and features.' },
+      { q: 'What is the cost of partnering with Hadafi?', a: 'Costs vary depending on the level of engagement. Submit the form to receive more details.' },
+      { q: 'How do I get started?', a: 'Fill out the relevant form, and our team will get in touch to discuss your goals and guide you through the process.' },
+    ],
+  },
+  {
+    tab: 'Registration',
+    items: [
+      { q: 'How can I register and enroll in the program?', a: "Registration to the program is simple and straightforward. On the home page, you could find a registration form on the top, enter your full name, email address, and phone number, then generate a strong and memorable password and click on the 'Register Now' button. You'll be redirected to the first unit of the core course. Complete this course by watching the videos and answering all related questions, then go to your dashboard to check your rewards and additional materials." },
+      { q: "I'm not fluent in English; do you provide the program material in any other language?", a: 'We provide program materials in two languages: Arabic and English. You can access the website and switch the language you prefer in the header.' },
+    ],
+  },
+  {
+    tab: 'Course Structure',
+    items: [
+      { q: 'What is meant by core course and additional courses?', a: "The core course in the SME Empowerment program is 'Evolve Your Business' that consists of 8 units, all participants are required to go through this course and submit their answers for the questions inside for them to be eligible for the program rewards and benefits. Additional courses are courses provided by Potential.com and international partners as additional resources and materials in the program." },
+      { q: 'Is submitting the action plan mandatory?', a: 'Submitting the action plan is not mandatory but recommended to be able to get free coaching sessions, collect more points and unlock special deals and discounts on services and products from the marketplace.' },
+      { q: 'Can I edit my submission to the action plan questions?', a: 'You can sign in using your email and generated password to edit/complete your answers to the action plan questions. Note that the multiple-choice questions could not be edited after you submit them.' },
+      { q: 'If some action plan questions do not apply to my business, what should I do?', a: "You can type in N/A for the questions that you don't see it applicable to your business." },
+      { q: 'How to download my action plan template in a pdf format?', a: "Once you finish the core course at unit 8 and answer all the action plan questions, a message with 'Generate your action plan' button will appear in the page. Click on this button and download your action in pdf format." },
+      { q: 'How to get the certificate of completion for each course I finished?', a: "For each course you've completed, core or additional courses, you could download your certificate of completion at the end of each course after passing the posttest with 80%+ correctly. Note that the core course doesn't include a post test and you could download your certificate after answering all the questions included in the course." },
+    ],
+  },
+  {
+    tab: 'Account',
+    items: [
+      { q: 'How to delete my account?', a: 'To delete your account in the program, you should send an email, using your registered email address, to sme@potential.com and we could delete it on your behalf.' },
+      { q: 'How to reset my password?', a: "To reset your password, go to the main page, click on Login then Forget Password. Enter the email that you've registered with and submit the form. You will receive an automatic email from the system with a generated password. Please make sure to check your Junk folder and mark our email as a safe sender so you receive the latest updates from the program too." },
+      { q: 'How to stay connected with the SME Empowerment Program community?', a: 'You can stay connected with the SME program community by following us on social media: Facebook, Instagram, Twitter.' },
+    ],
+  },
+  {
+    tab: 'Gamification',
+    items: [
+      { q: 'How to collect points?', a: 'You collect points for every learning material you finish in the platform. For example, in the core course, when submitting your action plan, you collect 10 points, when you finish the unit, you collect another 10 points. The sum of all points gained after finishing the core courses is 150 points. Same thing applies for all additional courses in the program.' },
+      { q: 'How to redeem your points?', a: "You could click on the 'Dashboard' tab in the header, where you could see your profile and additional materials. In your dashboard, you could redeem your points with an expert session or special discounts for the marketplace." },
+      { q: 'Where to check how many points I collected so far?', a: 'At the top of your Dashboard, you could check how many points you have gained and redeem these points.' },
+      { q: "How does the 'Special SME Offers' work and how could I make use of them?", a: 'We put together some special offers and packages designed specifically for SMEs with discounted prices offered for the program participants. The offers are provided by Potential.com and international leading partners in the SME Empowerment Program.' },
+      { q: 'How could I have a free session with experts?', a: 'You can use your collected points to redeem a free session with an expert that you could choose from the list. You need 150 points to unlock an expert session.' },
+      { q: 'Do we need to attend all the webinars?', a: "It isn't necessary, but we recommend that you attend the webinars." },
+    ],
+  },
 ]
 
 export const STATS = {

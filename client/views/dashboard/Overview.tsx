@@ -172,14 +172,6 @@ export default function DashboardOverview() {
             </p>
             <p className="text-xs text-white/60 mt-0.5 truncate">{progressText}</p>
           </div>
-          <Link
-            href="/dashboard/courses"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/15 text-white text-xs font-semibold hover:bg-white/15 transition-colors"
-          >
-            <GraduationCap className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Continue learning</span>
-            <span className="sm:hidden">Courses</span>
-          </Link>
         </div>
       </motion.div>
 

@@ -45,11 +45,12 @@ const ADMIN_NAV_BOTTOM: AdminNavItem[] = [
 
 export const STAKEHOLDER_NAV: AdminNavItem[] = [
   { label: 'Mentor Applications', href: '/admin/applications', icon: Users },
-  { label: 'VCs', href: '/admin/stakeholder-applications/vc', icon: Building2 },
+  { label: 'Supporters', href: '/admin/stakeholder-applications/vc', icon: Building2 },
   { label: 'Government', href: '/admin/stakeholder-applications/government', icon: Building2 },
-  { label: 'University', href: '/admin/stakeholder-applications/university', icon: Building2 },
-  { label: 'Corporates', href: '/admin/stakeholder-applications/corporate', icon: Building2 },
-  { label: 'Incubator', href: '/admin/stakeholder-applications/incubator', icon: Building2 },
+  // --- Hidden until re-enabled ---
+  // { label: 'University', href: '/admin/stakeholder-applications/university', icon: Building2 },
+  // { label: 'Corporates', href: '/admin/stakeholder-applications/corporate', icon: Building2 },
+  // { label: 'Incubator', href: '/admin/stakeholder-applications/incubator', icon: Building2 },
 ]
 
 export function AdminSidebar({ onNavigate }: { onNavigate?: () => void }) {

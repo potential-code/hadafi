@@ -34,7 +34,7 @@ const app: Express = express();
 
 // Security headers (HSTS, nosniff, frame-options, etc.). Registered first so
 // every response — including errors — carries them.
-app.use(helmet());
+app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
 
 app.use(
   pinoHttp({
