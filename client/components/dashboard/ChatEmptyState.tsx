@@ -58,14 +58,14 @@ export function ChatEmptyState({ onSend }: Props) {
         <div className="ring-4 ring-brand-primary/15 rounded-full mt-1">
           <img
             src="/images/redesign/hadafi-avatar-200.png"
-            alt="Sana"
+            alt="Hana"
             className="w-[68px] h-[68px] rounded-full object-cover object-top border-2 border-white"
           />
         </div>
 
         {/* Name + tagline */}
         <div className="flex flex-col items-center gap-0.5 text-center">
-          <p className="font-bold text-[15px] text-brand-text-primary leading-tight">Sana</p>
+          <p className="font-bold text-[15px] text-brand-text-primary leading-tight">Hana</p>
           <p className="text-[11px] text-brand-text-muted max-w-[260px] leading-[1.4]">
             I help you grow your business — find resources, create documents, and discover AI tools.
           </p>
@@ -156,7 +156,7 @@ export function ChatEmptyState({ onSend }: Props) {
             className="h-7 w-7 rounded-full flex items-center justify-center flex-shrink-0 self-end transition-opacity disabled:opacity-30"
             style={
               inputValue.trim()
-                ? { background: 'linear-gradient(120deg, #9f2063 0%, #7a1a4c 100%)' }
+                ? { background: 'linear-gradient(120deg, #e41674 0%, #b50d5c 100%)' }
                 : { background: '#f7e8f0' }
             }
           >

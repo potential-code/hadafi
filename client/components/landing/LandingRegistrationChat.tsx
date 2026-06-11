@@ -79,10 +79,10 @@ const GLASS_TRANSITION = 'backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5
 
 const LIGHT_GLASS: CSSProperties = {
   background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
-  backdropFilter: 'blur(12px)',
-  WebkitBackdropFilter: 'blur(12px)',
-  border: '1px solid rgba(255,255,255,0.08)',
-  boxShadow: '0 6px 32px rgba(0,0,0,0.40)',
+  backdropFilter: 'blur(3px)',
+  WebkitBackdropFilter: 'blur(3px)',
+  border: '1.5px solid rgba(255,255,255,0.22)',
+  boxShadow: '0 8px 40px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.10)',
   transition: GLASS_TRANSITION,
 }
 
@@ -90,8 +90,8 @@ const FULL_GLASS: CSSProperties = {
   background: 'linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%)',
   backdropFilter: 'blur(24px)',
   WebkitBackdropFilter: 'blur(24px)',
-  border: '1px solid rgba(255,255,255,0.10)',
-  boxShadow: '0 8px 48px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 80px rgba(159,32,99,0.10)',
+  border: '1.5px solid rgba(255,255,255,0.22)',
+  boxShadow: '0 8px 48px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 80px rgba(228,22,116,0.10)',
   transition: GLASS_TRANSITION,
 }
 
@@ -581,7 +581,7 @@ function LandingRegistrationChatInner() {
       <div
         className="px-4 py-3 flex items-center gap-3 flex-shrink-0 border-b"
         style={{
-          background: 'linear-gradient(135deg, rgba(159,32,99,0.92) 0%, rgba(122,26,76,0.92) 100%)',
+          background: 'linear-gradient(135deg, rgba(228,22,116,0.92) 0%, rgba(181,13,92,0.92) 100%)',
           borderBottomColor: 'rgba(255,255,255,0.08)',
         }}
       >
@@ -607,7 +607,7 @@ function LandingRegistrationChatInner() {
             <div
               className="w-24 h-24 lg:w-36 lg:h-36 rounded-full overflow-hidden"
               style={{
-                boxShadow: '0 0 0 3px rgba(255,255,255,0.12), 0 0 0 8px rgba(159,32,99,0.22), 0 0 50px rgba(159,32,99,0.45), 0 16px 40px rgba(0,0,0,0.45)',
+                boxShadow: '0 0 0 3px rgba(255,255,255,0.12), 0 0 0 8px rgba(228,22,116,0.22), 0 0 50px rgba(228,22,116,0.45), 0 16px 40px rgba(0,0,0,0.45)',
               }}
             >
               <img
@@ -634,8 +634,8 @@ function LandingRegistrationChatInner() {
             <button
               className="w-full px-6 py-3.5 lg:py-4 rounded-full text-[15px] lg:text-[17px] font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.97]"
               style={{
-                background: 'linear-gradient(135deg, #9f2063 0%, #7a1a4c 100%)',
-                boxShadow: '0 4px 24px rgba(159,32,99,0.55), inset 0 1px 0 rgba(255,255,255,0.18)',
+                background: 'linear-gradient(135deg, #e41674 0%, #b50d5c 100%)',
+                boxShadow: '0 4px 24px rgba(228,22,116,0.55), inset 0 1px 0 rgba(255,255,255,0.18)',
               }}
               onClick={handleRegisterClick}
               suppressHydrationWarning

@@ -110,7 +110,7 @@ export function HadafiTypingCursor() {
     <div className="flex gap-2 items-end mb-3">
       <img
         src="/images/redesign/hadafi-avatar-96.png"
-        alt="Sana"
+        alt="Hana"
         className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
       />
       <div
@@ -121,7 +121,7 @@ export function HadafiTypingCursor() {
           <motion.span
             key={i}
             className="block w-1.5 h-1.5 rounded-full"
-            style={{ background: '#9f2063' }}
+            style={{ background: '#e41674' }}
             animate={{ y: [0, -5, 0], opacity: [0.4, 1, 0.4] }}
             transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.18, ease: 'easeInOut' }}
           />
@@ -192,7 +192,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
         <div className="flex gap-2 items-end mb-3">
           <img
             src="/images/redesign/hadafi-avatar-96.png"
-            alt="Sana"
+            alt="Hana"
             className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
           />
           <div
@@ -208,7 +208,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
               })}
               aria-label={copied ? 'Copied' : 'Copy message'}
               className="absolute bottom-1.5 right-2 flex items-center gap-1 transition-colors"
-              style={{ color: copied ? '#9f2063' : 'rgba(107,114,128,0.5)' }}
+              style={{ color: copied ? '#e41674' : 'rgba(107,114,128,0.5)' }}
             >
               {copied ? <Check size={11} strokeWidth={2.5} /> : <Copy size={11} strokeWidth={2} />}
             </button>
@@ -253,7 +253,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
       <div className="flex gap-2 items-start mb-3">
         <img
           src="/images/redesign/hadafi-avatar-96.png"
-          alt="Sana"
+          alt="Hana"
           className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0 mt-0.5"
         />
         <div className="min-w-0" style={{ maxWidth: '85%' }}>
@@ -271,18 +271,18 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
                 })}
                 aria-label={copied ? 'Copied' : 'Copy message'}
                 className="absolute bottom-1.5 right-2 flex items-center gap-1 transition-colors"
-                style={{ color: copied ? '#9f2063' : 'rgba(107,114,128,0.5)' }}
+                style={{ color: copied ? '#e41674' : 'rgba(107,114,128,0.5)' }}
               >
                 {copied ? <Check size={11} strokeWidth={2.5} /> : <Copy size={11} strokeWidth={2} />}
               </button>
             </div>
           )}
           {label && (
-            <p className="text-[12px] font-semibold mb-1.5" style={{ color: '#9f2063' }}>
+            <p className="text-[12px] font-semibold mb-1.5" style={{ color: '#e41674' }}>
               {label}
             </p>
           )}
-          <p className="text-[11px] font-medium mb-2" style={{ color: 'rgba(159,32,99,0.45)' }}>
+          <p className="text-[11px] font-medium mb-2" style={{ color: 'rgba(228,22,116,0.45)' }}>
             {multiSelect
               ? 'Select one or more, then confirm.'
               : 'Tap to select, or type your own response below.'}
@@ -375,7 +375,7 @@ export function HadafiUserMessage({ message }: CopilotChatUserMessageProps) {
     >
       <motion.div
         className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold select-none"
-        style={{ background: 'linear-gradient(120deg, #9f2063 0%, #7a1a4c 100%)' }}
+        style={{ background: 'linear-gradient(120deg, #e41674 0%, #b50d5c 100%)' }}
         initial={{ opacity: 0, scale: 0.88 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ type: 'spring', stiffness: 460, damping: 34, mass: 0.72, delay: 0.04 }}
@@ -385,7 +385,7 @@ export function HadafiUserMessage({ message }: CopilotChatUserMessageProps) {
       <motion.div
         className="px-3 py-2 text-[13px] text-white leading-relaxed whitespace-pre-wrap"
         style={{
-          background: 'linear-gradient(120deg, #9f2063 0%, #7a1a4c 100%)',
+          background: 'linear-gradient(120deg, #e41674 0%, #b50d5c 100%)',
           borderRadius: '14px 14px 0 14px',
           maxWidth: '78%',
           transformOrigin: 'bottom right',
@@ -466,7 +466,7 @@ export function HadafiChatInput({ isRunning, onSubmitMessage, onStop }: CopilotC
           className="h-7 w-7 rounded-full flex items-center justify-center flex-shrink-0 self-end transition-opacity disabled:opacity-30"
           style={
             canAct
-              ? { background: 'linear-gradient(120deg, #9f2063 0%, #7a1a4c 100%)' }
+              ? { background: 'linear-gradient(120deg, #e41674 0%, #b50d5c 100%)' }
               : { background: 'var(--hadafi-btn-idle-bg, #f7e8f0)' }
           }
         >

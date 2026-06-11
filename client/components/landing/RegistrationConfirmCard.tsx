@@ -67,7 +67,7 @@ interface RowProps {
 function DataRow({ label, value, field, disabled, onEdit }: RowProps) {
   return (
     <div className="flex items-center gap-3 px-4 py-3">
-      <span className="text-xs font-semibold uppercase tracking-wider w-24 flex-shrink-0 text-[#9f2063]/80">
+      <span className="text-xs font-semibold uppercase tracking-wider w-24 flex-shrink-0 text-[#e41674]/80">
         {label}
       </span>
       <span className="flex-1 text-sm font-medium truncate text-white/90">
@@ -77,8 +77,8 @@ function DataRow({ label, value, field, disabled, onEdit }: RowProps) {
         type="button"
         disabled={disabled}
         onClick={() => onEdit(field)}
-        className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-md transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-[#9f2063]/60 hover:text-[#9f2063] hover:bg-white/5"
-        style={{ background: 'rgba(159,32,99,0.20)' }}
+        className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-md transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-[#e41674]/60 hover:text-[#e41674] hover:bg-white/5"
+        style={{ background: 'rgba(228,22,116,0.20)' }}
         aria-label={`Edit ${label}`}
       >
         <Pencil className="w-3.5 h-3.5" />
@@ -136,7 +136,7 @@ export function RegistrationConfirmCard({
       {/* ------------------------------------------------------------------ */}
       <div
         className="flex items-center gap-2 px-4 py-3"
-        style={{ background: 'linear-gradient(120deg,#9f2063,#7a1a4c)' }}
+        style={{ background: 'linear-gradient(120deg,#e41674,#b50d5c)' }}
       >
         <Sparkles className="w-4 h-4 text-white/80 flex-shrink-0" />
         <span className="text-sm font-semibold text-white tracking-wide">
@@ -151,8 +151,8 @@ export function RegistrationConfirmCard({
         <div className="flex items-center gap-3 px-4 py-4">
           <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 bg-white/10">
             {completedAction?.type === 'edit'
-              ? <Pencil className="w-4 h-4 text-[#9f2063]" strokeWidth={2.5} />
-              : <Check className="w-4 h-4 text-[#9f2063]" strokeWidth={2.5} />
+              ? <Pencil className="w-4 h-4 text-[#e41674]" strokeWidth={2.5} />
+              : <Check className="w-4 h-4 text-[#e41674]" strokeWidth={2.5} />
             }
           </div>
           <span className="text-sm font-medium text-white/90">
@@ -197,7 +197,7 @@ export function RegistrationConfirmCard({
           {data.password !== undefined && (
             <>
               <div className="flex items-center gap-3 px-4 py-3">
-                <span className="text-xs font-semibold uppercase tracking-wider w-24 flex-shrink-0 text-[#9f2063]/80">
+                <span className="text-xs font-semibold uppercase tracking-wider w-24 flex-shrink-0 text-[#e41674]/80">
                   Password
                 </span>
                 <span className="flex-1 text-sm font-medium truncate text-white/90">
@@ -206,8 +206,8 @@ export function RegistrationConfirmCard({
                 <button
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
-                  className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-md transition-colors text-[#9f2063]/60 hover:text-[#9f2063] hover:bg-white/5"
-                  style={{ background: 'rgba(159,32,99,0.20)' }}
+                  className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-md transition-colors text-[#e41674]/60 hover:text-[#e41674] hover:bg-white/5"
+                  style={{ background: 'rgba(228,22,116,0.20)' }}
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
                 >
                   {showPassword
@@ -219,8 +219,8 @@ export function RegistrationConfirmCard({
                   type="button"
                   disabled={isDisabled}
                   onClick={() => handleEdit('password')}
-                  className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-md transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-[#9f2063]/60 hover:text-[#9f2063] hover:bg-white/5"
-                  style={{ background: 'rgba(159,32,99,0.20)' }}
+                  className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-md transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-[#e41674]/60 hover:text-[#e41674] hover:bg-white/5"
+                  style={{ background: 'rgba(228,22,116,0.20)' }}
                   aria-label="Edit Password"
                 >
                   <Pencil className="w-3.5 h-3.5" />
@@ -266,7 +266,7 @@ export function RegistrationConfirmCard({
               disabled={isDisabled}
               onClick={handleConfirm}
               className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold text-white transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ background: 'linear-gradient(120deg,#9f2063,#7a1a4c)' }}
+              style={{ background: 'linear-gradient(120deg,#e41674,#b50d5c)' }}
             >
               {showSpinner ? (
                 <>

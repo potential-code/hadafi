@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react'
 
 export function HadafiChatHeader({
-  name = 'Sana',
+  name = 'Hana',
   status = 'Online',
   onClose,
   compact = false,
@@ -27,7 +27,7 @@ export function HadafiChatHeader({
       <div className="relative flex-shrink-0">
         <img
           src="/images/redesign/hadafi-avatar-96.png"
-          alt="Sana"
+          alt="Hana"
           className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white/30 shadow-md"
         />
         <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-400 border-2 border-white/20" />

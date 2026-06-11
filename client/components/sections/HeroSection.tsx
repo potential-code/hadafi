@@ -51,12 +51,12 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 mb-7 justify-center lg:justify-start"
+            className="flex justify-center lg:justify-start mb-7"
           >
-            <span className="text-[10px] font-semibold text-brand-primary uppercase tracking-[0.14em] whitespace-nowrap">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-white/80 text-[11px] font-medium tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-primary flex-shrink-0" />
               {HERO.badge}
             </span>
-            <span className="h-px bg-brand-primary/25 w-16 hidden lg:block" />
           </motion.div>
 
           <motion.h1
