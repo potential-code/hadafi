@@ -127,18 +127,22 @@ export function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.07 * i + 0.3, duration: 0.4 }}
-                className="group relative overflow-hidden flex flex-col gap-1 p-4 pt-5 rounded-2xl border border-brand-primary/10 bg-gradient-to-br from-brand-primary/[0.05] to-transparent hover:border-brand-primary/25 hover:from-brand-primary/[0.09] transition-all duration-200 cursor-default min-h-[96px]"
+                className="group relative overflow-hidden flex items-center gap-4 p-4 rounded-2xl border border-brand-primary/10 bg-gradient-to-br from-brand-primary/[0.05] to-transparent hover:border-brand-primary/25 hover:from-brand-primary/[0.09] transition-all duration-200 cursor-default"
               >
                 {/* Top accent line */}
                 <div className="absolute top-0 left-3 right-3 h-px rounded-full bg-gradient-to-r from-transparent via-brand-primary/50 to-transparent" />
-                {/* Watermark icon */}
-                <Icon
-                  className="absolute -bottom-3 -left-3 w-16 h-16 text-brand-primary opacity-[0.18] group-hover:opacity-[0.28] transition-opacity duration-300 pointer-events-none"
-                  strokeWidth={1}
-                />
-                {/* Text */}
-                <p className="relative z-10 text-sm font-semibold text-brand-text-primary leading-tight">{label}</p>
-                <p className="relative z-10 text-[12px] text-brand-text-muted leading-snug">{desc}</p>
+                {/* Icon — left, centered, faded */}
+                <div className="flex-shrink-0 flex items-center justify-center w-11 h-11">
+                  <Icon
+                    className="w-9 h-9 text-brand-primary opacity-25 group-hover:opacity-40 transition-opacity duration-300"
+                    strokeWidth={1.25}
+                  />
+                </div>
+                {/* Content — right */}
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-brand-text-primary leading-tight">{label}</p>
+                  <p className="text-[12px] text-brand-text-muted mt-0.5 leading-snug">{desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
