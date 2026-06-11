@@ -127,18 +127,18 @@ export function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.07 * i + 0.3, duration: 0.4 }}
-                className="group flex items-start gap-3.5 p-4 rounded-2xl border border-brand-primary/10 bg-gradient-to-br from-brand-primary/[0.05] to-transparent hover:border-brand-primary/25 hover:from-brand-primary/[0.09] transition-all duration-200 cursor-default"
+                className="group relative overflow-hidden flex flex-col gap-1 p-4 pt-5 rounded-2xl border border-brand-primary/10 bg-gradient-to-br from-brand-primary/[0.05] to-transparent hover:border-brand-primary/25 hover:from-brand-primary/[0.09] transition-all duration-200 cursor-default min-h-[96px]"
               >
-                <div
-                  className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200"
-                  style={{ background: 'linear-gradient(135deg, #e41674 0%, #b50d5c 100%)' }}
-                >
-                  <Icon className="w-[18px] h-[18px] text-white" strokeWidth={1.75} />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold text-brand-text-primary leading-tight">{label}</p>
-                  <p className="text-[12px] text-brand-text-muted mt-0.5 leading-snug">{desc}</p>
-                </div>
+                {/* Top accent line */}
+                <div className="absolute top-0 left-3 right-3 h-px rounded-full bg-gradient-to-r from-transparent via-brand-primary/50 to-transparent" />
+                {/* Watermark icon */}
+                <Icon
+                  className="absolute -bottom-3 -right-3 w-16 h-16 text-brand-primary opacity-[0.09] group-hover:opacity-[0.16] transition-opacity duration-300 pointer-events-none"
+                  strokeWidth={1}
+                />
+                {/* Text */}
+                <p className="relative z-10 text-sm font-semibold text-brand-text-primary leading-tight">{label}</p>
+                <p className="relative z-10 text-[12px] text-brand-text-muted leading-snug">{desc}</p>
               </motion.div>
             ))}
           </div>
