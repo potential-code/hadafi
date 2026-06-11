@@ -57,7 +57,7 @@ export function ChatEmptyState({ onSend }: Props) {
         {/* Avatar */}
         <div className="ring-4 ring-brand-primary/15 rounded-full mt-1">
           <img
-            src="/images/redesign/smeep-avatar-200.png"
+            src="/images/redesign/hadafi-avatar-200.png"
             alt="Sana"
             className="w-[68px] h-[68px] rounded-full object-cover object-top border-2 border-white"
           />

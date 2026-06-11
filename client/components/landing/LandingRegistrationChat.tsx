@@ -17,10 +17,10 @@ import { setAuth } from '@/lib/auth'
 import '../dashboard/copilot.css'
 import { apiFetch } from '@/lib/api'
 import {
-  SmeepAssistantMessage,
-  SmeepUserMessage,
-  SmeepChatInput,
-  SmeepTypingCursor,
+  HadafiAssistantMessage,
+  HadafiUserMessage,
+  HadafiChatInput,
+  HadafiTypingCursor,
 } from '../dashboard/chat-components'
 import { CountryPickerCard } from './CountryPickerCard'
 import { RegistrationConfirmCard } from './RegistrationConfirmCard'
@@ -29,12 +29,12 @@ import { RegistrationConfirmCard } from './RegistrationConfirmCard'
 // Landing-specific assistant message wrapper
 // V1 CopilotChat passes isLoading/isGenerating to AssistantMessage; V2 doesn't.
 // When isLoading=true there is no content yet — show the typing dots instead
-// of rendering nothing (which is what SmeepAssistantMessage does for empty msgs).
+// of rendering nothing (which is what HadafiAssistantMessage does for empty msgs).
 // ---------------------------------------------------------------------------
 // V1 UserMessageProps has message as optional; V2 requires it — bridge with any.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function LandingUserMessage(props: any) {
-  return <SmeepUserMessage {...props} />
+  return <HadafiUserMessage {...props} />
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -49,9 +49,9 @@ function LandingAssistantMessage(props: any) {
   const isEmpty = content.trim().length === 0 && !props.message?.toolCalls?.length
 
   if (isEmpty && (props.isLoading || props.isGenerating || props.isCurrentMessage)) {
-    return <SmeepTypingCursor />
+    return <HadafiTypingCursor />
   }
-  return <SmeepAssistantMessage {...props} />
+  return <HadafiAssistantMessage {...props} />
 }
 
 // ---------------------------------------------------------------------------
@@ -300,7 +300,7 @@ function LandingRegistrationChatInner() {
   const copilotSendRef = useRef<((text: string) => void) | null>(null)
 
   // Input wrapper that bridges V1 CopilotChat props (onSend, inProgress) to the
-  // V2-shaped SmeepChatInput (onSubmitMessage, isRunning).  No dep on
+  // V2-shaped HadafiChatInput (onSubmitMessage, isRunning).  No dep on
   // showSuggestion so CopilotKit never remounts the input on state change.
   const LandingInput = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -313,7 +313,7 @@ function LandingRegistrationChatInner() {
       // Keep local ref in sync so Register/Login CTA buttons can trigger sends
       copilotSendRef.current = onSubmitMessage
       return (
-        <SmeepChatInput
+        <HadafiChatInput
           {...props}
           onSubmitMessage={onSubmitMessage}
           isRunning={props.inProgress ?? props.isRunning ?? false}
@@ -570,7 +570,7 @@ function LandingRegistrationChatInner() {
       >
         <div className="relative flex-shrink-0">
           <img
-            src="/images/redesign/smeep-avatar-96.png"
+            src="/images/redesign/hadafi-avatar-96.png"
             alt="Sana"
             className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white/30"
           />
@@ -594,7 +594,7 @@ function LandingRegistrationChatInner() {
               }}
             >
               <img
-                src="/images/redesign/smeep-avatar-200.png"
+                src="/images/redesign/hadafi-avatar-200.png"
                 alt="Sana"
                 className="w-full h-full object-cover object-top"
               />

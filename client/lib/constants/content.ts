@@ -331,7 +331,7 @@ export const HUMAN_MENTORS = {
   mentors: [
     {
       name: 'Monika Papadopoulou',
-      email: 'monika.papadopoulou@smeep.potential.org',
+      email: 'monika.papadopoulou@hadafi.potential.org',
       specialty: 'Leadership, Sales, Branding',
       category: 'Leadership',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2021/03/monika.jpg',
@@ -340,7 +340,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Ziad Banna',
-      email: 'ziad.banna@smeep.potential.org',
+      email: 'ziad.banna@hadafi.potential.org',
       specialty: 'Project Management, Leadership, Accounting',
       category: 'Leadership',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2021/03/ziadbanna.jpg',
@@ -349,7 +349,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Celine Chami',
-      email: 'celine.chami@smeep.potential.org',
+      email: 'celine.chami@hadafi.potential.org',
       specialty: 'Social Media, Marketing, Communication',
       category: 'Marketing',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2020/07/Celine-card.jpg',
@@ -358,7 +358,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Alla Musnicka',
-      email: 'alla.musnicka@smeep.potential.org',
+      email: 'alla.musnicka@hadafi.potential.org',
       specialty: 'Sales, Marketing, PR',
       category: 'Marketing',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2020/07/Alla-card.jpg',
@@ -367,7 +367,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Ivan Kraemer',
-      email: 'ivan.kraemer@smeep.potential.org',
+      email: 'ivan.kraemer@hadafi.potential.org',
       specialty: 'ICT, Sales, Team Building',
       category: 'Operations',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2020/06/Ivan-Kraemer-smeep-card.jpg',
@@ -376,7 +376,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Mita Srinivasan',
-      email: 'mita.srinivasan@smeep.potential.org',
+      email: 'mita.srinivasan@hadafi.potential.org',
       specialty: 'PR, Social Media, Communications',
       category: 'Marketing',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2020/06/Mita-Smeep-card.jpg',
@@ -385,7 +385,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Shahrazad Shehab',
-      email: 'shahrazad.shehab@smeep.potential.org',
+      email: 'shahrazad.shehab@hadafi.potential.org',
       specialty: 'PR, Social Media',
       category: 'Marketing',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2021/06/Shahrazad-Shehab-card-1.png',
@@ -394,7 +394,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Sawsan Abbasy',
-      email: 'sawsan.abbasy@smeep.potential.org',
+      email: 'sawsan.abbasy@hadafi.potential.org',
       specialty: 'Strategy, Sales',
       category: 'Strategy',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2021/05/Sawsan-Abbasy-300x300-1.png',
@@ -403,7 +403,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Umair Azhar',
-      email: 'umair.azhar@smeep.potential.org',
+      email: 'umair.azhar@hadafi.potential.org',
       specialty: 'Insurance, Financials',
       category: 'Finance',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2021/03/Umair.jpg',
@@ -412,7 +412,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Ghinwa Abi Zeid',
-      email: 'ghinwa.abizeid@smeep.potential.org',
+      email: 'ghinwa.abizeid@hadafi.potential.org',
       specialty: 'Legal, Partnerships, Company Setup',
       category: 'Legal',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2021/03/ghenwa.jpg',
@@ -421,7 +421,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Albert Jose',
-      email: 'albert.jose@smeep.potential.org',
+      email: 'albert.jose@hadafi.potential.org',
       specialty: 'Accounting, Auditing, Tax',
       category: 'Finance',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2021/03/Albert-card.png',
@@ -430,7 +430,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Nika Sturm',
-      email: 'nika.sturm@smeep.potential.org',
+      email: 'nika.sturm@hadafi.potential.org',
       specialty: 'Strategy',
       category: 'Strategy',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2020/08/Nika-Sturm.png',
@@ -439,7 +439,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Ahmed Alsuleimani',
-      email: 'ahmed.alsuleimani@smeep.potential.org',
+      email: 'ahmed.alsuleimani@hadafi.potential.org',
       specialty: 'Leadership, Strategy',
       category: 'Leadership',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2020/08/Ahmed-Alsuleimani.png',
@@ -448,7 +448,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Samer Hamadeh',
-      email: 'samer.hamadeh@smeep.potential.org',
+      email: 'samer.hamadeh@hadafi.potential.org',
       specialty: 'Product Development, Strategy, Business Development',
       category: 'Strategy',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2020/07/Samer-card.jpg',
@@ -457,7 +457,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Kirsten Westholter',
-      email: 'kirsten.westholter@smeep.potential.org',
+      email: 'kirsten.westholter@hadafi.potential.org',
       specialty: 'Design Thinking, Business Transformation, Strategy',
       category: 'Strategy',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2020/07/Kirsten-card.jpg',
@@ -466,7 +466,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Tony Feghali',
-      email: 'tony.feghali@smeep.potential.org',
+      email: 'tony.feghali@hadafi.potential.org',
       specialty: 'Strategy, Leadership, Sales',
       category: 'Leadership',
       avatar: 'https://smeep.potential.org/wp-content/uploads/2020/07/Tony-card.jpg',
@@ -475,7 +475,7 @@ export const HUMAN_MENTORS = {
     },
     {
       name: 'Lara Haddad',
-      email: 'lara.haddad@smeep.potential.org',
+      email: 'lara.haddad@hadafi.potential.org',
       specialty: 'Strategy & Operations',
       category: 'Strategy',
       avatar: '/assets/mentors/mentor-placeholder.jpg',

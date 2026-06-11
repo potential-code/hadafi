@@ -2,8 +2,8 @@
 // Token + user storage keys
 // ---------------------------------------------------------------------------
 
-const TOKEN_KEY = 'smeep_token'
-const USER_KEY = 'smeep_user'
+const TOKEN_KEY = 'hadafi_token'
+const USER_KEY = 'hadafi_user'
 
 // ---------------------------------------------------------------------------
 // Public user shape (matches what the API returns)

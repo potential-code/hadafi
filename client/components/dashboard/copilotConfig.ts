@@ -65,10 +65,10 @@ import { useEffect, useState } from 'react'
 import { apiFetch } from '@/lib/api'
 import { getToken } from '@/lib/auth'
 
-const COPILOT_JWT_KEY = 'smeep_copilot_jwt'
-const COPILOT_JWT_EXP_KEY = 'smeep_copilot_jwt_exp'
+const COPILOT_JWT_KEY = 'hadafi_copilot_jwt'
+const COPILOT_JWT_EXP_KEY = 'hadafi_copilot_jwt_exp'
 // 'user' (logged-in, per-user claims) or 'guest' (anonymous landing-chat token).
-const COPILOT_JWT_KIND_KEY = 'smeep_copilot_jwt_kind'
+const COPILOT_JWT_KIND_KEY = 'hadafi_copilot_jwt_kind'
 // Re-mint well before the recorded expiry so in-flight requests never
 // straddle the boundary.
 const EXPIRY_MARGIN_MS = 5 * 60 * 1000
@@ -108,11 +108,11 @@ async function mintFrom(
 }
 
 /**
- * Ensure a valid copilot token exists, minting one via the smeep server when
+ * Ensure a valid copilot token exists, minting one via the Hadafi server when
  * needed. Logged-in users get a per-user token; anonymous visitors (the public
  * landing chat) get a short-lived guest token.
  *
- * Robustness: a `smeep_token` lingering in localStorage doesn't mean the
+ * Robustness: a `hadafi_token` lingering in localStorage doesn't mean the
  * session is still valid (it may be expired). If the user-token mint fails
  * (e.g. 401 on a stale session), we fall back to a guest token so the assistant
  * still works instead of breaking — the landing chat must never hard-fail.

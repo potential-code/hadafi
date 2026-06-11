@@ -60,7 +60,7 @@ export function AssistantCardStrip({ children, label }: AssistantCardStripProps)
 
         <div
           ref={scrollRef}
-          className="flex gap-2 overflow-x-auto pb-2 smeep-card-scroll"
+          className="flex gap-2 overflow-x-auto pb-2 hadafi-card-scroll"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' } as React.CSSProperties}
         >
           {children}

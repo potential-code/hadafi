@@ -126,7 +126,7 @@ export function verifyBasicAuthHeader(
 }
 
 export const UNAUTHORIZED_HEADERS: Record<string, string> = {
-  "WWW-Authenticate": 'Basic realm="SMEEP", charset="UTF-8"',
+  "WWW-Authenticate": 'Basic realm="Hadafi", charset="UTF-8"',
   "Cache-Control": "no-store",
 };
 

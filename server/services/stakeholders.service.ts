@@ -75,7 +75,7 @@ export async function registerExpert(data: {
   // If the mailer fails the registration is still accepted — the row is committed.
   await sendMail({
     to: email,
-    subject: "We've received your SMEEP mentor application",
+    subject: "We've received your Hadafi mentor application",
     template: "mentor-application-received",
     context: { name },
   }).catch((err: unknown) => {

@@ -14,13 +14,13 @@ import { SendHorizontal, Square, Copy, Check, RotateCcw } from 'lucide-react'
 import { getUser } from '@/lib/auth'
 import { ChatLoadingContext } from './chat-loading-context'
 
-// ─── Module-level refs shared between SmeepChatInput and EmbeddedDashboardAssistant ──
+// ─── Module-level refs shared between HadafiChatInput and EmbeddedDashboardAssistant ──
 //
-// Written to by EmbeddedDashboardAssistant so SmeepChatInput can fire it on submit
+// Written to by EmbeddedDashboardAssistant so HadafiChatInput can fire it on submit
 // without needing access to the component's internal refs.
 export const beforeSendRef: { current: (() => void) | null } = { current: null }
 
-// Tracks whether the LLM is currently streaming. SmeepChatInput writes to the ref
+// Tracks whether the LLM is currently streaming. HadafiChatInput writes to the ref
 // on every inProgress change and calls the subscriber so EmbeddedDashboardAssistant
 // can update its state and propagate the value via ChatLoadingContext.
 export const isChatInProgressRef = { current: false }
@@ -103,13 +103,13 @@ export function parseAssistantPills(content: string): ParsedMessage {
   return { prose: proseLines.join('\n'), pills: items.map(it => it.text), label, multiSelect, isSuggest: false }
 }
 
-// ─── SmeepTypingCursor ───────────────────────────────────────────────────────
+// ─── HadafiTypingCursor ───────────────────────────────────────────────────────
 
-export function SmeepTypingCursor() {
+export function HadafiTypingCursor() {
   return (
     <div className="flex gap-2 items-end mb-3">
       <img
-        src="/images/redesign/smeep-avatar-96.png"
+        src="/images/redesign/hadafi-avatar-96.png"
         alt="Sana"
         className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
       />
@@ -131,9 +131,9 @@ export function SmeepTypingCursor() {
   )
 }
 
-// ─── SmeepAssistantMessage ────────────────────────────────────────────────────
+// ─── HadafiAssistantMessage ────────────────────────────────────────────────────
 
-export function SmeepAssistantMessage({ message, messages }: CopilotChatAssistantMessageProps) {
+export function HadafiAssistantMessage({ message, messages }: CopilotChatAssistantMessageProps) {
   const m = message as { name?: string; content?: unknown; toolCalls?: unknown[] } | undefined
 
   // ── Derive content + pills before any hook so all hooks are unconditional ──
@@ -191,7 +191,7 @@ export function SmeepAssistantMessage({ message, messages }: CopilotChatAssistan
       <>
         <div className="flex gap-2 items-end mb-3">
           <img
-            src="/images/redesign/smeep-avatar-96.png"
+            src="/images/redesign/hadafi-avatar-96.png"
             alt="Sana"
             className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
           />
@@ -252,7 +252,7 @@ export function SmeepAssistantMessage({ message, messages }: CopilotChatAssistan
     <>
       <div className="flex gap-2 items-start mb-3">
         <img
-          src="/images/redesign/smeep-avatar-96.png"
+          src="/images/redesign/hadafi-avatar-96.png"
           alt="Sana"
           className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0 mt-0.5"
         />
@@ -354,9 +354,9 @@ export function SmeepAssistantMessage({ message, messages }: CopilotChatAssistan
   )
 }
 
-// ─── SmeepUserMessage ─────────────────────────────────────────────────────────
+// ─── HadafiUserMessage ─────────────────────────────────────────────────────────
 
-export function SmeepUserMessage({ message }: CopilotChatUserMessageProps) {
+export function HadafiUserMessage({ message }: CopilotChatUserMessageProps) {
   const user = getUser()
   const initial = (user?.fullName ?? user?.email ?? 'U')[0].toUpperCase()
   const raw = message.content
@@ -400,9 +400,9 @@ export function SmeepUserMessage({ message }: CopilotChatUserMessageProps) {
   )
 }
 
-// ─── SmeepChatInput ───────────────────────────────────────────────────────────
+// ─── HadafiChatInput ───────────────────────────────────────────────────────────
 
-export function SmeepChatInput({ isRunning, onSubmitMessage, onStop }: CopilotChatInputProps) {
+export function HadafiChatInput({ isRunning, onSubmitMessage, onStop }: CopilotChatInputProps) {
   const [value, setValue] = useState('')
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 

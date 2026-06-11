@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server'
 
-const COOKIE_NAME = 'smeep_token'
+const COOKIE_NAME = 'hadafi_token'
 
 function getDashboardForRole(role: string): string {
   if (role === 'admin') return '/admin/dashboard'

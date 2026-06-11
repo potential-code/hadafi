@@ -19,7 +19,7 @@ const BASE = `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'}/api/
 
 function getToken(): string | null {
   if (typeof window === 'undefined') return null
-  return localStorage.getItem('smeep_token')
+  return localStorage.getItem('hadafi_token')
 }
 
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {

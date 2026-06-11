@@ -31,12 +31,12 @@ import { fetchOffers } from '@/lib/api/offers'
 import { getAllAiMentors } from '@/lib/dashboardData'
 import { getCountryDataList } from 'countries-list'
 import { PhoneField } from '@/components/ui/PhoneField'
-import { SmeepChatHeader } from './SmeepChatHeader'
+import { HadafiChatHeader } from './HadafiChatHeader'
 import {
-  SmeepAssistantMessage,
-  SmeepUserMessage,
-  SmeepChatInput,
-  SmeepTypingCursor,
+  HadafiAssistantMessage,
+  HadafiUserMessage,
+  HadafiChatInput,
+  HadafiTypingCursor,
   onPillClickRef,
 } from './chat-components'
 import { cn } from '@/lib/utils'
@@ -866,7 +866,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
 
   // ChatEmptyState overlay: shown on a fresh thread; selecting a chip/tool (or
   // any first message — typed or voice) dismisses it and reveals the chat.
-  // A synthetic greeting is injected first so V2 renders it via SmeepAssistantMessage
+  // A synthetic greeting is injected first so V2 renders it via HadafiAssistantMessage
   // (the same bot-bubble styling used for real responses).
   const handleSendFromEmptyState = useCallback(
     (msg: string) => {
@@ -884,7 +884,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
     if (messages.length > 0) setShowEmptyState(false)
   }, [messages.length])
 
-  // v1 hooked SmeepChatInput's beforeSend to cancel an open booking widget when
+  // v1 hooked HadafiChatInput's beforeSend to cancel an open booking widget when
   // the user submitted a new message. The v2 default chat input has no such
   // hook, so watch the agent's message list instead: a new user message while a
   // booking widget is open triggers the same cancellation flow.
@@ -1986,7 +1986,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
   return (
     <ChatLoadingContext.Provider value={isRunning}>
     <div className={cn('hadafi-copilot flex flex-col h-[460px] overflow-hidden rounded-none', className)}>
-      <SmeepChatHeader
+      <HadafiChatHeader
         name="Sana"
         status="Online"
         compact
@@ -2013,15 +2013,15 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
           threadId={threadId}
           messageView={{
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            assistantMessage: SmeepAssistantMessage as any,
+            assistantMessage: HadafiAssistantMessage as any,
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            userMessage: SmeepUserMessage as any,
+            userMessage: HadafiUserMessage as any,
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            cursor: SmeepTypingCursor as any,
+            cursor: HadafiTypingCursor as any,
           }}
           // Hide the input bar while the ChatEmptyState overlay is shown on top.
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          input={(showEmptyState ? NullInput : SmeepChatInput) as any}
+          input={(showEmptyState ? NullInput : HadafiChatInput) as any}
           labels={{
             chatInputPlaceholder: 'Ask me anything…',
             welcomeMessageText:

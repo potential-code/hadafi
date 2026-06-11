@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react'
 
-export function SmeepChatHeader({
+export function HadafiChatHeader({
   name = 'Sana',
   status = 'Online',
   onClose,
@@ -20,13 +20,13 @@ export function SmeepChatHeader({
     <div
       className="relative flex items-center gap-3 text-white flex-shrink-0"
       style={{
-        background: 'linear-gradient(120deg, #9f2063 0%, #7a1a4c 100%)',
+        background: 'linear-gradient(120deg, #e41674 0%, #b50d5c 100%)',
         padding: compact ? '12px 16px' : '14px 18px',
       }}
     >
       <div className="relative flex-shrink-0">
         <img
-          src="/images/redesign/smeep-avatar-96.png"
+          src="/images/redesign/hadafi-avatar-96.png"
           alt="Sana"
           className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white/30 shadow-md"
         />

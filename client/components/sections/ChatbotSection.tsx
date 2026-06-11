@@ -60,7 +60,7 @@ export function ChatbotSection() {
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               className="relative w-16 h-16 rounded-full overflow-hidden border-4 border-brand-deep shadow-2xl"
             >
-              <img src="/images/redesign/smeep-avatar-96.png" alt="Sana avatar" className="w-full h-full object-cover" />
+              <img src="/images/redesign/hadafi-avatar-96.png" alt="Sana avatar" className="w-full h-full object-cover" />
               <motion.div
                 aria-hidden
                 className="absolute inset-0 rounded-full"
@@ -92,7 +92,7 @@ export function ChatbotSection() {
                 className="flex items-end gap-2.5"
               >
                 <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-white/20">
-                  <img src="/images/redesign/smeep-avatar-96.png" alt="Sana" className="w-full h-full object-cover" />
+                  <img src="/images/redesign/hadafi-avatar-96.png" alt="Sana" className="w-full h-full object-cover" />
                 </div>
                 <div className="max-w-md bg-white/10 border border-white/10 text-white/90 rounded-2xl rounded-bl-sm px-4 py-3 text-sm backdrop-blur-md">
                   Drafting your plan now — I'll cover positioning, channels, KPIs, and a 90-day rollout.

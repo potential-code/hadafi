@@ -64,7 +64,7 @@ export async function generatePdf(req: Request, res: Response): Promise<void> {
 
     await sendMail({
       to: emailAddress,
-      subject: `Your ${label} — SMEEP AI Business Assistant`,
+      subject: `Your ${label} — Hadafi AI Business Assistant`,
       template: 'business-document',
       context: { documentTypeName: label, title: docTitle },
       attachments: [
