@@ -1,8 +1,0 @@
-{"type":"server-started","port":64436,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:64436","screen_dir":"/home/aliya/Projects/potential-smeep/.superpowers/brainstorm/152777-1781002350/content","state_dir":"/home/aliya/Projects/potential-smeep/.superpowers/brainstorm/152777-1781002350/state"}
-{"type":"screen-added","file":"/home/aliya/Projects/potential-smeep/.superpowers/brainstorm/152777-1781002350/content/layout-directions.html"}
-{"source":"user-event","type":"click","text":"A\n    \n      Centered Hero\n      Large avatar + tagline centered at top, quick-action chips below, then a 2×2 pre-prompt card grid. Clean, focused, minimal.","choice":"a","id":null,"timestamp":1781002522038}
-{"type":"screen-added","file":"/home/aliya/Projects/potential-smeep/.superpowers/brainstorm/152777-1781002350/content/waiting-1.html"}
-{"type":"screen-added","file":"/home/aliya/Projects/potential-smeep/.superpowers/brainstorm/152777-1781002350/content/preprompt-options.html"}
-{"type":"screen-added","file":"/home/aliya/Projects/potential-smeep/.superpowers/brainstorm/152777-1781002350/content/waiting-2.html"}
-{"type":"screen-added","file":"/home/aliya/Projects/potential-smeep/.superpowers/brainstorm/152777-1781002350/content/chips-and-cards.html"}
-{"type":"server-stopped","reason":"idle timeout"}
