@@ -42,10 +42,8 @@ services:
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
         NEXT_PUBLIC_AI_BACKEND_URL: ${NEXT_PUBLIC_AI_BACKEND_URL}
         NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
-    # Host ports 3000 (Dokploy dashboard) and 3001 are already allocated on
-    # this host, so the client is published on 8090 to avoid the conflict.
     ports:
-      - "8090:3000"
+      - "8092:3000"
     environment:
       NODE_ENV: production
       PORT: "3000"
