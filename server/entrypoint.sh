@@ -16,5 +16,11 @@ node --enable-source-maps ./dist/db/seed/seed-hadafi-events.mjs
 echo "Seeding mentors..."
 node --enable-source-maps ./dist/db/seed/seed-hadafi-mentors.mjs
 
+echo "Seeding courses..."
+node --enable-source-maps ./dist/db/seed/seed-hadafi-courses.mjs
+
+echo "Seeding course content..."
+node --enable-source-maps ./dist/db/seed/seed-hadafi-course-content.mjs
+
 echo "Starting server..."
 exec node --enable-source-maps ./dist/index.mjs

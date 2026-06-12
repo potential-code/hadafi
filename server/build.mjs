@@ -21,6 +21,8 @@ async function buildAll() {
       path.resolve(artifactDir, "db/seed/seed-hadafi-offers.ts"),
       path.resolve(artifactDir, "db/seed/seed-hadafi-events.ts"),
       path.resolve(artifactDir, "db/seed/seed-hadafi-mentors.ts"),
+      path.resolve(artifactDir, "db/seed/seed-hadafi-courses.ts"),
+      path.resolve(artifactDir, "db/seed/seed-hadafi-course-content.ts"),
     ],
     platform: "node",
     bundle: true,
