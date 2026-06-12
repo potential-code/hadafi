@@ -811,6 +811,17 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const messages: any[] = agentAny?.messages ?? []
 
+  // Scroll to bottom whenever a user message is added (e.g. card CTA clicks).
+  const chatContainerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const lastMsg = messages[messages.length - 1]
+    if (!lastMsg || lastMsg.role !== 'user') return
+    requestAnimationFrame(() => {
+      const scrollEl = chatContainerRef.current?.querySelector('.copilotKitMessages')
+      if (scrollEl) scrollEl.scrollTop = scrollEl.scrollHeight
+    })
+  }, [messages])
+
   // Send a user message and run the agent — replaces v1 appendMessage().
   // Submissions are SERIALIZED on a promise chain: concurrent runAgent calls
   // get rejected and silently drop replies, so each submission waits for the
@@ -1995,7 +2006,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
 
   return (
     <ChatLoadingContext.Provider value={isRunning}>
-    <div className={cn('hadafi-copilot flex flex-col h-[460px] overflow-hidden rounded-none', className)}>
+    <div ref={chatContainerRef} className={cn('hadafi-copilot flex flex-col h-[460px] overflow-hidden rounded-none', className)}>
       <HadafiChatHeader
         name="Hana"
         status="Online"
