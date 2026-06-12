@@ -61,9 +61,6 @@ Thumbs.db
 .local/
 .worktrees/
 
-# Downloaded course cover images — generated at seed time
-client/public/images/courses/
-
 # User-uploaded files — runtime content, not for source control
 server/uploads/certificates/*
 !server/uploads/certificates/.gitkeep
