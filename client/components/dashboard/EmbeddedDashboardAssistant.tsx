@@ -811,9 +811,13 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const messages: any[] = agentAny?.messages ?? []
 
-  // CopilotKit v2 uses StickToBottom for scrolling — the actual scroll container
-  // is its inner div, which has no stable class. Walk up from the known anchor
-  // element to find the first scrollable ancestor and force it to the bottom.
+  // CopilotKit v2 uses StickToBottom (use-stick-to-bottom library) for scrolling.
+  // StickToBottom.Content renders TWO nested divs:
+  //   outer div (scrollRef) — height:100%, overflow:auto set via JS inline style — REAL scroll container
+  //   inner div (contentRef) — receives className="cpk:overflow-y-auto..." — height = content height, cannot actually scroll
+  // The inner div has overflow-y:auto from its CSS class, so a naive overflow check finds it first.
+  // Since its height equals its content, scrollHeight === clientHeight and scrollTop is clamped to 0.
+  // Adding scrollHeight > clientHeight skips the inner div and targets the outer div (real scroll container).
   const chatContainerRef = useRef<HTMLDivElement>(null)
   const scrollChatToBottom = useCallback(() => {
     requestAnimationFrame(() => requestAnimationFrame(() => {
@@ -823,7 +827,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
       let el = anchor.parentElement as HTMLElement | null
       while (el && el !== chatContainerRef.current) {
         const { overflow, overflowY } = getComputedStyle(el)
-        if (/auto|scroll/.test(overflow + overflowY)) {
+        if (/auto|scroll/.test(overflow + overflowY) && el.scrollHeight > el.clientHeight) {
           el.scrollTop = el.scrollHeight
           return
         }
