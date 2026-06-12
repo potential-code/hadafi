@@ -18,6 +18,9 @@ async function buildAll() {
     entryPoints: [
       path.resolve(artifactDir, "index.ts"),
       path.resolve(artifactDir, "db/seed/seed-admin.ts"),
+      path.resolve(artifactDir, "db/seed/seed-hadafi-offers.ts"),
+      path.resolve(artifactDir, "db/seed/seed-hadafi-events.ts"),
+      path.resolve(artifactDir, "db/seed/seed-hadafi-mentors.ts"),
     ],
     platform: "node",
     bundle: true,
