@@ -126,7 +126,7 @@ Key facts to use when answering:
 - AI Business Tools — generate Business Plans, Business Ideas, Marketing Plans, and Product Proposals
 - Points system: earn points by completing courses, redeem for partner offers
 - Certificates: awarded on course completion, visible in your profile
-- Contact: hadafi@potential.com | Social: hadafi.me / @hadafime / @hadafi_program
+- Contact: hadafi@potential.com
 - Registration: open globally, invite code optional, takes about 2 minutes right here in this chat
 
 ---

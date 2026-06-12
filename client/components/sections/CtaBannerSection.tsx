@@ -22,19 +22,26 @@ export function CtaBannerSection() {
   const lines = CTA_BANNER.heading.split('\n')
 
   return (
-    <section className="relative py-28 sm:py-36 bg-mesh-dark overflow-hidden">
+    <section className="relative py-28 sm:py-36 overflow-hidden">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/women-collab.png')" }}
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/72" />
       <div className="absolute inset-0 bg-noise opacity-[0.04] mix-blend-overlay pointer-events-none" />
 
       {/* Glowing orbs */}
       <motion.div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[450px] rounded-full bg-brand-primary/25 blur-3xl"
+        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[450px] rounded-full bg-brand-primary/20 blur-3xl"
         animate={reduced ? undefined : { opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
       <motion.div
         aria-hidden
-        className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-violet/30 blur-3xl"
+        className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-violet/25 blur-3xl"
         animate={reduced ? undefined : { opacity: [0.4, 0.7, 0.4] }}
         transition={{ duration: 8, repeat: Infinity, delay: 1 }}
       />

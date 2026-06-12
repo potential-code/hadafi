@@ -38,6 +38,7 @@ import {
   HadafiChatInput,
   HadafiTypingCursor,
   onPillClickRef,
+  beforeSendRef,
 } from './chat-components'
 import { cn } from '@/lib/utils'
 import { CourseAssistantCards } from '@/components/dashboard/assistant-cards/CourseAssistantCards'
@@ -777,6 +778,16 @@ function DocumentDeliveryCard({
 // overlay is visible so the underlying input bar stays hidden.
 const NullInput = () => null
 
+// Card CTAs (e.g. the AI tool cards' Start button) reach sendMessage through this
+// module-level ref. useFrontendTool registers each tool's render closure ONCE, on
+// the first render — before the CopilotKit runtime has connected, while useAgent
+// still returns a provisional agent with an empty message list. A render closure
+// that captures sendMessage directly is therefore frozen to that empty agent:
+// clicks would post a single-message thread, which the LangGraph adapter misreads
+// as a regenerate request and fails with "Message not found". Reading through the
+// ref at click time always reaches the live agent (same pattern as onPillClickRef).
+const onToolStartRef: { current: ((msg: string) => void) | null } = { current: null }
+
 export function EmbeddedDashboardAssistant({ className }: { className?: string } = {}) {
   const [userSnapshot, setUserSnapshot] = useState<UserSnapshot | null>(null)
   const router = useRouter()
@@ -893,12 +904,26 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
     return () => { onPillClickRef.current = null }
   }, [sendMessage, stopSpeaking])
 
-  const handleToolStart = useCallback(
-    (msg: string) => {
-      sendMessage(msg)
-    },
-    [sendMessage],
-  )
+  // Stop TTS when the user sends a typed message while voice is active.
+  // Only fires for HadafiChatInput submissions — voice STT finals go through
+  // submitRef and never touch beforeSendRef, so the voice session is unaffected.
+  useEffect(() => {
+    beforeSendRef.current = voiceOn ? stopSpeaking : null
+    return () => { beforeSendRef.current = null }
+  }, [voiceOn, stopSpeaking])
+
+  // Keep the ref pointing at the current sendMessage (it changes when useAgent
+  // swaps the provisional agent for the real per-thread clone after connect).
+  useEffect(() => {
+    onToolStartRef.current = sendMessage
+    return () => { onToolStartRef.current = null }
+  }, [sendMessage])
+
+  // Stable identity: tool render closures may capture this on the very first
+  // render and never refresh, so it must not close over sendMessage directly.
+  const handleToolStart = useCallback((msg: string) => {
+    onToolStartRef.current?.(msg)
+  }, [])
 
   // ChatEmptyState overlay: shown on a fresh thread; selecting a chip/tool (or
   // any first message — typed or voice) dismisses it and reveals the chat.
@@ -906,6 +931,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
   // (the same bot-bubble styling used for real responses).
   const handleSendFromEmptyState = useCallback(
     (msg: string) => {
+      if (voiceOn) stopSpeaking()
       agentAny.addMessage({
         id: makeUuid(),
         role: 'assistant',
@@ -914,7 +940,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
       setShowEmptyState(false)
       setTimeout(() => sendMessage(msg), 50)
     },
-    [agentAny, sendMessage],
+    [agentAny, sendMessage, voiceOn, stopSpeaking],
   )
   useEffect(() => {
     if (messages.length > 0) setShowEmptyState(false)
