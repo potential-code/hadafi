@@ -811,16 +811,26 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const messages: any[] = agentAny?.messages ?? []
 
-  // Scroll to bottom whenever a user message is added (e.g. card CTA clicks).
+  // CopilotKit v2 uses StickToBottom for scrolling — the actual scroll container
+  // is its inner div, which has no stable class. Walk up from the known anchor
+  // element to find the first scrollable ancestor and force it to the bottom.
   const chatContainerRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const lastMsg = messages[messages.length - 1]
-    if (!lastMsg || lastMsg.role !== 'user') return
-    requestAnimationFrame(() => {
-      const scrollEl = chatContainerRef.current?.querySelector('.copilotKitMessages')
-      if (scrollEl) scrollEl.scrollTop = scrollEl.scrollHeight
-    })
-  }, [messages])
+  const scrollChatToBottom = useCallback(() => {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (!chatContainerRef.current) return
+      const anchor = chatContainerRef.current.querySelector('[data-testid="copilot-scroll-content"]')
+      if (!anchor) return
+      let el = anchor.parentElement as HTMLElement | null
+      while (el && el !== chatContainerRef.current) {
+        const { overflow, overflowY } = getComputedStyle(el)
+        if (/auto|scroll/.test(overflow + overflowY)) {
+          el.scrollTop = el.scrollHeight
+          return
+        }
+        el = el.parentElement as HTMLElement | null
+      }
+    }))
+  }, [])
 
   // Send a user message and run the agent — replaces v1 appendMessage().
   // Submissions are SERIALIZED on a promise chain: concurrent runAgent calls
@@ -833,13 +843,14 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
       runChainRef.current = runChainRef.current.then(async () => {
         try {
           agentAny.addMessage({ id: makeUuid(), role: 'user', content: text })
+          scrollChatToBottom()
           await copilotkit.runAgent({ agent })
         } catch (err) {
           console.warn('[assistant] runAgent failed', err)
         }
       })
     },
-    [agent, agentAny, copilotkit],
+    [agent, agentAny, copilotkit, scrollChatToBottom],
   )
 
   // Realtime voice: mic → streaming STT → agent run → sentence-streamed TTS.
