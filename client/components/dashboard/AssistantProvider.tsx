@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { getUser, type User } from '@/lib/auth'
 import { useCopilotTokenReady, getDashboardOverviewThreadId } from './copilotConfig'
 
@@ -21,6 +21,9 @@ Be concise, practical, and warm. Use bullet points and short sections. When you 
 
 const InstructionsContext = createContext<string>(BASE_INSTRUCTIONS)
 const SharedAssistantThreadContext = createContext<string>('')
+// Resets the shared thread to a brand-new id, starting a fresh conversation
+// (new backend LangGraph thread = no checkpointed history).
+const ResetAssistantThreadContext = createContext<() => void>(() => {})
 
 export function useAssistantInstructions() {
   return useContext(InstructionsContext)
@@ -28,6 +31,10 @@ export function useAssistantInstructions() {
 
 export function useSharedAssistantThreadId() {
   return useContext(SharedAssistantThreadContext)
+}
+
+export function useResetAssistantThread() {
+  return useContext(ResetAssistantThreadContext)
 }
 
 function buildInstructions(user: User | null): string {
@@ -45,7 +52,12 @@ function buildInstructions(user: User | null): string {
  */
 export function AssistantProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(() => getUser())
-  const [sharedAssistantThreadId] = useState<string>(() => getDashboardOverviewThreadId())
+  const [sharedAssistantThreadId, setSharedAssistantThreadId] = useState<string>(() =>
+    getDashboardOverviewThreadId(),
+  )
+  const resetAssistantThread = useCallback(() => {
+    setSharedAssistantThreadId(getDashboardOverviewThreadId())
+  }, [])
   // Mint the copilot service token as soon as the dashboard loads.
   useCopilotTokenReady()
 
@@ -64,7 +76,9 @@ export function AssistantProvider({ children }: { children: ReactNode }) {
   return (
     <InstructionsContext.Provider value={instructions}>
       <SharedAssistantThreadContext.Provider value={sharedAssistantThreadId}>
-        {children}
+        <ResetAssistantThreadContext.Provider value={resetAssistantThread}>
+          {children}
+        </ResetAssistantThreadContext.Provider>
       </SharedAssistantThreadContext.Provider>
     </InstructionsContext.Provider>
   )

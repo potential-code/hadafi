@@ -10,7 +10,7 @@ import type {
 } from '@copilotkit/react-core/v2'
 import { CopilotChatToolCallsView } from '@copilotkit/react-core/v2'
 import { motion } from 'framer-motion'
-import { SendHorizontal, Square, Copy, Check, RotateCcw } from 'lucide-react'
+import { SendHorizontal, Square, Copy, Check } from 'lucide-react'
 import { getUser } from '@/lib/auth'
 import { ChatLoadingContext } from './chat-loading-context'
 
@@ -168,7 +168,13 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
     disablePreviousPills = () => setPillsDisabledByNewer(true)
   }, [hasPills])
 
-  const pillsDisabled = streaming || pillsDisabledByNewer
+  // Lock this option set once it is no longer the last message — i.e. the user
+  // has picked an option or typed something, or the assistant has replied.
+  // Same intent as the business-tool flow where prior options disable on advance.
+  const thisId = (message as { id?: string } | undefined)?.id
+  const lastId = (messages as Array<{ id?: string }> | undefined)?.[(messages?.length ?? 0) - 1]?.id
+  const isStale = Boolean(thisId && lastId && thisId !== lastId)
+  const pillsDisabled = streaming || pillsDisabledByNewer || isStale
 
   // ── Early returns after all hooks ─────────────────────────────────────────
 
@@ -313,7 +319,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
               )
             })}
           </div>
-          {multiSelect ? (
+          {multiSelect && (
             <div className="flex flex-col items-start gap-1 mt-1">
               <button
                 className="hadafi-confirm-btn"
@@ -325,24 +331,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
               >
                 Confirm selection{selectedPills.size > 0 ? ` (${selectedPills.size})` : ''}
               </button>
-              <button
-                className="hadafi-more-options-btn"
-                disabled={pillsDisabled}
-                onClick={() => onPillClickRef.current?.('Generate more options')}
-              >
-                <RotateCcw size={11} strokeWidth={2} />
-                Generate more options
-              </button>
             </div>
-          ) : (
-            <button
-              className="hadafi-more-options-btn"
-              disabled={pillsDisabled}
-              onClick={() => onPillClickRef.current?.('Generate more options')}
-            >
-              <RotateCcw size={11} strokeWidth={2} />
-              Generate more options
-            </button>
           )}
         </div>
       </div>

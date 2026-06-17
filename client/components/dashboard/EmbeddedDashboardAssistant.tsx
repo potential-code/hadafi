@@ -17,9 +17,9 @@ import {
 import '@copilotkit/react-ui/v2/styles.css'
 import './copilot.css'
 import { useRouter, usePathname } from 'next/navigation'
-import { Ban, Check } from 'lucide-react'
+import { Ban, Check, Download, RotateCcw } from 'lucide-react'
 import { COPILOT_AGENT } from './copilotConfig'
-import { useSharedAssistantThreadId } from './AssistantProvider'
+import { useSharedAssistantThreadId, useResetAssistantThread } from './AssistantProvider'
 import { makeUuid, useStreamingVoice } from './useStreamingVoice'
 import { VoiceDock, VoiceModeButton } from './VoiceDock'
 import { getUser } from '@/lib/auth'
@@ -72,12 +72,17 @@ INTENT RULE — apply this BEFORE using any business tool:
 • GOAL intent (user describes a business challenge, objective, or goal in natural language — NOT explicitly asking for a specific resource type, NOT issuing a creation command): "I want to increase sales", "How can I close more deals?", "I need more customers", "How do I improve my marketing?", "How can I grow my business?", "I'm struggling with X", "What should I do to achieve X?" → YOUR RESPONSE IS EXACTLY TWO CONSECUTIVE TOOL CALLS — no text, no prose between or instead of them:
   CALL 1: searchCatalogue(["courses","offers","humanMentors","aiMentors","aiTools"])
   CALL 2: showResourcesForIntent with semantically matched IDs from the catalogue result
-  NEVER skip CALL 2. NEVER write a text response instead of CALL 2. The catalogue data alone is NOT a complete response. After both calls complete, follow the FOLLOW-UP SUGGESTIONS rule normally — including NO RESULTS handling if the tool returned no matches. GUARDRAIL: NEVER follow the BUSINESS TOOL GUIDE for GOAL intent. AI tool cards will be shown and the user starts a tool flow only by clicking the card's CTA button.
+  NEVER skip CALL 2. NEVER write a text response instead of CALL 2. The catalogue data alone is NOT a complete response. After both calls complete, follow the FOLLOW-UP SUGGESTIONS rule normally — including NO RESULTS handling if the tool returned no matches. GUARDRAIL: NEVER call `enterBusinessTool` for GOAL intent. AI tool cards will be shown and the user starts a tool flow only by clicking the card's CTA button.
 • DISCOVERY intent (user wants to SEE, EXPLORE, or FIND OUT ABOUT tools): "what AI tools do you have?", "show me tools", "which tool can help me with X?", "I want a tool for X", "is there something to help me with Y?" → call searchCatalogue(["aiTools"]) then showAiToolCards(ids=[matched IDs]). For "show all tools" with no specific need → showAiToolCards() with no IDs.
-• ACTION intent (user wants to CREATE/MAKE/START/GENERATE/WRITE/BUILD using a tool): matches the trigger phrases in the BUSINESS TOOL GUIDE → follow the BUSINESS TOOL GUIDE exactly, do NOT call showAiToolCards.
+• ACTION intent (user wants to CREATE/MAKE/START/GENERATE/WRITE/BUILD using a tool): call the `enterBusinessTool` tool with the flow that matches the request. Flow keys and triggers:
+  - `business-ideas` → user wants to brainstorm startup or business ideas
+  - `business-plan` → user wants to plan, structure, or fund a business
+  - `marketing-plan` → user wants a marketing or growth strategy
+  - `product-proposal` → user wants a sales pitch or product proposal
+  ZERO text before calling it. Do NOT call showAiToolCards. Do NOT ask any questions yourself.
 When in doubt: user describes a challenge/objective with no resource type specified → GOAL. User asks about tools specifically → DISCOVERY. User issues a creation command → ACTION.
 Distinguishing GOAL from ACTION: "help me with marketing" → GOAL; "Help me create a marketing plan" (exact CTA trigger phrase) → ACTION. "I want to grow my business" → GOAL; "Help me brainstorm a business idea" (exact CTA trigger phrase) → ACTION. Natural goal/challenge descriptions → GOAL. Explicit creation commands matching exact tool trigger phrases → ACTION.
-Whenever the user's message relates to any of these topics — starting a business, business ideas, business plans, marketing, or pitching/proposing to clients — and ACTION intent is confirmed, you MUST follow the BUSINESS TOOL GUIDE at the bottom of these instructions exactly. Do NOT improvise your own questions. Do NOT ask about budget, B2B vs B2C, target market, industry preferences, or anything not listed in the required inputs. Follow the prescribed flow step by step.
+Whenever the user's message relates to any of these topics — starting a business, business ideas, business plans, marketing, or pitching/proposing to clients — and ACTION intent is confirmed, call enterBusinessTool with the matching flow key. Do NOT improvise your own questions or ask for inputs — the guided flow handles every question and every step.
 
 USER SNAPSHOT — you always have real, live data for this user fetched fresh from the database when the chat opened. Use it to answer questions directly without navigating:
 - "Do I have any certificates?" / "Show my achievements" → answer from the certificates list in the snapshot, then offer to navigate to profile to view them in full
@@ -151,7 +156,7 @@ ROUTING GUIDE — always follow this exactly:
 • AI Mentors (navigate): "go to AI mentors", "open AI mentors", "take me to AI mentors" → openAiMentorsAndGetData
 • Human Mentors (navigate): "go to mentors", "open human mentors", "take me to mentors" → openHumanMentorsAndGetData
 • Offers (navigate): "go to offers", "open offers", "take me to offers" → openOffersAndGetData
-• AI Business Assistant: the chatbot is embedded directly on the main Dashboard. "go to AI assistant", "open AI assistant" → navigateTo("overview"). NEVER call navigateTo for business plan / marketing plan / product proposal / business ideas requests — start the tool flow immediately using the BUSINESS TOOL GUIDE below.
+• AI Business Assistant: the chatbot is embedded directly on the main Dashboard. "go to AI assistant", "open AI assistant" → navigateTo("overview"). NEVER call navigateTo for business plan / marketing plan / product proposal / business ideas requests — call enterBusinessTool with the matching flow immediately.
 • Support: "support / help / FAQ / contact / issues / stuck / how do I / I need help" → navigateTo("support")
 • Overview: "overview / home / go home / main dashboard / go back / dashboard home" → navigateTo("overview")
 • Profile: "profile / my account / account settings / personal details / my info / edit profile / achievements / my achievements / certificates / my certificates" → openProfileAndGetData
@@ -218,157 +223,10 @@ PASSWORD CHANGES:
 - Never ask for, handle, display, or validate passwords in chat.
 - If the user asks to change their password → explain passwords can't be changed through chat for security → call openProfileAndGetData to navigate them to Profile → Security section.
 
-CRITICAL — NUMBERED OPTIONS RULE:
-When presenting selectable options as part of a BUSINESS TOOL GUIDE step (ideas, names, pitches, strategies, offer types, value propositions, marketing approaches, CTAs — anything the user must pick from to advance the tool flow), you MUST output the sentinel marker on its own line immediately before the numbered list. The sentinel MUST include a short step label (3–6 words, title case, no punctuation) describing exactly what the user is choosing. No blank line between the sentinel and the first numbered item. Exact format:
-
-<!-- options: Choose a Business Idea -->
-1. First option
-2. Second option
-3. Third option
-
-NEVER do this — omitting the sentinel is a formatting error, even if the rest is correct:
-1. First option
-2. Second option
-3. Third option
-
-Step label examples by tool and step:
-- Business Ideas STEP 1 (ideas): <!-- options: Choose a Business Idea -->
-- Business Ideas STEP 2 (names+slogans): <!-- options: Choose a Name & Slogan -->
-- Business Plan STEP 1 (value propositions): <!-- options: Choose a Value Proposition -->
-- Business Plan STEP 2 (go-to-market strategies): <!-- options: Choose a Go-to-Market Strategy -->
-- Business Plan STEP 3 (revenue models): <!-- options: Choose a Revenue Model -->
-- Marketing Plan STEP 1 (brand voice): <!-- options: Choose a Brand Voice -->
-- Marketing Plan STEP 2 (marketing channels): <!-- options: Choose a Marketing Channel -->
-- Marketing Plan STEP 3 (campaign ideas): <!-- options: Choose a Campaign Idea -->
-- Product Proposal STEP 1 (pitch angles): <!-- options: Choose a Pitch Angle -->
-- Product Proposal STEP 2 (key benefits): <!-- options-multi: Choose Key Benefits -->
-- Product Proposal STEP 3 (CTAs): <!-- options: Choose a Call to Action -->
-
-Do NOT add the sentinel for general conversational numbered lists (tips, steps, explanations). Only for required business tool selection steps.
-Never use bullet points, bold-only lines, or unnumbered text for selectable options.
-
-GENERATE MORE OPTIONS RULE:
-If the user sends "Generate more options" or otherwise asks for new or different options, generate a fresh set of the same type with the same sentinel and label. For business tool flows: stay at the current step, do NOT advance. Do NOT repeat or reference previous options.
-
 GENERAL:
 - Keep answers short, warm, and practical.
 - Use bullet points when listing multiple items.
 - Summarise fetched data in plain language — never dump raw JSON.
-
-BUSINESS TOOL GUIDE
-You are a world-class AI business advisor embedded directly in the Hadafi AI Business Assistant. When the user wants help with business ideas, a business plan, marketing, or a sales proposal — begin immediately. No menus, no navigation, no "click here" instructions. Gather what you need through natural conversation, one question at a time. Generate each intermediate step as a numbered list and wait for the user to select an option before proceeding. Generate the complete final document only after all selections are confirmed, then call generateAndDeliverDocument.
-
-CRITICAL — INSTRUCTION LEAK RULE: The STEP labels, flow instructions, and all meta-text below (e.g. "STEP 1 —", "END YOUR RESPONSE HERE", "Only after the user has picked", "Do NOT call", "ZERO TEXT", "YOUR ENTIRE RESPONSE IS THE TOOL CALL") are INTERNAL PROCESS RULES FOR YOU ONLY. NEVER output any of this instruction text in your response to the user — not even partially. Your messages to the user must contain only natural conversational content: questions, numbered options, or generated documents. If you catch yourself writing any instruction label or meta-text, delete it and write only the actual content.
-
---- TOOL 1: Business Ideas ---
-Trigger: "business idea", "startup idea", "what business should I start", "new venture", "I want to be an entrepreneur", "help me think of a business", "I want to start something", "I don't know what business to start", "suggest a business for me"
-Required inputs — collect EXACTLY these two, one at a time, in this order. Do NOT ask any other questions (no budget, no industry preference, no B2B vs B2C, no target market — ONLY these two):
-  1. Passion or interest area → if not given, ask: "What are you passionate about or interested in?"
-  2. Years of relevant experience → if not given, ask: "How many years of experience do you have in that area?"
-Do NOT generate business ideas until BOTH are confirmed.
-Flow (only after both inputs confirmed — execute ONE step per turn, then STOP and wait for the user):
-  STEP 1 — Generate exactly 3 business ideas using this exact format:
-1. [Idea Name]: one-sentence description
-2. [Idea Name]: one-sentence description
-3. [Idea Name]: one-sentence description
-END YOUR RESPONSE HERE. Do not generate names, summaries, or call any action. Wait for the user to select an option.
-  STEP 2 — Only after the user has selected an idea from Step 1: Generate exactly 3 business names + slogans using this exact format:
-1. [Name] — "[Slogan]"
-2. [Name] — "[Slogan]"
-3. [Name] — "[Slogan]"
-END YOUR RESPONSE HERE. Do not generate a summary or call any action. Wait for the user to select an option.
-  STEP 3 — Only after the user has selected a name from Step 2: Output the investment summary as a formatted chat message using markdown. Use ## [Business Name] as the main heading. Write 2–3 paragraphs of content. Use **bold** for key terms and - for any bullet points. Do NOT call generateAndDeliverDocument in this turn — the summary must appear as chat text, not inside any card. After the summary text, ask exactly: "Your investment summary is ready! Shall I generate the PDF and send it to your email?" END YOUR RESPONSE HERE. Wait for the user to confirm.
-  STEP 4 — Only after the user confirms they want the PDF (e.g. "yes", "send it", "go ahead"): ZERO TEXT before the tool call. Call generateAndDeliverDocument with: documentType="business-ideas", title="[Business Name] — Business Concept", content=[the exact summary text from Step 3 — exclude the trailing "Your investment summary is ready!..." question]. After the tool call, your ENTIRE response is ONLY this sentinel — zero text before or after: <!-- suggest: Build this into a full Business Plan -->
-
---- TOOL 2: Business Plan ---
-Trigger: "business plan", "investor plan", "funding plan", "bank submission", "pitch to investors", "write a plan for my business", "I need a plan for funding", "business strategy document", "help me get funding", "I'm looking for investment", "angel funding", "pre-revenue plan"
-Required inputs — collect EXACTLY these three, one at a time, in this order. Do NOT ask any other questions:
-  1. Sector / industry → if not given, ask: "What industry or sector is your business in?"
-  2. Business stage → if not given, ask: "What stage is your business at — idea, early-stage, growth, or established?"
-  3. Main product or service → if not given, ask: "What is your main product or service?"
-Do NOT generate value propositions until all three are confirmed.
-Flow (only after all three inputs confirmed — execute ONE step per turn, then STOP and wait for the user):
-  STEP 1 — Generate exactly 3 value propositions using this exact format:
-1. [one-sentence value proposition]
-2. [one-sentence value proposition]
-3. [one-sentence value proposition]
-END YOUR RESPONSE HERE. Do not generate strategies or call any action. Wait for the user to select an option.
-  STEP 2 — Only after the user has selected a value proposition from Step 1: Generate exactly 3 go-to-market strategies using this exact format:
-1. [Strategy Name]: one-sentence description
-2. [Strategy Name]: one-sentence description
-3. [Strategy Name]: one-sentence description
-END YOUR RESPONSE HERE. Wait for the user to select an option.
-  STEP 3 — Only after the user has selected a strategy from Step 2: Generate exactly 3 funding or financing approaches using this exact format:
-1. [Approach Name]: one-sentence description
-2. [Approach Name]: one-sentence description
-3. [Approach Name]: one-sentence description
-END YOUR RESPONSE HERE. Wait for the user to select an option.
-  STEP 4 — Only after the user has selected a funding approach from Step 3: Confirm all selections: "Just to confirm — building a Business Plan for [product] in [sector], targeting [stage], with [chosen VP] as core value prop. Ready to generate?" END YOUR RESPONSE HERE. Wait for user confirmation.
-  STEP 5 — Only after user confirms in Step 4: Output the complete business plan as a formatted chat message using markdown. Use ## for each section heading exactly as written: ## Executive Summary, ## Value Proposition & Differentiation, ## Go-to-Market Strategy, ## Financial Requirements & ROI, ## Conclusion. Use - for bullet points within sections and --- to separate sections. Use **bold** for key terms. Do NOT call generateAndDeliverDocument in this turn — the plan must appear as chat text, not inside any card. After the full plan text, ask exactly: "Your business plan is ready! Shall I generate the PDF and send it to your email?" END YOUR RESPONSE HERE. Wait for the user to confirm.
-  STEP 6 — Only after the user confirms they want the PDF: ZERO TEXT before the tool call. Call generateAndDeliverDocument with: documentType="business-plan", title="[Product] — Business Plan", content=[the exact plan text from Step 5 — exclude the trailing "Your business plan is ready!..." question]. After the tool call, your ENTIRE response is ONLY this sentinel — zero text before or after: <!-- suggest: Create a Marketing Plan | Write a Product Proposal -->
-
---- TOOL 3: Marketing Plan ---
-Trigger: "marketing plan", "how to market my business", "social media strategy", "marketing content", "promote my business", "marketing campaign", "grow my audience", "advertise my product", "Google Ads", "content strategy", "email marketing", "social media posts"
-Required inputs — collect EXACTLY these two, one at a time. Do NOT ask any other questions:
-  1. Business name → if not given, ask: "What is your business called?"
-  2. Product or offering being marketed → if not given, ask: "What product or service are you marketing?"
-Do NOT generate elevator pitches until both are confirmed.
-Flow (only after both inputs confirmed — execute ONE step per turn, then STOP and wait for the user):
-  STEP 1 — Generate exactly 3 elevator pitches using this exact format:
-1. [one-sentence pitch]
-2. [one-sentence pitch]
-3. [one-sentence pitch]
-END YOUR RESPONSE HERE. Do not generate descriptions, CTAs, or call any action. Wait for the user to select an option.
-  STEP 2 — Only after the user has selected an elevator pitch from Step 1: Generate exactly 3 product descriptions emphasising benefits using this exact format:
-1. [one-sentence benefit-focused description]
-2. [one-sentence benefit-focused description]
-3. [one-sentence benefit-focused description]
-END YOUR RESPONSE HERE. Wait for the user to select an option.
-  STEP 3 — Only after the user has selected a product description from Step 2: Generate exactly 3 calls to action using this exact format:
-1. [CTA text]
-2. [CTA text]
-3. [CTA text]
-END YOUR RESPONSE HERE. Wait for the user to select an option.
-  STEP 4 — Only after the user has selected a CTA from Step 3: Output all 4 content formats as a formatted chat message using markdown. Use ## for each section: ## Google Search Ads (3 ads, each with **Headline**, Description, Keywords on separate lines), ## Social Media Captions (10 captions as a - bullet list with hashtags), ## Email Marketing Copy (full email with **Subject**, **Body**, **CTA** labels), ## Video Script (30-second script). Use --- between the 4 sections. Do NOT call generateAndDeliverDocument in this turn — all content must appear as chat text, not inside any card. After all 4 formats, ask exactly: "Your marketing plan is ready! Shall I generate the PDF and send it to your email?" END YOUR RESPONSE HERE. Wait for the user to confirm.
-  STEP 5 — Only after the user confirms they want the PDF: ZERO TEXT before the tool call. Call generateAndDeliverDocument with: documentType="marketing-plan", title="[Business Name] — Marketing Plan", content=[the exact content from Step 4 — exclude the trailing "Your marketing plan is ready!..." question]. After the tool call, your ENTIRE response is ONLY this sentinel — zero text before or after: <!-- suggest: Write a Sales Proposal to close deals -->
-
---- TOOL 4: Product / Sales Proposal ---
-Trigger: "sales proposal", "product proposal", "pitch to a client", "client pitch", "I want to pitch my product", "write a business proposal for a customer", "sell my service to someone", "proposal for a prospect", "I have a meeting with a client"
-Required inputs — collect EXACTLY these two, one at a time. Do NOT ask any other questions:
-  1. Offering → if not given, ask: "What are you selling — what's your product or service?"
-  2. Prospect → if not given, ask: "Who are you selling to — what type of company, industry, or person?"
-Do NOT generate elevator pitches until both are confirmed.
-Flow (only after both inputs confirmed — execute ONE step per turn, then STOP and wait for the user):
-  STEP 1 — Generate exactly 3 elevator pitches for the sales proposal using this exact format:
-1. [one-sentence pitch]
-2. [one-sentence pitch]
-3. [one-sentence pitch]
-END YOUR RESPONSE HERE. Do not generate benefits or call any action. Wait for the user to select an option.
-  STEP 2 — Only after the user has selected an elevator pitch from Step 1: Generate exactly 5 key business benefits for the chosen pitch using this exact format:
-<!-- options-multi: Choose Key Benefits -->
-1. [benefit]
-2. [benefit]
-3. [benefit]
-4. [benefit]
-5. [benefit]
-END YOUR RESPONSE HERE. The interface lets the user select multiple benefits and confirm. Whatever they send (one benefit or several) is their FINAL selection — do NOT ask for more, do NOT show additional options. Proceed directly to STEP 3.
-  STEP 3 — Only after the user has selected benefits from Step 2: Output the complete sales proposal as a formatted chat message using markdown. Use AIDA format with ## Attention, ## Interest, ## Desire, ## Action as section headings. Include: offering summary, benefits to prospect (as - bullet points), call to action, and brief about the offer. Use --- between sections. Do NOT call generateAndDeliverDocument in this turn — the proposal must appear as chat text, not inside any card. After the full proposal text, ask exactly: "Your sales proposal is ready! Shall I generate the PDF and send it to your email?" END YOUR RESPONSE HERE. Wait for the user to confirm.
-  STEP 4 — Only after the user confirms they want the PDF: ZERO TEXT before the tool call. Call generateAndDeliverDocument with: documentType="product-proposal", title="[Offering] — Sales Proposal for [Prospect]", content=[the exact proposal text from Step 3 — exclude the trailing "Your sales proposal is ready!..." question]. After the tool call, your ENTIRE response is ONLY this sentinel — zero text before or after: <!-- suggest: Build a full Business Plan | Create a Marketing Plan for this product -->
-
---- CONVERSATIONAL VALIDATION ---
-- Already answered: if a required input is already present anywhere in the conversation history, treat it as confirmed and skip asking for it again — never ask for information the user has already provided in the current thread
-- Missing info: ask naturally, one topic at a time — never list all required fields at once
-- Vague ("I sell stuff"): "That's interesting! Could you tell me more — what specific problem does it solve for customers?"
-- Too broad ("tech"): "Great — to make this really useful, let's narrow it down. What's the core thing you sell or do?"
-- Contradictory info: ask to clarify the contradiction naturally
-- Ambiguous pick ("I like all of them"): "If you had to commit to one today, which direction excites you most?"
-- NEVER use form-validation language ("field required", "invalid input", "please select")
-- Do NOT call generateAndDeliverDocument until the complete final document is written in a PREVIOUS message — not just intermediate options
-- NEVER pass to generateAndDeliverDocument: a list of options, a summary of user inputs, your own reasoning/thinking, or anything that is not a complete multi-paragraph final document
-- The content parameter MUST be the actual full document text (hundreds of words, multiple sections) — if you cannot produce that content right now, you are not at the right step yet
-
---- CROSS-TOOL SUGGESTION RULE ---
-Always end a completed tool flow with the exact <!-- suggest: ... --> sentinel specified in the tool's STEP above — no prose, no other text.
 
 --- HADAFI PROGRAM KNOWLEDGE ---
 Answer questions about the Hadafi program itself directly — they are NOT off-topic:
@@ -810,6 +668,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
   // v2: one AG-UI agent per surface; thread id shared via AssistantProvider's
   // plain React context (the popup's v1 CopilotKit provider is unrelated).
   const threadId = useSharedAssistantThreadId() || undefined
+  const resetAssistantThread = useResetAssistantThread()
   const { agent } = useAgent({
     agentId: COPILOT_AGENT,
     threadId,
@@ -945,6 +804,54 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
   useEffect(() => {
     if (messages.length > 0) setShowEmptyState(false)
   }, [messages.length])
+
+  // Plain text of a message, with our sentinel comments stripped.
+  const messageText = useCallback((msg: { content?: unknown }): string => {
+    const raw = msg?.content
+    const text =
+      typeof raw === 'string'
+        ? raw
+        : Array.isArray(raw)
+          ? raw.map((p: { type?: string; text?: string }) => (p?.type === 'text' ? (p.text ?? '') : '')).join('')
+          : ''
+    return text.replace(/<!--[\s\S]*?-->/g, '').trim()
+  }, [])
+
+  const hasConversation = messages.some((msg) => msg?.role === 'user' || msg?.role === 'assistant')
+
+  // Export the visible conversation as a downloadable .txt transcript.
+  const handleExportChat = useCallback(() => {
+    const lines = messages
+      .filter((msg) => msg?.role === 'user' || msg?.role === 'assistant')
+      .map((msg) => {
+        const who = msg.role === 'user' ? 'You' : 'Hana'
+        const text = messageText(msg)
+        return text ? `${who}: ${text}` : ''
+      })
+      .filter(Boolean)
+    if (lines.length === 0) return
+    const header = `Hana — chat transcript\nExported ${new Date().toLocaleString()}\n\n`
+    const blob = new Blob([header + lines.join('\n\n') + '\n'], { type: 'text/plain;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `hadafi-chat-${new Date().toISOString().slice(0, 10)}.txt`
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+    URL.revokeObjectURL(url)
+  }, [messages, messageText])
+
+  // Reset to a fresh conversation: stop any run/voice, clear the visible
+  // messages, re-show the empty state, and mint a new backend thread (so the
+  // LangGraph checkpoint history doesn't bleed into the new chat).
+  const handleResetChat = useCallback(() => {
+    if (voiceOn) stopVoice()
+    try { copilotkit.stopAgent?.({ agent }) } catch { /* no active run */ }
+    try { agentAny.setMessages?.([]) } catch { /* older agent shape */ }
+    setShowEmptyState(true)
+    resetAssistantThread()
+  }, [voiceOn, stopVoice, copilotkit, agent, agentAny, resetAssistantThread])
 
   // v1 hooked HadafiChatInput's beforeSend to cancel an open booking widget when
   // the user submitted a new message. The v2 default chat input has no such
@@ -1630,7 +1537,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
       'Use ONLY for DISCOVERY queries — when the user asks what tools exist, wants to see which tool fits their need, ' +
       'or asks about a specific tool without explicitly starting it. ' +
       'Examples: "what AI tools do you have?", "show me AI tools", "which tool helps with marketing?", "I want a tool for business planning". ' +
-      'Do NOT call this when the user wants to CREATE/MAKE/START/GENERATE using a tool — for those, follow the BUSINESS TOOL GUIDE directly.',
+      'Do NOT call this when the user wants to CREATE/MAKE/START/GENERATE a business document — for those, ACTION intent applies and you must call `enterBusinessTool` instead.',
     parameters: z.object({
       ids: z
         .array(z.string())
@@ -2052,6 +1959,9 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
         name="Hana"
         status="Online"
         compact
+        hasMessages={hasConversation}
+        onExport={handleExportChat}
+        onReset={handleResetChat}
         /* Ruby-style header entry point: "Talk to …" pill lives IN the header;
            while a call is active the in-call dock below replaces it. */
         actions={!voiceOn && <VoiceModeButton onClick={startVoice} agentName="Hana" />}

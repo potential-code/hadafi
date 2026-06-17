@@ -3,10 +3,16 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "concurrently -n client,server,studio -c blue,green,magenta \"bun run --filter @workspace/client dev\" \"bun run --filter @workspace/server dev\" \"bun run --filter @workspace/server db:studio\"",
+    "dev": "concurrently -n client,server,studio -c blue,green,magenta \"bun run --filter @workspace/client dev\" \"bun run --filter @workspace/server dev\" \"bun run db:studio\"",
     "dev:server": "bun run --filter @workspace/server dev",
     "build": "bun run typecheck && bun run --filter '*' build",
     "typecheck": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate --config ./drizzle.config.ts",
+    "db:migrate": "node --env-file=.env drizzle-kit migrate --config ./drizzle.config.ts",
+    "db:push": "node --env-file=.env drizzle-kit push --config ./drizzle.config.ts",
+    "db:push-force": "node --env-file=.env drizzle-kit push --force --config ./drizzle.config.ts",
+    "db:studio": "node --env-file=.env drizzle-kit studio --config ./drizzle.config.ts",
+    "db:seed": "bun run ./server/db/seed/seed.ts",
     "mailpit": "mailpit"
   },
   "private": true,

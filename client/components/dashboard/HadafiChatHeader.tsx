@@ -1,6 +1,7 @@
 'use client'
 
 import type { ReactNode } from 'react'
+import { Download, RotateCcw } from 'lucide-react'
 
 export function HadafiChatHeader({
   name = 'Hana',
@@ -8,6 +9,9 @@ export function HadafiChatHeader({
   onClose,
   compact = false,
   actions,
+  onExport,
+  onReset,
+  hasMessages = false,
 }: {
   name?: string
   status?: string
@@ -15,7 +19,16 @@ export function HadafiChatHeader({
   compact?: boolean
   /** Optional right-aligned header actions (e.g. the voice "Talk to …" pill). */
   actions?: ReactNode
+  /** Called when the user clicks the Export button. Disabled when !hasMessages. */
+  onExport?: () => void
+  /** Called when the user clicks the New Chat button. Disabled when !hasMessages. */
+  onReset?: () => void
+  /** Whether there are conversation messages — controls disabled state of export/reset buttons. */
+  hasMessages?: boolean
 }) {
+  const iconButtonClass =
+    'inline-flex items-center justify-center w-8 h-8 rounded-full text-white/85 hover:text-white hover:bg-white/15 transition-colors flex-shrink-0 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent'
+
   return (
     <div
       className="relative flex items-center gap-3 text-white flex-shrink-0"
@@ -42,7 +55,33 @@ export function HadafiChatHeader({
           {status}
         </p>
       </div>
-      {actions && <div className="flex flex-shrink-0 items-center gap-2">{actions}</div>}
+      <div className="flex flex-shrink-0 items-center gap-2">
+        {actions}
+        {onExport && (
+          <button
+            type="button"
+            aria-label="Export chat"
+            title="Export chat"
+            onClick={onExport}
+            disabled={!hasMessages}
+            className={iconButtonClass}
+          >
+            <Download className="h-4 w-4" strokeWidth={2.2} />
+          </button>
+        )}
+        {onReset && (
+          <button
+            type="button"
+            aria-label="New chat"
+            title="New chat"
+            onClick={onReset}
+            disabled={!hasMessages}
+            className={iconButtonClass}
+          >
+            <RotateCcw className="h-4 w-4" strokeWidth={2.2} />
+          </button>
+        )}
+      </div>
       {onClose && (
         <button
           onClick={onClose}

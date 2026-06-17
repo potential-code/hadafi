@@ -7,13 +7,7 @@
     "dev": "export NODE_ENV=development && bun run build && bun run start",
     "build": "node ./build.mjs",
     "start": "node --env-file=../.env --enable-source-maps ./dist/index.mjs",
-    "db:studio": "node --env-file=../.env ../node_modules/.bin/drizzle-kit studio --config ./db/drizzle.config.ts",
-    "typecheck": "tsc -p ../tsconfig.json --noEmit",
-    "db:generate": "drizzle-kit generate --config ./db/drizzle.config.ts",
-    "db:migrate": "drizzle-kit migrate --config ./db/drizzle.config.ts",
-    "db:push": "drizzle-kit push --config ./db/drizzle.config.ts",
-    "db:push-force": "drizzle-kit push --force --config ./db/drizzle.config.ts",
-    "db:seed": "bun run ./db/seed/seed.ts"
+    "typecheck": "tsc -p ../tsconfig.json --noEmit"
   },
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.1046.0",

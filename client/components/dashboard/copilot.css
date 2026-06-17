@@ -439,32 +439,6 @@
   cursor: not-allowed !important;
 }
 
-/* "Generate more options" ghost button — appears below the pill row */
-.hadafi-more-options-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: 6px;
-  color: rgba(228, 22, 116, 0.6);
-  font-size: 11px;
-  font-weight: 500;
-  font-family: inherit;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 2px 4px;
-  border-radius: 4px;
-  transition: color 0.15s ease;
-}
-
-.hadafi-more-options-btn:hover:not(:disabled) {
-  color: #e41674;
-}
-
-.hadafi-more-options-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
 
 /* ===== Markdown typography inside bot bubbles and document preview ===== */
 
