@@ -25,7 +25,14 @@ const router: IRouter = Router()
 const createCourseDto = z.object({
   title: z.string().min(1).max(500).trim(),
   description: z.string().max(5000).optional().nullable(),
-  cover: z.string().url().optional().nullable(),
+  cover: z
+    .string()
+    .refine(
+      (val) => val.startsWith('/') || z.string().url().safeParse(val).success,
+      { message: "cover must be a valid URL or a path starting with '/'" },
+    )
+    .optional()
+    .nullable(),
   difficulty: z.enum(['Beginner', 'Intermediate', 'Advanced']).default('Beginner'),
   pointsPerUnit: z.number().int().min(0).default(10),
   enableCertificate: z.boolean().default(true),
