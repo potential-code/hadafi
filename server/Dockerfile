@@ -1,5 +1,5 @@
 # Stage 1: Install all workspace dependencies
-FROM oven/bun:1-alpine AS deps
+FROM oven/bun:1.2-alpine AS deps
 WORKDIR /app
 COPY package.json bun.lock bunfig.toml ./
 COPY server/package.json ./server/
@@ -7,7 +7,7 @@ COPY client/package.json ./client/
 RUN bun install --frozen-lockfile
 
 # Stage 2: Build server bundle with esbuild
-FROM oven/bun:1-alpine AS builder
+FROM oven/bun:1.2-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY package.json bunfig.toml tsconfig.json ./
