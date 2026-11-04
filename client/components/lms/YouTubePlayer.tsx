@@ -267,19 +267,23 @@ export function YouTubePlayer({ videoUrl, onProgress }: Props) {
 
       {showOverlay && (
         <button
+          type="button"
+          aria-label={isPlaying ? 'Pause video' : 'Play video'}
           onClick={(e) => { e.stopPropagation(); togglePlay(); bumpOverlay() }}
           className="absolute z-50 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 rounded-full p-4 flex items-center justify-center transition-colors"
         >
-          {isPlaying ? <Pause className="w-8 h-8 text-white" /> : <Play className="w-8 h-8 text-white" />}
+          {isPlaying ? <Pause className="w-8 h-8 text-white" aria-hidden /> : <Play className="w-8 h-8 text-white" aria-hidden />}
         </button>
       )}
 
       {(showOverlay || isInFullscreen) && (
         <button
+          type="button"
+          aria-label={isInFullscreen ? 'Exit full screen' : 'Full screen'}
           onClick={(e) => { e.stopPropagation(); toggleFullscreen(); bumpOverlay() }}
           className="absolute right-3 bottom-3 z-50 bg-black/50 hover:bg-black/70 rounded p-2 transition-colors"
         >
-          {isInFullscreen ? <Minimize className="w-5 h-5 text-white" /> : <Maximize className="w-5 h-5 text-white" />}
+          {isInFullscreen ? <Minimize className="w-5 h-5 text-white" aria-hidden /> : <Maximize className="w-5 h-5 text-white" aria-hidden />}
         </button>
       )}
     </div>

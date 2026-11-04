@@ -163,7 +163,7 @@ export default function AiSafetyAdminPage() {
           ) : rows.length === 0 ? (
             <EmptyState icon={ShieldCheck} title="Nothing to show" body="No flagged answers match these filters." />
           ) : (
-            <div className="overflow-x-auto">
+            <div className="relative overflow-x-auto">
               <div className="min-w-[600px]">
                 <div aria-hidden className="grid h-[38px] grid-cols-[72px_minmax(150px,1.1fr)_minmax(0,2fr)_116px] items-center gap-x-3.5 bg-ui-surface-2 px-5 text-xs font-semibold text-ui-muted">
                   <span>Date</span>

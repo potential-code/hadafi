@@ -219,7 +219,14 @@ export function TableCard({
   return (
     <div className={cn('overflow-hidden rounded-[14px] border border-ui-line bg-ui-surface', className)}>
       {header}
-      <div className="overflow-x-auto">{children}</div>
+      {/* `relative` keeps absolutely placed bits (screen-reader text) inside the scroll box, so a wide
+          table never widens the page; tabIndex lets keyboard users scroll it. */}
+      <div
+        tabIndex={0}
+        className="relative overflow-x-auto focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ui-brand"
+      >
+        {children}
+      </div>
       {footer && <div className="border-t border-ui-line px-5 py-3 text-[13px] text-ui-muted">{footer}</div>}
     </div>
   )

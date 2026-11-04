@@ -281,6 +281,8 @@ export default function MentorProfile() {
                         ref={fileRef}
                         id="p-photo"
                         type="file"
+                        aria-label="Profile photo"
+                        tabIndex={-1}
                         accept="image/jpeg,image/png,image/webp"
                         className="sr-only"
                         onChange={(e) => onPhoto(e.target.files?.[0])}

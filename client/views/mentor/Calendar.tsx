@@ -353,7 +353,7 @@ function WeekView({
   const nowMins = (now.getHours() - startH) * 60 + now.getMinutes()
 
   return (
-    <div className="overflow-x-auto">
+    <div className="relative overflow-x-auto">
       <div
         style={vars}
         className="grid min-w-[640px] grid-cols-[56px_repeat(7,minmax(0,1fr))] max-md:min-w-[var(--mmin)] max-md:grid-cols-[44px_repeat(var(--mcols),minmax(0,1fr))]"
