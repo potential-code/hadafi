@@ -139,6 +139,13 @@ describe('an enrolled learner', () => {
     expect((await block()).status).toBe(200)
   })
 
+  it('cannot save an oversized written answer', async () => {
+    const res = await api('POST', `/api/lms/questions/${ids.planQs[0]}/answer`, {
+      token: learner.token, body: { answerData: { openEndedAnswer: 'x'.repeat(10_001) } },
+    })
+    expect(res.status).toBe(422)
+  })
+
   it('gets back only their own saved answers', async () => {
     const mine = await api<{ data: Array<{ questionId: string; answerData: { openEndedAnswer?: string } }> }>(
       'GET', `/api/lms/learning-blocks/${ids.planBlock}/answers`, { token: learner.token },
@@ -186,7 +193,9 @@ describe('an enrolled learner', () => {
     // Reaching 100% issues the certificate on its own; asking again doesn't make a second.
     const cert = await api<{ data: { id: string } }>('GET', `/api/lms/courses/${ids.course}/certificate`, t)
     expect(cert.status).toBe(200)
-    expect((await api('POST', `/api/lms/courses/${ids.course}/certificate`, t)).status).toBe(409)
+    const again = await api<{ data: { id: string } }>('POST', `/api/lms/courses/${ids.course}/certificate`, t)
+    expect(again.status).toBe(200)
+    expect(again.body.data.id).toBe(cert.body.data.id)
     const rows = await db.select().from(courseCertificates).where(eq(courseCertificates.userId, learner.id))
     expect(rows.length).toBe(1)
 

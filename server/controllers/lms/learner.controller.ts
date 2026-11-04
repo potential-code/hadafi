@@ -307,12 +307,20 @@ export async function issueCertificate(
         COURSE_NOT_FOUND: 'Course not found',
         CERTIFICATE_DISABLED: 'This course does not give a certificate',
         NOT_ENROLLED: 'Enrol in this course first',
-        ALREADY_ISSUED: 'Your certificate for this course has already been issued',
         PROGRESS_INCOMPLETE: 'Finish every part of the course first',
         POST_ASSESSMENT_NOT_PASSED: 'Pass the final exam first',
         POST_ASSESSMENT_NOT_ATTEMPTED: 'Take the final exam first',
       }
       const reason = check.reason ?? 'NOT_ELIGIBLE'
+      // Asking again returns the certificate already issued, never a second one.
+      if (reason === 'ALREADY_ISSUED') {
+        const [existing] = await db.select().from(courseCertificates)
+          .where(and(eq(courseCertificates.userId, req.user!.userId), eq(courseCertificates.courseId, req.params.courseId)))
+        if (existing) {
+          res.json({ success: true, data: existing })
+          return
+        }
+      }
       const status = reason === 'COURSE_NOT_FOUND' || reason === 'NOT_ENROLLED' ? 404 : 409
       return next(new AppError(messages[reason] ?? 'This certificate is not available yet', status, reason))
     }

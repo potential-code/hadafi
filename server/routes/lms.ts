@@ -154,8 +154,9 @@ const unitProgressDto = z.object({
 
 const questionAnswerDto = z.object({
   answerData: z.object({
-    selectedAnswer: z.number().int().optional(),
-    openEndedAnswer: z.string().optional(),
+    selectedAnswer: z.number().int().min(0).max(50).optional(),
+    // A written answer, e.g. an action-plan step; long enough for a real plan.
+    openEndedAnswer: z.string().max(10_000).optional(),
   }),
 })
 
