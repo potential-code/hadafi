@@ -31,7 +31,7 @@ export const REASON_LABEL: Record<ReportReason, string> = {
 export type SurfaceArea = "hana" | "mentor" | "examiner";
 
 export function surfaceArea(surface: string): SurfaceArea | "other" {
-  if (surface === "ask-hana" || surface.startsWith("hana")) return "hana";
+  if (surface === "ask-hana" || surface.startsWith("hana") || surface === "course-help" || surface === "multi-learning") return "hana";
   if (surface.startsWith("mentor:")) return "mentor";
   if (surface === "examiner") return "examiner";
   return "other";
@@ -133,7 +133,7 @@ export interface ReportFilter {
 }
 
 function areaWhere(area: ReportFilter["area"]) {
-  if (area === "hana") return sql`(${aiReports.surface} = 'ask-hana' OR ${aiReports.surface} LIKE 'hana%' OR ${aiReports.surface} = 'course-help')`;
+  if (area === "hana") return sql`(${aiReports.surface} = 'ask-hana' OR ${aiReports.surface} LIKE 'hana%' OR ${aiReports.surface} IN ('course-help', 'multi-learning'))`;
   if (area === "mentor") return like(aiReports.surface, "mentor:%");
   if (area === "examiner") return eq(aiReports.surface, "examiner");
   return undefined;

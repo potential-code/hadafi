@@ -107,7 +107,7 @@ describe('impact dashboard', () => {
     expect(d.summary.learners).toBeGreaterThanOrEqual(1)
     expect(d.monthly).toHaveLength(12)
     expect(d.monthly[11]!.month).toBe(new Date().toISOString().slice(0, 7))
-    expect(d.uses.map((u) => u.label)).toEqual(['Courses', 'Pre-tests', 'Final exams', 'Mentor sessions', 'Partner offers'])
+    expect(d.uses.map((u) => u.label)).toEqual(['Courses', 'Pre-tests', 'Final exams', 'Mentor sessions', 'Partner offers', 'AI Examiner'])
     // Test learners sign up with the ISO code "AE": it is folded into the country's name.
     expect(d.countries.some((c) => c.country === 'United Arab Emirates')).toBe(true)
     expect(d.countries.some((c) => c.country === 'AE')).toBe(false)

@@ -288,37 +288,127 @@
 
 /* ── Reply actions ──────────────────────────────────────────────────────────── */
 
-.hana-studio .hana-reply-actions {
+/* Not scoped to .hana-studio: the AI mentor and sign-up chats show the same
+   row. Two classes deep so CopilotKit's unlayered button reset can't win. */
+.hana-reply-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 2px;
   margin-top: 4px;
   margin-inline-start: -8px;
 }
-.hana-studio .hana-action {
+.hana-reply-actions .hana-action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 32px;
   height: 32px;
   border-radius: 8px;
+  background: transparent;
   color: var(--ui-muted);
   transition: background-color 0.15s ease, color 0.15s ease;
 }
-.hana-studio .hana-action:hover:not(:disabled) {
+.hana-reply-actions .hana-action:hover:not(:disabled) {
   background: var(--ui-surface-2);
   color: var(--ui-text);
 }
-.hana-studio .hana-action.is-on {
+.hana-reply-actions .hana-action.is-on {
   background: var(--ui-brand-soft);
   color: var(--ui-brand-text);
 }
-.hana-studio .hana-action:disabled {
+.hana-reply-actions .hana-action:disabled {
   opacity: 0.4;
 }
-.hana-studio .hana-action:focus-visible {
+.hana-reply-actions .hana-action:focus-visible {
   outline: 2px solid var(--ui-brand);
   outline-offset: 1px;
+}
+
+/* ── Shared documents ───────────────────────────────────────────────────────── */
+
+/* The paperclip: quieter than the mic and send buttons. */
+.hana-studio .hana-icon-btn--ghost {
+  border-color: transparent;
+  background: transparent;
+  color: var(--ui-muted);
+  margin-inline-start: -8px;
+}
+.hana-studio .hana-icon-btn--ghost:hover:not(:disabled) {
+  color: var(--ui-text);
+}
+/* A document waiting to be sent, above the input box. */
+.hana-attachment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 360px;
+  margin-bottom: 8px;
+  padding: 8px 8px 8px 10px;
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  background: var(--ui-surface);
+  animation: hana-fadeup 0.2s ease both;
+}
+.hana-attachment-icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--ui-brand-soft);
+  color: var(--ui-brand-text);
+}
+.hana-attachment--error {
+  border-color: color-mix(in srgb, var(--hana-warn, #87490f) 45%, transparent);
+}
+.hana-attachment--error .hana-attachment-icon {
+  background: var(--hana-warn-bg, #fbefe2);
+  color: var(--hana-warn, #87490f);
+}
+.hana-attachment .hana-attachment-remove {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ui-muted);
+}
+.hana-attachment .hana-attachment-remove:hover {
+  background: var(--ui-surface-2);
+  color: var(--ui-text);
+}
+.hana-attachment .hana-attachment-remove:focus-visible {
+  outline: 2px solid var(--ui-brand);
+  outline-offset: 1px;
+}
+/* A document the learner sent, as a file chip on her message. */
+.hana-sent-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(78%, 360px);
+  padding: 8px 12px;
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  background: var(--ui-surface);
+  color: var(--ui-text);
+  font-size: 13px;
+  font-weight: 500;
+}
+.hana-sent-file svg {
+  color: var(--ui-brand-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hana-attachment {
+    animation: none;
+  }
 }
 
 /* Ask Hana: what Hana can do (tabs on a new chat, shortcut menus in one). */

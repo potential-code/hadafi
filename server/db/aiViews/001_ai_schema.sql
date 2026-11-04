@@ -22,7 +22,7 @@
 --
 -- HOW THIS FILE SHIPS. This file is the source of truth, and each drizzle
 -- migration that changes the views carries a verbatim copy of it (the first
--- is 0029_ai_views.sql). It is re-runnable: every ai view is dropped and
+-- is 0029_ai_views.sql; 0030_ai_examiner.sql added ai.ai_exam_attempt). It is re-runnable: every ai view is dropped and
 -- recreated, so a migration that applies it leaves exactly these views.
 -- To change a view, or after another migration changes a column a view
 -- reads: edit this file, update server/services/ai-sql/schema-catalog.ts,
@@ -356,6 +356,24 @@ SELECT
   b.earned_at::date          AS earned_on
 FROM user_badges b
 JOIN users u ON u.id = b.user_id AND u.role = 'sme';
+
+-- ai.ai_exam_attempt: one row per marked AI Examiner attempt. Scores only:
+-- no scenario, transcript, strengths, improvements or feedback text.
+CREATE VIEW ai.ai_exam_attempt AS
+SELECT
+  ea.id                      AS attempt_id,
+  ea.user_id                 AS learner_id,
+  ea.course_id               AS course_id,
+  ea.mode                    AS mode,
+  ea.overall_score           AS overall_score,
+  CASE WHEN jsonb_typeof(ea.dimensions->'courseKnowledge') = 'number' THEN round((ea.dimensions->>'courseKnowledge')::numeric)::int END AS course_knowledge_score,
+  CASE WHEN jsonb_typeof(ea.dimensions->'application') = 'number' THEN round((ea.dimensions->>'application')::numeric)::int END AS application_score,
+  CASE WHEN jsonb_typeof(ea.dimensions->'communication') = 'number' THEN round((ea.dimensions->>'communication')::numeric)::int END AS communication_score,
+  CASE WHEN jsonb_typeof(ea.dimensions->'problemSolving') = 'number' THEN round((ea.dimensions->>'problemSolving')::numeric)::int END AS problem_solving_score,
+  CASE WHEN jsonb_typeof(ea.dimensions->'professionalism') = 'number' THEN round((ea.dimensions->>'professionalism')::numeric)::int END AS professionalism_score,
+  ea.created_at::date        AS attempted_on
+FROM examiner_attempts ea
+JOIN users u ON u.id = ea.user_id AND u.role = 'sme';
 
 -- ai.notification: one row per in-app notification sent to a learner. The
 -- kind only: no title, body or link.

@@ -73,6 +73,7 @@
     "zod": "^4.4.3"
   },
   "dependencies": {
+    "@anam-ai/js-sdk": "^4.27.1",
     "@base-ui/react": "^1.4.1",
     "@copilotkit/react-core": "1.57.0",
     "@copilotkit/react-ui": "1.57.0",

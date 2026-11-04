@@ -7,7 +7,8 @@ import { db } from "../db";
  * rather than sign-ups alone. Ported from SMEEP's admin.impact.service.ts
  * (9c89f63, 09045cd), keeping only what Hadafi records: courses, lessons,
  * pre-tests and final exams, certificates, human mentor sessions and partner
- * offers. Hadafi has no learning journeys or AI Examiner, so those are left out.
+ * offers, and who has taken the AI Examiner. Hadafi has no learning journeys,
+ * so those are left out.
  *
  * Learners are users with role 'sme'.
  */
@@ -117,7 +118,8 @@ export async function getImpact(): Promise<Impact> {
         (SELECT count(DISTINCT aa.user_id) FROM assessment_attempts aa JOIN assessments a ON a.id = aa.assessment_id
           WHERE a.assessment_type = 'post' AND aa.completed_at IS NOT NULL) AS final_exams,
         (SELECT count(DISTINCT sme_user_id) FROM mentor_sessions WHERE status <> 'cancelled') AS mentors,
-        (SELECT count(DISTINCT user_id) FROM offer_redemptions) AS offers
+        (SELECT count(DISTINCT user_id) FROM offer_redemptions) AS offers,
+        (SELECT count(DISTINCT x.user_id) FROM examiner_attempts x JOIN users u ON u.id = x.user_id AND u.role = 'sme') AS examiner
     `),
     rows(sql`
       SELECT to_char(date_trunc('month', day), 'YYYY-MM') AS month, count(DISTINCT user_id) AS n
@@ -176,6 +178,7 @@ export async function getImpact(): Promise<Impact> {
       { label: "Final exams", learners: num(uses["final_exams"]) },
       { label: "Mentor sessions", learners: num(uses["mentors"]) },
       { label: "Partner offers", learners: num(uses["offers"]) },
+      { label: "AI Examiner", learners: num(uses["examiner"]) },
     ],
     countries: countries.slice(0, 8),
   };

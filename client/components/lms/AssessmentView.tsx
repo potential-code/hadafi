@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CheckCircle2, Lock, RotateCcw, XCircle } from 'lucide-react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -11,6 +11,7 @@ import {
   type AssessmentSummary,
 } from '@/lib/api/lms'
 import { cn } from '@/lib/utils'
+import { setLiveExam } from '@/components/course-hana/liveStep'
 
 type Props = {
   assessmentId: string
@@ -167,6 +168,21 @@ function TakingView({
 
   const [currentIdx, setCurrentIdx] = useState(0)
   const [answers, setAnswers] = useState<Record<string, number>>({})
+
+  // The question on screen, for Hana on the course page (no answer keys here).
+  const shownQ = questions?.[currentIdx]
+  useEffect(() => {
+    if (!questions || !shownQ) return
+    setLiveExam({
+      assessmentId,
+      view: 'taking',
+      questionNumber: currentIdx + 1,
+      totalQuestions: questions.length,
+      question: shownQ.questionText,
+      options: shownQ.questionType === 'true-false' ? ['True', 'False'] : shownQ.options,
+      answeredCount: Object.keys(answers).length,
+    })
+  }, [assessmentId, questions, shownQ, currentIdx, answers])
 
   if (isLoading || !questions) {
     return (
@@ -393,6 +409,21 @@ export function AssessmentView({ assessmentId, isLocked, onCompleted }: Props) {
     queryKey: ['assessment-summary', assessmentId],
     queryFn: () => fetchAssessmentSummary(assessmentId),
   })
+
+  // Where the learner is in this exam, for Hana on the course page.
+  useEffect(() => {
+    if (viewState === 'taking') return
+    const shown = viewState === 'result' && resultSummary ? resultSummary : summary
+    setLiveExam({
+      assessmentId,
+      view: viewState === 'result' ? 'result' : 'summary',
+      totalQuestions: shown?.assessment.totalQuestions,
+      score: shown?.latestAttempt?.score ?? null,
+      passed: shown?.latestAttempt?.passed ?? null,
+      attemptsRemaining: shown?.attemptsRemaining ?? null,
+    })
+  }, [assessmentId, viewState, summary, resultSummary])
+  useEffect(() => () => setLiveExam(null), [assessmentId])
 
   const submitMutation = useMutation({
     mutationFn: (answers: Record<string, number>) =>

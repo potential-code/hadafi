@@ -20,6 +20,7 @@ import {
   ListChecks,
   ListTree,
   Lock,
+  MessagesSquare,
   PanelLeft,
   Play,
   PlayCircle,
@@ -50,6 +51,10 @@ import { CertificateModal } from '@/components/lms/CertificateModal'
 import { blockKindLabel, blockLabel, blockTitle } from '@/components/learner/courseProgress'
 import type { CoursePreviewUnit } from '@/lib/api/lms'
 import { cn } from '@/lib/utils'
+import { getUser } from '@/lib/auth'
+import { CourseHana } from '@/components/course-hana/CourseHana'
+import type { HanaStep } from '@/components/course-hana/CourseHanaChat'
+import { useMinWidth } from '@/components/course-hana/useMinWidth'
 
 // ─── Nav item types ────────────────────────────────────────────────────────────
 
@@ -229,6 +234,15 @@ export default function CourseDetailPage() {
     remember(FOCUS_KEY, !focus)
   }, [focus, outlineShown])
 
+  // Hana on the course page: docked as a drawer on wide screens. Below
+  // 1536px the outline steps aside while she is open, so the lesson keeps
+  // its width; it comes back when she closes.
+  const [hanaDocked, setHanaDocked] = useState(false)
+  const roomForAll = useMinWidth(1536)
+  const outlineVisible = outlineShown && !(hanaDocked && !roomForAll)
+  const [learnerName, setLearnerName] = useState<string | null>(null)
+  useEffect(() => setLearnerName((getUser()?.fullName ?? '').trim().split(/\s+/)[0] || null), [])
+
   // Reset state when courseId changes
   useEffect(() => {
     setActiveIdx(0)
@@ -255,6 +269,19 @@ export default function CourseDetailPage() {
   }, [navItems])
 
   const activeItem = navItems[activeIdx] ?? null
+  // The step on screen, for Hana (the server builds the rest of her context).
+  // Kept stable per step: the panel's greeting is rebuilt when it changes.
+  const stepKey = !activeItem ? '' : activeItem.kind === 'assessment' ? `a:${activeItem.id}` : `b:${activeItem.block.id}`
+  const hanaStep = useMemo<HanaStep | null>(
+    () =>
+      !activeItem
+        ? null
+        : activeItem.kind === 'assessment'
+          ? { kind: 'assessment', assessmentId: activeItem.id, assessmentType: activeItem.assessmentType }
+          : { kind: 'block', blockId: activeItem.block.id, type: activeItem.block.type, unitNumber: activeItem.unitNumber },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [stepKey],
+  )
   const isLast = activeIdx === navItems.length - 1
 
   const hasActionPlanQuestions =
@@ -404,7 +431,7 @@ export default function CourseDetailPage() {
   // ─── Enrollment guard ──────────────────────────────────────────────────────
   if (!course.isEnrolled) {
     return (
-      <CourseIntro course={course} enroll={enrollMutation} />
+      <CourseIntro course={course} enroll={enrollMutation} learnerName={learnerName} />
     )
   }
 
@@ -467,6 +494,15 @@ export default function CourseDetailPage() {
             </span>
           </div>
           {description && <CourseInfo course={course} description={description} totalUnits={totalUnits} pct={pct} />}
+          <Link
+            href={`/dashboard/courses/${course.id}/hana`}
+            aria-label="Learn with Hana"
+            title="Learn with Hana: she takes you through this course in a conversation"
+            className={cn(btn({ variant: 'secondary' }), 'h-9 w-9 shrink-0 px-0 xl:w-auto xl:px-3')}
+          >
+            <MessagesSquare className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
+            <span className="hidden xl:inline">Learn with Hana</span>
+          </Link>
           <div className="hidden w-[220px] items-center gap-2.5 md:flex">
             <ProgressBar value={pct} className="flex-1" label="Course progress" />
             <span className="text-[13px] font-semibold tabular-nums">{pct}%</span>
@@ -499,7 +535,7 @@ export default function CourseDetailPage() {
         </header>
 
         <div className="flex min-h-0 flex-1">
-          {outlineShown && (
+          {outlineVisible && (
             <nav
               aria-label="Course outline"
               className="hidden w-[300px] shrink-0 overflow-y-auto border-e border-ui-line bg-ui-surface px-3 py-4 min-[1100px]:block"
@@ -511,8 +547,8 @@ export default function CourseDetailPage() {
           <div ref={mainRef} className="min-w-0 flex-1 overflow-y-auto">
             <div
               className={cn(
-                'flex min-h-full w-full max-w-[816px] flex-col gap-[22px] px-4 pb-10 pt-5 sm:px-8 sm:pt-7 lg:px-12',
-                !outlineShown && 'mx-auto',
+                'flex min-h-full w-full max-w-[816px] flex-col gap-[22px] px-4 pb-24 pt-5 sm:px-8 sm:pt-7 lg:px-12',
+                !outlineVisible && 'mx-auto',
               )}
             >
               {pct >= 100 && (
@@ -612,6 +648,16 @@ export default function CourseDetailPage() {
               )}
             </div>
           </div>
+
+          {/* Hana: a drawer in this row on wide screens, floating otherwise. */}
+          <CourseHana
+            dockable
+            onDockedChange={setHanaDocked}
+            courseId={course.id}
+            enrolled
+            step={hanaStep}
+            learnerName={learnerName}
+          />
         </div>
 
         {/* Outline on smaller screens */}
@@ -1115,9 +1161,11 @@ function unitParts(u: CoursePreviewUnit) {
 function CourseIntro({
   course,
   enroll,
+  learnerName,
 }: {
   course: LearnerCourseDetail
   enroll: { mutate: () => void; isPending: boolean; isError: boolean; error: Error | null }
+  learnerName: string | null
 }) {
   const preview = course.preview
   const t = preview?.totals
@@ -1230,6 +1278,8 @@ function CourseIntro({
           </Card>
         </div>
       </div>
+      {/* Hana answers questions about the course before it is started (outline only). */}
+      <CourseHana courseId={course.id} enrolled={false} step={null} learnerName={learnerName} />
     </DashboardLayout>
   )
 }

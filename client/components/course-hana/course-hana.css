@@ -1,0 +1,84 @@
+/*
+ * Hana on a course page: the launcher and panel motion (ported from SMEEP's
+ * course-sana.css). Colours come from the --ui-* tokens.
+ */
+.course-hana-launcher {
+  box-shadow:
+    0 14px 30px -10px color-mix(in srgb, var(--ui-brand) 60%, transparent),
+    0 3px 8px rgba(38, 20, 70, 0.18);
+}
+.course-hana-panel {
+  box-shadow:
+    0 24px 48px -16px rgba(38, 20, 70, 0.28),
+    0 2px 6px rgba(38, 20, 70, 0.08);
+  animation: course-hana-open 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.dark .course-hana-panel {
+  box-shadow: 0 24px 60px -16px rgba(0, 0, 0, 0.6);
+}
+.course-hana-scrim {
+  animation: course-hana-fade 200ms ease-out both;
+}
+@keyframes course-hana-open {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes course-hana-sheet {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes course-hana-fade {
+  from {
+    opacity: 0;
+  }
+}
+@media (max-width: 640px) {
+  .course-hana-panel {
+    animation-name: course-hana-sheet;
+    animation-duration: 260ms;
+  }
+  /* 16px fields so iOS does not zoom in on focus. */
+  .course-hana-panel textarea,
+  .course-hana-panel input {
+    font-size: 16px !important;
+  }
+}
+
+/* Docked beside the lesson: part of the page, so no floating shadow. */
+.course-hana-panel.course-hana-docked {
+  box-shadow: none;
+  animation: course-hana-dock 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes course-hana-dock {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .course-hana-panel,
+  .course-hana-panel.course-hana-docked,
+  .course-hana-scrim {
+    animation: none;
+  }
+}
+
+/* A compact chat for the panel. */
+.course-hana-panel .hana-bubble-user {
+  max-width: 82%;
+  font-size: 14px;
+}

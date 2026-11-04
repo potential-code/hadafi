@@ -9,7 +9,7 @@
  * option pills and suggestion chips keep working unchanged.
  */
 
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import type {
@@ -18,8 +18,14 @@ import type {
 } from '@copilotkit/react-core/v2'
 import { CopilotChatToolCallsView } from '@copilotkit/react-core/v2'
 import { motion } from 'framer-motion'
+import { FileText } from 'lucide-react'
 import { parseAssistantPills, onPillClickRef } from './chat-components'
 import { ChatLoadingContext } from './chat-loading-context'
+import { HanaReplyActions } from './hanaReplyActions'
+import { DefaultHanaReplyActions } from './HanaReplyButtons'
+import { splitSharedDocument } from './hanaDocuments'
+
+export { HanaReplyActions, type HanaReplyActionsRenderer } from './hanaReplyActions'
 
 export const HANA_AVATAR_SRC = '/images/redesign/hana-avatar.webp'
 
@@ -71,25 +77,22 @@ export function HanaTypingIndicator() {
 
 // ── Assistant message ─────────────────────────────────────────────────────────
 
-/**
- * Actions under each finished reply (copy, read aloud, try again). A surface
- * opts in by providing a renderer; without one, replies show no actions.
- */
-export type HanaReplyActionsRenderer = (reply: {
-  id: string
-  text: string
-  isLast: boolean
-  /** The turns before this answer, oldest first (for "report this answer"). */
-  before?: { role: 'learner' | 'ai'; text: string }[]
-}) => ReactNode
-export const HanaReplyActions = createContext<HanaReplyActionsRenderer | null>(null)
+/** Page-to-Hana control turns (the tutor's "[next] Continue."): never part of a report. */
+const CONTROL_TURN = /^\[next\] /
+
+/** A turn's words without hidden notes, and a shared document as just its name. */
+function withoutDocument(text: string): string {
+  if (CONTROL_TURN.test(text.trimStart())) return ''
+  const { message, docName } = splitSharedDocument(text.replace(/<!--[\s\S]*?-->/g, ''))
+  return (docName ? `${message.trim()}\n[Shared ${docName}]` : message).trim()
+}
 
 /** Text turns before message `idx` (tool-only turns left out), for a report's excerpt. */
 function turnsBefore(list: Array<{ role?: string; content?: unknown }>, idx: number) {
   return list
     .slice(Math.max(0, idx - 8), Math.max(0, idx))
     .filter((mm) => mm.role === 'user' || mm.role === 'assistant')
-    .map((mm) => ({ role: mm.role === 'user' ? ('learner' as const) : ('ai' as const), text: contentToText(mm.content).replace(/<!--[\s\S]*?-->/g, '').trim() }))
+    .map((mm) => ({ role: mm.role === 'user' ? ('learner' as const) : ('ai' as const), text: withoutDocument(contentToText(mm.content)) }))
     .filter((t) => t.text)
 }
 
@@ -256,8 +259,14 @@ export function HanaAssistantMessage({ message, messages }: CopilotChatAssistant
               )}
             </div>
           )}
-          {renderActions && showActions && (
-            <div className="hana-reply-actions">{renderActions({ id: thisId!, text: hasPills ? prose : content, isLast: inLatestTurn, before: turnsBefore(answerList, answerIdx) })}</div>
+          {showActions && thisId && renderActions !== null && (
+            <div className="hana-reply-actions">
+              {renderActions ? (
+                renderActions({ id: thisId, text: hasPills ? prose : content, isLast: inLatestTurn, before: turnsBefore(answerList, answerIdx) })
+              ) : (
+                <DefaultHanaReplyActions id={thisId} text={hasPills ? prose : content} isLast={inLatestTurn} />
+              )}
+            </div>
           )}
         </div>
       </div>
@@ -269,17 +278,26 @@ export function HanaAssistantMessage({ message, messages }: CopilotChatAssistant
 // ── User message ──────────────────────────────────────────────────────────────
 
 export function HanaUserMessage({ message }: CopilotChatUserMessageProps) {
-  // Hidden notes (HTML comments) are for Hana, not the bubble.
-  const text = contentToText(message.content).replace(/\s*<!--[\s\S]*?-->/g, '').trim()
-  if (!text) return null
+  // Hidden notes (HTML comments) are for Hana, not the bubble; a shared
+  // document shows as a file chip, not its text.
+  const raw = contentToText(message.content).replace(/\s*<!--[\s\S]*?-->/g, '')
+  const { message: said, docName } = splitSharedDocument(raw)
+  const text = said.trim()
+  if (!text && !docName) return null
   return (
     <motion.div
-      className="mb-4 flex justify-end"
+      className="mb-4 flex flex-col items-end gap-1.5"
       initial={{ opacity: 0, y: 6 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.18, ease: 'easeOut' }}
     >
-      <div className="hana-bubble-user" dir="auto">{text}</div>
+      {docName && (
+        <span className="hana-sent-file">
+          <FileText className="h-4 w-4 flex-none" strokeWidth={1.75} aria-hidden />
+          <span className="truncate">{docName}</span>
+        </span>
+      )}
+      {text && <div className="hana-bubble-user" dir="auto">{text}</div>}
     </motion.div>
   )
 }

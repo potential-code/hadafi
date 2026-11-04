@@ -6,7 +6,8 @@
  * the latest), the learner's in brand bubbles, ice-breakers as chips over the
  * composer, and (on wide screens) a rail with the mentor's details, human
  * mentors to book and the other AI mentors. The composer can dictate (where
- * the browser supports it), stop a reply and share a text document.
+ * the browser supports it), stop a reply and share a document (PDF, Word,
+ * text, Markdown or CSV, read on Hadafi's server; nothing is stored).
  *
  * Bot config and the reply stream come through Hadafi's server
  * (/api/ai-mentors), behind the learner's session; the browser never calls
@@ -18,12 +19,15 @@ import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { useQuery } from '@tanstack/react-query'
-import { ArrowLeft, Check, Copy, FileText, Loader2, Mic, Paperclip, Send, Square, Volume2, X } from 'lucide-react'
+import { ArrowLeft, FileText, Loader2, Mic, Paperclip, Send, Square, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Avatar, btn, Chip, EmptyState } from '@/components/kit'
 import { getAiMentorConfig, getMentors, streamAiMentorChat, type AiMentorConfig } from '@/lib/api/sme'
 import { aiMentorViewByBotId, aiMentorViews, type AiMentorView } from './aiMentorMeta'
 import { ReportAnswerButton, excerptBefore } from './ReportAnswerButton'
+import { HanaReplyButtons } from './HanaReplyButtons'
+import { useReadAloud, type ReadAloud } from './useHanaVoice'
+import { DOCUMENT_ACCEPT, DOCUMENT_DEFAULT_MESSAGE, DOCUMENT_HINT, readDocument, type HanaSharedDocument } from './hanaDocuments'
 
 // ---------------------------------------------------------------------------
 // Types
@@ -42,11 +46,7 @@ interface Message {
   suggestions?: string[]
 }
 
-interface SharedDoc {
-  name: string
-  text: string
-  truncated: boolean
-}
+type SharedDoc = HanaSharedDocument
 
 type Attachment =
   | { status: 'reading'; name: string }
@@ -73,23 +73,9 @@ function processMarkdown(text: string): string {
     .trim()
 }
 
-/** How much of a shared document goes with the message (the server reads up to this much). */
-const DOCUMENT_CHARS = 12_000
-const DOCUMENT_ACCEPT = '.txt,.md,.markdown,.csv,text/plain,text/markdown,text/csv'
-const DOCUMENT_MAX_BYTES = 2 * 1024 * 1024
-const DOC_DEFAULT_MESSAGE = 'Please read this document and tell me what stands out.'
+const DOC_DEFAULT_MESSAGE = DOCUMENT_DEFAULT_MESSAGE
 const REPLY_FAILED = "Sorry, I couldn't answer that just now. Please try again."
 
-/** Plain-text documents are read in the browser; nothing is uploaded until the message is sent. */
-async function readTextDocument(file: File): Promise<SharedDoc> {
-  if (!/\.(txt|md|markdown|csv)$/i.test(file.name) && !file.type.startsWith('text/')) {
-    throw new Error('Share a text file (TXT, MD or CSV).')
-  }
-  if (file.size > DOCUMENT_MAX_BYTES) throw new Error('That file is too large. Share a file under 2 MB.')
-  const text = (await file.text()).replace(/\u0000/g, '').trim()
-  if (!text) throw new Error('That file is empty.')
-  return { name: file.name.slice(0, 120), text: text.slice(0, DOCUMENT_CHARS), truncated: text.length > DOCUMENT_CHARS }
-}
 
 /**
  * The reply without the bot's hidden "[Suggestions: a | b]" line (also while
@@ -113,49 +99,6 @@ function makeId() {
   return `${Date.now()}-${Math.random().toString(36).slice(2)}`
 }
 
-/** Text for reading aloud: the reply without markdown symbols. */
-function plainText(md: string) {
-  return md
-    .replace(/```[\s\S]*?```/g, ' ')
-    .replace(/[#*_`>|]/g, '')
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-    .replace(/\s+/g, ' ')
-    .trim()
-}
-
-// ---------------------------------------------------------------------------
-// Voice (browser speech APIs, where supported)
-// ---------------------------------------------------------------------------
-
-function useReadAloud() {
-  const [speakingId, setSpeakingId] = useState<string | null>(null)
-  // Known only after mount, so the server and first client render agree.
-  const [supported, setSupported] = useState(false)
-  useEffect(() => setSupported('speechSynthesis' in window), [])
-  const stop = useCallback(() => {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) window.speechSynthesis.cancel()
-    setSpeakingId(null)
-  }, [])
-  const toggle = useCallback(
-    (id: string, text: string) => {
-      if (!supported) return
-      if (speakingId === id) {
-        stop()
-        return
-      }
-      window.speechSynthesis.cancel()
-      const u = new SpeechSynthesisUtterance(plainText(text))
-      u.onend = () => setSpeakingId((cur) => (cur === id ? null : cur))
-      u.onerror = () => setSpeakingId((cur) => (cur === id ? null : cur))
-      setSpeakingId(id)
-      window.speechSynthesis.speak(u)
-    },
-    [speakingId, stop, supported],
-  )
-  useEffect(() => stop, [stop])
-  return { supported, speakingId, toggle, stop }
-}
-type ReadAloud = ReturnType<typeof useReadAloud>
 
 interface RecognitionLike {
   lang: string
@@ -256,35 +199,16 @@ function TypingDots() {
   )
 }
 
-function CopyButton({ text }: { text: string }) {
-  const [copied, setCopied] = useState(false)
-  async function copy() {
-    try {
-      await navigator.clipboard.writeText(text)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch {
-      // Clipboard blocked: nothing to do.
-    }
-  }
-  return (
-    <button type="button" onClick={copy} className={replyActionClass} aria-label={copied ? 'Copied' : 'Copy reply'}>
-      {copied ? <Check className="h-3.5 w-3.5" aria-hidden /> : <Copy className="h-3.5 w-3.5" aria-hidden />}
-      {copied ? 'Copied' : 'Copy'}
-    </button>
-  )
-}
-
-const replyActionClass =
-  'inline-flex h-7 items-center gap-1.5 rounded-lg px-2 text-xs font-semibold text-ui-muted transition-colors hover:bg-ui-surface-2 hover:text-ui-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand'
-
 const chipClass =
   'inline-flex min-h-[34px] items-center rounded-full border border-ui-line bg-ui-surface px-3.5 py-1.5 text-left text-[13px] font-medium text-ui-text transition-colors hover:bg-ui-surface-2 disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand'
 
 const iconBtnClass =
   'inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-[10px] transition-colors disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand'
 
-/** The mentor's turn: the reply beside the mentor's tile, then copy and read aloud. */
+/**
+ * The mentor's turn: the reply on the page beside the mentor's tile (no box,
+ * like Hana's replies), then copy, read aloud and report.
+ */
 function MentorTurn({
   view,
   message,
@@ -303,12 +227,12 @@ function MentorTurn({
   /** "Report this answer" for this reply. */
   report?: ReactNode
 }) {
-  const speaking = readAloud.speakingId === message.id
   return (
     <div className="mb-4 flex items-start gap-2.5">
       <MentorMark view={view} />
       <div className="min-w-0 flex-1">
         {message.isStreaming && message.text === '' ? (
+          // The typing dots keep a small box, so "thinking" still reads.
           <div className="w-fit rounded-2xl rounded-tl-md border border-ui-line bg-ui-surface px-4 py-3.5">
             <TypingDots />
           </div>
@@ -316,7 +240,7 @@ function MentorTurn({
           <>
             <div
               dir="auto"
-              className="w-fit max-w-[640px] space-y-2 rounded-2xl rounded-tl-md border border-ui-line bg-ui-surface px-4 py-3 text-[15px] leading-relaxed text-ui-text [overflow-wrap:anywhere] [&_a]:font-semibold [&_a]:text-ui-brand-text [&_a]:underline-offset-2 hover:[&_a]:underline [&_h1]:text-[15px] [&_h1]:font-semibold [&_h2]:text-[15px] [&_h2]:font-semibold [&_h3]:text-[15px] [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:space-y-1 [&_ol]:ps-5 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:ps-5"
+              className="w-fit max-w-[680px] space-y-2 pt-1.5 text-[15px] leading-relaxed text-ui-text [overflow-wrap:anywhere] [&_a]:font-semibold [&_a]:text-ui-brand-text [&_a]:underline-offset-2 hover:[&_a]:underline [&_h1]:text-[15px] [&_h1]:font-semibold [&_h2]:text-[15px] [&_h2]:font-semibold [&_h3]:text-[15px] [&_h3]:font-semibold [&_ol]:list-decimal [&_ol]:space-y-1 [&_ol]:ps-5 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:ps-5"
             >
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
@@ -344,20 +268,8 @@ function MentorTurn({
               </ReactMarkdown>
             </div>
             {!message.isStreaming && message.text && !message.isGreeting && (
-              <div className="mt-1 flex flex-wrap items-center gap-0.5">
-                <CopyButton text={message.text} />
-                {readAloud.supported && (
-                  <button
-                    type="button"
-                    className={replyActionClass}
-                    aria-pressed={speaking}
-                    aria-label={speaking ? 'Stop reading aloud' : 'Read aloud'}
-                    onClick={() => readAloud.toggle(message.id, message.text)}
-                  >
-                    {speaking ? <Square className="h-3 w-3" fill="currentColor" aria-hidden /> : <Volume2 className="h-3.5 w-3.5" aria-hidden />}
-                    {speaking ? 'Stop' : 'Read aloud'}
-                  </button>
-                )}
+              <div className="hana-reply-actions">
+                <HanaReplyButtons id={message.id} text={message.text} isLast={isLast} readAloud={readAloud} />
                 {report}
               </div>
             )}
@@ -513,7 +425,7 @@ export function MentorChatPanel({ botId, name, specialty, description }: Props) 
     const seq = ++readSeq.current
     setAttachment({ status: 'reading', name: file.name })
     try {
-      const doc = await readTextDocument(file)
+      const doc = await readDocument(file)
       if (seq === readSeq.current) setAttachment({ status: 'ready', name: doc.name, doc })
     } catch (e) {
       if (seq === readSeq.current)
@@ -768,7 +680,7 @@ export function MentorChatPanel({ botId, name, specialty, description }: Props) 
                       busy={isStreaming}
                       report={
                         <ReportAnswerButton
-                          variant="text"
+                          variant="icon"
                           surface={`mentor:${view?.slug ?? 'ai-mentor'}`}
                           reply={m.text}
                           question={messages.slice(0, i).reverse().find((x) => x.isUser)?.text}
@@ -819,14 +731,14 @@ export function MentorChatPanel({ botId, name, specialty, description }: Props) 
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="block truncate text-[13px] font-medium text-ui-text">{attachment.name}</span>
-                      <span className={cn('block truncate text-xs', attachment.status === 'error' ? 'text-ui-danger' : 'text-ui-muted')}>
+                      <span className={cn('block text-xs', attachment.status === 'error' ? 'text-ui-danger' : 'truncate text-ui-muted')}>
                         {attachment.status === 'reading'
-                          ? 'Reading'
+                          ? 'Reading…'
                           : attachment.status === 'error'
                             ? attachment.error
                             : attachment.doc.truncated
-                              ? 'Ready. The mentor reads the first part.'
-                              : 'Ready'}
+                              ? `Ready${attachment.doc.pages ? ` · ${attachment.doc.pages} page${attachment.doc.pages === 1 ? '' : 's'}` : ''} · The mentor reads the first part`
+                              : `Ready${attachment.doc.pages ? ` · ${attachment.doc.pages} page${attachment.doc.pages === 1 ? '' : 's'}` : ''}`}
                       </span>
                     </span>
                     <button
@@ -854,8 +766,8 @@ export function MentorChatPanel({ botId, name, specialty, description }: Props) 
                     type="button"
                     className={cn(iconBtnClass, 'text-ui-muted hover:bg-ui-surface-2 hover:text-ui-text')}
                     onClick={() => fileRef.current?.click()}
-                    aria-label={`Share a text document with ${displayName}`}
-                    title="Share a text document (TXT, MD, CSV)"
+                    aria-label={`Share a document with ${displayName}`}
+                    title={`Share a document (${DOCUMENT_HINT})`}
                   >
                     <Paperclip className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
                   </button>

@@ -21,6 +21,7 @@
     "express-rate-limit": "^8.5.1",
     "handlebars": "^4.7.9",
     "jsonwebtoken": "^9.0.3",
+    "mammoth": "^1.13.0",
     "multer": "^2.4.0",
     "nodemailer": "^10.0.13",
     "pdfkit": "^0.18.0",
@@ -29,6 +30,7 @@
     "pino": "^9",
     "pino-http": "^10",
     "stripe": "22.1.1",
+    "unpdf": "^1.8.1",
     "write-excel-file": "^4.1.1",
     "zod": "^4.4.3"
   },

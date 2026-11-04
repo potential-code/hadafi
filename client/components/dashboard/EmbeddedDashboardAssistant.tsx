@@ -47,6 +47,7 @@ import { ReportAnswerButton, excerptBefore } from './ReportAnswerButton'
 import { useHanaRunError, HanaConnectionNotice } from './HanaRunError'
 import { useReadAloud } from './useHanaVoice'
 import { AskHanaGreeting, AskHanaShortcuts, AskHanaStarters, ASK_HANA_PENDING_KEY, ASK_STRINGS } from './AskHanaParts'
+import { hanaAttachOptions, splitSharedDocument } from './hanaDocuments'
 import './hana-studio.css'
 import { cn } from '@/lib/utils'
 import { CourseAssistantCards } from '@/components/dashboard/assistant-cards/CourseAssistantCards'
@@ -356,8 +357,8 @@ function DocumentDeliveryCard({
   content?: string
   defaultEmail: string
 }) {
+  // The server always sends to the account's own address; show it, don't ask for it.
   const [email, setEmail] = useState(defaultEmail)
-  const emailId = useId()
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
   // Content arrives via streaming tool-argument chunks. Disable Send until
@@ -378,17 +379,14 @@ function DocumentDeliveryCard({
   const label = TYPE_LABELS[documentType] ?? 'Document'
 
   async function handleSend() {
-    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      setErrorMsg('Please enter a valid email address.')
-      return
-    }
     setStatus('sending')
     setErrorMsg('')
     try {
-      await apiFetch('/api/ai-tools/generate-pdf', {
+      const res = await apiFetch<{ email?: string }>('/api/ai-tools/generate-pdf', {
         method: 'POST',
-        body: JSON.stringify({ documentType, title, content, emailAddress: email.trim() }),
+        body: JSON.stringify({ documentType, title, content }),
       })
+      if (res?.email) setEmail(res.email)
       setStatus('sent')
     } catch (err) {
       setStatus('error')
@@ -427,19 +425,13 @@ function DocumentDeliveryCard({
         </div>
       ) : (
         <>
-          <label htmlFor={emailId} className="mb-1.5 block text-[13px] text-ui-muted">
-            Send the PDF to your email
-          </label>
-          <input
-            id={emailId}
-            type="email"
-            value={email}
-            onChange={(e) => { setEmail(e.target.value); setErrorMsg(''); if (status === 'error') setStatus('idle') }}
-            disabled={status === 'sending'}
-            placeholder="your@email.com"
-            autoComplete="email"
-            className={cn(inputClass, 'mb-2')}
-          />
+          <p className="mb-2 text-[13px] text-ui-muted">
+            {email ? (
+              <>We&apos;ll email the PDF to <span className="font-medium text-ui-text">{email}</span>.</>
+            ) : (
+              'We\'ll email the PDF to your account\'s address.'
+            )}
+          </p>
           {errorMsg && <p className="mb-2 text-[13px] text-ui-danger" role="alert">{errorMsg}</p>}
           <button
             type="button"
@@ -706,7 +698,9 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
         : Array.isArray(raw)
           ? raw.map((p: { type?: string; text?: string }) => (p?.type === 'text' ? (p.text ?? '') : '')).join('')
           : ''
-    return text.replace(/<!--[\s\S]*?-->/g, '').trim()
+    // A shared document is exported as its name, not its full text.
+    const { message, docName } = splitSharedDocument(text.replace(/<!--[\s\S]*?-->/g, ''))
+    return (docName ? `${message.trim()}\n[Shared document: ${docName}]` : message).trim()
   }, [])
 
   const hasConversation = messages.some((msg) => msg?.role === 'user' || msg?.role === 'assistant')
@@ -1350,7 +1344,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
         .array(z.string())
         .optional()
         .describe(
-          'IDs of human mentors from the catalogue that are semantically relevant to the user\'s need. Omit or pass empty array to show all mentors.',
+          'IDs of human mentors from the catalogue that are semantically relevant to the user\'s need, best match first (cards keep this order). Omit or pass empty array to show all mentors.',
         ),
     }),
     render: ({ status, args, result }) => {
@@ -1479,7 +1473,8 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
       '"I need more customers", "How do I improve my marketing?", "How can I grow my business?". ' +
       'BEFORE calling this, call searchCatalogue(["courses","offers","humanMentors","aiMentors","aiTools"]) ' +
       'to get all catalogue items, then pass the semantically matched IDs for each category. ' +
-      'Pass an empty array for any category with no relevant matches — that section is hidden automatically.',
+      'Pass an empty array for any category with no relevant matches — that section is hidden automatically. ' +
+      'In every list, put the best match first: cards are shown in the order given.',
     parameters: z.object({
       courseIds: z
         .array(z.string())
@@ -1893,13 +1888,16 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
     [showEmptyState, handleSendFromEmptyState, stopSpeaking, stopReadAloud, sendMessage],
   )
 
+  // Documents the learner shares go with her next message (read on the server).
+  const attachOptions = useMemo(() => hanaAttachOptions(), [])
   const composerOptions = useMemo(
     () => ({
       placeholder: askPlaceholder,
       // A new chat shows the groups as tabs under the greeting instead.
       above: showEmptyState ? undefined : <AskHanaShortcuts onAsk={ask} disabled={isRunning} />,
+      attach: attachOptions,
     }),
-    [askPlaceholder, showEmptyState, ask, isRunning],
+    [askPlaceholder, showEmptyState, ask, isRunning, attachOptions],
   )
 
   // --- Home "Ask Hana" hand-off: send the pending question as the learner's

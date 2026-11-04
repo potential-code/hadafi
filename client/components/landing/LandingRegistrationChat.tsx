@@ -18,6 +18,7 @@ import { authClient } from '@/lib/authClient'
 import { ChatCodeCard } from '@/components/auth/ChatCodeCard'
 import '../dashboard/copilot.css'
 import { apiFetch } from '@/lib/api'
+import { ChatLoadingContext } from '../dashboard/chat-loading-context'
 import {
   HadafiAssistantMessage,
   HadafiUserMessage,
@@ -54,7 +55,13 @@ function LandingAssistantMessage(props: any) {
   if (isEmpty && (props.isLoading || props.isGenerating || props.isCurrentMessage)) {
     return <HadafiTypingCursor />
   }
-  return <HadafiAssistantMessage {...props} />
+  // While this reply is still streaming, its copy and read-aloud buttons wait.
+  const streaming = Boolean(props.isCurrentMessage && (props.isLoading || props.isGenerating))
+  return (
+    <ChatLoadingContext.Provider value={streaming}>
+      <HadafiAssistantMessage {...props} />
+    </ChatLoadingContext.Provider>
+  )
 }
 
 // ---------------------------------------------------------------------------

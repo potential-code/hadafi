@@ -10,9 +10,11 @@ import type {
 } from '@copilotkit/react-core/v2'
 import { CopilotChatToolCallsView } from '@copilotkit/react-core/v2'
 import { motion } from 'framer-motion'
-import { SendHorizontal, Square, Copy, Check } from 'lucide-react'
+import { SendHorizontal, Square, Copy, Check, Loader2, Volume2 } from 'lucide-react'
 import { getUser } from '@/lib/auth'
 import { ChatLoadingContext } from './chat-loading-context'
+import { useReadAloud } from './useHanaVoice'
+import { replyPlainText } from './HanaReplyButtons'
 
 // ─── Module-level refs shared between HadafiChatInput and EmbeddedDashboardAssistant ──
 //
@@ -168,6 +170,56 @@ export function HadafiTypingCursor() {
 
 // ─── HadafiAssistantMessage ────────────────────────────────────────────────────
 
+/**
+ * Copy and read aloud in the corner of a sign-up chat reply (the same actions
+ * as under Hana's answers in the other chats). Visitors without an account
+ * hear the browser's own voice (useReadAloud).
+ */
+function BubbleActions({ id, text }: { id: string; text: string }) {
+  const [copied, setCopied] = useState(false)
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current) }, [])
+  const readAloud = useReadAloud()
+  const plain = replyPlainText(text)
+  const loading = readAloud.loadingId === id
+  const playing = readAloud.playingId === id
+  const on = loading || playing
+  if (!plain) return null
+  const btnClass =
+    'inline-flex h-6 w-6 items-center justify-center rounded-md transition-colors hover:bg-[#fdf2f8] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#e41674]'
+  return (
+    <span className="absolute bottom-0.5 right-1 flex items-center gap-0.5">
+      <button
+        type="button"
+        onClick={() => void (on ? readAloud.stop() : readAloud.play(id, plain))}
+        aria-pressed={on}
+        aria-label={on ? 'Stop reading' : 'Read aloud'}
+        title={on ? 'Stop reading' : 'Read aloud'}
+        className={btnClass}
+        style={{ color: on ? '#b50d5c' : '#6b7280' }}
+      >
+        {loading ? <Loader2 size={12} className="animate-spin" aria-hidden /> : playing ? <Square size={10} fill="currentColor" aria-hidden /> : <Volume2 size={13} strokeWidth={2} aria-hidden />}
+      </button>
+      <button
+        type="button"
+        onClick={() =>
+          void navigator.clipboard.writeText(plain).then(() => {
+            setCopied(true)
+            if (timerRef.current) clearTimeout(timerRef.current)
+            timerRef.current = setTimeout(() => setCopied(false), 3000)
+          }).catch(() => undefined)
+        }
+        aria-label={copied ? 'Copied' : 'Copy message'}
+        title={copied ? 'Copied' : 'Copy'}
+        className={btnClass}
+        style={{ color: copied ? '#b50d5c' : '#6b7280' }}
+      >
+        {copied ? <Check size={12} strokeWidth={2.5} aria-hidden /> : <Copy size={12} strokeWidth={2} aria-hidden />}
+      </button>
+    </span>
+  )
+}
+
 export function HadafiAssistantMessage({ message, messages }: CopilotChatAssistantMessageProps) {
   const m = message as { name?: string; content?: unknown; toolCalls?: unknown[] } | undefined
 
@@ -185,15 +237,12 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
   const hasPills = pills.length > 0
 
   // ── All hooks unconditionally ─────────────────────────────────────────────
-  const [copied, setCopied] = useState(false)
   const [pillsDisabledByNewer, setPillsDisabledByNewer] = useState(false)
   const [selectedPills, setSelectedPills] = useState<Set<number>>(new Set())
   const streaming = useContext(ChatLoadingContext)
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   // Guards against React Strict Mode's double-effect invocation.
   const hasRegisteredPillsRef = useRef(false)
 
-  useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current) }, [])
 
   // When this message first gets pills, disable the previous pill set and register ours.
   useEffect(() => {
@@ -241,18 +290,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
             style={{ borderRadius: '14px 14px 14px 0', maxWidth: '85%' }}
           >
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
-            <button
-              onClick={() => navigator.clipboard.writeText(content).then(() => {
-                setCopied(true)
-                if (timerRef.current) clearTimeout(timerRef.current)
-                timerRef.current = setTimeout(() => setCopied(false), 3000)
-              })}
-              aria-label={copied ? 'Copied' : 'Copy message'}
-              className="absolute bottom-1.5 right-2 flex items-center gap-1 transition-colors"
-              style={{ color: copied ? '#e41674' : 'rgba(107,114,128,0.5)' }}
-            >
-              {copied ? <Check size={11} strokeWidth={2.5} /> : <Copy size={11} strokeWidth={2} />}
-            </button>
+            {!(streaming && !isStale) && thisId && <BubbleActions id={thisId} text={content} />}
           </div>
         </div>
         {hasToolCalls && (
@@ -304,18 +342,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
               style={{ borderRadius: '14px 14px 14px 0' }}
             >
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{prose}</ReactMarkdown>
-              <button
-                onClick={() => navigator.clipboard.writeText(prose).then(() => {
-                  setCopied(true)
-                  if (timerRef.current) clearTimeout(timerRef.current)
-                  timerRef.current = setTimeout(() => setCopied(false), 3000)
-                })}
-                aria-label={copied ? 'Copied' : 'Copy message'}
-                className="absolute bottom-1.5 right-2 flex items-center gap-1 transition-colors"
-                style={{ color: copied ? '#e41674' : 'rgba(107,114,128,0.5)' }}
-              >
-                {copied ? <Check size={11} strokeWidth={2.5} /> : <Copy size={11} strokeWidth={2} />}
-              </button>
+              {!(streaming && !isStale) && thisId && <BubbleActions id={thisId} text={prose} />}
             </div>
           )}
           {label && (

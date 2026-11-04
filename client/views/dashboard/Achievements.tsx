@@ -17,6 +17,7 @@ import {
   Footprints,
   GraduationCap,
   Handshake,
+  ShieldCheck,
   Target,
   TrendingUp,
   Trophy,
@@ -45,6 +46,7 @@ export const BADGE_ICONS: Record<string, LucideIcon> = {
   top_marks: Target,
   big_leap: TrendingUp,
   mentored: Handshake,
+  examined: ShieldCheck,
   course_3: GraduationCap,
   streak_30: CalendarCheck,
 }

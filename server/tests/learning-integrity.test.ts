@@ -5,7 +5,7 @@ import {
   courses, modules, units, learningBlocks, blockQuestions, assessments, assessmentQuestions,
   courseEnrollments, users, courseCertificates,
 } from '../db/schema'
-import { startTestServer, stopTestServer, api, createTestUser, cleanupFixtureUsers, type TestUser } from './helpers'
+import { startTestServer, stopTestServer, api, createTestUser, cleanupFixtureUsers, mailpitAvailable, type TestUser } from './helpers'
 
 /**
  * The learner's browser is never trusted with learning records. These cover
@@ -220,6 +220,17 @@ describe('mentor contact details', () => {
 })
 
 describe('the PDF email tool', () => {
+  it('only ever emails the learner\'s own address', async () => {
+    if (!(await mailpitAvailable())) return
+    const user = await createTestUser('pdf-own')
+    const res = await api<{ email?: string }>('POST', '/api/ai-tools/generate-pdf', {
+      token: user.token,
+      body: { documentType: 'business-plan', content: 'A short plan.', emailAddress: 'stranger@example.com' },
+    })
+    expect(res.status).toBe(200)
+    expect(res.body.email).toBe(user.email)
+  })
+
   it('turns down an oversized document', async () => {
     const res = await api('POST', '/api/ai-tools/generate-pdf', {
       token: outsider.token,

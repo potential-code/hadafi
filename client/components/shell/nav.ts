@@ -69,6 +69,7 @@ export const SHELL_CONFIG: Record<ShellRole, ShellConfig> = {
         title: 'Learn',
         items: [
           { label: 'Courses', href: '/dashboard/courses', icon: GraduationCap },
+          { label: 'AI Examiner', href: '/dashboard/ai-examiner', icon: ShieldCheck },
           { label: 'Certificates', href: '/dashboard/certificates', icon: Award },
           { label: 'Achievements', href: '/dashboard/achievements', icon: Trophy },
         ],

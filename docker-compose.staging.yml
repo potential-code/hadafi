@@ -1,26 +1,81 @@
-# Docker Compose — staging
-# Runs on different host ports (5001/3001) so it can coexist with production on the same Dokploy host
-version: "3.9"
+# Docker Compose — staging. Same services and settings as docker-compose.yml,
+# with its own volume and API alias so it can share a Dokploy host with
+# production. No host ports: attach a domain in Dokploy (client:3000, and
+# /api + /uploads to server:5000), as production does.
 
 services:
   server:
     build:
       context: .
       dockerfile: server/Dockerfile
-    ports:
-      - "5001:5000"
     environment:
       NODE_ENV: staging
       PORT: "5000"
       DATABASE_URL: ${DATABASE_URL}
+      # Signs session cookies and announcement unsubscribe links (32+ characters).
+      # JWT_SECRET is still accepted as the fallback for sessions.
+      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:-}
       JWT_SECRET: ${JWT_SECRET}
       FRONTEND_URL: ${FRONTEND_URL}
+      # The public site URL: browsers reach the API on the site's own /api.
+      BETTER_AUTH_URL: ${BETTER_AUTH_URL:-${FRONTEND_URL}}
+      # Public URL of the API, for absolute upload URLs (mentor photos).
+      SERVER_PUBLIC_URL: ${SERVER_PUBLIC_URL:-}
+      # Proxy hops skipped when finding a visitor's IP (comma-separated IPs/CIDRs).
+      # Empty = loopback and private ranges (Traefik, the site).
+      TRUSTED_PROXIES: ${TRUSTED_PROXIES:-}
+      # Fixed proxy hop count instead; only behind a CDN.
+      TRUST_PROXY_HOPS: ${TRUST_PROXY_HOPS:-}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      # Email: AWS SES in production (sign-in codes go out this way).
       FROM_EMAIL: ${FROM_EMAIL}
-      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
+      FROM_NAME: ${FROM_NAME:-Hadafi}
+      AWS_REGION: ${AWS_REGION:-}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
       SMTP_HOST: ${SMTP_HOST:-localhost}
       SMTP_PORT: ${SMTP_PORT:-1025}
       SMTP_USER: ${SMTP_USER:-}
       SMTP_PASS: ${SMTP_PASS:-}
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
+      # potential-ai: mints the per-user tokens (must equal its SERVICE_JWT_SECRET,
+      # 32+ characters) and is called by the server for quiz drafts and marking.
+      COPILOT_SERVICE_JWT_SECRET: ${COPILOT_SERVICE_JWT_SECRET}
+      NEXT_PUBLIC_AI_BACKEND_URL: ${NEXT_PUBLIC_AI_BACKEND_URL}
+      # AI mentor chat upstream (default https://api.potential.com).
+      AI_MENTOR_API_URL: ${AI_MENTOR_API_URL:-}
+      # AI Insights / AI Dashboard: the read-only role (prod-prep.mjs ai-readonly-role).
+      # Empty = those admin pages say they aren't set up.
+      AI_READONLY_DATABASE_URL: ${AI_READONLY_DATABASE_URL:-}
+      # AI Examiner video mode (Anam avatar). Unset = text and voice only.
+      ANAM_API_KEY: ${ANAM_API_KEY:-}
+      ANAM_AVATAR_ID: ${ANAM_AVATAR_ID:-}
+      ANAM_VOICE_ID: ${ANAM_VOICE_ID:-}
+      ANAM_API_URL: ${ANAM_API_URL:-}
+      # Learner emails need the client's sign-off: each is sent only when "true".
+      REMINDER_EMAILS_ENABLED: ${REMINDER_EMAILS_ENABLED:-false}
+      ANNOUNCEMENT_EMAILS_ENABLED: ${ANNOUNCEMENT_EMAILS_ENABLED:-false}
+      # In-app timers (bell reminders, scheduled announcements): on unless "false".
+      REMINDERS_ENABLED: ${REMINDERS_ENABLED:-}
+      ANNOUNCEMENTS_TIMER_ENABLED: ${ANNOUNCEMENTS_TIMER_ENABLED:-}
+      # Zoom meetings for live events (Server-to-Server OAuth app). Unset = admins
+      # can't pick "Zoom meeting"; other links and in-person events still work.
+      ZOOM_ACCOUNT_ID: ${ZOOM_ACCOUNT_ID:-}
+      ZOOM_CLIENT_ID: ${ZOOM_CLIENT_ID:-}
+      ZOOM_CLIENT_SECRET: ${ZOOM_CLIENT_SECRET:-}
+      ZOOM_HOST_USER_ID: ${ZOOM_HOST_USER_ID:-}
+      ZOOM_WEBHOOK_SECRET_TOKEN: ${ZOOM_WEBHOOK_SECRET_TOKEN:-}
+      ZOOM_ADAPTER: ${ZOOM_ADAPTER:-}
+    # `default` is listed explicitly so that Dokploy, when it adds
+    # dokploy-network for a domain, adds to it instead of replacing it (Dokploy
+    # issue #3562). The alias is how the site reaches the API: unlike "server",
+    # no other deployment on the shared dokploy-network answers to it.
+    networks:
+      default:
+        aliases:
+          - hadafi-api-staging
+    expose:
+      - "5000"
     volumes:
       - uploads_staging:/app/uploads
     restart: unless-stopped
@@ -36,14 +91,19 @@ services:
       context: .
       dockerfile: client/Dockerfile
       args:
-        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+        # Where the site's server forwards /api and /uploads. Baked in at build time.
+        API_INTERNAL_URL: ${API_INTERNAL_URL:-http://hadafi-api-staging:5000}
+        # Empty = the homepage calls its own origin's /api (recommended).
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-}
         NEXT_PUBLIC_AI_BACKEND_URL: ${NEXT_PUBLIC_AI_BACKEND_URL}
-        NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}
-    ports:
-      - "3001:3000"
+        NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY:-}
     environment:
-      NODE_ENV: staging
+      NODE_ENV: production
       PORT: "3000"
+    networks:
+      - default
+    expose:
+      - "3000"
     depends_on:
       server:
         condition: service_healthy

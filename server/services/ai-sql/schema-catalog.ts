@@ -86,6 +86,7 @@ const ENUMS: Record<string, string[]> = {
   assessment_type: [...assessmentTypeEnum.enumValues],
   certificate_status: [...certificateStatusEnum.enumValues],
   badge: BADGES.map((b) => b.key),
+  ai_exam_mode: ["text", "voice", "video"],
   notification_type: [
     "session_booked",
     "session_cancelled",
@@ -252,6 +253,26 @@ const VIEWS: CatalogView[] = [
       LEARNER_ID,
       { name: "badge", type: "text", description: "See the badge enum." },
       { name: "earned_on", type: "date", description: "" },
+    ],
+  },
+  {
+    name: "ai_exam_attempt",
+    grain: "one row per marked AI Examiner attempt",
+    description:
+      "AI Examiner: a role-play exam with Hana about one course, marked 0-100 overall and on five dimensions. Practice, not certification. " +
+      "Scores only: no scenario, transcript or feedback text.",
+    columns: [
+      { name: "attempt_id", type: "uuid", description: "" },
+      LEARNER_ID,
+      { ...COURSE_ID, description: "The course the exam was about. Joins to ai.course.course_id." },
+      { name: "mode", type: "text", description: "See the ai_exam_mode enum." },
+      { name: "overall_score", type: "integer", description: "0-100." },
+      { name: "course_knowledge_score", type: "integer or NULL", description: "0-100." },
+      { name: "application_score", type: "integer or NULL", description: "0-100: applying the course to the situation." },
+      { name: "communication_score", type: "integer or NULL", description: "0-100." },
+      { name: "problem_solving_score", type: "integer or NULL", description: "0-100." },
+      { name: "professionalism_score", type: "integer or NULL", description: "0-100." },
+      { name: "attempted_on", type: "date", description: "" },
     ],
   },
   {
@@ -451,8 +472,9 @@ const NOTES: string[] = [
   "The views are live: every query reads the current data.",
   "Countries are English names ('United Arab Emirates', 'Nigeria', 'United Kingdom'); ISO codes are already folded in. Group by country directly.",
   "A 'lesson' is one learning block. A course is completed when ai.course_progress.completed is true (progress reached 100%): never use enrollment_status for completion.",
-  "ai.course_progress, ai.lesson_progress, ai.course_assessment_attempt, ai.activity_day, ai.badge_earned, ai.notification, ai.event_booking, ai.event_attendance, ai.announcement_seen, ai.offer_redemption and ai.mentor_session hold several rows per learner: joining one of them to ai.learner multiplies that learner's rows.",
+  "ai.course_progress, ai.lesson_progress, ai.course_assessment_attempt, ai.activity_day, ai.badge_earned, ai.ai_exam_attempt, ai.notification, ai.event_booking, ai.event_attendance, ai.announcement_seen, ai.offer_redemption and ai.mentor_session hold several rows per learner: joining one of them to ai.learner multiplies that learner's rows.",
   "Dates are calendar dates without a time zone; ai.activity_day.active_on is in the learner's own time zone.",
+  "The AI Examiner (ai.ai_exam_attempt) is practice: its scores never gate a certificate. A score of 70 or more earns the 'examined' badge.",
 ];
 
 /** How a figure is computed, and house style. A rule about BEHAVIOUR, not the data. */

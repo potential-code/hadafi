@@ -3,12 +3,18 @@
 /**
  * Copy, read aloud and try again under Hana's answers (ported from SMEEP).
  * HanaAssistantMessage decides which replies get them (finished answers,
- * never the greeting).
+ * never the greeting). Every Hana chat gets copy and read aloud by default;
+ * wrap a chat in <HanaReplyActionsProvider reportSurface="..."> to add
+ * "report this answer" (learner chats), or give HanaReplyActions `null` to
+ * turn the actions off.
  */
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Check, Copy, Loader2, RotateCcw, Square, Volume2 } from 'lucide-react'
-import type { ReadAloud } from './useHanaVoice'
+import { useReadAloud, type ReadAloud } from './useHanaVoice'
+import { HanaReplyActions, type HanaReplyActionsRenderer } from './hanaReplyActions'
+import { ReportAnswerButton, excerptBefore } from './ReportAnswerButton'
 import { cn } from '@/lib/utils'
+import './hana-studio.css'
 
 /** Markdown to the plain text a reader would copy (and hear). */
 export function replyPlainText(md: string): string {
@@ -104,4 +110,64 @@ export function HanaReplyButtons({
       )}
     </>
   )
+}
+
+/** What a chat without its own renderer shows: copy and read aloud. */
+export function DefaultHanaReplyActions({ id, text, isLast }: { id: string; text: string; isLast: boolean }) {
+  const readAloud = useReadAloud()
+  return <HanaReplyButtons id={id} text={text} isLast={isLast} readAloud={readAloud} />
+}
+
+/**
+ * Copy and read aloud under every finished answer in this chat, plus "report
+ * this answer" when `reportSurface` names the chat (e.g. "examiner",
+ * "tutor"); leave it out for admins' own tools. `onRegenerate` adds try
+ * again on the latest answer.
+ */
+export function HanaReplyActionsProvider({
+  children,
+  reportSurface,
+  conversation,
+  onRegenerate,
+  busy,
+}: {
+  children: ReactNode
+  reportSurface?: string
+  /** The chat's id in this browser (thread or session), sent with a report. */
+  conversation?: string
+  onRegenerate?: () => void
+  busy?: boolean
+}) {
+  const readAloud = useReadAloud()
+  const render = useMemo<HanaReplyActionsRenderer>(
+    () =>
+      ({ before, ...reply }) => (
+        <>
+          <HanaReplyButtons
+            {...reply}
+            readAloud={readAloud}
+            onRegenerate={
+              onRegenerate
+                ? () => {
+                    readAloud.stop()
+                    onRegenerate()
+                  }
+                : undefined
+            }
+            busy={busy}
+          />
+          {reportSurface && (
+            <ReportAnswerButton
+              surface={reportSurface}
+              reply={replyPlainText(reply.text)}
+              question={[...(before ?? [])].reverse().find((t) => t.role === 'learner')?.text}
+              excerpt={excerptBefore(before ?? [])}
+              conversation={conversation}
+            />
+          )}
+        </>
+      ),
+    [readAloud, onRegenerate, busy, reportSurface, conversation],
+  )
+  return <HanaReplyActions.Provider value={render}>{children}</HanaReplyActions.Provider>
 }
