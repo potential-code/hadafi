@@ -391,7 +391,7 @@ export const FAQ_TABS: FaqTab[] = [
   {
     tab: 'Course Structure',
     items: [
-      { q: 'What is meant by core course and additional courses?', a: "The core course in the SME Empowerment program is 'Evolve Your Business' that consists of 8 units, all participants are required to go through this course and submit their answers for the questions inside for them to be eligible for the program rewards and benefits. Additional courses are courses provided by Potential.com and international partners as additional resources and materials in the program." },
+      { q: 'What is meant by core course and additional courses?', a: "The core course in the Hadafi program is 'Evolve Your Business' that consists of 8 units, all participants are required to go through this course and submit their answers for the questions inside for them to be eligible for the program rewards and benefits. Additional courses are courses provided by Potential.com and international partners as additional resources and materials in the program." },
       { q: 'Is submitting the action plan mandatory?', a: 'Submitting the action plan is not mandatory but recommended to be able to get free coaching sessions, collect more points and unlock special deals and discounts on services and products from the marketplace.' },
       { q: 'Can I edit my submission to the action plan questions?', a: 'You can sign in using your email and generated password to edit/complete your answers to the action plan questions. Note that the multiple-choice questions could not be edited after you submit them.' },
       { q: 'If some action plan questions do not apply to my business, what should I do?', a: "You can type in N/A for the questions that you don't see it applicable to your business." },
@@ -402,9 +402,9 @@ export const FAQ_TABS: FaqTab[] = [
   {
     tab: 'Account',
     items: [
-      { q: 'How to delete my account?', a: 'To delete your account in the program, you should send an email, using your registered email address, to sme@potential.com and we could delete it on your behalf.' },
+      { q: 'How to delete my account?', a: 'To delete your account in the program, you should send an email, using your registered email address, to hadafi@potential.com and we could delete it on your behalf.' },
       { q: 'How to reset my password?', a: "To reset your password, go to the main page, click on Login then Forget Password. Enter the email that you've registered with and submit the form. You will receive an automatic email from the system with a generated password. Please make sure to check your Junk folder and mark our email as a safe sender so you receive the latest updates from the program too." },
-      { q: 'How to stay connected with the SME Empowerment Program community?', a: 'You can stay connected with the SME program community by following us on social media: Facebook, Instagram, Twitter.' },
+      { q: 'How to stay connected with the Hadafi community?', a: 'You can stay connected with the Hadafi community by following us on social media: Facebook, Instagram, Twitter.' },
     ],
   },
   {
@@ -413,7 +413,7 @@ export const FAQ_TABS: FaqTab[] = [
       { q: 'How to collect points?', a: 'You collect points for every learning material you finish in the platform. For example, in the core course, when submitting your action plan, you collect 10 points, when you finish the unit, you collect another 10 points. The sum of all points gained after finishing the core courses is 150 points. Same thing applies for all additional courses in the program.' },
       { q: 'How to redeem your points?', a: "You could click on the 'Dashboard' tab in the header, where you could see your profile and additional materials. In your dashboard, you could redeem your points with an expert session or special discounts for the marketplace." },
       { q: 'Where to check how many points I collected so far?', a: 'At the top of your Dashboard, you could check how many points you have gained and redeem these points.' },
-      { q: "How does the 'Special SME Offers' work and how could I make use of them?", a: 'We put together some special offers and packages designed specifically for SMEs with discounted prices offered for the program participants. The offers are provided by Potential.com and international leading partners in the SME Empowerment Program.' },
+      { q: "How do member offers work and how could I make use of them?", a: 'We put together some special offers and packages for women entrepreneurs, with discounted prices for program members. The offers are provided by Potential.com and leading international partners of the Hadafi program.' },
       { q: 'How could I have a free session with experts?', a: 'You can use your collected points to redeem a free session with an expert that you could choose from the list. You need 150 points to unlock an expert session.' },
       { q: 'Do we need to attend all the webinars?', a: "It isn't necessary, but we recommend that you attend the webinars." },
     ],

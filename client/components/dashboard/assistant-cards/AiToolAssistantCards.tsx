@@ -62,7 +62,7 @@ export function AiToolAssistantCards({ onStart, ids, actionStatus }: Props) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.05 * i }}
-          className="w-40 flex-shrink-0 rounded-xl bg-brand-deep border border-white/10 overflow-hidden hover:border-brand-primary/40 hover:shadow-md transition-all"
+          className="w-44 flex-shrink-0 rounded-[14px] bg-ui-surface border border-ui-line overflow-hidden transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-ui"
         >
           <div className="relative aspect-[4/3] overflow-hidden">
             <img
@@ -70,19 +70,18 @@ export function AiToolAssistantCards({ onStart, ids, actionStatus }: Props) {
               alt={tool.title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-deep/80 to-transparent" />
           </div>
           <div className="p-2.5 flex flex-col gap-1.5">
             <div>
-              <h4 className="font-bold text-[11px] text-white leading-tight line-clamp-1">
+              <h4 className="font-semibold text-[13px] text-ui-text leading-tight line-clamp-1">
                 {tool.title}
               </h4>
-              <p className="text-[9px] text-white/50 line-clamp-2">{tool.description}</p>
+              <p className="text-[11px] text-ui-muted line-clamp-2">{tool.description}</p>
             </div>
             <button
               type="button"
               onClick={() => onStart(tool.triggerMessage)}
-              className="w-full inline-flex items-center justify-center gap-1 rounded-lg bg-brand-primary text-white px-2 py-1.5 text-[10px] font-bold hover:opacity-90 transition-all"
+              className="w-full inline-flex items-center justify-center gap-1 rounded-[10px] bg-ui-brand hover:bg-ui-brand-hover text-white h-8 px-2 text-[13px] font-semibold transition-colors"
             >
               <tool.Icon className="w-3 h-3" />
               Start

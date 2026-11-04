@@ -41,25 +41,25 @@ function SummaryView({
       <div className="flex flex-wrap items-start gap-3 mb-4">
         <span
           className={cn(
-            'inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.2em]',
+            'inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold',
             isPre
-              ? 'bg-brand-primary/10 text-brand-primary'
-              : 'bg-brand-violet/10 text-brand-violet',
+              ? 'bg-ui-brand-soft text-ui-brand-text'
+              : 'bg-ui-brand-soft text-ui-brand-text',
           )}
         >
           {isPre ? 'Pre-Test' : 'Post-Test'}
         </span>
         {hasPassed && (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black uppercase tracking-[0.2em]">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-ui-ok-soft text-ui-ok text-xs font-semibold">
             <CheckCircle2 className="w-3 h-3" />
             Passed
           </span>
         )}
       </div>
 
-      <h3 className="text-lg font-black text-brand-text-primary leading-tight">{assessment.title}</h3>
+      <h3 className="text-lg font-semibold text-ui-text leading-tight">{assessment.title}</h3>
       {assessment.description && (
-        <p className="mt-1.5 text-sm text-brand-text-muted leading-relaxed">{assessment.description}</p>
+        <p className="mt-1.5 text-sm text-ui-muted leading-relaxed">{assessment.description}</p>
       )}
 
       {/* Stats grid (graded only) */}
@@ -72,7 +72,7 @@ function SummaryView({
           />
           <StatBox
             label="Best score"
-            value={bestScore !== null ? `${bestScore}%` : '—'}
+            value={bestScore !== null ? `${bestScore}%` : 'None yet'}
           />
           <StatBox label="Passing score" value={`${assessment.passingScore}%`} />
         </div>
@@ -82,10 +82,10 @@ function SummaryView({
       {latestAttempt && (
         <div
           className={cn(
-            'mt-4 flex items-center gap-3 rounded-xl border px-4 py-3 text-sm',
+            'mt-4 flex items-center gap-3 rounded-[10px] border px-4 py-3 text-sm',
             latestAttempt.passed
-              ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
-              : 'bg-red-50 border-red-200 text-red-700',
+              ? 'bg-ui-ok-soft border-transparent text-ui-ok'
+              : 'bg-ui-danger-soft border-transparent text-ui-danger',
           )}
         >
           {latestAttempt.passed ? (
@@ -94,15 +94,15 @@ function SummaryView({
             <XCircle className="w-4 h-4 shrink-0" />
           )}
           <span className="font-semibold">
-            {latestAttempt.passed ? 'Passed' : 'Did not pass'} — Attempt {latestAttempt.attemptNumber}
-            {latestAttempt.score !== null && ` · ${latestAttempt.score}%`}
+            {latestAttempt.passed ? 'Passed' : 'Did not pass'}, attempt {latestAttempt.attemptNumber}
+            {latestAttempt.score !== null && `, ${latestAttempt.score}%`}
           </span>
         </div>
       )}
 
       {/* Locked state */}
       {isLocked && (
-        <div className="mt-5 flex items-center gap-3 rounded-xl border border-brand-surface-2 bg-brand-surface px-4 py-3 text-sm text-brand-text-muted">
+        <div className="mt-5 flex items-center gap-3 rounded-[10px] border border-ui-line bg-ui-bg px-4 py-3 text-sm text-ui-muted">
           <Lock className="w-4 h-4 shrink-0" />
           Complete previous sections first to unlock this assessment.
         </div>
@@ -110,7 +110,7 @@ function SummaryView({
 
       {/* No attempts remaining */}
       {!isLocked && !canStartAssessment && !hasPassed && attemptsMade > 0 && (
-        <div className="mt-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+        <div className="mt-5 rounded-[10px] border border-transparent bg-ui-danger-soft px-4 py-3 text-sm text-ui-danger">
           You have used all available attempts and did not reach the passing score.
         </div>
       )}
@@ -120,7 +120,7 @@ function SummaryView({
         <div className="mt-5">
           <button
             onClick={onStart}
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white px-5 py-2.5 text-xs font-bold shadow-md shadow-brand-primary/30 hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 rounded-[10px] bg-ui-brand hover:bg-ui-brand-hover text-white h-10 px-5 text-sm font-semibold transition-all"
           >
             {attemptsMade > 0 ? (
               <>
@@ -142,9 +142,9 @@ function SummaryView({
 
 function StatBox({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl border border-brand-surface-2 bg-brand-surface px-3 py-2.5 text-center">
-      <p className="text-base font-black text-brand-text-primary">{value}</p>
-      <p className="text-[10px] text-brand-text-muted mt-0.5 leading-snug">{label}</p>
+    <div className="rounded-[10px] border border-ui-line bg-ui-bg px-3 py-2.5 text-center">
+      <p className="text-base font-semibold text-ui-text">{value}</p>
+      <p className="text-xs text-ui-muted mt-0.5 leading-snug">{label}</p>
     </div>
   )
 }
@@ -171,10 +171,10 @@ function TakingView({
   if (isLoading || !questions) {
     return (
       <div className="space-y-3 animate-pulse">
-        <div className="h-4 bg-brand-surface-2 rounded w-24" />
-        <div className="h-6 bg-brand-surface-2 rounded w-3/4" />
-        <div className="h-12 bg-brand-surface-2 rounded" />
-        <div className="h-12 bg-brand-surface-2 rounded" />
+        <div className="h-4 bg-ui-surface-2 rounded w-24" />
+        <div className="h-6 bg-ui-surface-2 rounded w-3/4" />
+        <div className="h-12 bg-ui-surface-2 rounded" />
+        <div className="h-12 bg-ui-surface-2 rounded" />
       </div>
     )
   }
@@ -190,15 +190,15 @@ function TakingView({
   return (
     <div>
       {/* Progress */}
-      <div className="flex items-center justify-between text-[10px] font-bold text-brand-text-muted uppercase tracking-[0.2em] mb-4">
+      <div className="flex items-center justify-between text-xs font-bold text-ui-muted mb-4">
         <span>Question {currentIdx + 1} of {total}</span>
         <span>{Object.keys(answers).length}/{total} answered</span>
       </div>
-      <div className="h-1.5 rounded-full bg-brand-surface-2 overflow-hidden mb-6">
+      <div className="h-1.5 rounded-full bg-ui-surface-2 overflow-hidden mb-6">
         <motion.div
           animate={{ width: `${((currentIdx + 1) / total) * 100}%` }}
           transition={{ duration: 0.3 }}
-          className="h-full rounded-full bg-gradient-to-r from-brand-primary to-brand-primary-dark"
+          className="h-full rounded-full bg-ui-brand"
         />
       </div>
 
@@ -211,31 +211,33 @@ function TakingView({
           exit={{ opacity: 0, x: -16 }}
           transition={{ duration: 0.25 }}
         >
-          <p className="text-base sm:text-lg font-semibold text-brand-text-primary leading-relaxed mb-4">
+          <p className="text-base sm:text-lg font-semibold text-ui-text leading-relaxed mb-4">
             {q.questionText}
           </p>
 
-          <div className="grid gap-2">
+          <div className="grid gap-2" role="radiogroup" aria-label={q.questionText}>
             {options.map((opt, idx) => {
               const isSelected = answers[q.id] === idx
               return (
                 <motion.button
                   key={idx}
                   type="button"
+                  role="radio"
+                  aria-checked={isSelected}
                   onClick={() => setAnswers((prev) => ({ ...prev, [q.id]: idx }))}
                   whileHover={{ x: 3 }}
                   whileTap={{ scale: 0.99 }}
                   className={cn(
-                    'relative text-left flex items-center gap-3 rounded-xl border px-4 py-3 text-sm transition-all',
+                    'relative text-left flex items-center gap-3 rounded-[10px] border px-4 py-3 text-sm transition-all',
                     isSelected
-                      ? 'border-brand-primary bg-brand-primary/5 text-brand-text-primary shadow-sm'
-                      : 'border-brand-surface-2 bg-white text-brand-text-primary hover:border-brand-primary/40',
+                      ? 'border-ui-brand bg-ui-brand-soft text-ui-text shadow-sm'
+                      : 'border-ui-line bg-ui-surface text-ui-text hover:border-ui-brand',
                   )}
                 >
                   <span
                     className={cn(
                       'relative flex items-center justify-center w-5 h-5 rounded-full border-2 transition-colors shrink-0',
-                      isSelected ? 'border-brand-primary bg-brand-primary' : 'border-brand-surface-2 bg-white',
+                      isSelected ? 'border-ui-brand bg-ui-brand' : 'border-ui-line bg-ui-surface',
                     )}
                   >
                     <AnimatePresence>
@@ -244,13 +246,13 @@ function TakingView({
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
                           exit={{ scale: 0 }}
-                          className="w-2 h-2 rounded-full bg-white"
+                          className="w-2 h-2 rounded-full bg-ui-surface"
                         />
                       )}
                     </AnimatePresence>
                   </span>
                   <span className="flex-1">{opt}</span>
-                  {isSelected && <CheckCircle2 className="w-4 h-4 text-brand-primary" />}
+                  {isSelected && <CheckCircle2 className="w-4 h-4 text-ui-brand-text" />}
                 </motion.button>
               )
             })}
@@ -262,7 +264,7 @@ function TakingView({
       <div className="mt-6 flex items-center justify-between gap-3">
         <button
           onClick={() => currentIdx > 0 ? setCurrentIdx((i) => i - 1) : onBack()}
-          className="inline-flex items-center gap-2 rounded-xl bg-white border border-brand-surface-2 px-4 py-2.5 text-xs font-bold text-brand-text-primary hover:border-brand-primary/40 hover:text-brand-primary transition-all"
+          className="inline-flex items-center gap-2 rounded-[10px] bg-ui-surface border border-ui-line h-10 px-4 text-sm font-semibold text-ui-text hover:border-ui-brand hover:text-ui-brand-text transition-all"
         >
           {currentIdx === 0 ? 'Cancel' : 'Previous'}
         </button>
@@ -271,7 +273,7 @@ function TakingView({
           <button
             onClick={() => setCurrentIdx((i) => i + 1)}
             disabled={answers[q.id] === undefined}
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white px-5 py-2.5 text-xs font-bold shadow-md shadow-brand-primary/30 hover:-translate-y-0.5 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none disabled:translate-y-0"
+            className="inline-flex items-center gap-2 rounded-[10px] bg-ui-brand hover:bg-ui-brand-hover text-white h-10 px-5 text-sm font-semibold transition-all disabled:opacity-40 disabled:cursor-not-allowed"
           >
             Next
           </button>
@@ -279,7 +281,7 @@ function TakingView({
           <button
             onClick={() => onSubmit(answers)}
             disabled={!allAnswered}
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white px-5 py-2.5 text-xs font-bold shadow-md shadow-brand-primary/30 hover:-translate-y-0.5 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none disabled:translate-y-0"
+            className="inline-flex items-center gap-2 rounded-[10px] bg-ui-brand hover:bg-ui-brand-hover text-white h-10 px-5 text-sm font-semibold transition-all disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <CheckCircle2 className="w-3.5 h-3.5" />
             Submit
@@ -317,17 +319,17 @@ function ResultView({
         transition={{ type: 'spring', stiffness: 200, damping: 14 }}
         className={cn(
           'inline-flex items-center justify-center w-16 h-16 rounded-full mb-4',
-          hasPassed ? 'bg-emerald-100' : 'bg-red-100',
+          hasPassed ? 'bg-ui-ok-soft' : 'bg-ui-danger-soft',
         )}
       >
         {hasPassed ? (
-          <CheckCircle2 className="w-8 h-8 text-emerald-600" />
+          <CheckCircle2 className="w-8 h-8 text-ui-ok" />
         ) : (
-          <XCircle className="w-8 h-8 text-red-500" />
+          <XCircle className="w-8 h-8 text-ui-danger" />
         )}
       </motion.div>
 
-      <h3 className="text-xl font-black text-brand-text-primary">
+      <h3 className="text-xl font-semibold text-ui-text">
         {hasPassed ? 'You passed!' : 'Not quite yet'}
       </h3>
 
@@ -344,12 +346,12 @@ function ResultView({
       {/* Correct answers */}
       {assessment.showAnswers && correctAnswers && correctAnswers.length > 0 && (
         <div className="mt-5 text-left">
-          <p className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.2em] mb-2">Correct answers</p>
+          <p className="text-xs font-bold text-ui-brand-text mb-2">Correct answers</p>
           <div className="space-y-2">
             {correctAnswers.map((ca, i) => (
-              <div key={i} className="rounded-xl border border-brand-surface-2 bg-brand-surface px-4 py-3 text-sm">
-                <p className="font-semibold text-brand-text-primary leading-snug">{ca.questionText}</p>
-                <p className="mt-1 text-brand-text-muted">
+              <div key={i} className="rounded-[10px] border border-ui-line bg-ui-bg px-4 py-3 text-sm">
+                <p className="font-semibold text-ui-text leading-snug">{ca.questionText}</p>
+                <p className="mt-1 text-ui-muted">
                   Correct answer: option {ca.correctAnswer + 1}
                 </p>
               </div>
@@ -363,7 +365,7 @@ function ResultView({
         {!hasPassed && attemptsRemaining !== 0 && (
           <button
             onClick={onRetake}
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white px-5 py-2.5 text-xs font-bold shadow-md shadow-brand-primary/30 hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 rounded-[10px] bg-ui-brand hover:bg-ui-brand-hover text-white h-10 px-5 text-sm font-semibold transition-all"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             Retake
@@ -371,7 +373,7 @@ function ResultView({
         )}
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 rounded-xl bg-white border border-brand-surface-2 px-5 py-2.5 text-xs font-bold text-brand-text-primary hover:border-brand-primary/40 hover:text-brand-primary transition-all"
+          className="inline-flex items-center gap-2 rounded-[10px] bg-ui-surface border border-ui-line h-10 px-5 text-sm font-semibold text-ui-text hover:border-ui-brand hover:text-ui-brand-text transition-all"
         >
           Back to course
         </button>
@@ -387,7 +389,7 @@ export function AssessmentView({ assessmentId, isLocked, onCompleted }: Props) {
   const [viewState, setViewState] = useState<ViewState>('summary')
   const [resultSummary, setResultSummary] = useState<AssessmentSummary | null>(null)
 
-  const { data: summary, isLoading, isError } = useQuery({
+  const { data: summary, isLoading, isError, error } = useQuery({
     queryKey: ['assessment-summary', assessmentId],
     queryFn: () => fetchAssessmentSummary(assessmentId),
   })
@@ -408,12 +410,12 @@ export function AssessmentView({ assessmentId, isLocked, onCompleted }: Props) {
 
   if (isLoading) {
     return (
-      <div className="rounded-2xl bg-white border border-brand-surface-2 p-6 shadow-sm space-y-3 animate-pulse">
-        <div className="h-4 bg-brand-surface-2 rounded w-20" />
-        <div className="h-6 bg-brand-surface-2 rounded w-1/2" />
-        <div className="h-4 bg-brand-surface-2 rounded w-3/4" />
+      <div className="rounded-[14px] bg-ui-surface border border-ui-line p-6 shadow-sm space-y-3 animate-pulse">
+        <div className="h-4 bg-ui-surface-2 rounded w-20" />
+        <div className="h-6 bg-ui-surface-2 rounded w-1/2" />
+        <div className="h-4 bg-ui-surface-2 rounded w-3/4" />
         <div className="grid grid-cols-4 gap-3 pt-2">
-          {[1, 2, 3, 4].map((i) => <div key={i} className="h-14 bg-brand-surface-2 rounded-xl" />)}
+          {[1, 2, 3, 4].map((i) => <div key={i} className="h-14 bg-ui-surface-2 rounded-[10px]" />)}
         </div>
       </div>
     )
@@ -421,14 +423,14 @@ export function AssessmentView({ assessmentId, isLocked, onCompleted }: Props) {
 
   if (isError || !summary) {
     return (
-      <div className="rounded-2xl bg-white border border-brand-surface-2 p-6 shadow-sm text-center text-sm text-brand-text-muted">
-        Failed to load assessment. Please refresh the page.
+      <div className="rounded-[14px] bg-ui-surface border border-ui-line p-6 shadow-sm text-center text-sm text-ui-muted">
+        {error instanceof Error ? error.message : 'This exam could not load.'} Please refresh the page.
       </div>
     )
   }
 
   return (
-    <div className="rounded-2xl bg-white border border-brand-surface-2 p-6 shadow-sm">
+    <div className="rounded-[14px] bg-ui-surface border border-ui-line p-6 shadow-sm">
       <AnimatePresence mode="wait">
         {viewState === 'summary' && (
           <motion.div key="summary" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -453,13 +455,13 @@ export function AssessmentView({ assessmentId, isLocked, onCompleted }: Props) {
               onBack={() => setViewState('summary')}
             />
             {submitMutation.isPending && (
-              <div className="mt-4 text-center text-xs text-brand-text-muted animate-pulse">
+              <div className="mt-4 text-center text-xs text-ui-muted animate-pulse">
                 Submitting your answers…
               </div>
             )}
             {submitMutation.isError && (
-              <div className="mt-4 text-center text-xs text-red-600">
-                Submission failed. Please try again.
+              <div role="alert" className="mt-4 text-center text-sm text-ui-danger">
+                {submitMutation.error instanceof Error ? submitMutation.error.message : 'Your answers could not be sent.'} Please try again.
               </div>
             )}
           </motion.div>

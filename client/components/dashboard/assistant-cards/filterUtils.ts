@@ -45,10 +45,10 @@ export function getCourseCta(course: LearnerCourse): {
   label: string
   intent: 'enroll' | 'start' | 'continue' | 'review'
 } {
-  if (!course.isEnrolled) return { label: 'Enroll & Start', intent: 'enroll' }
-  if (course.progressPercentage === 0) return { label: 'Start Course', intent: 'start' }
-  if (course.progressPercentage < 100) return { label: 'Continue Course', intent: 'continue' }
-  return { label: 'Review Course', intent: 'review' }
+  if (!course.isEnrolled) return { label: 'Enroll and start', intent: 'enroll' }
+  if (course.progressPercentage === 0) return { label: 'Start course', intent: 'start' }
+  if (course.progressPercentage < 100) return { label: 'Continue course', intent: 'continue' }
+  return { label: 'Review course', intent: 'review' }
 }
 
 export function filterOffers(offers: Offer[], topic?: string): Offer[] {
@@ -60,24 +60,33 @@ export function filterOffers(offers: Offer[], topic?: string): Offer[] {
   )
 }
 
+/**
+ * The items with these keys, in the order given. Hana lists the best match
+ * first, so the cards keep her ranking rather than the catalogue's order.
+ */
+function pickInOrder<T>(items: readonly T[], keys: string[], keyOf: (item: T) => string): T[] {
+  const byKey = new Map(items.map((item) => [keyOf(item), item]))
+  return [...new Set(keys)].map((k) => byKey.get(k)).filter((item): item is T => item !== undefined)
+}
+
 export function filterCoursesByIds(courses: LearnerCourse[], ids: string[]): LearnerCourse[] {
-  return courses.filter((c) => ids.includes(c.id))
+  return pickInOrder(courses, ids, (c) => c.id)
 }
 
 export function filterOffersByIds(offers: Offer[], ids: string[]): Offer[] {
-  return offers.filter((o) => ids.includes(o.id))
+  return pickInOrder(offers, ids, (o) => o.id)
 }
 
 export function filterMentorsByIds<T extends { id: string }>(mentors: T[], ids: string[]): T[] {
-  return mentors.filter((m) => ids.includes(m.id))
+  return pickInOrder(mentors, ids, (m) => m.id)
 }
 
 export function filterAiMentorsBySlugs<T extends { slug: string }>(mentors: readonly T[], slugs: string[]): T[] {
-  return mentors.filter((m) => slugs.includes(m.slug))
+  return pickInOrder(mentors, slugs, (m) => m.slug)
 }
 
 export function filterEventsByIds(events: LiveEvent[], ids: string[]): LiveEvent[] {
-  return events.filter((e) => ids.includes(e.id))
+  return pickInOrder(events, ids, (e) => e.id)
 }
 
 export function isEventPast(event: LiveEvent): boolean {

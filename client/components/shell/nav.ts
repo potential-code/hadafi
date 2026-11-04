@@ -8,6 +8,7 @@ import {
   CalendarCheck2,
   CalendarDays,
   CalendarRange,
+  Award,
   CircleHelp,
   GraduationCap,
   House,
@@ -15,6 +16,7 @@ import {
   Landmark,
   LayoutDashboard,
   Link2,
+  Sparkles,
   Tag,
   UserCheck,
   UserRound,
@@ -47,17 +49,25 @@ export type ShellConfig = {
   quickAction?: ShellNavItem
 }
 
-// Only pages Hadafi has today. Ask Hana, Multi Learning, AI Examiner,
-// Certificates (learner) and AI Insights, Announcements, AI safety review
-// (admin) join these menus as each of those features lands.
+// Only pages Hadafi has today. Multi Learning and AI Examiner (learner) and
+// AI Insights, Announcements, AI safety review (admin) join these menus as
+// each of those features lands.
+const ASK_HANA: ShellNavItem = { label: 'Ask Hana', href: '/dashboard/assistant', icon: Sparkles }
+
 export const SHELL_CONFIG: Record<ShellRole, ShellConfig> = {
   learner: {
     roleLabel: 'Learner',
     homeHref: '/dashboard',
     profileHref: '/dashboard/profile',
     groups: [
-      { items: [{ label: 'Home', href: '/dashboard', icon: House, exact: true }] },
-      { title: 'Learn', items: [{ label: 'Courses', href: '/dashboard/courses', icon: GraduationCap }] },
+      { items: [{ label: 'Home', href: '/dashboard', icon: House, exact: true }, ASK_HANA] },
+      {
+        title: 'Learn',
+        items: [
+          { label: 'Courses', href: '/dashboard/courses', icon: GraduationCap },
+          { label: 'Certificates', href: '/dashboard/certificates', icon: Award },
+        ],
+      },
       {
         title: 'Mentors',
         items: [
@@ -78,9 +88,10 @@ export const SHELL_CONFIG: Record<ShellRole, ShellConfig> = {
     tabs: [
       { label: 'Home', href: '/dashboard', icon: House, exact: true },
       { label: 'Courses', href: '/dashboard/courses', icon: GraduationCap },
+      ASK_HANA,
       { label: 'Mentors', href: '/dashboard/human-mentors', icon: Users },
-      { label: 'Sessions', href: '/dashboard/sessions', icon: CalendarCheck2 },
     ],
+    quickAction: ASK_HANA,
   },
   mentor: {
     roleLabel: 'Mentor',

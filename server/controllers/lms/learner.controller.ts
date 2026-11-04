@@ -28,7 +28,9 @@ export async function listLearnerCourses(req: Request, res: Response, next: Next
 /**
  * GET /lms/courses/:courseId
  * Returns the full nested course structure with per-item progress and lock status
- * for an enrolled learner. Returns 403 if the learner is not enrolled.
+ * for an enrolled learner. For a published course the learner has not joined,
+ * returns the course header and an outline preview (isEnrolled=false, no lesson
+ * content) so the client can offer enrolment. 404 for missing or draft courses.
  */
 export async function getLearnerCourse(
   req: Request<{ courseId: string }>,
@@ -39,8 +41,8 @@ export async function getLearnerCourse(
     const data = await learnerSvc.getLearnerCourse(req.user!.userId, req.params.courseId)
     res.json({ success: true, data })
   } catch (e) {
-    if (e instanceof Error && e.message === 'NOT_ENROLLED') {
-      return next(new AppError('Not enrolled', 403, 'NOT_ENROLLED'))
+    if (e instanceof Error && e.message === 'COURSE_NOT_FOUND') {
+      return next(new AppError('Course not found', 404, 'COURSE_NOT_FOUND'))
     }
     next(e)
   }

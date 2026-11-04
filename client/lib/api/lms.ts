@@ -18,6 +18,8 @@ export type LearnerCourse = {
   isEnrolled: boolean
   progressPercentage: number
   enrolledCount: number | undefined
+  /** Units in the course (course list only). */
+  unitCount?: number
 }
 
 export type BlockProgress = {
@@ -63,11 +65,32 @@ export type LearnerModule = Omit<CourseModule, 'units'> & {
   isLocked: boolean
 }
 
+export type CoursePreviewUnit = {
+  title: string
+  description: string | null
+  lessons: number
+  videos: number
+  readings: number
+  activities: number
+}
+
+/** What a learner sees before starting a course: the outline and counts, no lesson content. */
+export type CoursePreview = {
+  units: CoursePreviewUnit[]
+  totals: { units: number; lessons: number; videos: number; readings: number; activities: number }
+  hasPreTest: boolean
+  hasFinalExam: boolean
+  /** Learners who have started the course. */
+  learners: number
+}
+
 export type LearnerCourseDetail = LearnerCourse & {
   modules: LearnerModule[]
   preAssessment: (LearnerAssessment & { isLocked: boolean; isCompleted: boolean }) | null
   postAssessment: (LearnerAssessment & { isLocked: boolean }) | null
   courseProgress: CourseProgress | null
+  /** Only before enrolment (isEnrolled false): the course outline. */
+  preview?: CoursePreview
 }
 
 export type AssessmentSummary = {

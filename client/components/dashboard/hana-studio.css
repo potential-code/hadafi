@@ -1,0 +1,337 @@
+/* ── Hana chat (Ask Hana) ───────────────────────────────────────────────────
+ *
+ * Ported from SMEEP's chat studio styles. Hana's replies sit on the page
+ * beside her portrait, the learner's messages are solid magenta bubbles, and
+ * there is one magenta action at a time. Every colour maps onto the app's
+ * `--ui-*` tokens (globals.css), so light and dark mode both work.
+ *
+ * Failure states use amber, never red.
+ */
+
+.hana-studio {
+  --hana-warn: #87490f;
+  --hana-warn-bg: #fbefe2;
+  /* Thread + composer column width. */
+  --hana-thread-max: 776px;
+  color: var(--ui-text);
+}
+.dark .hana-studio {
+  --hana-warn: #f2b36f;
+  --hana-warn-bg: #2a1d10;
+}
+
+/* ── One accent action at a time ────────────────────────────────────────────── */
+
+.hana-studio .hana-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #fff;
+  background: var(--ui-brand);
+  transition: background-color 0.15s ease, transform 0.1s ease, opacity 0.15s ease;
+  cursor: pointer;
+}
+.hana-studio .hana-next:hover:not(:disabled) {
+  background: var(--ui-brand-hover);
+}
+.hana-studio .hana-next:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.hana-studio .hana-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.hana-studio .hana-next:focus-visible,
+.hana-studio .hana-chip:focus-visible {
+  outline: 2px solid var(--ui-brand);
+  outline-offset: 2px;
+}
+
+/* ── Suggestion chips (starter + follow-up) ─────────────────────────────────── */
+
+.hana-studio .hana-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  border-radius: 999px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  color: var(--ui-text);
+  padding: 5px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-align: start;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  cursor: pointer;
+}
+.hana-studio .hana-chip:hover:not(:disabled) {
+  background: var(--ui-surface-2);
+}
+.hana-studio .hana-chip:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.hana-studio .hana-chip.is-open {
+  border-color: var(--ui-brand);
+  background: var(--ui-brand-soft);
+  color: var(--ui-brand-text);
+}
+
+/* ── Composer strip ─────────────────────────────────────────────────────────── */
+
+.hana-studio .hana-composer {
+  background: var(--ui-bg);
+  /* CopilotChat docks its input slot inside a pointer-events:none positioning
+     layer and expects the input component to restore them. */
+  pointer-events: auto;
+}
+.hana-studio .hana-composer-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  border: 1px solid var(--ui-line);
+  border-radius: 14px;
+  padding: 6px;
+  padding-inline-start: 14px;
+  background: var(--ui-surface);
+  box-shadow: var(--ui-shadow);
+  transition: border-color 0.15s ease;
+}
+.hana-studio .hana-composer-box:focus-within {
+  border-color: var(--ui-brand);
+}
+.hana-studio .hana-composer-box textarea {
+  font-size: 15px;
+  line-height: 24px;
+  padding: 8px 0;
+  min-height: 40px;
+  max-height: 140px;
+  color: var(--ui-text);
+}
+.hana-studio .hana-composer-box textarea::placeholder {
+  color: var(--ui-muted);
+}
+/* A long placeholder stays on one line on phones. */
+.hana-studio .hana-composer-box textarea:placeholder-shown {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* 40px square buttons inside the composer: secondary (mic) and primary (send). */
+.hana-studio .hana-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 10px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  color: var(--ui-text);
+  transition: background-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+.hana-studio .hana-icon-btn:hover:not(:disabled) {
+  background: var(--ui-surface-2);
+}
+.hana-studio .hana-icon-btn[aria-pressed="true"] {
+  background: var(--ui-brand-soft);
+  border-color: transparent;
+  color: var(--ui-brand-text);
+}
+.hana-studio .hana-icon-btn--primary {
+  border-color: transparent;
+  background: var(--ui-brand);
+  color: #fff;
+}
+.hana-studio .hana-icon-btn--primary:hover:not(:disabled) {
+  background: var(--ui-brand-hover);
+}
+.hana-studio .hana-icon-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.hana-studio .hana-icon-btn:focus-visible {
+  outline: 2px solid var(--ui-brand);
+  outline-offset: 2px;
+}
+
+/* ── Chat bubbles ───────────────────────────────────────────────────────────── */
+
+/* Hana's replies sit on the page, beside her avatar; only the learner's
+   messages are bubbles. */
+.hana-studio .hana-bubble {
+  min-width: 0;
+  max-width: 680px;
+  padding: 6px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ui-text);
+  overflow-wrap: anywhere;
+}
+/* The typing dots keep a small box, so "Hana is replying" still reads. */
+.hana-studio .hana-bubble.hana-typing {
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  border-radius: 4px 16px 16px 16px;
+  padding: 12px 14px;
+}
+.hana-studio [dir="rtl"] .hana-bubble.hana-typing {
+  border-radius: 16px 4px 16px 16px;
+}
+.hana-studio .hana-bubble a {
+  color: var(--ui-brand-text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.hana-studio .hana-bubble-user {
+  max-width: min(78%, 560px);
+  background: var(--ui-brand);
+  color: #fff;
+  border-radius: 16px 4px 16px 16px;
+  padding: 10px 14px;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.hana-studio [dir="rtl"] .hana-bubble-user {
+  border-radius: 4px 16px 16px 16px;
+}
+/* Cards and chips line up with Hana's bubble (portrait 32px + 10px gap). */
+.hana-studio .hana-lead {
+  padding-inline-start: 42px;
+}
+@media (max-width: 639px) {
+  .hana-studio .hana-lead {
+    padding-inline-start: 0;
+  }
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────────────────── */
+
+@keyframes hana-fadeup {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ── CopilotKit surface overrides: let the page show through the chat ──────── */
+
+.hana-studio.hadafi-copilot {
+  box-shadow: none;
+  --background: transparent;
+  --copilot-kit-background-color: transparent;
+}
+.hana-studio.hadafi-copilot [data-copilotkit],
+.hana-studio .hadafi-assistant-chat,
+.hana-studio .copilotKitChat,
+.hana-studio .copilotKitChatBody,
+.hana-studio .copilotKitMessages,
+.hana-studio .hadafi-assistant-chat [data-testid="copilot-scroll-content"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+/* Center the thread as one readable column. The bottom padding must clear the
+   composer, which CopilotChat docks OVER the scroll area. */
+.hana-studio .hadafi-assistant-chat [data-testid="copilot-scroll-content"] {
+  padding: 28px 32px 132px !important;
+}
+@media (max-width: 639px) {
+  .hana-studio .hadafi-assistant-chat [data-testid="copilot-scroll-content"] {
+    padding: 16px 16px 124px !important;
+  }
+}
+.hana-studio .hadafi-assistant-chat [data-testid="copilot-scroll-content"] > div {
+  max-width: var(--hana-thread-max, 776px) !important;
+  margin-inline: auto !important;
+}
+
+/* CopilotKit's v2 stylesheet resets `[data-copilotkit] button` to a
+   transparent background OUTSIDE any cascade layer, so it beats Tailwind's
+   layered `bg-*` utilities on every button rendered inside the chat (cards,
+   chips, kit buttons). Restore the ui-token backgrounds there. */
+.hana-studio [data-copilotkit] button.bg-ui-brand { background-color: var(--ui-brand); }
+.hana-studio [data-copilotkit] button.bg-ui-brand:hover:not(:disabled) { background-color: var(--ui-brand-hover); }
+.hana-studio [data-copilotkit] button.bg-ui-surface { background-color: var(--ui-surface); }
+.hana-studio [data-copilotkit] button.bg-ui-surface-2 { background-color: var(--ui-surface-2); }
+.hana-studio [data-copilotkit] button.bg-ui-brand-soft { background-color: var(--ui-brand-soft); }
+.hana-studio [data-copilotkit] button.bg-ui-bg { background-color: var(--ui-bg); }
+.hana-studio [data-copilotkit] button.hover\:bg-ui-surface-2:hover:not(:disabled) { background-color: var(--ui-surface-2); }
+.hana-studio [data-copilotkit] button.hover\:bg-ui-brand-hover:hover:not(:disabled) { background-color: var(--ui-brand-hover); }
+.hana-studio [data-copilotkit] button.rounded-\[10px\] { border-radius: 10px; }
+.hana-studio [data-copilotkit] button.rounded-full { border-radius: 999px; }
+.hana-studio [data-copilotkit] button.rounded-lg { border-radius: 8px; }
+.hana-studio [data-copilotkit] button.text-white { color: #fff; }
+.hana-studio [data-copilotkit] button.text-ui-text { color: var(--ui-text); }
+.hana-studio [data-copilotkit] button.text-ui-muted { color: var(--ui-muted); }
+.hana-studio [data-copilotkit] button.text-ui-brand-text { color: var(--ui-brand-text); }
+/* …and its `font: inherit` reset beats layered text-size / weight utilities. */
+.hana-studio [data-copilotkit] button.text-xs { font-size: 12px; line-height: 16px; }
+.hana-studio [data-copilotkit] button.text-sm { font-size: 14px; line-height: 20px; }
+.hana-studio [data-copilotkit] button.text-\[11px\] { font-size: 11px; }
+.hana-studio [data-copilotkit] button.text-\[12px\] { font-size: 12px; }
+.hana-studio [data-copilotkit] button.text-\[13px\] { font-size: 13px; }
+.hana-studio [data-copilotkit] button.text-\[14px\] { font-size: 14px; }
+.hana-studio [data-copilotkit] button.font-medium { font-weight: 500; }
+.hana-studio [data-copilotkit] button.font-semibold { font-weight: 600; }
+
+/* ── Reply actions ──────────────────────────────────────────────────────────── */
+
+.hana-studio .hana-reply-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 4px;
+  margin-inline-start: -8px;
+}
+.hana-studio .hana-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: var(--ui-muted);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.hana-studio .hana-action:hover:not(:disabled) {
+  background: var(--ui-surface-2);
+  color: var(--ui-text);
+}
+.hana-studio .hana-action.is-on {
+  background: var(--ui-brand-soft);
+  color: var(--ui-brand-text);
+}
+.hana-studio .hana-action:disabled {
+  opacity: 0.4;
+}
+.hana-studio .hana-action:focus-visible {
+  outline: 2px solid var(--ui-brand);
+  outline-offset: 1px;
+}
+
+/* Ask Hana: what Hana can do (tabs on a new chat, shortcut menus in one). */
+.hana-studio .ask-starter {
+  animation: hana-fadeup 0.24s ease both;
+}
+.hana-studio .ask-shortcut-menu {
+  animation: hana-fadeup 0.16s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hana-studio .ask-starter,
+  .hana-studio .ask-shortcut-menu {
+    animation: none;
+  }
+}

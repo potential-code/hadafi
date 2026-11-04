@@ -12,6 +12,8 @@
 
 import { useEffect, useState } from 'react'
 import { Mic, MicOff, Phone, PhoneOff } from 'lucide-react'
+import { btn } from '@/components/kit'
+import { cn } from '@/lib/utils'
 import type { VoiceCallState } from './useStreamingVoice'
 
 function isVoiceSupported(): boolean {
@@ -26,20 +28,25 @@ function isVoiceSupported(): boolean {
 export function VoiceModeButton({
   onClick,
   agentName,
+  className,
 }: {
   onClick: () => void
   agentName: string
+  className?: string
 }) {
-  if (!isVoiceSupported()) return null
+  // Decided after mount: the server render has no navigator, and rendering
+  // the button only on the client avoids a hydration mismatch.
+  const [supported, setSupported] = useState(false)
+  useEffect(() => setSupported(isVoiceSupported()), [])
+  if (!supported) return null
   return (
     <button
       type="button"
-      aria-label={`Talk to ${agentName}`}
       title={`Talk to ${agentName}`}
       onClick={onClick}
-      className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-white/20"
+      className={cn(btn({ variant: 'secondary', size: 'md' }), 'h-9 px-3.5', className)}
     >
-      <Phone className="h-3.5 w-3.5" />
+      <Phone className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
       <span>Talk to {agentName}</span>
     </button>
   )
@@ -60,7 +67,7 @@ function stateLabel(state: VoiceCallState, agentName: string): {
     case 'connecting':
       return { primary: 'Connecting', secondary: 'Setting up your call' }
     case 'listening':
-      return { primary: 'Listening', secondary: 'Go ahead — say anything' }
+      return { primary: 'Listening', secondary: 'Go ahead, say anything' }
     case 'user-speaking':
       return { primary: "I'm listening", secondary: 'Got you, keep going' }
     case 'agent-speaking':
@@ -107,29 +114,31 @@ export function VoiceDock({
   return (
     <div
       data-state={state}
-      className="flex items-center gap-3 border-b border-brand-surface-2 bg-muted/40 px-5 py-3 motion-safe:animate-voice-dock-down"
+      role="status"
+      aria-live="polite"
+      className="relative z-[2] flex items-center gap-3 border-b border-ui-line bg-ui-surface px-4 py-3 sm:px-6 motion-safe:animate-voice-dock-down"
     >
       {/* Live-pulse indicator; inner ring speeds up while the agent speaks. */}
       <div className="relative flex h-6 w-6 flex-shrink-0 items-center justify-center">
         <span
           aria-hidden="true"
           className={
-            'absolute inset-0 rounded-full bg-emerald-500/20 ' +
+            'absolute inset-0 rounded-full bg-ui-ok-soft ' +
             (isSpeaking
               ? 'motion-safe:animate-voice-breathe-fast'
               : 'motion-safe:animate-voice-breathe')
           }
         />
-        <span aria-hidden="true" className="relative h-2.5 w-2.5 rounded-full bg-emerald-600" />
+        <span aria-hidden="true" className="relative h-2.5 w-2.5 rounded-full bg-ui-ok" />
         <span className="sr-only">{agentName} call</span>
       </div>
 
       {/* Status + timer + inline waveform */}
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline gap-2">
-          <span className="text-sm font-semibold tracking-tight text-foreground">{primary}</span>
+          <span className="text-sm font-semibold text-ui-text">{primary}</span>
           {showTimer && (
-            <span className="font-mono text-xs tabular-nums text-muted-foreground">
+            <span className="text-xs tabular-nums text-ui-muted">
               {formatDuration(now - (callStartedAt ?? now))}
             </span>
           )}
@@ -138,7 +147,7 @@ export function VoiceDock({
               {[0, 0.15, 0.3, 0.15, 0].map((delay, i) => (
                 <span
                   key={i}
-                  className="block h-full w-0.5 origin-bottom rounded-full bg-emerald-600 motion-safe:animate-sound-bar"
+                  className="block h-full w-0.5 origin-bottom rounded-full bg-ui-ok motion-safe:animate-sound-bar"
                   style={{ animationDelay: `${delay}s` }}
                 />
               ))}
@@ -146,7 +155,7 @@ export function VoiceDock({
           )}
         </div>
         {secondaryLine && (
-          <div className="hidden truncate text-xs text-muted-foreground sm:block">
+          <div className="hidden truncate text-[13px] text-ui-muted sm:block">
             {secondaryLine}
           </div>
         )}
@@ -160,14 +169,10 @@ export function VoiceDock({
             aria-label={isMuted ? 'Unmute' : 'Mute'}
             title={isMuted ? 'Unmute' : 'Mute'}
             onClick={onMute}
-            className={
-              'inline-flex h-9 w-9 items-center justify-center rounded-full border transition-colors ' +
-              (isMuted
-                ? 'border-foreground/30 bg-muted text-foreground'
-                : 'border-brand-surface-2 bg-white hover:bg-muted')
-            }
+            aria-pressed={isMuted}
+            className={cn(btn({ variant: 'secondary', size: 'icon' }), 'h-9 w-9', isMuted && 'bg-ui-surface-2')}
           >
-            {isMuted ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
+            {isMuted ? <MicOff className="h-4 w-4" aria-hidden /> : <Mic className="h-4 w-4" aria-hidden />}
           </button>
         )}
         <button
@@ -175,9 +180,9 @@ export function VoiceDock({
           aria-label="End call"
           title="End call"
           onClick={onHangup}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-red-500 text-white shadow-sm transition-colors hover:bg-red-600"
+          className={cn(btn({ variant: 'danger', size: 'icon' }), 'h-9 w-9')}
         >
-          <PhoneOff className="h-4 w-4" />
+          <PhoneOff className="h-4 w-4" aria-hidden />
         </button>
       </div>
     </div>

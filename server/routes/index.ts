@@ -11,6 +11,7 @@ import smeRouter from "./sme";
 import liveEventsRouter from "./liveEvents";
 import aiToolsRouter from "./aiTools";
 import meRouter from "./me";
+import aiMentorsRouter from "./aiMentors";
 
 const router: IRouter = Router();
 
@@ -25,6 +26,7 @@ router.use("/live-events", liveEventsRouter);
 router.use("/offers", offersRouter);
 router.use("/ai-tools", aiToolsRouter);
 router.use("/me", meRouter);
+router.use("/ai-mentors", aiMentorsRouter);
 // SME routes: /api/mentors/* and /api/sessions/* — no sub-prefix, paths defined in sme.ts
 router.use(smeRouter);
 

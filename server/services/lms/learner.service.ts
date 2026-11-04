@@ -40,28 +40,58 @@ export async function getPublishedCourses(userId: string) {
     .groupBy(courseEnrollments.courseId)
   const enrolledCountMap = new Map(enrolledCountRows.map(r => [r.courseId, r.cnt]))
 
+  const unitCountRows = await db
+    .select({ courseId: modules.courseId, cnt: count(units.id) })
+    .from(modules)
+    .innerJoin(units, eq(units.moduleId, modules.id))
+    .where(inArray(modules.courseId, courseIds))
+    .groupBy(modules.courseId)
+  const unitCountMap = new Map(unitCountRows.map(r => [r.courseId, Number(r.cnt)]))
+
   return allCourses.map(c => ({
     ...c,
     isEnrolled: enrolledCourseIds.has(c.id),
     progressPercentage: progressMap.get(c.id) ?? 0,
     enrolledCount: enrolledCountMap.get(c.id) ?? 0,
+    unitCount: unitCountMap.get(c.id) ?? 0,
   }))
 }
 
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
 /**
- * Fetches the full nested course structure for an enrolled learner, with per-item
+ * Fetches the full nested course structure for an enrolled learner (or, before
+ * enrolment, the header and an outline preview), with per-item
  * progress rows attached and lock status computed.
  *
  * @param userId   - UUID of the learner.
  * @param courseId - UUID of the course.
  */
 export async function getLearnerCourse(userId: string, courseId: string) {
+  // A malformed id is a course that doesn't exist, not a database error.
+  if (!UUID_RE.test(courseId)) throw new Error('COURSE_NOT_FOUND')
   const [enrollment] = await db.select().from(courseEnrollments)
     .where(and(eq(courseEnrollments.userId, userId), eq(courseEnrollments.courseId, courseId)))
-  if (!enrollment) throw new Error('NOT_ENROLLED')
+  if (!enrollment) {
+    // Not enrolled yet: a published course shows its outline (unit titles and
+    // what each holds, never lesson content or answer keys) so the learner can
+    // decide to start it. Draft or missing courses stay invisible.
+    const [course] = await db.select().from(courses).where(eq(courses.id, courseId))
+    if (!course || course.status !== 'published') throw new Error('COURSE_NOT_FOUND')
+    return {
+      ...course,
+      isEnrolled: false,
+      progressPercentage: 0,
+      modules: [],
+      preAssessment: null,
+      postAssessment: null,
+      courseProgress: null,
+      preview: await getCoursePreview(courseId),
+    }
+  }
 
   const [course] = await db.select().from(courses).where(eq(courses.id, courseId))
-  if (!course) throw new Error('NOT_ENROLLED')
+  if (!course) throw new Error('COURSE_NOT_FOUND')
 
   const courseModules = await db.select().from(modules)
     .where(eq(modules.courseId, courseId)).orderBy(asc(modules.order))
@@ -274,5 +304,57 @@ export async function computeLockStatus(userId: string, courseData: {
 
   if (courseData.postAssessment) {
     courseData.postAssessment.isLocked = !allPreviousComplete
+  }
+}
+
+/**
+ * What a learner sees before starting a course: the outline (unit titles and
+ * what each unit holds), whether there is a pre-test and a final exam, and how
+ * many learners have started it. Titles and counts only: no block bodies,
+ * videos, questions or answer keys.
+ */
+async function getCoursePreview(courseId: string) {
+  const unitRows = await db
+    .select({
+      title: units.title,
+      description: units.description,
+      lessons: sql<number>`count(${learningBlocks.id})::int`,
+      videos: sql<number>`count(${learningBlocks.id}) filter (where ${learningBlocks.type} = 'video')::int`,
+      readings: sql<number>`count(${learningBlocks.id}) filter (where ${learningBlocks.type} in ('text', 'image'))::int`,
+      activities: sql<number>`count(${learningBlocks.id}) filter (where ${learningBlocks.type} = 'question')::int`,
+    })
+    .from(modules)
+    .innerJoin(units, eq(units.moduleId, modules.id))
+    .leftJoin(learningBlocks, eq(learningBlocks.unitId, units.id))
+    .where(eq(modules.courseId, courseId))
+    .groupBy(modules.order, modules.id, units.order, units.id, units.title, units.description)
+    .orderBy(asc(modules.order), asc(units.order))
+
+  const assessmentRows = await db.select({ type: assessments.assessmentType })
+    .from(assessments).where(eq(assessments.courseId, courseId))
+  const [learnerCount] = await db.select({ n: count() }).from(courseEnrollments)
+    .where(eq(courseEnrollments.courseId, courseId))
+
+  const outline = unitRows.map((u) => ({
+    title: u.title,
+    description: u.description,
+    lessons: Number(u.lessons),
+    videos: Number(u.videos),
+    readings: Number(u.readings),
+    activities: Number(u.activities),
+  }))
+  const total = (k: 'lessons' | 'videos' | 'readings' | 'activities') => outline.reduce((n, u) => n + u[k], 0)
+  return {
+    units: outline,
+    totals: {
+      units: outline.length,
+      lessons: total('lessons'),
+      videos: total('videos'),
+      readings: total('readings'),
+      activities: total('activities'),
+    },
+    hasPreTest: assessmentRows.some((a) => a.type === 'pre'),
+    hasFinalExam: assessmentRows.some((a) => a.type === 'post'),
+    learners: Number(learnerCount?.n ?? 0),
   }
 }

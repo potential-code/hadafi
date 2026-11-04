@@ -82,34 +82,34 @@ export function SessionAssistantCards({ statusFilter, actionStatus }: Props) {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 * i }}
-            className="w-56 flex-shrink-0 rounded-xl bg-white border border-brand-surface-2 p-3 hover:border-brand-primary/30 transition-colors"
+            className="w-56 flex-shrink-0 rounded-[14px] bg-ui-surface border border-ui-line p-3 hover:border-ui-brand/30 transition-colors"
           >
             <div className="flex items-start gap-2.5 mb-2">
               <div
                 className={cn(
-                  'w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-[11px] flex-shrink-0',
+                  'w-8 h-8 rounded-full flex items-center justify-center text-white font-semibold text-[13px] flex-shrink-0',
                   isCancelled
-                    ? 'bg-brand-surface-2 text-brand-text-muted'
-                    : 'bg-gradient-to-br from-brand-primary to-brand-violet',
+                    ? 'bg-ui-surface-2 text-ui-muted'
+                    : 'bg-ui-brand-soft',
                 )}
               >
                 {getInitials(session.mentorUser.fullName)}
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[12px] font-bold text-brand-text-primary leading-tight line-clamp-1">
+                <p className="text-[14px] font-semibold text-ui-text leading-tight line-clamp-1">
                   {session.mentorUser.fullName}
                 </p>
                 <span
                   className={cn(
-                    'inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider',
-                    isUpcoming && 'text-emerald-600',
-                    isCompleted && 'text-brand-text-muted',
-                    isCancelled && 'text-rose-500',
+                    'inline-flex items-center gap-1 text-[11px] font-semibold',
+                    isUpcoming && 'text-ui-ok',
+                    isCompleted && 'text-ui-muted',
+                    isCancelled && 'text-ui-danger',
                   )}
                 >
                   {isUpcoming && (
                     <>
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-ui-ok" aria-hidden />
                       Upcoming
                     </>
                   )}
@@ -130,12 +130,12 @@ export function SessionAssistantCards({ statusFilter, actionStatus }: Props) {
             </div>
 
             <div className="space-y-1 mb-2">
-              <div className="flex items-center gap-1 text-[10px] text-brand-text-muted">
+              <div className="flex items-center gap-1 text-[12px] text-ui-muted">
                 <Clock className="w-2.5 h-2.5 flex-shrink-0" />
                 <span className="truncate">{formatFull(session.slot.startsAt)}</span>
               </div>
               {duration > 0 && (
-                <div className="flex items-center gap-1 text-[10px] text-brand-text-muted">
+                <div className="flex items-center gap-1 text-[12px] text-ui-muted">
                   <Timer className="w-2.5 h-2.5 flex-shrink-0" />
                   <span>{formatDuration(duration)}</span>
                 </div>
@@ -147,10 +147,10 @@ export function SessionAssistantCards({ statusFilter, actionStatus }: Props) {
                 href={session.meetingLink}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white px-3 py-1.5 text-[11px] font-bold hover:-translate-y-0.5 transition-all"
+                className="w-full inline-flex items-center justify-center gap-1.5 rounded-[10px] bg-ui-brand hover:bg-ui-brand-hover text-white h-8 px-3 text-[13px] font-semibold transition-colors"
               >
                 <Video className="w-3 h-3" />
-                Join Session
+                Join session
               </a>
             )}
           </motion.div>

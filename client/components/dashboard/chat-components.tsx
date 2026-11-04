@@ -30,6 +30,9 @@ export const onPillClickRef: { current: ((text: string) => void) | null } = { cu
 // V2: onSubmitMessage from CopilotChatInput. Pill clicks use this ref so they
 // go through the same submission path as typed messages.
 export const copilotSendRef: { current: ((text: string) => void) | null } = { current: null }
+// Custom `input` renderers bypass CopilotChat's `labels.chatInputPlaceholder`, so callers that
+// need a non-default placeholder write it here instead. null = use the default.
+export const chatPlaceholderRef: { current: string | null } = { current: null }
 
 // When a new pill set mounts it calls this to disable the previous set.
 let disablePreviousPills: (() => void) | null = null
@@ -49,9 +52,16 @@ export type ParsedMessage = { prose: string; pills: string[]; label: string; mul
 // Label is optional in both forms. Without the sentinel the list renders as plain markdown.
 const OPTIONS_SENTINEL_RE = /^<!-- options(-multi)?(?::\s*(.+?))?\s*-->$/
 const SUGGEST_SENTINEL_RE = /^<!-- suggest:\s*(.+?)\s*-->$/m
+const ANY_SENTINEL_RE = /<!-- (?:options(?:-multi)?|suggest)\b[^\n]*?-->/g
 
-export function parseAssistantPills(content: string): ParsedMessage {
-  const empty = (c: string): ParsedMessage => ({ prose: c, pills: [], label: '', multiSelect: false, isSuggest: false })
+export function parseAssistantPills(raw: string): ParsedMessage {
+  // A marker the parser can't use must never reach the learner as text.
+  const empty = (c: string): ParsedMessage => ({ prose: c.replace(ANY_SENTINEL_RE, '').trim(), pills: [], label: '', multiSelect: false, isSuggest: false })
+  // Models sometimes put the options marker at the end of the question line;
+  // move it onto its own line so the block below can find it.
+  const content = raw.includes('<!-- options')
+    ? raw.replace(/[ \t]*(<!-- options(?:-multi)?(?::[^\n]*?)?\s*-->)[ \t]*/g, '\n$1\n').replace(/\n{3,}/g, '\n\n')
+    : raw
 
   // Suggest sentinel — pipe-separated, no numbered list, no prose
   if (content.includes('<!-- suggest:')) {
@@ -74,16 +84,20 @@ export function parseAssistantPills(content: string): ParsedMessage {
   while (cursor >= 0) {
     const line = lines[cursor].trim()
     if (line === '') break
-    const m = line.match(/^(\d+)\.\s+(.+)$/)
+    // "1. Option", "1) Option", or a bullet ("- Option", "* Option", "• Option").
+    const m = line.match(/^(?:(\d+)[.)]|[-*•])\s+(.+)$/)
     if (!m) break
-    items.unshift({ lineIdx: cursor, text: m[2], num: parseInt(m[1], 10) })
+    items.unshift({ lineIdx: cursor, text: m[2], num: m[1] ? parseInt(m[1], 10) : 0 })
     cursor--
   }
 
   if (items.length < 2) return empty(content)
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].num !== i + 1) return empty(content)
-  }
+  // Numbered lists must count 1, 2, 3; bulleted lists have no numbers to check.
+  if (items.every((it) => it.num > 0)) {
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].num !== i + 1) return empty(content)
+    }
+  } else if (items.some((it) => it.num > 0)) return empty(content)
   if (items.some(it => it.text.length > 200)) return empty(content)
 
   // Sentinel must appear on the line immediately before the numbered block.
@@ -100,7 +114,28 @@ export function parseAssistantPills(content: string): ParsedMessage {
   const proseLines = lines.slice(0, preIdx)
   while (proseLines.length > 0 && proseLines[proseLines.length - 1].trim() === '') proseLines.pop()
 
-  return { prose: proseLines.join('\n'), pills: items.map(it => it.text), label, multiSelect, isSuggest: false }
+  // Defensive cleanup: a sloppy model sometimes emits the question + options
+  // block twice in one message. The trailing block became the pills above;
+  // strip any earlier sentinel blocks (sentinel line + its numbered list)
+  // still embedded in the prose, then drop a line that exactly repeats the
+  // previous kept line (the duplicated question the stripping exposes).
+  const cleaned: string[] = []
+  let li = 0
+  while (li < proseLines.length) {
+    if (OPTIONS_SENTINEL_RE.test(proseLines[li].trim())) {
+      li++
+      while (li < proseLines.length && (proseLines[li].trim() === '' || /^(?:\d+[.)]|[-*•])\s+/.test(proseLines[li].trim()))) li++
+      continue
+    }
+    const trimmed = proseLines[li].trim()
+    const prevKept = [...cleaned].reverse().find((l) => l.trim() !== '')
+    if (trimmed !== '' && prevKept?.trim() === trimmed) { li++; continue }
+    cleaned.push(proseLines[li])
+    li++
+  }
+  while (cleaned.length > 0 && cleaned[cleaned.length - 1].trim() === '') cleaned.pop()
+
+  return { prose: cleaned.join('\n'), pills: items.map(it => it.text), label, multiSelect, isSuggest: false }
 }
 
 // ─── HadafiTypingCursor ───────────────────────────────────────────────────────

@@ -229,8 +229,8 @@ export function YouTubePlayer({ videoUrl, onProgress }: Props) {
 
   if (!id) {
     return (
-      <div className="flex items-center justify-center aspect-video rounded-2xl bg-brand-surface-2 text-sm text-brand-text-muted">
-        Invalid video URL
+      <div className="flex items-center justify-center aspect-video rounded-[14px] bg-ui-surface-2 text-sm text-ui-muted">
+        This video link does not work. Please let us know through Support.
       </div>
     )
   }
@@ -238,7 +238,7 @@ export function YouTubePlayer({ videoUrl, onProgress }: Props) {
   return (
     <div
       ref={fullscreenWrapperRef}
-      className="relative w-full rounded-2xl overflow-hidden bg-black shadow-lg ring-1 ring-black/5"
+      className="relative w-full rounded-[14px] overflow-hidden bg-black shadow-lg ring-1 ring-black/5"
       style={{ aspectRatio: '16/9' }}
       onMouseMove={bumpOverlay}
       onTouchStart={bumpOverlay}

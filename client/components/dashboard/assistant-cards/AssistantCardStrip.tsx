@@ -10,14 +10,18 @@ interface AssistantCardStripProps {
 
 export function AssistantCardStrip({ children, label }: AssistantCardStripProps) {
   const scrollRef = useRef<HTMLDivElement>(null)
-  const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(false)
+  // "Back" and "forward" follow the reading direction. In a right-to-left
+  // chat (Arabic, Urdu) the strip starts at the right and scrollLeft runs
+  // from 0 down to negative values, so the offset is read as a magnitude.
+  const [canScrollBack, setCanScrollBack] = useState(false)
+  const [canScrollForward, setCanScrollForward] = useState(false)
 
   const checkScroll = useCallback(() => {
     const el = scrollRef.current
     if (!el) return
-    setCanScrollLeft(el.scrollLeft > 4)
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4)
+    const offset = Math.abs(el.scrollLeft)
+    setCanScrollBack(offset > 4)
+    setCanScrollForward(offset + el.clientWidth < el.scrollWidth - 4)
   }, [])
 
   useEffect(() => {
@@ -33,28 +37,32 @@ export function AssistantCardStrip({ children, label }: AssistantCardStripProps)
     }
   }, [checkScroll])
 
-  const scroll = (dir: 'left' | 'right') => {
-    scrollRef.current?.scrollBy({ left: dir === 'left' ? -220 : 220, behavior: 'smooth' })
+  const scroll = (to: 'back' | 'forward') => {
+    const el = scrollRef.current
+    if (!el) return
+    const rtl = getComputedStyle(el).direction === 'rtl'
+    const step = to === 'forward' ? 220 : -220
+    el.scrollBy({ left: rtl ? -step : step, behavior: 'smooth' })
   }
 
   const arrowBase =
-    'absolute top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded-full bg-white border border-brand-surface-2 shadow-md flex items-center justify-center text-brand-text-muted hover:text-brand-primary hover:border-brand-primary/40 hover:shadow-lg transition-all'
+    'absolute top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-ui-surface border border-ui-line shadow-ui flex items-center justify-center text-ui-text hover:bg-ui-surface-2 transition-colors'
 
   return (
     <div className="mt-2 w-full">
       {label && (
-        <p className="text-[10px] text-brand-text-muted uppercase tracking-wider font-semibold mb-2">
+        <p className="text-[12px] text-ui-muted font-semibold mb-2">
           {label}
         </p>
       )}
       <div className="relative">
-        {canScrollLeft && (
+        {canScrollBack && (
           <button
-            onClick={() => scroll('left')}
-            aria-label="Scroll left"
-            className={`${arrowBase} -left-3`}
+            onClick={() => scroll('back')}
+            aria-label="Scroll back"
+            className={`${arrowBase} -start-3`}
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-4 h-4 rtl:-scale-x-100" />
           </button>
         )}
 
@@ -66,13 +74,13 @@ export function AssistantCardStrip({ children, label }: AssistantCardStripProps)
           {children}
         </div>
 
-        {canScrollRight && (
+        {canScrollForward && (
           <button
-            onClick={() => scroll('right')}
-            aria-label="Scroll right"
-            className={`${arrowBase} -right-3`}
+            onClick={() => scroll('forward')}
+            aria-label="Scroll forward"
+            className={`${arrowBase} -end-3`}
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-4 h-4 rtl:-scale-x-100" />
           </button>
         )}
       </div>
@@ -86,7 +94,7 @@ export function AssistantCardSkeleton() {
       {[1, 2, 3].map((i) => (
         <div
           key={i}
-          className="w-52 flex-shrink-0 rounded-xl bg-brand-surface-2 animate-pulse h-36"
+          className="w-52 flex-shrink-0 rounded-[14px] bg-ui-surface-2 animate-pulse h-40"
         />
       ))}
     </AssistantCardStrip>
