@@ -1,5 +1,6 @@
 // client/components/dashboard/assistant-cards/CourseAssistantCards.tsx
 'use client'
+import { optimizedSrc } from '@/lib/images'
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
@@ -63,7 +64,7 @@ export function CourseAssistantCards({ intent, topic, ids, actionStatus }: Props
             <div className="relative h-24 overflow-hidden">
               {course.cover ? (
                 <img
-                  src={course.cover}
+                  src={optimizedSrc(course.cover)}
                   alt={course.title}
                   className="w-full h-full object-cover"
                 />

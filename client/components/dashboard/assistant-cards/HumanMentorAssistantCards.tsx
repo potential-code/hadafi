@@ -1,5 +1,6 @@
 // client/components/dashboard/assistant-cards/HumanMentorAssistantCards.tsx
 'use client'
+import { optimizedSrc } from '@/lib/images'
 
 import { useContext } from 'react'
 import { useQuery } from '@tanstack/react-query'
@@ -63,7 +64,7 @@ export function HumanMentorAssistantCards({ topic, ids, intent, actionStatus, on
           >
             <div className="relative aspect-square overflow-hidden">
               <img
-                src={avatar}
+                src={optimizedSrc(avatar)}
                 alt={mentor.fullName}
                 className="w-full h-full object-cover"
               />

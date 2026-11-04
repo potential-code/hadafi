@@ -1,4 +1,5 @@
 'use client'
+import { optimizedSrc } from '@/lib/images'
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -406,7 +407,7 @@ export function MentorBookingWidget({ mentorName, respond, onRegisterCancel, onD
                       className="w-full flex items-center gap-2.5 p-2.5 rounded-xl border border-brand-surface-2 hover:border-brand-primary/40 hover:bg-brand-surface text-left transition-all"
                     >
                       <img
-                        src={avatarSrc}
+                        src={optimizedSrc(avatarSrc)}
                         alt={m.fullName}
                         className="w-8 h-8 rounded-full flex-shrink-0 object-cover"
                       />
@@ -449,7 +450,7 @@ export function MentorBookingWidget({ mentorName, respond, onRegisterCancel, onD
           <motion.div key="slot_selection" initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -12 }}>
             <div className="flex items-center gap-2.5 mb-3">
               <div className="w-9 h-9 rounded-full overflow-hidden ring-2 ring-brand-surface-2 flex-shrink-0">
-                <img src={avatarSrc} alt={mentor.fullName} className="w-full h-full object-cover" />
+                <img src={optimizedSrc(avatarSrc)} alt={mentor.fullName} className="w-full h-full object-cover" />
               </div>
               <div>
                 <p className="text-xs font-bold text-brand-text-primary leading-tight">{mentor.fullName}</p>
@@ -531,7 +532,7 @@ export function MentorBookingWidget({ mentorName, respond, onRegisterCancel, onD
             <div className="rounded-xl bg-brand-surface border border-brand-surface-2 p-3 space-y-2.5 mb-3">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-brand-surface-2 flex-shrink-0">
-                  <img src={avatarSrc} alt={mentor.fullName} className="w-full h-full object-cover" />
+                  <img src={optimizedSrc(avatarSrc)} alt={mentor.fullName} className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-brand-text-primary">{mentor.fullName}</p>

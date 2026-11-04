@@ -109,7 +109,7 @@ export function HadafiTypingCursor() {
   return (
     <div className="flex gap-2 items-end mb-3">
       <img
-        src="/images/redesign/hana-avatar.png"
+        src="/images/redesign/hana-avatar.webp"
         alt="Hana"
         className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
       />
@@ -197,7 +197,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
       <>
         <div className="flex gap-2 items-end mb-3">
           <img
-            src="/images/redesign/hana-avatar.png"
+            src="/images/redesign/hana-avatar.webp"
             alt="Hana"
             className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
           />
@@ -258,7 +258,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
     <>
       <div className="flex gap-2 items-start mb-3">
         <img
-          src="/images/redesign/hana-avatar.png"
+          src="/images/redesign/hana-avatar.webp"
           alt="Hana"
           className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0 mt-0.5"
         />

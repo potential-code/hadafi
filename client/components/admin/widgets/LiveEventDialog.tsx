@@ -188,7 +188,7 @@ export function LiveEventDialog({ open, initial, onClose, onSave }: Props) {
                           value={form.coverImage ?? ''}
                           onChange={(e) => set('coverImage', e.target.value)}
                           className="admin-input flex-1"
-                          placeholder="/images/events/webinar-1.jpg or https://…"
+                          placeholder="/images/events/webinar-1.webp or https://…"
                         />
                         {form.coverImage && (
                           <div className="flex-shrink-0 w-14 h-10 rounded-lg overflow-hidden border border-brand-surface-2 bg-brand-surface">

@@ -21,7 +21,7 @@ export const ABOUT = {
   body: "Hadafi, brought to you by the Potential.org Foundation, is a global initiative designed to empower women entrepreneurs to start and grow their businesses. Since 2013, Hadafi has supported over 100,000 women entrepreneurs worldwide. By joining this free program, you'll gain access to short training courses, live events and webinars with industry experts, and future-ready skills to build and scale your business. Benefit from AI mentors and tools, book private sessions with human experts, and access exclusive partner offers and discounts. Hadafi is your gateway to launching with confidence and growing with purpose.",
   ctaLabel: 'Sign Up Free',
   ctaHref: '/sign-up',
-  image: '/images/redesign/hadafi-about.png',
+  image: '/images/redesign/hadafi-about.webp',
 } as const
 
 // Journey section
@@ -34,35 +34,35 @@ export const JOURNEY = {
     {
       title: 'Training Courses',
       description: 'Learn business skills and AI adoption through structured, practical courses.',
-      image: '/images/redesign/journey-1-training.png',
+      image: '/images/redesign/journey-1-training.webp',
     },
     {
       title: 'AI Mentors',
       description: 'Get 24/7 guidance from AI-powered coaches across business functions.',
-      image: '/images/redesign/journey-2-mentors.png',
+      image: '/images/redesign/journey-2-mentors.webp',
     },
     {
       title: 'AI Tools',
       description: 'Access AI tools to build business plans, ideas, and marketing strategies.',
-      image: '/images/redesign/journey-3-tools.png',
+      image: '/images/redesign/journey-3-tools.webp',
     },
     {
       title: 'Coaching Support',
       description: 'Book one-on-one sessions with human mentors and industry experts.',
-      image: '/images/redesign/journey-4-private.png',
+      image: '/images/redesign/journey-4-private.webp',
     },
     {
       title: 'Exclusive Offers',
       description: 'Access exclusive discounts and offers from program partners.',
-      image: '/images/redesign/journey-5-offers.png',
+      image: '/images/redesign/journey-5-offers.webp',
     },
     {
       title: 'Live Events',
       description: 'Network and learn at live online and in-person events with experts.',
-      image: '/images/redesign/journey-6-events.png',
+      image: '/images/redesign/journey-6-events.webp',
     },
   ],
-  image: '/images/redesign/hadafi-journey.png',
+  image: '/images/redesign/hadafi-journey.webp',
   ctaLabel: 'Login',
   ctaHref: '/login',
 } as const
@@ -83,7 +83,7 @@ export const STAKEHOLDER = {
         'Join as an individual expert, mentor, coach, or lecturer to share your expertise with our community of women entrepreneurs!',
       ctaLabel: 'Join as an Expert',
       ctaHref: '#',
-      image: '/images/redesign/stakeholder-1-experts.png',
+      image: '/images/redesign/stakeholder-1-experts.webp',
     },
     {
       kind: 'vc',
@@ -92,7 +92,7 @@ export const STAKEHOLDER = {
         'Join as a Community Supporter and share the program with your community of women entrepreneurs!',
       ctaLabel: 'Join as a Supporter',
       ctaHref: '#',
-      image: '/images/redesign/stakeholder-2-vc.png',
+      image: '/images/redesign/stakeholder-2-vc.webp',
     },
     {
       kind: 'government',
@@ -101,7 +101,7 @@ export const STAKEHOLDER = {
         'Join as a multilateral or government entity to customize the program for women entrepreneurs in your community!',
       ctaLabel: 'Join as a Government',
       ctaHref: '#',
-      image: '/images/redesign/stakeholder-3-government.png',
+      image: '/images/redesign/stakeholder-3-government.webp',
     },
     // --- Hidden until re-enabled: Corporate Program ---
     // {
@@ -111,7 +111,7 @@ export const STAKEHOLDER = {
     //     'Join as a corporate sponsor to offer your solutions to women-led businesses or support the program!',
     //   ctaLabel: 'Join as a Corporate',
     //   ctaHref: '#',
-    //   image: '/images/redesign/stakeholder-4-corporate.png',
+    //   image: '/images/redesign/stakeholder-4-corporate.webp',
     // },
     // --- Hidden until re-enabled: University Program ---
     // {
@@ -121,7 +121,7 @@ export const STAKEHOLDER = {
     //     'Join as a university or think tank to share your faculty expertise and further your research on women entrepreneurship!',
     //   ctaLabel: 'Join as a University',
     //   ctaHref: '#',
-    //   image: '/images/redesign/stakeholder-5-university.png',
+    //   image: '/images/redesign/stakeholder-5-university.webp',
     // },
     // --- Hidden until re-enabled: Incubator Program ---
     // {
@@ -131,7 +131,7 @@ export const STAKEHOLDER = {
     //     'Join as a chamber, incubator, co-working space, or NGO and extend the program to women entrepreneurs in your community!',
     //   ctaLabel: 'Join as an Incubator',
     //   ctaHref: '#',
-    //   image: '/images/redesign/stakeholder-6-incubator.png',
+    //   image: '/images/redesign/stakeholder-6-incubator.webp',
     // },
   ],
 } as const
@@ -550,22 +550,22 @@ export const CTA_FINAL = {
 
 // Centralized redesign asset paths + alt text
 export const REDESIGN_ASSETS = {
-  hero: { src: '/images/redesign/hadafi-hero.png', alt: 'Hadafi women entrepreneurs collaborating' },
+  hero: { src: '/images/redesign/hadafi-hero.webp', alt: 'Hadafi women entrepreneurs collaborating' },
   heroBg: {
-    src: '/images/redesign/hero-bg.png',
+    src: '/images/redesign/hero-bg.webp',
     alt: '',
   },
-  aboutGlobe: { src: '/images/redesign/hadafi-about.png', alt: 'Hadafi women entrepreneurs in a business meeting' },
+  aboutGlobe: { src: '/images/redesign/hadafi-about.webp', alt: 'Hadafi women entrepreneurs in a business meeting' },
   journeyFlow: {
-    src: '/images/redesign/hadafi-journey.png',
+    src: '/images/redesign/hadafi-journey.webp',
     alt: 'Hadafi journey flow diagram',
   },
   additionalResources: {
-    src: '/images/redesign/additional-resources.png',
+    src: '/images/redesign/additional-resources.webp',
     alt: 'Additional resources from AWS, Cisco, Potential and Schneider Electric',
   },
-  worldMap: { src: '/images/redesign/world-map.png', alt: 'Global community map' },
-  chatbotOrb: { src: '/images/redesign/chatbot-orb.png', alt: 'AI assistant orb avatar' },
+  worldMap: { src: '/images/redesign/world-map.webp', alt: 'Global community map' },
+  chatbotOrb: { src: '/images/redesign/chatbot-orb.webp', alt: 'AI assistant orb avatar' },
   logo: { src: '/images/hadafi-logo.png', alt: 'Hadafi Women Entrepreneurship Program' },
 } as const
 

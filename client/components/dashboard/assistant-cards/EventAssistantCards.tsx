@@ -1,5 +1,6 @@
 // client/components/dashboard/assistant-cards/EventAssistantCards.tsx
 'use client'
+import { optimizedSrc } from '@/lib/images'
 
 import { useQuery } from '@tanstack/react-query'
 import { Calendar, Clock, PlayCircle, ExternalLink } from 'lucide-react'
@@ -75,7 +76,7 @@ export function EventAssistantCards({ statusFilter, topic, ids, actionStatus }: 
             <div className="relative h-24 overflow-hidden bg-gradient-to-br from-brand-primary via-brand-primary-dark to-violet-700">
               {event.coverImage && (
                 <img
-                  src={event.coverImage}
+                  src={optimizedSrc(event.coverImage)}
                   alt={event.title}
                   className="w-full h-full object-cover"
                 />

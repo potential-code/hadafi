@@ -41,7 +41,7 @@ export function AuthLayout({
         <aside className="relative hidden lg:flex flex-col justify-between overflow-hidden">
           {/* Background image */}
           <img
-            src="/images/redesign/community.png"
+            src="/images/redesign/community.webp"
             alt=""
             aria-hidden
             className="absolute inset-0 w-full h-full object-cover object-center"

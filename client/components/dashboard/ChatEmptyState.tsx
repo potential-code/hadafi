@@ -16,10 +16,10 @@ const CHIPS = [
 ]
 
 const AI_TOOLS = [
-  { id: 'business-idea',  title: 'Business Ideas', desc: 'Generate tailored business ideas based on your passion and experience', Icon: Lightbulb, image: '/images/ai-tools/business-idea.png',  message: 'Help me brainstorm a business idea' },
-  { id: 'business-plan',  title: 'Business Plan',  desc: 'Create a comprehensive, investor-ready business plan',                 Icon: FileText,  image: '/images/ai-tools/business-plan.png',  message: 'Help me create a business plan' },
-  { id: 'marketing-plan', title: 'Marketing Plan', desc: 'Build a complete marketing strategy with ads, social media, and email', Icon: Megaphone, image: '/images/ai-tools/marketing-plan.png', message: 'Help me create a marketing plan' },
-  { id: 'ai-proposal',    title: 'AI Proposal',    desc: 'Draft a persuasive product or sales proposal for your next pitch',     Icon: Zap,       image: '/images/ai-tools/ai-proposal.png',    message: 'Help me write a product proposal' },
+  { id: 'business-idea',  title: 'Business Ideas', desc: 'Generate tailored business ideas based on your passion and experience', Icon: Lightbulb, image: '/images/ai-tools/business-idea.webp',  message: 'Help me brainstorm a business idea' },
+  { id: 'business-plan',  title: 'Business Plan',  desc: 'Create a comprehensive, investor-ready business plan',                 Icon: FileText,  image: '/images/ai-tools/business-plan.webp',  message: 'Help me create a business plan' },
+  { id: 'marketing-plan', title: 'Marketing Plan', desc: 'Build a complete marketing strategy with ads, social media, and email', Icon: Megaphone, image: '/images/ai-tools/marketing-plan.webp', message: 'Help me create a marketing plan' },
+  { id: 'ai-proposal',    title: 'AI Proposal',    desc: 'Draft a persuasive product or sales proposal for your next pitch',     Icon: Zap,       image: '/images/ai-tools/ai-proposal.webp',    message: 'Help me write a product proposal' },
 ]
 
 export function ChatEmptyState({ onSend }: Props) {
@@ -57,7 +57,7 @@ export function ChatEmptyState({ onSend }: Props) {
         {/* Avatar */}
         <div className="ring-4 ring-brand-primary/15 rounded-full mt-1">
           <img
-            src="/images/redesign/hana-avatar.png"
+            src="/images/redesign/hana-avatar.webp"
             alt="Hana"
             className="w-[68px] h-[68px] rounded-full object-cover object-top border-2 border-white"
           />

@@ -30,6 +30,12 @@ const config: NextConfig = {
   async headers() {
     return [
       {
+        // public/images file names are not content-hashed, so cache for a day
+        // and revalidate in the background for a week rather than forever.
+        source: '/images/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }],
+      },
+      {
         // Every page (the /api responses get theirs from the API's helmet).
         // Other sites can't frame Hadafi, so they can't trick a signed-in
         // admin into clicking through an invisible page.

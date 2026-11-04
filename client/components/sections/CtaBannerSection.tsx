@@ -26,7 +26,7 @@ export function CtaBannerSection() {
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/women-collab.png')" }}
+        style={{ backgroundImage: "url('/images/women-collab.webp')" }}
       />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/72" />

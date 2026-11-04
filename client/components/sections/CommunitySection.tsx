@@ -9,7 +9,7 @@ export function CommunitySection() {
     <section
       id="community"
       className="relative py-32 sm:py-40 overflow-hidden"
-      style={{ backgroundImage: 'url(/images/redesign/community.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{ backgroundImage: 'url(/images/redesign/community.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/75 pointer-events-none" />

@@ -1,5 +1,6 @@
 // client/components/dashboard/assistant-cards/OfferAssistantCards.tsx
 'use client'
+import { optimizedSrc } from '@/lib/images'
 
 import { useQuery } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
@@ -51,7 +52,7 @@ export function OfferAssistantCards({ topic, ids, redeemableOnly, actionStatus }
             <div className="relative h-24 overflow-hidden bg-gradient-to-br from-brand-primary via-brand-primary-dark to-violet-700">
               {offer.imageUrl && (
                 <img
-                  src={offer.imageUrl}
+                  src={optimizedSrc(offer.imageUrl)}
                   alt={offer.title}
                   className="w-full h-full object-cover"
                 />
