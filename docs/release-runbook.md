@@ -23,7 +23,9 @@ write command in `scripts/prod-prep.mjs` only previews (one transaction, rolled 
 
 1. **potential-ai is ready**: branch `feat/hadafi-platform` (enables platformId `hadafi` on `dataChat`,
    `dashboardBuilder`, `smeepExaminer` and `/api/examiner/grade`, `smeepTutor`, `smeepCourseHelp`,
-   `/learning/quiz-generate`, with Hana as the persona) is reviewed and ready to deploy.
+   `/learning/quiz-generate`, `/learning/translate` for the Arabic and Urdu tutor, with Hana as the
+   persona; guest chat limits raised to 120 a minute and 2,000 a day) is reviewed and ready to deploy.
+   Review Hana's audience wording in `src/graphs/shared/platformPersona.ts` there.
 2. **Email works.** Production sends sign-in codes through AWS SES (`AWS_REGION`, keys, `FROM_EMAIL`, all
    set on the live app today). Send one test email from that SES account to a real inbox. After this
    release everyone signs in with an emailed code at least once: **no email, no sign-in.**
