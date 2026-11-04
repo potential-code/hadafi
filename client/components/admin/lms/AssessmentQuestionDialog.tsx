@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useId, useState } from 'react'
 import { Plus, Trash2 } from 'lucide-react'
-import { SimpleDialog, Field, DialogStyles } from '@/components/admin/widgets/CourseDialog'
-import { cn } from '@/lib/utils'
+import { IconButton, Modal, Segmented } from '@/components/admin/ui'
+import { btn } from '@/components/kit'
 import type { AssessmentQuestion } from '@/lib/api/lms'
+import { DialogActions, FormField, fieldClass, textareaClass } from './shared'
 
 type QuestionFormData = Omit<AssessmentQuestion, 'id' | 'assessmentId' | 'order'>
 
@@ -19,6 +20,8 @@ export function AssessmentQuestionDialog({
   onClose: () => void
   onSave: (data: QuestionFormData) => void
 }) {
+  const formId = useId()
+  const radioName = useId()
   const [form, setForm] = useState<QuestionFormData>({
     questionType: 'multiple-choice',
     questionText: '',
@@ -40,142 +43,126 @@ export function AssessmentQuestionDialog({
   }, [open, initial])
 
   function setType(t: 'multiple-choice' | 'true-false') {
+    if (t === form.questionType) return
     if (t === 'true-false') {
-      setForm(f => ({ ...f, questionType: 'true-false', options: ['True', 'False'], correctAnswer: 0 }))
+      setForm((f) => ({ ...f, questionType: 'true-false', options: ['True', 'False'], correctAnswer: 0 }))
     } else {
-      setForm(f => ({ ...f, questionType: 'multiple-choice', options: ['Option A', 'Option B', 'Option C', 'Option D'], correctAnswer: 0 }))
+      setForm((f) => ({ ...f, questionType: 'multiple-choice', options: ['Option A', 'Option B', 'Option C', 'Option D'], correctAnswer: 0 }))
     }
   }
 
   return (
-    <SimpleDialog open={open} title={initial ? 'Edit question' : 'New question'} onClose={onClose}>
-      <form onSubmit={e => { e.preventDefault(); onSave(form) }} className="space-y-4">
-        <Field label="Question type">
-          <div className="grid grid-cols-2 gap-2">
-            {(['multiple-choice', 'true-false'] as const).map(t => (
-              <button
-                key={t}
-                type="button"
-                onClick={() => setType(t)}
-                className={cn(
-                  'px-3 py-2.5 rounded-xl border-2 text-xs font-bold transition-all',
-                  form.questionType === t
-                    ? 'border-brand-primary bg-brand-primary/5 text-brand-primary'
-                    : 'border-brand-surface-2 text-brand-text-muted hover:border-brand-primary/40',
-                )}
-              >
-                {t === 'multiple-choice' ? 'Multiple choice' : 'True / False'}
-              </button>
-            ))}
-          </div>
-        </Field>
+    <Modal
+      open={open}
+      title={initial ? 'Edit question' : 'New question'}
+      onClose={onClose}
+      footer={<DialogActions formId={formId} onCancel={onClose} />}
+    >
+      <form
+        id={formId}
+        onSubmit={(e) => {
+          e.preventDefault()
+          e.stopPropagation()
+          onSave(form)
+        }}
+        className="flex flex-col gap-4"
+      >
+        <FormField label="Question type" asDiv>
+          <Segmented
+            label="Question type"
+            value={form.questionType}
+            onChange={setType}
+            options={[
+              { value: 'multiple-choice', label: 'Multiple choice' },
+              { value: 'true-false', label: 'True or false' },
+            ]}
+            className="self-start"
+          />
+        </FormField>
 
-        <Field label="Question text">
+        <FormField label="Question text">
           <textarea
             value={form.questionText}
-            onChange={e => setForm(f => ({ ...f, questionText: e.target.value }))}
+            onChange={(e) => setForm((f) => ({ ...f, questionText: e.target.value }))}
             rows={2}
-            className="admin-input resize-none"
+            className={textareaClass}
             required
           />
-        </Field>
+        </FormField>
 
         {form.questionType === 'multiple-choice' && (
-          <Field label="Options (select correct answer)">
-            <div className="space-y-2">
-              {form.options.map((opt, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="correct"
-                    checked={form.correctAnswer === i}
-                    onChange={() => setForm(f => ({ ...f, correctAnswer: i }))}
-                    className="w-4 h-4 accent-brand-primary flex-shrink-0"
-                  />
-                  <input
-                    value={opt}
-                    onChange={e => {
-                      const next = [...form.options]
-                      next[i] = e.target.value
-                      setForm(f => ({ ...f, options: next }))
-                    }}
-                    className="admin-input"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setForm(f => {
-                        const next = f.options.filter((_, idx) => idx !== i)
-                        return { ...f, options: next, correctAnswer: Math.min(f.correctAnswer, next.length - 1) }
-                      })
-                    }}
-                    className="w-7 h-7 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-rose-500 hover:text-white transition-colors flex-shrink-0"
-                  >
-                    <Trash2 className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              ))}
-              <button
-                type="button"
-                onClick={() => setForm(f => ({ ...f, options: [...f.options, `Option ${String.fromCharCode(65 + f.options.length)}`] }))}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-primary hover:gap-2 transition-all"
-              >
-                <Plus className="w-3 h-3" />
-                Add option
-              </button>
-            </div>
-          </Field>
+          <fieldset className="flex flex-col gap-2">
+            <legend className="mb-1.5 text-[13px] font-semibold text-ui-text">Options (select the correct answer)</legend>
+            {form.options.map((opt, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  name={radioName}
+                  checked={form.correctAnswer === i}
+                  onChange={() => setForm((f) => ({ ...f, correctAnswer: i }))}
+                  aria-label={`Mark option ${i + 1} as correct`}
+                  className="h-4 w-4 shrink-0 accent-[var(--ui-brand)]"
+                />
+                <input
+                  value={opt}
+                  aria-label={`Option ${i + 1}`}
+                  onChange={(e) => {
+                    const next = [...form.options]
+                    next[i] = e.target.value
+                    setForm((f) => ({ ...f, options: next }))
+                  }}
+                  className={fieldClass}
+                />
+                <IconButton
+                  label={`Remove option ${i + 1}`}
+                  icon={Trash2}
+                  tone="danger"
+                  onClick={() =>
+                    setForm((f) => {
+                      const next = f.options.filter((_, idx) => idx !== i)
+                      return { ...f, options: next, correctAnswer: Math.min(f.correctAnswer, next.length - 1) }
+                    })
+                  }
+                />
+              </div>
+            ))}
+            <button
+              type="button"
+              onClick={() =>
+                setForm((f) => ({ ...f, options: [...f.options, `Option ${String.fromCharCode(65 + f.options.length)}`] }))
+              }
+              className={btn({ variant: 'ghost', size: 'sm', className: 'self-start text-ui-brand-text' })}
+            >
+              <Plus className="h-4 w-4" aria-hidden />
+              Add option
+            </button>
+          </fieldset>
         )}
 
         {form.questionType === 'true-false' && (
-          <Field label="Correct answer">
-            <div className="flex gap-2">
-              {[0, 1].map(i => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setForm(f => ({ ...f, correctAnswer: i }))}
-                  className={cn(
-                    'flex-1 px-3 py-2 rounded-xl border-2 text-sm font-bold transition-colors',
-                    form.correctAnswer === i
-                      ? 'border-brand-primary bg-brand-primary/5 text-brand-primary'
-                      : 'border-brand-surface-2 text-brand-text-muted hover:border-brand-primary/40',
-                  )}
-                >
-                  {i === 0 ? 'True' : 'False'}
-                </button>
-              ))}
-            </div>
-          </Field>
+          <FormField label="Correct answer" asDiv>
+            <Segmented
+              label="Correct answer"
+              value={form.correctAnswer === 0 ? 'true' : 'false'}
+              onChange={(v) => setForm((f) => ({ ...f, correctAnswer: v === 'true' ? 0 : 1 }))}
+              options={[
+                { value: 'true', label: 'True' },
+                { value: 'false', label: 'False' },
+              ]}
+              className="self-start"
+            />
+          </FormField>
         )}
 
-        <Field label="Explanation (optional)">
+        <FormField label="Explanation (optional)" hint="Shown to the learner after answering, if correct answers are shown.">
           <textarea
             value={form.explanation ?? ''}
-            onChange={e => setForm(f => ({ ...f, explanation: e.target.value || null }))}
+            onChange={(e) => setForm((f) => ({ ...f, explanation: e.target.value || null }))}
             rows={2}
-            className="admin-input resize-none"
-            placeholder="Shown to learner after answering (if Show Answers is on)"
+            className={textareaClass}
           />
-        </Field>
-
-        <div className="flex justify-end gap-2 pt-2">
-          <button
-            type="button"
-            onClick={onClose}
-            className="px-4 py-2 rounded-xl bg-brand-surface text-brand-text-primary text-sm font-semibold hover:bg-brand-surface-2 transition-colors"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="px-5 py-2 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark transition-colors shadow-lg"
-          >
-            Save
-          </button>
-        </div>
+        </FormField>
       </form>
-      <DialogStyles />
-    </SimpleDialog>
+    </Modal>
   )
 }

@@ -1,8 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { SimpleDialog, Field, DialogStyles } from '@/components/admin/widgets/CourseDialog'
+import { useEffect, useId, useState } from 'react'
+import { Modal, Switch } from '@/components/admin/ui'
 import type { Assessment } from '@/lib/api/lms'
+import { cn } from '@/lib/utils'
+import { DialogActions, FormField, fieldClass, textareaClass } from './shared'
 
 type AssessmentFormData = Omit<Assessment, 'id' | 'courseId' | 'assessmentType' | 'questions'>
 
@@ -19,6 +21,7 @@ export function AssessmentDialog({
   onClose: () => void
   onSave: (data: AssessmentFormData) => void
 }) {
+  const formId = useId()
   const [form, setForm] = useState<AssessmentFormData>({
     title: '',
     description: null,
@@ -44,84 +47,89 @@ export function AssessmentDialog({
   const label = type === 'pre' ? 'Pre-test' : 'Post-test'
 
   return (
-    <SimpleDialog open={open} title={initial ? `Edit ${label}` : `Add ${label}`} onClose={onClose}>
-      <form onSubmit={e => { e.preventDefault(); onSave(form) }} className="space-y-4">
-        <Field label="Title">
+    <Modal
+      open={open}
+      title={initial ? `Edit ${label.toLowerCase()}` : `Add ${label.toLowerCase()}`}
+      description={type === 'pre' ? 'Shown before learners enter the course modules.' : 'The final exam after all modules.'}
+      onClose={onClose}
+      footer={<DialogActions formId={formId} onCancel={onClose} />}
+    >
+      <form
+        id={formId}
+        onSubmit={(e) => {
+          e.preventDefault()
+          onSave(form)
+        }}
+        className="flex flex-col gap-4"
+      >
+        <FormField label="Title">
           <input
             value={form.title}
-            onChange={e => setForm(f => ({ ...f, title: e.target.value }))}
-            className="admin-input"
+            onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
+            className={fieldClass}
             required
           />
-        </Field>
-        <Field label="Description (optional)">
+        </FormField>
+        <FormField label="Description (optional)">
           <textarea
             value={form.description ?? ''}
-            onChange={e => setForm(f => ({ ...f, description: e.target.value || null }))}
+            onChange={(e) => setForm((f) => ({ ...f, description: e.target.value || null }))}
             rows={2}
-            className="admin-input resize-none"
+            className={textareaClass}
           />
-        </Field>
-        <div className="grid grid-cols-2 gap-3 items-end">
-          <label className="flex items-center justify-between gap-3 rounded-xl border border-brand-surface-2 px-3 py-2.5 cursor-pointer h-full">
-            <span className="text-sm font-semibold text-brand-text-primary">Graded</span>
-            <input
-              type="checkbox"
-              checked={form.isGraded}
-              onChange={e => setForm(f => ({ ...f, isGraded: e.target.checked }))}
-              className="w-4 h-4 accent-brand-primary"
-            />
-          </label>
-          <Field label="Passing score (%)">
+        </FormField>
+        <div className="grid items-end gap-3 sm:grid-cols-2">
+          <ToggleRow label="Graded" checked={form.isGraded} onChange={(v) => setForm((f) => ({ ...f, isGraded: v }))} />
+          <FormField label="Passing score (%)">
             <input
               type="number"
               min={0}
               max={100}
               value={form.passingScore}
               disabled={!form.isGraded}
-              onChange={e => setForm(f => ({ ...f, passingScore: Number(e.target.value) }))}
-              className="admin-input disabled:opacity-40 disabled:cursor-not-allowed"
+              onChange={(e) => setForm((f) => ({ ...f, passingScore: Number(e.target.value) }))}
+              className={cn(fieldClass, 'disabled:cursor-not-allowed')}
             />
-          </Field>
+          </FormField>
         </div>
-        <label className="flex items-center justify-between gap-3 rounded-xl border border-brand-surface-2 px-3 py-2.5 cursor-pointer">
-          <div>
-            <span className="text-sm font-semibold text-brand-text-primary block">Show correct answers</span>
-            <span className="text-[11px] text-brand-text-muted">Reveal answers after passing or last attempt</span>
-          </div>
-          <input
-            type="checkbox"
-            checked={form.showAnswers}
-            onChange={e => setForm(f => ({ ...f, showAnswers: e.target.checked }))}
-            className="w-4 h-4 accent-brand-primary"
-          />
-        </label>
-        <Field label="Max attempts (0 = unlimited)">
+        <ToggleRow
+          label="Show correct answers"
+          hint="Reveal answers after passing or on the last attempt"
+          checked={form.showAnswers}
+          onChange={(v) => setForm((f) => ({ ...f, showAnswers: v }))}
+        />
+        <FormField label="Max attempts" hint="0 means unlimited attempts.">
           <input
             type="number"
             min={0}
             value={form.maxAttempts}
-            onChange={e => setForm(f => ({ ...f, maxAttempts: Number(e.target.value) }))}
-            className="admin-input"
+            onChange={(e) => setForm((f) => ({ ...f, maxAttempts: Number(e.target.value) }))}
+            className={fieldClass}
           />
-        </Field>
-        <div className="flex justify-end gap-2 pt-2">
-          <button
-            type="button"
-            onClick={onClose}
-            className="px-4 py-2 rounded-xl bg-brand-surface text-brand-text-primary text-sm font-semibold hover:bg-brand-surface-2 transition-colors"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="px-5 py-2 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark transition-colors shadow-lg"
-          >
-            Save
-          </button>
-        </div>
+        </FormField>
       </form>
-      <DialogStyles />
-    </SimpleDialog>
+    </Modal>
+  )
+}
+
+export function ToggleRow({
+  label,
+  hint,
+  checked,
+  onChange,
+}: {
+  label: string
+  hint?: string
+  checked: boolean
+  onChange: (v: boolean) => void
+}) {
+  return (
+    <div className="flex min-h-10 items-center justify-between gap-3 rounded-[10px] border border-ui-line px-3 py-2.5">
+      <span className="min-w-0">
+        <span className="block text-[13px] font-semibold text-ui-text">{label}</span>
+        {hint && <span className="block text-xs text-ui-muted">{hint}</span>}
+      </span>
+      <Switch label={label} checked={checked} onChange={onChange} />
+    </div>
   )
 }

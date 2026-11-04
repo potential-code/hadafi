@@ -283,7 +283,8 @@ export interface CourseCompletionRow {
 
 /**
  * Returns completion rate data per published course (must have at least one enrollment).
- * The `completed` count is scoped to enrollments completed within the given range,
+ * The `completed` count is scoped to learners whose course progress was completed
+ * (user_course_progress.completed_at) within the given range,
  * while `totalEnrolled` reflects all-time enrollments per course.
  * Limited to top 8 by total enrollment count descending.
  * Labels are truncated to 22 chars to fit chart axes.
@@ -297,10 +298,16 @@ export async function getCourseCompletionRates(range: AnalyticsRange = "12m"): P
       courseId: courses.id,
       courseTitle: courses.title,
       totalEnrolled: sql<number>`CAST(COUNT(${courseEnrollments.id}) AS INT)`,
-      completed: sql<number>`CAST(COUNT(CASE WHEN ${courseEnrollments.status} = 'completed' AND ${courseEnrollments.completedAt} >= ${since} THEN 1 END) AS INT)`,
+      // Completion lives in user_course_progress (set when a learner finishes
+      // the course); enrollment status is never moved to 'completed'.
+      completed: sql<number>`CAST(COUNT(CASE WHEN ${userCourseProgress.completedAt} >= ${since} THEN 1 END) AS INT)`,
     })
     .from(courses)
     .innerJoin(courseEnrollments, eq(courseEnrollments.courseId, courses.id))
+    .leftJoin(
+      userCourseProgress,
+      and(eq(userCourseProgress.userId, courseEnrollments.userId), eq(userCourseProgress.courseId, courses.id)),
+    )
     .where(eq(courses.status, "published"))
     .groupBy(courses.id, courses.title)
     .orderBy(sql`COUNT(${courseEnrollments.id}) DESC`)
@@ -347,11 +354,16 @@ export async function getCoursePerformance(): Promise<CoursePerformanceRow[]> {
       courseId: courses.id,
       title: courses.title,
       enrolled: sql<number>`CAST(COUNT(DISTINCT ${courseEnrollments.userId}) AS INT)`,
-      completed: sql<number>`CAST(COUNT(DISTINCT CASE WHEN ${courseEnrollments.status} = 'completed' THEN ${courseEnrollments.userId} END) AS INT)`,
+      // See getCourseCompletionRates: completion is the learner's course progress.
+      completed: sql<number>`CAST(COUNT(DISTINCT CASE WHEN ${userCourseProgress.completedAt} IS NOT NULL THEN ${courseEnrollments.userId} END) AS INT)`,
       certificates: sql<number>`CAST(COUNT(DISTINCT ${courseCertificates.id}) AS INT)`,
     })
     .from(courses)
     .leftJoin(courseEnrollments, eq(courseEnrollments.courseId, courses.id))
+    .leftJoin(
+      userCourseProgress,
+      and(eq(userCourseProgress.userId, courseEnrollments.userId), eq(userCourseProgress.courseId, courses.id)),
+    )
     .leftJoin(courseCertificates, eq(courseCertificates.courseId, courses.id))
     .where(eq(courses.status, "published"))
     .groupBy(courses.id, courses.title)

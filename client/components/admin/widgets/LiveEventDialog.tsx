@@ -1,12 +1,14 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { X, Loader2, ImageIcon } from 'lucide-react'
+import { useEffect, useId, useRef, useState } from 'react'
+import { CalendarDays, Loader2, X } from 'lucide-react'
 import { type LiveEvent } from '@/lib/api/liveEvents'
-import { Field, DialogStyles } from '@/components/admin/widgets/CourseDialog'
+import { btn, Field, inputClass } from '@/components/kit'
+import { IconButton, Segmented, selectClass } from '@/components/admin/ui'
 import MediaPicker from '@/components/admin/MediaPicker'
 import { type MediaFile } from '@/lib/api/media'
+import { revealIfStacked } from '@/components/admin/content/useMediaQuery'
+import { cn } from '@/lib/utils'
 import { API_BASE } from '@/lib/api'
 
 // Same-origin: the site forwards /uploads to the API (next.config.ts).
@@ -17,6 +19,7 @@ interface Props {
   initial?: LiveEvent | null
   onClose: () => void
   onSave: (data: Partial<LiveEvent>) => Promise<void>
+  className?: string
 }
 
 const EMPTY: Partial<LiveEvent> = {
@@ -31,15 +34,44 @@ const EMPTY: Partial<LiveEvent> = {
   status: 'draft',
 }
 
-export function LiveEventDialog({ open, initial, onClose, onSave }: Props) {
+const TYPES = ['Webinar', 'Workshop', 'Panel', 'Masterclass', 'Other']
+
+/**
+ * Create / edit panel for a live event (redesign: a side panel next to the
+ * events table on wide screens, stacked under it on narrow ones).
+ * Same props as the old modal dialog.
+ */
+export function LiveEventDialog({ open, initial, onClose, onSave, className }: Props) {
   const [form, setForm] = useState<Partial<LiveEvent>>(initial ?? EMPTY)
   const [saving, setSaving] = useState(false)
   const [mediaPicker, setMediaPicker] = useState(false)
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
+  const [imgBroken, setImgBroken] = useState(false)
+  const panelRef = useRef<HTMLElement>(null)
+  const titleRef = useRef<HTMLInputElement>(null)
+  const uid = useId()
+  const id = (k: string) => `${uid}-${k}`
 
   useEffect(() => {
-    if (open) { setForm(initial ?? EMPTY); setFieldErrors({}) }
+    if (open) {
+      setForm(initial ?? EMPTY)
+      setFieldErrors({})
+    }
   }, [open, initial])
+
+  // Focus the title and bring the panel into view when it opens or switches event.
+  useEffect(() => {
+    if (!open) return
+    const t = window.setTimeout(() => {
+      titleRef.current?.focus({ preventScroll: true })
+      revealIfStacked(panelRef.current)
+    }, 0)
+    return () => window.clearTimeout(t)
+  }, [open, initial?.id])
+
+  useEffect(() => setImgBroken(false), [form.coverImage])
+
+  if (!open) return null
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -79,270 +111,173 @@ export function LiveEventDialog({ open, initial, onClose, onSave }: Props) {
     setMediaPicker(false)
   }
 
+  const isEdit = !!initial?.id
+  const headingId = id('heading')
+
   return (
     <>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={onClose}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.97 }}
-              transition={{ duration: 0.2 }}
-              onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-brand-surface-2 overflow-hidden flex flex-col max-h-[90vh]"
+      <aside
+        ref={panelRef}
+        aria-labelledby={headingId}
+        className={cn('flex scroll-mt-20 flex-col rounded-[14px] border border-ui-line bg-ui-surface', className)}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape' && !mediaPicker) onClose()
+        }}
+      >
+        <div className="flex items-center gap-2.5 border-b border-ui-line px-[18px] py-3.5">
+          <h2 id={headingId} className="flex-1 text-base font-semibold text-ui-text">
+            {isEdit ? 'Edit event' : 'New event'}
+          </h2>
+          <IconButton label="Close" icon={X} onClick={onClose} className="-mr-1.5" />
+        </div>
+
+        <form onSubmit={handleSubmit} className="flex flex-col">
+          <div className="flex flex-col gap-3.5 px-[18px] py-4">
+            <span className="text-xs font-semibold text-ui-muted">Event details</span>
+
+            <Field label="Title *" htmlFor={id('title')}>
+              <input
+                id={id('title')}
+                ref={titleRef}
+                value={form.title ?? ''}
+                onChange={(e) => set('title', e.target.value)}
+                className={inputClass}
+                placeholder="e.g. AI for Women Entrepreneurs: A Practical Masterclass"
+                required
+              />
+            </Field>
+
+            <Field label="Type" htmlFor={id('type')}>
+              <select
+                id={id('type')}
+                value={form.type ?? 'Webinar'}
+                onChange={(e) => set('type', e.target.value)}
+                className={cn(selectClass, 'h-10 w-full text-sm')}
+              >
+                {TYPES.map((t) => (
+                  <option key={t}>{t}</option>
+                ))}
+              </select>
+            </Field>
+
+            <div className="grid grid-cols-2 gap-2.5">
+              <Field label="Date *" htmlFor={id('date')} error={fieldErrors.date}>
+                <input
+                  id={id('date')}
+                  type="date"
+                  value={form.date ?? ''}
+                  onChange={(e) => { set('date', e.target.value); clearFieldError('date') }}
+                  className={cn(inputClass, 'px-2.5')}
+                  required
+                />
+              </Field>
+              <Field label="Time *" htmlFor={id('time')} error={fieldErrors.time}>
+                <input
+                  id={id('time')}
+                  value={form.time ?? ''}
+                  onChange={(e) => { set('time', e.target.value); clearFieldError('time') }}
+                  className={inputClass}
+                  placeholder="e.g. 5:00 PM / GST - UAE time"
+                  required
+                />
+              </Field>
+            </div>
+
+            <Field label="Description" htmlFor={id('desc')}>
+              <textarea
+                id={id('desc')}
+                value={form.description ?? ''}
+                onChange={(e) => set('description', e.target.value)}
+                rows={3}
+                className={cn(inputClass, 'h-auto resize-y py-2.5 leading-normal')}
+                placeholder="Brief description of this event"
+              />
+            </Field>
+
+            <span className="border-t border-ui-line pt-3.5 text-xs font-semibold text-ui-muted">Cover image (optional)</span>
+            <div className="flex items-center gap-2.5">
+              <span className="inline-flex h-10 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-ui-surface-2 text-ui-muted">
+                {form.coverImage && !imgBroken ? (
+                  <img src={form.coverImage} alt="Cover preview" className="h-full w-full object-cover" onError={() => setImgBroken(true)} />
+                ) : (
+                  <CalendarDays className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                )}
+              </span>
+              <span className="min-w-0 flex-1 text-xs text-ui-muted">Pick from the media library or paste a URL directly.</span>
+              <button type="button" onClick={() => setMediaPicker(true)} className={btn({ variant: 'secondary', size: 'sm' })}>
+                Choose from library
+              </button>
+            </div>
+            <Field label="Image URL" htmlFor={id('img')} error={fieldErrors.coverImage}>
+              <input
+                id={id('img')}
+                value={form.coverImage ?? ''}
+                onChange={(e) => { set('coverImage', e.target.value); clearFieldError('coverImage') }}
+                className={inputClass}
+                placeholder="/images/events/webinar-1.webp or https://"
+              />
+            </Field>
+
+            <span className="border-t border-ui-line pt-3.5 text-xs font-semibold text-ui-muted">Links</span>
+            <Field
+              label="Meeting link"
+              htmlFor={id('meeting')}
+              error={fieldErrors.meetingLink}
+              hint="Optional. Add before the event (Zoom, LinkedIn Live, Eventbrite)."
             >
-              {/* Header */}
-              <header className="flex items-center justify-between gap-3 px-6 py-4 border-b border-brand-surface-2 flex-shrink-0">
-                <h3 className="text-lg font-black text-brand-text-primary">
-                  {initial?.id ? 'Edit event' : 'New event'}
-                </h3>
-                <button
-                  onClick={onClose}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-brand-surface transition-colors"
-                  aria-label="Close"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </header>
+              <input
+                id={id('meeting')}
+                type="url"
+                value={form.meetingLink ?? ''}
+                onChange={(e) => { set('meetingLink', e.target.value); clearFieldError('meetingLink') }}
+                className={inputClass}
+                placeholder="https://zoom.us/j/ or LinkedIn Live URL"
+              />
+            </Field>
+            <Field
+              label="Recording link"
+              htmlFor={id('recording')}
+              error={fieldErrors.recordingLink}
+              hint="Add after the event ends (YouTube, Vimeo)."
+            >
+              <input
+                id={id('recording')}
+                type="url"
+                value={form.recordingLink ?? ''}
+                onChange={(e) => { set('recordingLink', e.target.value); clearFieldError('recordingLink') }}
+                className={inputClass}
+                placeholder="https://youtube.com/watch?v= or Vimeo URL"
+              />
+            </Field>
 
-              {/* Form body */}
-              <form onSubmit={handleSubmit} className="flex flex-col flex-1 overflow-hidden">
-                <div className="flex-1 overflow-y-auto px-6 py-5 space-y-6">
+            <div className="flex flex-col gap-1.5">
+              <span className="text-sm font-medium text-ui-text">Status</span>
+              <Segmented
+                label="Status"
+                className="self-start"
+                value={form.status ?? 'draft'}
+                onChange={(v) => set('status', v)}
+                options={[
+                  { value: 'draft', label: 'Draft' },
+                  { value: 'published', label: 'Published' },
+                ]}
+              />
+            </div>
+          </div>
 
-                  {/* ── Section 1: Event details ── */}
-                  <div className="space-y-4">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary">
-                      Event details
-                    </p>
+          <div className="flex justify-end gap-2 border-t border-ui-line px-[18px] py-3">
+            <button type="button" onClick={onClose} className={btn({ variant: 'secondary' })}>
+              Cancel
+            </button>
+            <button type="submit" disabled={saving} className={btn()}>
+              {saving && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
+              {isEdit ? 'Save changes' : 'Create event'}
+            </button>
+          </div>
+        </form>
+      </aside>
 
-                    <Field label="Title *">
-                      <input
-                        value={form.title ?? ''}
-                        onChange={(e) => set('title', e.target.value)}
-                        className="admin-input"
-                        placeholder="e.g. AI for SMEs: A Practical Masterclass"
-                        required
-                      />
-                    </Field>
-
-                    <Field label="Type">
-                      <select
-                        value={form.type ?? 'Webinar'}
-                        onChange={(e) => set('type', e.target.value)}
-                        className="admin-input"
-                      >
-                        <option>Webinar</option>
-                        <option>Workshop</option>
-                        <option>Panel</option>
-                        <option>Masterclass</option>
-                        <option>Other</option>
-                      </select>
-                    </Field>
-
-                    <div className="grid grid-cols-2 gap-3">
-                      <Field label="Date *">
-                        <input
-                          type="date"
-                          value={form.date ?? ''}
-                          onChange={(e) => set('date', e.target.value)}
-                          className="admin-input"
-                          required
-                        />
-                      </Field>
-                      <Field label="Time *">
-                        <input
-                          value={form.time ?? ''}
-                          onChange={(e) => set('time', e.target.value)}
-                          className="admin-input"
-                          placeholder="e.g. 5:00 PM / GST - UAE time"
-                          required
-                        />
-                      </Field>
-                    </div>
-
-                    <Field label="Description">
-                      <textarea
-                        value={form.description ?? ''}
-                        onChange={(e) => set('description', e.target.value)}
-                        rows={4}
-                        className="admin-input resize-none"
-                        placeholder="Brief description of this event…"
-                      />
-                    </Field>
-                  </div>
-
-                  {/* ── Section 2: Cover image ── */}
-                  <div className="space-y-4">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary">
-                      Cover image (optional)
-                    </p>
-
-                    <Field label="Image URL">
-                      <div className="flex items-center gap-2">
-                        <input
-                          value={form.coverImage ?? ''}
-                          onChange={(e) => set('coverImage', e.target.value)}
-                          className="admin-input flex-1"
-                          placeholder="/images/events/webinar-1.webp or https://…"
-                        />
-                        {form.coverImage && (
-                          <div className="flex-shrink-0 w-14 h-10 rounded-lg overflow-hidden border border-brand-surface-2 bg-brand-surface">
-                            <img
-                              src={form.coverImage}
-                              alt="Preview"
-                              className="w-full h-full object-cover"
-                              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
-                            />
-                          </div>
-                        )}
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => setMediaPicker(true)}
-                        className="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-surface-2 bg-white text-brand-text-muted text-xs font-semibold hover:border-brand-primary/40 hover:text-brand-primary transition-colors"
-                      >
-                        <ImageIcon className="w-3.5 h-3.5" />
-                        Choose from library
-                      </button>
-                    </Field>
-                    <p className="text-[11px] text-brand-text-muted -mt-2">
-                      Pick from the media library or paste a URL directly.
-                    </p>
-                  </div>
-
-                  {/* ── Section 3: Links ── */}
-                  <div className="space-y-4">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary">
-                      Links
-                    </p>
-
-                    <div className="rounded-xl border border-brand-surface-2 overflow-hidden">
-                      {/* Meeting link */}
-                      <div className="px-4 pt-4 pb-3">
-                        <label className="block">
-                          <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-brand-text-muted mb-1.5">
-                            Meeting / Registration link
-                          </span>
-                          <input
-                            type="url"
-                            value={form.meetingLink ?? ''}
-                            onChange={(e) => { set('meetingLink', e.target.value); clearFieldError('meetingLink') }}
-                            className="admin-input"
-                            placeholder="https://zoom.us/j/… or LinkedIn Live URL"
-                          />
-                        </label>
-                        {fieldErrors.meetingLink ? (
-                          <p className="mt-1 text-xs text-red-500">{fieldErrors.meetingLink}</p>
-                        ) : (
-                          <p className="mt-1.5 text-[11px] text-brand-text-muted">
-                            Optional. Add before the event (Zoom, LinkedIn Live, Eventbrite…)
-                          </p>
-                        )}
-                      </div>
-
-                      {/* Before / After divider */}
-                      <div className="relative flex items-center px-4 py-2">
-                        <div className="flex-1 h-px bg-brand-surface-2" />
-                        <span className="mx-3 px-2.5 py-0.5 rounded-full border border-brand-surface-2 bg-white text-[10px] font-semibold text-brand-text-muted whitespace-nowrap">
-                          Before ↕ After
-                        </span>
-                        <div className="flex-1 h-px bg-brand-surface-2" />
-                      </div>
-
-                      {/* Recording link */}
-                      <div className="px-4 pb-4 pt-3">
-                        <label className="block">
-                          <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-brand-text-muted mb-1.5">
-                            Recording link
-                          </span>
-                          <input
-                            type="url"
-                            value={form.recordingLink ?? ''}
-                            onChange={(e) => { set('recordingLink', e.target.value); clearFieldError('recordingLink') }}
-                            className="admin-input"
-                            placeholder="https://youtube.com/watch?v=… or Vimeo URL"
-                          />
-                        </label>
-                        {fieldErrors.recordingLink ? (
-                          <p className="mt-1 text-xs text-red-500">{fieldErrors.recordingLink}</p>
-                        ) : (
-                          <p className="mt-1.5 text-[11px] text-brand-text-muted">
-                            Add after the event ends (YouTube, Vimeo…)
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Footer */}
-                <div className="flex-shrink-0 border-t border-brand-surface-2 px-6 py-4 flex items-center justify-between gap-4">
-                  {/* Status toggle */}
-                  <div className="inline-flex rounded-xl border border-brand-surface-2 bg-brand-surface p-1 gap-1">
-                    <button
-                      type="button"
-                      onClick={() => set('status', 'draft')}
-                      className={
-                        form.status === 'draft'
-                          ? 'px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-white transition-colors'
-                          : 'px-3 py-1.5 rounded-lg text-xs font-semibold text-brand-text-muted hover:text-brand-text-primary transition-colors'
-                      }
-                    >
-                      Draft
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => set('status', 'published')}
-                      className={
-                        form.status === 'published'
-                          ? 'px-3 py-1.5 rounded-lg text-xs font-bold bg-brand-primary text-white transition-colors'
-                          : 'px-3 py-1.5 rounded-lg text-xs font-semibold text-brand-text-muted hover:text-brand-text-primary transition-colors'
-                      }
-                    >
-                      Published
-                    </button>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={onClose}
-                      className="px-4 py-2 rounded-xl bg-brand-surface text-brand-text-primary text-sm font-semibold hover:bg-brand-surface-2 transition-colors"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      disabled={saving}
-                      className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark transition-colors shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
-                    >
-                      {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
-                      Save
-                    </button>
-                  </div>
-                </div>
-              </form>
-
-              <DialogStyles />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <MediaPicker
-        open={mediaPicker}
-        onClose={() => setMediaPicker(false)}
-        onSelect={handleMediaSelect}
-        accept="image"
-      />
+      <MediaPicker open={mediaPicker} onClose={() => setMediaPicker(false)} onSelect={handleMediaSelect} accept="image" />
     </>
   )
 }

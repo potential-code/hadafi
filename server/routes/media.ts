@@ -9,7 +9,7 @@ const router = Router()
 router.use(authenticate, requireRole('admin'))
 
 router.get('/', mediaController.listFiles)
-router.post('/upload', uploadMedia.array('files', 10), mediaController.uploadFiles)
+router.post('/upload', uploadMedia, mediaController.uploadFiles)
 router.delete('/', mediaController.bulkDeleteFiles)
 router.delete('/:id', mediaController.deleteFile)
 

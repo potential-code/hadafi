@@ -1,36 +1,29 @@
 'use client'
 
+import { useMemo, type ComponentType } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { motion } from 'framer-motion'
 import {
   Award,
   BarChart3,
   BookOpen,
+  Building2,
   CalendarDays,
-  GraduationCap,
+  CalendarClock,
+  FileCheck2,
   Link2,
-  Shield,
+  Pencil,
+  Plus,
+  ShieldCheck,
   Sparkles,
   Tag,
-  TrendingUp,
+  UserCheck,
   Users,
-  Zap,
+  type LucideIcon,
 } from 'lucide-react'
 import Link from 'next/link'
-import {
-  Area,
-  AreaChart,
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Cell,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts'
 import { AdminLayout } from '@/components/admin/AdminLayout'
-import { StatCard } from '@/components/dashboard/widgets/StatCard'
+import { btn, EmptyState, PageHeader, Skeleton } from '@/components/kit'
+import { AdminStat, BarList, ColumnChart, fmtDate, PanelHeader, Pill } from '@/components/admin/ui'
 import { AdminChartCard } from '@/components/admin/widgets/AdminChartCard'
 import {
   fetchAdminKpiStats,
@@ -38,441 +31,384 @@ import {
   fetchCourseEngagement,
   fetchEnrollmentTrend,
   fetchUserGrowthTrend,
+  type TrendPoint,
 } from '@/lib/api/adminAnalytics'
-import { getUser } from '@/lib/auth'
+import { fetchNeedsAttention, type NeedsAttention } from '@/lib/api/redesign'
 import { cn } from '@/lib/utils'
 
-// Brand palette constants for Recharts (CSS vars are not readable by SVG)
-const PRIMARY = '#9f2063'
-const VIOLET = '#4c1d6e'
-const ACCENT = '#e83e94'
-const SURFACE_2 = '#f7e8f0'
-const TEXT_MUTED = '#6B7280'
-
-const QUICK_ACTIONS = [
-  {
-    label: 'New course',
-    subtitle: 'Build with modules & blocks',
-    href: '/admin/courses',
-    icon: BookOpen,
-    tone: 'bg-gradient-to-br from-brand-primary to-brand-primary-dark',
-  },
-  {
-    label: 'Analytics',
-    subtitle: 'Platform-wide insights',
-    href: '/admin/analytics',
-    icon: BarChart3,
-    tone: 'bg-gradient-to-br from-brand-violet to-brand-primary',
-  },
-  {
-    label: 'Live events',
-    subtitle: 'Schedule & manage events',
-    href: '/admin/live-events',
-    icon: CalendarDays,
-    tone: 'bg-gradient-to-br from-brand-accent to-brand-primary-dark',
-  },
-  {
-    label: 'Offers',
-    subtitle: 'Manage marketplace offers',
-    href: '/admin/offers',
-    icon: Tag,
-    tone: 'bg-gradient-to-br from-brand-primary-dark to-brand-violet',
-  },
-  {
-    label: 'Invites',
-    subtitle: 'Generate invite codes',
-    href: '/admin/invites',
-    icon: Link2,
-    tone: 'bg-gradient-to-br from-brand-primary-light to-brand-violet',
-  },
+const QUICK_ACTIONS: { label: string; subtitle: string; href: string; icon: LucideIcon }[] = [
+  { label: 'New course', subtitle: 'Build with modules and blocks', href: '/admin/courses', icon: BookOpen },
+  { label: 'Analytics', subtitle: 'Platform-wide insights', href: '/admin/analytics', icon: BarChart3 },
+  { label: 'Live events', subtitle: 'Schedule and manage events', href: '/admin/live-events', icon: CalendarDays },
+  { label: 'Offers', subtitle: 'Manage member offers', href: '/admin/offers', icon: Tag },
+  { label: 'Invites', subtitle: 'Generate invite codes', href: '/admin/invites', icon: Link2 },
 ]
 
 export default function AdminOverview() {
-  const user = getUser()
-
-  const { data: stats } = useQuery({
-    queryKey: ['admin', 'stats'],
-    queryFn: fetchAdminKpiStats,
-  })
-
-  const { data: userGrowth = [] } = useQuery({
+  const { data: stats } = useQuery({ queryKey: ['admin', 'stats'], queryFn: fetchAdminKpiStats })
+  const { data: userGrowth, isLoading: growthLoading } = useQuery({
     queryKey: ['admin', 'analytics', 'user-growth'],
     queryFn: () => fetchUserGrowthTrend(),
   })
-
-  const { data: enrollmentTrend = [] } = useQuery({
+  const { data: enrollmentTrend, isLoading: enrollLoading } = useQuery({
     queryKey: ['admin', 'analytics', 'enrollments'],
     queryFn: fetchEnrollmentTrend,
   })
-
-  const { data: courseEngagement = [] } = useQuery({
+  const { data: courseEngagement = [], isLoading: engagementLoading } = useQuery({
     queryKey: ['admin', 'analytics', 'course-engagement'],
     queryFn: fetchCourseEngagement,
   })
-
-  const { data: courseCompletion = [] } = useQuery({
+  const { data: courseCompletion = [], isLoading: completionLoading } = useQuery({
     queryKey: ['admin', 'analytics', 'course-completion'],
     queryFn: () => fetchCourseCompletionRates(),
   })
+  const attention = useQuery({
+    queryKey: ['admin', 'needs-attention'],
+    queryFn: fetchNeedsAttention,
+    retry: false,
+  })
+
+  const growth = useMemo(() => lastTwelveMonths(userGrowth ?? []), [userGrowth])
+  const enrollments = useMemo(() => lastTwelveMonths(enrollmentTrend ?? []), [enrollmentTrend])
+  const engagement = useMemo(
+    () =>
+      [...courseEngagement]
+        .sort((a, b) => b.activeLearners - a.activeLearners)
+        .slice(0, 8)
+        .map((c) => ({ label: c.label, value: c.activeLearners })),
+    [courseEngagement],
+  )
+  const completion = useMemo(
+    () =>
+      [...courseCompletion]
+        .filter((c) => c.totalEnrolled > 0)
+        .sort((a, b) => b.completionRate - a.completionRate)
+        .slice(0, 8)
+        .map((c) => ({ label: c.label, value: c.completionRate })),
+    [courseCompletion],
+  )
+  const enrolledTotal = courseCompletion.reduce((n, c) => n + c.totalEnrolled, 0)
+  const enrolledCourses = courseCompletion.filter((c) => c.totalEnrolled > 0).length
+  const anyCompleted = courseCompletion.some((c) => c.completed > 0)
 
   return (
     <AdminLayout>
-      {/* Welcome banner */}
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative overflow-hidden rounded-3xl mb-8 p-5 sm:p-6 bg-mesh-dark text-white border border-white/10"
-      >
-        <div className="absolute inset-0 bg-noise opacity-[0.05] mix-blend-overlay pointer-events-none" />
-        <motion.div
-          aria-hidden
-          className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-brand-primary/40 blur-3xl"
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 8, repeat: Infinity }}
+      <div className="flex flex-col gap-5">
+        <PageHeader
+          className="mb-0 max-md:flex-col max-md:items-start"
+          title="Dashboard"
+          subtitle={`Here is an overview of the platform. ${todayLabel()}.`}
+          actions={
+            <>
+              <Pill tone="brand" className="self-center">
+                <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+                Super admin
+              </Pill>
+              <Link href="/admin/courses" className={btn()}>
+                <Plus className="h-4 w-4" strokeWidth={2} aria-hidden />
+                New course
+              </Link>
+            </>
+          }
         />
-        <motion.div
-          aria-hidden
-          className="absolute -bottom-24 -left-16 w-64 h-64 rounded-full bg-brand-violet/40 blur-3xl"
-          animate={{ scale: [1.1, 1, 1.1] }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
-        <div className="relative">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary-light">
-              <Shield className="w-2.5 h-2.5" /> Super admin
-            </span>
-            <span className="text-[10px] text-white/50">{todayLabel()}</span>
-          </div>
-          <h1 className="text-xl sm:text-2xl font-black leading-tight">
-            Welcome{' '}
-            <span className="text-gradient-magenta">
-              {user?.fullName ?? 'Admin'}
-            </span>
-          </h1>
-          <p className="text-[12px] sm:text-sm text-white/65 mt-1">
-            Here&rsquo;s an overview of the platform.
-          </p>
-        </div>
-      </motion.div>
 
-      {/* KPI cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
-        <StatCard
-          label="Total members"
-          value={stats?.totalUsers ?? 0}
-          icon={<Users className="w-9 h-9" />}
-          trend="registered users"
-          accent="bg-brand-primary"
-          delay={0}
-        />
-        <StatCard
-          label="Active courses"
-          value={stats?.activeCourses ?? 0}
-          icon={<GraduationCap className="w-9 h-9" />}
-          trend="published"
-          accent="bg-brand-violet"
-          delay={0.05}
-        />
-        <StatCard
-          label="Certificates issued"
-          value={stats?.certificatesIssued ?? 0}
-          icon={<Award className="w-9 h-9" />}
-          trend="active certificates"
-          accent="bg-brand-primary-dark"
-          delay={0.1}
-        />
-        <StatCard
-          label="Active learners"
-          value={stats?.activeLearnersThisMonth ?? 0}
-          icon={<Sparkles className="w-9 h-9" />}
-          trend="this month"
-          accent="bg-brand-primary"
-          delay={0.15}
-        />
-      </div>
-
-      {/* Quick actions */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="mb-8 rounded-2xl border border-brand-surface-2 bg-white p-5 shadow-sm"
-      >
-        <div className="flex items-center gap-2 mb-4">
-          <div className="w-8 h-8 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center">
-            <Zap className="w-4 h-4" />
-          </div>
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-text-muted">
-              Shortcuts
-            </p>
-            <h2 className="text-sm font-black text-brand-text-primary leading-tight">
-              Quick actions
-            </h2>
-          </div>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-          {QUICK_ACTIONS.map((q, i) => (
-            <Link
-              key={q.label}
-              href={q.href}
-              className="group flex flex-col items-start gap-2.5 rounded-xl border border-brand-surface-2 bg-brand-surface/40 p-4 hover:border-brand-primary/40 hover:bg-white hover:shadow-md transition-all"
-              style={{ animationDelay: `${i * 30}ms` }}
-            >
-              <div
-                className={cn(
-                  'w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform shrink-0',
-                  q.tone,
-                )}
-              >
-                <q.icon className="w-5 h-5" />
-              </div>
-              <div className="min-w-0 w-full">
-                <p className="text-sm font-bold text-brand-text-primary leading-tight">
-                  {q.label}
-                </p>
-                <p className="text-[11px] text-brand-text-muted mt-0.5 leading-tight">
-                  {q.subtitle}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Charts row 1: User Registrations | Enrollments Over Time */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mb-4">
-        <AdminChartCard
-          title="User registrations"
-          subtitle="New members per month — last 12 months"
-          icon={<TrendingUp className="w-4 h-4" />}
-          delay={0.1}
+        <section
+          aria-label="Key figures"
+          className="grid grid-cols-[minmax(0,1fr)] gap-4 min-[420px]:grid-cols-2 xl:grid-cols-4"
         >
-          <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart
-                data={userGrowth}
-                margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
-              >
-                <defs>
-                  <linearGradient id="grUserGrowth" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor={PRIMARY} stopOpacity={0.45} />
-                    <stop offset="100%" stopColor={PRIMARY} stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid stroke={SURFACE_2} vertical={false} />
-                <XAxis
-                  dataKey="label"
-                  stroke={TEXT_MUTED}
-                  fontSize={11}
-                  tickLine={false}
-                  axisLine={false}
-                />
-                <YAxis
-                  stroke={TEXT_MUTED}
-                  fontSize={11}
-                  tickLine={false}
-                  axisLine={false}
-                  allowDecimals={false}
-                />
-                <Tooltip
-                  contentStyle={{
-                    borderRadius: 12,
-                    border: `1px solid ${SURFACE_2}`,
-                    fontSize: 12,
-                  }}
-                />
-                <Area
-                  type="monotone"
-                  dataKey="count"
-                  name="New users"
-                  stroke={PRIMARY}
-                  strokeWidth={2.5}
-                  fill="url(#grUserGrowth)"
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-        </AdminChartCard>
+          <AdminStat icon={Users} label="Total members" value={stats ? stats.totalUsers : '-'} hint="Registered members" />
+          <AdminStat icon={BookOpen} label="Active courses" value={stats ? stats.activeCourses : '-'} hint="Published" />
+          <AdminStat icon={Award} label="Certificates issued" value={stats ? stats.certificatesIssued : '-'} hint="Active certificates" />
+          <AdminStat icon={Sparkles} label="Active learners" value={stats ? stats.activeLearnersThisMonth : '-'} hint="This month" />
+        </section>
 
-        <AdminChartCard
-          title="Enrollments over time"
-          subtitle="New course enrollments per month — last 12 months"
-          icon={<GraduationCap className="w-4 h-4" />}
-          delay={0.15}
-        >
-          <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart
-                data={enrollmentTrend}
-                margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
-              >
-                <defs>
-                  <linearGradient id="grEnrollments" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor={VIOLET} stopOpacity={0.45} />
-                    <stop offset="100%" stopColor={VIOLET} stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid stroke={SURFACE_2} vertical={false} />
-                <XAxis
-                  dataKey="label"
-                  stroke={TEXT_MUTED}
-                  fontSize={11}
-                  tickLine={false}
-                  axisLine={false}
-                />
-                <YAxis
-                  stroke={TEXT_MUTED}
-                  fontSize={11}
-                  tickLine={false}
-                  axisLine={false}
-                  allowDecimals={false}
-                />
-                <Tooltip
-                  contentStyle={{
-                    borderRadius: 12,
-                    border: `1px solid ${SURFACE_2}`,
-                    fontSize: 12,
-                  }}
-                />
-                <Area
-                  type="monotone"
-                  dataKey="count"
-                  name="Enrollments"
-                  stroke={VIOLET}
-                  strokeWidth={2.5}
-                  fill="url(#grEnrollments)"
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-        </AdminChartCard>
-      </div>
-
-      {/* Charts row 2: Course Engagement | Course Completion Rate */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-        <AdminChartCard
-          title="Course engagement"
-          subtitle="Active learners per course this month"
-          icon={<Sparkles className="w-4 h-4" />}
-          delay={0.2}
-        >
-          <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={courseEngagement}
-                layout="vertical"
-                margin={{ top: 5, right: 30, left: 0, bottom: 5 }}
-              >
-                <defs>
-                  <linearGradient id="grEngagement" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor={PRIMARY} />
-                    <stop offset="100%" stopColor={ACCENT} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid stroke={SURFACE_2} horizontal={false} />
-                <XAxis
-                  type="number"
-                  stroke={TEXT_MUTED}
-                  fontSize={11}
-                  tickLine={false}
-                  axisLine={false}
-                  allowDecimals={false}
-                />
-                <YAxis
-                  type="category"
-                  dataKey="label"
-                  stroke={TEXT_MUTED}
-                  fontSize={10}
-                  tickLine={false}
-                  axisLine={false}
-                  width={90}
-                />
-                <Tooltip
-                  contentStyle={{
-                    borderRadius: 12,
-                    border: `1px solid ${SURFACE_2}`,
-                    fontSize: 12,
-                  }}
-                />
-                <Bar
-                  dataKey="activeLearners"
-                  name="Active learners"
-                  fill="url(#grEngagement)"
-                  radius={[0, 6, 6, 0]}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </AdminChartCard>
-
-        <AdminChartCard
-          title="Course completion rate"
-          subtitle="% of enrollees who completed each course"
-          icon={<Award className="w-4 h-4" />}
-          delay={0.25}
-        >
-          <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={courseCompletion}
-                layout="vertical"
-                margin={{ top: 5, right: 30, left: 0, bottom: 5 }}
-              >
-                <CartesianGrid stroke={SURFACE_2} horizontal={false} />
-                <XAxis
-                  type="number"
-                  domain={[0, 100]}
-                  stroke={TEXT_MUTED}
-                  fontSize={11}
-                  tickLine={false}
-                  axisLine={false}
-                  tickFormatter={(v) => `${v}%`}
-                />
-                <YAxis
-                  type="category"
-                  dataKey="label"
-                  stroke={TEXT_MUTED}
-                  fontSize={10}
-                  tickLine={false}
-                  axisLine={false}
-                  width={90}
-                />
-                <Tooltip
-                  contentStyle={{
-                    borderRadius: 12,
-                    border: `1px solid ${SURFACE_2}`,
-                    fontSize: 12,
-                  }}
-                  formatter={(value: number) => [`${value}%`, 'Completion rate']}
-                />
-                <Bar
-                  dataKey="completionRate"
-                  name="Completion rate"
-                  radius={[0, 6, 6, 0]}
+        <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 xl:grid-cols-[minmax(0,1fr)_380px]">
+          <section aria-labelledby="h-quick" className="flex flex-col self-stretch rounded-[14px] border border-ui-line bg-ui-surface">
+            <PanelHeader id="h-quick" title="Quick actions" />
+            <div className="grid flex-1 grid-cols-2 border-t border-ui-line sm:grid-cols-3 xl:grid-cols-5">
+              {QUICK_ACTIONS.map((q, i) => (
+                <Link
+                  key={q.label}
+                  href={q.href}
+                  className={cn(
+                    'flex flex-col gap-2.5 px-[18px] py-4 text-ui-text transition-colors hover:bg-ui-bg focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ui-brand',
+                    // Rules between cells: top border from the second row on, left border inside a row.
+                    'max-sm:[&:nth-child(n+3)]:border-t max-sm:[&:nth-child(even)]:border-l',
+                    'sm:max-xl:[&:nth-child(n+4)]:border-t sm:max-xl:[&:not(:nth-child(3n+1))]:border-l',
+                    i > 0 && 'xl:border-l',
+                    'border-ui-line',
+                  )}
                 >
-                  {courseCompletion.map((_, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={index % 2 === 0 ? PRIMARY : VIOLET}
-                    />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </AdminChartCard>
+                  <span className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[10px] bg-ui-brand-soft text-ui-brand-text">
+                    <q.icon className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
+                  </span>
+                  <span className="flex flex-col gap-0.5">
+                    <span className="text-sm font-semibold">{q.label}</span>
+                    <span className="text-xs text-ui-muted">{q.subtitle}</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <NeedsAttentionPanel
+            data={attention.data}
+            loading={attention.isLoading}
+            failed={attention.isError}
+            onRetry={() => attention.refetch()}
+            publishedCourses={stats?.activeCourses}
+          />
+        </div>
+
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-2">
+          <AdminChartCard
+            title="User registrations"
+            subtitle="New members per month, last 12 months"
+            aside={growthLoading ? undefined : sum(growth)}
+          >
+            {growthLoading ? (
+              <Skeleton className="h-[210px]" />
+            ) : (
+              <ColumnChart data={growth} label={`New members per month, ${rangeLabel(growth)}`} />
+            )}
+          </AdminChartCard>
+          <AdminChartCard
+            title="Enrollments over time"
+            subtitle="New course enrollments per month, last 12 months"
+            aside={enrollLoading ? undefined : sum(enrollments)}
+          >
+            {enrollLoading ? (
+              <Skeleton className="h-[210px]" />
+            ) : (
+              <ColumnChart data={enrollments} label={`Course enrollments per month, ${rangeLabel(enrollments)}`} />
+            )}
+          </AdminChartCard>
+        </div>
+
+        <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 lg:grid-cols-2">
+          <AdminChartCard title="Course engagement" subtitle="Active learners per course this month, top 8">
+            {engagementLoading ? (
+              <Skeleton className="h-56" />
+            ) : engagement.length === 0 ? (
+              <EmptyState icon={Sparkles} title="No course activity yet" body="Courses appear here once learners start working through units." />
+            ) : (
+              <BarList data={engagement} className="pt-0.5" />
+            )}
+          </AdminChartCard>
+          <AdminChartCard title="Course completion rate" subtitle="Share of enrollees who completed each course">
+            {completionLoading ? (
+              <Skeleton className="h-56" />
+            ) : !anyCompleted ? (
+              <EmptyState
+                icon={FileCheck2}
+                className="py-8"
+                title="No completions yet"
+                body={
+                  enrolledTotal > 0
+                    ? `${enrolledTotal} ${plural(enrolledTotal, 'enrollment')} across ${enrolledCourses} ${plural(enrolledCourses, 'course')}, none completed so far. Rates appear here as learners finish their courses.`
+                    : 'No enrollments yet. Rates appear here as learners finish their courses.'
+                }
+                action={
+                  <Link href="/admin/analytics" className={btn({ variant: 'secondary', size: 'sm' })}>
+                    Open course performance
+                  </Link>
+                }
+              />
+            ) : (
+              <BarList data={completion} max={100} format={(v) => `${Math.round(v)}%`} className="pt-0.5" />
+            )}
+          </AdminChartCard>
+        </div>
       </div>
     </AdminLayout>
   )
 }
 
-function todayLabel() {
-  return new Date().toLocaleDateString(undefined, {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
+// ── Needs attention ──────────────────────────────────────────────────────────
+
+type AttentionRow = {
+  key: string
+  icon: ComponentType<{ className?: string; strokeWidth?: number; 'aria-hidden'?: boolean }>
+  title: string
+  detail: string
+  count: number
+  href?: string
+}
+
+function NeedsAttentionPanel({
+  data,
+  loading,
+  failed,
+  onRetry,
+  publishedCourses,
+}: {
+  data?: NeedsAttention
+  loading: boolean
+  failed: boolean
+  onRetry: () => void
+  publishedCourses?: number
+}) {
+  const rows: AttentionRow[] = data
+    ? [
+        {
+          key: 'mentor',
+          icon: UserCheck,
+          title: 'Mentor applications to review',
+          detail:
+            data.pendingMentorApplications > 0
+              ? `${data.pendingMentorApplications} waiting for a decision`
+              : 'No applications waiting for review',
+          count: data.pendingMentorApplications,
+          href: '/admin/applications',
+        },
+        {
+          key: 'stakeholder',
+          icon: Building2,
+          title: 'Stakeholder applications',
+          detail:
+            data.pendingStakeholderApplications > 0
+              ? `${data.pendingStakeholderApplications} received in the last 30 days`
+              : 'None received in the last 30 days',
+          count: data.pendingStakeholderApplications,
+          href: '/admin/stakeholder-applications/vc',
+        },
+        {
+          key: 'drafts',
+          icon: Pencil,
+          title: 'Draft courses',
+          detail:
+            data.draftCourses > 0
+              ? `${data.draftCourses} ${plural(data.draftCourses, 'course')} not published yet`
+              : publishedCourses !== undefined
+                ? `All ${publishedCourses} courses are published`
+                : 'Every course is published',
+          count: data.draftCourses,
+          href: '/admin/courses',
+        },
+        {
+          key: 'invites',
+          icon: Link2,
+          title: 'Unused invite codes',
+          detail:
+            data.unusedInviteCodes.length > 0
+              ? data.unusedInviteCodes
+                  .slice(0, 2)
+                  .map((c) => `${c.code}, created ${fmtDate(c.createdAt)}`)
+                  .join('; ') + (data.unusedInviteCodes.length > 2 ? ` and ${data.unusedInviteCodes.length - 2} more` : '')
+              : 'Every invite code has been used',
+          count: data.unusedInviteCodes.length,
+          href: '/admin/invites',
+        },
+        {
+          key: 'sessions',
+          icon: CalendarClock,
+          title: 'Mentor sessions to complete',
+          detail:
+            data.mentorSessionsNeedingCompletion > 0
+              ? 'Ended but not yet marked complete by the mentor'
+              : 'Every past session has been closed',
+          count: data.mentorSessionsNeedingCompletion,
+        },
+      ]
+    : []
+
+  return (
+    <section aria-labelledby="h-att" className="rounded-[14px] border border-ui-line bg-ui-surface">
+      <PanelHeader id="h-att" title="Needs attention" />
+      {loading ? (
+        <div className="space-y-2 border-t border-ui-line px-5 py-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Skeleton key={i} className="h-9" />
+          ))}
+        </div>
+      ) : failed || !data ? (
+        <div className="flex flex-col items-start gap-2 border-t border-ui-line px-5 py-4">
+          <p className="text-[13px] text-ui-muted">Could not load the items that need attention.</p>
+          <button type="button" onClick={onRetry} className={btn({ variant: 'secondary', size: 'sm' })}>
+            Try again
+          </button>
+        </div>
+      ) : (
+        <ul>
+          {rows.map((r) => {
+            const inner = (
+              <>
+                <r.icon className="h-[18px] w-[18px] text-ui-muted" strokeWidth={1.75} aria-hidden />
+                <span className="flex min-w-0 flex-col">
+                  <span className="text-sm font-medium text-ui-text">{r.title}</span>
+                  <span className="truncate text-xs text-ui-muted" title={r.detail}>
+                    {r.detail}
+                  </span>
+                </span>
+                <span className={cn('text-sm font-semibold tabular-nums', r.count > 0 ? 'text-ui-brand-text' : 'text-ui-muted')}>
+                  {r.count}
+                </span>
+              </>
+            )
+            const cls = 'grid grid-cols-[20px_minmax(0,1fr)_auto] items-center gap-3 border-t border-ui-line px-5 py-2.5'
+            return (
+              <li key={r.key}>
+                {r.href ? (
+                  <Link
+                    href={r.href}
+                    className={cn(cls, 'transition-colors hover:bg-ui-bg focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ui-brand')}
+                  >
+                    {inner}
+                  </Link>
+                ) : (
+                  <div className={cls}>{inner}</div>
+                )}
+              </li>
+            )
+          })}
+        </ul>
+      )}
+    </section>
+  )
+}
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+/**
+ * The trend APIs return only months that have data, labelled like "Jun '26".
+ * Spread them over the last 12 calendar months so empty months show as gaps.
+ */
+function lastTwelveMonths(points: TrendPoint[]) {
+  const counts = new Map<string, number>()
+  for (const p of points) {
+    const m = /^([A-Za-z]{3})\w*\s*'?(\d{2,4})?/.exec(p.label.trim())
+    if (!m) continue
+    const month = MONTHS.indexOf(m[1].slice(0, 1).toUpperCase() + m[1].slice(1, 3).toLowerCase())
+    if (month < 0) continue
+    const year = m[2] ? (m[2].length === 2 ? 2000 + Number(m[2]) : Number(m[2])) : new Date().getFullYear()
+    counts.set(`${year}-${month}`, (counts.get(`${year}-${month}`) ?? 0) + p.count)
+  }
+  const now = new Date()
+  return Array.from({ length: 12 }, (_, i) => {
+    const d = new Date(now.getFullYear(), now.getMonth() - 11 + i, 1)
+    return { label: MONTHS[d.getMonth()], value: counts.get(`${d.getFullYear()}-${d.getMonth()}`) ?? 0, year: d.getFullYear() }
   })
+}
+
+function rangeLabel(series: { label: string; year: number }[]) {
+  if (series.length === 0) return 'last 12 months'
+  const a = series[0]
+  const b = series[series.length - 1]
+  return `${a.label} ${a.year} to ${b.label} ${b.year}`
+}
+
+function sum(series: { value: number }[]) {
+  return series.reduce((n, p) => n + p.value, 0)
+}
+
+function plural(n: number, word: string) {
+  return n === 1 ? word : `${word}s`
+}
+
+function todayLabel() {
+  const d = new Date()
+  const weekday = d.toLocaleDateString('en-GB', { weekday: 'long' })
+  return `${weekday}, ${d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}`
 }

@@ -1,25 +1,22 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import Link from 'next/link'
 import { useQuery } from '@tanstack/react-query'
-import { motion } from 'framer-motion'
 import {
-  Building2,
-  Loader2,
   AlertCircle,
-  Search,
+  Building2,
   ExternalLink,
   Globe,
+  Landmark,
+  X,
+  type LucideIcon,
 } from 'lucide-react'
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from '@/components/ui/sheet'
 import { AdminLayout } from '@/components/admin/AdminLayout'
-import { PageHeader } from '@/components/dashboard/widgets/PageHeader'
+import { IconButton, Pill, SearchInput, Tag, TableCard, adminTableClass, fmtDate } from '@/components/admin/ui'
+import { Button, EmptyState, PageHeader, Skeleton } from '@/components/kit'
 import { apiFetch } from '@/lib/api'
+import { cn } from '@/lib/utils'
 
 // ---------------------------------------------------------------------------
 // Types
@@ -43,41 +40,84 @@ interface StakeholderApplication {
 // Constants
 // ---------------------------------------------------------------------------
 
-const TYPE_META: Record<string, { label: string; badge: string; subtitle: string }> = {
-  vc: { label: 'Supporters', badge: 'Supporter', subtitle: 'Community supporter submissions.' },
-  government: { label: 'Government', badge: 'Government', subtitle: 'Government stakeholder submissions.' },
-  // --- Hidden until re-enabled ---
-  // university: { label: 'University', badge: 'University', subtitle: 'University stakeholder submissions.' },
-  // corporate: { label: 'Corporates', badge: 'Corporate', subtitle: 'Corporate stakeholder submissions.' },
-  // incubator: { label: 'Incubator', badge: 'Incubator', subtitle: 'Incubator stakeholder submissions.' },
+interface TypeMeta {
+  label: string
+  badge: string
+  /** Lower-case noun used in sentences ("No supporter submissions yet"). */
+  noun: string
+  form: string
+  description: string
+  icon: LucideIcon
+}
+
+// Hadafi's public site has two stakeholder programs: Supporters (stored as
+// type "vc") and Government. University, corporate and incubator forms are
+// folded into Supporters, so they get no tab here.
+const TYPE_META: Record<string, TypeMeta> = {
+  vc: {
+    label: 'Supporters',
+    badge: 'Supporter',
+    noun: 'supporter',
+    form: 'Join as a Supporter',
+    description: 'Companies, investors, universities and incubators supporting women entrepreneurs, newest first',
+    icon: Building2,
+  },
+  government: {
+    label: 'Government',
+    badge: 'Government',
+    noun: 'government',
+    form: 'Join as a Government',
+    description: 'Multilateral and government entity submissions, newest first',
+    icon: Landmark,
+  },
 }
 
 const PAGE_SIZE = 20
 
 // ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
-function formatDate(iso: string): string {
-  return new Date(iso).toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  })
-}
-
-// ---------------------------------------------------------------------------
 // Sub-components
 // ---------------------------------------------------------------------------
 
-function Field({ label, value }: { label: string; value: string }) {
+function DetailField({ label, children, wide }: { label: string; children: React.ReactNode; wide?: boolean }) {
   return (
-    <div>
-      <p className="text-xs font-semibold text-brand-text-secondary uppercase tracking-wider mb-1">
-        {label}
-      </p>
-      <p className="text-sm text-brand-text-primary">{value}</p>
+    <div className={cn('min-w-0', wide && 'col-span-2')}>
+      <dt className="mb-1 text-xs font-semibold text-ui-muted">{label}</dt>
+      <dd className="break-words text-sm text-ui-text">{children || <span className="text-ui-muted">Not given</span>}</dd>
     </div>
+  )
+}
+
+function TypeTabs({ type }: { type: string }) {
+  const navRef = useRef<HTMLElement>(null)
+  // Phones: the tab row scrolls sideways; keep the current type visible.
+  useEffect(() => {
+    const nav = navRef.current
+    const el = nav?.querySelector<HTMLElement>('[aria-current="page"]')
+    if (nav && el && nav.scrollWidth > nav.clientWidth) {
+      nav.scrollLeft = el.offsetLeft - nav.offsetLeft - 16
+    }
+  }, [type])
+  return (
+    <nav ref={navRef} aria-label="Stakeholder type" className="flex gap-1 overflow-x-auto border-b border-ui-line">
+      {Object.entries(TYPE_META).map(([key, m]) => {
+        const on = key === type
+        const Icon = m.icon
+        return (
+          <Link
+            key={key}
+            href={`/admin/stakeholder-applications/${key}`}
+            aria-current={on ? 'page' : undefined}
+            className={cn(
+              '-mb-px inline-flex shrink-0 items-center gap-2 whitespace-nowrap border-b-2 px-3 py-2.5 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ui-brand',
+              on ? 'border-ui-brand font-semibold text-ui-text' : 'border-transparent font-medium text-ui-muted hover:text-ui-text',
+            )}
+          >
+            <Icon className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+            {m.label}
+          </Link>
+        )
+      })}
+    </nav>
   )
 }
 
@@ -89,10 +129,23 @@ export default function StakeholderApplicationsView({ type }: { type: string }) 
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
   const [selected, setSelected] = useState<StakeholderApplication | null>(null)
+  const detailRef = useRef<HTMLElement>(null)
 
-  const meta = TYPE_META[type] ?? { label: type, badge: type, subtitle: '' }
+  const meta: TypeMeta = TYPE_META[type] ?? {
+    label: type,
+    badge: type,
+    noun: type,
+    form: 'stakeholder',
+    description: 'Stakeholder submissions, newest first',
+    icon: Building2,
+  }
 
-  const { data: applications = [], isLoading, isError } = useQuery<StakeholderApplication[]>({
+  const {
+    data: applications = [],
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery<StakeholderApplication[]>({
     queryKey: ['admin', 'stakeholder-applications', type],
     queryFn: () =>
       apiFetch<{ success: boolean; data: StakeholderApplication[] }>(
@@ -101,7 +154,7 @@ export default function StakeholderApplicationsView({ type }: { type: string }) 
   })
 
   const filtered = useMemo(() => {
-    const q = search.toLowerCase()
+    const q = search.trim().toLowerCase()
     if (!q) return applications
     return applications.filter(
       (a) =>
@@ -113,204 +166,268 @@ export default function StakeholderApplicationsView({ type }: { type: string }) 
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+  const first = filtered.length === 0 ? 0 : (page - 1) * PAGE_SIZE + 1
+  const last = Math.min(page * PAGE_SIZE, filtered.length)
 
   function handleSearch(value: string) {
     setSearch(value)
     setPage(1)
   }
 
-  return (
-    <AdminLayout>
-      <PageHeader
-        eyebrow="Stakeholder Applications"
-        title={meta.label}
-        subtitle={meta.subtitle}
-      />
+  function select(app: StakeholderApplication) {
+    setSelected(app)
+  }
 
-      {/* Search */}
-      <div className="relative mb-5 max-w-sm">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-text-secondary pointer-events-none" />
-        <input
-          type="text"
-          placeholder="Search name, email, organisation…"
-          value={search}
-          onChange={(e) => handleSearch(e.target.value)}
-          className="w-full pl-9 pr-3 py-2 rounded-xl border border-brand-surface-2 bg-white text-sm text-brand-text-primary placeholder:text-brand-text-secondary focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
+  // On narrow screens the detail panel stacks under the table; bring it into view.
+  useEffect(() => {
+    if (!selected || !detailRef.current) return
+    if (window.matchMedia('(max-width: 1279px)').matches) {
+      detailRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [selected])
+
+  // Escape closes the detail panel.
+  useEffect(() => {
+    if (!selected) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelected(null)
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [selected])
+
+  let body: React.ReactNode
+  if (isLoading) {
+    body = (
+      <TableCard>
+        <div className="flex flex-col gap-3 p-5" aria-busy="true" aria-label="Loading submissions">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Skeleton key={i} className="h-9 w-full" />
+          ))}
+        </div>
+      </TableCard>
+    )
+  } else if (isError) {
+    body = (
+      <TableCard>
+        <EmptyState
+          icon={AlertCircle}
+          title="Failed to load submissions"
+          body="Check your connection and try again."
+          action={
+            <Button variant="secondary" size="sm" onClick={() => refetch()}>
+              Try again
+            </Button>
+          }
         />
-      </div>
-
-      {/* Table card */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="rounded-2xl border border-brand-surface-2 bg-white shadow-sm overflow-hidden"
-      >
-        {isLoading ? (
-          <div className="flex items-center justify-center py-16">
-            <Loader2 className="w-8 h-8 text-brand-primary/40 animate-spin" />
-          </div>
-        ) : isError ? (
-          <div className="flex flex-col items-center justify-center py-16 gap-2 text-brand-text-secondary">
-            <AlertCircle className="w-8 h-8 text-rose-400" />
-            <p className="text-sm">Failed to load submissions</p>
-          </div>
-        ) : paginated.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-16 gap-2 text-brand-text-secondary">
-            <Building2 className="w-8 h-8 opacity-30" />
-            <p className="text-sm">
-              {search ? 'No results for that search.' : 'No submissions yet.'}
-            </p>
-          </div>
+      </TableCard>
+    )
+  } else if (paginated.length === 0) {
+    body = (
+      <TableCard>
+        {search.trim() ? (
+          <EmptyState
+            icon={meta.icon}
+            title="No results for that search"
+            body="Try a different name, email or organization, or clear the search."
+          />
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-brand-surface-2 bg-brand-surface/50">
-                  {['Name', 'Title', 'Organisation', 'Email', 'Country', 'Website', 'Submitted'].map((h) => (
-                    <th
-                      key={h}
-                      className="px-5 py-3 text-left text-xs font-semibold text-brand-text-secondary uppercase tracking-wider"
+          <EmptyState
+            icon={meta.icon}
+            title={`No ${meta.noun} submissions yet`}
+            body={`When someone completes the ${meta.form} form, their submission shows here with their organization, contact details and how they want to be involved.`}
+          />
+        )}
+      </TableCard>
+    )
+  } else {
+    body = (
+      <TableCard
+        footer={
+          <div className="-my-0.5 flex flex-wrap items-center justify-between gap-3">
+            <span>
+              Showing {first} to {last} of {filtered.length}
+            </span>
+            <span className="flex gap-2">
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                disabled={page === 1}
+              >
+                Previous
+              </Button>
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                disabled={page === totalPages}
+              >
+                Next
+              </Button>
+            </span>
+          </div>
+        }
+      >
+        <table className={cn(adminTableClass, 'min-w-[680px]')}>
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Organization</th>
+              <th scope="col">Email</th>
+              <th scope="col">Country</th>
+              <th scope="col">Website</th>
+              <th scope="col" aria-sort="descending">Submitted</th>
+            </tr>
+          </thead>
+          <tbody>
+            {paginated.map((app) => {
+              const on = selected?.id === app.id
+              return (
+                <tr
+                  key={app.id}
+                  onClick={() => select(app)}
+                  aria-selected={on}
+                  className={cn('cursor-pointer', on && '!bg-ui-brand-soft')}
+                >
+                  <td>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        select(app)
+                      }}
+                      aria-label={`Show details for ${app.fullName}`}
+                      className="flex flex-col text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand"
                     >
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {paginated.map((app) => (
-                  <tr
-                    key={app.id}
-                    onClick={() => setSelected(app)}
-                    className="border-b border-brand-surface-2 last:border-0 hover:bg-brand-surface/30 transition-colors cursor-pointer"
-                  >
-                    <td className="px-5 py-3.5 font-medium text-brand-text-primary whitespace-nowrap">
-                      {app.fullName}
-                    </td>
-                    <td className="px-5 py-3.5 text-brand-text-secondary whitespace-nowrap">
-                      {app.title}
-                    </td>
-                    <td className="px-5 py-3.5 text-brand-text-secondary max-w-[180px] truncate">
-                      {app.representing}
-                    </td>
-                    <td className="px-5 py-3.5 text-brand-text-secondary whitespace-nowrap">
-                      {app.email}
-                    </td>
-                    <td className="px-5 py-3.5 text-brand-text-secondary whitespace-nowrap">
-                      {app.country}
-                    </td>
-                    <td className="px-5 py-3.5">
+                      <span className="whitespace-nowrap font-semibold text-ui-text">{app.fullName}</span>
+                      {app.title && <span className="whitespace-nowrap text-xs text-ui-muted">{app.title}</span>}
+                    </button>
+                  </td>
+                  <td className="max-w-[150px] truncate text-ui-text" title={app.representing}>
+                    {app.representing}
+                  </td>
+                  <td className="max-w-[150px] truncate text-ui-muted" title={app.email}>{app.email}</td>
+                  <td className="max-w-[110px] truncate text-ui-muted" title={app.country}>{app.country}</td>
+                  <td>
+                    {app.website ? (
                       <a
                         href={app.website}
                         target="_blank"
                         rel="noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1 text-brand-primary hover:text-brand-primary-dark text-xs font-medium transition-colors"
+                        aria-label={`Visit ${app.representing || app.fullName} website (opens in a new tab)`}
+                        className="inline-flex items-center gap-1 text-[13px] font-semibold text-ui-brand-text hover:underline"
                       >
-                        <Globe className="w-3.5 h-3.5" />
+                        <Globe className="h-[15px] w-[15px]" strokeWidth={1.75} aria-hidden />
                         Visit
-                        <ExternalLink className="w-3 h-3 opacity-60" />
                       </a>
-                    </td>
-                    <td className="px-5 py-3.5 text-brand-text-secondary whitespace-nowrap">
-                      {formatDate(app.createdAt)}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </motion.div>
+                    ) : (
+                      <span className="text-ui-muted">None</span>
+                    )}
+                  </td>
+                  <td className="whitespace-nowrap text-ui-muted">{fmtDate(app.createdAt)}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </TableCard>
+    )
+  }
 
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex items-center justify-between mt-4 text-sm text-brand-text-secondary">
-          <span>
-            Showing {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, filtered.length)} of{' '}
-            {filtered.length}
-          </span>
-          <div className="flex gap-2">
-            <button
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              disabled={page === 1}
-              className="px-3 py-1.5 rounded-lg border border-brand-surface-2 text-sm disabled:opacity-40 hover:bg-brand-surface transition-colors"
-            >
-              Previous
-            </button>
-            <button
-              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-              disabled={page === totalPages}
-              className="px-3 py-1.5 rounded-lg border border-brand-surface-2 text-sm disabled:opacity-40 hover:bg-brand-surface transition-colors"
-            >
-              Next
-            </button>
-          </div>
+  return (
+    <AdminLayout>
+      <div className="flex flex-col gap-5">
+        <PageHeader
+          className="mb-0"
+          title="Stakeholder Applications"
+          subtitle="Submissions from the Join as a Supporter and Join as a Government forms."
+        />
+
+        <TypeTabs type={type} />
+
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+          <SearchInput
+            value={search}
+            onChange={handleSearch}
+            placeholder="Search name, email, organization"
+            label="Search submissions"
+            className="w-full sm:w-[320px]"
+          />
+          <span className="text-[13px] text-ui-muted">{meta.description}</span>
         </div>
-      )}
 
-      {/* Slide-over detail sheet */}
-      <Sheet
-        open={!!selected}
-        onOpenChange={(open: boolean) => {
-          if (!open) setSelected(null)
-        }}
-      >
-        <SheetContent className="w-full sm:max-w-lg overflow-y-auto p-6">
+        <div
+          className={cn(
+            'grid grid-cols-[minmax(0,1fr)] items-start gap-5',
+            selected && 'xl:grid-cols-[minmax(0,1fr)_360px]',
+          )}
+        >
+          <section aria-label={`${meta.badge} submissions`} className="min-w-0">
+            {body}
+          </section>
+
           {selected && (
-            <>
-              <SheetHeader className="mb-6 p-0">
-                <SheetTitle className="text-xl font-bold text-brand-text-primary pr-8">
-                  {selected.fullName}
-                </SheetTitle>
-                <span className="inline-flex w-fit items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-brand-primary/10 text-brand-primary capitalize mt-1">
-                  {meta.badge}
-                </span>
-              </SheetHeader>
-
-              <div className="grid grid-cols-2 gap-x-6 gap-y-5">
-                <Field label="Title" value={selected.title} />
-                <Field label="Organisation" value={selected.representing} />
-                <Field label="Email" value={selected.email} />
-                <Field label="Phone" value={selected.phone} />
-                <Field label="Country" value={selected.country} />
-                <Field label="Submitted" value={formatDate(selected.createdAt)} />
-                <div className="col-span-2">
-                  <p className="text-xs font-semibold text-brand-text-secondary uppercase tracking-wider mb-1">
-                    Website
-                  </p>
-                  <a
-                    href={selected.website}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm text-brand-primary hover:text-brand-primary-dark font-medium break-all"
-                  >
-                    {selected.website}
-                    <ExternalLink className="w-3.5 h-3.5 opacity-60 shrink-0" />
-                  </a>
+            <aside
+              ref={detailRef}
+              aria-labelledby="stakeholder-detail-title"
+              className="flex scroll-mt-20 flex-col gap-4 rounded-[14px] border border-ui-line bg-ui-surface px-5 py-[18px]"
+            >
+              <div className="flex items-start gap-3">
+                <div className="min-w-0 flex-1">
+                  <h2 id="stakeholder-detail-title" className="break-words text-lg font-semibold text-ui-text">
+                    {selected.fullName}
+                  </h2>
+                  <Pill tone="brand" className="mt-1.5">{meta.badge}</Pill>
                 </div>
+                <IconButton label="Close details" icon={X} onClick={() => setSelected(null)} className="-mr-1.5" />
               </div>
 
-              {selected.involvement.length > 0 && (
-                <div className="mt-6">
-                  <p className="text-xs font-semibold text-brand-text-secondary uppercase tracking-wider mb-2">
-                    Involvement
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
+              <dl className="m-0 grid grid-cols-2 gap-x-4 gap-y-3.5">
+                <DetailField label="Title">{selected.title}</DetailField>
+                <DetailField label="Submitted">{fmtDate(selected.createdAt)}</DetailField>
+                <DetailField label="Organization" wide>{selected.representing}</DetailField>
+                <DetailField label="Email">
+                  {selected.email && (
+                    <a href={`mailto:${selected.email}`} className="break-all text-ui-brand-text underline underline-offset-2">
+                      {selected.email}
+                    </a>
+                  )}
+                </DetailField>
+                <DetailField label="Phone">{selected.phone}</DetailField>
+                <DetailField label="Country">{selected.country}</DetailField>
+                <DetailField label="Website">
+                  {selected.website && (
+                    <a
+                      href={selected.website}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 break-all text-ui-brand-text underline underline-offset-2"
+                    >
+                      {selected.website}
+                      <ExternalLink className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} aria-hidden />
+                    </a>
+                  )}
+                </DetailField>
+              </dl>
+
+              <div className="flex flex-col gap-2 border-t border-ui-line pt-3.5">
+                <span className="text-xs font-semibold text-ui-muted">Involvement</span>
+                {selected.involvement?.length > 0 ? (
+                  <span className="flex flex-wrap gap-1.5">
                     {selected.involvement.map((inv) => (
-                      <span
-                        key={inv}
-                        className="px-2.5 py-0.5 rounded-full bg-brand-surface-2 text-brand-text-primary text-xs font-medium"
-                      >
-                        {inv}
-                      </span>
+                      <Tag key={inv} className="h-auto min-h-[22px] whitespace-normal py-0.5">{inv}</Tag>
                     ))}
-                  </div>
-                </div>
-              )}
-            </>
+                  </span>
+                ) : (
+                  <span className="text-sm text-ui-muted">Not given</span>
+                )}
+              </div>
+            </aside>
           )}
-        </SheetContent>
-      </Sheet>
+        </div>
+      </div>
     </AdminLayout>
   )
 }

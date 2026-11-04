@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect } from 'react'
-import { Trash2 } from 'lucide-react'
+import { btn } from '@/components/kit'
+import { Modal } from '@/components/admin/ui'
 
 export function ConfirmDialog({
   open,
@@ -10,6 +10,7 @@ export function ConfirmDialog({
   confirmLabel = 'Delete',
   onConfirm,
   onCancel,
+  tone = 'danger',
 }: {
   open: boolean
   title: string
@@ -17,49 +18,32 @@ export function ConfirmDialog({
   confirmLabel?: string
   onConfirm: () => void
   onCancel: () => void
+  /** `danger` (default) for destructive actions, `primary` otherwise. */
+  tone?: 'danger' | 'primary'
 }) {
-  useEffect(() => {
-    if (!open) return
-    function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') onCancel()
-    }
-    document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
-  }, [open, onCancel])
-
-  if (!open) return null
-
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center">
-      <div
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-        onClick={onCancel}
-      />
-      <div className="relative z-10 bg-white rounded-2xl border border-brand-surface-2 shadow-2xl p-6 max-w-sm w-full mx-4">
-        <div className="flex items-center gap-3 mb-3">
-          <div className="w-9 h-9 rounded-xl bg-rose-500/10 flex items-center justify-center flex-shrink-0">
-            <Trash2 className="w-4 h-4 text-rose-500" />
-          </div>
-          <h2 className="text-base font-bold text-brand-text-primary">{title}</h2>
-        </div>
-        <p className="text-sm text-brand-text-muted mb-5 leading-relaxed">{message}</p>
-        <div className="flex justify-end gap-2">
-          <button
-            type="button"
-            onClick={onCancel}
-            className="px-4 py-2 rounded-xl bg-brand-surface text-brand-text-primary text-sm font-semibold hover:bg-brand-surface-2 transition-colors"
-          >
+    <Modal
+      open={open}
+      title={title}
+      onClose={onCancel}
+      size="sm"
+      footer={
+        <>
+          <button type="button" onClick={onCancel} className={btn({ variant: 'secondary', size: 'sm' })}>
             Cancel
           </button>
           <button
             type="button"
+            data-autofocus
             onClick={onConfirm}
-            className="px-4 py-2 rounded-xl bg-rose-500 text-white text-sm font-bold hover:bg-rose-600 transition-colors"
+            className={btn({ variant: tone === 'danger' ? 'danger' : 'primary', size: 'sm' })}
           >
             {confirmLabel}
           </button>
-        </div>
-      </div>
-    </div>
+        </>
+      }
+    >
+      <p className="text-sm leading-relaxed text-ui-muted">{message}</p>
+    </Modal>
   )
 }

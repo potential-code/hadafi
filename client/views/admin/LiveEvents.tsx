@@ -1,44 +1,32 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import {
-  CalendarDays,
-  Search,
-  Pencil,
-  Trash2,
-  Eye,
-  EyeOff,
-  Link,
-  PlayCircle,
-  Plus,
   CalendarCheck,
   CalendarClock,
+  CalendarDays,
+  CalendarPlus,
+  Eye,
+  EyeOff,
+  Link as LinkIcon,
+  Pencil,
+  Play,
+  Plus,
+  Trash2,
+  type LucideIcon,
 } from 'lucide-react'
 import { toast } from 'sonner'
 import { AdminLayout } from '@/components/admin/AdminLayout'
-import { PageHeader } from '@/components/dashboard/widgets/PageHeader'
-import { StatCard } from '@/components/dashboard/widgets/StatCard'
+import { btn, Card, EmptyState, FilterChips, PageHeader, Skeleton } from '@/components/kit'
+import { adminTableClass, IconButton, Pill, SearchInput, SortButton, TableCard, type SortDir } from '@/components/admin/ui'
 import { LiveEventDialog } from '@/components/admin/widgets/LiveEventDialog'
 import { ConfirmDialog } from '@/components/admin/widgets/ConfirmDialog'
-import {
-  fetchAdminEvents,
-  apiCreateEvent,
-  apiUpdateEvent,
-  apiDeleteEvent,
-  type LiveEvent,
-} from '@/lib/api/liveEvents'
+import { fetchAdminEvents, apiCreateEvent, apiUpdateEvent, apiDeleteEvent, type LiveEvent } from '@/lib/api/liveEvents'
 import { cn } from '@/lib/utils'
+import { optimizedSrc } from '@/lib/images'
+import { errorMessage } from '@/lib/api/errors'
 
 type Filter = 'all' | 'published' | 'draft' | 'upcoming' | 'past'
-
-const FILTER_TABS: { id: Filter; label: string }[] = [
-  { id: 'all', label: 'All' },
-  { id: 'published', label: 'Published' },
-  { id: 'draft', label: 'Draft' },
-  { id: 'upcoming', label: 'Upcoming' },
-  { id: 'past', label: 'Past' },
-]
 
 function formatDate(iso: string): string {
   const [year, month, day] = iso.split('-')
@@ -47,11 +35,16 @@ function formatDate(iso: string): string {
   return d.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
 }
 
+function plural(n: number, word: string) {
+  return `${n} ${word}${n === 1 ? '' : 's'}`
+}
+
 export default function LiveEventsAdmin() {
   const [events, setEvents] = useState<LiveEvent[]>([])
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState<Filter>('all')
   const [query, setQuery] = useState('')
+  const [sortDir, setSortDir] = useState<SortDir>('desc')
   const [dialogOpen, setDialogOpen] = useState(false)
   const [editing, setEditing] = useState<LiveEvent | null>(null)
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
@@ -59,27 +52,52 @@ export default function LiveEventsAdmin() {
   useEffect(() => {
     fetchAdminEvents()
       .then(setEvents)
-      .catch(() => toast.error('Failed to load events'))
+      .catch((err) => toast.error(errorMessage(err, 'Events could not be loaded. Refresh the page to try again.')))
       .finally(() => setLoading(false))
   }, [])
 
   const today = new Date().toISOString().split('T')[0]!
 
+  const isUpcoming = (e: LiveEvent) => e.date >= today && e.status === 'published'
+  const isPast = (e: LiveEvent) => e.date < today
+
+  const counts = useMemo(
+    () => ({
+      all: events.length,
+      published: events.filter((e) => e.status === 'published').length,
+      draft: events.filter((e) => e.status === 'draft').length,
+      upcoming: events.filter(isUpcoming).length,
+      past: events.filter(isPast).length,
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [events, today],
+  )
+
   const filtered = events
     .filter((e) => {
       if (filter === 'published') return e.status === 'published'
       if (filter === 'draft') return e.status === 'draft'
-      if (filter === 'upcoming') return e.date >= today && e.status === 'published'
-      if (filter === 'past') return e.date < today
+      if (filter === 'upcoming') return isUpcoming(e)
+      if (filter === 'past') return isPast(e)
       return true
     })
     .filter((e) => !query || e.title.toLowerCase().includes(query.toLowerCase()))
+    .sort((a, b) => (sortDir === 'desc' ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date)))
 
-  // Stats
-  const totalCount = events.length
-  const publishedCount = events.filter((e) => e.status === 'published').length
-  const upcomingCount = events.filter((e) => e.date >= today && e.status === 'published').length
-  const pastCount = events.filter((e) => e.date < today).length
+  const pastEvents = events.filter(isPast)
+  const pastWithRecording = pastEvents.filter((e) => !!e.recordingLink).length
+  const nextEvent = events.filter(isUpcoming).sort((a, b) => a.date.localeCompare(b.date))[0]
+  const lastEvent = [...pastEvents].sort((a, b) => b.date.localeCompare(a.date))[0]
+
+  function openCreate() {
+    setEditing(null)
+    setDialogOpen(true)
+  }
+
+  function openEdit(e: LiveEvent) {
+    setEditing(e)
+    setDialogOpen(true)
+  }
 
   async function handleToggleStatus(event: LiveEvent) {
     const newStatus = event.status === 'published' ? 'draft' : 'published'
@@ -87,8 +105,8 @@ export default function LiveEventsAdmin() {
       await apiUpdateEvent(event.id, { status: newStatus })
       setEvents((cur) => cur.map((e) => (e.id === event.id ? { ...e, status: newStatus } : e)))
       toast.success(`Event ${newStatus === 'published' ? 'published' : 'moved to draft'}`)
-    } catch {
-      toast.error('Failed to update status')
+    } catch (err) {
+      toast.error(errorMessage(err, 'The event status could not be changed. Please try again.'))
     }
   }
 
@@ -107,8 +125,8 @@ export default function LiveEventsAdmin() {
       setEditing(null)
     } catch (err: unknown) {
       const e = err as { error?: { code?: string } }
-      if (e?.error?.code === 'VALIDATION_ERROR') throw err  // let dialog show inline errors
-      toast.error('Failed to save event')
+      if (e?.error?.code === 'VALIDATION_ERROR') throw err // let the panel show inline errors
+      toast.error(errorMessage(err, 'The event could not be saved. Please try again.'))
     }
   }
 
@@ -116,256 +134,228 @@ export default function LiveEventsAdmin() {
     try {
       await apiDeleteEvent(id)
       setEvents((cur) => cur.filter((e) => e.id !== id))
+      if (editing?.id === id) {
+        setDialogOpen(false)
+        setEditing(null)
+      }
       toast.success('Event deleted')
-    } catch {
-      toast.error('Failed to delete event')
+    } catch (err) {
+      toast.error(errorMessage(err, 'The event could not be deleted. Please try again.'))
     }
     setConfirmDeleteId(null)
   }
 
-  if (loading) {
-    return (
-      <AdminLayout>
-        <div className="flex items-center justify-center h-64 text-brand-text-muted">
-          Loading events…
-        </div>
-      </AdminLayout>
-    )
-  }
+  const filterOptions: { value: Filter; label: string; count: number }[] = [
+    { value: 'all', label: 'All', count: counts.all },
+    { value: 'published', label: 'Published', count: counts.published },
+    { value: 'draft', label: 'Draft', count: counts.draft },
+    { value: 'upcoming', label: 'Upcoming', count: counts.upcoming },
+    { value: 'past', label: 'Past', count: counts.past },
+  ]
 
   return (
     <AdminLayout>
-      <PageHeader
-        eyebrow="Live Events"
-        title="Events &"
-        highlight="sessions"
-        subtitle="Manage webinars, workshops and live sessions for SMEs."
-        actions={
-          <button
-            onClick={() => { setEditing(null); setDialogOpen(true) }}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark transition-colors shadow-lg"
-          >
-            <Plus className="w-4 h-4" />
-            New Event
-          </button>
-        }
-      />
+      <div className="flex flex-col gap-5">
+        <PageHeader
+          className="mb-0 max-md:flex-col max-md:items-start"
+          title="Live Events"
+          subtitle="Manage webinars, workshops and live sessions for women entrepreneurs."
+          actions={
+            <button type="button" onClick={openCreate} className={btn()}>
+              <Plus className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
+              New event
+            </button>
+          }
+        />
 
-      {/* Stats strip */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-        <StatCard label="Total events" value={totalCount} icon={<CalendarDays className="w-9 h-9" />} accent="bg-brand-primary" delay={0} />
-        <StatCard label="Published" value={publishedCount} icon={<CalendarCheck className="w-9 h-9" />} accent="bg-brand-violet" delay={0.05} />
-        <StatCard label="Upcoming" value={upcomingCount} icon={<CalendarClock className="w-9 h-9" />} accent="bg-brand-primary-dark" delay={0.1} />
-        <StatCard label="Past" value={pastCount} icon={<PlayCircle className="w-9 h-9" />} accent="bg-brand-primary" delay={0.15} />
-      </div>
+        {/* Stats */}
+        <Card className="grid grid-cols-2 md:grid-cols-4">
+          <StatCell icon={CalendarDays} label="Total events" value={loading ? null : counts.all} />
+          <StatCell
+            icon={CalendarCheck}
+            label="Published"
+            value={loading ? null : counts.published}
+            hint={counts.draft > 0 ? `${plural(counts.draft, 'draft')}` : undefined}
+            className="border-l border-ui-line"
+          />
+          <StatCell
+            icon={CalendarClock}
+            label="Upcoming"
+            value={loading ? null : counts.upcoming}
+            muted={counts.upcoming === 0}
+            hint={loading ? undefined : nextEvent ? `Next on ${formatDate(nextEvent.date)}` : 'Nothing scheduled'}
+            className="md:border-l md:border-ui-line"
+          />
+          <StatCell
+            icon={Play}
+            label="Past"
+            value={loading ? null : counts.past}
+            hint={
+              loading || counts.past === 0
+                ? undefined
+                : pastWithRecording === counts.past
+                  ? 'All with recordings'
+                  : `${pastWithRecording} with recordings`
+            }
+            className="border-l border-ui-line"
+          />
+        </Card>
 
-      {/* Search bar */}
-      <div className="mb-4 flex flex-wrap items-center gap-3">
-        <div className="relative flex-1 min-w-[200px] max-w-xs">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-text-muted" />
-          <input
+        {/* Toolbar */}
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <FilterChips
+            label="Filter events"
+            options={filterOptions}
+            active={filter}
+            onChange={(v) => setFilter(v)}
+            className="max-md:w-full max-md:flex-nowrap md:flex-wrap"
+          />
+          <SearchInput
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search events…"
-            className="rounded-xl border border-brand-surface-2 bg-white pl-9 pr-3 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
+            onChange={setQuery}
+            placeholder="Search events"
+            className="w-full md:w-[260px]"
+          />
+        </div>
+
+        <div className={cn('grid grid-cols-[minmax(0,1fr)] items-start gap-5', dialogOpen && 'xl:grid-cols-[minmax(0,1fr)_360px]')}>
+          <div className="flex min-w-0 flex-col gap-4">
+            {!loading && events.length > 0 && counts.upcoming === 0 && (
+              <div className="flex items-center gap-3.5 rounded-[14px] bg-ui-brand-soft px-[18px] py-3.5">
+                <CalendarPlus className="h-[18px] w-[18px] shrink-0 text-ui-brand-text" strokeWidth={1.75} aria-hidden />
+                <div className="min-w-0 flex-1">
+                  <p className="font-semibold text-ui-text">No upcoming events</p>
+                  <p className="mt-0.5 text-[13px] text-ui-muted">
+                    {lastEvent
+                      ? `The last ${lastEvent.type.toLowerCase()} ran on ${formatDate(lastEvent.date)}. Publish a new event to show it to learners.`
+                      : 'Publish a new event to show it to learners.'}
+                  </p>
+                </div>
+                <button type="button" onClick={openCreate} className={cn(btn({ variant: 'secondary', size: 'sm' }), 'max-md:hidden')}>
+                  Schedule event
+                </button>
+              </div>
+            )}
+
+            {loading ? (
+              <Card className="flex flex-col gap-3 p-5" aria-busy="true" aria-label="Loading events">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <Skeleton key={i} className="h-10" />
+                ))}
+              </Card>
+            ) : filtered.length === 0 ? (
+              <Card>
+                <EmptyState
+                  icon={CalendarDays}
+                  title={events.length === 0 ? 'No events yet' : 'No events found'}
+                  body={query ? 'Try a different search.' : events.length === 0 ? 'Create your first event to get started.' : 'No events match this filter.'}
+                  action={
+                    <button type="button" onClick={openCreate} className={btn({ size: 'sm' })}>
+                      <Plus className="h-4 w-4" aria-hidden />
+                      New event
+                    </button>
+                  }
+                />
+              </Card>
+            ) : (
+              <TableCard>
+                <table className={cn(adminTableClass, 'min-w-[600px] table-fixed')} aria-label="Events">
+                  <colgroup>
+                    <col />
+                    <col className="w-[124px]" />
+                    <col className="w-[120px]" />
+                    <col className="w-[76px]" />
+                    <col className="w-[112px]" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">Event</th>
+                      <th scope="col" aria-sort={sortDir === 'desc' ? 'descending' : 'ascending'}>
+                        <SortButton active dir={sortDir} onClick={() => setSortDir((d) => (d === 'desc' ? 'asc' : 'desc'))}>
+                          Date
+                        </SortButton>
+                      </th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Links</th>
+                      <th scope="col" className="!text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filtered.map((e) => {
+                      const selected = dialogOpen && editing?.id === e.id
+                      return (
+                        <tr key={e.id} aria-selected={selected || undefined} className={cn(selected && '!bg-ui-brand-soft')}>
+                          <td>
+                            <span className="flex min-w-0 items-center gap-2.5">
+                              {e.coverImage ? (
+                                <img src={optimizedSrc(e.coverImage)} alt="" className="h-8 w-8 shrink-0 rounded-lg object-cover" />
+                              ) : (
+                                <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-ui-surface-2 text-ui-muted">
+                                  <CalendarDays className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+                                </span>
+                              )}
+                              <span className="flex min-w-0 flex-col">
+                                <button
+                                  type="button"
+                                  onClick={() => openEdit(e)}
+                                  className="truncate text-left font-semibold text-ui-text hover:underline"
+                                  title={e.title}
+                                >
+                                  {e.title}
+                                </button>
+                                <span className="truncate text-xs text-ui-muted">
+                                  {e.type}
+                                  {e.time ? `, ${e.time}` : ''}
+                                </span>
+                              </span>
+                            </span>
+                          </td>
+                          <td className="whitespace-nowrap tabular-nums text-ui-muted">{formatDate(e.date)}</td>
+                          <td>
+                            {e.status === 'published' ? (
+                              <Pill tone="brand" dot>Published</Pill>
+                            ) : (
+                              <Pill tone="line">Draft</Pill>
+                            )}
+                          </td>
+                          <td>
+                            <span className="flex gap-1">
+                              <LinkDot on={!!e.meetingLink} icon={LinkIcon} label={e.meetingLink ? 'Meeting link set' : 'No meeting link'} />
+                              <LinkDot on={!!e.recordingLink} icon={Play} label={e.recordingLink ? 'Recording link set' : 'No recording link'} />
+                            </span>
+                          </td>
+                          <td>
+                            <span className="flex justify-end gap-0.5">
+                              <IconButton label={`Edit ${e.title}`} icon={Pencil} onClick={() => openEdit(e)} />
+                              <IconButton
+                                label={e.status === 'published' ? `Move ${e.title} to draft` : `Publish ${e.title}`}
+                                icon={e.status === 'published' ? EyeOff : Eye}
+                                onClick={() => handleToggleStatus(e)}
+                              />
+                              <IconButton label={`Delete ${e.title}`} icon={Trash2} tone="danger" onClick={() => setConfirmDeleteId(e.id)} />
+                            </span>
+                          </td>
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </table>
+              </TableCard>
+            )}
+          </div>
+
+          <LiveEventDialog
+            open={dialogOpen}
+            initial={editing}
+            onClose={() => {
+              setDialogOpen(false)
+              setEditing(null)
+            }}
+            onSave={handleSave}
+            className="xl:sticky xl:top-6"
           />
         </div>
       </div>
-
-      {/* Filter tabs */}
-      <div className="mb-5 flex flex-wrap gap-2">
-        {FILTER_TABS.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setFilter(tab.id)}
-            className={cn(
-              'px-3.5 py-1.5 rounded-xl text-xs font-bold transition-colors',
-              filter === tab.id
-                ? 'bg-brand-primary text-white shadow-sm'
-                : 'bg-white border border-brand-surface-2 text-brand-text-muted hover:text-brand-text-primary hover:border-brand-primary/30',
-            )}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Table / Empty state */}
-      <AnimatePresence mode="wait">
-        {filtered.length === 0 ? (
-          <motion.div
-            key="empty"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="rounded-3xl border-2 border-dashed border-brand-surface-2 bg-white p-12 text-center"
-          >
-            <div className="mx-auto w-14 h-14 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mb-3">
-              <CalendarDays className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg font-black text-brand-text-primary">No events found</h3>
-            <p className="mt-1 text-sm text-brand-text-muted">
-              {query ? 'Try a different search.' : 'Create your first event to get started.'}
-            </p>
-            <button
-              onClick={() => { setEditing(null); setDialogOpen(true) }}
-              className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark transition-colors"
-            >
-              <Plus className="w-4 h-4" />
-              New Event
-            </button>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="table"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="rounded-2xl border border-brand-surface-2 bg-white overflow-hidden"
-          >
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead className="bg-brand-surface text-left text-[10px] font-bold uppercase tracking-wider text-brand-text-muted">
-                  <tr>
-                    <th className="px-4 py-3">Event</th>
-                    <th className="px-4 py-3">Date</th>
-                    <th className="px-4 py-3">Type</th>
-                    <th className="px-4 py-3">Status</th>
-                    <th className="px-4 py-3">Links</th>
-                    <th className="px-4 py-3 text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filtered.map((e, i) => (
-                    <motion.tr
-                      key={e.id}
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.03 * i }}
-                      className="border-b border-brand-surface-2/60 hover:bg-brand-surface/60 transition-colors"
-                    >
-                      {/* Event title + cover thumbnail */}
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-3">
-                          {e.coverImage ? (
-                            <img
-                              src={e.coverImage}
-                              alt=""
-                              className="w-8 h-8 rounded-lg object-cover flex-shrink-0"
-                            />
-                          ) : (
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-violet flex items-center justify-center flex-shrink-0">
-                              <CalendarDays className="w-3.5 h-3.5 text-white/80" />
-                            </div>
-                          )}
-                          <span className="font-bold text-brand-text-primary line-clamp-1">
-                            {e.title}
-                          </span>
-                        </div>
-                      </td>
-
-                      {/* Date */}
-                      <td className="px-4 py-3 tabular-nums text-brand-text-muted whitespace-nowrap">
-                        {formatDate(e.date)}
-                      </td>
-
-                      {/* Type badge */}
-                      <td className="px-4 py-3">
-                        <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-brand-violet/10 text-brand-violet text-[10px] font-bold uppercase tracking-wider">
-                          {e.type}
-                        </span>
-                      </td>
-
-                      {/* Status badge */}
-                      <td className="px-4 py-3">
-                        <span
-                          className={cn(
-                            'inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider',
-                            e.status === 'published'
-                              ? 'bg-emerald-500/15 text-emerald-700'
-                              : 'bg-amber-500/15 text-amber-700',
-                          )}
-                        >
-                          {e.status}
-                        </span>
-                      </td>
-
-                      {/* Links indicators */}
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <span
-                            title={e.meetingLink ? 'Meeting link set' : 'No meeting link'}
-                            className={cn(
-                              'w-6 h-6 rounded-md flex items-center justify-center',
-                              e.meetingLink
-                                ? 'text-sky-600 bg-sky-50'
-                                : 'text-brand-text-muted/30 bg-brand-surface',
-                            )}
-                          >
-                            <Link className="w-3.5 h-3.5" />
-                          </span>
-                          <span
-                            title={e.recordingLink ? 'Recording link set' : 'No recording link'}
-                            className={cn(
-                              'w-6 h-6 rounded-md flex items-center justify-center',
-                              e.recordingLink
-                                ? 'text-emerald-600 bg-emerald-50'
-                                : 'text-brand-text-muted/30 bg-brand-surface',
-                            )}
-                          >
-                            <PlayCircle className="w-3.5 h-3.5" />
-                          </span>
-                        </div>
-                      </td>
-
-                      {/* Actions */}
-                      <td className="px-4 py-3">
-                        <div className="flex items-center justify-end gap-1">
-                          {/* Edit */}
-                          <button
-                            onClick={() => { setEditing(e); setDialogOpen(true) }}
-                            className="w-7 h-7 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-brand-primary hover:text-white transition-colors"
-                            aria-label="Edit event"
-                          >
-                            <Pencil className="w-3.5 h-3.5" />
-                          </button>
-                          {/* Toggle status */}
-                          <button
-                            onClick={() => handleToggleStatus(e)}
-                            className="w-7 h-7 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-sky-500 hover:text-white transition-colors"
-                            aria-label={e.status === 'published' ? 'Move to draft' : 'Publish'}
-                          >
-                            {e.status === 'published' ? (
-                              <EyeOff className="w-3.5 h-3.5" />
-                            ) : (
-                              <Eye className="w-3.5 h-3.5" />
-                            )}
-                          </button>
-                          {/* Delete */}
-                          <button
-                            onClick={() => setConfirmDeleteId(e.id)}
-                            className="w-7 h-7 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-rose-500 hover:text-white transition-colors"
-                            aria-label="Delete event"
-                          >
-                            <Trash2 className="w-3.5 h-3.5" />
-                          </button>
-                        </div>
-                      </td>
-                    </motion.tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <LiveEventDialog
-        open={dialogOpen}
-        initial={editing}
-        onClose={() => { setDialogOpen(false); setEditing(null) }}
-        onSave={handleSave}
-      />
 
       <ConfirmDialog
         open={!!confirmDeleteId}
@@ -379,3 +369,51 @@ export default function LiveEventsAdmin() {
   )
 }
 
+function StatCell({
+  icon: Icon,
+  label,
+  value,
+  hint,
+  muted,
+  className,
+}: {
+  icon: LucideIcon
+  label: string
+  value: number | null
+  hint?: ReactNode
+  muted?: boolean
+  className?: string
+}) {
+  return (
+    <div className={cn('flex flex-col gap-1.5 px-[18px] py-4', className)}>
+      <span className="flex items-center gap-2 text-[13px] font-medium text-ui-muted">
+        <Icon className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
+        {label}
+      </span>
+      {value === null ? (
+        <Skeleton className="h-7 w-12" />
+      ) : (
+        <span className={cn('text-[26px] font-semibold leading-[1.1] tracking-[-0.02em] tabular-nums', muted ? 'text-ui-muted' : 'text-ui-text')}>
+          {value}
+        </span>
+      )}
+      {hint && <span className="text-xs text-ui-muted">{hint}</span>}
+    </div>
+  )
+}
+
+function LinkDot({ on, icon: Icon, label }: { on: boolean; icon: LucideIcon; label: string }) {
+  return (
+    <span
+      role="img"
+      aria-label={label}
+      title={label}
+      className={cn(
+        'inline-flex h-[26px] w-[26px] items-center justify-center rounded-[7px]',
+        on ? 'bg-ui-brand-soft text-ui-brand-text' : 'bg-ui-surface-2 text-ui-muted opacity-55',
+      )}
+    >
+      <Icon className="h-[15px] w-[15px]" strokeWidth={1.75} aria-hidden />
+    </span>
+  )
+}

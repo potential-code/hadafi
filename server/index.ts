@@ -13,6 +13,7 @@ import { auth } from "./auth";
 import { logger } from "./config/logger";
 import { basicAuthGate } from "./middleware/basic-auth";
 import { errorHandler } from "./middleware/error-handler";
+import { UPLOADS_ROOT } from "./middleware/upload";
 import { refreshOutdatedCertificates } from "./services/lms/certificate.service";
 
 // Fail fast without a session-signing secret. BETTER_AUTH_SECRET is preferred;
@@ -86,7 +87,20 @@ app.use(express.urlencoded({ extended: true }));
 // Serve uploaded files without authentication — files are addressed by
 // opaque filenames and do not expose sensitive data beyond the file itself.
 // The basicAuthGate (admin UI guard) is intentionally bypassed here.
-app.use("/uploads", express.static(path.join(__dirname, '..', 'uploads')));
+app.use(
+  "/uploads",
+  express.static(UPLOADS_ROOT, {
+    setHeaders: (res, filePath) => {
+      // Never let the browser guess a different type than the extension says.
+      res.setHeader("X-Content-Type-Options", "nosniff");
+      // An SVG opened directly is a document that can run script on this
+      // origin; sandbox it. <img> embeds are unaffected.
+      if (filePath.toLowerCase().endsWith(".svg")) {
+        res.setHeader("Content-Security-Policy", "default-src 'none'; style-src 'unsafe-inline'; sandbox");
+      }
+    },
+  }),
+);
 
 app.use(basicAuthGate);
 

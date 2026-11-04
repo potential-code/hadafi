@@ -1,7 +1,8 @@
 import type { Request, Response, NextFunction } from 'express'
-import fs from 'fs/promises'
-import path from 'path'
 import * as mediaService from '../services/media.service'
+import { AppError } from '../utils/app-error'
+
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 export async function listFiles(
   _req: Request,
@@ -16,16 +17,27 @@ export async function listFiles(
   }
 }
 
+/**
+ * Saves the files `uploadMedia` wrote. Each file's bytes must match the type
+ * the browser claimed; if any does not, none of the batch is kept.
+ */
 export async function uploadFiles(
   req: Request,
   res: Response,
   next: NextFunction,
 ): Promise<void> {
+  const uploaded = (req.files ?? []) as Express.Multer.File[]
   try {
-    const uploaded = req.files as Express.Multer.File[]
-    if (!uploaded?.length) {
-      res.status(400).json({ success: false, message: 'No files provided' })
-      return
+    if (!uploaded.length) throw new AppError('Choose at least one file to upload', 400, 'NO_FILES')
+
+    for (const f of uploaded) {
+      if (!(await mediaService.contentMatchesType(f.path, f.mimetype))) {
+        throw new AppError(
+          `"${f.originalname}" does not look like the type it claims to be. Save it again in its real format and retry.`,
+          415,
+          'FILE_CONTENT_MISMATCH',
+        )
+      }
     }
 
     const saved = await Promise.all(
@@ -43,6 +55,7 @@ export async function uploadFiles(
 
     res.status(201).json({ success: true, data: saved })
   } catch (err) {
+    await Promise.all(uploaded.map((f) => mediaService.removeMediaFromDisk(`uploads/media/${f.filename}`).catch(() => {})))
     next(err)
   }
 }
@@ -54,14 +67,10 @@ export async function deleteFile(
 ): Promise<void> {
   try {
     const { id } = req.params as { id: string }
-    const file = await mediaService.getMediaFile(id)
+    const file = UUID.test(id) ? await mediaService.getMediaFile(id) : null
+    if (!file) throw new AppError('File not found', 404, 'NOT_FOUND')
 
-    if (!file) {
-      res.status(404).json({ success: false, message: 'File not found' })
-      return
-    }
-
-    await fs.unlink(path.join(process.cwd(), file.path)).catch(() => {})
+    await mediaService.removeMediaFromDisk(file.path)
     await mediaService.deleteMediaFile(id)
 
     res.json({ success: true })
@@ -76,18 +85,14 @@ export async function bulkDeleteFiles(
   next: NextFunction,
 ): Promise<void> {
   try {
-    const { ids } = req.body as { ids: string[] }
-
-    if (!Array.isArray(ids) || ids.length === 0) {
-      res.status(400).json({ success: false, message: 'ids must be a non-empty array' })
-      return
+    const { ids } = (req.body ?? {}) as { ids?: unknown }
+    if (!Array.isArray(ids) || ids.length === 0 || !ids.every((i) => typeof i === 'string' && UUID.test(i))) {
+      throw new AppError('Choose at least one file to delete', 400, 'VALIDATION_ERROR')
     }
 
-    const files = await mediaService.getMediaFilesByIds(ids)
-    await Promise.all(
-      files.map((f) => fs.unlink(path.join(process.cwd(), f.path)).catch(() => {})),
-    )
-    await mediaService.deleteMediaFiles(ids)
+    const files = await mediaService.getMediaFilesByIds(ids as string[])
+    await Promise.all(files.map((f) => mediaService.removeMediaFromDisk(f.path)))
+    await mediaService.deleteMediaFiles(ids as string[])
 
     res.json({ success: true })
   } catch (err) {

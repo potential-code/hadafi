@@ -1,326 +1,529 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { CalendarDays, Users, CheckCircle2, Video, AlertTriangle, CalendarPlus, ArrowRight } from 'lucide-react'
+import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react'
 import Link from 'next/link'
+import {
+  AlertTriangle,
+  ArrowRight,
+  Calendar,
+  CalendarCheck,
+  CalendarDays,
+  CalendarPlus,
+  Check,
+  CheckCircle2,
+  Clock,
+  Eye,
+  FileText,
+  Timer,
+  Users,
+  Video,
+} from 'lucide-react'
+import { toast } from 'sonner'
 import { MentorLayout } from '@/components/mentor/MentorLayout'
-import { StatCard } from '@/components/dashboard/widgets/StatCard'
-import { DashboardCard } from '@/components/dashboard/widgets/DashboardCard'
-import { apiFetch } from '@/lib/api'
+import { Avatar, Button, Card, Chip, EmptyState, PageHeader, Skeleton, btn, inputClass } from '@/components/kit'
+import {
+  ConfirmModal,
+  DateBox,
+  IconTile,
+  apiErrorMessage,
+  browserTz,
+  classifySessions,
+  dayKey,
+  durationLabel,
+  fetchMe,
+  fmtDay,
+  fmtShort,
+  fmtTime,
+  isHttpsUrl,
+  minutesBetween,
+  startsInLabel,
+  tzAbbr,
+  updateMe,
+  type ConfirmState,
+  type MeUser,
+} from '@/components/mentor/mentorKit'
+import { completeMentorSessionApi, getMentorAnalytics, getMentorSessionsList, type SessionWithDetails, type SessionsData } from '@/lib/api/mentorSessions'
+import { getMyAvailability, type AvailabilityData } from '@/lib/api/mentorAvailability'
 import { getUser } from '@/lib/auth'
+import { cn } from '@/lib/utils'
 
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
+type Analytics = { upcomingSessions: number; totalMentees: number; completedSessions: number }
 
-interface UpcomingSession {
-  id: string
-  slot: { startsAt: string; endsAt: string }
-  smeUser: { fullName: string; email: string; avatarUrl: string | null }
-  meetingLink: string | null
-  status: string
+function greeting(tz: string) {
+  let h = new Date().getHours()
+  try {
+    h = Number(new Intl.DateTimeFormat('en-US', { hour: 'numeric', hourCycle: 'h23', timeZone: tz }).format(new Date()))
+  } catch {
+    // Unknown timezone: fall back to the browser hour.
+  }
+  if (h < 12) return 'Good morning'
+  if (h < 18) return 'Good afternoon'
+  return 'Good evening'
 }
 
-interface RecentMentee {
-  id: string
-  smeUser: { fullName: string; email: string; avatarUrl: string | null }
-  lastSession: string
-}
-
-// ---------------------------------------------------------------------------
-// Sub-components
-// ---------------------------------------------------------------------------
-
-function Avatar({ initials, size = 'md' }: { initials: string; size?: 'sm' | 'md' }) {
-  const cls = size === 'sm'
-    ? 'w-8 h-8 text-xs'
-    : 'w-10 h-10 text-sm'
-  return (
-    <div className={`${cls} rounded-full bg-gradient-to-br from-brand-primary to-brand-violet flex items-center justify-center text-white font-bold flex-shrink-0`}>
-      {initials}
-    </div>
-  )
-}
-
-function getInitials(fullName: string) {
-  return fullName
-    .split(' ')
-    .map((n) => n[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2)
-}
-
-function formatSessionTime(isoString: string) {
-  return new Intl.DateTimeFormat('en-US', {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    timeZoneName: 'short',
-  }).format(new Date(isoString))
-}
-
-// ---------------------------------------------------------------------------
-// Main view
-// ---------------------------------------------------------------------------
+const countWord = (n: number, one: string, many: string) => (n === 1 ? `one ${one}` : `${n} ${many}`)
 
 export default function MentorOverview() {
-  const [firstName, setFirstName] = useState('Mentor')
-  const [analytics, setAnalytics] = useState({ upcomingSessions: 0, totalMentees: 0, completedSessions: 0 })
-  const [sessions, setSessions] = useState<UpcomingSession[]>([])
-  const [mentees, setMentees] = useState<RecentMentee[]>([])
+  const [firstName, setFirstName] = useState('')
+  const [analytics, setAnalytics] = useState<Analytics | null>(null)
+  const [sessions, setSessions] = useState<SessionsData | null>(null)
+  const [availability, setAvailability] = useState<AvailabilityData | null>(null)
+  const [me, setMe] = useState<MeUser | null>(null)
   const [loading, setLoading] = useState(true)
-  const [noMeetingLink, setNoMeetingLink] = useState(false)
-  const [hasAvailability, setHasAvailability] = useState(true)
+  const [confirm, setConfirm] = useState<ConfirmState>(null)
+  const [now, setNow] = useState(() => new Date())
+
+  const load = useCallback(() => {
+    return Promise.allSettled([getMentorAnalytics(), getMentorSessionsList(), fetchMe(), getMyAvailability()]).then(
+      ([a, s, m, av]) => {
+        if (a.status === 'fulfilled') setAnalytics(a.value)
+        if (s.status === 'fulfilled') setSessions(s.value)
+        if (m.status === 'fulfilled') setMe(m.value)
+        if (av.status === 'fulfilled') setAvailability(av.value)
+        if ([a, s, m, av].some((r) => r.status === 'rejected')) toast.error('Some of your dashboard could not be loaded. Try refreshing.')
+        setNow(new Date())
+      },
+    )
+  }, [])
 
   useEffect(() => {
-    const currentUser = getUser() // Read inside effect to avoid stale closure
-    if (!currentUser) return
+    const u = getUser()
+    setFirstName((u?.fullName ?? '').split(' ')[0] ?? '')
+    load().finally(() => setLoading(false))
+    const t = setInterval(() => setNow(new Date()), 60000)
+    return () => clearInterval(t)
+  }, [load])
 
-    setFirstName((currentUser.fullName ?? 'Mentor').split(' ')[0])
+  const tz = me?.timezone || browserTz()
+  const todayKey = dayKey(now, tz)
+  const groups = useMemo(() => (sessions ? classifySessions(sessions, now) : null), [sessions, now])
+  const next = groups?.upcoming[0] ?? null
+  const needsCount = groups?.needs.length ?? 0
 
-    Promise.all([
-      apiFetch<{ upcomingSessions: number; totalMentees: number; completedSessions: number }>('/api/mentor/analytics'),
-      apiFetch<{ upcoming: UpcomingSession[]; past: UpcomingSession[] }>('/api/mentor/sessions'),
-      apiFetch<{ success: boolean; data: { user: { meetingLink: string | null } } }>('/api/account/me'),
-      apiFetch<{ upcoming: { id: string }[]; past: { id: string }[] }>('/api/mentor/availability'),
-    ])
-      .then(([analyticsData, sessionsData, meData, availabilityData]) => {
-        setAnalytics(analyticsData)
-        setSessions(sessionsData.upcoming.slice(0, 3))
+  const openSlots = (availability?.upcoming ?? []).filter((s) => s.isAvailable)
+  const openAfterToday = openSlots.filter((s) => dayKey(s.startsAt, tz) > todayKey).length
 
-        // Build recent mentees from all sessions, deduplicated by email, tracking most recent session
-        const allSessions = [...sessionsData.upcoming, ...sessionsData.past]
-        const menteeByEmail = new Map<string, RecentMentee>()
-        for (const s of allSessions) {
-          const email = s.smeUser.email
-          const existing = menteeByEmail.get(email)
-          if (!existing) {
-            menteeByEmail.set(email, { id: s.smeUser.email, smeUser: s.smeUser, lastSession: s.slot.startsAt })
-          } else {
-            // Keep the most recent session date
-            if (new Date(s.slot.startsAt) > new Date(existing.lastSession)) {
-              existing.lastSession = s.slot.startsAt
-            }
-          }
-        }
-        const uniqueMentees = Array.from(menteeByEmail.values()).slice(0, 4)
-        setMentees(uniqueMentees)
-        setNoMeetingLink(!meData.data?.user?.meetingLink)
-        setHasAvailability((availabilityData.upcoming?.length ?? 0) > 0)
-        setLoading(false)
+  const todayItems = useMemo(() => {
+    const items: { key: string; startsAt: string; endsAt: string; kind: 'session' | 'open'; title: string; sub: string }[] = []
+    for (const s of groups?.all ?? []) {
+      if (s.status === 'cancelled' || dayKey(s.slot.startsAt, tz) !== todayKey) continue
+      const len = durationLabel(minutesBetween(s.slot.startsAt, s.slot.endsAt))
+      items.push({
+        key: s.id,
+        startsAt: s.slot.startsAt,
+        endsAt: s.slot.endsAt,
+        kind: 'session',
+        title: `Session with ${s.smeUser.fullName}`,
+        sub: s.status === 'completed' ? `Completed, ${len}` : `Booked, ${len}`,
       })
-      .catch(() => setLoading(false))
-  }, [])
+    }
+    for (const sl of openSlots) {
+      if (dayKey(sl.startsAt, tz) !== todayKey) continue
+      items.push({ key: sl.id, startsAt: sl.startsAt, endsAt: sl.endsAt, kind: 'open', title: 'Open slot', sub: 'Not booked yet' })
+    }
+    return items.sort((a, b) => a.startsAt.localeCompare(b.startsAt))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [groups, availability, tz, todayKey])
+
+  const todaySessions = todayItems.filter((i) => i.kind === 'session').length
+  const subtitle = loading
+    ? 'Loading your mentoring overview.'
+    : [
+        todaySessions === 0 ? 'You have no sessions today' : `You have ${countWord(todaySessions, 'session', 'sessions')} today`,
+        needsCount > 0 ? ` and ${countWord(needsCount, 'past session', 'past sessions')} to mark complete.` : '.',
+        openAfterToday === 0
+          ? ' Nothing is open for booking after today.'
+          : ` ${openAfterToday} open slot${openAfterToday === 1 ? '' : 's'} after today.`,
+      ].join('')
+
+  const recentMentees = useMemo(() => {
+    const map = new Map<string, { s: SessionWithDetails; last: string }>()
+    for (const s of groups?.all ?? []) {
+      const prev = map.get(s.smeUser.email)
+      if (!prev || s.slot.startsAt > prev.last) map.set(s.smeUser.email, { s, last: s.slot.startsAt })
+    }
+    return [...map.values()].sort((a, b) => b.last.localeCompare(a.last)).slice(0, 4)
+  }, [groups])
+
+  function markComplete(s: SessionWithDetails) {
+    setConfirm({
+      title: 'Mark as completed',
+      message: `Confirm that your session with ${s.smeUser.fullName} has been completed. This cannot be undone.`,
+      confirmLabel: 'Mark complete',
+      variant: 'default',
+      onConfirm: () => {
+        setConfirm(null)
+        completeMentorSessionApi(s.id)
+          .then(() => {
+            toast.success('Session marked as completed')
+            return load()
+          })
+          .catch((err) => toast.error(apiErrorMessage(err, 'Failed to complete session')))
+      },
+    })
+  }
 
   return (
     <MentorLayout>
-      {/* Welcome banner */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className="relative overflow-hidden rounded-3xl mb-8 p-5 sm:p-6 bg-mesh-dark text-white border border-white/10"
-      >
-        <div className="absolute inset-0 bg-noise opacity-[0.05] mix-blend-overlay pointer-events-none" />
-        <motion.div
-          aria-hidden
-          className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-brand-primary/40 blur-3xl"
-          animate={{ scale: [1, 1.08, 1] }}
-          transition={{ duration: 8, repeat: Infinity }}
+      <div className="flex flex-col gap-6">
+        {/* Header */}
+        <PageHeader
+          className="mb-0 items-center [&>div:first-child]:basis-full sm:[&>div:first-child]:basis-0"
+          title={`${greeting(tz)}${firstName ? `, ${firstName}` : ''}`}
+          subtitle={subtitle}
+          actions={
+            <>
+              <Link href="/mentor/dashboard/calendar" className={cn(btn({ variant: 'secondary' }), 'hidden sm:inline-flex')}>
+                <Calendar className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
+                Calendar
+              </Link>
+              <Link href="/mentor/dashboard/availability" className={btn({ variant: 'secondary' })}>
+                <CalendarPlus className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
+                Add availability
+              </Link>
+            </>
+          }
         />
-        <div className="relative">
-          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 mb-1">
-            Mentor Dashboard
-          </p>
-          <h1 className="text-2xl sm:text-3xl font-black">Welcome back, {firstName} 👋</h1>
-          <p className="text-sm text-white/70 mt-1">Here's your mentoring overview for this week.</p>
+
+        {/* Meeting link warning with inline save */}
+        {!loading && me && !me.meetingLink && <MeetingLinkAlert onSaved={(u) => setMe(u)} />}
+
+        {/* Next session + Today */}
+        <div className="grid grid-cols-1 items-stretch gap-5 xl:grid-cols-[minmax(0,1fr)_340px]">
+          {loading ? (
+            <Card className="p-6"><Skeleton className="h-40" /></Card>
+          ) : next ? (
+            <NextSessionCard session={next} tz={tz} now={now} todayKey={todayKey} onComplete={() => markComplete(next)} />
+          ) : (
+            <Card className="flex flex-col justify-center shadow-ui">
+              <EmptyState
+                icon={CalendarDays}
+                title="No upcoming sessions"
+                body="When a mentee books one of your open slots, the session shows up here with a link to join."
+                action={
+                  <Link href="/mentor/dashboard/availability" className={btn({ variant: 'secondary', size: 'sm' })}>
+                    Add availability
+                  </Link>
+                }
+              />
+            </Card>
+          )}
+
+          <Card className="flex flex-col gap-3.5 px-5 py-[18px]">
+            <div className="flex items-baseline justify-between gap-3">
+              <h2 className="text-base font-semibold text-ui-text">Today</h2>
+              <span className="text-[13px] text-ui-muted">{fmtDay(now, tz)}</span>
+            </div>
+            {loading ? (
+              <div className="flex flex-col gap-3"><Skeleton className="h-10" /><Skeleton className="h-10" /></div>
+            ) : todayItems.length === 0 ? (
+              <p className="py-3 text-sm text-ui-muted">Nothing scheduled today.</p>
+            ) : (
+              <ol className="flex flex-col gap-3">
+                {todayItems.map((i) => (
+                  <li key={i.key} className="grid grid-cols-[52px_12px_minmax(0,1fr)] items-start gap-3">
+                    <span className="pt-px text-[13px] font-semibold tabular-nums text-ui-text">{fmtTime(i.startsAt, tz)}</span>
+                    <span
+                      aria-hidden
+                      className={cn(
+                        'mt-[5px] h-2.5 w-2.5 rounded-full',
+                        i.kind === 'session' ? 'bg-ui-brand' : 'border-2 border-ui-brand',
+                      )}
+                    />
+                    <span className="flex flex-col gap-0.5">
+                      <span className="font-semibold text-ui-text">{i.title}</span>
+                      <span className="text-[13px] text-ui-muted">{i.sub}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            )}
+            <Link href="/mentor/dashboard/calendar" className={cn(btn({ variant: 'secondary', size: 'sm' }), 'mt-auto')}>
+              Open calendar
+            </Link>
+          </Card>
         </div>
-      </motion.div>
 
-      {/* Stat cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-        <StatCard
-          label="Upcoming Sessions"
-          value={loading ? 0 : analytics.upcomingSessions}
-          icon={<CalendarDays className="w-9 h-9" />}
-          trend="confirmed"
-          accent="bg-brand-primary"
-        />
-        <StatCard
-          label="Total Mentees"
-          value={loading ? 0 : analytics.totalMentees}
-          icon={<Users className="w-9 h-9" />}
-          trend="all time"
-          accent="bg-brand-violet"
-        />
-        <StatCard
-          label="Completed Sessions"
-          value={loading ? 0 : analytics.completedSessions}
-          icon={<CheckCircle2 className="w-9 h-9" />}
-          trend="completed"
-          accent="bg-brand-primary-dark"
-        />
-      </div>
+        {/* Stats */}
+        <section aria-label="Overview" className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          <StatLink href="/mentor/dashboard/sessions" icon={CalendarDays} label="Upcoming sessions" value={analytics?.upcomingSessions} loading={loading}>
+            <span className="text-xs text-ui-muted">Confirmed</span>
+          </StatLink>
+          <StatLink href="/mentor/dashboard/mentees" icon={Users} label="Mentees" value={analytics?.totalMentees} loading={loading}>
+            <span className="text-xs text-ui-muted">All time</span>
+          </StatLink>
+          <StatLink href="/mentor/dashboard/sessions" icon={CheckCircle2} label="Completed sessions" value={analytics?.completedSessions} loading={loading}>
+            {needsCount > 0 ? (
+              <span className="flex items-center gap-1.5 text-xs font-semibold text-ui-brand-text">
+                <AlertTriangle className="h-3.5 w-3.5" aria-hidden />
+                {needsCount} need{needsCount === 1 ? 's' : ''} completion
+              </span>
+            ) : (
+              <span className="text-xs text-ui-muted">Nothing to mark</span>
+            )}
+          </StatLink>
+          <StatLink href="/mentor/dashboard/availability" icon={CalendarCheck} label="Open slots after today" value={openAfterToday} loading={loading}>
+            <span className="text-xs text-ui-muted">{openAfterToday === 0 ? 'Mentees have nothing to book' : 'Ready for mentees to book'}</span>
+          </StatLink>
+        </section>
 
-      {/* Meeting link warning */}
-      {!loading && noMeetingLink && (
-        <div className="mb-4 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-          <AlertTriangle className="w-4 h-4 shrink-0 text-amber-500" />
-          <span>You haven't added a meeting link yet. SMEs won't be able to join your sessions.</span>
-          <Link
-            href="/mentor/dashboard/profile"
-            className="ml-auto text-xs font-bold text-amber-700 hover:text-amber-900 underline whitespace-nowrap"
-          >
-            Go to Profile →
-          </Link>
-        </div>
-      )}
-
-      {/* Availability nudge */}
-      {!loading && !hasAvailability && (
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-6 rounded-2xl border border-brand-primary/20 bg-gradient-to-br from-brand-primary/5 to-brand-violet/5 p-5 sm:p-6"
+        {/* Availability prompt + recent mentees */}
+        <div
+          className={cn(
+            'grid grid-cols-1 items-start gap-5',
+            !loading && openAfterToday === 0 && 'xl:grid-cols-[minmax(0,1fr)_340px]',
+          )}
         >
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="flex items-start gap-4 flex-1 min-w-0">
-              <div className="w-10 h-10 rounded-xl bg-brand-primary/10 flex items-center justify-center shrink-0">
-                <CalendarPlus className="w-5 h-5 text-brand-primary" />
-              </div>
-              <div className="min-w-0">
-                <p className="font-bold text-brand-text-primary text-sm">
-                  Add your availability to start receiving bookings
-                </p>
-                <p className="text-xs text-brand-text-muted mt-0.5 leading-relaxed">
-                  SMEs browse mentor profiles and book open slots directly on your calendar. Set your available times so they can schedule a session with you.
-                </p>
-                <div className="mt-3 flex items-center gap-3 flex-wrap">
-                  {[
-                    { step: '1', label: 'Add open slots' },
-                    { step: '2', label: 'SME books a time' },
-                    { step: '3', label: 'Session confirmed' },
-                  ].map(({ step, label }, i) => (
-                    <div key={step} className="flex items-center gap-1.5">
-                      <span className="w-5 h-5 rounded-full bg-brand-primary/20 text-brand-primary text-[10px] font-black flex items-center justify-center">
-                        {step}
-                      </span>
-                      <span className="text-[11px] text-brand-text-muted font-medium">{label}</span>
-                      {i < 2 && <ArrowRight className="w-3 h-3 text-brand-text-muted/50" />}
-                    </div>
-                  ))}
+          {!loading && openAfterToday === 0 && (
+            <section aria-labelledby="h-avail" className="flex flex-col gap-4 rounded-[14px] border border-ui-line bg-ui-surface px-5 py-5 sm:px-6">
+              <div className="flex items-start gap-3.5">
+                <IconTile size={44}><CalendarPlus className="h-5 w-5" strokeWidth={1.75} /></IconTile>
+                <div className="flex flex-col gap-1">
+                  <h2 id="h-avail" className="text-lg font-semibold text-ui-text">Add availability to start receiving bookings</h2>
+                  <p className="text-sm leading-normal text-ui-muted">
+                    Women entrepreneurs browse mentor profiles and book open slots directly on your calendar. Set your available times so they can schedule a session with you.
+                  </p>
                 </div>
               </div>
-            </div>
-            <Link
-              href="/mentor/dashboard/availability"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark transition-colors whitespace-nowrap shrink-0 shadow-sm"
-            >
-              <CalendarPlus className="w-4 h-4" />
-              Add availability
-            </Link>
-          </div>
-        </motion.div>
-      )}
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Upcoming sessions */}
-        <div className="lg:col-span-2">
-          <DashboardCard title="Upcoming Sessions" ctaLabel="View all" ctaHref="/mentor/dashboard/sessions">
-            {loading ? (
-              <div className="space-y-3">
-                {[0, 1, 2].map((i) => (
-                  <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-brand-surface border border-brand-surface-2 animate-pulse">
-                    <div className="w-10 h-10 rounded-full bg-brand-surface-2 flex-shrink-0" />
-                    <div className="flex-1 space-y-2">
-                      <div className="h-3 bg-brand-surface-2 rounded w-32" />
-                      <div className="h-2.5 bg-brand-surface-2 rounded w-48" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : sessions.length === 0 ? (
-              <p className="text-sm text-brand-text-muted py-6 text-center">
-                No upcoming sessions. Your availability is open.
-              </p>
-            ) : (
-              <div className="space-y-3">
-                {sessions.map((s) => (
-                  <div
-                    key={s.id}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-brand-surface border border-brand-surface-2 hover:border-brand-primary/30 transition-colors"
-                  >
-                    <Avatar initials={getInitials(s.smeUser.fullName)} />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-brand-text-primary truncate">{s.smeUser.fullName}</p>
-                      <p className="text-xs text-brand-text-secondary truncate">{s.smeUser.email}</p>
-                    </div>
-                    <div className="text-right flex-shrink-0">
-                      <p className="text-xs font-medium text-brand-text-primary">{formatSessionTime(s.slot.startsAt)}</p>
-                    </div>
-                    {s.meetingLink ? (
-                      <a
-                        href={s.meetingLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-lg bg-brand-primary/10 flex items-center justify-center flex-shrink-0 hover:bg-brand-primary/20 transition-colors"
-                        title="Join meeting"
+              <ol aria-label="How booking works" className="flex flex-col items-start gap-3 rounded-xl bg-ui-surface-2 px-4 py-3.5 sm:flex-row sm:flex-wrap sm:items-center">
+                {['Add open slots', 'A mentee books a time', 'Session confirmed'].map((label, i) => (
+                  <li key={label} className="inline-flex items-center gap-3">
+                    <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-ui-text">
+                      <span
+                        className={cn(
+                          'inline-flex h-[22px] w-[22px] items-center justify-center rounded-full text-xs',
+                          i === 0 ? 'bg-ui-brand text-white' : 'border border-ui-line bg-ui-surface text-ui-muted',
+                        )}
                       >
-                        <Video className="w-4 h-4 text-brand-primary" />
-                      </a>
-                    ) : (
-                      <div className="w-8 h-8 rounded-lg bg-brand-surface-2 flex items-center justify-center flex-shrink-0">
-                        <Video className="w-4 h-4 text-brand-text-muted" />
-                      </div>
-                    )}
-                  </div>
+                        {i + 1}
+                      </span>
+                      {label}
+                    </span>
+                    {i < 2 && <ArrowRight aria-hidden className="hidden h-4 w-4 text-ui-muted sm:block" />}
+                  </li>
                 ))}
+              </ol>
+              <div className="flex flex-wrap gap-2.5">
+                <Link href="/mentor/dashboard/availability" className={btn()}>
+                  <CalendarPlus className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
+                  Add availability
+                </Link>
+                <Link href="/mentor/dashboard/profile" className={btn({ variant: 'secondary' })}>
+                  <Eye className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
+                  See your public profile
+                </Link>
               </div>
-            )}
-          </DashboardCard>
-        </div>
+            </section>
+          )}
 
-        {/* Recent mentees */}
-        <div>
-          <DashboardCard title="Recent Mentees" ctaLabel="View all" ctaHref="/mentor/dashboard/mentees">
+          <section aria-labelledby="h-mentees" className="rounded-[14px] border border-ui-line bg-ui-surface">
+            <div className="flex items-center justify-between px-5 py-4">
+              <h2 id="h-mentees" className="text-base font-semibold text-ui-text">Recent mentees</h2>
+              <Link href="/mentor/dashboard/mentees" className="text-[13px] font-semibold text-ui-brand-text hover:underline">View all</Link>
+            </div>
             {loading ? (
-              <div className="space-y-3">
-                {[0, 1, 2, 3].map((i) => (
-                  <div key={i} className="flex items-center gap-3 animate-pulse">
-                    <div className="w-8 h-8 rounded-full bg-brand-surface-2 flex-shrink-0" />
-                    <div className="flex-1 space-y-2">
-                      <div className="h-3 bg-brand-surface-2 rounded w-24" />
-                      <div className="h-2.5 bg-brand-surface-2 rounded w-32" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : mentees.length === 0 ? (
-              <p className="text-sm text-brand-text-muted py-6 text-center">No mentees yet.</p>
+              <div className="flex flex-col gap-3 border-t border-ui-line px-5 py-4"><Skeleton className="h-9" /><Skeleton className="h-9" /></div>
+            ) : recentMentees.length === 0 ? (
+              <p className="border-t border-ui-line px-5 py-6 text-sm text-ui-muted">No mentees yet. They appear here after their first booking.</p>
             ) : (
-              <div className="space-y-3">
-                {mentees.map((m) => (
-                  <div key={m.id} className="flex items-center gap-3">
-                    <Avatar initials={getInitials(m.smeUser.fullName)} size="sm" />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-brand-text-primary truncate">{m.smeUser.fullName}</p>
-                      <p className="text-xs text-brand-text-secondary truncate">{m.smeUser.email}</p>
-                    </div>
-                    <p className="text-[11px] text-brand-text-secondary flex-shrink-0">
-                      {new Date(m.lastSession).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              recentMentees.map(({ s, last }) => (
+                <Link
+                  key={s.smeUser.email}
+                  href={`/mentor/dashboard/mentees?m=${encodeURIComponent(s.smeUser.email)}`}
+                  className="flex items-center gap-3 border-t border-ui-line px-5 py-3 text-ui-text transition-colors hover:bg-ui-bg"
+                >
+                  <Avatar name={s.smeUser.fullName} src={s.smeUser.avatarUrl} size={34} />
+                  <span className="flex min-w-0 flex-1 flex-col">
+                    <span className="truncate font-semibold">{s.smeUser.fullName}</span>
+                    <span className="truncate text-xs text-ui-muted">{s.smeUser.email}</span>
+                  </span>
+                  <span className="shrink-0 text-xs text-ui-muted">{fmtShort(last, tz)}</span>
+                </Link>
+              ))
             )}
-          </DashboardCard>
+          </section>
         </div>
       </div>
+
+      {confirm && (
+        <ConfirmModal
+          title={confirm.title}
+          message={confirm.message}
+          confirmLabel={confirm.confirmLabel}
+          variant={confirm.variant}
+          onConfirm={confirm.onConfirm}
+          onCancel={() => setConfirm(null)}
+        />
+      )}
     </MentorLayout>
+  )
+}
+
+// ---------------------------------------------------------------------------
+
+function StatLink({
+  href,
+  icon: Icon,
+  label,
+  value,
+  loading,
+  children,
+}: {
+  href: string
+  icon: typeof Users
+  label: string
+  value: number | undefined
+  loading: boolean
+  children: React.ReactNode
+}) {
+  return (
+    <Link
+      href={href}
+      className="flex flex-col gap-1.5 rounded-[14px] border border-ui-line bg-ui-surface px-4 py-4 text-ui-text transition-[transform,box-shadow] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:shadow-ui sm:px-[18px]"
+    >
+      <span className="flex items-start gap-2 text-[13px] font-medium text-ui-muted">
+        <Icon className="mt-px h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
+        {label}
+      </span>
+      <span className="text-[26px] font-bold leading-[1.1] tracking-[-0.01em] tabular-nums">
+        {loading ? <Skeleton className="h-7 w-10" /> : (value ?? '0')}
+      </span>
+      {children}
+    </Link>
+  )
+}
+
+function NextSessionCard({
+  session: s,
+  tz,
+  now,
+  todayKey,
+  onComplete,
+}: {
+  session: SessionWithDetails
+  tz: string
+  now: Date
+  todayKey: string
+  onComplete: () => void
+}) {
+  const k = dayKey(s.slot.startsAt, tz)
+  const tomorrowKey = dayKey(new Date(now.getTime() + 86400000), tz)
+  const dayLabel = k === todayKey ? 'Today' : k === tomorrowKey ? 'Tomorrow' : fmtDay(s.slot.startsAt, tz)
+  const mins = minutesBetween(s.slot.startsAt, s.slot.endsAt)
+  return (
+    <section aria-labelledby="h-next" className="flex flex-col gap-[18px] rounded-[14px] border border-ui-line bg-ui-surface px-5 py-5 shadow-ui sm:px-6">
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-[13px] font-medium text-ui-muted">Next session</span>
+        <Chip tone="brand" className="rounded-full">
+          <Clock className="h-3.5 w-3.5" aria-hidden />
+          {startsInLabel(s.slot.startsAt, s.slot.endsAt, now, tz)}
+        </Chip>
+      </div>
+      <div className="flex flex-wrap items-center gap-4">
+        <DateBox iso={s.slot.startsAt} tz={tz} className="hidden sm:flex" />
+        <Avatar name={s.smeUser.fullName} src={s.smeUser.avatarUrl} size={52} />
+        <div className="flex min-w-0 basis-full flex-col gap-1 sm:basis-0 sm:flex-1">
+          <h2 id="h-next" className="text-xl font-semibold tracking-[-0.01em] text-ui-text">{s.smeUser.fullName}</h2>
+          <span className="truncate text-sm text-ui-muted">{s.smeUser.email}</span>
+          <span className="flex flex-wrap items-center gap-x-3.5 gap-y-1.5 text-[13px] text-ui-muted">
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="h-3.5 w-3.5" aria-hidden />
+              {dayLabel}, {fmtTime(s.slot.startsAt, tz)} to {fmtTime(s.slot.endsAt, tz)} {tzAbbr(tz)}
+            </span>
+            {mins > 0 && (
+              <span className="inline-flex items-center gap-1.5">
+                <Timer className="h-3.5 w-3.5" aria-hidden />
+                {durationLabel(mins)}
+              </span>
+            )}
+            <Chip tone="brand" className="h-[22px] rounded-full">Confirmed</Chip>
+          </span>
+        </div>
+      </div>
+      <div className="mt-auto flex flex-wrap gap-2.5 [&>*]:grow sm:[&>*]:grow-0">
+        {s.meetingLink ? (
+          <a href={s.meetingLink} target="_blank" rel="noopener noreferrer" className={btn()}>
+            <Video className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
+            Join session
+          </a>
+        ) : (
+          <Button disabled title="This session has no meeting link">
+            <Video className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
+            No meeting link
+          </Button>
+        )}
+        <Link href={`/mentor/dashboard/sessions#s-${s.id}`} className={btn({ variant: 'secondary' })}>
+          <FileText className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
+          Session notes
+        </Link>
+        <Button variant="secondary" onClick={onComplete}>
+          <Check className="h-[18px] w-[18px]" strokeWidth={1.75} aria-hidden />
+          Mark complete
+        </Button>
+      </div>
+    </section>
+  )
+}
+
+function MeetingLinkAlert({ onSaved }: { onSaved: (u: MeUser) => void }) {
+  const [value, setValue] = useState('')
+  const [error, setError] = useState('')
+  const [saving, setSaving] = useState(false)
+
+  function submit(e: FormEvent) {
+    e.preventDefault()
+    const v = value.trim()
+    if (!isHttpsUrl(v)) {
+      setError('Enter a full link that starts with https://')
+      return
+    }
+    setSaving(true)
+    updateMe({ meetingLink: v })
+      .then((u) => {
+        toast.success('Meeting link saved')
+        onSaved(u)
+      })
+      .catch((err) => setError(apiErrorMessage(err, 'Could not save the meeting link')))
+      .finally(() => setSaving(false))
+  }
+
+  return (
+    <section
+      aria-labelledby="h-link"
+      className="flex flex-col items-stretch gap-3.5 rounded-[14px] border border-ui-line bg-ui-surface px-4 py-3.5 lg:flex-row lg:items-center"
+    >
+      <div className="flex min-w-0 flex-1 flex-col gap-3.5 sm:flex-row sm:items-center">
+        <IconTile><AlertTriangle className="h-5 w-5" strokeWidth={1.75} /></IconTile>
+        <div className="flex min-w-0 flex-col gap-0.5">
+          <h2 id="h-link" className="text-[15px] font-semibold text-ui-text">Add your meeting link</h2>
+          <span className="text-[13px] leading-snug text-ui-muted">
+            You haven&apos;t added a meeting link yet. Mentees won&apos;t be able to join your sessions.
+          </span>
+        </div>
+      </div>
+      <form onSubmit={submit} noValidate className="flex w-full flex-col gap-1.5 lg:w-[420px]">
+        <div className="flex gap-2">
+          <label htmlFor="d-link" className="sr-only">Meeting link</label>
+          <input
+            id="d-link"
+            type="url"
+            inputMode="url"
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value)
+              if (error) setError('')
+            }}
+            placeholder="https://zoom.us/j/your-room"
+            aria-invalid={!!error}
+            aria-describedby={error ? 'd-link-err' : undefined}
+            className={cn(inputClass, error && 'border-ui-danger')}
+          />
+          <Button type="submit" variant="secondary" disabled={saving || !value.trim()}>
+            {saving ? 'Saving' : 'Save'}
+          </Button>
+        </div>
+        {error && <p id="d-link-err" role="alert" className="text-[13px] text-ui-danger">{error}</p>}
+      </form>
+    </section>
   )
 }

@@ -136,6 +136,31 @@ async function renderTemplate(
 }
 
 /**
+ * Plain-text part for clients that prefer text/plain: drops the <head> and
+ * <style> blocks (their CSS is not readable text), then the tags, decodes the
+ * entities the templates use and squeezes blank runs.
+ */
+export function htmlToText(html: string): string {
+  return html
+    .replace(/<(head|style|script)\b[\s\S]*?<\/\1>/gi, "")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/(p|div|h[1-6]|li|tr)>/gi, "$&\n")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&mdash;/g, "\u2014")
+    .replace(/&ndash;/g, "\u2013")
+    .replace(/&copy;/g, "\u00a9")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#0?39;|&apos;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/^[ \t]+|[ \t]+$/gm, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+/**
  * Sends a templated email.
  *
  * Loads the Handlebars template identified by `options.template`, renders it
@@ -169,8 +194,7 @@ export async function sendMail(options: SendMailOptions): Promise<void> {
     to,
     subject,
     html,
-    // Plain-text fallback: strip HTML tags for clients that prefer text/plain.
-    text: html.replace(/<[^>]+>/g, ""),
+    text: htmlToText(html),
     ...(options.attachments?.length ? { attachments: options.attachments } : {}),
   });
 }
