@@ -61,8 +61,8 @@ export type LearnerModule = Omit<CourseModule, 'units'> & {
 
 export type LearnerCourseDetail = LearnerCourse & {
   modules: LearnerModule[]
-  preAssessment: (Assessment & { isLocked: boolean; isCompleted: boolean }) | null
-  postAssessment: (Assessment & { isLocked: boolean }) | null
+  preAssessment: (LearnerAssessment & { isLocked: boolean; isCompleted: boolean }) | null
+  postAssessment: (LearnerAssessment & { isLocked: boolean }) | null
   courseProgress: CourseProgress | null
 }
 
@@ -171,6 +171,11 @@ export type AssessmentQuestion = {
   order: number
 }
 
+/** An exam as the learner gets it: the questions, never the answer key. */
+export type LearnerAssessment = Omit<Assessment, 'questions'> & {
+  questions: Omit<AssessmentQuestion, 'correctAnswer' | 'explanation'>[]
+}
+
 export type Assessment = {
   id: string
   courseId: string
@@ -208,8 +213,9 @@ async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
     },
   })
   if (!res.ok) {
-    const err = await res.json().catch(() => ({ message: 'Request failed' }))
-    throw new Error((err as { message?: string }).message ?? 'Request failed')
+    // The API answers { success: false, error: { message, code } }.
+    const err = (await res.json().catch(() => null)) as { message?: string; error?: { message?: string } } | null
+    throw new Error(err?.error?.message ?? err?.message ?? 'Something went wrong. Please try again.')
   }
   return ((await res.json()) as { data: T }).data
 }
@@ -301,6 +307,14 @@ export const apiUpdateUnitProgress = (
   unitId: string,
   data: { status: 'not_started' | 'in_progress' | 'completed' },
 ) => apiFetch<UnitProgress>(`/units/${unitId}/progress`, { method: 'POST', body: JSON.stringify(data) })
+/** The learner's own saved answers to one block's questions. */
+export type SavedBlockAnswer = {
+  questionId: string
+  answerData: { selectedAnswer?: number; openEndedAnswer?: string } | null
+}
+export const fetchBlockAnswers = (blockId: string) =>
+  apiFetch<SavedBlockAnswer[]>(`/learning-blocks/${blockId}/answers`)
+
 export const apiSaveQuestionAnswer = (
   questionId: string,
   answerData: { selectedAnswer?: number; openEndedAnswer?: string },

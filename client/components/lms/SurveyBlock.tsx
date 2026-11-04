@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react'
 import { CheckCircle2, ListChecks, Send } from 'lucide-react'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { motion, AnimatePresence } from 'framer-motion'
-import { apiSaveQuestionAnswer, apiUpdateBlockProgress, type BlockQuestion, type LearnerBlock } from '@/lib/api/lms'
+import { apiSaveQuestionAnswer, apiUpdateBlockProgress, fetchBlockAnswers, type BlockQuestion, type LearnerBlock } from '@/lib/api/lms'
 import { cn } from '@/lib/utils'
 
 type Props = {
@@ -109,10 +109,35 @@ export function SurveyBlock({ block, onCompleted }: Props) {
   const [answers, setAnswers] = useState<Answers>({})
   const [submitted, setSubmitted] = useState(isAlreadyCompleted)
 
+  // A different block starts empty. Only on a block change: the course data
+  // refreshes after saving, and clearing then would blank the answers just given.
   useEffect(() => {
     setAnswers({})
+  }, [block.id])
+  useEffect(() => {
     setSubmitted(isAlreadyCompleted)
   }, [block.id, isAlreadyCompleted])
+
+  // Coming back to a block: show the answers saved before.
+  const saved = useQuery({
+    queryKey: ['block-answers', block.id],
+    queryFn: () => fetchBlockAnswers(block.id),
+    enabled: surveyQuestions.length > 0,
+    staleTime: 60_000,
+  })
+  useEffect(() => {
+    if (!saved.data) return
+    setAnswers((current) => {
+      const next = { ...current }
+      for (const a of saved.data) {
+        if (next[a.questionId] !== undefined) continue
+        const d = a.answerData
+        if (typeof d?.openEndedAnswer === 'string') next[a.questionId] = d.openEndedAnswer
+        else if (typeof d?.selectedAnswer === 'number') next[a.questionId] = d.selectedAnswer
+      }
+      return next
+    })
+  }, [saved.data])
 
   const submitMutation = useMutation({
     mutationFn: async () => {
@@ -132,6 +157,7 @@ export function SurveyBlock({ block, onCompleted }: Props) {
     onSuccess: () => {
       setSubmitted(true)
       queryClient.invalidateQueries({ queryKey: ['learner-course'] })
+      queryClient.invalidateQueries({ queryKey: ['block-answers', block.id] })
       onCompleted()
     },
   })
@@ -188,6 +214,12 @@ export function SurveyBlock({ block, onCompleted }: Props) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {submitMutation.isError && (
+        <p role="alert" className="mt-4 text-sm text-red-600">
+          {submitMutation.error instanceof Error ? submitMutation.error.message : 'Your answers could not be saved.'} Please try again.
+        </p>
+      )}
 
       {/* CTA */}
       {!submitted && (

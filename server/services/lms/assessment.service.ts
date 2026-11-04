@@ -1,8 +1,9 @@
 import { db } from '../../db'
 import {
-  assessments, assessmentQuestions, assessmentAttempts,
+  assessments, assessmentQuestions, assessmentAttempts, courses, courseEnrollments,
 } from '../../db/schema'
 import { eq, and, asc } from 'drizzle-orm'
+import { AppError } from '../../utils/app-error'
 import { recalculateCourseProgress } from './progress.service'
 
 /**
@@ -108,6 +109,22 @@ export async function submitAttempt(
 
   const existingAttempts = await db.select().from(assessmentAttempts)
     .where(and(eq(assessmentAttempts.userId, userId), eq(assessmentAttempts.assessmentId, assessmentId)))
+
+  // Only for a published course the learner is enrolled in.
+  const [enrolled] = await db.select({ id: courseEnrollments.id })
+    .from(courseEnrollments)
+    .innerJoin(courses, eq(courses.id, courseEnrollments.courseId))
+    .where(and(
+      eq(courseEnrollments.userId, userId),
+      eq(courseEnrollments.courseId, assessment.courseId),
+      eq(courses.status, 'published'),
+    ))
+  if (!enrolled) throw new AppError('Enrol in this course first', 404, 'NOT_ENROLLED')
+
+  // A passed exam is done: retaking it can't change anything and only adds attempts.
+  if (existingAttempts.some(a => a.passed === true)) {
+    throw new AppError('You have already passed this', 409, 'ALREADY_PASSED')
+  }
 
   if (assessment.maxAttempts > 0 && existingAttempts.length >= assessment.maxAttempts) {
     throw new Error('MAX_ATTEMPTS_EXCEEDED')

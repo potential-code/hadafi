@@ -13,7 +13,8 @@
     "db:push-force": "node --env-file=.env drizzle-kit push --force --config ./drizzle.config.ts",
     "db:studio": "node --env-file=.env drizzle-kit studio --config ./drizzle.config.ts",
     "db:seed": "bun run ./server/db/seed/seed.ts",
-    "mailpit": "mailpit"
+    "mailpit": "mailpit",
+    "test": "cd server && NODE_ENV=test HADAFI_SKIP_LISTEN=1 bun test --env-file=../.env ./tests"
   },
   "private": true,
   "devDependencies": {

@@ -141,6 +141,13 @@
       "when": 1779363865623,
       "tag": "0019_outstanding_stellaris",
       "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1793782413621,
+      "tag": "0020_points_ledger",
+      "breakpoints": true
     }
   ]
 }

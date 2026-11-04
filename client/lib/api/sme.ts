@@ -3,9 +3,7 @@ import { apiFetch } from '@/lib/api'
 export interface MentorUser {
   id: string
   fullName: string
-  email: string
   bio: string | null
-  meetingLink: string | null
   timezone: string | null
   avatarUrl: string | null
   linkedinUrl: string | null

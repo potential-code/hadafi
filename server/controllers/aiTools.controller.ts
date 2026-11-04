@@ -48,6 +48,11 @@ export async function generatePdf(req: Request, res: Response): Promise<void> {
     res.status(400).json({ error: 'content is required' });
     return;
   }
+  // A business plan is a few thousand words at most.
+  if (content.length > 60_000 || (typeof title === 'string' && title.length > 200)) {
+    res.status(400).json({ error: 'This document is too long to email' });
+    return;
+  }
   if (!emailAddress || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailAddress)) {
     res.status(400).json({ error: 'Valid emailAddress is required' });
     return;

@@ -25,6 +25,29 @@ const config: NextConfig = {
     '*.spock.replit.dev',
     '*.riker.replit.dev',
   ],
+  // Don't advertise the framework in every response.
+  poweredByHeader: false,
+  async headers() {
+    return [
+      {
+        // Every page (the /api responses get theirs from the API's helmet).
+        // Other sites can't frame Hadafi, so they can't trick a signed-in
+        // admin into clicking through an invisible page.
+        source: '/((?!api/).*)',
+        headers: [
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'self'" },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          // The microphone stays available to this site (Hana's voice chat).
+          { key: 'Permissions-Policy', value: 'camera=(self), microphone=(self), geolocation=(), browsing-topics=()' },
+          ...(process.env.NODE_ENV === 'production'
+            ? [{ key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains' }]
+            : []),
+        ],
+      },
+    ]
+  },
   env: {
     NEXT_PUBLIC_AI_BACKEND_URL: process.env.NEXT_PUBLIC_AI_BACKEND_URL,
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,

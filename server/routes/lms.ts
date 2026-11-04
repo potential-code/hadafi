@@ -9,6 +9,7 @@ import * as unitsCtrl from '../controllers/lms/units.controller'
 import * as blocksCtrl from '../controllers/lms/blocks.controller'
 import * as assessmentsCtrl from '../controllers/lms/assessments.controller'
 import * as learner from '../controllers/lms/learner.controller'
+import { perUser, HOUR } from '../middleware/limits'
 
 const router: IRouter = Router()
 
@@ -217,9 +218,12 @@ learnerRouter.get('/courses/:courseId', learner.getLearnerCourse)
 learnerRouter.post('/courses/:courseId/enroll', learner.enrollInCourse)
 
 // Progress
-learnerRouter.post('/learning-blocks/:blockId/progress', validate(blockProgressDto), learner.updateBlockProgress)
-learnerRouter.post('/units/:unitId/progress', validate(unitProgressDto), learner.updateUnitProgress)
-learnerRouter.post('/questions/:questionId/answer', validate(questionAnswerDto), learner.saveQuestionAnswer)
+// Progress is a claim the server checks (progress.service.ts); this bounds how fast it can be made.
+const progressLimit = perUser('learner-progress', HOUR, 300)
+learnerRouter.post('/learning-blocks/:blockId/progress', progressLimit, validate(blockProgressDto), learner.updateBlockProgress)
+learnerRouter.post('/units/:unitId/progress', progressLimit, validate(unitProgressDto), learner.updateUnitProgress)
+learnerRouter.post('/questions/:questionId/answer', progressLimit, validate(questionAnswerDto), learner.saveQuestionAnswer)
+learnerRouter.get('/learning-blocks/:blockId/answers', learner.getBlockAnswers)
 
 // Action plan
 // NOTE: /pdf must be registered before /:courseId to prevent 'pdf' being captured as a param

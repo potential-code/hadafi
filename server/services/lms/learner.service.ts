@@ -117,9 +117,13 @@ export async function getLearnerCourse(userId: string, courseId: string) {
   const unitProgressMap = new Map(unitProgressRows.map(p => [p.unitId, p]))
   const moduleProgressMap = new Map(moduleProgressRows.map(p => [p.moduleId, p]))
 
+  // Answer keys stay on the server: grading happens here, and the course page
+  // (and Hana, which can read it) must never be able to see them.
   const blocksWithProgress = courseBlocks.map(b => ({
     ...b,
-    questions: courseBlockQs.filter(q => q.blockId === b.id),
+    questions: courseBlockQs
+      .filter(q => q.blockId === b.id)
+      .map(({ correctIndex: _ci, correctBool: _cb, ...q }) => ({ ...q, correctIndex: null, correctBool: null })),
     blockProgress: blockProgressMap.get(b.id) ?? null,
     isLocked: false,
   }))
@@ -140,7 +144,9 @@ export async function getLearnerCourse(userId: string, courseId: string) {
 
   const assessmentsWithQs = courseAssessments.map(a => ({
     ...a,
-    questions: courseAssessmentQs.filter(q => q.assessmentId === a.id),
+    questions: courseAssessmentQs
+      .filter(q => q.assessmentId === a.id)
+      .map(({ correctAnswer: _ca, explanation: _ex, ...q }) => q),
     isLocked: false,
     isCompleted: false,
   }))

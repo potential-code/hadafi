@@ -90,6 +90,7 @@ export async function updateBlockProgress(
       status: 'not_started' | 'in_progress' | 'completed'
       videoWatchPct?: number
     }
+    if (status === 'completed') await progressSvc.assertBlockCompletable(req.user!.userId, req.params.blockId)
     const data = await progressSvc.updateBlockProgress(req.user!.userId, req.params.blockId, status, videoWatchPct)
     res.json({ success: true, data })
   } catch (e) {
@@ -109,6 +110,7 @@ export async function updateUnitProgress(
 ): Promise<void> {
   try {
     const { status } = req.body as { status: 'not_started' | 'in_progress' | 'completed' }
+    if (status === 'completed') await progressSvc.assertUnitCompletable(req.user!.userId, req.params.unitId)
     const data = await progressSvc.updateUnitProgress(req.user!.userId, req.params.unitId, status)
     res.json({ success: true, data })
   } catch (e) {
@@ -130,8 +132,27 @@ export async function saveQuestionAnswer(
     const { answerData } = req.body as {
       answerData: { selectedAnswer?: number; openEndedAnswer?: string }
     }
+    await progressSvc.assertQuestionAvailable(req.user!.userId, req.params.questionId)
     const data = await progressSvc.saveQuestionAnswer(req.user!.userId, req.params.questionId, answerData)
     res.status(201).json({ success: true, data })
+  } catch (e) {
+    next(e)
+  }
+}
+
+/**
+ * GET /lms/learning-blocks/:blockId/answers
+ * The learner's own saved answers to that block's questions, so the course
+ * page can show them again after saving and on a revisit.
+ */
+export async function getBlockAnswers(
+  req: Request<{ blockId: string }>,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
+  try {
+    const data = await progressSvc.getBlockAnswers(req.user!.userId, req.params.blockId)
+    res.json({ success: true, data })
   } catch (e) {
     next(e)
   }
@@ -279,6 +300,22 @@ export async function issueCertificate(
   next: NextFunction,
 ): Promise<void> {
   try {
+    // Only once it's earned: enrolled, every part done, the final exam passed.
+    const check = await certSvc.canIssueCertificate(req.user!.userId, req.params.courseId)
+    if (!check.canIssue) {
+      const messages: Record<string, string> = {
+        COURSE_NOT_FOUND: 'Course not found',
+        CERTIFICATE_DISABLED: 'This course does not give a certificate',
+        NOT_ENROLLED: 'Enrol in this course first',
+        ALREADY_ISSUED: 'Your certificate for this course has already been issued',
+        PROGRESS_INCOMPLETE: 'Finish every part of the course first',
+        POST_ASSESSMENT_NOT_PASSED: 'Pass the final exam first',
+        POST_ASSESSMENT_NOT_ATTEMPTED: 'Take the final exam first',
+      }
+      const reason = check.reason ?? 'NOT_ELIGIBLE'
+      const status = reason === 'COURSE_NOT_FOUND' || reason === 'NOT_ENROLLED' ? 404 : 409
+      return next(new AppError(messages[reason] ?? 'This certificate is not available yet', status, reason))
+    }
     const data = await certSvc.issueCertificate(req.user!.userId, req.params.courseId)
     res.status(201).json({ success: true, data })
   } catch (e) {
@@ -314,7 +351,7 @@ export async function downloadCertificate(
   next: NextFunction,
 ): Promise<void> {
   try {
-    const buffer = await certSvc.getCertificateFile(req.params.id)
+    const buffer = await certSvc.getCertificateFile(req.params.id, { userId: req.user!.userId, role: req.user!.role })
     res.setHeader('Content-Type', 'image/png')
     res.setHeader('Content-Disposition', `attachment; filename="certificate-${req.params.id}.png"`)
     res.send(buffer)

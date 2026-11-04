@@ -26,7 +26,8 @@
     "skipLibCheck": true,
     "target": "es2022",
     "types": [
-      "node"
+      "node",
+      "bun"
     ],
     "customConditions": [
       "workspace"

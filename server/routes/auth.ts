@@ -1,6 +1,7 @@
 import { Router, type IRouter } from "express";
 import { z } from "zod";
 import rateLimit from "express-rate-limit";
+import { perEmail, MINUTE } from "../middleware/limits";
 
 import { authenticate } from "../middleware/authenticate";
 import { validate } from "../middleware/validate";
@@ -29,6 +30,36 @@ const authLimiter = rateLimit({
       code: "RATE_LIMITED",
     },
   },
+});
+
+/** Sign-in attempts from one address (rooms share one Wi-Fi address). */
+const signInPerAddress = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, error: { message: "Too many sign-in attempts from this network. Please try again in a few minutes.", code: "RATE_LIMITED" } },
+});
+
+/** Password attempts against one account, from anywhere. */
+const loginPerEmail = perEmail(
+  "login",
+  15 * MINUTE,
+  10,
+  "Too many sign-in attempts for this account. Please wait 15 minutes and try again.",
+);
+
+/**
+ * Guest chat tokens for the public sign-up chat. Separate from sign-in, so a
+ * room of visitors chatting doesn't use up the sign-in budget. The AI service
+ * applies its own per-visitor limits on top.
+ */
+const guestTokenLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 300,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, error: { message: "Too many requests, please try again later.", code: "RATE_LIMITED" } },
 });
 
 // ---------------------------------------------------------------------------
@@ -110,12 +141,14 @@ const changePasswordDto = z.object({
  */
 
 router.post("/register", authLimiter, validate(registerDto), authController.register);
-router.post("/login", authLimiter, validate(loginDto), authController.login);
+// Per address (generous: a workshop room shares one Wi-Fi address) and, the
+// real guard against guessing, per email address whichever address tries.
+router.post("/login", signInPerAddress, loginPerEmail, validate(loginDto), authController.login);
 router.get("/me", authenticate, authController.me);
 // Short-lived service JWT for the AI backend (chat + voice) — logged-in users only.
 router.get("/copilot-token", authenticate, authController.copilotToken);
 // Anonymous variant for the public landing-page chat (rate-limited, 30 min).
-router.get("/copilot-token/guest", authLimiter, authController.guestCopilotToken);
+router.get("/copilot-token/guest", guestTokenLimiter, authController.guestCopilotToken);
 router.put("/me", authenticate, validate(updateProfileDto), authController.updateProfile);
 router.post("/change-password", authenticate, validate(changePasswordDto), authController.changePassword);
 router.post("/logout", authController.logout);

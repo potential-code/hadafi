@@ -1,17 +1,53 @@
 import fs from 'fs'
 import path from 'path'
-import { createCanvas, loadImage } from '@napi-rs/canvas'
+import { createCanvas, GlobalFonts, loadImage } from '@napi-rs/canvas'
 import { db } from '../../db'
 import {
   courses, assessments, courseEnrollments, courseCertificates,
   assessmentAttempts, userCourseProgress, users,
 } from '../../db/schema'
-import { eq, and, desc } from 'drizzle-orm'
+import { eq, and, desc, notLike, or, isNull } from 'drizzle-orm'
 import { AppError } from '../../utils/app-error'
 import type { CourseCertificate } from '../../db/schema'
+import { logger } from '../../config/logger'
 
 function getCertDir(): string {
   return path.join(__dirname, '..', 'uploads', 'certificates')
+}
+
+/** The bundled assets folder: next to the compiled bundle in production, under server/ in dev and tests. */
+function assetsDir(): string {
+  const candidates = [
+    path.join(__dirname, '..', 'assets'),
+    path.join(process.cwd(), 'assets'),
+    path.join(process.cwd(), 'server', 'assets'),
+  ]
+  return candidates.find((dir) => fs.existsSync(path.join(dir, 'certificate-template.jpg'))) ?? candidates[0]!
+}
+
+/**
+ * Bumped when the drawing changes, so certificates issued before it are drawn
+ * again (refreshOutdatedCertificates) under a new filename that browsers have
+ * not cached. v2: the template and the Geist font ship with the server; v1
+ * read the template from the client folder and asked for a system font, and
+ * the production image has neither, so certificates could not be drawn.
+ */
+const RENDER_VERSION = 2
+const certFilename = (certId: string) => `${certId}-v${RENDER_VERSION}.png`
+
+const FONT = 'Geist'
+let fontsReady = false
+
+/** Registers Geist with the canvas once. Without it no text is drawn at all. */
+function ensureFonts(): void {
+  if (fontsReady) return
+  const dir = path.join(assetsDir(), 'fonts')
+  for (const file of ['Geist-Regular.ttf', 'Geist-Bold.ttf']) {
+    if (!GlobalFonts.registerFromPath(path.join(dir, file), FONT)) {
+      throw new Error(`Certificate font could not be loaded: ${file}`)
+    }
+  }
+  fontsReady = true
 }
 
 /**
@@ -59,9 +95,6 @@ export async function canIssueCertificate(
   return { canIssue: true }
 }
 
-// Path to the Potential certificate template (1024×724 px).
-// process.cwd() is always the server/ directory at runtime.
-const CERT_TEMPLATE = path.join(process.cwd(), '..', 'client', 'public', 'images', 'certificate-template.jpg')
 
 async function renderCertificatePng(
   certId: string,
@@ -73,11 +106,12 @@ async function renderCertificatePng(
   // Match the template's native aspect ratio (1024×724) scaled up for quality.
   const WIDTH = 1200
   const HEIGHT = 849  // 724 * (1200/1024) = 848.4 → 849
+  ensureFonts()
   const canvas = createCanvas(WIDTH, HEIGHT)
   const ctx = canvas.getContext('2d')
 
-  // ── Background template ───────────────────────────────────────────────────
-  const template = await loadImage(CERT_TEMPLATE)
+  // ── Background template (the Potential certificate, 1024×724 px) ──────────
+  const template = await loadImage(path.join(assetsDir(), 'certificate-template.jpg'))
   ctx.drawImage(template, 0, 0, WIDTH, HEIGHT)
 
   // All text uses the template's dark-purple palette for consistency.
@@ -87,19 +121,19 @@ async function renderCertificatePng(
   // First line y in original 724px image ≈ 278px → 278 * (849/724) ≈ 326
   ctx.textAlign = 'center'
   ctx.fillStyle = TEXT_COLOR
-  ctx.font = 'bold 52px sans-serif'
+  ctx.font = `bold 52px ${FONT}`
 
   const NAME_Y = 326
   // Clamp name to one line — shrink font if it overflows
   const MAX_NAME_WIDTH = 820
   if (ctx.measureText(userFullName).width > MAX_NAME_WIDTH) {
-    ctx.font = 'bold 38px sans-serif'
+    ctx.font = `bold 38px ${FONT}`
   }
   ctx.fillText(userFullName, WIDTH / 2, NAME_Y)
 
   // ── Course title (sits on the second dotted line, ~56% from top) ──────────
   // Second line y in original ≈ 404px → 404 * (849/724) ≈ 473
-  ctx.font = 'bold 40px sans-serif'
+  ctx.font = `bold 40px ${FONT}`
   const COURSE_Y = 473
   const MAX_COURSE_WIDTH = 820
 
@@ -129,14 +163,14 @@ async function renderCertificatePng(
     day: '2-digit', month: 'long', year: 'numeric', timeZone: 'UTC',
   })
   ctx.textAlign = 'left'
-  ctx.font = '26px sans-serif'
+  ctx.font = `26px ${FONT}`
   ctx.fillText(formattedDate, 182, 690)
 
   // ── Write to disk ─────────────────────────────────────────────────────────
   const certDir = getCertDir()
   fs.mkdirSync(certDir, { recursive: true })
 
-  const filename = `${certId}.png`
+  const filename = certFilename(certId)
   const absoluteFilePath = path.join(certDir, filename)
   fs.writeFileSync(absoluteFilePath, canvas.toBuffer('image/png'))
 
@@ -171,14 +205,16 @@ export async function issueCertificate(userId: string, courseId: string): Promis
     .values({ userId, courseId, certificateNumber })
     .returning()
 
-  // Generate the PNG and write to disk
-  const { relativeUrl, absoluteFilePath } = await renderCertificatePng(
-    cert.id,
-    certificateNumber,
-    user.fullName,
-    course.title,
-    cert.issuedAt,
-  )
+  // Generate the PNG and write to disk. If drawing fails, take the row back
+  // out, so the learner isn't left with a certificate that can't be issued again.
+  let drawn: { relativeUrl: string; absoluteFilePath: string }
+  try {
+    drawn = await renderCertificatePng(cert.id, certificateNumber, user.fullName, course.title, cert.issuedAt)
+  } catch (err) {
+    await db.delete(courseCertificates).where(eq(courseCertificates.id, cert.id))
+    throw err
+  }
+  const { relativeUrl, absoluteFilePath } = drawn
 
   // Persist the file path and public URL back to the DB
   const [updated] = await db.update(courseCertificates)
@@ -218,21 +254,50 @@ export async function getUserCertificates(userId: string) {
     .orderBy(desc(courseCertificates.issuedAt))
 }
 
-/**
- * Reads a certificate PNG from disk and returns it as a Buffer.
- * Throws AppError 404 if the certificate record or its file cannot be found.
- *
- * @param id - UUID of the certificate record.
- */
-export async function getCertificateFile(id: string): Promise<Buffer> {
+/** The certificate's image, for its owner or an admin (404 for anyone else). */
+export async function getCertificateFile(id: string, viewer: { userId: string; role: string }): Promise<Buffer> {
   const [cert] = await db.select().from(courseCertificates).where(eq(courseCertificates.id, id))
-  if (!cert) throw new AppError('Certificate not found', 404, 'NOT_FOUND')
-  if (!cert.filePath) throw new AppError('Certificate file not found', 404, 'CERT_FILE_NOT_FOUND')
+  if (!cert || (cert.userId !== viewer.userId && viewer.role !== 'admin')) {
+    throw new AppError('Certificate not found', 404, 'NOT_FOUND')
+  }
+  if (cert.filePath && fs.existsSync(cert.filePath)) return fs.readFileSync(cert.filePath)
+  // Missing or never written (e.g. lost in a redeploy): draw it again from the record.
+  const { absoluteFilePath } = await redrawCertificate(cert)
+  return fs.readFileSync(absoluteFilePath)
+}
 
+/** Draws a certificate again from its record and points the record at the new file. */
+async function redrawCertificate(cert: CourseCertificate): Promise<{ absoluteFilePath: string }> {
+  const [[user], [course]] = await Promise.all([
+    db.select({ fullName: users.fullName }).from(users).where(eq(users.id, cert.userId)),
+    db.select({ title: courses.title }).from(courses).where(eq(courses.id, cert.courseId)),
+  ])
+  if (!user || !course) throw new AppError('Certificate file not found', 404, 'CERT_FILE_NOT_FOUND')
+  const { relativeUrl, absoluteFilePath } = await renderCertificatePng(
+    cert.id, cert.certificateNumber, user.fullName, course.title, cert.issuedAt,
+  )
+  await db.update(courseCertificates)
+    .set({ certificateUrl: relativeUrl, filePath: absoluteFilePath })
+    .where(eq(courseCertificates.id, cert.id))
+  if (cert.filePath && cert.filePath !== absoluteFilePath) fs.rmSync(cert.filePath, { force: true })
+  return { absoluteFilePath }
+}
+
+/**
+ * Draws again every certificate made by an older RENDER_VERSION, or never
+ * drawn at all. Runs in the background at boot; a failure is logged and
+ * retried on the next boot.
+ */
+export async function refreshOutdatedCertificates(): Promise<void> {
   try {
-    return fs.readFileSync(cert.filePath)
-  } catch {
-    throw new AppError('Certificate file not found on disk', 404, 'CERT_FILE_NOT_FOUND')
+    const outdated = await db.select().from(courseCertificates).where(or(
+      isNull(courseCertificates.certificateUrl),
+      notLike(courseCertificates.certificateUrl, `%-v${RENDER_VERSION}.png`),
+    ))
+    for (const cert of outdated) await redrawCertificate(cert)
+    if (outdated.length) logger.info({ count: outdated.length }, 'Certificates redrawn')
+  } catch (err) {
+    logger.error({ err }, 'Redrawing certificates failed')
   }
 }
 

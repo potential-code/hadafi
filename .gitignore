@@ -69,3 +69,6 @@ server/uploads/media/*
 
 # Local superpowers docs
 docs/superpowers
+
+# Certificates drawn by the tests (running from source, the certificates folder resolves under server/services/)
+server/services/uploads/

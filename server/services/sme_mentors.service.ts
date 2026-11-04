@@ -15,7 +15,9 @@ import { mentorAvailabilitySlots, mentorRegistrations, users } from "../db/schem
  * mentor_registrations row are still returned (linkedinUrl and expertise
  * will be null for those users).
  *
- * Only safe public fields are selected — no passwordHash or sensitive data.
+ * Only fields a learner may see: never the password hash, the mentor's email
+ * address or their private meeting link (a learner gets the link with a
+ * session they have booked).
  *
  * @returns Array of mentor user objects with optional registration fields
  */
@@ -23,9 +25,7 @@ export async function getMentorsList(): Promise<
   {
     id: string;
     fullName: string;
-    email: string;
     bio: string | null;
-    meetingLink: string | null;
     timezone: string | null;
     avatarUrl: string | null;
     linkedinUrl: string | null;
@@ -36,9 +36,7 @@ export async function getMentorsList(): Promise<
     .select({
       id: users.id,
       fullName: users.fullName,
-      email: users.email,
       bio: users.bio,
-      meetingLink: users.meetingLink,
       timezone: users.timezone,
       avatarUrl: users.avatarUrl,
       linkedinUrl: mentorRegistrations.linkedinUrl,

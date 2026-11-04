@@ -3,9 +3,10 @@ import {
   users, courses, modules, units, learningBlocks,
   assessments, assessmentAttempts,
   userLearningBlockProgress, userUnitProgress, userModuleProgress, userCourseProgress,
-  questionAnswers,
+  questionAnswers, pointsEvents, courseEnrollments, blockQuestions,
 } from '../../db/schema'
-import { eq, and, inArray, sql } from 'drizzle-orm'
+import { eq, and, inArray, sql, gte } from 'drizzle-orm'
+import { AppError } from '../../utils/app-error'
 import type { UserLearningBlockProgress, UserUnitProgress, QuestionAnswer } from '../../db/schema'
 
 /**
@@ -312,19 +313,111 @@ export async function saveQuestionAnswer(
   return row
 }
 
+// ── What a learner may mark complete ───────────────────────────────────────
+// Progress posted by the browser is a claim. Before the learner endpoints
+// record it, the server checks what it can: the unit is in a published course
+// the learner is enrolled in, a question block has all its answers saved, and
+// a unit is only complete once every block in it is.
+
+async function assertUnitAvailable(userId: string, unitId: string): Promise<void> {
+  const [row] = await db
+    .select({ id: units.id })
+    .from(units)
+    .innerJoin(modules, eq(modules.id, units.moduleId))
+    .innerJoin(courses, eq(courses.id, modules.courseId))
+    .innerJoin(courseEnrollments, and(eq(courseEnrollments.courseId, courses.id), eq(courseEnrollments.userId, userId)))
+    .where(and(eq(units.id, unitId), eq(courses.status, 'published')))
+    .limit(1)
+  if (!row) throw new AppError('Enrol in this course first', 404, 'UNIT_NOT_AVAILABLE')
+}
+
+/** Before a learner saves an answer: the question is in a course they're enrolled in. */
+export async function assertQuestionAvailable(userId: string, questionId: string): Promise<void> {
+  const [q] = await db.select({ unitId: learningBlocks.unitId })
+    .from(blockQuestions)
+    .innerJoin(learningBlocks, eq(learningBlocks.id, blockQuestions.blockId))
+    .where(eq(blockQuestions.id, questionId))
+  if (!q) throw new AppError('Question not found', 404, 'QUESTION_NOT_FOUND')
+  await assertUnitAvailable(userId, q.unitId)
+}
+
+/** Before a learner marks a block complete. */
+export async function assertBlockCompletable(userId: string, blockId: string): Promise<void> {
+  const [block] = await db.select({ unitId: learningBlocks.unitId, type: learningBlocks.type })
+    .from(learningBlocks).where(eq(learningBlocks.id, blockId))
+  if (!block) throw new AppError('Learning block not found', 404, 'BLOCK_NOT_FOUND')
+  await assertUnitAvailable(userId, block.unitId)
+  if (block.type === 'question') {
+    const qs = await db.select({ id: blockQuestions.id }).from(blockQuestions).where(eq(blockQuestions.blockId, blockId))
+    if (qs.length) {
+      const answered = await db.select({ id: questionAnswers.questionId }).from(questionAnswers)
+        .where(and(eq(questionAnswers.userId, userId), inArray(questionAnswers.questionId, qs.map((q) => q.id))))
+      if (answered.length < qs.length) throw new AppError('Answer the questions first', 409, 'BLOCK_NOT_ANSWERED')
+    }
+  }
+}
+
+/** Before a learner marks a whole unit complete: every block in it must be. */
+export async function assertUnitCompletable(userId: string, unitId: string): Promise<void> {
+  await assertUnitAvailable(userId, unitId)
+  const blocks = await db.select({ id: learningBlocks.id }).from(learningBlocks).where(eq(learningBlocks.unitId, unitId))
+  if (!blocks.length) return
+  const done = await db.select({ id: userLearningBlockProgress.learningBlockId }).from(userLearningBlockProgress)
+    .where(and(
+      eq(userLearningBlockProgress.userId, userId),
+      eq(userLearningBlockProgress.status, 'completed'),
+      inArray(userLearningBlockProgress.learningBlockId, blocks.map((b) => b.id)),
+    ))
+  if (done.length < blocks.length) throw new AppError('Finish every part of this unit first', 409, 'UNIT_NOT_DONE')
+}
+
+/** The learner's own saved answers to one block's questions (to show them again). */
+export async function getBlockAnswers(
+  userId: string,
+  blockId: string,
+): Promise<Array<{ questionId: string; answerData: unknown }>> {
+  const qs = await db.select({ id: blockQuestions.id }).from(blockQuestions).where(eq(blockQuestions.blockId, blockId))
+  if (!qs.length) return []
+  return db
+    .select({ questionId: questionAnswers.questionId, answerData: questionAnswers.answerData })
+    .from(questionAnswers)
+    .where(and(eq(questionAnswers.userId, userId), inArray(questionAnswers.questionId, qs.map((q) => q.id))))
+}
+
 /**
- * Awards course points to the learner for a newly completed unit.
- * Uses a SQL arithmetic expression to avoid a read-modify-write race.
+ * Units that earn points per learner per day. Completion itself is never
+ * limited; past this, a unit still counts as done but earns nothing. Real
+ * study rarely gets near it; a script marking units done would otherwise be
+ * unbounded.
+ */
+export const UNIT_POINTS_PER_DAY = 20
+
+/**
+ * Awards a unit's points once per learner, ever: the points_events ledger has
+ * one row per (learner, unit), so finishing a unit again (after resetting it)
+ * pays nothing. Capped at UNIT_POINTS_PER_DAY units a day.
  *
  * @param userId    - UUID of the learner.
  * @param courseId  - UUID of the course (to look up pointsPerUnit).
- * @param unitId    - UUID of the unit (used only for traceability; award is per-course config).
+ * @param unitId    - UUID of the unit.
  */
 export async function awardPointsForUnit(userId: string, courseId: string, unitId: string): Promise<void> {
   const [course] = await db.select().from(courses).where(eq(courses.id, courseId))
   if (!course || !course.pointsPerUnit) return
 
-  await db.update(users)
-    .set({ points: sql`${users.points} + ${course.pointsPerUnit}` })
-    .where(eq(users.id, userId))
+  const since = new Date(Date.now() - 24 * 60 * 60 * 1000)
+  const [today] = await db.select({ n: sql<number>`count(*)::int` }).from(pointsEvents)
+    .where(and(eq(pointsEvents.userId, userId), eq(pointsEvents.reason, 'unit'), gte(pointsEvents.createdAt, since)))
+  if ((today?.n ?? 0) >= UNIT_POINTS_PER_DAY) return
+
+  await db.transaction(async (tx) => {
+    const added = await tx.insert(pointsEvents)
+      .values({ userId, reason: 'unit', ref: unitId, amount: course.pointsPerUnit })
+      .onConflictDoNothing()
+      .returning({ id: pointsEvents.id })
+    if (!added.length) return
+    await tx.update(users)
+      .set({ points: sql`${users.points} + ${course.pointsPerUnit}` })
+      .where(eq(users.id, userId))
+  })
 }

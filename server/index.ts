@@ -11,6 +11,7 @@ import router from "./routes";
 import { logger } from "./config/logger";
 import { basicAuthGate } from "./middleware/basic-auth";
 import { errorHandler } from "./middleware/error-handler";
+import { refreshOutdatedCertificates } from "./services/lms/certificate.service";
 
 // Fail fast if JWT_SECRET is missing — auth cannot function without it.
 if (!process.env["JWT_SECRET"]) {
@@ -31,6 +32,16 @@ if (copilotSecret && copilotSecret.length < 32) {
 }
 
 const app: Express = express();
+
+// Hadafi runs behind Dokploy's proxy (Traefik), which adds the visitor's
+// address to X-Forwarded-For. Trust only private-network hops, so the rate
+// limits see each visitor's real address (without this every visitor shares
+// the proxy's address, and one budget) and a visitor can't fake theirs.
+// TRUST_PROXY_HOPS overrides this with a fixed hop count, e.g. behind a CDN.
+app.set(
+  "trust proxy",
+  process.env["TRUST_PROXY_HOPS"] ? Number(process.env["TRUST_PROXY_HOPS"]) : "loopback, linklocal, uniquelocal",
+);
 
 // Security headers (HSTS, nosniff, frame-options, etc.). Registered first so
 // every response — including errors — carries them.
@@ -58,7 +69,8 @@ app.use(
 app.use(cors({
   // Lock CORS to the configured frontend origin. Falls back to localhost in
   // development; override via FRONTEND_URL in production.
-  origin: process.env["FRONTEND_URL"] ?? "http://localhost:3000",
+  // `||`, not `??`: compose passes an unset FRONTEND_URL as "", which would allow any origin.
+  origin: process.env["FRONTEND_URL"] || "http://localhost:3000",
   credentials: true,
 }));
 app.use(express.json());
@@ -76,25 +88,33 @@ app.use("/api", router);
 // Global error handler — must be registered after all routes.
 app.use(errorHandler);
 
-const rawPort = process.env["PORT"];
-
-if (!rawPort) {
-  throw new Error(
-    "PORT environment variable is required but was not provided.",
-  );
-}
-
-const port = Number(rawPort);
-
-if (Number.isNaN(port) || port <= 0) {
-  throw new Error(`Invalid PORT value: "${rawPort}"`);
-}
-
-app.listen(port, (err) => {
-  if (err) {
-    logger.error({ err }, "Error listening on port");
-    process.exit(1);
+// HADAFI_SKIP_LISTEN=1 makes this module side-effect-free on import, so the
+// tests can start the app on a port of their own (server/tests/helpers.ts).
+if (process.env["HADAFI_SKIP_LISTEN"] !== "1") {
+  const rawPort = process.env["PORT"];
+  if (!rawPort) {
+    throw new Error("PORT environment variable is required but was not provided.");
+  }
+  const port = Number(rawPort);
+  if (Number.isNaN(port) || port <= 0) {
+    throw new Error(`Invalid PORT value: "${rawPort}"`);
   }
 
-  logger.info({ port }, "Server listening");
-});
+  const server = app.listen(port, (err) => {
+    if (err) {
+      logger.error({ err }, "Error listening on port");
+      process.exit(1);
+    }
+    logger.info({ port }, "Server listening");
+  });
+  // Longer than the proxy's idle timeout, so the proxy never reuses a
+  // connection Node is closing (that showed up as "socket hang up").
+  server.keepAliveTimeout = 65_000;
+  server.headersTimeout = 66_000;
+
+  // Certificates drawn by an older renderer (or never drawn) are drawn again,
+  // in the background; it never blocks the boot.
+  void refreshOutdatedCertificates();
+}
+
+export { app };

@@ -68,14 +68,12 @@ function diceBearUrl(name: string) {
 
 interface DisplayMentor {
   id: string
-  email: string
   name: string
   specialty: string
   primaryTag: string
   avatar: string
   linkedin: string
   featured: boolean
-  meetingLink: string | null
   expertise: string[]
 }
 
@@ -84,14 +82,12 @@ function toDisplayMentor(m: MentorUser): DisplayMentor {
   const cats = getCategories(tags)
   return {
     id: m.id,
-    email: m.email,
     name: m.fullName,
     specialty: m.bio ?? 'Mentor',
     primaryTag: cats[0] ?? '',
     avatar: m.avatarUrl ?? diceBearUrl(m.fullName),
     linkedin: m.linkedinUrl ?? '#',
     featured: tags.some(e => /^featured$/i.test(e)),
-    meetingLink: m.meetingLink,
     expertise: tags,
   }
 }
@@ -179,7 +175,7 @@ export default function HumanMentorsPage() {
           const canBook = !!m.id
           return (
             <motion.article
-              key={m.email}
+              key={m.id}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.03 * i, duration: 0.4 }}
@@ -221,7 +217,6 @@ export default function HumanMentorsPage() {
                         specialty: m.specialty,
                         avatar: m.avatar,
                         userId: m.id,
-                        meetingLink: m.meetingLink,
                       })
                     }}
                     className={cn(

@@ -24,6 +24,8 @@ COPY --from=builder /app/server/dist ./dist
 # Seed data files read at runtime by seed-course-content and seed-posttests.
 # Placed in dist/seed-data/ so import.meta.url-relative paths resolve correctly.
 COPY --from=builder /app/server/db/seed/seed-data ./dist/db/seed/seed-data
+# Certificate template and the font it is drawn in (the image has no system fonts)
+COPY --from=builder /app/server/assets ./assets
 # Full node_modules required for externalized native modules (pdfkit, @napi-rs/canvas, etc.)
 COPY --from=deps /app/node_modules ./node_modules
 # Handlebars email templates (externalized from bundle)
