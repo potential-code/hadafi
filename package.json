@@ -107,7 +107,12 @@
     "@expo/ngrok-bin>@expo/ngrok-bin-win32-ia32": "-",
     "@expo/ngrok-bin>@expo/ngrok-bin-win32-x64": "-",
     "@esbuild-kit/esm-loader": "npm:tsx@^4.21.0",
-    "esbuild": "0.27.3"
+    "esbuild": "0.28.2",
+    "@a2ui/web_core": "0.10.4",
+    "zod": "^4.6.7",
+    "katex": "^0.18.2",
+    "postcss-selector-parser": "^6.1.5",
+    "prismjs": "^1.30.0"
   },
   "dependencies": {
     "helmet": "^8.2.0"
