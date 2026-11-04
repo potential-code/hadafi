@@ -20,6 +20,7 @@ import { REDESIGN_ASSETS } from '@/lib/constants'
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
 import { SHELL_CONFIG, allItems, isActive, type ShellConfig, type ShellNavItem, type ShellRole } from './nav'
 import { optimizedSrc } from '@/lib/images'
+import { NotificationBell } from './NotificationBell'
 
 const COLLAPSE_KEY = 'hadafi.sidebarCollapsed'
 
@@ -213,6 +214,7 @@ function ShellSidebar({
         {/* The desktop sidebar has the bell (the phone header has its own). */}
         {onToggle && !collapsed && (
           <span className="ml-auto">
+            <NotificationBell variant="sidebar" />
           </span>
         )}
         {onToggle && (
@@ -252,6 +254,7 @@ function ShellSidebar({
 
       {onToggle && collapsed && (
         <div className="flex justify-center">
+          <NotificationBell variant="sidebar" />
         </div>
       )}
 
@@ -481,6 +484,7 @@ export function AppShell({
           <Link href={config.homeHref} className="mr-auto flex items-center">
             <img src={REDESIGN_ASSETS.logo.src} alt={REDESIGN_ASSETS.logo.alt} className="h-7 w-auto dark:brightness-0 dark:invert" />
           </Link>
+          <NotificationBell />
           {config.quickAction && (
             <Link
               href={config.quickAction.href}

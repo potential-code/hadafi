@@ -5,6 +5,7 @@ import { mentorAvailabilitySlots, mentorSessions, users } from "../db/schema";
 import { AppError } from "../utils/app-error";
 import { sendMail } from "../mail/mailer";
 import { logger } from "../config/logger";
+import { notify, whenLabel } from "./notifications.service";
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -213,7 +214,23 @@ export async function bookSession(
     return { session: inserted, slot: slotForEmail, mentor: txMentor, sme: txSme };
   });
 
-  // --- 7. Fire-and-forget confirmation emails ----------------------------------
+  // --- 7. In-app notifications for both sides (never throw) ----------------------
+  void notify(session.smeUserId, {
+    type: "session_booked",
+    title: `Session booked with ${mentor.fullName}`,
+    body: whenLabel(slot.startsAt, sme.timezone),
+    link: "/dashboard/sessions",
+    dedupeKey: `session:${session.id}:booked`,
+  });
+  void notify(session.mentorUserId, {
+    type: "session_booked",
+    title: `${sme.fullName} booked a session`,
+    body: whenLabel(slot.startsAt, mentor.timezone),
+    link: "/mentor/dashboard/sessions",
+    dedupeKey: `session:${session.id}:booked`,
+  });
+
+  // --- 7b. Fire-and-forget confirmation emails ---------------------------------
   // Run entirely in background — any failure here must never affect the 201
   // response because the booking transaction already committed.
   void (async () => {
@@ -373,7 +390,17 @@ export async function cancelSession(
     cancelledBy: role,
   };
 
-  // --- 6. Fire-and-forget cancellation email to the OTHER party ---------------
+  // --- 6. In-app notification for the OTHER party ------------------------------
+  const smeCancelled = role === "sme";
+  void notify(smeCancelled ? row.mentorUserId : row.smeUserId, {
+    type: "session_cancelled",
+    title: smeCancelled ? `${sme.fullName} cancelled their session` : `${mentor.fullName} cancelled your session`,
+    body: `${whenLabel(row.startsAt, smeCancelled ? mentor.timezone : sme.timezone)}${smeCancelled ? "" : ". Book another time with a mentor."}`,
+    link: smeCancelled ? "/mentor/dashboard/sessions" : "/dashboard/human-mentors",
+    dedupeKey: `session:${sessionId}:cancelled`,
+  });
+
+  // --- 6b. Fire-and-forget cancellation email to the OTHER party --------------
   if (role === "sme") {
     // SME cancelled — notify the mentor
     sendMail({

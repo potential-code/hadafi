@@ -6,15 +6,17 @@ import { isAPIError } from "better-auth/api";
 
 import { auth } from "../auth";
 import * as accountService from "../services/account.service";
+import { browserClaims, browserScope, guestClaims } from "../services/serviceTokenClaims";
 
 /**
  * GET /api/account/copilot-token
  *
  * Mints a short-lived service JWT for the AI backend (potential-ai). The AI
  * service trusts tokens signed with the shared COPILOT_SERVICE_JWT_SECRET and
- * scopes conversations by the platformId/userId claims. Requiring Hadafi auth
- * here is what gates the assistant (chat, voice STT/TTS) to logged-in users —
- * the shared secret never reaches the browser.
+ * scopes conversations by the platformId/userId claims; `scope` and `prompts`
+ * (serviceTokenClaims) say which agents and system prompts it may use.
+ * Requiring Hadafi auth here is what gates the assistant (chat, voice STT/TTS)
+ * to logged-in users — the shared secret never reaches the browser.
  */
 export async function copilotToken(
   req: Request,
@@ -32,7 +34,7 @@ export async function copilotToken(
     }
     const expiresInSeconds = 60 * 60; // 1 hour; the client refreshes before expiry
     const token = jwt.sign(
-      { platformId: "hadafi", userId: req.user!.userId },
+      { ...browserClaims(req.user!.role), platformId: "hadafi", userId: req.user!.userId },
       secret,
       { algorithm: "HS256", expiresIn: expiresInSeconds },
     );
@@ -68,7 +70,7 @@ export async function guestCopilotToken(
       return;
     }
     const expiresInSeconds = 30 * 60; // 30 minutes
-    const token = jwt.sign({ platformId: "hadafi" }, secret, {
+    const token = jwt.sign({ ...guestClaims(), platformId: "hadafi" }, secret, {
       algorithm: "HS256",
       expiresIn: expiresInSeconds,
     });
@@ -230,7 +232,7 @@ export async function voiceToken(req: Request, res: Response, next: NextFunction
       });
       return;
     }
-    const token = jwt.sign({ platformId: "hadafi", userId: req.user!.userId }, secret, {
+    const token = jwt.sign({ scope: browserScope(req.user!.role), platformId: "hadafi", userId: req.user!.userId }, secret, {
       algorithm: "HS256",
       expiresIn: 60,
     });

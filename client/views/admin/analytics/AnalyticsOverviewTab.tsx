@@ -6,6 +6,9 @@ import { BookOpenCheck, Info } from 'lucide-react'
 import { Button, Card, EmptyState, ProgressBar, Skeleton } from '@/components/kit'
 import { BarList, PanelHeader, SearchInput, SortButton, TableCard, adminTableClass, type SortDir } from '@/components/admin/ui'
 import { KpiStrip, TrendColumns } from '@/components/admin/analytics/charts'
+import { HighlightKpis, InsightsCharts } from '@/components/admin/analytics/InsightsPanels'
+import { LearningGainCard } from '@/components/admin/LearningGainCard'
+import { fetchAnalyticsInsights } from '@/lib/api/adminReports'
 import { RANGE_WORDS, fillSeries, isMonthly } from '@/components/admin/analytics/trend'
 import {
   fetchOverviewKpis,
@@ -29,6 +32,11 @@ export function AnalyticsOverviewTab({ range }: Props) {
   const [sortKey, setSortKey] = useState<SortKey>('enrolled')
   const [sortDir, setSortDir] = useState<SortDir>('desc')
   const [showAll, setShowAll] = useState(false)
+
+  const insights = useQuery({
+    queryKey: ['admin', 'analytics', 'insights', range],
+    queryFn: () => fetchAnalyticsInsights(range),
+  })
 
   const { data: kpis, isLoading: kpisLoading } = useQuery({
     queryKey: ['admin', 'analytics', 'kpi-overview', range],
@@ -92,6 +100,16 @@ export function AnalyticsOverviewTab({ range }: Props) {
 
   return (
     <div className="flex flex-col gap-5">
+      <HighlightKpis data={insights.data} loading={insights.isLoading} range={range} />
+      {insights.isError && (
+        <p role="alert" className="-mt-2 flex flex-wrap items-center gap-2 text-[13px] text-ui-muted">
+          The highlights couldn&rsquo;t load.
+          <Button variant="secondary" size="sm" onClick={() => insights.refetch()}>
+            Try again
+          </Button>
+        </p>
+      )}
+
       <KpiStrip items={kpiItems} loading={kpisLoading} />
 
       {/* Users growth */}
@@ -237,6 +255,9 @@ export function AnalyticsOverviewTab({ range }: Props) {
           </table>
         </TableCard>
       </div>
+
+      <InsightsCharts data={insights.data} loading={insights.isLoading} range={range} />
+      <LearningGainCard maxCourses={8} />
     </div>
   )
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ChevronDown, ChevronUp, ClipboardCheck, FileCheck2, Pencil, Plus, Trash2 } from 'lucide-react'
+import { ChevronDown, ChevronUp, ClipboardCheck, FileCheck2, Pencil, Plus, Sparkles, Trash2 } from 'lucide-react'
 import { toast } from 'sonner'
 import { cn } from '@/lib/utils'
 import { ConfirmDialog } from '@/components/admin/widgets/ConfirmDialog'
@@ -19,6 +19,8 @@ import {
 } from '@/lib/api/lms'
 import { AssessmentDialog } from './AssessmentDialog'
 import { AssessmentQuestionDialog } from './AssessmentQuestionDialog'
+import { AiQuestionsDialog } from './AiQuestionsDialog'
+import type { DraftQuestion } from '@/lib/api/adminReports'
 import { errorMessage } from './shared'
 
 type AssessmentFormData = Omit<Assessment, 'id' | 'courseId' | 'assessmentType' | 'questions'>
@@ -54,6 +56,7 @@ export function AssessmentSection({
   const [showDialog, setShowDialog] = useState(false)
   const [editingQuestion, setEditingQuestion] = useState<AssessmentQuestion | null>(null)
   const [addingQuestion, setAddingQuestion] = useState(false)
+  const [writingWithAi, setWritingWithAi] = useState(false)
   const [confirmDeleteAssessment, setConfirmDeleteAssessment] = useState(false)
   const [confirmDeleteQuestionId, setConfirmDeleteQuestionId] = useState<string | null>(null)
 
@@ -118,6 +121,32 @@ export function AssessmentSection({
       }
     } catch (e) {
       toast.error(errorMessage(e))
+    }
+  }
+
+  /** Saves the AI drafts the admin kept, in order; whatever saved stays even if one fails. */
+  async function handleAddDrafts(drafts: DraftQuestion[]) {
+    if (!assessment) return
+    const created: AssessmentQuestion[] = []
+    try {
+      for (const d of drafts) {
+        created.push(
+          await apiCreateAssessmentQuestion(assessment.id, {
+            questionType: d.format,
+            questionText: d.question,
+            options: d.options,
+            correctAnswer: d.correctIndex,
+            explanation: d.explanation || null,
+          }),
+        )
+      }
+    } finally {
+      if (created.length) {
+        const next = { ...assessment, questions: [...assessment.questions, ...created] }
+        setAssessment(next)
+        onUpdated(next)
+        toast.success(`${created.length} question${created.length === 1 ? '' : 's'} added`)
+      }
     }
   }
 
@@ -229,6 +258,10 @@ export function AssessmentSection({
               <Plus className="h-4 w-4" aria-hidden />
               Add question
             </Button>
+            <Button variant="secondary" size="sm" onClick={() => setWritingWithAi(true)}>
+              <Sparkles className="h-4 w-4" aria-hidden />
+              Write with AI
+            </Button>
           </div>
         </>
       )}
@@ -239,6 +272,14 @@ export function AssessmentSection({
         initial={assessment ?? undefined}
         onClose={() => setShowDialog(false)}
         onSave={handleSaveAssessment}
+      />
+      <AiQuestionsDialog
+        open={writingWithAi}
+        assessmentId={assessment?.id ?? null}
+        title={`Write ${label.toLowerCase()} questions with AI`}
+        source={type === 'pre' ? 'the course, as a check of what learners know before they start' : 'the whole course'}
+        onClose={() => setWritingWithAi(false)}
+        onAdd={handleAddDrafts}
       />
       <AssessmentQuestionDialog
         open={addingQuestion || !!editingQuestion}

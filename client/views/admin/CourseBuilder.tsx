@@ -620,7 +620,7 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
           </div>
 
           {/* Settings rail */}
-          <aside className="flex flex-col gap-4 min-[901px]:col-span-2 min-[901px]:grid min-[901px]:grid-cols-2 min-[901px]:items-start min-[1281px]:col-span-1 min-[1281px]:flex min-[1281px]:items-stretch">
+          <aside className="flex flex-col gap-4 min-[901px]:col-start-2 min-[901px]:grid min-[901px]:grid-cols-2 min-[901px]:items-start min-[1281px]:col-start-3 min-[1281px]:flex min-[1281px]:items-stretch">
             <CourseSettingsPanel
               course={course}
               onChange={updateCourse}

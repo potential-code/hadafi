@@ -3,7 +3,6 @@
 import { useMemo, type ComponentType } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import {
-  Award,
   BarChart3,
   BookOpen,
   Building2,
@@ -17,14 +16,17 @@ import {
   Sparkles,
   Tag,
   UserCheck,
-  Users,
   type LucideIcon,
 } from 'lucide-react'
 import Link from 'next/link'
 import { AdminLayout } from '@/components/admin/AdminLayout'
 import { btn, EmptyState, PageHeader, Skeleton } from '@/components/kit'
-import { AdminStat, BarList, ColumnChart, fmtDate, PanelHeader, Pill } from '@/components/admin/ui'
+import { BarList, ColumnChart, fmtDate, PanelHeader, Pill } from '@/components/admin/ui'
 import { AdminChartCard } from '@/components/admin/widgets/AdminChartCard'
+import { ExportMenu } from '@/components/admin/ExportMenu'
+import { ImpactSection } from '@/components/admin/ImpactSection'
+import { LearningGainCard } from '@/components/admin/LearningGainCard'
+import { fetchImpact } from '@/lib/api/adminReports'
 import {
   fetchAdminKpiStats,
   fetchCourseCompletionRates,
@@ -62,6 +64,7 @@ export default function AdminOverview() {
     queryKey: ['admin', 'analytics', 'course-completion'],
     queryFn: () => fetchCourseCompletionRates(),
   })
+  const impact = useQuery({ queryKey: ['admin', 'analytics', 'impact'], queryFn: fetchImpact })
   const attention = useQuery({
     queryKey: ['admin', 'needs-attention'],
     queryFn: fetchNeedsAttention,
@@ -104,6 +107,7 @@ export default function AdminOverview() {
                 <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
                 Super admin
               </Pill>
+              <ExportMenu />
               <Link href="/admin/courses" className={btn()}>
                 <Plus className="h-4 w-4" strokeWidth={2} aria-hidden />
                 New course
@@ -112,15 +116,15 @@ export default function AdminOverview() {
           }
         />
 
-        <section
-          aria-label="Key figures"
-          className="grid grid-cols-[minmax(0,1fr)] gap-4 min-[420px]:grid-cols-2 xl:grid-cols-4"
-        >
-          <AdminStat icon={Users} label="Total members" value={stats ? stats.totalUsers : '-'} hint="Registered members" />
-          <AdminStat icon={BookOpen} label="Active courses" value={stats ? stats.activeCourses : '-'} hint="Published" />
-          <AdminStat icon={Award} label="Certificates issued" value={stats ? stats.certificatesIssued : '-'} hint="Active certificates" />
-          <AdminStat icon={Sparkles} label="Active learners" value={stats ? stats.activeLearnersThisMonth : '-'} hint="This month" />
-        </section>
+        <ImpactSection impact={impact.data} loading={impact.isLoading} publishedCourses={stats?.activeCourses} />
+        {impact.isError && (
+          <p role="alert" className="-mt-2 flex flex-wrap items-center gap-2 text-[13px] text-ui-muted">
+            The impact figures couldn&rsquo;t load.
+            <button type="button" onClick={() => impact.refetch()} className={btn({ variant: 'secondary', size: 'sm' })}>
+              Try again
+            </button>
+          </p>
+        )}
 
         <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 xl:grid-cols-[minmax(0,1fr)_380px]">
           <section aria-labelledby="h-quick" className="flex flex-col self-stretch rounded-[14px] border border-ui-line bg-ui-surface">
@@ -159,6 +163,8 @@ export default function AdminOverview() {
             publishedCourses={stats?.activeCourses}
           />
         </div>
+
+        <LearningGainCard />
 
         <div className="grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-2">
           <AdminChartCard

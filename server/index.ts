@@ -15,6 +15,7 @@ import { basicAuthGate } from "./middleware/basic-auth";
 import { errorHandler } from "./middleware/error-handler";
 import { UPLOADS_ROOT } from "./middleware/upload";
 import { refreshOutdatedCertificates } from "./services/lms/certificate.service";
+import { startReminders } from "./services/reminders.service";
 
 // Fail fast without a session-signing secret. BETTER_AUTH_SECRET is preferred;
 // JWT_SECRET (the pre-Better-Auth secret) is accepted so deploys keep working.
@@ -136,6 +137,10 @@ if (process.env["HADAFI_SKIP_LISTEN"] !== "1") {
   // Certificates drawn by an older renderer (or never drawn) are drawn again,
   // in the background; it never blocks the boot.
   void refreshOutdatedCertificates();
+
+  // Session reminders and course nudges, every 15 minutes (in-app; emails
+  // only with REMINDER_EMAILS_ENABLED=true; REMINDERS_ENABLED=false stops it).
+  startReminders();
 }
 
 export { app };

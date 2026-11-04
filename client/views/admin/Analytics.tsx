@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { AdminLayout } from '@/components/admin/AdminLayout'
 import { PageHeader, Tabs } from '@/components/kit'
 import { Segmented } from '@/components/admin/ui'
+import { ExportMenu } from '@/components/admin/ExportMenu'
 import { AnalyticsOverviewTab } from './analytics/AnalyticsOverviewTab'
 import { AnalyticsStakeholdersTab } from './analytics/AnalyticsStakeholdersTab'
 import type { AnalyticsRange } from '@/lib/api/adminAnalytics'
@@ -31,7 +32,12 @@ export default function AdminAnalytics() {
           title="Analytics"
           subtitle="Data on users, learning outcomes and stakeholder applications."
           className="mb-0 max-md:flex-col max-md:items-start"
-          actions={<Segmented<AnalyticsRange> label="Date range" options={RANGES} value={range} onChange={setRange} />}
+          actions={
+            <>
+              <Segmented<AnalyticsRange> label="Date range" options={RANGES} value={range} onChange={setRange} />
+              <ExportMenu />
+            </>
+          }
         />
 
         <Tabs<Tab> label="Analytics sections" tabs={TABS} active={activeTab} onChange={setActiveTab} />

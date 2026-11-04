@@ -2,6 +2,49 @@ import { desc, eq } from 'drizzle-orm'
 import { db } from '../db'
 import { liveEvents, type InsertLiveEvent } from '../db/schema'
 import { AppError } from '../utils/app-error'
+import { notifyAllLearners } from './notifications.service'
+
+/** Today as 'YYYY-MM-DD' in UAE time (events are dated in UAE time). */
+function todayInUae(): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Dubai' }).format(new Date())
+}
+
+/** '5 Oct 2026, 5:00 PM / GST' from an event's date and display time. */
+function eventWhen(e: typeof liveEvents.$inferSelect): string {
+  const d = new Date(`${e.date}T12:00:00Z`)
+  const day = Number.isNaN(d.getTime())
+    ? e.date
+    : new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(d)
+  return e.time ? `${day}, ${e.time}` : day
+}
+
+/**
+ * Tells every learner when an upcoming event is first published, and when a
+ * published event gets its recording. Dedupe keys make each fire once.
+ */
+function announce(before: typeof liveEvents.$inferSelect | null, after: typeof liveEvents.$inferSelect): void {
+  if (after.status !== 'published') return
+  if (before?.status !== 'published' && after.date >= todayInUae()) {
+    void notifyAllLearners({
+      type: 'event_new',
+      title: `New event: ${after.title}`,
+      body: eventWhen(after),
+      link: '/dashboard/events',
+      dedupeKey: `event:${after.id}:new`,
+    })
+  }
+  // Learners first see the replay when the event is published with it, or when it's added later.
+  const hadReplay = before?.status === 'published' && !!before.recordingLink
+  if (after.recordingLink && !hadReplay) {
+    void notifyAllLearners({
+      type: 'event_recording',
+      title: `Replay available: ${after.title}`,
+      body: 'Watch the recording on the Events page.',
+      link: '/dashboard/events',
+      dedupeKey: `event:${after.id}:recording`,
+    })
+  }
+}
 
 /**
  * Returns all published live events ordered by date descending.
@@ -50,6 +93,7 @@ export async function createEvent(
     .values({ ...data, createdBy })
     .returning()
   if (!event) throw new AppError('Failed to create event', 500, 'INSERT_FAILED')
+  announce(null, event)
   return event
 }
 
@@ -74,6 +118,7 @@ export async function updateEvent(
     .returning()
 
   // updated is guaranteed to exist here because we confirmed the row above
+  announce(existing, updated!)
   return updated!
 }
 
