@@ -1,5 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 import * as adminService from "../services/admin.service";
+import * as needsAttentionService from "../services/admin.needsAttention.service";
 
 /**
  * POST /api/admin/invites
@@ -118,6 +119,26 @@ export async function listStakeholderApplications(
       typeof req.query["type"] === "string" ? req.query["type"] : undefined;
     const applications = await adminService.listStakeholderApplications(type);
     res.status(200).json({ success: true, data: applications });
+  } catch (err) {
+    next(err);
+  }
+}
+
+/**
+ * GET /api/admin/needs-attention
+ *
+ * Counts for the dashboard "Needs attention" panel: pending mentor
+ * applications, recent stakeholder applications, draft courses, unused invite
+ * codes and mentor sessions that ended without being marked complete.
+ * Returns { data: NeedsAttention }.
+ */
+export async function getNeedsAttention(
+  _req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
+  try {
+    res.json({ data: await needsAttentionService.getNeedsAttention() });
   } catch (err) {
     next(err);
   }

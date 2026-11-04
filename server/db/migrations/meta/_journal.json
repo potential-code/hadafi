@@ -148,6 +148,13 @@
       "when": 1793782413621,
       "tag": "0020_points_ledger",
       "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1793789151463,
+      "tag": "0021_redesign_features",
+      "breakpoints": true
     }
   ]
 }

@@ -15,7 +15,13 @@ import {
   getMentorSessionsList,
   cancelMentorSession,
   completeMentorSession,
+  patchSessionNotes,
+  getMenteeNotesHandler,
+  putMenteeNotesHandler,
+  postProfilePhoto,
 } from "../controllers/mentor.controller";
+import { uploadAvatar } from "../middleware/upload";
+import { MAX_NOTES_LENGTH } from "../services/mentor_notes.service";
 import { AppError } from "../utils/app-error";
 
 const router = Router();
@@ -48,6 +54,25 @@ const addSlotsDto = z.object({
     )
     .min(1, "At least one slot is required"),
 });
+
+const notesDto = z.object({
+  notes: z.string().max(MAX_NOTES_LENGTH, `Notes must be ${MAX_NOTES_LENGTH} characters or fewer`),
+});
+
+/** Rejects non-UUID path ids with 404 before they reach Postgres (which would 500 on a bad uuid). */
+function requireUuidParam(name: string) {
+  return (
+    req: import("express").Request,
+    _res: import("express").Response,
+    next: import("express").NextFunction,
+  ) => {
+    const value = req.params[name];
+    if (typeof value !== "string" || !z.string().uuid().safeParse(value).success) {
+      return next(new AppError("Not found", 404, "NOT_FOUND"));
+    }
+    next();
+  };
+}
 
 const bulkDeleteDto = z.object({
   ids: z.array(z.string().uuid()).min(1, "At least one ID is required"),
@@ -91,5 +116,33 @@ router.patch(
   requireRole("mentor"),
   completeMentorSession,
 );
+
+// Private notes — mentor-only, own sessions / own mentees only (checked in the service).
+router.patch(
+  "/sessions/:id/notes",
+  authenticate,
+  requireRole("mentor"),
+  requireUuidParam("id"),
+  validate(notesDto),
+  patchSessionNotes,
+);
+router.get(
+  "/mentees/:menteeId/notes",
+  authenticate,
+  requireRole("mentor"),
+  requireUuidParam("menteeId"),
+  getMenteeNotesHandler,
+);
+router.put(
+  "/mentees/:menteeId/notes",
+  authenticate,
+  requireRole("mentor"),
+  requireUuidParam("menteeId"),
+  validate(notesDto),
+  putMenteeNotesHandler,
+);
+
+// Profile photo (multipart, field "photo").
+router.post("/profile/photo", authenticate, requireRole("mentor"), uploadAvatar, postProfilePhoto);
 
 export default router;

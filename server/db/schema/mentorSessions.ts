@@ -31,6 +31,8 @@ export const mentorSessions = pgTable(
     // 'mentor' | 'sme' — enforced at app layer
     cancelledBy: text("cancelled_by"),
     cancelledAt: timestamp("cancelled_at"),
+    // Private notes the mentor keeps about this session (never shown to the SME).
+    mentorNotes: text("mentor_notes"),
     bookedAt: timestamp("booked_at").notNull().default(sql`now()`),
     createdAt: timestamp("created_at").notNull().default(sql`now()`),
     updatedAt: timestamp("updated_at").notNull().default(sql`now()`),

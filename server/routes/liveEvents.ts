@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { z } from 'zod'
+import { patchOf } from '../utils/zodPatch'
 import { validate } from '../middleware/validate'
 import { authenticate } from '../middleware/authenticate'
 import { requireRole } from '../middleware/require-role'
@@ -33,7 +34,7 @@ const createDto = z.object({
 })
 
 /** DTO for updating a live event — all fields optional. */
-const updateDto = createDto.partial()
+const updateDto = patchOf(createDto)
 
 // ── Public routes ──────────────────────────────────────────────────────────────
 

@@ -1,5 +1,6 @@
 import { Router, type IRouter } from "express";
 import { z } from "zod";
+import { patchOf } from '../utils/zodPatch'
 
 import { authenticate } from "../middleware/authenticate";
 import { requireRole } from "../middleware/require-role";
@@ -27,6 +28,13 @@ router.use(authenticate, requireRole("admin"));
  * Lists all invite codes with optional usedBy user details.
  */
 router.get("/invites", adminController.listInvites);
+
+/**
+ * GET /api/admin/needs-attention
+ * Dashboard "Needs attention" counts (pending applications, draft courses,
+ * unused invite codes, mentor sessions needing completion).
+ */
+router.get("/needs-attention", adminController.getNeedsAttention);
 
 /**
  * POST /api/admin/invites
@@ -104,7 +112,7 @@ const createOfferDto = z.object({
 });
 
 /** DTO for partially updating an existing offer — all fields optional. */
-const updateOfferDto = createOfferDto.partial();
+const updateOfferDto = patchOf(createOfferDto);
 
 /**
  * GET /api/admin/offers

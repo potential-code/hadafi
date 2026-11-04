@@ -22,9 +22,12 @@ interface SessionRow {
   updatedAt: Date;
   startsAt: Date;
   endsAt: Date;
+  mentorNotes: string | null;
   smeName: string;
   smeEmail: string;
   smeAvatarUrl: string | null;
+  smeCompany: string | null;
+  smeCountry: string | null;
 }
 
 /** Session enriched with nested slot and smeUser objects — matches the frontend Session type. */
@@ -36,10 +39,22 @@ export interface SessionWithSlot {
   cancelledAt: Date | null;
   bookedAt: Date;
   slot: { startsAt: Date; endsAt: Date };
-  smeUser: { fullName: string; email: string; avatarUrl: string | null };
+  /** `id` is the mentee's user id (used by the mentee-notes endpoints). */
+  smeUser: {
+    id: string;
+    fullName: string;
+    email: string;
+    avatarUrl: string | null;
+    company: string | null;
+    country: string | null;
+  };
+  /** The mentor's private notes on this session. */
+  mentorNotes: string | null;
+  /** True when the session's end time has passed but it is still 'confirmed'. */
+  needsCompletion: boolean;
 }
 
-function toSessionWithSlot(row: SessionRow): SessionWithSlot {
+function toSessionWithSlot(row: SessionRow, now: Date = new Date()): SessionWithSlot {
   return {
     id: row.id,
     status: row.status,
@@ -48,7 +63,16 @@ function toSessionWithSlot(row: SessionRow): SessionWithSlot {
     cancelledAt: row.cancelledAt,
     bookedAt: row.bookedAt,
     slot: { startsAt: row.startsAt, endsAt: row.endsAt },
-    smeUser: { fullName: row.smeName, email: row.smeEmail, avatarUrl: row.smeAvatarUrl },
+    smeUser: {
+      id: row.smeUserId,
+      fullName: row.smeName,
+      email: row.smeEmail,
+      avatarUrl: row.smeAvatarUrl,
+      company: row.smeCompany,
+      country: row.smeCountry,
+    },
+    mentorNotes: row.mentorNotes,
+    needsCompletion: row.status === "confirmed" && row.endsAt.getTime() <= now.getTime(),
   };
 }
 
@@ -281,10 +305,11 @@ export async function getMentorAnalytics(mentorUserId: string): Promise<{
   upcomingSessions: number;
   totalMentees: number;
   completedSessions: number;
+  sessionsNeedingCompletion: number;
 }> {
   const now = new Date();
 
-  const [upcomingResult, menteesResult, completedResult] = await Promise.all([
+  const [upcomingResult, menteesResult, completedResult, needsCompletionResult] = await Promise.all([
     // Upcoming confirmed sessions: join to slots to filter by startsAt > now.
     db
       .select({ value: count() })
@@ -317,12 +342,29 @@ export async function getMentorAnalytics(mentorUserId: string): Promise<{
           eq(mentorSessions.status, "completed"),
         ),
       ),
+
+    // Ended but never marked complete or cancelled.
+    db
+      .select({ value: count() })
+      .from(mentorSessions)
+      .innerJoin(
+        mentorAvailabilitySlots,
+        eq(mentorSessions.slotId, mentorAvailabilitySlots.id),
+      )
+      .where(
+        and(
+          eq(mentorSessions.mentorUserId, mentorUserId),
+          eq(mentorSessions.status, "confirmed"),
+          lte(mentorAvailabilitySlots.endsAt, now),
+        ),
+      ),
   ]);
 
   return {
     upcomingSessions: Number(upcomingResult[0]?.value ?? 0),
     totalMentees: Number(menteesResult[0]?.value ?? 0),
     completedSessions: Number(completedResult[0]?.value ?? 0),
+    sessionsNeedingCompletion: Number(needsCompletionResult[0]?.value ?? 0),
   };
 }
 
@@ -334,9 +376,12 @@ export async function getMentorAnalytics(mentorUserId: string): Promise<{
  * Returns all sessions for a mentor, split into upcoming and past buckets,
  * enriched with slot timing and SME user details.
  *
- * Upcoming:  status = 'confirmed' AND slot.startsAt > now — sorted ASC.
- * Past:      slot.startsAt <= now (covers completed, cancelled, and any
- *            confirmed sessions whose window has passed) — sorted DESC.
+ * Upcoming:  status = 'confirmed' AND slot.endsAt > now (not started yet, or
+ *            in progress right now) — sorted ASC.
+ * Past:      slot.endsAt <= now, or status completed/cancelled — sorted DESC.
+ *            Confirmed sessions whose end time has passed are included with
+ *            `needsCompletion: true` so the mentor can mark them completed
+ *            or cancelled (PATCH /sessions/:id/complete | /cancel).
  *
  * @param mentorUserId - The authenticated mentor's user ID.
  */
@@ -361,9 +406,12 @@ export async function getMentorSessions(mentorUserId: string): Promise<{
     updatedAt: mentorSessions.updatedAt,
     startsAt: mentorAvailabilitySlots.startsAt,
     endsAt: mentorAvailabilitySlots.endsAt,
+    mentorNotes: mentorSessions.mentorNotes,
     smeName: users.fullName,
     smeEmail: users.email,
     smeAvatarUrl: users.avatarUrl,
+    smeCompany: users.company,
+    smeCountry: users.country,
   } as const;
 
   const [upcomingRows, pastRows] = await Promise.all([
@@ -379,7 +427,7 @@ export async function getMentorSessions(mentorUserId: string): Promise<{
         and(
           eq(mentorSessions.mentorUserId, mentorUserId),
           eq(mentorSessions.status, "confirmed"),
-          gt(mentorAvailabilitySlots.startsAt, now),
+          gt(mentorAvailabilitySlots.endsAt, now),
         ),
       )
       .orderBy(asc(mentorAvailabilitySlots.startsAt)),
@@ -396,7 +444,7 @@ export async function getMentorSessions(mentorUserId: string): Promise<{
         and(
           eq(mentorSessions.mentorUserId, mentorUserId),
           or(
-            lte(mentorAvailabilitySlots.startsAt, now),
+            lte(mentorAvailabilitySlots.endsAt, now),
             inArray(mentorSessions.status, ["completed", "cancelled"]),
           ),
         ),
@@ -405,7 +453,7 @@ export async function getMentorSessions(mentorUserId: string): Promise<{
   ]);
 
   return {
-    upcoming: upcomingRows.map(toSessionWithSlot),
-    past: pastRows.map(toSessionWithSlot),
+    upcoming: upcomingRows.map((r) => toSessionWithSlot(r, now)),
+    past: pastRows.map((r) => toSessionWithSlot(r, now)),
   };
 }

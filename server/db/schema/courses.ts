@@ -7,6 +7,20 @@ export const blockTypeEnum = pgEnum('block_type', ['text', 'video', 'image', 'qu
 export const questionKindEnum = pgEnum('question_kind', ['survey', 'action-plan'])
 export const questionFormatEnum = pgEnum('question_format', ['multiple-choice', 'true-false', 'short-text'])
 
+/**
+ * Fixed topic list for course filters (mirrors COURSE_TOPICS in
+ * client/lib/api/redesign.ts). `courses.category` is one of these or null.
+ */
+export const COURSE_TOPICS = [
+  'Money and finance',
+  'Sales and customers',
+  'People and leadership',
+  'Digital and AI',
+  'Starting a business',
+  'Personal effectiveness',
+] as const
+export type CourseTopic = (typeof COURSE_TOPICS)[number]
+
 export const courses = pgTable('courses', {
   id: uuid('id').primaryKey().default(sql`gen_random_uuid()`),
   title: text('title').notNull(),
@@ -16,6 +30,8 @@ export const courses = pgTable('courses', {
   pointsPerUnit: integer('points_per_unit').notNull().default(10),
   enableCertificate: boolean('enable_certificate').notNull().default(true),
   status: courseStatusEnum('status').notNull().default('draft'),
+  /** One of COURSE_TOPICS, or null when uncategorised. Validated at the app layer. */
+  category: text('category').$type<CourseTopic | null>(),
   createdAt: timestamp('created_at').notNull().default(sql`now()`),
   updatedAt: timestamp('updated_at').notNull().default(sql`now()`),
 })

@@ -1,3 +1,5 @@
+import type { CourseTopic } from './redesign'
+
 // ── Learner-facing types ─────────────────────────────────────────────────────
 
 export type LearnerCourse = {
@@ -9,6 +11,8 @@ export type LearnerCourse = {
   pointsPerUnit: number
   enableCertificate: boolean
   status: 'published'
+  /** Course topic (see COURSE_TOPICS in ./redesign), or null when uncategorised. */
+  category: CourseTopic | null
   createdAt: string
   updatedAt: string
   isEnrolled: boolean
@@ -110,6 +114,8 @@ export type CourseSummary = {
   pointsPerUnit: number
   enableCertificate: boolean
   status: 'draft' | 'published'
+  /** Course topic (see COURSE_TOPICS in ./redesign), or null when uncategorised. */
+  category: CourseTopic | null
   enrolled: number
   createdAt: string
   updatedAt: string

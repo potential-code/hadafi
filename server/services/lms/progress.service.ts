@@ -8,6 +8,7 @@ import {
 import { eq, and, inArray, sql, gte } from 'drizzle-orm'
 import { AppError } from '../../utils/app-error'
 import type { UserLearningBlockProgress, UserUnitProgress, QuestionAnswer } from '../../db/schema'
+import { recordLearningStep } from '../streak.service'
 
 /**
  * Upserts block-level progress for a learner.
@@ -26,6 +27,14 @@ export async function updateBlockProgress(
   videoWatchPct?: number,
 ): Promise<UserLearningBlockProgress> {
   const now = new Date()
+
+  // Only a transition into 'completed' counts as a new step for the streak;
+  // re-completing an already-completed block (retries, replays) doesn't.
+  const [before] = status === 'completed'
+    ? await db.select({ status: userLearningBlockProgress.status }).from(userLearningBlockProgress)
+      .where(and(eq(userLearningBlockProgress.userId, userId), eq(userLearningBlockProgress.learningBlockId, blockId)))
+    : []
+
   const updateSet: Partial<typeof userLearningBlockProgress.$inferInsert> = {
     status,
     ...(status === 'completed' ? { completedAt: now } : {}),
@@ -41,6 +50,7 @@ export async function updateBlockProgress(
     .returning()
 
   if (status === 'completed') {
+    if (before?.status !== 'completed') await recordLearningStep(userId)
     await recalculateFromBlock(userId, blockId)
   }
 
@@ -70,11 +80,15 @@ export async function updateBlockProgress(
  * @param userId  - UUID of the learner.
  * @param unitId  - UUID of the unit.
  * @param status  - New progress status.
+ * @param opts.recordStep - Count a new completion as a streak step. Only the
+ *   direct learner endpoint sets this; roll-ups from block completion don't,
+ *   because the block itself was already counted.
  */
 export async function updateUnitProgress(
   userId: string,
   unitId: string,
   status: 'not_started' | 'in_progress' | 'completed',
+  opts: { recordStep?: boolean } = {},
 ): Promise<UserUnitProgress> {
   const now = new Date()
 
@@ -101,6 +115,7 @@ export async function updateUnitProgress(
     .returning()
 
   if (status === 'completed') {
+    if (opts.recordStep && !wasAlreadyCompleted) await recordLearningStep(userId)
     const [unit] = await db.select().from(units).where(eq(units.id, unitId))
     if (unit) {
       const [module] = await db.select().from(modules).where(eq(modules.id, unit.moduleId))

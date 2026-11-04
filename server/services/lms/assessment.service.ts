@@ -5,6 +5,7 @@ import {
 import { eq, and, asc } from 'drizzle-orm'
 import { AppError } from '../../utils/app-error'
 import { recalculateCourseProgress } from './progress.service'
+import { recordLearningStep } from '../streak.service'
 
 /**
  * Returns a summary of the assessment state for a learner, including attempt history,
@@ -149,6 +150,8 @@ export async function submitAttempt(
       completedAt: new Date(),
     })
     .returning()
+
+  await recordLearningStep(userId)
 
   // Always recalculate so progress stays accurate regardless of pass/fail or
   // any previous assessment config changes (e.g. switching graded ↔ ungraded).

@@ -111,7 +111,7 @@ export async function updateUnitProgress(
   try {
     const { status } = req.body as { status: 'not_started' | 'in_progress' | 'completed' }
     if (status === 'completed') await progressSvc.assertUnitCompletable(req.user!.userId, req.params.unitId)
-    const data = await progressSvc.updateUnitProgress(req.user!.userId, req.params.unitId, status)
+    const data = await progressSvc.updateUnitProgress(req.user!.userId, req.params.unitId, status, { recordStep: true })
     res.json({ success: true, data })
   } catch (e) {
     next(e)
