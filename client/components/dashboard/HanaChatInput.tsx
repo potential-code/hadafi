@@ -40,6 +40,8 @@ export interface HanaComposerOptionsValue {
   attach?: HanaAttachOptions
   /** The conversation is over (e.g. a marked exam): this note replaces the input. */
   closed?: string
+  /** BCP 47 tag the dictation mic listens in (default en-US), e.g. ar-AE in Learn with Hana. */
+  dictationLocale?: string
 }
 
 type Attachment =
@@ -99,7 +101,7 @@ export function HanaChatInput({
     setValue(`${base.current}${base.current ? ' ' : ''}${text}`)
     if (final) base.current = ''
     requestAnimationFrame(resize)
-  })
+  }, options.dictationLocale)
 
   useEffect(() => {
     isChatInProgressRef.current = isRunning ?? false
@@ -242,6 +244,7 @@ export function HanaChatInput({
           )}
           <textarea
             ref={textareaRef}
+            dir="auto"
             value={value}
             onChange={handleChange}
             onKeyDown={handleKeyDown}

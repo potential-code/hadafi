@@ -1,9 +1,13 @@
 import { createContext, useContext } from 'react'
-import type { CourseState, NextStep, TutorApi, UnitStep } from './api'
+import type { CourseState, LearnerLanguage, NextStep, TutorApi, UnitStep } from './api'
 import type { TutorStrings } from './strings'
 
 export interface TutorSession {
   ui: TutorStrings
+  /** The learner's language: course content and Hana's words. Labels stay English. */
+  lang: LearnerLanguage
+  /** Direction for course content (dir on content only, never the page chrome). */
+  dir: 'ltr' | 'rtl'
   api: TutorApi
   state: CourseState | null
   running: boolean

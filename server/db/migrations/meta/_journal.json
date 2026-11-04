@@ -218,6 +218,13 @@
       "when": 1793808888977,
       "tag": "0030_ai_examiner",
       "breakpoints": true
+    },
+    {
+      "idx": 31,
+      "version": "7",
+      "when": 1793811669598,
+      "tag": "0031_tutor_translations",
+      "breakpoints": true
     }
   ]
 }

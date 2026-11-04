@@ -21,6 +21,7 @@ import { YouTubePlayer } from '@/components/lms/YouTubePlayer'
 import { cn } from '@/lib/utils'
 import { apiErrorMessage, type QuestionStep, type Quiz, type QuizResult, type StepAnswer, type UnitIntro, type VideoLesson } from './api'
 import { useTutor } from './context'
+import { contentDir } from './strings'
 
 /** Marks the message a card's Continue button sends: the graph must open a card on that turn. */
 export const NEXT_MARKER = '[next] '
@@ -74,7 +75,11 @@ export function TutorCard({
         {(title || kind) && (
           <header className="border-b border-ui-line px-4 pb-3 pt-3.5 sm:px-5">
             {kind && <p className="text-xs font-semibold text-ui-muted">{kind}</p>}
-            {title && <h3 className="mt-0.5 text-[15px] font-semibold leading-snug text-ui-text [overflow-wrap:anywhere]">{title}</h3>}
+            {title && (
+              <h3 dir={contentDir(title)} className="mt-0.5 text-start text-[15px] font-semibold leading-snug text-ui-text [overflow-wrap:anywhere]">
+                {title}
+              </h3>
+            )}
           </header>
         )}
         <div className="px-4 py-4 sm:px-5">{children}</div>
@@ -175,7 +180,7 @@ const Backward = () => <ArrowLeft className="h-4 w-4 rtl:rotate-180" aria-hidden
 
 function Markdown({ children }: { children: string }) {
   return (
-    <div className="space-y-2 text-[14px] leading-[1.7] text-ui-text [overflow-wrap:anywhere] [&_h2]:text-[15px] [&_h2]:font-semibold [&_h3]:text-[14px] [&_h3]:font-semibold [&_h4]:text-[14px] [&_h4]:font-semibold [&_ol]:list-decimal [&_ol]:ps-5 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:ps-5">
+    <div dir={contentDir(children)} className="space-y-2 text-start text-[14px] leading-[1.7] text-ui-text [overflow-wrap:anywhere] [&_h2]:text-[15px] [&_h2]:font-semibold [&_h3]:text-[14px] [&_h3]:font-semibold [&_h4]:text-[14px] [&_h4]:font-semibold [&_ol]:list-decimal [&_ol]:ps-5 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:ps-5">
       <ReactMarkdown remarkPlugins={[remarkGfm]} skipHtml components={{ img: () => null }}>
         {children}
       </ReactMarkdown>
@@ -185,7 +190,7 @@ function Markdown({ children }: { children: string }) {
 
 function KeyList({ items }: { items: string[] }) {
   return (
-    <ul className="space-y-1.5">
+    <ul dir={contentDir(items.join(' '))} className="space-y-1.5">
       {items.map((o, i) => (
         <li key={i} className="flex items-start gap-2 text-[14px] text-ui-text">
           <Check className="mt-0.5 h-4 w-4 flex-none text-ui-ok" aria-hidden />
@@ -232,7 +237,9 @@ function Choice({
       >
         {String.fromCharCode(65 + index)}
       </span>
-      <span className="min-w-0 pt-1 [overflow-wrap:anywhere]">{children}</span>
+      <span dir={typeof children === 'string' ? contentDir(children) : undefined} className="min-w-0 pt-1 text-start [overflow-wrap:anywhere]">
+        {children}
+      </span>
     </button>
   )
 }
@@ -265,7 +272,9 @@ export function CoursesCard({ latest }: { latest: boolean }) {
             className="w-full rounded-[10px] border border-ui-line bg-ui-surface px-4 py-3 text-start transition-colors hover:bg-ui-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand disabled:opacity-70"
           >
             <span className="flex items-center justify-between gap-3">
-              <span className="min-w-0 text-[14px] font-semibold text-ui-text [overflow-wrap:anywhere]">{c.name}</span>
+              <span dir={contentDir(c.name)} className="min-w-0 text-start text-[14px] font-semibold text-ui-text [overflow-wrap:anywhere]">
+                {c.name}
+              </span>
               <span className="inline-flex flex-none items-center gap-1.5 text-[13px] font-semibold text-ui-brand-text">
                 {opening === c.courseId ? (
                   <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
@@ -634,17 +643,18 @@ export function QuestionStepCard({ learningBlockId, latest }: { learningBlockId:
           if (q.format === 'short-text') {
             return (
               <div key={q.questionId}>
-                <label htmlFor={id} className="mb-1.5 block text-[14px] font-semibold text-ui-text [overflow-wrap:anywhere]">
+                <label htmlFor={id} dir={contentDir(q.prompt)} className="mb-1.5 block text-start text-[14px] font-semibold text-ui-text [overflow-wrap:anywhere]">
                   {q.prompt}
                 </label>
                 {saved ? (
-                  <p id={id} className="whitespace-pre-wrap rounded-[10px] border border-ui-line bg-ui-surface-2 px-3.5 py-2.5 text-[14px] leading-relaxed text-ui-text [overflow-wrap:anywhere]">
+                  <p id={id} dir="auto" className="whitespace-pre-wrap text-start rounded-[10px] border border-ui-line bg-ui-surface-2 px-3.5 py-2.5 text-[14px] leading-relaxed text-ui-text [overflow-wrap:anywhere]">
                     {d?.text ?? ''}
                   </p>
                 ) : (
                   <textarea
                     id={id}
                     rows={3}
+                    dir="auto"
                     value={d?.text ?? ''}
                     maxLength={10_000}
                     placeholder={q.placeholder ?? (checkIn ? ui.answerPlaceholder : ui.planPlaceholder)}
@@ -658,7 +668,9 @@ export function QuestionStepCard({ learningBlockId, latest }: { learningBlockId:
           }
           return (
             <fieldset key={q.questionId}>
-              <legend className="mb-2 text-[14px] font-semibold text-ui-text [overflow-wrap:anywhere]">{q.prompt}</legend>
+              <legend dir={contentDir(q.prompt)} className="mb-2 text-start text-[14px] font-semibold text-ui-text [overflow-wrap:anywhere]">
+                {q.prompt}
+              </legend>
               <div role="radiogroup" aria-label={q.prompt} className="space-y-2">
                 {q.options.map((option, i) => (
                   <Choice
@@ -793,7 +805,7 @@ export function TutorQuizCard({ assessmentId, latest }: { assessmentId: string; 
         {data.maxAttempts > 0 && <span>{ui.attemptsLeft(Math.max(0, data.maxAttempts - data.attemptsUsed))}</span>}
       </div>
       <ProgressBar value={((index + 1) / total) * 100} className="mb-4 h-1" label={ui.questionOf(index + 1, total)} />
-      <p id={`q-${assessmentId}`} className="mb-3 text-[15px] font-semibold text-ui-text [overflow-wrap:anywhere]">
+      <p id={`q-${assessmentId}`} dir={contentDir(q?.text)} className="mb-3 text-start text-[15px] font-semibold text-ui-text [overflow-wrap:anywhere]">
         {q?.text}
       </p>
       <div role="radiogroup" aria-labelledby={`q-${assessmentId}`} className="space-y-2">

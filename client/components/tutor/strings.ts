@@ -1,8 +1,46 @@
 /**
- * The Multi Learning page's own labels. English for now; SMEEP's Arabic,
- * Hindi and Urdu need its card content translated on the server, which
- * Hadafi doesn't do yet. Hana's replies come from the agent.
+ * The Multi Learning page's own labels. They stay English in every language
+ * (Hadafi's decision): the learner's language changes the course content,
+ * which the server translates, and Hana's words, not the app around them.
  */
+
+import type { LearnerLanguage } from './api'
+
+/** The languages Learn with Hana offers. Each label is written in its own language. */
+export const LANGUAGES: ReadonlyArray<{ code: LearnerLanguage; label: string; short: string; name: string; dir: 'ltr' | 'rtl' }> = [
+  { code: 'en', label: 'English', short: 'EN', name: 'English', dir: 'ltr' },
+  { code: 'ar', label: 'العربية', short: 'ع', name: 'Arabic', dir: 'rtl' },
+  { code: 'ur', label: 'اردو', short: 'اردو', name: 'Urdu', dir: 'rtl' },
+]
+
+export function isLearnerLanguage(value: unknown): value is LearnerLanguage {
+  return value === 'en' || value === 'ar' || value === 'ur'
+}
+
+/** Direction of course content in a language. The page around it stays left to right. */
+export function directionOf(lang: LearnerLanguage): 'ltr' | 'rtl' {
+  return lang === 'ar' || lang === 'ur' ? 'rtl' : 'ltr'
+}
+
+const RTL_SCRIPT = /[\u0590-\u08FF\uFB1D-\uFDFF\uFE70-\uFEFF]/
+
+/**
+ * Direction for one piece of course content: right to left when it is in
+ * Arabic script (Arabic, Urdu), otherwise the browser decides (`auto`). Per
+ * string, not per language, so a line that fell back to English stays left
+ * to right, and an Arabic line that opens with "Hadafi" still reads right to
+ * left. Only content gets a direction; the page's own labels never do.
+ */
+export function contentDir(text: string | null | undefined): 'rtl' | 'auto' {
+  return text && RTL_SCRIPT.test(text) ? 'rtl' : 'auto'
+}
+
+/** What the dictation mic listens for (as SMEEP). */
+export const RECOGNITION_LOCALE: Record<LearnerLanguage, string> = {
+  en: 'en-US',
+  ar: 'ar-AE',
+  ur: 'ur-PK',
+}
 
 export const ui = {
   pageTitle: 'Learn with Hana',
@@ -72,6 +110,8 @@ export const ui = {
   earnsCertificate: 'Pass it to earn your certificate',
   classicView: 'Course page',
   classicViewLong: 'Open the course page',
+  language: 'Language',
+  languageOf: (name: string) => `Learn in ${name}`,
 }
 
 export type TutorStrings = typeof ui

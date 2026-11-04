@@ -58,8 +58,11 @@ export type NextStep =
   | { action: 'show_action_plan'; unitId: string; learningBlockId: string; checkIn?: boolean }
   | { action: 'show_quiz'; assessmentId: string; retake: boolean; pretest?: boolean }
 
+/** English, Arabic or Urdu (Hadafi's offer; the server treats anything else as English). */
+export type LearnerLanguage = 'en' | 'ar' | 'ur'
+
 export interface CourseState {
-  language: 'en'
+  language: LearnerLanguage
   courses: CourseSummary[]
   active: null | {
     courseId: string
@@ -161,28 +164,37 @@ async function post<T>(path: string, body: unknown): Promise<T> {
   return res.data
 }
 
-export const tutorApi: TutorApi = {
-  state: ({ courseId, introSeen }) => {
-    const params = new URLSearchParams()
-    if (courseId) params.set('courseId', courseId)
-    if (introSeen?.length) params.set('introSeen', introSeen.join(','))
-    const q = params.toString()
-    return get<CourseState>(`/state${q ? `?${q}` : ''}`)
-  },
-  unitIntro: (unitId) => get<UnitIntro>(`/units/${unitId}/intro`),
-  unitMaterial: (unitId) => get<unknown>(`/units/${unitId}/material`),
-  video: (id) => get<VideoLesson>(`/videos/${id}`),
-  step: (id) => get<QuestionStep>(`/steps/${id}`),
-  submitStep: async (id, answers) => {
-    await post(`/steps/${id}/submit`, { answers })
-  },
-  quiz: (id) => get<Quiz>(`/quizzes/${id}`),
-  submitQuiz: (id, answers) => post<QuizResult>(`/quizzes/${id}/submit`, { answers }),
-  complete: async (learningBlockIds) => {
-    if (learningBlockIds.length === 0) return
-    await post('/progress/complete', { learningBlockIds })
-  },
+/**
+ * The tutor's API in one language: every card is fetched with `?lang=`, so
+ * names, lesson text and questions arrive translated (cached on the server).
+ * The unit material Hana loads stays English; she writes in the language.
+ */
+export function createTutorApi(lang: LearnerLanguage): TutorApi {
+  const q = `lang=${lang}`
+  return {
+    state: ({ courseId, introSeen }) => {
+      const params = new URLSearchParams({ lang })
+      if (courseId) params.set('courseId', courseId)
+      if (introSeen?.length) params.set('introSeen', introSeen.join(','))
+      return get<CourseState>(`/state?${params.toString()}`)
+    },
+    unitIntro: (unitId) => get<UnitIntro>(`/units/${unitId}/intro?${q}`),
+    unitMaterial: (unitId) => get<unknown>(`/units/${unitId}/material`),
+    video: (id) => get<VideoLesson>(`/videos/${id}?${q}`),
+    step: (id) => get<QuestionStep>(`/steps/${id}?${q}`),
+    submitStep: async (id, answers) => {
+      await post(`/steps/${id}/submit`, { answers })
+    },
+    quiz: (id) => get<Quiz>(`/quizzes/${id}?${q}`),
+    submitQuiz: (id, answers) => post<QuizResult>(`/quizzes/${id}/submit`, { answers }),
+    complete: async (learningBlockIds) => {
+      if (learningBlockIds.length === 0) return
+      await post('/progress/complete', { learningBlockIds })
+    },
+  }
 }
+
+export const tutorApi: TutorApi = createTutorApi('en')
 
 /** A readable message from an API error body (apiFetch throws the parsed body). */
 export function apiErrorMessage(e: unknown, fallback: string): string {

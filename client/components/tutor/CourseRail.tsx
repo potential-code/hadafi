@@ -13,7 +13,7 @@ import { ProgressBar } from '@/components/kit'
 import { cn } from '@/lib/utils'
 import type { NextStep, StateUnit, UnitStep } from './api'
 import { useTutor } from './context'
-import type { TutorStrings } from './strings'
+import { contentDir, type TutorStrings } from './strings'
 
 function stepName(step: UnitStep, ui: TutorStrings): string {
   switch (step.kind) {
@@ -87,7 +87,10 @@ function Unit({ unit, current }: { unit: StateUnit; current: boolean }) {
           {unit.complete ? <Check className="h-3 w-3" strokeWidth={2.5} aria-label={ui.done} /> : unit.order}
         </span>
         <span className="flex min-w-0 flex-col gap-0.5">
-          <span className={cn('text-[13px] leading-[1.4] [overflow-wrap:anywhere]', current ? 'font-semibold text-ui-text' : 'text-ui-text')}>
+          <span
+            dir={contentDir(unit.name)}
+            className={cn('text-start text-[13px] leading-[1.4] [overflow-wrap:anywhere]', current ? 'font-semibold text-ui-text' : 'text-ui-text')}
+          >
             {unit.name}
           </span>
           {nowStep && <span className="text-xs font-semibold text-ui-brand-text">{ui.nowStep(stepName(nowStep, ui))}</span>}
@@ -178,7 +181,9 @@ function Itinerary() {
   return (
     <div className="flex flex-col gap-3.5 px-4 py-5">
       <div className="flex flex-col gap-2">
-        <p className="text-[15px] font-semibold leading-snug text-ui-text [overflow-wrap:anywhere]">{active.name}</p>
+        <p dir={contentDir(active.name)} className="text-start text-[15px] font-semibold leading-snug text-ui-text [overflow-wrap:anywhere]">
+          {active.name}
+        </p>
         <div className="flex items-center gap-2.5">
           <ProgressBar value={pct} className="flex-1" label={ui.showProgress} />
           <span className="text-[13px] font-semibold tabular-nums text-ui-text">{pct}%</span>
@@ -250,7 +255,9 @@ export function CourseStrip() {
         aria-haspopup="dialog"
       >
         <span className="min-w-0 flex-1">
-          <span className="block truncate text-[13px] font-semibold text-ui-text">{active.name}</span>
+          <span dir={contentDir(active.name)} className="block truncate text-start text-[13px] font-semibold text-ui-text">
+            {active.name}
+          </span>
           <ProgressBar value={pct} className="mt-1.5" label={ui.showProgress} />
         </span>
         <span className="shrink-0 text-xs font-semibold tabular-nums text-ui-muted">

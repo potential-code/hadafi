@@ -27,6 +27,8 @@ const send =
 
 const uid = (req: Request) => req.user!.userId
 const param = (req: Request, name: string) => String(req.params[name] ?? '')
+/** ?lang=: English, Arabic or Urdu; anything else is English (as SMEEP). */
+const lang = (req: Request): tutor.LearnerLanguage => (tutor.isLearnerLanguage(req.query['lang']) ? req.query['lang'] : 'en')
 
 // Same bound as the course page's progress endpoints.
 const progressLimit = perUser('multi-learning-progress', HOUR, 300)
@@ -67,20 +69,20 @@ multiLearningRouter.get(
       typeof req.query['introSeen'] === 'string'
         ? req.query['introSeen'].split(',').filter((s) => /^[0-9a-f-]{36}$/i.test(s)).slice(0, 200)
         : []
-    return tutor.getCourseState(uid(req), { courseId, introSeen })
+    return tutor.getCourseState(uid(req), { courseId, introSeen, lang: lang(req) })
   }),
 )
-multiLearningRouter.get('/units/:unitId/intro', send((req) => tutor.getUnitIntro(uid(req), param(req, 'unitId'))))
+multiLearningRouter.get('/units/:unitId/intro', send((req) => tutor.getUnitIntro(uid(req), param(req, 'unitId'), lang(req))))
 multiLearningRouter.get('/units/:unitId/material', send((req) => tutor.getUnitMaterial(uid(req), param(req, 'unitId'))))
-multiLearningRouter.get('/videos/:blockId', send((req) => tutor.getVideo(uid(req), param(req, 'blockId'))))
-multiLearningRouter.get('/steps/:blockId', send((req) => tutor.getQuestionStep(uid(req), param(req, 'blockId'))))
+multiLearningRouter.get('/videos/:blockId', send((req) => tutor.getVideo(uid(req), param(req, 'blockId'), lang(req))))
+multiLearningRouter.get('/steps/:blockId', send((req) => tutor.getQuestionStep(uid(req), param(req, 'blockId'), lang(req))))
 multiLearningRouter.post(
   '/steps/:blockId/submit',
   progressLimit,
   validate(stepDto),
   send((req) => tutor.submitQuestionStep(uid(req), param(req, 'blockId'), req.body.answers)),
 )
-multiLearningRouter.get('/quizzes/:assessmentId', send((req) => tutor.getQuiz(uid(req), param(req, 'assessmentId'))))
+multiLearningRouter.get('/quizzes/:assessmentId', send((req) => tutor.getQuiz(uid(req), param(req, 'assessmentId'), lang(req))))
 multiLearningRouter.post(
   '/quizzes/:assessmentId/submit',
   progressLimit,

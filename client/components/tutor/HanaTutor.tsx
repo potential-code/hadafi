@@ -42,9 +42,9 @@ import { ChatLoadingContext } from '@/components/dashboard/chat-loading-context'
 import { makeUuid } from '@/components/dashboard/useStreamingVoice'
 import { useNarrow } from '@/components/dashboard/useNarrow'
 import '@/components/dashboard/hana-studio.css'
-import { tutorApi, type CourseState, type NextStep, type UnitStep } from './api'
+import { createTutorApi, type CourseState, type LearnerLanguage, type NextStep, type UnitStep } from './api'
 import { TutorContext, useTutor, type TutorSession } from './context'
-import { ui } from './strings'
+import { LANGUAGES, RECOGNITION_LOCALE, directionOf, ui } from './strings'
 import {
   CardSkeleton,
   CoursesCard,
@@ -283,8 +283,21 @@ function matchesNext(card: NextStep | null, next: NextStep | undefined): boolean
   }
 }
 
-export function HanaTutor({ courseId, firstName }: { courseId: string; firstName: string }) {
+export function HanaTutor({
+  courseId,
+  firstName,
+  lang = 'en',
+  onLanguageChange,
+}: {
+  courseId: string
+  firstName: string
+  /** Changing it restarts the conversation (the page remounts the provider), as SMEEP. */
+  lang?: LearnerLanguage
+  onLanguageChange?: (lang: LearnerLanguage) => void
+}) {
   const { copilotkit } = useCopilotKit()
+  const api = useMemo(() => createTutorApi(lang), [lang])
+  const dir = directionOf(lang)
   const [threadId] = useState(() => makeUuid())
   const { agent } = useAgent({
     agentId: TUTOR_AGENT_ID,
@@ -322,13 +335,13 @@ export function HanaTutor({ courseId, firstName }: { courseId: string; firstName
   // context entry below is current before the next run starts.
   const refreshFor = useCallback(async (id: string | null): Promise<CourseState | null> => {
     try {
-      const next = await tutorApi.state({ courseId: id, introSeen: [...introSeen.current] })
+      const next = await api.state({ courseId: id, introSeen: [...introSeen.current] })
       flushSync(() => setState(next))
       return next
     } catch {
       return null
     }
-  }, [])
+  }, [api])
   const refresh = useCallback(() => refreshFor(activeRef.current), [refreshFor])
 
   const openCourseSilently = useCallback(
@@ -418,7 +431,7 @@ export function HanaTutor({ courseId, firstName }: { courseId: string; firstName
   const now: NextStep | null = latestCard ?? state?.next ?? null
 
   // Context entries: who the learner is, where they are, what is on screen.
-  useAgentContext({ description: LEARNER_KEY, value: JSON.stringify({ language: 'en', firstName }) })
+  useAgentContext({ description: LEARNER_KEY, value: JSON.stringify({ language: lang, firstName }) })
   useAgentContext({ description: COURSE_STATE_KEY, value: state?.text ?? 'MISSING' })
   useAgentContext({
     description: ON_SCREEN_KEY,
@@ -460,7 +473,9 @@ export function HanaTutor({ courseId, firstName }: { courseId: string; firstName
 
   const session: TutorSession = {
     ui,
-    api: tutorApi,
+    lang,
+    dir,
+    api,
     state,
     running,
     latestCallId,
@@ -474,7 +489,10 @@ export function HanaTutor({ courseId, firstName }: { courseId: string; firstName
   }
 
   const coursePage = `/dashboard/courses/${state?.active?.courseId ?? courseId}`
-  const composer = useMemo(() => ({ placeholder: narrow ? ui.placeholderShort : ui.placeholder }), [narrow])
+  const composer = useMemo(
+    () => ({ placeholder: narrow ? ui.placeholderShort : ui.placeholder, dictationLocale: RECOGNITION_LOCALE[lang] }),
+    [narrow, lang],
+  )
 
   return (
     <TutorContext.Provider value={session}>
@@ -496,8 +514,47 @@ export function HanaTutor({ courseId, firstName }: { courseId: string; firstName
             <HanaPortrait size={36} />
             <div className="flex min-w-0 flex-1 flex-col">
               <h1 className="truncate text-base font-semibold leading-tight text-ui-text sm:text-lg">{ui.pageTitle}</h1>
-              <p className="truncate text-[13px] text-ui-muted">{state?.active?.name || ui.pageSubtitle}</p>
+              {state?.active?.name ? (
+                // Content direction, but aligned with the title above it (page chrome).
+                <p className="truncate text-left text-[13px] text-ui-muted" dir="auto">
+                  {state.active.name}
+                </p>
+              ) : (
+                <p className="truncate text-[13px] text-ui-muted">{ui.pageSubtitle}</p>
+              )}
             </div>
+            {onLanguageChange && (
+              <div
+                className="flex shrink-0 gap-0.5 rounded-[10px] bg-ui-surface-2 p-[3px]"
+                role="group"
+                aria-label={ui.language}
+              >
+                {LANGUAGES.map((l) => (
+                  <button
+                    key={l.code}
+                    type="button"
+                    lang={l.code}
+                    dir={l.dir}
+                    aria-pressed={l.code === lang}
+                    aria-label={ui.languageOf(l.name)}
+                    title={ui.languageOf(l.name)}
+                    disabled={running && l.code !== lang}
+                    onClick={() => {
+                      if (l.code !== lang) onLanguageChange(l.code)
+                    }}
+                    className={cn(
+                      'h-8 whitespace-nowrap rounded-lg px-2 text-[13px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ui-brand disabled:opacity-60 sm:px-3',
+                      l.code === lang
+                        ? 'bg-ui-surface text-ui-text shadow-[0_1px_2px_rgba(23,23,28,0.08)]'
+                        : 'text-ui-muted hover:text-ui-text',
+                    )}
+                  >
+                    <span className="sm:hidden">{l.short}</span>
+                    <span className="hidden sm:inline">{l.label}</span>
+                  </button>
+                ))}
+              </div>
+            )}
             {state?.active && (
               <button
                 type="button"

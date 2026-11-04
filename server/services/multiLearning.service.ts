@@ -22,6 +22,7 @@ import {
 } from './lms/progress.service'
 import { submitAttempt } from './lms/assessment.service'
 import { AppError } from '../utils/app-error'
+import { translateContent, type TranslationDomain } from './tutorTranslation.service'
 
 /**
  * Multi Learning: Hana as the tutor (potential-ai's `smeepTutor` graph, which
@@ -61,11 +62,36 @@ import { AppError } from '../utils/app-error'
  *
  * Text block roles follow their (very consistent) titles: "Read" is the
  * video's outline, "Read More" its narration transcript, "Case Study" and
- * "Quotes" are supplements. English only for now: SMEEP's ar/hi/ur cards need
- * potential-ai's /learning/translate, which isn't enabled for Hadafi.
+ * "Quotes" are supplements.
+ *
+ * Languages: English, Arabic and Urdu, as SMEEP (which also has Hindi). Every
+ * card and name is served in the learner's language through the translation
+ * cache (tutorTranslation.service); the unit material Hana loads stays English
+ * and she writes in the learner's language. The page keeps its own labels in
+ * English and shows Arabic and Urdu content right to left.
  */
 
-export type LearnerLanguage = 'en'
+export type LearnerLanguage = 'en' | 'ar' | 'ur'
+
+export const LEARNER_LANGUAGES: readonly LearnerLanguage[] = ['en', 'ar', 'ur']
+
+export function isLearnerLanguage(value: unknown): value is LearnerLanguage {
+  return value === 'en' || value === 'ar' || value === 'ur'
+}
+
+/**
+ * Translation seam. English passes through; other languages translate via the
+ * shared cache (potential-ai backed, translated once per string per language).
+ * Failures fall back to the English original.
+ */
+async function translator(
+  lang: LearnerLanguage,
+  texts: Array<string | null | undefined>,
+  domain: TranslationDomain = 'lesson',
+): Promise<(t: string) => string> {
+  if (lang === 'en') return (t: string) => t
+  return translateContent(texts, lang, domain)
+}
 
 // ---------------------------------------------------------------------------
 // Text
@@ -291,7 +317,7 @@ export interface CourseState {
   text: string
 }
 
-async function listCourses(userId: string): Promise<CourseSummary[]> {
+async function listCourses(userId: string, lang: LearnerLanguage): Promise<CourseSummary[]> {
   const rows = await db
     .select({ courseId: courses.id, name: courses.title })
     .from(courseEnrollments)
@@ -308,17 +334,23 @@ async function listCourses(userId: string): Promise<CourseSummary[]> {
     .from(userCourseProgress)
     .where(and(eq(userCourseProgress.userId, userId), inArray(userCourseProgress.courseId, rows.map((r) => r.courseId))))
   const byCourse = new Map(progress.map((p) => [p.courseId, p]))
+  const t = await translator(lang, rows.map((r) => clean(r.name)), 'catalogue')
   return rows.map((r) => {
     const p = byCourse.get(r.courseId)
     const percent = Math.round(Number(p?.pct ?? 0)) || 0
-    return { courseId: r.courseId, name: clean(r.name), progress: percent, complete: Boolean(p?.completedAt) || percent >= 100 }
+    return { courseId: r.courseId, name: t(clean(r.name)), progress: percent, complete: Boolean(p?.completedAt) || percent >= 100 }
   })
 }
 
 type BlockRow = { id: string; unitId: string; type: string; title: string; order: number }
 
 /** Every unit of a course as ordered steps, with the learner's progress. */
-async function buildUnits(userId: string, courseId: string, introSeen: ReadonlySet<string>): Promise<StateUnit[]> {
+async function buildUnits(
+  userId: string,
+  courseId: string,
+  introSeen: ReadonlySet<string>,
+  lang: LearnerLanguage = 'en',
+): Promise<StateUnit[]> {
   const moduleRows = await db
     .select({ id: modules.id, title: modules.title, order: modules.order })
     .from(modules)
@@ -377,6 +409,11 @@ async function buildUnits(userId: string, courseId: string, introSeen: ReadonlyS
   const completed = new Set(blockProgress.filter((p) => p.status === 'completed').map((p) => p.id))
   const kindsOf = new Map<string, string[]>()
   for (const q of questionKinds) kindsOf.set(q.blockId, [...(kindsOf.get(q.blockId) ?? []), q.kind])
+  const t = await translator(
+    lang,
+    [...ordered.map((u) => clean(u.title)), ...moduleRows.map((m) => clean(m.title)), ...blockRows.filter((b) => b.type === 'video').map((b) => clean(b.title))],
+    'catalogue',
+  )
 
   return ordered.map((unit, index) => {
     const blocks = blockRows.filter((b) => b.unitId === unit.id)
@@ -403,7 +440,7 @@ async function buildUnits(userId: string, courseId: string, introSeen: ReadonlyS
       }
       flushReading()
       if (b.type === 'video') {
-        steps.push({ kind: 'video', unitId: unit.id, blockId: b.id, title: clean(b.title), done: completed.has(b.id) })
+        steps.push({ kind: 'video', unitId: unit.id, blockId: b.id, title: t(clean(b.title)), done: completed.has(b.id) })
       } else if (b.type === 'question') {
         const kind = kinds.every((k) => k === 'action-plan') ? 'action-plan' : 'check-in'
         steps.push({ kind, unitId: unit.id, blockId: b.id, done: completed.has(b.id) })
@@ -421,8 +458,8 @@ async function buildUnits(userId: string, courseId: string, introSeen: ReadonlyS
 
     return {
       unitId: unit.id,
-      name: clean(unit.title),
-      moduleName: clean(moduleName.get(unit.moduleId) ?? ''),
+      name: t(clean(unit.title)),
+      moduleName: t(clean(moduleName.get(unit.moduleId) ?? '')),
       order: index + 1,
       // Complete the way the server counts it: every block done.
       complete: blocks.length > 0 ? blocks.every((b) => completed.has(b.id)) : steps.every((s) => s.done),
@@ -453,13 +490,14 @@ async function assessmentOf(courseId: string, type: 'pre' | 'post') {
   return row ?? null
 }
 
-async function buildPreTest(userId: string, courseId: string): Promise<PreTest | null> {
+async function buildPreTest(userId: string, courseId: string, lang: LearnerLanguage = 'en'): Promise<PreTest | null> {
   const a = await assessmentOf(courseId, 'pre')
   if (!a) return null
   const attempts = await attemptsFor(userId, a.id)
+  const t = await translator(lang, [clean(a.title)])
   return {
     assessmentId: a.id,
-    title: clean(a.title),
+    title: t(clean(a.title)),
     isGraded: a.isGraded,
     passingScore: a.passingScore,
     attemptsUsed: attempts.length,
@@ -468,16 +506,17 @@ async function buildPreTest(userId: string, courseId: string): Promise<PreTest |
   }
 }
 
-async function buildFinalQuiz(userId: string, courseId: string): Promise<FinalQuiz | null> {
+async function buildFinalQuiz(userId: string, courseId: string, lang: LearnerLanguage = 'en'): Promise<FinalQuiz | null> {
   const a = await assessmentOf(courseId, 'post')
   if (!a) return null
   const attempts = await attemptsFor(userId, a.id)
   const passed = a.isGraded ? attempts.some((x) => x.passed === true) : attempts.length > 0
   const locked = !passed && a.maxAttempts > 0 && attempts.length >= a.maxAttempts
   const scores = attempts.map((x) => x.score).filter((s): s is number => typeof s === 'number')
+  const t = await translator(lang, [clean(a.title)])
   return {
     assessmentId: a.id,
-    title: clean(a.title),
+    title: t(clean(a.title)),
     isGraded: a.isGraded,
     passingScore: a.passingScore,
     maxAttempts: a.maxAttempts,
@@ -602,11 +641,17 @@ function stateText(coursesList: CourseSummary[], active: ActiveCourse | null, ne
   return lines.join('\n')
 }
 
-async function buildActive(userId: string, courseId: string, introSeen: ReadonlySet<string>, coursesList: CourseSummary[]) {
+async function buildActive(
+  userId: string,
+  courseId: string,
+  introSeen: ReadonlySet<string>,
+  coursesList: CourseSummary[],
+  lang: LearnerLanguage,
+) {
   const [unitsList, finalQuiz, preTest] = await Promise.all([
-    buildUnits(userId, courseId, introSeen),
-    buildFinalQuiz(userId, courseId),
-    buildPreTest(userId, courseId),
+    buildUnits(userId, courseId, introSeen, lang),
+    buildFinalQuiz(userId, courseId, lang),
+    buildPreTest(userId, courseId, lang),
   ])
   const summary = coursesList.find((c) => c.courseId === courseId)
   const next = nextStepOf(unitsList, finalQuiz, preTest)
@@ -630,18 +675,20 @@ async function buildActive(userId: string, courseId: string, introSeen: Readonly
  */
 export async function getCourseState(
   userId: string,
-  options: { courseId?: string | null; introSeen?: string[] } = {},
+  options: { courseId?: string | null; introSeen?: string[]; lang?: LearnerLanguage } = {},
 ): Promise<CourseState> {
-  const coursesList = await listCourses(userId)
+  const lang = options.lang ?? 'en'
+  // Access first: nothing is translated for a course the learner can't see.
+  if (options.courseId) await assertCourseAccess(userId, options.courseId)
+  const coursesList = await listCourses(userId, lang)
   let active: ActiveCourse | null = null
   let next: NextStep = { action: 'show_courses', reason: 'no_active_course' }
   if (options.courseId) {
-    await assertCourseAccess(userId, options.courseId)
-    const built = await buildActive(userId, options.courseId, new Set(options.introSeen ?? []), coursesList)
+    const built = await buildActive(userId, options.courseId, new Set(options.introSeen ?? []), coursesList, lang)
     active = built.active
     next = built.next
   }
-  return { language: 'en', courses: coursesList, active, next, text: stateText(coursesList, active, next) }
+  return { language: lang, courses: coursesList, active, next, text: stateText(coursesList, active, next) }
 }
 
 // ---------------------------------------------------------------------------
@@ -742,7 +789,7 @@ export interface UnitIntroCard {
   outcomes: string[]
 }
 
-export async function getUnitIntro(userId: string, unitId: string): Promise<UnitIntroCard> {
+export async function getUnitIntro(userId: string, unitId: string, lang: LearnerLanguage = 'en'): Promise<UnitIntroCard> {
   await assertUnitAccess(userId, unitId)
   const { unit, blocks } = await unitWithBlocks(unitId)
   const leading: string[] = []
@@ -775,12 +822,15 @@ export async function getUnitIntro(userId: string, unitId: string): Promise<Unit
   const description = htmlToMarkdown(unit.description)
   const same = (a: string, b: string) =>
     a.replace(/\W+/g, ' ').trim().toLowerCase() === b.replace(/\W+/g, ' ').trim().toLowerCase()
+  const intro = introduction.filter((text) => !description || !same(text, description)).join('\n\n')
+  const title = clean(unit.title)
+  const t = await translator(lang, [title, description, intro, ...outcomes])
   return {
     unitId,
-    title: clean(unit.title),
-    description,
-    introduction: introduction.filter((text) => !description || !same(text, description)).join('\n\n'),
-    outcomes,
+    title: t(title),
+    description: description && t(description),
+    introduction: intro && t(intro),
+    outcomes: outcomes.map(t),
   }
 }
 
@@ -792,7 +842,7 @@ export interface VideoCard {
   transcript: string
 }
 
-export async function getVideo(userId: string, learningBlockId: string): Promise<VideoCard> {
+export async function getVideo(userId: string, learningBlockId: string, lang: LearnerLanguage = 'en'): Promise<VideoCard> {
   assertUuid(learningBlockId, 'Video not found', 'VIDEO_NOT_FOUND')
   const [block] = await db
     .select({
@@ -814,10 +864,11 @@ export async function getVideo(userId: string, learningBlockId: string): Promise
     const [unit] = await db.select({ title: units.title }).from(units).where(eq(units.id, block.unitId)).limit(1)
     title = clean(unit?.title) || title
   }
+  const t = await translator(lang, [title], 'catalogue')
   return {
     learningBlockId: block.id,
     unitId: block.unitId,
-    title,
+    title: t(title),
     videoUrl: block.videoUrl,
     transcript: htmlToMarkdown(block.transcript).slice(0, 6000),
   }
@@ -875,7 +926,7 @@ async function tutorAssessment(userId: string, assessmentId: string) {
 }
 
 /** A pre-test or final exam: questions and options, never answers. */
-export async function getQuiz(userId: string, assessmentId: string): Promise<QuizCard> {
+export async function getQuiz(userId: string, assessmentId: string, lang: LearnerLanguage = 'en'): Promise<QuizCard> {
   const assessment = await tutorAssessment(userId, assessmentId)
   const rows = await db
     .select({ id: assessmentQuestions.id, text: assessmentQuestions.questionText, options: assessmentQuestions.options })
@@ -884,19 +935,23 @@ export async function getQuiz(userId: string, assessmentId: string): Promise<Qui
     .orderBy(asc(assessmentQuestions.order))
   if (rows.length === 0) throw new AppError('Quiz not found', 404, 'QUIZ_NOT_FOUND')
   const attempts = await attemptsFor(userId, assessmentId)
+  const title = clean(assessment.title)
+  const description = htmlToMarkdown(assessment.description)
+  const items = rows.map((q) => ({ questionId: q.id, text: clean(q.text), options: (q.options ?? []).map((o) => clean(o)) }))
+  const t = await translator(lang, [title, description, ...items.flatMap((q) => [q.text, ...q.options])])
   return {
     assessmentId,
     courseId: assessment.courseId,
     kind: assessment.assessmentType === 'pre' ? 'pre' : 'final',
-    title: clean(assessment.title),
-    description: htmlToMarkdown(assessment.description),
+    title: t(title),
+    description: description && t(description),
     isGraded: assessment.isGraded,
     passingScore: assessment.passingScore,
     maxAttempts: assessment.maxAttempts,
     attemptsUsed: attempts.length,
     passed: assessment.isGraded ? attempts.some((a) => a.passed === true) : attempts.length > 0,
     // Options stay in their stored order: marking is by position.
-    questions: rows.map((q) => ({ questionId: q.id, text: clean(q.text), options: (q.options ?? []).map((o) => clean(o)) })),
+    questions: items.map((q) => ({ questionId: q.questionId, text: t(q.text), options: q.options.map(t) })),
   }
 }
 
@@ -1086,7 +1141,11 @@ const optionsOf = (q: { format: string; options: string[] | null }) =>
   q.format === 'true-false' ? ['True', 'False'] : q.format === 'multiple-choice' ? (q.options ?? []).map((o) => clean(o)) : []
 
 /** The unit's action plan or check-in, with whatever the learner saved before. Never an answer key. */
-export async function getQuestionStep(userId: string, learningBlockId: string): Promise<QuestionStepCard> {
+export async function getQuestionStep(
+  userId: string,
+  learningBlockId: string,
+  lang: LearnerLanguage = 'en',
+): Promise<QuestionStepCard> {
   const { block, questions } = await questionBlockOf(learningBlockId)
   await assertUnitAccess(userId, block.unitId)
   const [unit] = await db.select({ title: units.title }).from(units).where(eq(units.id, block.unitId)).limit(1)
@@ -1101,19 +1160,25 @@ export async function getQuestionStep(userId: string, learningBlockId: string): 
     .where(and(eq(userLearningBlockProgress.userId, userId), eq(userLearningBlockProgress.learningBlockId, learningBlockId)))
     .limit(1)
   const actionPlan = questions.every((q) => q.kind === 'action-plan')
+  const title = clean(unit?.title) || clean(block.title)
+  const t = await translator(lang, [
+    title,
+    ...questions.flatMap((q) => [clean(q.prompt), ...optionsOf(q), q.placeholder ? clean(q.placeholder) : null]),
+  ])
   return {
     learningBlockId,
     unitId: block.unitId,
     kind: actionPlan ? 'action-plan' : 'check-in',
-    title: clean(unit?.title) || clean(block.title),
+    title: t(title),
     questions: questions.map((q) => {
       const a = answerOf.get(q.id)
       return {
         questionId: q.id,
         format: q.format,
-        prompt: clean(q.prompt),
-        options: optionsOf(q),
-        placeholder: q.placeholder ? clean(q.placeholder) : null,
+        prompt: t(clean(q.prompt)),
+        // Translated for reading only: answers are still marked by position.
+        options: optionsOf(q).map(t),
+        placeholder: q.placeholder ? t(clean(q.placeholder)) : null,
         answer:
           typeof a?.openEndedAnswer === 'string'
             ? { text: a.openEndedAnswer }
