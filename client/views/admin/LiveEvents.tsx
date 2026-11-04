@@ -410,7 +410,7 @@ function LinkDot({ on, icon: Icon, label }: { on: boolean; icon: LucideIcon; lab
       title={label}
       className={cn(
         'inline-flex h-[26px] w-[26px] items-center justify-center rounded-[7px]',
-        on ? 'bg-ui-brand-soft text-ui-brand-text' : 'bg-ui-surface-2 text-ui-muted opacity-55',
+        on ? 'bg-ui-brand-soft text-ui-brand-text' : 'bg-ui-surface-2 text-ui-muted',
       )}
     >
       <Icon className="h-[15px] w-[15px]" strokeWidth={1.75} aria-hidden />

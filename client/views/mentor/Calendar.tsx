@@ -405,7 +405,7 @@ function WeekView({
           return (
             <div
               key={k}
-              role="list"
+              role="group"
               aria-label={f(d, { weekday: 'long', day: 'numeric' })}
               style={{ height: colH, backgroundImage: 'repeating-linear-gradient(to bottom, transparent 0 51px, var(--color-ui-line) 51px 52px)' }}
               className={cn(
@@ -425,16 +425,16 @@ function WeekView({
                   <button
                     key={e.id}
                     type="button"
-                    role="listitem"
                     aria-label={evLabel(e)}
                     onClick={() => onSelect(d)}
                     style={{ top, height, left: `calc(${e.lane * width}% + 3px)`, width: `calc(${width}% - 6px)` }}
                     className={cn(
                       'absolute flex flex-col gap-px overflow-hidden rounded-lg px-2 py-1 text-left text-xs max-md:px-1',
                       e.kind === 'booked' && 'bg-ui-brand text-white',
-                      e.kind === 'open' && 'border border-dashed border-ui-brand bg-ui-surface text-ui-brand-text',
+                      e.kind === 'open' && !isPastOpen && 'border border-dashed border-ui-brand bg-ui-surface text-ui-brand-text',
+                      // Past and never booked: muted, not faded, so it stays readable.
+                      isPastOpen && 'border border-dashed border-ui-line bg-ui-surface text-ui-muted',
                       e.kind === 'cancelled' && 'bg-ui-surface-2 text-ui-muted',
-                      isPastOpen && 'opacity-55',
                     )}
                   >
                     <strong className={cn('w-full truncate text-xs font-semibold max-md:text-[11px]', e.kind === 'cancelled' && 'line-through', e.kind === 'booked' && 'whitespace-normal leading-tight')}>
@@ -507,7 +507,7 @@ function MonthView({
               <span
                 className={cn(
                   'inline-flex h-6 w-6 items-center justify-center self-start rounded-full text-xs font-semibold',
-                  isToday ? 'bg-ui-brand text-white' : inMonth ? 'text-ui-text' : 'text-ui-muted opacity-70',
+                  isToday ? 'bg-ui-brand text-white' : inMonth ? 'text-ui-text' : 'text-ui-muted',
                 )}
               >
                 {d.getDate()}
@@ -599,7 +599,7 @@ function MiniMonth({
               className={cn(
                 'relative mx-auto inline-flex h-[34px] w-[34px] items-center justify-center rounded-full text-[13px] transition-colors',
                 sel ? 'bg-ui-brand font-bold text-white' : 'hover:bg-ui-surface-2',
-                !sel && (inMonth ? 'text-ui-text' : 'text-ui-muted opacity-60'),
+                !sel && (inMonth ? 'text-ui-text' : 'text-ui-muted'),
                 !sel && k === todayKey && 'font-bold text-ui-brand-text ring-1 ring-ui-brand',
               )}
             >

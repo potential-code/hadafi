@@ -496,7 +496,9 @@ function StreakCard({
                 </span>
               ) : (
                 <span
+                  role={future ? undefined : 'img'}
                   aria-label={future ? undefined : isToday ? 'Not done yet today' : 'Missed'}
+                  aria-hidden={future ? true : undefined}
                   className={cn('h-[30px] w-[30px] rounded-full border border-ui-line', future && 'border-dashed')}
                 />
               )}
