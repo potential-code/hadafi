@@ -3,12 +3,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ArrowRight, ArrowLeft, Check, Info, CheckCircle2, Loader2, ChevronDown } from 'lucide-react'
-import { toast } from 'sonner'
 import { getCountryDataList } from 'countries-list'
 import { cn } from '@/lib/utils'
+import { btn, inputClass } from '@/components/kit'
 import { apiFetch } from '@/lib/api'
 import { PhoneField } from '@/components/ui/PhoneField'
 import type { StakeholderKind } from '@/lib/constants/content'
+import { LEGAL_LINKS } from './legal'
 
 const COUNTRIES = getCountryDataList()
   .map((c) => c.name)
@@ -47,15 +48,15 @@ const SHARING_METHODS = [
 const VC_REPRESENTING = [
   'Angel Network, Venture Capital or Private Equity',
   'Bank or Financing Firm',
-  'Corporate with solutions for Startups and SMEs',
-  'Corporate interested in supporting Startups and SMEs',
+  'Corporate with solutions for women entrepreneurs',
+  'Corporate interested in supporting women entrepreneurs',
   'An entity that is interested in the research from the program',
 ]
 
 const VC_INVOLVEMENT = [
   "Advertise on the program's platform",
   'Attract leads to specific products or services',
-  'Invest or finance SMEs',
+  'Invest in or finance women-led businesses',
   'Support the program',
   'An entity that is interested in the research from the program',
 ]
@@ -120,6 +121,7 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
   const [emailError, setEmailError] = useState<string | null>(null)
   const [expertErrors, setExpertErrors] = useState<Record<string, string>>({})
   const [orgErrors, setOrgErrors] = useState<Record<string, string>>({})
+  const [formError, setFormError] = useState<string | null>(null)
 
   const [expert, setExpert] = useState<ExpertForm>({
     name: '',
@@ -187,6 +189,7 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
   async function submitExpert(e: React.FormEvent) {
     e.preventDefault()
     setEmailError(null)
+    setFormError(null)
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/
     const errs: Record<string, string> = {}
@@ -246,7 +249,7 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
         if (fieldErrs.passion?.length) newErrs.passion = fieldErrs.passion[0]
         if (Object.keys(newErrs).length > 0) setExpertErrors(newErrs)
       } else {
-        toast.error('Something went wrong', { description: 'Please try again.' })
+        setFormError('Something went wrong. Please try again.')
       }
     } finally {
       setLoading(false)
@@ -282,8 +285,9 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
 
   async function submitOrg(e: React.FormEvent) {
     e.preventDefault()
+    setFormError(null)
     if (!org.representing || org.involvement.length === 0) {
-      toast.error('Please complete all questions.')
+      setFormError('Please answer both questions.')
       return
     }
 
@@ -321,10 +325,10 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
         if (Object.keys(mapped).length > 0) {
           setOrgErrors(mapped)
         } else {
-          toast.error('Please check your details', { description: 'Some fields are invalid.' })
+          setFormError('Please check your details. Some fields are invalid.')
         }
       } else {
-        toast.error('Something went wrong', { description: 'Please try again.' })
+        setFormError('Something went wrong. Please try again.')
       }
     } finally {
       setLoading(false)
@@ -336,7 +340,7 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[60] flex items-center justify-center p-3 sm:p-6 bg-black/55 backdrop-blur-sm"
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 p-3 sm:p-6"
       onClick={onClose}
     >
       <motion.div
@@ -348,21 +352,18 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.96, y: 16 }}
         transition={{ duration: 0.2 }}
-        className="relative w-full max-w-2xl max-h-[92vh] flex flex-col rounded-2xl bg-white shadow-2xl overflow-hidden"
+        className="relative flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-[14px] border border-ui-line bg-ui-surface text-ui-text shadow-ui"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="relative px-6 py-5 border-b border-brand-surface-2 bg-gradient-to-r from-brand-primary/5 to-brand-violet/5">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary">
-            Stakeholder registration
-          </p>
-          <h2 id={titleId} className="mt-1 text-xl sm:text-2xl font-black text-brand-text-primary">
-            {submitted ? 'Application Received' : TITLE[kind]}
+        <div className="relative border-b border-ui-line px-6 py-5">
+          <h2 id={titleId} className="pr-10 text-xl font-semibold tracking-[-0.01em] text-ui-text">
+            {submitted ? 'Application received' : TITLE[kind]}
           </h2>
           <button
             ref={closeBtnRef}
             onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-primary/30 transition-colors"
+            className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-lg text-ui-muted transition-colors hover:bg-ui-surface-2 hover:text-ui-text"
             aria-label="Close"
           >
             <X className="w-4 h-4" />
@@ -370,15 +371,20 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
 
           {!submitted && isOrgKind(kind) && (
             <div className="mt-4 flex items-center gap-2 text-xs">
-              <Step n={1} label="Personal Details" active={tab === 1} done={tab > 1} />
-              <span className="h-px flex-1 bg-brand-surface-2" />
-              <Step n={2} label="Extra Information" active={tab === 2} />
+              <Step n={1} label="Personal details" active={tab === 1} done={tab > 1} />
+              <span className="h-px flex-1 bg-ui-line" />
+              <Step n={2} label="Extra information" active={tab === 2} />
             </div>
           )}
         </div>
 
         {/* Body */}
         <div className="flex-1 overflow-y-auto p-6">
+          {formError && !submitted && (
+            <p role="alert" className="mb-4 rounded-[10px] border border-ui-danger/30 bg-ui-danger-soft px-3 py-2.5 text-[13px] text-ui-danger">
+              {formError}
+            </p>
+          )}
           {/* ---------- Thank-you states ---------- */}
           {submitted ? (
             kind === 'expert' ? (
@@ -391,7 +397,7 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
             <form onSubmit={submitExpert} className="space-y-5">
               <SectionHeading
                 title="Tell us a bit about you"
-                hint="Please fill up all fields *"
+                hint="All fields marked * are required."
               />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <Field label="Name" required>
@@ -399,11 +405,11 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
                     <input
                       value={expert.name}
                       onChange={(e) => { setExpert({ ...expert, name: e.target.value }); setExpertErrors(p => ({...p, name: ''})) }}
-                      placeholder="Please Enter Your Name"
-                      className="admin-input"
+                      placeholder="Your name"
+                      className={inputClass}
                       disabled={loading}
                     />
-                    {expertErrors.name && <p className="mt-1 text-[11px] text-rose-600">{expertErrors.name}</p>}
+                    {expertErrors.name && <p className="mt-1 text-xs text-ui-danger">{expertErrors.name}</p>}
                   </div>
                 </Field>
                 <Field label="Email" required>
@@ -412,25 +418,25 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
                       type="email"
                       value={expert.email}
                       onChange={(e) => { setExpert({ ...expert, email: e.target.value }); setEmailError(null); setExpertErrors(p => ({...p, email: ''})) }}
-                      placeholder="Please Enter Your Email"
-                      className="admin-input"
+                      placeholder="you@company.com"
+                      className={inputClass}
                       disabled={loading}
                     />
                     {(emailError || expertErrors.email) && (
-                      <p className="mt-1 text-[11px] text-rose-600">{emailError || expertErrors.email}</p>
+                      <p className="mt-1 text-xs text-ui-danger">{emailError || expertErrors.email}</p>
                     )}
                   </div>
                 </Field>
-                <Field label="LinkedIn Profile URL" required>
+                <Field label="LinkedIn profile URL" required>
                   <div>
                     <input
                       value={expert.linkedin}
                       onChange={(e) => { setExpert({ ...expert, linkedin: e.target.value }); setExpertErrors(p => ({...p, linkedin: ''})) }}
                       placeholder="https://linkedin.com/in/…"
-                      className="admin-input"
+                      className={inputClass}
                       disabled={loading}
                     />
-                    {expertErrors.linkedin && <p className="mt-1 text-[11px] text-rose-600">{expertErrors.linkedin}</p>}
+                    {expertErrors.linkedin && <p className="mt-1 text-xs text-ui-danger">{expertErrors.linkedin}</p>}
                   </div>
                 </Field>
                 <Field label="Hourly rate (USD)" required>
@@ -441,24 +447,24 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
                       value={expert.hourlyRate}
                       onChange={(e) => { setExpert({ ...expert, hourlyRate: e.target.value }); setExpertErrors(p => ({...p, hourlyRate: ''})) }}
                       placeholder="e.g. 120"
-                      className="admin-input"
+                      className={inputClass}
                       disabled={loading}
                     />
-                    {expertErrors.hourlyRate && <p className="mt-1 text-[11px] text-rose-600">{expertErrors.hourlyRate}</p>}
+                    {expertErrors.hourlyRate && <p className="mt-1 text-xs text-ui-danger">{expertErrors.hourlyRate}</p>}
                   </div>
                 </Field>
               </div>
 
               <div>
                 <CheckboxGroup
-                  label="Areas of Expertise (check all that apply)"
+                  label="Areas of expertise (check all that apply)"
                   required
                   options={EXPERTISE_AREAS}
                   values={expert.expertise}
                   onChange={(v) => { setExpert({ ...expert, expertise: toggleArr(expert.expertise, v) }); setExpertErrors(p => ({...p, expertise: ''})) }}
                   disabled={loading}
                 />
-                {expertErrors.expertise && <p className="mt-1 text-[11px] text-rose-600">{expertErrors.expertise}</p>}
+                {expertErrors.expertise && <p className="mt-1 text-xs text-ui-danger">{expertErrors.expertise}</p>}
               </div>
 
               <div>
@@ -470,7 +476,7 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
                   onChange={(v) => { setExpert({ ...expert, methods: toggleArr(expert.methods, v) }); setExpertErrors(p => ({...p, methods: ''})) }}
                   disabled={loading}
                 />
-                {expertErrors.methods && <p className="mt-1 text-[11px] text-rose-600">{expertErrors.methods}</p>}
+                {expertErrors.methods && <p className="mt-1 text-xs text-ui-danger">{expertErrors.methods}</p>}
               </div>
 
               <Field
@@ -483,14 +489,14 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
                     value={expert.passion}
                     onChange={(e) => { setExpert({ ...expert, passion: e.target.value }); setExpertErrors(p => ({...p, passion: ''})) }}
                     placeholder="What expertise will you share, and what drives you?"
-                    className="admin-input resize-none"
+                    className={cn(inputClass, 'h-auto resize-none py-2')}
                     disabled={loading}
                   />
-                  {expertErrors.passion && <p className="mt-1 text-[11px] text-rose-600">{expertErrors.passion}</p>}
+                  {expertErrors.passion && <p className="mt-1 text-xs text-ui-danger">{expertErrors.passion}</p>}
                 </div>
               </Field>
 
-              <p className="text-[11px] text-brand-text-muted leading-relaxed bg-brand-surface/60 rounded-xl p-3 border border-brand-surface-2">
+              <p className="rounded-[10px] bg-ui-surface-2 p-3 text-xs leading-relaxed text-ui-muted">
                 By clicking submit, you allow us to post your photo, your expertise and LinkedIn
                 profile on our site. When an opportunity arises, we will get in touch with you to
                 jointly assess the prospect and see if it is a good fit. We will not commit your
@@ -498,40 +504,47 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
               </p>
 
               {/* What happens next — info panel shown before submit */}
-              <div className="rounded-xl border border-sky-200 bg-sky-50/70 p-4 flex gap-3">
-                <Info className="w-4 h-4 text-sky-500 flex-shrink-0 mt-0.5" />
+              <div className="flex gap-3 rounded-[10px] border border-ui-line p-4">
+                <Info className="mt-0.5 h-4 w-4 shrink-0 text-ui-muted" aria-hidden />
                 <div>
-                  <p className="text-sm font-semibold text-sky-800 mb-2">What happens after you apply?</p>
-                  <ol className="space-y-1 text-xs text-sky-700">
+                  <p className="mb-2 text-sm font-semibold text-ui-text">What happens after you apply?</p>
+                  <ol className="space-y-1.5 text-[13px] text-ui-muted">
                     <li className="flex items-start gap-2">
-                      <span className="w-4 h-4 rounded-full bg-sky-500 text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                      <span className="mt-px flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-ui-brand-soft text-[10px] font-semibold text-ui-brand-text">1</span>
                       Our team will review your application.
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-4 h-4 rounded-full bg-sky-500 text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                      <span className="mt-px flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-ui-brand-soft text-[10px] font-semibold text-ui-brand-text">2</span>
                       Once approved, you'll receive an email with a link to set your password.
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="w-4 h-4 rounded-full bg-sky-500 text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                      <span className="mt-px flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-ui-brand-soft text-[10px] font-semibold text-ui-brand-text">3</span>
                       Log in and access your mentor dashboard.
                     </li>
                   </ol>
                 </div>
               </div>
 
+              <p className="text-xs leading-relaxed text-ui-muted">
+                By submitting, you agree to Potential&rsquo;s{' '}
+                <a href={LEGAL_LINKS.terms} target="_blank" rel="noopener noreferrer" className="font-semibold text-ui-brand-text hover:underline">Terms of Use</a>{' '}
+                and{' '}
+                <a href={LEGAL_LINKS.privacy} target="_blank" rel="noopener noreferrer" className="font-semibold text-ui-brand-text hover:underline">Privacy Policy</a>.
+                We use your details only to review and follow up on this application.
+              </p>
               <DialogFooter>
                 <button
                   type="button"
                   onClick={onClose}
                   disabled={loading}
-                  className="px-4 py-2.5 rounded-xl bg-white border border-brand-surface-2 text-sm font-bold text-brand-text-primary hover:bg-brand-surface transition-colors disabled:opacity-50"
+                  className={btn({ variant: 'secondary' })}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark shadow-lg transition-colors disabled:opacity-70"
+                  className={btn()}
                 >
                   {loading ? (
                     <><Loader2 className="w-4 h-4 animate-spin" /> Submitting…</>
@@ -547,17 +560,17 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
               onSubmit={(e) => { e.preventDefault(); nextTab() }}
               className="space-y-5"
             >
-              <SectionHeading title="Personal Details" hint="Please fill up all fields *" />
+              <SectionHeading title="Personal details" hint="All fields marked * are required." />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <Field label="Full Name (FirstName LastName)" required>
+                <Field label="Full name (first and last)" required>
                   <div>
                     <input
                       value={org.fullName}
                       onChange={(e) => { setOrg({ ...org, fullName: e.target.value }); setOrgErrors(p => ({...p, fullName: ''})) }}
-                      className="admin-input"
+                      className={inputClass}
                       disabled={loading}
                     />
-                    {orgErrors.fullName && <p className="mt-1 text-[11px] text-rose-600">{orgErrors.fullName}</p>}
+                    {orgErrors.fullName && <p className="mt-1 text-xs text-ui-danger">{orgErrors.fullName}</p>}
                   </div>
                 </Field>
                 <Field label="Title" required>
@@ -565,14 +578,14 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
                     <input
                       value={org.title}
                       onChange={(e) => { setOrg({ ...org, title: e.target.value }); setOrgErrors(p => ({...p, title: ''})) }}
-                      className="admin-input"
+                      className={inputClass}
                       disabled={loading}
                     />
-                    {orgErrors.title && <p className="mt-1 text-[11px] text-rose-600">{orgErrors.title}</p>}
+                    {orgErrors.title && <p className="mt-1 text-xs text-ui-danger">{orgErrors.title}</p>}
                   </div>
                 </Field>
                 <Field
-                  label={kind === 'government' || kind === 'incubator' ? 'Email Address' : 'Corporate Email Address'}
+                  label={kind === 'government' || kind === 'incubator' ? 'Email address' : 'Corporate email address'}
                   required
                 >
                   <div>
@@ -580,44 +593,44 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
                       type="email"
                       value={org.email}
                       onChange={(e) => { setOrg({ ...org, email: e.target.value }); setOrgErrors(p => ({...p, email: ''})) }}
-                      className="admin-input"
+                      className={inputClass}
                       disabled={loading}
                     />
-                    {orgErrors.email && <p className="mt-1 text-[11px] text-rose-600">{orgErrors.email}</p>}
+                    {orgErrors.email && <p className="mt-1 text-xs text-ui-danger">{orgErrors.email}</p>}
                   </div>
                 </Field>
-                <Field label="Operating Country" required>
+                <Field label="Operating country" required>
                   <div>
                     <div className="relative">
                       <select
                         value={org.country}
                         onChange={(e) => { setOrg({ ...org, country: e.target.value }); setOrgErrors(p => ({...p, country: ''})) }}
-                        className="admin-input appearance-none pr-8 cursor-pointer"
+                        className={cn(inputClass, 'cursor-pointer appearance-none pr-8')}
                         disabled={loading}
                       >
-                        <option value="">Select country…</option>
+                        <option value="">Select country</option>
                         {COUNTRIES.map((name) => (
                           <option key={name} value={name}>{name}</option>
                         ))}
                       </select>
-                      <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-text-muted pointer-events-none" />
+                      <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none h-4 w-4 text-ui-muted" />
                     </div>
-                    {orgErrors.country && <p className="mt-1 text-[11px] text-rose-600">{orgErrors.country}</p>}
+                    {orgErrors.country && <p className="mt-1 text-xs text-ui-danger">{orgErrors.country}</p>}
                   </div>
                 </Field>
-                <Field label="Organisation's Website" required>
+                <Field label="Organization website" required>
                   <div>
                     <input
                       value={org.website}
                       onChange={(e) => { setOrg({ ...org, website: e.target.value }); setOrgErrors(p => ({...p, website: ''})) }}
                       placeholder="https://…"
-                      className="admin-input"
+                      className={inputClass}
                       disabled={loading}
                     />
-                    {orgErrors.website && <p className="mt-1 text-[11px] text-rose-600">{orgErrors.website}</p>}
+                    {orgErrors.website && <p className="mt-1 text-xs text-ui-danger">{orgErrors.website}</p>}
                   </div>
                 </Field>
-                <Field label="Phone Number" required>
+                <Field label="Phone number" required>
                   <div>
                     <PhoneField
                       value={org.phone}
@@ -625,7 +638,7 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
                       disabled={loading}
                       hasError={!!orgErrors.phone}
                     />
-                    {orgErrors.phone && <p className="mt-1 text-[11px] text-rose-600">{orgErrors.phone}</p>}
+                    {orgErrors.phone && <p className="mt-1 text-xs text-ui-danger">{orgErrors.phone}</p>}
                   </div>
                 </Field>
               </div>
@@ -634,13 +647,13 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2.5 rounded-xl bg-white border border-brand-surface-2 text-sm font-bold text-brand-text-primary hover:bg-brand-surface transition-colors"
+                  className={btn({ variant: 'secondary' })}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark shadow-lg transition-colors"
+                  className={btn()}
                 >
                   Next
                   <ArrowRight className="w-4 h-4" />
@@ -650,7 +663,7 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
           ) : (
             /* ---------- Org tab 2 ---------- */
             <form onSubmit={submitOrg} className="space-y-5">
-              <SectionHeading title="Extra Information" hint="Please fill up all fields *" />
+              <SectionHeading title="Extra information" hint="All fields marked * are required." />
 
               <RadioGroup
                 label="Are you representing a:"
@@ -670,12 +683,19 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
                 disabled={loading}
               />
 
+              <p className="text-xs leading-relaxed text-ui-muted">
+                By submitting, you agree to Potential&rsquo;s{' '}
+                <a href={LEGAL_LINKS.terms} target="_blank" rel="noopener noreferrer" className="font-semibold text-ui-brand-text hover:underline">Terms of Use</a>{' '}
+                and{' '}
+                <a href={LEGAL_LINKS.privacy} target="_blank" rel="noopener noreferrer" className="font-semibold text-ui-brand-text hover:underline">Privacy Policy</a>.
+                We use your details only to review and follow up on this application.
+              </p>
               <DialogFooter>
                 <button
                   type="button"
                   onClick={() => setTab(1)}
                   disabled={loading}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-brand-surface-2 text-sm font-bold text-brand-text-primary hover:bg-brand-surface transition-colors disabled:opacity-50"
+                  className={btn({ variant: 'secondary' })}
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Previous
@@ -683,7 +703,7 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark shadow-lg transition-colors disabled:opacity-70"
+                  className={btn()}
                 >
                   {loading ? (
                     <><Loader2 className="w-4 h-4 animate-spin" /> Submitting…</>
@@ -708,25 +728,25 @@ function ExpertThankYou({ name, email, onClose }: { name: string; email: string;
   const firstName = name.split(' ')[0]
   return (
     <div className="flex flex-col items-center text-center py-4">
-      <div className="w-14 h-14 rounded-full bg-emerald-100 flex items-center justify-center mb-4">
-        <CheckCircle2 className="w-7 h-7 text-emerald-600" />
+      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-ui-ok-soft">
+        <CheckCircle2 className="h-7 w-7 text-ui-ok" />
       </div>
-      <h3 className="text-lg font-black text-brand-text-primary mb-1">Application Received</h3>
-      <p className="text-sm text-brand-text-secondary max-w-sm">
-        Thank you, <span className="font-semibold text-brand-text-primary">{firstName}</span>. Your application has been successfully submitted.
+      <h3 className="mb-1 text-lg font-semibold text-ui-text">Application received</h3>
+      <p className="max-w-sm text-sm text-ui-muted">
+        Thank you, <span className="font-semibold text-ui-text">{firstName}</span>. Your application has been successfully submitted.
       </p>
 
-      <div className="w-full mt-6 pt-5 border-t border-brand-surface-2 text-left">
-        <p className="text-sm font-semibold text-brand-text-primary mb-3">What's next?</p>
+      <div className="mt-6 w-full border-t border-ui-line pt-5 text-left">
+        <p className="text-sm font-semibold text-ui-text mb-3">What's next?</p>
         <ol className="space-y-3">
-          <li className="flex items-start gap-3 text-sm text-brand-text-secondary">
-            <span className="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+          <li className="flex items-start gap-3 text-sm text-ui-muted">
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ui-brand-soft text-[11px] font-semibold text-ui-brand-text">1</span>
             Our team will review your application.
           </li>
-          <li className="flex items-start gap-3 text-sm text-brand-text-secondary">
-            <span className="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+          <li className="flex items-start gap-3 text-sm text-ui-muted">
+            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ui-brand-soft text-[11px] font-semibold text-ui-brand-text">2</span>
             If approved, you'll receive an email at{' '}
-            <span className="font-medium text-brand-text-primary mx-1">{email}</span>{' '}
+            <span className="mx-1 font-medium text-ui-text">{email}</span>{' '}
             with a link to set your password and access your mentor dashboard.
           </li>
         </ol>
@@ -734,7 +754,7 @@ function ExpertThankYou({ name, email, onClose }: { name: string; email: string;
 
       <button
         onClick={onClose}
-        className="mt-6 px-6 py-2.5 rounded-xl bg-brand-primary hover:bg-brand-primary-dark text-white text-sm font-bold transition-colors shadow-[0_6px_20px_-8px_rgba(159,32,99,0.7)]"
+        className={cn(btn(), 'mt-6')}
       >
         Close
       </button>
@@ -746,16 +766,16 @@ function OrgThankYou({ name, onClose }: { name: string; onClose: () => void }) {
   const firstName = name.split(' ')[0]
   return (
     <div className="flex flex-col items-center text-center py-4">
-      <div className="w-14 h-14 rounded-full bg-emerald-100 flex items-center justify-center mb-4">
-        <CheckCircle2 className="w-7 h-7 text-emerald-600" />
+      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-ui-ok-soft">
+        <CheckCircle2 className="h-7 w-7 text-ui-ok" />
       </div>
-      <h3 className="text-lg font-black text-brand-text-primary mb-1">Application Received</h3>
-      <p className="text-sm text-brand-text-secondary max-w-sm">
-        Thank you, <span className="font-semibold text-brand-text-primary">{firstName}</span>. Your application has been successfully submitted.
+      <h3 className="mb-1 text-lg font-semibold text-ui-text">Application received</h3>
+      <p className="max-w-sm text-sm text-ui-muted">
+        Thank you, <span className="font-semibold text-ui-text">{firstName}</span>. Your application has been successfully submitted.
       </p>
       <button
         onClick={onClose}
-        className="mt-6 px-6 py-2.5 rounded-xl bg-brand-primary hover:bg-brand-primary-dark text-white text-sm font-bold transition-colors shadow-[0_6px_20px_-8px_rgba(159,32,99,0.7)]"
+        className={cn(btn(), 'mt-6')}
       >
         Close
       </button>
@@ -774,18 +794,18 @@ function Step({ n, label, active, done }: { n: number; label: string; active: bo
         className={cn(
           'w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-bold',
           done
-            ? 'bg-emerald-500 text-white'
+            ? 'bg-ui-ok text-white'
             : active
-              ? 'bg-brand-primary text-white'
-              : 'bg-brand-surface text-brand-text-muted',
+              ? 'bg-ui-brand text-white'
+              : 'bg-ui-surface-2 text-ui-muted',
         )}
       >
         {done ? <Check className="w-3 h-3" /> : n}
       </span>
       <span
         className={cn(
-          'text-[11px] font-bold uppercase tracking-wider',
-          active ? 'text-brand-primary' : 'text-brand-text-muted',
+          'text-[13px] font-semibold',
+          active ? 'text-ui-text' : 'text-ui-muted',
         )}
       >
         {label}
@@ -797,8 +817,8 @@ function Step({ n, label, active, done }: { n: number; label: string; active: bo
 function SectionHeading({ title, hint }: { title: string; hint?: string }) {
   return (
     <div>
-      <h3 className="text-base font-black text-brand-text-primary">{title}</h3>
-      {hint && <p className="text-[11px] text-brand-text-muted mt-0.5">{hint}</p>}
+      <h3 className="text-base font-semibold text-ui-text">{title}</h3>
+      {hint && <p className="mt-0.5 text-xs text-ui-muted">{hint}</p>}
     </div>
   )
 }
@@ -814,9 +834,9 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="text-[11px] font-bold uppercase tracking-wider text-brand-text-muted">
+      <span className="text-[13px] font-semibold text-ui-text">
         {label}
-        {required && <span className="text-brand-primary ml-0.5">*</span>}
+        {required && <span className="ml-0.5 text-ui-brand-text">*</span>}
       </span>
       <div className="mt-1.5">{children}</div>
     </label>
@@ -840,9 +860,9 @@ function CheckboxGroup({
 }) {
   return (
     <div>
-      <p className="text-[11px] font-bold uppercase tracking-wider text-brand-text-muted">
+      <p className="text-[13px] font-semibold text-ui-text">
         {label}
-        {required && <span className="text-brand-primary ml-0.5">*</span>}
+        {required && <span className="ml-0.5 text-ui-brand-text">*</span>}
       </p>
       <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
         {options.map((opt) => {
@@ -851,18 +871,18 @@ function CheckboxGroup({
             <label
               key={opt}
               className={cn(
-                'flex items-start gap-2 rounded-xl border px-3 py-2 cursor-pointer text-sm transition-colors',
+                'flex cursor-pointer items-start gap-2 rounded-[10px] border px-3 py-2 text-sm transition-colors',
                 disabled && 'opacity-60 cursor-not-allowed',
                 checked
-                  ? 'border-brand-primary bg-brand-primary/5 text-brand-text-primary'
-                  : 'border-brand-surface-2 bg-white text-brand-text-primary hover:border-brand-primary/40',
+                  ? 'border-ui-brand bg-ui-brand-soft text-ui-text'
+                  : 'border-ui-line bg-ui-surface text-ui-text hover:border-ui-brand/40',
               )}
             >
               <input
                 type="checkbox"
                 checked={checked}
                 onChange={() => !disabled && onChange(opt)}
-                className="mt-0.5 accent-brand-primary"
+                className="mt-0.5 accent-ui-brand"
                 disabled={disabled}
               />
               <span className="leading-tight">{opt}</span>
@@ -891,9 +911,9 @@ function RadioGroup({
 }) {
   return (
     <div>
-      <p className="text-[11px] font-bold uppercase tracking-wider text-brand-text-muted">
+      <p className="text-[13px] font-semibold text-ui-text">
         {label}
-        {required && <span className="text-brand-primary ml-0.5">*</span>}
+        {required && <span className="ml-0.5 text-ui-brand-text">*</span>}
       </p>
       <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
         {options.map((opt) => {
@@ -902,18 +922,18 @@ function RadioGroup({
             <label
               key={opt}
               className={cn(
-                'flex items-start gap-2 rounded-xl border px-3 py-2 cursor-pointer text-sm transition-colors',
+                'flex cursor-pointer items-start gap-2 rounded-[10px] border px-3 py-2 text-sm transition-colors',
                 disabled && 'opacity-60 cursor-not-allowed',
                 checked
-                  ? 'border-brand-primary bg-brand-primary/5 text-brand-text-primary'
-                  : 'border-brand-surface-2 bg-white text-brand-text-primary hover:border-brand-primary/40',
+                  ? 'border-ui-brand bg-ui-brand-soft text-ui-text'
+                  : 'border-ui-line bg-ui-surface text-ui-text hover:border-ui-brand/40',
               )}
             >
               <input
                 type="radio"
                 checked={checked}
                 onChange={() => !disabled && onChange(opt)}
-                className="mt-0.5 accent-brand-primary"
+                className="mt-0.5 accent-ui-brand"
                 disabled={disabled}
               />
               <span className="leading-tight">{opt}</span>
@@ -927,7 +947,7 @@ function RadioGroup({
 
 function DialogFooter({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-center justify-end gap-2 pt-3 mt-2 border-t border-brand-surface-2">
+    <div className="mt-2 flex items-center justify-end gap-2 border-t border-ui-line pt-4">
       {children}
     </div>
   )

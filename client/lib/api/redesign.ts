@@ -6,7 +6,6 @@
  * Every response is `{ data: ... }`, like the rest of the API.
  */
 import { apiFetch } from '@/lib/api'
-import { getToken } from '@/lib/auth'
 
 // ── Learner: streak and daily goal ────────────────────────────────────────────
 
@@ -78,11 +77,9 @@ export function saveMenteeNotes(menteeId: string, notes: string) {
 export async function uploadMentorPhoto(file: File): Promise<{ avatarUrl: string }> {
   const form = new FormData()
   form.append('photo', file)
-  const base = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'
-  const token = getToken()
-  const res = await fetch(`${base}/api/mentor/profile/photo`, {
+  const res = await fetch('/api/mentor/profile/photo', {
     method: 'POST',
-    headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+    credentials: 'same-origin',
     body: form,
   })
   const body = await res.json().catch(() => ({}))

@@ -1,16 +1,13 @@
-const BASE = `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'}/api/media`
-
-function getToken(): string | null {
-  return localStorage.getItem('hadafi_token')
-}
+// Same-origin: next.config.ts forwards /api to the API server, and the
+// httpOnly session cookie rides along.
+const BASE = '/api/media'
 
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
-  const token = getToken()
   const res = await fetch(`${BASE}${path}`, {
     ...init,
+    credentials: 'same-origin',
     headers: {
       'Content-Type': 'application/json',
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...init?.headers,
     },
   })
@@ -65,9 +62,7 @@ export function uploadMediaFile(
 
     xhr.onerror = () => reject(new Error('Network error during upload'))
 
-    const token = getToken()
     xhr.open('POST', `${BASE}/upload`)
-    if (token) xhr.setRequestHeader('Authorization', `Bearer ${token}`)
     xhr.send(formData)
   })
 }

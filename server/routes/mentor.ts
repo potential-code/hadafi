@@ -6,7 +6,6 @@ import { authenticate } from "../middleware/authenticate";
 import { requireRole } from "../middleware/require-role";
 import {
   getSetupToken,
-  postSetup,
   getAnalytics,
   postAvailability,
   getAvailability,
@@ -25,11 +24,6 @@ import { MAX_NOTES_LENGTH } from "../services/mentor_notes.service";
 import { AppError } from "../utils/app-error";
 
 const router = Router();
-
-const setupDto = z.object({
-  token: z.string().min(1, "Token is required"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
-});
 
 /** Validate token query param presence before hitting the controller. */
 function requireTokenParam(
@@ -80,7 +74,7 @@ const bulkDeleteDto = z.object({
 
 // Public routes — no authenticate middleware (mentor has no account yet)
 router.get("/setup-token", requireTokenParam, getSetupToken);
-router.post("/setup", validate(setupDto), postSetup);
+// Completing setup is POST /api/auth/hadafi/mentor-setup (server/auth/hadafiPlugin.ts).
 
 // Protected analytics route
 router.get("/analytics", authenticate, requireRole("mentor"), getAnalytics);

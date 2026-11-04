@@ -254,7 +254,7 @@ export function MentorBookingWidget({ mentorName, respond, onRegisterCancel, onD
 
     async function init() {
       const [, mentors] = await Promise.all([
-        apiFetch<{ success: boolean; data: { user: { timezone: string | null } } }>('/api/auth/me')
+        apiFetch<{ success: boolean; data: { user: { timezone: string | null } } }>('/api/account/me')
           .then(({ data }) => setTimezone(data.user.timezone))
           .catch(() => {}),
         getMentors().catch(() => [] as MentorUser[]),

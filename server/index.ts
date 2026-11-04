@@ -7,16 +7,19 @@ const __dirname = path.dirname(__filename)
 import cors from "cors";
 import helmet from "helmet";
 import pinoHttp from "pino-http";
+import { toNodeHandler } from "better-auth/node";
 import router from "./routes";
+import { auth } from "./auth";
 import { logger } from "./config/logger";
 import { basicAuthGate } from "./middleware/basic-auth";
 import { errorHandler } from "./middleware/error-handler";
 import { refreshOutdatedCertificates } from "./services/lms/certificate.service";
 
-// Fail fast if JWT_SECRET is missing — auth cannot function without it.
-if (!process.env["JWT_SECRET"]) {
+// Fail fast without a session-signing secret. BETTER_AUTH_SECRET is preferred;
+// JWT_SECRET (the pre-Better-Auth secret) is accepted so deploys keep working.
+if (!process.env["BETTER_AUTH_SECRET"] && !process.env["JWT_SECRET"]) {
   throw new Error(
-    "JWT_SECRET environment variable is required but was not provided.",
+    "BETTER_AUTH_SECRET (or JWT_SECRET) environment variable is required but was not provided.",
   );
 }
 
@@ -73,6 +76,10 @@ app.use(cors({
   origin: process.env["FRONTEND_URL"] || "http://localhost:3000",
   credentials: true,
 }));
+// Better Auth reads the raw request body, so it is mounted before the body
+// parsers. It owns everything under /api/auth (sign-in, sign-up, sessions).
+app.all("/api/auth/*splat", toNodeHandler(auth));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

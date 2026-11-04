@@ -1,8 +1,6 @@
 import { apiFetch } from '@/lib/api'
-import { getToken } from '@/lib/auth'
 
-/** Same base as `apiFetch` (client/lib/api.ts). */
-const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'
+import { API_BASE } from '@/lib/api'
 
 export interface MentorUser {
   id: string
@@ -74,10 +72,10 @@ export interface AiMentorChatBody {
  * the whole body as JSON.
  */
 export function streamAiMentorChat(botId: string, body: AiMentorChatBody, signal?: AbortSignal): Promise<Response> {
-  const token = getToken()
   return fetch(`${API_BASE}/api/ai-mentors/${encodeURIComponent(botId)}/chat`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+    credentials: 'same-origin',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
     signal,
   })

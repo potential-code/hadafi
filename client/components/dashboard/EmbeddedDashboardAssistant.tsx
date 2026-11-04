@@ -238,7 +238,7 @@ GENERAL:
 --- HADAFI PROGRAM KNOWLEDGE ---
 Answer questions about the Hadafi program itself directly — they are NOT off-topic:
 
-What Hadafi is: a free global women entrepreneurship program by the Potential.org Foundation, founded in 2013, supporting 100,000+ women across 50+ countries.
+What Hadafi is: a free global women entrepreneurship program by the Potential.org Foundation. Don't state a founding year or how many women or countries it has reached.
 Who it's for: women entrepreneurs at any experience level worldwide — no prior business knowledge required.
 Cost: always free, no credit card, no hidden fees.
 
@@ -1197,7 +1197,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
         // Fetch profile and certificates in parallel for full user awareness
         const [res, certs] = await Promise.all([
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          apiFetch<any>('/api/auth/me'),
+          apiFetch<any>('/api/account/me'),
           fetchUserCertificates().catch(() => [] as CertificateWithCourse[]),
         ])
         // API may return { data: { user: {...} } } or the user object directly.
@@ -2011,7 +2011,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
           }}
           onSave={async (value) => {
             try {
-              await apiFetch('/api/auth/me', {
+              await apiFetch('/api/account/me', {
                 method: 'PUT',
                 body: JSON.stringify({ [args.field as string]: value }),
               })

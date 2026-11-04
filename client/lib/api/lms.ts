@@ -224,20 +224,16 @@ export type CourseWithContent = CourseSummary & {
   postAssessment: Assessment | null
 }
 
-const BASE = `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'}/api/lms`
-
-function getToken(): string | null {
-  if (typeof window === 'undefined') return null
-  return localStorage.getItem('hadafi_token')
-}
+// Same-origin: next.config.ts forwards /api to the API server, and the
+// httpOnly session cookie rides along.
+const BASE = '/api/lms'
 
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
-  const token = getToken()
   const res = await fetch(`${BASE}${path}`, {
     ...init,
+    credentials: 'same-origin',
     headers: {
       'Content-Type': 'application/json',
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...(init?.headers ?? {}),
     },
   })
@@ -361,7 +357,7 @@ export const fetchActionPlan = (courseId: string) =>
 /** Returns a raw Response so the caller can stream the PDF blob. */
 export const downloadActionPlanPdf = (courseId: string) =>
   fetch(`${BASE}/courses/${courseId}/action-plan/pdf`, {
-    headers: { Authorization: `Bearer ${getToken()}` },
+    credentials: 'same-origin',
   })
 
 // Assessments
@@ -382,5 +378,5 @@ export const fetchUserCertificates = () =>
 /** Returns a raw Response so the caller can stream the certificate PDF blob. */
 export const downloadCertificate = (certId: string) =>
   fetch(`${BASE}/certificates/${certId}/download`, {
-    headers: { Authorization: `Bearer ${getToken()}` },
+    credentials: 'same-origin',
   })

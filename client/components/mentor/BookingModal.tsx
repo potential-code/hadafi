@@ -112,7 +112,7 @@ export function BookingPanel({ mentor, className }: { mentor: BookingPanelMentor
 
   // The learner's saved timezone wins over the browser's.
   useEffect(() => {
-    apiFetch<{ success: boolean; data: { user: { timezone: string | null } } }>('/api/auth/me')
+    apiFetch<{ success: boolean; data: { user: { timezone: string | null } } }>('/api/account/me')
       .then(({ data }) => {
         if (data.user.timezone) setTimezone(data.user.timezone)
       })

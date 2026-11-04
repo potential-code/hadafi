@@ -16,6 +16,12 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY package.json bunfig.toml tsconfig.json ./
 COPY client/ ./client/
 COPY shared/ ./shared/
+# The site forwards /api and /uploads to the API (next.config.ts rewrites), so
+# the session cookie is first-party. API_INTERNAL_URL is where this Next server
+# reaches the API: the compose service "server" on port 5000 by default
+# (`:-` also covers an empty value passed by compose).
+ARG API_INTERNAL_URL
+ENV API_INTERNAL_URL=${API_INTERNAL_URL:-http://server:5000}
 # NEXT_PUBLIC_* vars must be set at build time — Next.js bakes them into the bundle
 ARG NEXT_PUBLIC_API_URL
 ARG NEXT_PUBLIC_AI_BACKEND_URL

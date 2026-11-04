@@ -73,7 +73,7 @@ export function AuthLayout({
                 <span className="text-gradient-magenta">with Hadafi — for free.</span>
               </h2>
               <p className="text-white/60 mt-5 max-w-sm leading-relaxed text-sm">
-                Training, mentors, tools, and a global community of 100,000+ women entrepreneurs.
+                Training, mentors, tools, and a global community of women entrepreneurs.
                 Everything you need to start and grow your business.
               </p>
 

@@ -13,7 +13,9 @@ import {
   clearLandingPageThreadId,
   useCopilotTokenReady,
 } from '../dashboard/copilotConfig'
-import { setAuth } from '@/lib/auth'
+import { homeFor, refreshUser } from '@/lib/auth'
+import { authClient } from '@/lib/authClient'
+import { ChatCodeCard } from '@/components/auth/ChatCodeCard'
 import '../dashboard/copilot.css'
 import { apiFetch } from '@/lib/api'
 import {
@@ -61,7 +63,7 @@ function LandingAssistantMessage(props: any) {
 interface RegistrationData {
   fullName?: string
   email?: string
-  password?: string
+  verifiedToken?: string // from /api/auth/hadafi/sign-up/verify-code — never sent to the AI
   country?: string       // ISO code e.g. "NG"
   countryName?: string   // display name e.g. "Nigeria"
   couponCode?: string
@@ -69,7 +71,6 @@ interface RegistrationData {
 
 interface LoginData {
   email?: string
-  password?: string
 }
 
 // ---------------------------------------------------------------------------
@@ -111,7 +112,8 @@ When the user first messages you, detect their intent:
 
 ## ABOUT HADAFI — answer these questions at any point
 
-Hadafi is a free global women entrepreneurship program by the Potential.org Foundation. It was founded in 2013 and has supported 100,000+ women entrepreneurs across 50+ countries.
+Hadafi is a free global program by Potential.org for women entrepreneurs.
+Do NOT state a founding year, how many people Hadafi has supported, or how many countries it reaches; if asked, say you don't have those details and point them to hadafi@potential.com.
 
 ALWAYS ANSWER if the user asks about Hadafi, what this program is, who it is for, how it works, what it costs, or what features are available — even mid-flow. After answering, immediately resume the registration or login flow by re-asking the current step's question.
 
@@ -142,17 +144,15 @@ Ask for their email address.
 - If bad format: "That doesn't look like a valid email address. Could you double-check it? For example: name@company.com"
 - DO NOT proceed until format is valid.
 
-### Step 3: Password
-Ask for their password.
-- After receiving password, immediately call storeLoginPassword(password).
-- DO NOT send any message before or after — immediately call submitLogin(email) as soon as storeLoginPassword returns.
-- DO NOT proceed until storeLoginPassword has been called and submitLogin has been called.
+### Step 3: Sign-in code
+Immediately call sendLoginCode(email). Then immediately call showLoginCodeEntry() so the user can type the code into the secure card. Do NOT send a message in between.
+- NEVER ask for a password. Signing in through this chat only uses an emailed code. If the user offers a password or asks to use one, say: "For your security I never take passwords in chat. I'll email you a sign-in code instead, or you can use the Log in page." Then continue with the code.
+- If sendLoginCode returns 'rate_limited': "We've hit a request limit. Please wait a minute and try again."
+- If it returns 'error': "Something went wrong on our end. Please try again."
 
-### Step 4: Handle Submit Result
-- If success: "Welcome back! 🎉 Redirecting you to your dashboard..."
-- If error.code === 'INVALID_CREDENTIALS': "That email or password doesn't match our records. Would you like to try again?" (re-ask email and password with full validation from Step 2)
-- If error.code === 'RATE_LIMITED': "We've hit a request limit. Please wait a minute and try again."
-- Otherwise: "Something went wrong on our end. Please try again."
+### Step 4: Handle the code card result
+- 'Signed in': "Welcome back! Taking you to your dashboard..."
+- 'Sign-in cancelled': "If that email has a Hadafi account, the code is in its inbox. Would you like to try a different email, or register for free?"
 
 ---
 
@@ -160,6 +160,9 @@ Ask for their password.
 
 ## YOUR ROLE
 Guide the user through registration step-by-step. Collect each field one at a time. Validate each field BEFORE moving to the next step. Never advance until the current field is confirmed valid.
+
+## SECURITY RULE — CRITICAL
+NEVER ask for, request, generate, repeat, or reference a verification code or any password in this chat. Codes are entered ONLY in the secure cards shown by showOtpEntry (sign-up) and showLoginCodeEntry (sign-in). Registration does not use a password; if the user offers one, say they can add a password later in their Profile.
 
 ## REGISTRATION FLOW (follow this order exactly)
 
@@ -180,19 +183,21 @@ Ask for their email address.
 - If format is valid, call checkEmailAvailability(email)
   - If result is 'taken': "This email is already registered with Hadafi. Please use a different email address."
   - If result is 'error': "I'm having trouble checking that email right now. Please try a different email address or try again in a moment."
-  - If result is 'available': proceed
+  - If result is 'available': proceed to Step 4
 - DO NOT proceed until format is valid AND email is available.
 - IMPORTANT: If email is taken, stay in the registration flow and re-ask for email. Do NOT offer to switch to login — if the user wants to log in they will say so explicitly.
 
-### Step 4: Password
-Ask for a password.
-- Validate: length >= 8
-- If too short: "Your password needs to be at least 8 characters. Try something a bit longer — a mix of letters and numbers works well!"
-- After the user provides a valid password (length >= 8), immediately call storePassword(password) to save it, then proceed to Step 5 (Country).
-- DO NOT proceed until password is valid and storePassword has been called.
+### Step 4: Email Verification (code)
+As soon as the email is confirmed available:
+1. Call sendOtp(email) — no message before or after, just call it.
+2. Immediately after sendOtp returns 'sent', call showOtpEntry() — no message before or after.
+3. DO NOT ask the user to type the code in chat — they enter it in the secure card only.
+4. If showOtpEntry returns 'Email verified': proceed to Step 5.
+5. If showOtpEntry returns 'Verification cancelled': ask "Would you like to try verifying again?" and if yes, call sendOtp(email) then showOtpEntry() again.
+6. If sendOtp returns 'error': "I couldn't send the code just now. Please wait a moment and try again."
 
 ### Step 5: Country
-As soon as storePassword returns, call showCountryPicker immediately — NO message before or after, just call the action. Do not say "Let me pull up..." or anything else. Just call it.
+As soon as verification completes, call showCountryPicker immediately — NO message before or after, just call the action.
 - DO NOT proceed until user selects from the picker.
 
 ### Step 6: Invite Code (optional)
@@ -206,14 +211,16 @@ Tell the user: "Almost there! Do you have an invite code? You can enter it now, 
 - If they say 'skip', 'none', 'no', or similar: say nothing — immediately call showRegistrationSummary. Do NOT say "No problem, skipping..." first.
 
 ### Step 7: Show Summary
-Immediately call showRegistrationSummary(fullName, email, couponCode) — NO message before calling it. Do not say "Let me show you a summary" or anything else. Just call the action. Do NOT pass password — it is already stored securely via storePassword.
+Immediately call showRegistrationSummary(fullName, email, couponCode) — NO message before calling it. Do not say "Let me show you a summary" or anything else. Just call the action. There is no password.
 - If result.action === 'edit': CRITICAL — collect ONLY that one field, then immediately call showRegistrationSummary again. Do NOT ask for any other fields. Do NOT continue the registration flow. Examples:
-  - Editing fullName/email/password/couponCode: ask for the new value, validate it, then call showRegistrationSummary with all fields updated.
+  - Editing fullName/couponCode: ask for the new value, validate it, then call showRegistrationSummary with all fields updated.
+  - Editing email: ask for the new email, validate format + checkEmailAvailability, then call sendOtp(newEmail) + showOtpEntry() for the new email (each email must be verified), then call showRegistrationSummary with the updated email.
   - Editing country: call showCountryPicker immediately (no message first), then call showRegistrationSummary with the new country. Do NOT ask for any other field.
-- If result.action === 'confirmed': Call submitRegistration(fullName, email, couponCode) passing the values. Do NOT pass password — it is read from secure storage.
+- If result.action === 'confirmed': Call submitRegistration(fullName, email, couponCode) passing the values. The email verification is read from secure storage — do NOT pass it.
 
 ### Step 8: Handle Submit Result
-- If success: "You're all set! 🎉 Welcome to Hadafi! Redirecting you to your dashboard..."
+- If success: "You're all set. Welcome to Hadafi! Taking you to your dashboard..."
+- If error.code === 'EMAIL_NOT_VERIFIED': call sendOtp(email) then showOtpEntry() again to re-verify, then call submitRegistration again.
 - If error.code === 'EMAIL_EXISTS': "Looks like that email was just taken. Would you like to use a different one?" (then re-collect email with full validation)
 - If error.code === 'INVALID_COUPON': "That invite code didn't go through — it may have just been used. Would you like to skip it and register without one?" (then re-collect coupon or skip, and show summary again)
 - If error.code === 'RATE_LIMITED': "We've hit a request limit. Please wait a minute and try again."
@@ -222,7 +229,6 @@ Immediately call showRegistrationSummary(fullName, email, couponCode) — NO mes
 ## VALIDATION RULES (apply these exactly)
 - fullName: trim().length >= 2
 - email: /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/ AND checkEmailAvailability === 'available'
-- password: length >= 8
 - country: selected from showCountryPicker (cannot be manually entered)
 - couponCode: if provided, checkCouponCode === 'valid'
 
@@ -236,8 +242,8 @@ If the user says anything like "change it", "wrong", "different", "go back", "ac
 ## AFTER ACCEPTING EACH FIELD VALUE
 Always echo the accepted value back to the user BEFORE moving to the next step. Never silently advance.
 - After name: "Got it, I've saved your name as **[name]**. Now, what's your email address?"
-- After email: "Perfect, I'll use **[email]**. Now let's set your password."
-- After password: Say nothing — immediately call showCountryPicker. Do NOT send a message first.
+- After email: say nothing — immediately call sendOtp(email) and then showOtpEntry().
+- After verification: Say nothing — immediately call showCountryPicker. Do NOT send a message first.
 - After country: "Great, [flag] [country] it is! Almost done — do you have an invite code?"
 - After coupon (valid): say nothing — call showRegistrationSummary immediately.
 - After coupon (skip): say nothing — call showRegistrationSummary immediately.
@@ -282,11 +288,11 @@ Continue collecting the field normally — do NOT skip it or advance.
 
 ### Data / security questions
 If the user asks whether their password is safe, who can see their data, or anything about privacy:
-"Your information is handled securely — your password is encrypted and never visible in our chat. If you have specific data privacy questions, our support team can give you full details."
+"Your information is handled securely. I never see passwords or sign-in codes: codes are typed into a secure card, not the chat. If you have specific data privacy questions, our support team can give you full details."
 Then continue with the current step.
 
 ### Submission errors (non-specific)
-If submitRegistration or submitLogin returns a generic error that is not a known error code:
+If submitRegistration returns a generic error that is not a known error code:
 "Something went wrong on our end — this isn't your fault! Please wait a moment and try again. If the problem continues, our support team can help you."`
 
 // ---------------------------------------------------------------------------
@@ -406,9 +412,10 @@ function LandingRegistrationChatInner() {
     ],
     handler: async ({ email }) => {
       try {
-        const data = await apiFetch<{ success: boolean; data?: { available: boolean } }>(
-          `/api/auth/check-email?email=${encodeURIComponent(email)}`
-        )
+        const data = await apiFetch<{ success: boolean; data?: { available: boolean } }>('/api/account/check-email', {
+          method: 'POST',
+          body: JSON.stringify({ email }),
+        })
         if (!data.success) return 'error'
         return data.data?.available ? 'available' : 'taken'
       } catch {
@@ -433,7 +440,7 @@ function LandingRegistrationChatInner() {
       try {
         const normalised = code.trim().toUpperCase()
         const data = await apiFetch<{ success: boolean; data?: { valid: boolean } }>(
-          `/api/auth/check-coupon?code=${encodeURIComponent(normalised)}`
+          `/api/account/check-coupon?code=${encodeURIComponent(normalised)}`
         )
         if (!data.success) return 'error'
         return data.data?.valid ? 'valid' : 'invalid'
@@ -443,16 +450,46 @@ function LandingRegistrationChatInner() {
     },
   })
 
-  // ── Action 3: storePassword ───────────────────────────────────────────────
-  // Password is stored here and NEVER passed through LLM action parameters
+  // ── Action 3: sendOtp ────────────────────────────────────────────────────
+  // Emails a sign-up code to a new address. The code itself never passes
+  // through the AI: it is typed into the card shown by showOtpEntry.
   useCopilotAction({
-    name: 'storePassword',
-    description: 'Store the password collected from the user (called immediately after password validation)',
-    parameters: [{ name: 'password', type: 'string', required: true }],
-    handler: async ({ password }) => {
-      registrationData.current.password = password
-      return 'Password stored'
+    name: 'sendOtp',
+    description: 'Send a one-time verification code to the given email address',
+    parameters: [{ name: 'email', type: 'string', required: true, description: 'Email to send the code to' }],
+    handler: async ({ email }) => {
+      try {
+        registrationData.current.email = email.trim().toLowerCase()
+        registrationData.current.verifiedToken = undefined
+        await apiFetch('/api/auth/hadafi/sign-up/send-code', {
+          method: 'POST',
+          body: JSON.stringify({ email: registrationData.current.email }),
+        })
+        return 'sent'
+      } catch {
+        return 'error'
+      }
     },
+  })
+
+  // ── Action 3b: showOtpEntry ──────────────────────────────────────────────
+  // The card checks the code itself and hands back a verifiedToken, which is
+  // kept in the ref; the AI only hears 'Email verified' or 'Verification cancelled'.
+  useCopilotAction({
+    name: 'showOtpEntry',
+    description: 'Show a secure in-chat card for the user to enter their email verification code',
+    parameters: [],
+    renderAndWaitForResponse: ({ respond, status }) => (
+      <ChatCodeCard
+        purpose="sign-up"
+        email={registrationData.current.email ?? ''}
+        status={status}
+        respond={(result) => {
+          if (result.verified && result.verifiedToken) registrationData.current.verifiedToken = result.verifiedToken
+          respond?.(result.verified ? 'Email verified' : 'Verification cancelled')
+        }}
+      />
+    ),
   })
 
   // ── Action 4: showCountryPicker ───────────────────────────────────────────
@@ -475,8 +512,8 @@ function LandingRegistrationChatInner() {
   })
 
   // ── Action 5: showRegistrationSummary ─────────────────────────────────────
-  // NOTE: password is intentionally absent from parameters — it is already
-  // stored via storePassword and read from registrationData.current.
+  // NOTE: the verifiedToken is intentionally absent from parameters — it is
+  // kept in registrationData.current and never shown to the AI.
   // NOTE: renderAndWaitForResponse may be called twice in React StrictMode;
   // the writes below are idempotent (same values), so double-invocation is harmless.
   useCopilotAction({
@@ -489,7 +526,6 @@ function LandingRegistrationChatInner() {
     ],
     renderAndWaitForResponse: ({ args, respond, status }) => {
       // Populate ref with non-sensitive fields so the confirm card can display them.
-      // password was already stored via storePassword — do not overwrite from here.
       if (args?.fullName) registrationData.current.fullName = args.fullName
       if (args?.email) registrationData.current.email = args.email
       // Fix: only update couponCode when explicitly provided to avoid clearing it on re-invocation
@@ -517,8 +553,9 @@ function LandingRegistrationChatInner() {
   })
 
   // ── Action 6: submitRegistration ──────────────────────────────────────────
-  // NOTE: password is intentionally absent from parameters — it is read from
-  // registrationData.current where it was stored via storePassword.
+  // Country and verifiedToken are read from registrationData.current (ref),
+  // never from AI parameters. Creates the account (no password: it signs in
+  // by email code, and a password can be added in Profile) and signs in.
   useCopilotAction({
     name: 'submitRegistration',
     description: 'Submit the registration with all collected data',
@@ -528,70 +565,72 @@ function LandingRegistrationChatInner() {
       { name: 'couponCode', type: 'string', required: false, description: 'Optional invite code' },
     ],
     handler: async ({ fullName, email, couponCode: rawCoupon }) => {
-      const country = registrationData.current.country
-      const password = registrationData.current.password  // read from ref, never from LLM params
+      // The full country name, as the sign-up form saves it (not the ISO code).
+      const country = registrationData.current.countryName ?? registrationData.current.country
+      const verifiedToken = registrationData.current.verifiedToken
       const couponCode = rawCoupon?.trim().toUpperCase() || undefined
-      if (!country || !password) return { error: true, message: 'Missing required fields' }
+      if (!country) return { error: true, message: 'Missing required fields' }
+      // The verified email is the one the code went to.
+      if (!verifiedToken || email.trim().toLowerCase() !== registrationData.current.email) {
+        return { error: true, code: 'EMAIL_NOT_VERIFIED', message: 'The email needs to be verified' }
+      }
       try {
-        const data = await apiFetch<{ success: boolean; data?: { token: string; user: import('@/lib/auth').User }; error?: { code: string; message: string } }>(
-          '/api/auth/register',
-          { method: 'POST', body: JSON.stringify({ fullName, email, password, country, couponCode }) }
-        )
-        if (!data.success) {
-          return { error: true, code: data.error?.code, message: data.error?.message }
-        }
-        setAuth(data.data!.token, data.data!.user)
+        await apiFetch('/api/auth/hadafi/sign-up', {
+          method: 'POST',
+          body: JSON.stringify({ fullName, email: registrationData.current.email, country, couponCode, verifiedToken }),
+        })
+        registrationData.current.verifiedToken = undefined
+        await refreshUser()
         router.push('/dashboard')
         return { success: true }
-      } catch {
-        return { error: true, message: 'Network error' }
-      }
-    },
-  })
-
-  // ── Action 7: storeLoginPassword ─────────────────────────────────────────
-  // Password is stored in loginData ref and NEVER passed through LLM action parameters
-  useCopilotAction({
-    name: 'storeLoginPassword',
-    description: 'Store the login password securely (called immediately after the user enters it)',
-    parameters: [{ name: 'password', type: 'string', required: true }],
-    handler: async ({ password }) => {
-      loginData.current.password = password
-      return 'Password stored'
-    },
-  })
-
-  // ── Action 8: submitLogin ────────────────────────────────────────────────
-  // NOTE: password is intentionally absent from parameters — it is read from
-  // loginData.current where it was stored via storeLoginPassword.
-  useCopilotAction({
-    name: 'submitLogin',
-    description: 'Submit login with the provided email; password is read from secure storage',
-    parameters: [
-      { name: 'email', type: 'string', required: true, description: 'Email address to log in with' },
-    ],
-    handler: async ({ email }) => {
-      const password = loginData.current.password
-      if (!password) return { error: true, message: 'Missing password' }
-      try {
-        const data = await apiFetch<{ success: boolean; data?: { token: string; user: import('@/lib/auth').User } }>(
-          '/api/auth/login',
-          { method: 'POST', body: JSON.stringify({ email, password }) }
-        )
-        setAuth(data.data!.token, data.data!.user)
-        const role = data.data!.user.role
-        if (role === 'admin') router.push('/admin/dashboard')
-        else if (role === 'mentor') router.push('/mentor/dashboard')
-        else router.push('/dashboard')
-        return { success: true }
       } catch (err: unknown) {
-        const body = err as { error?: { code?: string; message?: string } }
-        if (body?.error?.code) {
-          return { error: true, code: body.error.code, message: body.error.message }
-        }
-        return { error: true, message: 'Network error' }
+        // Better Auth errors put `code` at the top level.
+        const body = err as { code?: string; status?: number; message?: string }
+        const code = body?.status === 429 || body?.code === 'EMAIL_RATE_LIMITED' ? 'RATE_LIMITED' : body?.code
+        return { error: true, code, message: body?.message ?? 'Network error' }
       }
     },
+  })
+
+  // ── Action 7: sendLoginCode ──────────────────────────────────────────────
+  // Emails a sign-in code. Better Auth only sends it when the email has an
+  // account, but answers the same either way, so the chat can't be used to
+  // find out who is registered. No password is ever taken in the chat.
+  useCopilotAction({
+    name: 'sendLoginCode',
+    description: 'Email a 6-digit sign-in code to the given address',
+    parameters: [{ name: 'email', type: 'string', required: true, description: 'Email address to sign in with' }],
+    handler: async ({ email }) => {
+      loginData.current.email = email.trim().toLowerCase()
+      const { error } = await authClient.emailOtp.sendVerificationOtp({ email: loginData.current.email, type: 'sign-in' })
+      if (!error) return 'sent'
+      return error.status === 429 ? 'rate_limited' : 'error'
+    },
+  })
+
+  // ── Action 8: showLoginCodeEntry ─────────────────────────────────────────
+  // The code is typed into the card and checked by Better Auth there; the
+  // AI only ever hears 'Signed in' or 'Sign-in cancelled'.
+  useCopilotAction({
+    name: 'showLoginCodeEntry',
+    description: 'Show a secure in-chat card for the user to enter their sign-in code',
+    parameters: [],
+    renderAndWaitForResponse: ({ respond, status }) => (
+      <ChatCodeCard
+        purpose="sign-in"
+        email={loginData.current.email ?? ''}
+        status={status}
+        respond={async (result) => {
+          if (result.verified) {
+            const user = await refreshUser()
+            respond?.('Signed in')
+            router.push(user ? homeFor(user.role) : '/dashboard')
+            return
+          }
+          respond?.('Sign-in cancelled')
+        }}
+      />
+    ),
   })
 
   // ── Render ─────────────────────────────────────────────────────────────────

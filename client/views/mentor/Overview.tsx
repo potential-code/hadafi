@@ -85,7 +85,7 @@ export default function MentorOverview() {
     Promise.all([
       apiFetch<{ upcomingSessions: number; totalMentees: number; completedSessions: number }>('/api/mentor/analytics'),
       apiFetch<{ upcoming: UpcomingSession[]; past: UpcomingSession[] }>('/api/mentor/sessions'),
-      apiFetch<{ success: boolean; data: { user: { meetingLink: string | null } } }>('/api/auth/me'),
+      apiFetch<{ success: boolean; data: { user: { meetingLink: string | null } } }>('/api/account/me'),
       apiFetch<{ upcoming: { id: string }[]; past: { id: string }[] }>('/api/mentor/availability'),
     ])
       .then(([analyticsData, sessionsData, meData, availabilityData]) => {

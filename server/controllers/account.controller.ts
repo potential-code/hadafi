@@ -1,10 +1,14 @@
 import type { Request, Response, NextFunction } from "express";
 import { z } from "zod";
 import jwt from "jsonwebtoken";
-import * as authService from "../services/auth.service";
+import { fromNodeHeaders } from "better-auth/node";
+import { isAPIError } from "better-auth/api";
+
+import { auth } from "../auth";
+import * as accountService from "../services/account.service";
 
 /**
- * GET /api/auth/copilot-token
+ * GET /api/account/copilot-token
  *
  * Mints a short-lived service JWT for the AI backend (potential-ai). The AI
  * service trusts tokens signed with the shared COPILOT_SERVICE_JWT_SECRET and
@@ -42,7 +46,7 @@ export async function copilotToken(
 }
 
 /**
- * GET /api/auth/copilot-token/guest
+ * GET /api/account/copilot-token/guest
  *
  * Mints a short-lived ANONYMOUS service JWT (platformId only, no userId) so
  * the public landing-page registration chat works for logged-out visitors.
@@ -78,66 +82,7 @@ export async function guestCopilotToken(
 }
 
 /**
- * POST /api/auth/register
- *
- * Registers a new SME user. Accepts an optional couponCode for invite-based
- * access. On success, returns 201 with a JWT and the public user object.
- */
-export async function register(
-  req: Request,
-  res: Response,
-  next: NextFunction,
-): Promise<void> {
-  try {
-    const { fullName, email, password, country, couponCode } = req.body as {
-      fullName: string;
-      email: string;
-      password: string;
-      country: string;
-      couponCode?: string;
-    };
-
-    const result = await authService.registerUser({
-      fullName,
-      email,
-      password,
-      country,
-      couponCode,
-    });
-
-    res.status(201).json({ success: true, data: result });
-  } catch (err) {
-    next(err);
-  }
-}
-
-/**
- * POST /api/auth/login
- *
- * Authenticates a user by email + password. Returns 200 with a JWT and the
- * public user object on success.
- */
-export async function login(
-  req: Request,
-  res: Response,
-  next: NextFunction,
-): Promise<void> {
-  try {
-    const { email, password } = req.body as {
-      email: string;
-      password: string;
-    };
-
-    const result = await authService.loginUser({ email, password });
-
-    res.status(200).json({ success: true, data: result });
-  } catch (err) {
-    next(err);
-  }
-}
-
-/**
- * GET /api/auth/me
+ * GET /api/account/me
  *
  * Returns the authenticated user's profile. Requires the `authenticate`
  * middleware to have run first — req.user is guaranteed to be set.
@@ -151,7 +96,7 @@ export async function me(
     // req.user is set by the authenticate middleware; it will always be present
     // on this route because authenticate is applied before this handler.
     const userId = req.user!.userId; // ! safe: authenticate middleware guarantees it
-    const user = await authService.getMe(userId);
+    const user = await accountService.getMe(userId);
     res.status(200).json({ success: true, data: { user } });
   } catch (err) {
     next(err);
@@ -159,17 +104,7 @@ export async function me(
 }
 
 /**
- * POST /api/auth/logout
- *
- * Stateless logout — the server has no session to invalidate.
- * The client is responsible for discarding the JWT.
- */
-export function logout(_req: Request, res: Response): void {
-  res.status(200).json({ success: true, data: { ok: true } });
-}
-
-/**
- * PUT /api/auth/me
+ * PUT /api/account/me
  *
  * Updates the authenticated user's profile fields. Only the fields present
  * in the request body are updated; omitted fields are left unchanged.
@@ -183,7 +118,7 @@ export async function updateProfile(
   try {
     const userId = req.user!.userId;
     const userRole = req.user!.role;
-    const user = await authService.updateProfile(userId, userRole, req.body as {
+    const user = await accountService.updateProfile(userId, userRole, req.body as {
       fullName?: string;
       phone?: string | null;
       bio?: string | null;
@@ -199,31 +134,7 @@ export async function updateProfile(
   }
 }
 
-/**
- * POST /api/auth/change-password
- *
- * Changes the authenticated user's password. Verifies the current password
- * before writing the new bcrypt hash.
- */
-export async function changePassword(
-  req: Request,
-  res: Response,
-  next: NextFunction,
-): Promise<void> {
-  try {
-    const userId = req.user!.userId;
-    const { currentPassword, newPassword } = req.body as {
-      currentPassword: string;
-      newPassword: string;
-    };
-    await authService.changePassword(userId, currentPassword, newPassword);
-    res.status(200).json({ success: true, data: { ok: true } });
-  } catch (err) {
-    next(err);
-  }
-}
-
-/** Zod schema used to validate the `email` query parameter on GET /check-email. */
+/** Zod schema used to validate the `email` body field on POST /check-email. */
 const checkEmailQuerySchema = z.object({
   email: z.string().email("Must be a valid email address").toLowerCase(),
 });
@@ -234,14 +145,14 @@ const checkCouponQuerySchema = z.object({
 });
 
 /**
- * GET /api/auth/check-email?email=
+ * POST /api/account/check-email { email }
  *
  * Returns whether the given email address is available for registration.
  * Always responds with HTTP 200 — the `available` boolean in the response
  * body indicates the result. Never throws a 4xx for a taken email.
  *
- * Query params are validated manually here because the shared `validate`
- * middleware targets `req.body` only.
+ * The address travels in the body, not the URL, so it stays out of URLs and
+ * request logs.
  */
 export async function checkEmail(
   req: Request,
@@ -249,7 +160,7 @@ export async function checkEmail(
   next: NextFunction,
 ): Promise<void> {
   try {
-    const parsed = checkEmailQuerySchema.safeParse(req.query);
+    const parsed = checkEmailQuerySchema.safeParse(req.body ?? {});
 
     if (!parsed.success) {
       const errors = parsed.error.flatten().fieldErrors;
@@ -260,7 +171,7 @@ export async function checkEmail(
       return;
     }
 
-    const result = await authService.checkEmailAvailability(parsed.data.email);
+    const result = await accountService.checkEmailAvailability(parsed.data.email);
     res.status(200).json({ success: true, data: result });
   } catch (err) {
     next(err);
@@ -268,7 +179,7 @@ export async function checkEmail(
 }
 
 /**
- * GET /api/auth/check-coupon?code=
+ * GET /api/account/check-coupon?code=
  *
  * Advisory coupon pre-validation. Returns whether the given code is currently
  * active. Always responds with HTTP 200 — `valid: false` means invalid, not an
@@ -295,9 +206,62 @@ export async function checkCoupon(
       return;
     }
 
-    const result = await authService.checkCouponValidity(parsed.data.code);
+    const result = await accountService.checkCouponValidity(parsed.data.code);
     res.status(200).json({ success: true, data: result });
   } catch (err) {
+    next(err);
+  }
+}
+
+/**
+ * GET /api/account/voice-token
+ *
+ * A 60-second service JWT for opening the voice WebSocket. The socket carries
+ * its token in the URL, where it can end up in logs, so it gets a token that
+ * is useless almost immediately instead of the 1-hour chat token.
+ */
+export async function voiceToken(req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const secret = process.env["COPILOT_SERVICE_JWT_SECRET"];
+    if (!secret) {
+      res.status(503).json({
+        success: false,
+        error: { message: "AI assistant is not configured", code: "COPILOT_NOT_CONFIGURED" },
+      });
+      return;
+    }
+    const token = jwt.sign({ platformId: "hadafi", userId: req.user!.userId }, secret, {
+      algorithm: "HS256",
+      expiresIn: 60,
+    });
+    res.status(200).json({ success: true, data: { token } });
+  } catch (err) {
+    next(err);
+  }
+}
+
+/**
+ * POST /api/account/set-password
+ *
+ * Sets the first password for an account created without one (Hana's chat
+ * sign-up, or a mentor seeded without one). Better Auth refuses if a password
+ * already exists.
+ */
+export async function setPassword(req: Request, res: Response, next: NextFunction): Promise<void> {
+  try {
+    const { password, confirm } = req.body as { password: string; confirm: string };
+    if (password !== confirm) {
+      res.status(400).json({ success: false, error: { message: "Passwords do not match", code: "PASSWORD_MISMATCH" } });
+      return;
+    }
+    await auth.api.setPassword({ body: { newPassword: password }, headers: fromNodeHeaders(req.headers) });
+    res.status(200).json({ success: true, data: { ok: true } });
+  } catch (err) {
+    if (isAPIError(err)) {
+      const code = String((err.body as { code?: string } | undefined)?.code ?? "PASSWORD_NOT_SET");
+      res.status(err.statusCode).json({ success: false, error: { message: err.message, code } });
+      return;
+    }
     next(err);
   }
 }

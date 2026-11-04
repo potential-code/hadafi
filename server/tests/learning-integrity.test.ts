@@ -240,11 +240,4 @@ describe('the PDF email tool', () => {
   })
 })
 
-describe('sign-in', () => {
-  it('stops password guessing on one account after 10 tries', async () => {
-    const email = `guess-${Date.now()}@e2e.local`
-    const tryOnce = () => api('POST', '/api/auth/login', { body: { email, password: 'wrong-password-1' } })
-    for (let i = 0; i < 10; i++) expect((await tryOnce()).status).not.toBe(429)
-    expect((await tryOnce()).status).toBe(429)
-  })
-})
+// Per-email sign-in limits (codes and passwords) are covered in auth.test.ts.

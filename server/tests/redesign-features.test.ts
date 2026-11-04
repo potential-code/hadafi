@@ -283,7 +283,7 @@ describe('mentor photo upload', () => {
       method: 'POST',
       // Connection: close so a rejected (413) upload doesn't leave a
       // half-sent keep-alive socket that blocks stopTestServer().
-      headers: { Connection: 'close', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+      headers: { Connection: 'close', ...(token ? { Cookie: token } : {}) },
       body: form,
     })
     return { status: res.status, body: (await res.json().catch(() => null)) as { data?: { avatarUrl: string } } | null }
@@ -301,7 +301,7 @@ describe('mentor photo upload', () => {
     // static root differs, so check the file on disk rather than over HTTP.
     expect((await fs.readFile(file)).equals(PNG)).toBe(true)
 
-    const me = await api<{ data?: { avatarUrl: string }; avatarUrl?: string }>('GET', '/api/auth/me', { token: mentorToken })
+    const me = await api<{ data?: { avatarUrl: string }; avatarUrl?: string }>('GET', '/api/account/me', { token: mentorToken })
     expect(JSON.stringify(me.body)).toContain(url)
   })
 
@@ -313,7 +313,7 @@ describe('mentor photo upload', () => {
     // server isn't left holding an unread multipart stream.
     const asLearner = await fetch(`${baseUrl}/api/mentor/profile/photo`, {
       method: 'POST',
-      headers: { Authorization: `Bearer ${learner.token}` },
+      headers: { Cookie: learner.token },
     })
     expect(asLearner.status).toBe(403)
     expect((await upload(undefined, PNG, 'image/png')).status).toBe(401)

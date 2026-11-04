@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import { validateSetupToken, completeMentorSetup } from "../services/mentor.service";
+import { validateSetupToken } from "../services/mentor.service";
 import {
   addSlots,
   getSlots,
@@ -26,19 +26,6 @@ export async function getSetupToken(
     const token = req.query["token"] as string;
     const info = await validateSetupToken(token);
     res.json(info);
-  } catch (err) {
-    next(err);
-  }
-}
-
-export async function postSetup(
-  req: Request,
-  res: Response,
-  next: NextFunction,
-): Promise<void> {
-  try {
-    const result = await completeMentorSetup(req.body);
-    res.status(201).json(result);
   } catch (err) {
     next(err);
   }

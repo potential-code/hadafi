@@ -6,8 +6,10 @@ import { useQuery } from '@tanstack/react-query'
 import { Search, X, CheckCircle2, FileText, FileVideo, ImageIcon } from 'lucide-react'
 import { fetchMediaFiles, type MediaFile } from '@/lib/api/media'
 import { cn } from '@/lib/utils'
+import { API_BASE } from '@/lib/api'
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'
+// Same-origin: the site forwards /uploads to the API (next.config.ts).
+const SERVER_URL = API_BASE
 
 function getFileType(mimeType: string): 'image' | 'pdf' | 'doc' | 'video' | 'other' {
   if (mimeType.startsWith('image/')) return 'image'

@@ -392,7 +392,7 @@ export default function Sessions() {
   }
 
   useEffect(() => {
-    apiFetch<{ success: boolean; data: { user: { timezone: string | null } } }>('/api/auth/me')
+    apiFetch<{ success: boolean; data: { user: { timezone: string | null } } }>('/api/account/me')
       .then(({ data }) => setTimezone(data.user.timezone))
       .catch(() => {})
     loadSessions()

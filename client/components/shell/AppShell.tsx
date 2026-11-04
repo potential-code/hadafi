@@ -14,7 +14,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { Toaster } from 'sonner'
 import { CornerDownLeft, LogOut, Menu, Moon, MoreHorizontal, PanelLeftClose, PanelLeftOpen, Search, Sun } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { clearAuth, getUser, type User as AuthUser } from '@/lib/auth'
+import { getUser, signOut, type User as AuthUser } from '@/lib/auth'
 import { apiFetch } from '@/lib/api'
 import { REDESIGN_ASSETS } from '@/lib/constants'
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
@@ -116,7 +116,7 @@ function useAvatarUrl(user: AuthUser | null) {
     if (!user) return
     let cancelled = false
     const load = () =>
-      apiFetch<{ data: { user: { avatarUrl?: string | null } } }>('/api/auth/me')
+      apiFetch<{ data: { user: { avatarUrl?: string | null } } }>('/api/account/me')
         .then((r) => {
           if (!cancelled) setAvatarUrl(r.data.user.avatarUrl ?? null)
         })
@@ -443,10 +443,9 @@ export function AppShell({
   const [mobileOpen, setMobileOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
 
-  // Hadafi's sign-in is still a token in this browser; it moves to server
-  // sessions with Better Auth, and this then ends the session on the server.
+  // Ends the session on the server (revoking it), not just in this browser.
   const logout = useCallback(async () => {
-    clearAuth()
+    await signOut().catch(() => {})
     router.push('/login')
   }, [router])
 

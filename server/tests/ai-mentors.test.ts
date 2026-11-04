@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll } from 'bun:test'
 import { createServer, type Server } from 'node:http'
-import { startTestServer, stopTestServer, api, createTestUser, cleanupFixtureUsers, type TestUser } from './helpers'
+import { startTestServer, stopTestServer, api, createTestUser, cleanupFixtureUsers, ORIGIN, type TestUser } from './helpers'
 import { withDocument } from '../controllers/aiMentor.controller'
 
 /**
@@ -93,7 +93,7 @@ describe('POST /api/ai-mentors/:botId/chat', () => {
     const baseUrl = await startTestServer()
     const res = await fetch(`${baseUrl}/api/ai-mentors/${BOT}/chat`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${learner.token}` },
+      headers: { 'Content-Type': 'application/json', Origin: ORIGIN, Cookie: learner.token },
       body: JSON.stringify({ message: 'Help me sell', sessionId: 's-1' }),
     })
     expect(res.status).toBe(200)

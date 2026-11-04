@@ -1,4 +1,4 @@
-import { pgTable, uuid, text, timestamp, integer } from "drizzle-orm/pg-core";
+import { pgTable, uuid, text, timestamp, integer, boolean } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 
 export const users = pgTable("users", {
@@ -7,7 +7,17 @@ export const users = pgTable("users", {
     .default(sql`gen_random_uuid()`),
   fullName: text("full_name").notNull(),
   email: text("email").unique().notNull(),
-  passwordHash: text("password_hash").notNull(),
+  // Better Auth: set once the user proves they own the address (a sign-up
+  // code, a sign-in code or a verification code).
+  emailVerified: boolean("email_verified").notNull().default(false),
+  // True for every account created before Better Auth (migration 0022).
+  // Their first code sign-in verifies the email and keeps their password;
+  // see auth/legacyVerification.ts.
+  legacyAccount: boolean("legacy_account").notNull().default(false),
+  // Pre-Better-Auth bcrypt hash. Copied into auth_accounts by migration 0022
+  // and no longer read or written; kept until a later release drops it.
+  // Nullable: accounts created by email code have no password.
+  passwordHash: text("password_hash"),
   role: text("role").notNull().default("sme"),
   country: text("country"),
   avatarUrl: text("avatar_url"),

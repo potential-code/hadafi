@@ -1,27 +1,8 @@
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
 import { eq, and, isNull } from "drizzle-orm";
 
 import { db } from "../db";
-import { mentorSetupTokens, mentorRegistrations, users } from "../db/schema";
+import { mentorSetupTokens, mentorRegistrations } from "../db/schema";
 import { AppError } from "../utils/app-error";
-
-const BCRYPT_ROUNDS = 12;
-const TOKEN_EXPIRY = "12h";
-
-interface JwtPayload {
-  userId: string;
-  role: string;
-}
-
-function signToken(userId: string, role: string): string {
-  const secret = process.env["JWT_SECRET"];
-  if (!secret) {
-    throw new AppError("JWT_SECRET is not configured", 500, "SERVER_MISCONFIGURATION");
-  }
-  const payload: JwtPayload = { userId, role };
-  return jwt.sign(payload, secret, { algorithm: "HS256", expiresIn: TOKEN_EXPIRY });
-}
 
 // ---------------------------------------------------------------------------
 // Shared token lookup helper
@@ -32,7 +13,7 @@ interface TokenWithRegistration {
   registration: typeof mentorRegistrations.$inferSelect;
 }
 
-async function findValidToken(tokenValue: string): Promise<TokenWithRegistration> {
+export async function findValidToken(tokenValue: string): Promise<TokenWithRegistration> {
   const rows = await db
     .select({
       tokenId: mentorSetupTokens.id,
@@ -109,102 +90,5 @@ export async function validateSetupToken(token: string): Promise<SetupTokenInfo>
   return { name: registration.name, email: registration.email };
 }
 
-// ---------------------------------------------------------------------------
-// completeMentorSetup  (POST /api/mentor/setup)
-// ---------------------------------------------------------------------------
-
-export interface SetupResult {
-  token: string;
-  user: {
-    id: string;
-    fullName: string;
-    email: string;
-    role: string;
-  };
-}
-
-/**
- * Creates a mentor account from a valid setup token.
- *
- * Steps (all inside a transaction):
- * 1. Validate the token (not expired, not used).
- * 2. Check no user account already exists for this email.
- * 3. Hash the password and insert the user row with role='mentor'.
- * 4. Link the user back to the mentor_registrations row.
- * 5. Mark the setup token as used.
- *
- * Returns a signed JWT so the mentor is immediately logged in.
- *
- * @throws AppError(404, "TOKEN_NOT_FOUND")  — token does not exist
- * @throws AppError(400, "TOKEN_EXPIRED")    — token used or past expiry
- * @throws AppError(409, "EMAIL_EXISTS")     — account for this email already exists
- */
-export async function completeMentorSetup(data: {
-  token: string;
-  password: string;
-}): Promise<SetupResult> {
-  const { token: tokenValue, password } = data;
-
-  const { token: tokenRow, registration } = await findValidToken(tokenValue);
-
-  // Guard: if an account was somehow already created for this email, reject.
-  const existing = await db
-    .select({ id: users.id })
-    .from(users)
-    .where(eq(users.email, registration.email))
-    .limit(1);
-
-  if (existing.length > 0) {
-    throw new AppError("An account for this email already exists", 409, "EMAIL_EXISTS");
-  }
-
-  const passwordHash = await bcrypt.hash(password, BCRYPT_ROUNDS);
-
-  const newUser = await db.transaction(async (tx) => {
-    // Insert the mentor user account.
-    const [inserted] = await tx
-      .insert(users)
-      .values({
-        fullName: registration.name,
-        email: registration.email,
-        passwordHash,
-        role: "mentor",
-      })
-      .returning({
-        id: users.id,
-        fullName: users.fullName,
-        email: users.email,
-        role: users.role,
-      });
-
-    if (!inserted) {
-      throw new AppError("Failed to create mentor account", 500, "INSERT_FAILED");
-    }
-
-    // Link the mentor_registrations row to the new user.
-    await tx
-      .update(mentorRegistrations)
-      .set({ userId: inserted.id })
-      .where(eq(mentorRegistrations.id, registration.id));
-
-    // Consume the setup token.
-    await tx
-      .update(mentorSetupTokens)
-      .set({ usedAt: new Date() })
-      .where(eq(mentorSetupTokens.id, tokenRow.id));
-
-    return inserted;
-  });
-
-  const jwtToken = signToken(newUser.id, newUser.role);
-
-  return {
-    token: jwtToken,
-    user: {
-      id: newUser.id,
-      fullName: newUser.fullName,
-      email: newUser.email,
-      role: newUser.role,
-    },
-  };
-}
+// Completing the setup (creating the mentor account and signing in) is
+// POST /api/auth/hadafi/mentor-setup: server/auth/hadafiPlugin.ts.

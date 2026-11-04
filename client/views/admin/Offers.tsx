@@ -19,6 +19,7 @@ import {
   type AdminOffer,
   type CreateOfferDto,
 } from '@/lib/api/adminOffers'
+import { API_BASE } from '@/lib/api'
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -26,7 +27,6 @@ import {
 
 const CATEGORIES = ['AI', 'Marketing', 'IT', 'Finance', 'PR', 'Ecommerce', 'Training'] as const
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'
 
 // ---------------------------------------------------------------------------
 // Helpers

@@ -1,265 +1,138 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion'
-import { ChevronDown, Menu } from 'lucide-react'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { NAV_LINKS } from '@/lib/constants/navigation'
+import Link from 'next/link'
+import { Menu, X } from 'lucide-react'
+import { btn } from '@/components/kit'
+import { REDESIGN_ASSETS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
-export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [openMenu, setOpenMenu] = useState<string | null>(null)
-  const [mobileGroupOpen, setMobileGroupOpen] = useState<string | null>(null)
-  const { scrollY } = useScroll()
-  const navRef = useRef<HTMLElement>(null)
+/**
+ * In-page anchors. `wide` items hide between 1024px and 1100px so the row
+ * always fits; below 1024px everything moves into the menu button.
+ */
+export const LANDING_NAV = [
+  { label: 'About', href: '#about' },
+  { label: 'Courses', href: '#courses' },
+  { label: 'Mentors', href: '#ai-mentors' },
+  { label: 'Hana', href: '#ai-assistant' },
+  { label: 'Events', href: '#events', wide: true },
+  { label: 'Offers', href: '#offers', wide: true },
+  { label: 'Stakeholders', href: '#stakeholder' },
+  { label: 'Community', href: '#community', wide: true },
+] as const
 
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    setScrolled(latest > 40)
-  })
+const MOBILE_NAV = [
+  { label: 'About', href: '#about' },
+  { label: 'Courses', href: '#courses' },
+  { label: 'AI mentors', href: '#ai-mentors' },
+  { label: 'Hana, your AI assistant', href: '#ai-assistant' },
+  { label: 'Expert mentors', href: '#mentors' },
+  { label: 'Events', href: '#events' },
+  { label: 'Offers', href: '#offers' },
+  { label: 'Stakeholders', href: '#stakeholder' },
+  { label: 'Community', href: '#community' },
+]
+
+/** The public site header (homepage). */
+export function Navbar() {
+  const [open, setOpen] = useState(false)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    function onClickOutside(e: MouseEvent) {
-      if (!navRef.current) return
-      if (!navRef.current.contains(e.target as Node)) setOpenMenu(null)
-    }
+    if (!open) return
     function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpenMenu(null)
+      if (e.key === 'Escape') {
+        setOpen(false)
+        toggleRef.current?.focus()
+      }
     }
-    document.addEventListener('mousedown', onClickOutside)
+    function onResize() {
+      if (window.innerWidth >= 1024) setOpen(false)
+    }
     document.addEventListener('keydown', onKey)
+    window.addEventListener('resize', onResize)
     return () => {
-      document.removeEventListener('mousedown', onClickOutside)
       document.removeEventListener('keydown', onKey)
+      window.removeEventListener('resize', onResize)
     }
-  }, [])
+  }, [open])
 
   return (
-    <motion.header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled
-          ? 'bg-white/85 backdrop-blur-xl shadow-[0_4px_30px_-10px_rgba(159,32,99,0.15)] border-b border-brand-surface-2'
-          : 'bg-transparent',
-      )}
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={cn('flex items-center justify-between transition-all', scrolled ? 'h-16' : 'h-20')}>
-          <a href="/" className="flex items-center group">
-            <img
-              src="/images/hadafi-logo.png"
-              alt="Hadafi Women Entrepreneurship Program"
-              className={cn(
-                'transition-all duration-300 group-hover:scale-105',
-                scrolled ? 'h-9' : 'h-11',
-                !scrolled && 'brightness-0 invert',
-              )}
-            />
-          </a>
+    <header className="sticky top-0 z-40 border-b border-ui-line bg-ui-surface">
+      <div className="mx-auto flex h-[68px] w-full max-w-[1200px] items-center gap-3 px-4 min-[900px]:px-10">
+        <Link href="/" aria-label="Hadafi home" className="inline-flex shrink-0 items-center rounded-md">
+          <img
+            src={REDESIGN_ASSETS.logo.src}
+            alt="Hadafi"
+            width={1293}
+            height={282}
+            className="h-8 w-auto dark:brightness-0 dark:invert max-[380px]:h-7"
+          />
+        </Link>
 
-          <nav ref={navRef} className="hidden md:flex items-center gap-1">
-            {NAV_LINKS.map((link) => {
-              if ('children' in link) {
-                const isOpen = openMenu === link.label
-                return (
-                  <div
-                    key={link.label}
-                    className="relative"
-                    onMouseEnter={() => setOpenMenu(link.label)}
-                    onMouseLeave={() => setOpenMenu(null)}
-                  >
-                    <button
-                      type="button"
-                      aria-haspopup="menu"
-                      aria-expanded={isOpen}
-                      onClick={() => setOpenMenu(isOpen ? null : link.label)}
-                      className={cn(
-                        'inline-flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-full transition-colors',
-                        scrolled
-                          ? 'text-brand-text-primary hover:text-brand-primary hover:bg-brand-primary/5'
-                          : 'text-white/85 hover:text-white hover:bg-white/10',
-                        isOpen && (scrolled ? 'text-brand-primary bg-brand-primary/5' : 'text-white bg-white/10'),
-                      )}
-                    >
-                      {link.label}
-                      <ChevronDown
-                        className={cn('w-4 h-4 transition-transform duration-200', isOpen && 'rotate-180')}
-                      />
-                    </button>
-
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          role="menu"
-                          initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                          transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-                          className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-72"
-                        >
-                          <div className="rounded-2xl bg-white border border-brand-surface-2 shadow-[0_20px_50px_-15px_rgba(159,32,99,0.25)] overflow-hidden p-2">
-                            {link.children.map((child) => (
-                              <a
-                                key={child.href}
-                                href={child.href}
-                                role="menuitem"
-                                onClick={() => setOpenMenu(null)}
-                                className="group flex flex-col gap-0.5 px-4 py-3 rounded-xl hover:bg-brand-primary/5 transition-colors"
-                              >
-                                <span className="text-sm font-semibold text-brand-text-primary group-hover:text-brand-primary transition-colors">
-                                  {child.label}
-                                </span>
-                                {child.description && (
-                                  <span className="text-xs text-brand-text-secondary">{child.description}</span>
-                                )}
-                              </a>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                )
-              }
-
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    'relative px-4 py-2 text-sm font-medium rounded-full transition-colors',
-                    scrolled
-                      ? 'text-brand-text-primary hover:text-brand-primary hover:bg-brand-primary/5'
-                      : 'text-white/85 hover:text-white hover:bg-white/10',
-                  )}
-                >
-                  {link.label}
-                </a>
-              )
-            })}
-          </nav>
-
-          <div className="hidden md:flex items-center gap-2">
+        <nav aria-label="Main" className="ml-4 hidden flex-1 items-center gap-0.5 min-[1024px]:flex">
+          {LANDING_NAV.map((l) => (
             <a
-              href="/login"
+              key={l.href}
+              href={l.href}
               className={cn(
-                'text-sm font-medium px-4 py-2 rounded-full transition-colors',
-                scrolled
-                  ? 'text-brand-text-primary hover:text-brand-primary'
-                  : 'text-white/85 hover:text-white',
+                'whitespace-nowrap rounded-lg px-2.5 py-2 text-sm font-medium text-ui-muted transition-colors hover:bg-ui-surface-2 hover:text-ui-text',
+                'wide' in l && l.wide && 'max-[1100px]:hidden',
               )}
             >
-              Login
+              {l.label}
             </a>
-            <a
-              href="/sign-up"
-              className="inline-flex items-center bg-brand-primary hover:bg-brand-primary-dark text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-[0_8px_24px_-8px_rgba(159,32,99,0.6)] hover:shadow-[0_10px_30px_-8px_rgba(159,32,99,0.8)]"
-            >
-              Sign Up
-            </a>
-          </div>
+          ))}
+        </nav>
+        <span className="flex-1 min-[1024px]:hidden" />
 
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-            <SheetTrigger
-              className="md:hidden"
-              render={
-                <button
-                  className={cn(
-                    'p-2 rounded-xl transition-colors',
-                    scrolled
-                      ? 'text-brand-text-primary hover:bg-brand-primary/10'
-                      : 'text-white hover:bg-white/10',
-                  )}
-                  aria-label="Open menu"
-                >
-                  <Menu className="w-6 h-6" />
-                </button>
-              }
-            />
-            <SheetContent side="right" className="w-80 bg-mesh-dark border-l-white/10 text-white">
-              <nav className="flex flex-col gap-1 mt-10">
-                {NAV_LINKS.map((link) => {
-                  if ('children' in link) {
-                    const isOpen = mobileGroupOpen === link.label
-                    return (
-                      <div key={link.label} className="flex flex-col">
-                        <button
-                          type="button"
-                          aria-expanded={isOpen}
-                          onClick={() => setMobileGroupOpen(isOpen ? null : link.label)}
-                          className="flex items-center justify-between text-xl font-semibold text-white/90 hover:text-brand-primary-light transition-colors px-4 py-3 rounded-xl hover:bg-white/5"
-                        >
-                          <span>{link.label}</span>
-                          <ChevronDown
-                            className={cn('w-5 h-5 transition-transform duration-200', isOpen && 'rotate-180')}
-                          />
-                        </button>
-                        <AnimatePresence initial={false}>
-                          {isOpen && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                              className="overflow-hidden"
-                            >
-                              <div className="pl-4 flex flex-col gap-0.5 pb-1">
-                                {link.children.map((child) => (
-                                  <a
-                                    key={child.href}
-                                    href={child.href}
-                                    onClick={() => {
-                                      setMobileOpen(false)
-                                      setMobileGroupOpen(null)
-                                    }}
-                                    className="text-base font-medium text-white/75 hover:text-brand-primary-light transition-colors px-4 py-2.5 rounded-xl hover:bg-white/5"
-                                  >
-                                    {child.label}
-                                  </a>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    )
-                  }
-                  return (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="text-xl font-semibold text-white/90 hover:text-brand-primary-light transition-colors px-4 py-3 rounded-xl hover:bg-white/5"
-                    >
-                      {link.label}
-                    </a>
-                  )
-                })}
-                <div className="border-t border-white/10 mt-4 pt-4 flex flex-col gap-2">
-                  <a
-                    href="/login"
-                    onClick={() => setMobileOpen(false)}
-                    className="text-base font-medium text-white/80 hover:text-white px-4 py-3 rounded-xl hover:bg-white/5 transition-colors"
-                  >
-                    Login
-                  </a>
-                  <a
-                    href="/sign-up"
-                    onClick={() => setMobileOpen(false)}
-                    className="bg-brand-primary hover:bg-brand-primary-dark text-white text-center px-5 py-3 rounded-xl text-base font-semibold transition-colors shadow-lg"
-                  >
-                    Sign Up — It's Free
-                  </a>
-                </div>
-              </nav>
-            </SheetContent>
-          </Sheet>
-        </div>
+        <Link href="/login" className={cn(btn({ variant: 'secondary' }), 'h-[38px] max-[1023px]:hidden')}>
+          Log in
+        </Link>
+        <Link href="/sign-up" className={cn(btn({ variant: 'primary' }), 'h-[38px] max-[360px]:px-3')}>
+          Sign up
+        </Link>
+        <button
+          ref={toggleRef}
+          type="button"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          aria-controls="landing-mobile-menu"
+          onClick={() => setOpen((v) => !v)}
+          className={cn(btn({ variant: 'secondary', size: 'icon' }), 'h-[38px] w-[38px] min-[1024px]:hidden')}
+        >
+          {open ? <X className="h-[18px] w-[18px]" aria-hidden /> : <Menu className="h-[18px] w-[18px]" aria-hidden />}
+        </button>
       </div>
-    </motion.header>
+
+      {open && (
+        <div
+          id="landing-mobile-menu"
+          className="absolute inset-x-0 top-full max-h-[calc(100dvh-68px)] overflow-y-auto border-b border-ui-line bg-ui-surface shadow-ui min-[1024px]:hidden"
+        >
+          <nav aria-label="Main mobile" className="mx-auto flex max-w-[1200px] flex-col px-4 py-3 min-[900px]:px-10">
+            {MOBILE_NAV.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="rounded-[10px] px-3 py-3 text-[15px] font-medium text-ui-text hover:bg-ui-surface-2"
+              >
+                {l.label}
+              </a>
+            ))}
+            <div className="mt-2 grid grid-cols-2 gap-2 border-t border-ui-line pt-3">
+              <Link href="/login" className={btn({ variant: 'secondary', size: 'lg' })}>
+                Log in
+              </Link>
+              <Link href="/sign-up" className={btn({ variant: 'primary', size: 'lg' })}>
+                Sign up
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
+    </header>
   )
 }

@@ -31,20 +31,5 @@ export function perUser(
   })
 }
 
-/**
- * Limits attempts against one email address, whichever address they come
- * from, so a password can't be guessed by spreading tries across many IPs.
- */
-export function perEmail(name: string, windowMs: number, max: number, message: string): RateLimitRequestHandler {
-  return rateLimit({
-    windowMs,
-    limit: max,
-    standardHeaders: 'draft-7',
-    legacyHeaders: false,
-    keyGenerator: (req: Request) => {
-      const email = typeof req.body?.email === 'string' ? req.body.email.trim().toLowerCase() : ''
-      return `${name}:${email || ipKeyGenerator(req.ip ?? '')}`
-    },
-    message: tooMany(message),
-  })
-}
+// Per-email limits on sign-in codes and passwords are counted in the database
+// by Better Auth hooks (server/auth/emailLimits.ts), not here.

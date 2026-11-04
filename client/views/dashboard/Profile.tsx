@@ -26,7 +26,7 @@ import { DashboardLayout } from '@/components/dashboard/DashboardLayout'
 import { Avatar, Button, Card, Field, PageHeader, ProgressBar, Skeleton, inputClass } from '@/components/kit'
 import { PhoneInput, errorRing } from '@/components/learner-grow/PhoneInput'
 import { apiFetch } from '@/lib/api'
-import { getToken, getUser, setAuth } from '@/lib/auth'
+import { changePassword, getUser, renameCachedUser, setFirstPassword } from '@/lib/auth'
 import { downloadCertificate, fetchLearnerCourses, fetchUserCertificates, type CertificateWithCourse } from '@/lib/api/lms'
 import { fetchOffers } from '@/lib/api/offers'
 import { cn } from '@/lib/utils'
@@ -50,6 +50,7 @@ interface MeUser {
   certificatesCount: number
   coursesCount: number
   createdAt: string
+  hasPassword: boolean
 }
 
 type ProfileForm = { fullName: string; phone: string; bio: string; company: string; country: string }
@@ -160,7 +161,7 @@ export default function ProfilePage() {
 
   const loadProfile = () => {
     let cancelled = false
-    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/auth/me')
+    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/account/me')
       .then(({ data }) => {
         if (cancelled) return
         setServerUser(data.user)
@@ -206,7 +207,7 @@ export default function ProfilePage() {
       return
     }
     setSaving(true)
-    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/auth/me', {
+    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/account/me', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -220,9 +221,7 @@ export default function ProfilePage() {
       .then(({ data }) => {
         setServerUser(data.user)
         setForm(formFrom(data.user))
-        const cached = getUser()
-        const token = getToken()
-        if (cached && token) setAuth(token, { ...cached, fullName: data.user.fullName })
+        renameCachedUser(data.user.fullName)
         setEditing(false)
         toast.success('Profile updated', { description: 'Your changes now show across Hadafi.' })
       })
@@ -245,9 +244,12 @@ export default function ProfilePage() {
     setEditing(false)
   }
 
+  // Accounts made by email code have no password yet; they add one instead of changing it.
+  const firstPassword = serverUser?.hasPassword === false
+
   function validatePw() {
     const e: Record<string, string> = {}
-    if (!pwForm.current) e.current = 'Enter your current password'
+    if (!firstPassword && !pwForm.current) e.current = 'Enter your current password'
     if (pwForm.next.length < 8) e.next = 'Use at least 8 characters'
     if (pwForm.next !== pwForm.confirm) e.confirm = 'Passwords do not match'
     return e
@@ -261,14 +263,14 @@ export default function ProfilePage() {
       return
     }
     setPwSaving(true)
-    apiFetch('/api/auth/change-password', {
-      method: 'POST',
-      body: JSON.stringify({ currentPassword: pwForm.current, newPassword: pwForm.next }),
-    })
+    ;(firstPassword ? setFirstPassword(pwForm.next) : changePassword(pwForm.current, pwForm.next))
       .then(() => {
         setPwForm({ current: '', next: '', confirm: '' })
         setPwErrors({})
-        toast.success('Password updated')
+        if (firstPassword) setServerUser((p) => (p ? { ...p, hasPassword: true } : p))
+        toast.success(firstPassword ? 'Password set' : 'Password updated', {
+          description: firstPassword ? 'You can now sign in with it, or keep using email codes.' : 'Your other devices were signed out.',
+        })
       })
       .catch((err: { error?: { message?: string; code?: string; errors?: Record<string, string[]> } }) => {
         if (err?.error?.code === 'INVALID_PASSWORD') {
@@ -581,19 +583,21 @@ export default function ProfilePage() {
                 <div className="flex flex-col gap-0.5">
                   <h2 id="p-sec" className="text-base font-semibold text-ui-text">Security</h2>
                   <span className="text-[13px] text-ui-muted">
-                    Change your password. New passwords need at least 8 characters.
+                    {firstPassword
+                      ? 'You sign in with a code sent to your email. Add a password if you also want to sign in with one. At least 8 characters.'
+                      : 'Change your password. New passwords need at least 8 characters.'}
                   </span>
                 </div>
               </div>
               <form onSubmit={onChangePassword} noValidate className="flex flex-col gap-4">
-                <div className="grid grid-cols-1 items-start gap-3.5 md:grid-cols-3">
-                  {pwInput('current', 'p-cur', 'Current password', 'current-password')}
-                  {pwInput('next', 'p-new', 'New password', 'new-password')}
-                  {pwInput('confirm', 'p-conf', 'Confirm new password', 'new-password')}
+                <div className={cn('grid grid-cols-1 items-start gap-3.5', firstPassword ? 'md:grid-cols-2' : 'md:grid-cols-3')}>
+                  {!firstPassword && pwInput('current', 'p-cur', 'Current password', 'current-password')}
+                  {pwInput('next', 'p-new', firstPassword ? 'Password' : 'New password', 'new-password')}
+                  {pwInput('confirm', 'p-conf', firstPassword ? 'Confirm password' : 'Confirm new password', 'new-password')}
                 </div>
                 <div className="flex justify-end">
                   <Button type="submit" variant="secondary" disabled={pwSaving}>
-                    {pwSaving ? 'Saving' : 'Update password'}
+                    {pwSaving ? 'Saving' : firstPassword ? 'Set password' : 'Update password'}
                   </Button>
                 </div>
               </form>

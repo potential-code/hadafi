@@ -1,7 +1,6 @@
 import { db } from "../index";
 import { users, mentorRegistrations } from "../schema";
 import { eq } from "drizzle-orm";
-import bcrypt from "bcryptjs";
 import cardsJson from "./seed-data/mentor-cards.json";
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -83,15 +82,14 @@ export async function seedMentors(): Promise<void> {
     const linkedinUrl = normalizeLinkedin(card.meta.linkedinurl ?? "");
     const avatarUrl = localAvatarUrl(card.extra_image_url);
 
-    // Mentors log in via OTP — password hash is required by schema but never used directly.
-    const passwordHash = await bcrypt.hash(crypto.randomUUID(), 12);
+    // Seeded mentors have no password: they sign in with an email code,
+    // which also verifies their email.
 
     await db
       .insert(users)
       .values({
         fullName: card.title,
         email,
-        passwordHash,
         role: "mentor",
         bio: bio ?? undefined,
         avatarUrl: avatarUrl ?? undefined,

@@ -19,7 +19,6 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import { toast } from 'sonner'
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { AdminLayout } from '@/components/admin/AdminLayout'
 import { PageHeader } from '@/components/dashboard/widgets/PageHeader'
@@ -33,6 +32,10 @@ import {
 import { cn } from '@/lib/utils'
 import { AlertTriangle } from 'lucide-react'
 import { ConfirmDialog } from '@/components/admin/widgets/ConfirmDialog'
+import { API_BASE } from '@/lib/api'
+
+// Same-origin: the site forwards /uploads to the API (next.config.ts).
+const SERVER_URL = API_BASE
 
 type FileType = 'image' | 'pdf' | 'doc' | 'video' | 'other'
 

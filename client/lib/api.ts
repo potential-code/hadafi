@@ -1,24 +1,23 @@
-import { getToken } from './auth'
-
-const BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'
+/**
+ * API requests are same-origin: next.config.ts forwards /api/* and /uploads/*
+ * to the API server, so the httpOnly session cookie rides along.
+ */
+export const API_BASE = ''
 
 /**
  * Thin fetch wrapper that:
- * - Prepends the API base URL
- * - Attaches Authorization: Bearer <token> when a token exists
+ * - Sends the request same-origin (the browser attaches the session cookie)
  * - Throws the parsed JSON error body on non-2xx responses
  */
 export async function apiFetch<T = unknown>(
   path: string,
   options: RequestInit = {},
 ): Promise<T> {
-  const token = getToken()
-
-  const res = await fetch(`${BASE}${path}`, {
+  const res = await fetch(`${API_BASE}${path}`, {
     ...options,
+    credentials: 'same-origin',
     headers: {
       'Content-Type': 'application/json',
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...(options.headers as Record<string, string> | undefined),
     },
   })

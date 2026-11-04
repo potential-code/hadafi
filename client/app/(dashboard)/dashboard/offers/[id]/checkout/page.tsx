@@ -501,7 +501,7 @@ export default function CheckoutPage() {
 
   const { data: profile = null, isLoading: profileLoading } = useQuery({
     queryKey: ['me'],
-    queryFn: () => apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/auth/me').then((r) => r.data.user),
+    queryFn: () => apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/account/me').then((r) => r.data.user),
   })
 
 

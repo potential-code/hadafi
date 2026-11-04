@@ -8,8 +8,11 @@ import { getCountryDataList } from 'countries-list'
 import { toast } from 'sonner'
 import { AuthLayout } from '@/components/auth/AuthLayout'
 import { FloatingField } from '@/components/auth/FloatingField'
-import { setAuth, type User as AuthUser } from '@/lib/auth'
+import { homeFor, refreshUser } from '@/lib/auth'
 import { apiFetch } from '@/lib/api'
+import { AuthAlert } from '@/components/auth/AuthField'
+import { CodeForm, codeErrorMessage } from '@/components/auth/CodeForm'
+import { LEGAL_LINKS } from '@/components/landing/legal'
 
 const COUNTRIES = getCountryDataList()
   .map((c) => c.name)
@@ -22,16 +25,15 @@ const validateEmail = (v: string) =>
     : !/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v)
     ? 'Enter a valid email address'
     : null
-const validatePassword = (v: string) =>
-  !v ? 'Choose a password' : v.length < 8 ? 'Use at least 8 characters' : null
+// The password is optional: without one, the account signs in with an email code.
+const validatePassword = (v: string): string | null => (v.length > 0 && v.length < 8 ? 'Use at least 8 characters, or leave it empty' : null)
 
-interface RegisterResponse {
-  success: boolean
-  data: {
-    token: string
-    user: AuthUser
-  }
-}
+/** Errors from Better Auth endpoints put `code` at the top level. */
+type ApiErr = { code?: string; status?: number; message?: string; error?: { code?: string; errors?: Record<string, string[]> } }
+
+// Sign-up proves the email before the account exists: the details, then a
+// 6-digit code to the address, then the account is created and signed in
+// (server/auth/hadafiPlugin.ts).
 
 // Inner component that reads search params (must be inside Suspense)
 function SignUpForm() {
@@ -57,6 +59,8 @@ function SignUpForm() {
   const [emailChecking, setEmailChecking] = useState(false)
   const [emailAvailable, setEmailAvailable] = useState<boolean | null>(null)
   const [couponError, setCouponError] = useState<string | null>(null)
+  const [formError, setFormError] = useState<string | null>(null)
+  const [step, setStep] = useState<'details' | 'code'>('details')
 
   // Keep couponCode in sync if URL param changes (e.g. browser back/forward)
   useEffect(() => {
@@ -77,16 +81,17 @@ function SignUpForm() {
     !validateEmail(form.email) &&
     emailAvailable === true &&
     !emailChecking &&
-    form.password.length >= 8 &&
+    !validatePassword(form.password) &&
     !!form.country
 
   async function handleEmailBlur() {
     if (validateEmail(form.email)) return
     setEmailChecking(true)
     try {
-      const res = await apiFetch<{ success: boolean; data: { available: boolean } }>(
-        `/api/auth/check-email?email=${encodeURIComponent(form.email)}`
-      )
+      const res = await apiFetch<{ success: boolean; data: { available: boolean } }>('/api/account/check-email', {
+        method: 'POST',
+        body: JSON.stringify({ email: form.email }),
+      })
       const available = res.data.available
       setEmailAvailable(available)
       setEmailError(available ? null : 'An account with this email already exists')
@@ -115,55 +120,87 @@ function SignUpForm() {
       !form.country
     ) return
 
+    setFormError(null)
     setLoading(true)
-
     try {
-      const body: Record<string, string> = {
-        fullName: form.fullName,
-        email: form.email,
-        password: form.password,
-        country: form.country,
-      }
-      if (form.couponCode.trim()) {
-        body.couponCode = form.couponCode.trim()
-      }
-
-      const { data: { token, user } } = await apiFetch<RegisterResponse>('/api/auth/register', {
+      await apiFetch('/api/auth/hadafi/sign-up/send-code', {
         method: 'POST',
-        body: JSON.stringify(body),
+        body: JSON.stringify({ email: form.email }),
       })
-
-      setAuth(token, user)
-
-      if (user.role === 'admin') {
-        router.push('/admin/dashboard')
-      } else if (user.role === 'mentor') {
-        router.push('/mentor/dashboard')
-      } else {
-        router.push('/dashboard')
-      }
+      setStep('code')
     } catch (err: unknown) {
-      const body = err as { error?: { message?: string; code?: string; errors?: Record<string, string[]> } }
-      const code = body?.error?.code
-      if (code === 'EMAIL_EXISTS') {
-        setEmailError('An account with this email already exists')
-      } else if (code === 'INVALID_COUPON') {
-        setCouponError('Invalid or already used invite code')
-      } else if (code === 'VALIDATION_ERROR') {
-        const fieldErrors = body?.error?.errors ?? {}
-        if (fieldErrors.couponCode?.length) {
-          setCouponError('Invalid invite code')
-        } else if (fieldErrors.email?.length) {
-          setEmailError(fieldErrors.email[0])
-        } else {
-          toast.error('Please check your details and try again.')
-        }
-      } else {
-        toast.error('Something went wrong', { description: 'Please try again.' })
-      }
+      const e = err as ApiErr
+      setFormError(e?.status === 429 || e?.code === 'RATE_LIMITED' || e?.code === 'EMAIL_RATE_LIMITED'
+        ? 'Too many tries. Please wait a minute.'
+        : "Couldn't send the code. Please try again.")
     } finally {
       setLoading(false)
     }
+  }
+
+  /** Swaps the code for a verified token, then creates the account and signs in. */
+  async function finishSignUp(code: string): Promise<string | null> {
+    let verifiedToken: string
+    try {
+      const res = await apiFetch<{ verifiedToken: string }>('/api/auth/hadafi/sign-up/verify-code', {
+        method: 'POST',
+        body: JSON.stringify({ email: form.email, code }),
+      })
+      verifiedToken = res.verifiedToken
+    } catch (err: unknown) {
+      return codeErrorMessage(err as ApiErr)
+    }
+    try {
+      await apiFetch('/api/auth/hadafi/sign-up', {
+        method: 'POST',
+        body: JSON.stringify({
+          fullName: form.fullName,
+          email: form.email,
+          country: form.country,
+          ...(form.password ? { password: form.password } : {}),
+          ...(form.couponCode.trim() ? { couponCode: form.couponCode.trim() } : {}),
+          verifiedToken,
+        }),
+      })
+    } catch (err: unknown) {
+      const e = err as ApiErr
+      setStep('details')
+      if (e?.code === 'EMAIL_EXISTS') setEmailError('An account with this email already exists')
+      else if (e?.code === 'INVALID_COUPON') setCouponError('Invalid or already used invite code')
+      else setFormError('Something went wrong. Please try again.')
+      return null
+    }
+    const user = await refreshUser()
+    router.push(user ? homeFor(user.role) : '/dashboard')
+    return null
+  }
+
+  if (step === 'code') {
+    return (
+      <div className="relative rounded-3xl border border-brand-surface-2 bg-white p-7 shadow-[0_20px_60px_-20px_rgba(159,32,99,0.18)]">
+        <CodeForm
+          email={form.email}
+          intro={
+            <>
+              To finish, enter the 6-digit code we sent to <strong className="font-semibold">{form.email}</strong>.
+            </>
+          }
+          submitLabel="Create my account"
+          submittingLabel="Creating your account"
+          onSubmit={finishSignUp}
+          onResend={async () => {
+            try {
+              await apiFetch('/api/auth/hadafi/sign-up/send-code', { method: 'POST', body: JSON.stringify({ email: form.email }) })
+              return null
+            } catch {
+              return "Couldn't send the code. Please try again."
+            }
+          }}
+          onBack={() => setStep('details')}
+          backLabel="Change my details"
+        />
+      </div>
+    )
   }
 
   return (
@@ -201,9 +238,9 @@ function SignUpForm() {
         />
         <FloatingField
           type={showPassword ? 'text' : 'password'}
-          label="Password (min 8)"
+          label="Password (optional, min 8)"
           autoComplete="new-password"
-          required
+          hint="Optional. Without one, you sign in with a code we email you."
           value={form.password}
           onChange={(e) => update('password', e.target.value)}
           icon={<Lock className="w-4 h-4" />}
@@ -305,7 +342,9 @@ function SignUpForm() {
           <span className="text-xs text-brand-text-secondary leading-snug select-none">
             By registering, I agree to the{' '}
             <a
-              href="#"
+              href={LEGAL_LINKS.terms}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-brand-primary hover:text-brand-primary-dark font-medium transition-colors"
             >
               Terms and Conditions
@@ -313,6 +352,8 @@ function SignUpForm() {
             .
           </span>
         </label>
+
+        {formError && <AuthAlert id="su-err">{formError}</AuthAlert>}
 
         <motion.button
           type="submit"
@@ -328,7 +369,7 @@ function SignUpForm() {
             />
           )}
           <span className="relative inline-flex items-center gap-2">
-            {loading ? 'Creating your account…' : 'Register for Free'}
+            {loading ? 'Sending your code…' : 'Register for Free'}
             {!loading && <ArrowRight className="w-4 h-4" />}
           </span>
         </motion.button>

@@ -88,6 +88,7 @@
     "@tiptap/react": "^3.23.1",
     "@tiptap/starter-kit": "^3.23.1",
     "@types/dompurify": "^3.2.0",
+    "better-auth": "1.7.7",
     "countries-list": "^3.3.0",
     "gsap": "^3.15.0",
     "isomorphic-dompurify": "^3.13.0",

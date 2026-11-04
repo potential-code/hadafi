@@ -7,8 +7,10 @@ import { type LiveEvent } from '@/lib/api/liveEvents'
 import { Field, DialogStyles } from '@/components/admin/widgets/CourseDialog'
 import MediaPicker from '@/components/admin/MediaPicker'
 import { type MediaFile } from '@/lib/api/media'
+import { API_BASE } from '@/lib/api'
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'
+// Same-origin: the site forwards /uploads to the API (next.config.ts).
+const SERVER_URL = API_BASE
 
 interface Props {
   open: boolean

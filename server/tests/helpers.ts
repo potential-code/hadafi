@@ -7,15 +7,18 @@
  *
  * Needs a Postgres reachable via DATABASE_URL with the migrations applied and
  * Hadafi's courses seeded. The dev database is fine: test users use unique
- * @e2e.local emails and are deleted afterwards.
+ * @e2e.local emails and are deleted afterwards. Mailpit (:8025/:1025) is
+ * optional: the email-code round trips in auth.test.ts skip without it.
  */
 import type { Server } from 'node:http'
-import jwt from 'jsonwebtoken'
-import bcrypt from 'bcryptjs'
-import { like } from 'drizzle-orm'
+import { eq, like } from 'drizzle-orm'
 import { app } from '../index'
 import { db } from '../db'
 import { users } from '../db/schema'
+import { createLearnerAccount } from '../auth/accounts'
+
+/** The site origin Better Auth trusts (its CSRF check rejects other origins). */
+export const ORIGIN = process.env['BETTER_AUTH_URL'] || process.env['FRONTEND_URL'] || 'http://localhost:3000'
 
 let server: Server | null = null
 let baseUrl = ''
@@ -43,17 +46,21 @@ export interface ApiResponse<T = unknown> {
   body: T
 }
 
-/** JSON request against the test server, signed in as `token` when given. */
+/**
+ * JSON request against the test server. `token` is a session Cookie header
+ * value (see TestUser.token), sent as a browser would.
+ */
 export async function api<T = unknown>(
   method: string,
   path: string,
   opts: { token?: string; body?: unknown; headers?: Record<string, string> } = {},
-): Promise<ApiResponse<T> & { headers: Headers }> {
+): Promise<ApiResponse<T> & { headers: Headers; setCookie: string[] }> {
   const res = await fetch(`${baseUrl}${path}`, {
     method,
     headers: {
       'Content-Type': 'application/json',
-      ...(opts.token ? { Authorization: `Bearer ${opts.token}` } : {}),
+      Origin: ORIGIN,
+      ...(opts.token ? { Cookie: opts.token } : {}),
       ...opts.headers,
     },
     ...(opts.body !== undefined ? { body: JSON.stringify(opts.body) } : {}),
@@ -64,33 +71,85 @@ export async function api<T = unknown>(
   } catch {
     // not JSON (a file, or empty)
   }
-  return { status: res.status, body: body as T, headers: res.headers }
+  return { status: res.status, body: body as T, headers: res.headers, setCookie: res.headers.getSetCookie() }
+}
+
+/** Turns Set-Cookie headers into a Cookie header value (dropping expired ones). */
+export function cookieHeader(setCookie: string[]): string {
+  return setCookie
+    .filter((c) => !/max-age=0/i.test(c))
+    .map((c) => c.split(';')[0])
+    .join('; ')
+}
+
+/** Signs in with email + password and returns the session Cookie header value. */
+export async function signIn(email: string, password: string): Promise<string> {
+  const res = await api('POST', '/api/auth/sign-in/email', { body: { email, password } })
+  if (res.status !== 200) throw new Error(`sign-in failed: ${res.status} ${JSON.stringify(res.body)}`)
+  return cookieHeader(res.setCookie)
 }
 
 export interface TestUser {
   id: string
   email: string
   role: string
-  /** A session token, as the sign-in endpoint would issue. */
+  password: string
+  /** Session Cookie header value, as Better Auth sets it at sign-in; pass as `token` to api(). */
   token: string
 }
 
 let counter = 0
 
-/** Creates a user straight in the database and signs a token for it. */
+/**
+ * Creates a throwaway, already-verified user and signs it in the Better Auth
+ * way (email + password, session cookie). Sign-up itself (email code first)
+ * is covered by auth.test.ts; fixtures skip the email round trip so suites
+ * run without Mailpit.
+ */
 export async function createTestUser(label: string, role: 'sme' | 'mentor' | 'admin' = 'sme'): Promise<TestUser> {
   const email = `${label}-${Date.now()}-${counter++}@e2e.local`
-  const [row] = await db.insert(users).values({
-    fullName: `Test ${label}`,
-    email,
-    passwordHash: await bcrypt.hash('not-used-in-tests', 4),
-    role,
-  }).returning({ id: users.id })
-  const token = jwt.sign({ userId: row!.id, role }, process.env['JWT_SECRET']!, { algorithm: 'HS256', expiresIn: '1h' })
-  return { id: row!.id, email, role, token }
+  const password = 'e2e-pass-12345'
+  const id = await createLearnerAccount({ fullName: `Test ${label}`, email, password, country: 'AE' })
+  if (role !== 'sme') await db.update(users).set({ role }).where(eq(users.id, id))
+  return { id, email, role, password, token: await signIn(email, password) }
 }
 
 /** Deletes every test user (their progress, points and certificates cascade). */
 export async function cleanupFixtureUsers(): Promise<void> {
   await db.delete(users).where(like(users.email, '%@e2e.local'))
+}
+
+const MAILPIT_URL = process.env['MAILPIT_URL'] ?? 'http://localhost:8025'
+
+/** True when a Mailpit instance is reachable (enables the email-code tests). */
+export async function mailpitAvailable(): Promise<boolean> {
+  try {
+    const res = await fetch(`${MAILPIT_URL}/api/v1/messages?limit=1`, { signal: AbortSignal.timeout(1500) })
+    return res.ok
+  } catch {
+    return false
+  }
+}
+
+/**
+ * The 6-digit code in the newest email Mailpit received for `email` after
+ * `since` (ms; pass Date.now() from just before the request that sends it),
+ * waiting up to ~5s for it to arrive. Null when none came.
+ */
+export async function fetchOtpFromMailpit(email: string, since = 0, tries = 20): Promise<string | null> {
+  const query = encodeURIComponent(`to:"${email}"`)
+  for (let i = 0; i < tries; i++) {
+    const list = (await (await fetch(`${MAILPIT_URL}/api/v1/search?query=${query}&limit=5`)).json()) as {
+      messages?: Array<{ ID: string; Created: string }>
+    }
+    // Mailpit stores times to the second; allow a second of slack.
+    const msg = list.messages?.find((m) => Date.parse(m.Created) >= since - 1000)
+    if (msg) {
+      const detail = (await (await fetch(`${MAILPIT_URL}/api/v1/message/${msg.ID}`)).json()) as { Text: string }
+      const code = detail.Text.match(/\b(\d{6})\b/)?.[1]
+      if (code) return code
+    }
+    if (i < tries - 1) await new Promise((r) => setTimeout(r, 250))
+  }
+  return null
 }

@@ -355,7 +355,7 @@ export default function Availability() {
     setLoadingSlots(true)
     Promise.all([
       apiFetch<AvailabilityData>('/api/mentor/availability'),
-      apiFetch<MeData>('/api/auth/me'),
+      apiFetch<MeData>('/api/account/me'),
     ])
       .then(([availData, meData]) => {
         setUpcomingSlots(availData.upcoming)

@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import healthRouter from "./health";
-import authRouter from "./auth";
+import accountRouter from "./account";
 import stakeholdersRouter from "./stakeholders";
 import adminRouter from "./admin";
 import mentorRouter from "./mentor";
@@ -12,11 +12,13 @@ import liveEventsRouter from "./liveEvents";
 import aiToolsRouter from "./aiTools";
 import meRouter from "./me";
 import aiMentorsRouter from "./aiMentors";
+import publicRouter from "./public";
 
 const router: IRouter = Router();
 
 router.use(healthRouter);
-router.use("/auth", authRouter);
+// Sign-in and sessions live at /api/auth/* (Better Auth, mounted in index.ts).
+router.use("/account", accountRouter);
 router.use("/stakeholders", stakeholdersRouter);
 router.use("/admin", adminRouter);
 router.use("/mentor", mentorRouter);
@@ -27,6 +29,7 @@ router.use("/offers", offersRouter);
 router.use("/ai-tools", aiToolsRouter);
 router.use("/me", meRouter);
 router.use("/ai-mentors", aiMentorsRouter);
+router.use("/public", publicRouter);
 // SME routes: /api/mentors/* and /api/sessions/* — no sub-prefix, paths defined in sme.ts
 router.use(smeRouter);
 

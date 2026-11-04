@@ -25,7 +25,7 @@ import { toast } from 'sonner'
 import { MentorLayout } from '@/components/mentor/MentorLayout'
 import { PageHeader } from '@/components/dashboard/widgets/PageHeader'
 import { apiFetch } from '@/lib/api'
-import { getUser, getToken, setAuth } from '@/lib/auth'
+import { getUser, changePassword as changeAccountPassword, renameCachedUser, setFirstPassword } from '@/lib/auth'
 import { PhoneField } from '@/components/ui/PhoneField'
 
 interface MeUser {
@@ -42,6 +42,7 @@ interface MeUser {
   timezone: string | null
   meetingLink: string | null
   createdAt: string
+  hasPassword?: boolean
 }
 
 interface ApiError {
@@ -83,7 +84,7 @@ export default function Page() {
 
   useEffect(() => {
     let cancelled = false
-    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/auth/me')
+    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/account/me')
       .then(({ data }) => {
         if (cancelled) return
         const u = data.user
@@ -101,7 +102,7 @@ export default function Page() {
         // Auto-detect and save timezone if not set, then update local state so UI reflects it.
         const detectedTz = Intl.DateTimeFormat().resolvedOptions().timeZone
         if (!u.timezone && detectedTz) {
-          apiFetch('/api/auth/me', {
+          apiFetch('/api/account/me', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ timezone: detectedTz }),
@@ -141,7 +142,7 @@ export default function Page() {
     const errs = validateForm()
     if (Object.keys(errs).length > 0) { setErrors(errs); return }
     setSaving(true)
-    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/auth/me', {
+    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/account/me', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -165,11 +166,7 @@ export default function Page() {
           linkedinUrl: data.user.linkedinUrl ?? '',
           meetingLink: data.user.meetingLink ?? '',
         })
-        const currentUser = getUser()
-        const token = getToken()
-        if (token && currentUser) {
-          setAuth(token, { ...currentUser, fullName: data.user.fullName })
-        }
+        renameCachedUser(data.user.fullName)
         setEditing(false)
         toast.success('Profile updated')
       })
@@ -202,9 +199,12 @@ export default function Page() {
     setEditing(false)
   }
 
+  // Accounts made by email code have no password yet; they add one instead of changing it.
+  const firstPassword = serverUser?.hasPassword === false
+
   function validatePw() {
     const e: Record<string, string> = {}
-    if (!pwForm.current) e.current = 'Current password is required'
+    if (!firstPassword && !pwForm.current) e.current = 'Current password is required'
     if (pwForm.next.length < 8) e.next = 'Must be at least 8 characters'
     if (pwForm.next !== pwForm.confirm) e.confirm = "Passwords don't match"
     return e
@@ -215,15 +215,12 @@ export default function Page() {
     const errs = validatePw()
     if (Object.keys(errs).length > 0) { setPwErrors(errs); return }
     setPwSaving(true)
-    apiFetch('/api/auth/change-password', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ currentPassword: pwForm.current, newPassword: pwForm.next }),
-    })
+    ;(firstPassword ? setFirstPassword(pwForm.next) : changeAccountPassword(pwForm.current, pwForm.next))
       .then(() => {
         setPwForm({ current: '', next: '', confirm: '' })
         setPwErrors({})
-        toast.success('Password updated')
+        if (firstPassword) setServerUser((p) => (p ? { ...p, hasPassword: true } : p))
+        toast.success(firstPassword ? 'Password set' : 'Password updated')
       })
       .catch((err: ApiError) => {
         if (err?.error?.code === 'INVALID_PASSWORD') {
@@ -550,11 +547,12 @@ export default function Page() {
           </div>
           <div>
             <p className="font-bold text-brand-text-primary">Security</p>
-            <p className="text-[11px] text-brand-text-muted">Keep your account secure.</p>
+            {firstPassword ? 'You sign in with a code sent to your email. Add a password to sign in with one too.' : 'Keep your account secure.'}
           </div>
         </div>
         <form onSubmit={onChangePassword} className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <Field icon={<KeyRound className="w-3.5 h-3.5" />} label="Current password" error={pwErrors.current}>
+          {!firstPassword && (
+<Field icon={<KeyRound className="w-3.5 h-3.5" />} label="Current password" error={pwErrors.current}>
             <input
               type="password"
               autoComplete="current-password"
@@ -563,6 +561,7 @@ export default function Page() {
               className={`profile-input${pwErrors.current ? ' border-rose-400' : ''}`}
             />
           </Field>
+)}
           <Field icon={<KeyRound className="w-3.5 h-3.5" />} label="New password" error={pwErrors.next}>
             <input
               type="password"
@@ -587,7 +586,7 @@ export default function Page() {
               disabled={pwSaving}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark disabled:opacity-50 transition-colors"
             >
-              {pwSaving ? 'Updating...' : 'Update password'}
+              {pwSaving ? 'Updating...' : firstPassword ? 'Set password' : 'Update password'}
             </button>
           </div>
         </form>

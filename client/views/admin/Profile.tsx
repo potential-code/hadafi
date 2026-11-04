@@ -23,7 +23,7 @@ const COUNTRIES = getCountryDataList().map((c) => c.name).sort((a, b) => a.local
 import { toast } from 'sonner'
 import { AdminLayout } from '@/components/admin/AdminLayout'
 import { PageHeader } from '@/components/dashboard/widgets/PageHeader'
-import { getUser, getToken, setAuth } from '@/lib/auth'
+import { getUser, changePassword as changeAccountPassword, renameCachedUser, setFirstPassword } from '@/lib/auth'
 import { apiFetch } from '@/lib/api'
 import { PhoneField } from '@/components/ui/PhoneField'
 
@@ -37,6 +37,7 @@ interface MeUser {
   company: string | null
   phone: string | null
   avatarUrl: string | null
+  hasPassword?: boolean
 }
 
 function avatarUrl(name: string) {
@@ -64,7 +65,7 @@ export default function AdminProfilePage() {
 
   useEffect(() => {
     let cancelled = false
-    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/auth/me')
+    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/account/me')
       .then(({ data }) => {
         if (cancelled) return
         const u = data.user
@@ -101,7 +102,7 @@ export default function AdminProfilePage() {
     const errs = validateForm()
     if (Object.keys(errs).length > 0) { setErrors(errs); return }
     setSaving(true)
-    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/auth/me', {
+    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/account/me', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -121,10 +122,7 @@ export default function AdminProfilePage() {
           company: data.user.company ?? '',
           country: data.user.country ?? '',
         })
-        const currentUser = getUser()
-        if (currentUser) {
-          setAuth(getToken()!, { ...currentUser, fullName: data.user.fullName })
-        }
+        renameCachedUser(data.user.fullName)
         setEditing(false)
         toast.success('Profile updated')
       })
@@ -155,9 +153,12 @@ export default function AdminProfilePage() {
     setEditing(false)
   }
 
+  // Accounts made by email code have no password yet; they add one instead of changing it.
+  const firstPassword = serverUser?.hasPassword === false
+
   function validatePw() {
     const e: Record<string, string> = {}
-    if (!pwForm.current) e.current = 'Current password is required'
+    if (!firstPassword && !pwForm.current) e.current = 'Current password is required'
     if (pwForm.next.length < 8) e.next = 'Must be at least 8 characters'
     if (pwForm.next !== pwForm.confirm) e.confirm = "Passwords don't match"
     return e
@@ -168,15 +169,12 @@ export default function AdminProfilePage() {
     const errs = validatePw()
     if (Object.keys(errs).length > 0) { setPwErrors(errs); return }
     setPwSaving(true)
-    apiFetch('/api/auth/change-password', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ currentPassword: pwForm.current, newPassword: pwForm.next }),
-    })
+    ;(firstPassword ? setFirstPassword(pwForm.next) : changeAccountPassword(pwForm.current, pwForm.next))
       .then(() => {
         setPwForm({ current: '', next: '', confirm: '' })
         setPwErrors({})
-        toast.success('Password updated')
+        if (firstPassword) setServerUser((p) => (p ? { ...p, hasPassword: true } : p))
+        toast.success(firstPassword ? 'Password set' : 'Password updated')
       })
       .catch((err: { error?: { message?: string; code?: string; errors?: Record<string, string[]> } }) => {
         if (err?.error?.code === 'INVALID_PASSWORD') {
@@ -377,12 +375,13 @@ export default function AdminProfilePage() {
             </div>
             <div>
               <p className="font-bold text-brand-text-primary">Security</p>
-              <p className="text-[11px] text-brand-text-muted">Keep this account locked down.</p>
+              {firstPassword ? 'You sign in with a code sent to your email. Add a password to sign in with one too.' : 'Keep this account locked down.'}
             </div>
           </div>
 
           <form onSubmit={changePassword} className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <Field icon={<KeyRound className="w-3.5 h-3.5" />} label="Current" error={pwErrors.current}>
+            {!firstPassword && (
+<Field icon={<KeyRound className="w-3.5 h-3.5" />} label="Current" error={pwErrors.current}>
               <input
                 type="password"
                 autoComplete="current-password"
@@ -391,6 +390,7 @@ export default function AdminProfilePage() {
                 className={`profile-input${pwErrors.current ? ' border-rose-400' : ''}`}
               />
             </Field>
+)}
             <Field icon={<KeyRound className="w-3.5 h-3.5" />} label="New password" error={pwErrors.next}>
               <input
                 type="password"
@@ -415,7 +415,7 @@ export default function AdminProfilePage() {
                 disabled={pwSaving}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark disabled:opacity-50 transition-colors"
               >
-                {pwSaving ? 'Updating…' : 'Update password'}
+                {pwSaving ? 'Updating…' : firstPassword ? 'Set password' : 'Update password'}
               </button>
             </div>
           </form>
