@@ -421,8 +421,13 @@ export function ColumnChart({
   height?: number
   className?: string
 }) {
-  const max = niceMax(Math.max(0, ...data.map((d) => d.value)))
+  // At least 2, so the middle tick of a count is a whole number.
+  const max = niceMax(Math.max(2, ...data.map((d) => d.value)))
   const cols = { gridTemplateColumns: `repeat(${Math.max(1, data.length)}, minmax(0, 1fr))` }
+  // Long series show every 2nd or 3rd label (counted back from the latest) so dates never run together;
+  // phones show half as many again.
+  const every = data.length > 16 ? 3 : data.length > 8 ? 2 : 1
+  const shown = (i: number, step: number) => (data.length - 1 - i) % step === 0
   const ticks = [0, max / 2, max]
   return (
     <div role="img" aria-label={label} className={cn('grid grid-cols-[28px_minmax(0,1fr)] gap-2 pt-[18px]', className)}>
@@ -457,7 +462,10 @@ export function ColumnChart({
       </div>
       <div className="col-start-2 grid gap-1.5 text-center text-[11px] text-ui-muted" style={cols}>
         {data.map((d, i) => (
-          <span key={`${d.label}-${i}`} className={cn('flex justify-center', i % 2 === 1 && 'max-sm:invisible')}>
+          <span
+            key={`${d.label}-${i}`}
+            className={cn('flex justify-center', !shown(i, every) && 'invisible', !shown(i, every * 2) && 'max-sm:invisible')}
+          >
             <span className="whitespace-nowrap">{d.label}</span>
           </span>
         ))}

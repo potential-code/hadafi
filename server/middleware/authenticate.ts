@@ -43,6 +43,16 @@ export async function authenticate(req: Request, res: Response, next: NextFuncti
   } catch {
     session = null;
   }
+  // Partner logins can be removed by an admin at any moment; don't let the
+  // 5-minute cookie cache keep a revoked partner session in. Confirm it with
+  // the database (SMEEP f31dd6e).
+  if (session?.user.role === "partner") {
+    try {
+      session = await auth.api.getSession({ headers: fromNodeHeaders(req.headers), query: { disableCookieCache: true } });
+    } catch {
+      session = null;
+    }
+  }
   if (!session) {
     res.status(401).json({ success: false, error: { message: "Please sign in to continue.", code: "UNAUTHORIZED" } });
     return;

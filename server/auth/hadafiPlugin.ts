@@ -114,6 +114,9 @@ export const hadafiPlugin = () =>
             email,
             country: z.string().trim().min(1).max(100),
             couponCode: z.string().trim().max(100).optional(),
+            // An organisation's sign-up link (/sign-up?org=CODE). It only ever
+            // puts a learner in that organisation; the role is always 'sme'.
+            orgCode: z.string().trim().max(40).optional(),
             password: password.optional(),
             verifiedToken: z.string().min(1),
             rememberMe: z.boolean().optional(),
@@ -129,11 +132,12 @@ export const hadafiPlugin = () =>
           if (!proof || proof.expiresAt < new Date() || !sameHash(proof.value, sha256(verifiedToken))) throw notVerified();
           // Check what can fail before spending the token, so a taken email or
           // a used invite code doesn't send the person back to re-verify.
-          await assertCanSignUp(account.email, account.couponCode || undefined).catch(toApiError);
+          await assertCanSignUp(account.email, account.couponCode || undefined, account.orgCode || undefined).catch(toApiError);
           if (!(await ctx.context.internalAdapter.consumeVerificationValue(verifiedId(account.email)))) throw notVerified();
           const userId = await createLearnerAccount({
             ...account,
             couponCode: account.couponCode || undefined,
+            orgCode: account.orgCode || undefined,
           }).catch(toApiError);
           return startSession(ctx, userId, rememberMe === false);
         },

@@ -16,6 +16,7 @@ import {
 import { getCountryDataList } from 'countries-list'
 import { toast } from 'sonner'
 import { AdminLayout } from '@/components/admin/AdminLayout'
+import { PartnerLayout } from '@/components/partner/PartnerLayout'
 import { Avatar, btn, inputClass, PageHeader } from '@/components/kit'
 import { fmtDate, Pill, selectClass } from '@/components/admin/ui'
 import { changePassword as updatePassword, getUser, renameCachedUser, setFirstPassword } from '@/lib/auth'
@@ -44,8 +45,10 @@ interface MeUser {
 
 type ApiErr = { error?: { message?: string; code?: string; errors?: Record<string, string[]> } }
 
-/** The signed-in admin's own profile and password. */
-export default function AdminProfilePage() {
+/** The signed-in admin's own profile and password; partner contacts get the same page in their own shell. */
+export default function AdminProfilePage({ variant = 'admin' }: { variant?: 'admin' | 'partner' }) {
+  const partner = variant === 'partner'
+  const Layout = partner ? PartnerLayout : AdminLayout
   const cached = getUser()
 
   const [serverUser, setServerUser] = useState<MeUser | null>(null)
@@ -202,22 +205,22 @@ export default function AdminProfilePage() {
   const role = serverUser?.role ?? cached?.role ?? ''
 
   return (
-    <AdminLayout>
+    <Layout>
       <PageHeader
         className="mb-5 max-md:flex-col max-md:items-start"
         title="Profile"
-        subtitle="Manage your administrator profile and security settings."
+        subtitle={partner ? 'Manage your partner login and contact details.' : 'Manage your administrator profile and security settings.'}
       />
 
       <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 lg:grid-cols-[300px_minmax(0,1fr)]">
         {/* Identity card */}
         <aside className="rounded-[14px] border border-ui-line bg-ui-surface p-6 text-center">
-          <Avatar name={displayName || 'Admin'} src={serverUser?.avatarUrl} size={88} className="mx-auto text-[28px]" />
+          <Avatar name={displayName || (partner ? 'Partner' : 'Admin')} src={serverUser?.avatarUrl} size={88} className="mx-auto text-[28px]" />
           <h2 className="mt-4 break-words text-lg font-semibold text-ui-text">{displayName}</h2>
           <p className="mt-0.5 break-all text-sm text-ui-muted">{email}</p>
           <Pill tone="brand" className="mt-3">
             <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
-            Administrator
+            {partner ? 'Partner' : 'Administrator'}
           </Pill>
           <dl className="mt-5 space-y-2 border-t border-ui-line pt-4 text-left text-[13px]">
             <InfoRow label="Role" value={<span className="capitalize">{role}</span>} />
@@ -234,7 +237,7 @@ export default function AdminProfilePage() {
                 <h2 id="h-details" className="text-base font-semibold text-ui-text">
                   {editing ? 'Editing details' : 'Personal details'}
                 </h2>
-                <p className="mt-0.5 text-[13px] text-ui-muted">Name, contact and bio shown to other admins.</p>
+                <p className="mt-0.5 text-[13px] text-ui-muted">{partner ? 'Your name and contact details.' : 'Name, contact and bio shown to other admins.'}</p>
               </div>
               {!editing && (
                 <button type="button" onClick={() => setEditing(true)} className={btn({ variant: 'secondary', size: 'sm' })}>
@@ -414,7 +417,7 @@ export default function AdminProfilePage() {
         </div>
       </div>
 
-    </AdminLayout>
+    </Layout>
   )
 }
 

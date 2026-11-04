@@ -1,4 +1,5 @@
-import { pgTable, uuid, text, timestamp, integer, boolean } from "drizzle-orm/pg-core";
+import { pgTable, uuid, text, timestamp, integer, boolean, index } from "drizzle-orm/pg-core";
+import { organisations } from "./organisations";
 import { sql } from "drizzle-orm";
 
 export const users = pgTable("users", {
@@ -28,7 +29,12 @@ export const users = pgTable("users", {
   // is defined in inviteCodes.ts to avoid the circular dependency at module load time.
   // The FK constraint is established via the migration; no .references() here.
   inviteCodeId: uuid("invite_code_id"),
+  // The partner organisation a learner belongs to, or a partner contact
+  // (role 'partner') works for. Leaving or being removed sets it back to null.
+  organisationId: uuid("organisation_id").references(() => organisations.id, { onDelete: "set null" }),
   points: integer("points").notNull().default(0),
+  // Learner chose to appear on the leaderboard (first name and initial only).
+  showOnLeaderboard: boolean("show_on_leaderboard").notNull().default(true),
   timezone: text("timezone"),
   meetingLink: text("meeting_link"),
   createdAt: timestamp("created_at").notNull().default(sql`now()`),
@@ -37,7 +43,7 @@ export const users = pgTable("users", {
   // Null means the user has never been tracked (e.g. pre-existing rows).
   // Updated by auth middleware on every authenticated request.
   lastActiveAt: timestamp("last_active_at"),
-});
+}, (t) => [index("users_organisation_id_idx").on(t.organisationId)]);
 
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;

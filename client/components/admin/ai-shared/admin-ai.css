@@ -1,0 +1,91 @@
+/*
+ * Admin AI pages (AI Insights, AI Dashboard): the few motions the cards use.
+ * Colours all come from the `--ui-*` tokens through Tailwind utilities; this
+ * file only adds one authored moment (a figure rises in once and its bars grow
+ * from zero) plus the loading shimmer. Reduced motion gets the end state.
+ */
+@keyframes admin-ai-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes admin-ai-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes admin-ai-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.admin-ai .ai-figure,
+.admin-ai .ai-report,
+.admin-ai .ai-welcome,
+.admin-ai .ai-starter {
+  animation: admin-ai-rise 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.admin-ai .ai-figure .ai-bar {
+  transform-origin: left center;
+  animation: admin-ai-grow 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[dir='rtl'] .admin-ai .ai-figure .ai-bar {
+  transform-origin: right center;
+}
+.admin-ai .ai-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--ui-surface-2) 25%,
+    color-mix(in srgb, var(--ui-surface-2) 40%, var(--ui-surface)) 50%,
+    var(--ui-surface-2) 75%
+  );
+  background-size: 200% 100%;
+  animation: admin-ai-shimmer 1.4s linear infinite;
+}
+
+/* CopilotKit's v2 stylesheet resets `[data-copilotkit] button` (background,
+   font) outside any cascade layer; restore what the transcript cards use. */
+.admin-ai [data-copilotkit] button.border-ui-line {
+  border: 1px solid var(--ui-line);
+}
+.admin-ai [data-copilotkit] button.rounded-\[14px\] {
+  border-radius: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-ai .ai-figure,
+  .admin-ai .ai-report,
+  .admin-ai .ai-bar,
+  .admin-ai .ai-welcome,
+  .admin-ai .ai-starter,
+  .admin-ai .ai-shimmer {
+    animation: none;
+  }
+}
+
+/* The dashboard assistant sits in a ~400px column: tighter gutters than the
+   full-page Hana surfaces, and room under the thread for the composer. */
+.admin-ai.admin-ai--narrow .hadafi-assistant-chat [data-testid='copilot-scroll-content'] {
+  padding: 16px 16px 132px !important;
+}
+.admin-ai.admin-ai--narrow .hana-composer {
+  padding: 8px 12px 14px;
+}
+.admin-ai.admin-ai--narrow .hana-lead {
+  padding-inline-start: 0;
+}
+.admin-ai.admin-ai--narrow .hana-bubble {
+  font-size: 14px;
+}

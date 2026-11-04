@@ -16,7 +16,15 @@ export type NotificationType =
   | "certificate"
   | "event_new"
   | "event_recording"
-  | "course_nudge";
+  | "event_booked"
+  | "event_changed"
+  | "event_cancelled"
+  | "event_reminder"
+  | "course_nudge"
+  | "organisation"
+  | "badge"
+  | "announcement"
+  | "ai_report";
 
 export interface NewNotification {
   type: NotificationType;

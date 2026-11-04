@@ -77,6 +77,9 @@ export async function recordLearningStep(userId: string, steps = 1): Promise<voi
         target: [learnerActivityDays.userId, learnerActivityDays.day],
         set: { steps: sql`${learnerActivityDays.steps} + ${steps}` },
       })
+    // Badges for steps, streaks and exam scores. Imported here because
+    // achievements.service imports this file for getStreak.
+    void import('./achievements.service').then((m) => m.checkBadges(userId))
   } catch (err) {
     logger.warn({ err, userId }, 'Failed to record learning step for streak')
   }

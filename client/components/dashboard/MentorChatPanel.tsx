@@ -13,7 +13,7 @@
  * the bot service directly.
  */
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -23,6 +23,7 @@ import { cn } from '@/lib/utils'
 import { Avatar, btn, Chip, EmptyState } from '@/components/kit'
 import { getAiMentorConfig, getMentors, streamAiMentorChat, type AiMentorConfig } from '@/lib/api/sme'
 import { aiMentorViewByBotId, aiMentorViews, type AiMentorView } from './aiMentorMeta'
+import { ReportAnswerButton, excerptBefore } from './ReportAnswerButton'
 
 // ---------------------------------------------------------------------------
 // Types
@@ -291,6 +292,7 @@ function MentorTurn({
   readAloud,
   onSuggest,
   busy,
+  report,
 }: {
   view?: AiMentorView
   message: Message
@@ -298,6 +300,8 @@ function MentorTurn({
   readAloud: ReadAloud
   onSuggest: (text: string) => void
   busy: boolean
+  /** "Report this answer" for this reply. */
+  report?: ReactNode
 }) {
   const speaking = readAloud.speakingId === message.id
   return (
@@ -354,6 +358,7 @@ function MentorTurn({
                     {speaking ? 'Stop' : 'Read aloud'}
                   </button>
                 )}
+                {report}
               </div>
             )}
             {isLast && !message.isStreaming && message.suggestions && message.suggestions.length > 0 && (
@@ -749,7 +754,7 @@ export function MentorChatPanel({ botId, name, specialty, description }: Props) 
               )}
               {showThread &&
                 botConfig &&
-                messages.map((m) =>
+                messages.map((m, i) =>
                   m.isUser ? (
                     <LearnerTurn key={m.id} message={m} />
                   ) : (
@@ -761,6 +766,16 @@ export function MentorChatPanel({ botId, name, specialty, description }: Props) 
                       readAloud={readAloud}
                       onSuggest={(q) => void sendMessage(q)}
                       busy={isStreaming}
+                      report={
+                        <ReportAnswerButton
+                          variant="text"
+                          surface={`mentor:${view?.slug ?? 'ai-mentor'}`}
+                          reply={m.text}
+                          question={messages.slice(0, i).reverse().find((x) => x.isUser)?.text}
+                          excerpt={excerptBefore(messages.slice(0, i).map((x) => ({ role: x.isUser ? 'learner' : 'ai', text: x.text })))}
+                          conversation={sessionId}
+                        />
+                      }
                     />
                   ),
                 )}

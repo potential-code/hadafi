@@ -1,8 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
+import { LayoutGrid, Sparkles } from 'lucide-react'
 import { AdminLayout } from '@/components/admin/AdminLayout'
-import { PageHeader, Tabs } from '@/components/kit'
+import { PageHeader, Tabs, btn } from '@/components/kit'
 import { Segmented } from '@/components/admin/ui'
 import { ExportMenu } from '@/components/admin/ExportMenu'
 import { AnalyticsOverviewTab } from './analytics/AnalyticsOverviewTab'
@@ -39,6 +41,31 @@ export default function AdminAnalytics() {
             </>
           }
         />
+
+        <section
+          aria-label="AI analytics"
+          className="flex flex-col gap-3 rounded-[14px] border border-ui-line bg-ui-surface px-5 py-4 sm:flex-row sm:items-center"
+        >
+          <span className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-ui-brand-soft text-ui-brand-text sm:inline-flex">
+            <Sparkles className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+          </span>
+          <div className="min-w-0 flex-1">
+            <h2 className="text-[15px] font-semibold text-ui-text">Need a number that isn&rsquo;t here?</h2>
+            <p className="text-[13px] text-ui-muted">
+              Ask Hana in plain language for charts and board-ready reports, or have her build a dashboard of your own.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Link href="/admin/ai-insights" className={btn({ variant: 'primary', size: 'sm' })}>
+              <Sparkles className="h-3.5 w-3.5" aria-hidden />
+              AI Insights
+            </Link>
+            <Link href="/admin/ai-dashboard" className={btn({ variant: 'secondary', size: 'sm' })}>
+              <LayoutGrid className="h-3.5 w-3.5" aria-hidden />
+              AI Dashboard
+            </Link>
+          </div>
+        </section>
 
         <Tabs<Tab> label="Analytics sections" tabs={TABS} active={activeTab} onChange={setActiveTab} />
 

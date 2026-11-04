@@ -12,7 +12,8 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import { createPortal } from 'react-dom'
 import { useRouter } from 'next/navigation'
 import type { LucideIcon } from 'lucide-react'
-import { Award, Bell, CalendarCheck, CalendarClock, CalendarX, CheckCheck, GraduationCap, PlayCircle, Radio } from 'lucide-react'
+import { Megaphone, ShieldAlert } from 'lucide-react'
+import { Award, Bell, Building2, CalendarCheck, CalendarClock, CalendarX, CheckCheck, GraduationCap, PlayCircle, Radio, Trophy } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import {
   fetchNotifications,
@@ -29,7 +30,15 @@ const ICONS: Record<string, LucideIcon> = {
   certificate: Award,
   event_new: Radio,
   event_recording: PlayCircle,
+  event_booked: CalendarCheck,
+  event_changed: CalendarClock,
+  event_cancelled: CalendarX,
+  event_reminder: CalendarClock,
   course_nudge: GraduationCap,
+  badge: Trophy,
+  organisation: Building2,
+  announcement: Megaphone,
+  ai_report: ShieldAlert,
 }
 
 const POLL_MS = 60_000

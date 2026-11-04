@@ -7,6 +7,7 @@ import { seedOffers } from "./seed-offers";
 import { seedCourses } from "./seed-courses";
 import { seedCourseContent } from "./seed-course-content";
 import { seedPosttests } from "./seed-posttests";
+import { legacyTimes } from "./legacyEventTimes";
 
 const ADMIN_EMAIL = "admin@email.com";
 const ADMIN_PASSWORD = "password";
@@ -156,8 +157,8 @@ async function seedLiveEvents(): Promise<void> {
   await db.insert(liveEvents).values(
     WP_EVENTS.map((e) => ({
       ...e,
+      ...legacyTimes(e.date, e.time),
       status: "published" as const,
-      track: null,
       meetingLink: null,
     })),
   )

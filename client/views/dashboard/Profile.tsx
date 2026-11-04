@@ -23,6 +23,7 @@ import {
 import { getCountryDataList } from 'countries-list'
 import { toast } from 'sonner'
 import { DashboardLayout } from '@/components/dashboard/DashboardLayout'
+import { OrganisationMembership } from '@/components/organisations/OrganisationMembership'
 import { Avatar, Button, Card, Field, PageHeader, ProgressBar, Skeleton, inputClass } from '@/components/kit'
 import { PhoneInput, errorRing } from '@/components/learner-grow/PhoneInput'
 import { apiFetch } from '@/lib/api'
@@ -529,6 +530,8 @@ export default function ProfilePage() {
                 )}
               </form>
             </section>
+
+            <OrganisationMembership />
 
             {/* ── Certificates ─────────────────────────────────────────── */}
             <section aria-labelledby="p-certs" className="flex flex-col gap-3 rounded-[14px] border border-ui-line bg-ui-surface px-5 py-[18px]">

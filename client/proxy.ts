@@ -17,5 +17,5 @@ export function proxy(req: NextRequest) {
 
 export const config = {
   // /mentor/setup is a public page — only protect the signed-in paths.
-  matcher: ['/dashboard/:path*', '/admin/:path*', '/mentor/dashboard/:path*'],
+  matcher: ['/dashboard/:path*', '/admin/:path*', '/mentor/dashboard/:path*', '/partner/:path*'],
 }

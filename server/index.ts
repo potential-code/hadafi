@@ -16,6 +16,8 @@ import { errorHandler } from "./middleware/error-handler";
 import { UPLOADS_ROOT } from "./middleware/upload";
 import { refreshOutdatedCertificates } from "./services/lms/certificate.service";
 import { startReminders } from "./services/reminders.service";
+import { startAnnouncementDispatcher } from "./services/announcements.service";
+import zoomWebhookRouter from "./routes/zoomWebhook";
 
 // Fail fast without a session-signing secret. BETTER_AUTH_SECRET is preferred;
 // JWT_SECRET (the pre-Better-Auth secret) is accepted so deploys keep working.
@@ -82,6 +84,9 @@ app.use(cors({
 // parsers. It owns everything under /api/auth (sign-in, sign-up, sessions).
 app.all("/api/auth/*splat", toNodeHandler(auth));
 
+// Zoom signs the raw body, so its webhook is mounted before the JSON parser.
+app.use("/api/webhooks/zoom", zoomWebhookRouter);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -141,6 +146,9 @@ if (process.env["HADAFI_SKIP_LISTEN"] !== "1") {
   // Session reminders and course nudges, every 15 minutes (in-app; emails
   // only with REMINDER_EMAILS_ENABLED=true; REMINDERS_ENABLED=false stops it).
   startReminders();
+
+  // Scheduled announcements go out, and ended ones come down, every minute.
+  startAnnouncementDispatcher();
 }
 
 export { app };

@@ -9,10 +9,14 @@ import {
   Eye,
   EyeOff,
   Link as LinkIcon,
+  MapPin,
   Pencil,
   Play,
   Plus,
   Trash2,
+  TriangleAlert,
+  Users,
+  Video,
   type LucideIcon,
 } from 'lucide-react'
 import { toast } from 'sonner'
@@ -20,14 +24,23 @@ import { AdminLayout } from '@/components/admin/AdminLayout'
 import { btn, Card, EmptyState, FilterChips, PageHeader, Skeleton } from '@/components/kit'
 import { adminTableClass, IconButton, Pill, SearchInput, SortButton, TableCard, type SortDir } from '@/components/admin/ui'
 import { LiveEventDialog } from '@/components/admin/widgets/LiveEventDialog'
+import { EventBookingsPanel } from '@/components/admin/widgets/EventBookingsPanel'
 import { ConfirmDialog } from '@/components/admin/widgets/ConfirmDialog'
-import { fetchAdminEvents, apiCreateEvent, apiUpdateEvent, apiDeleteEvent, type LiveEvent } from '@/lib/api/liveEvents'
+import {
+  fetchAdminEvents,
+  apiCreateEvent,
+  apiUpdateEvent,
+  apiDeleteEvent,
+  type AdminLiveEvent as LiveEvent,
+  type EventInput,
+} from '@/lib/api/liveEvents'
 import { cn } from '@/lib/utils'
 import { optimizedSrc } from '@/lib/images'
 import { errorMessage } from '@/lib/api/errors'
 
-type Filter = 'all' | 'published' | 'draft' | 'upcoming' | 'past'
+type Filter = 'all' | 'published' | 'draft' | 'upcoming' | 'past' | 'review'
 
+/** 'Nov 10, 2026' from the event's own day ('YYYY-MM-DD', in its time zone). */
 function formatDate(iso: string): string {
   const [year, month, day] = iso.split('-')
   if (!year || !month || !day) return iso
@@ -47,6 +60,7 @@ export default function LiveEventsAdmin() {
   const [sortDir, setSortDir] = useState<SortDir>('desc')
   const [dialogOpen, setDialogOpen] = useState(false)
   const [editing, setEditing] = useState<LiveEvent | null>(null)
+  const [viewing, setViewing] = useState<LiveEvent | null>(null)
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
 
   useEffect(() => {
@@ -56,10 +70,11 @@ export default function LiveEventsAdmin() {
       .finally(() => setLoading(false))
   }, [])
 
-  const today = new Date().toISOString().split('T')[0]!
+  // Fixed for the visit: enough for sorting into upcoming and past.
+  const [today] = useState(() => Date.now())
 
-  const isUpcoming = (e: LiveEvent) => e.date >= today && e.status === 'published'
-  const isPast = (e: LiveEvent) => e.date < today
+  const isUpcoming = (e: LiveEvent) => Date.parse(e.endsAt) >= today && e.status === 'published'
+  const isPast = (e: LiveEvent) => Date.parse(e.endsAt) < today
 
   const counts = useMemo(
     () => ({
@@ -68,6 +83,7 @@ export default function LiveEventsAdmin() {
       draft: events.filter((e) => e.status === 'draft').length,
       upcoming: events.filter(isUpcoming).length,
       past: events.filter(isPast).length,
+      review: events.filter((e) => e.timeNeedsReview).length,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [events, today],
@@ -79,53 +95,68 @@ export default function LiveEventsAdmin() {
       if (filter === 'draft') return e.status === 'draft'
       if (filter === 'upcoming') return isUpcoming(e)
       if (filter === 'past') return isPast(e)
+      if (filter === 'review') return e.timeNeedsReview
       return true
     })
     .filter((e) => !query || e.title.toLowerCase().includes(query.toLowerCase()))
-    .sort((a, b) => (sortDir === 'desc' ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date)))
+    .sort((a, b) => (sortDir === 'desc' ? b.startsAt.localeCompare(a.startsAt) : a.startsAt.localeCompare(b.startsAt)))
 
   const pastEvents = events.filter(isPast)
   const pastWithRecording = pastEvents.filter((e) => !!e.recordingLink).length
-  const nextEvent = events.filter(isUpcoming).sort((a, b) => a.date.localeCompare(b.date))[0]
-  const lastEvent = [...pastEvents].sort((a, b) => b.date.localeCompare(a.date))[0]
+  const nextEvent = events.filter(isUpcoming).sort((a, b) => a.startsAt.localeCompare(b.startsAt))[0]
+  const lastEvent = [...pastEvents].sort((a, b) => b.startsAt.localeCompare(a.startsAt))[0]
+  const deleting = events.find((e) => e.id === confirmDeleteId) ?? null
 
   function openCreate() {
+    setViewing(null)
     setEditing(null)
     setDialogOpen(true)
   }
 
   function openEdit(e: LiveEvent) {
+    setViewing(null)
     setEditing(e)
     setDialogOpen(true)
+  }
+
+  function openBookings(e: LiveEvent) {
+    setDialogOpen(false)
+    setEditing(null)
+    setViewing(e)
+  }
+
+  const replace = (row: LiveEvent) => {
+    setEvents((cur) => cur.map((e) => (e.id === row.id ? row : e)))
+    setViewing((v) => (v?.id === row.id ? row : v))
   }
 
   async function handleToggleStatus(event: LiveEvent) {
     const newStatus = event.status === 'published' ? 'draft' : 'published'
     try {
-      await apiUpdateEvent(event.id, { status: newStatus })
-      setEvents((cur) => cur.map((e) => (e.id === event.id ? { ...e, status: newStatus } : e)))
+      replace(await apiUpdateEvent(event.id, { status: newStatus }))
       toast.success(`Event ${newStatus === 'published' ? 'published' : 'moved to draft'}`)
     } catch (err) {
       toast.error(errorMessage(err, 'The event status could not be changed. Please try again.'))
     }
   }
 
-  async function handleSave(data: Partial<LiveEvent>) {
+  async function handleSave(data: EventInput) {
     try {
-      if (editing) {
-        const updated = await apiUpdateEvent(editing.id, data)
-        setEvents((cur) => cur.map((e) => (e.id === editing.id ? updated : e)))
-        toast.success('Event updated')
+      const saved = editing ? await apiUpdateEvent(editing.id, data) : await apiCreateEvent(data)
+      if (editing) replace(saved)
+      else setEvents((cur) => [saved, ...cur])
+      if (saved.format === 'zoom' && saved.zoom.status === 'failed') {
+        toast.warning('Event saved. Zoom will be set up shortly', { description: saved.zoom.error ?? 'Hadafi tries again every few minutes.' })
       } else {
-        const created = await apiCreateEvent(data)
-        setEvents((cur) => [created, ...cur])
-        toast.success('Event created')
+        toast.success(editing ? 'Event updated' : 'Event created')
       }
       setDialogOpen(false)
       setEditing(null)
     } catch (err: unknown) {
       const e = err as { error?: { code?: string } }
-      if (e?.error?.code === 'VALIDATION_ERROR') throw err // let the panel show inline errors
+      // Let the panel show these next to the field.
+      const inline = ['VALIDATION_ERROR', 'LOCATION_REQUIRED', 'ZOOM_NOT_CONFIGURED', 'CAPACITY_BELOW_BOOKINGS', 'START_REQUIRED', 'INVALID_START', 'INVALID_TIMEZONE']
+      if (inline.includes(e?.error?.code ?? '')) throw err
       toast.error(errorMessage(err, 'The event could not be saved. Please try again.'))
     }
   }
@@ -138,6 +169,7 @@ export default function LiveEventsAdmin() {
         setDialogOpen(false)
         setEditing(null)
       }
+      if (viewing?.id === id) setViewing(null)
       toast.success('Event deleted')
     } catch (err) {
       toast.error(errorMessage(err, 'The event could not be deleted. Please try again.'))
@@ -151,6 +183,7 @@ export default function LiveEventsAdmin() {
     { value: 'draft', label: 'Draft', count: counts.draft },
     { value: 'upcoming', label: 'Upcoming', count: counts.upcoming },
     { value: 'past', label: 'Past', count: counts.past },
+    ...(counts.review > 0 ? [{ value: 'review' as const, label: 'Time to check', count: counts.review }] : []),
   ]
 
   return (
@@ -183,7 +216,7 @@ export default function LiveEventsAdmin() {
             label="Upcoming"
             value={loading ? null : counts.upcoming}
             muted={counts.upcoming === 0}
-            hint={loading ? undefined : nextEvent ? `Next on ${formatDate(nextEvent.date)}` : 'Nothing scheduled'}
+            hint={loading ? undefined : nextEvent ? `Next on ${formatDate(nextEvent.date)}, ${nextEvent.bookings} booked` : 'Nothing scheduled'}
             className="md:border-l md:border-ui-line"
           />
           <StatCell
@@ -218,8 +251,24 @@ export default function LiveEventsAdmin() {
           />
         </div>
 
-        <div className={cn('grid grid-cols-[minmax(0,1fr)] items-start gap-5', dialogOpen && 'xl:grid-cols-[minmax(0,1fr)_360px]')}>
+        <div className={cn('grid grid-cols-[minmax(0,1fr)] items-start gap-5', (dialogOpen || viewing) && 'xl:grid-cols-[minmax(0,1fr)_360px]')}>
           <div className="flex min-w-0 flex-col gap-4">
+            {!loading && counts.review > 0 && (
+              <div role="status" className="flex items-center gap-3.5 rounded-[14px] bg-ui-danger-soft px-[18px] py-3.5">
+                <TriangleAlert className="h-[18px] w-[18px] shrink-0 text-ui-danger" strokeWidth={1.75} aria-hidden />
+                <div className="min-w-0 flex-1">
+                  <p className="font-semibold text-ui-text">
+                    {counts.review === 1 ? 'One event needs its start time checked' : `${counts.review} events need their start time checked`}
+                  </p>
+                  <p className="mt-0.5 text-[13px] text-ui-muted">
+                    Their old time couldn&rsquo;t be read, so they were kept at noon on their date. Open each one and set the real time.
+                  </p>
+                </div>
+                <button type="button" onClick={() => setFilter('review')} className={cn(btn({ variant: 'secondary', size: 'sm' }), 'max-md:hidden')}>
+                  Show them
+                </button>
+              </div>
+            )}
             {!loading && events.length > 0 && counts.upcoming === 0 && (
               <div className="flex items-center gap-3.5 rounded-[14px] bg-ui-brand-soft px-[18px] py-3.5">
                 <CalendarPlus className="h-[18px] w-[18px] shrink-0 text-ui-brand-text" strokeWidth={1.75} aria-hidden />
@@ -259,13 +308,14 @@ export default function LiveEventsAdmin() {
               </Card>
             ) : (
               <TableCard>
-                <table className={cn(adminTableClass, 'min-w-[600px] table-fixed')} aria-label="Events">
+                <table className={cn(adminTableClass, 'min-w-[720px] table-fixed')} aria-label="Events">
                   <colgroup>
                     <col />
                     <col className="w-[124px]" />
-                    <col className="w-[120px]" />
-                    <col className="w-[76px]" />
                     <col className="w-[112px]" />
+                    <col className="w-[84px]" />
+                    <col className="w-[84px]" />
+                    <col className="w-[148px]" />
                   </colgroup>
                   <thead>
                     <tr>
@@ -276,13 +326,14 @@ export default function LiveEventsAdmin() {
                         </SortButton>
                       </th>
                       <th scope="col">Status</th>
-                      <th scope="col">Links</th>
+                      <th scope="col">Where</th>
+                      <th scope="col">Booked</th>
                       <th scope="col" className="!text-right">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {filtered.map((e) => {
-                      const selected = dialogOpen && editing?.id === e.id
+                      const selected = (dialogOpen && editing?.id === e.id) || viewing?.id === e.id
                       return (
                         <tr key={e.id} aria-selected={selected || undefined} className={cn(selected && '!bg-ui-brand-soft')}>
                           <td>
@@ -307,6 +358,11 @@ export default function LiveEventsAdmin() {
                                   {e.type}
                                   {e.time ? `, ${e.time}` : ''}
                                 </span>
+                                {e.timeNeedsReview && (
+                                  <span className="mt-0.5">
+                                    <Pill tone="danger">Check the time</Pill>
+                                  </span>
+                                )}
                               </span>
                             </span>
                           </td>
@@ -320,12 +376,41 @@ export default function LiveEventsAdmin() {
                           </td>
                           <td>
                             <span className="flex gap-1">
-                              <LinkDot on={!!e.meetingLink} icon={LinkIcon} label={e.meetingLink ? 'Meeting link set' : 'No meeting link'} />
+                              {e.format === 'zoom' ? (
+                                <LinkDot
+                                  on={e.zoom.status === 'active'}
+                                  warn={e.zoom.status === 'failed'}
+                                  icon={Video}
+                                  label={
+                                    e.zoom.status === 'active'
+                                      ? 'Zoom meeting ready'
+                                      : e.zoom.status === 'failed'
+                                        ? `Zoom needs attention: ${e.zoom.error ?? ''}`
+                                        : 'Zoom meeting being set up'
+                                  }
+                                />
+                              ) : e.format === 'in_person' ? (
+                                <LinkDot on icon={MapPin} label={`In person: ${e.location ?? ''}`} />
+                              ) : (
+                                <LinkDot on={!!e.meetingLink} icon={LinkIcon} label={e.meetingLink ? 'Meeting link set' : 'No meeting link yet'} />
+                              )}
                               <LinkDot on={!!e.recordingLink} icon={Play} label={e.recordingLink ? 'Recording link set' : 'No recording link'} />
                             </span>
                           </td>
+                          <td className="tabular-nums">
+                            <button
+                              type="button"
+                              onClick={() => openBookings(e)}
+                              className="rounded text-left hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand"
+                              aria-label={`${e.bookings} booked for ${e.title}. Show bookings`}
+                            >
+                              <span className="font-semibold text-ui-text">{e.bookings}</span>
+                              {e.capacity != null && <span className="text-ui-muted">/{e.capacity}</span>}
+                            </button>
+                          </td>
                           <td>
                             <span className="flex justify-end gap-0.5">
+                              <IconButton label={`Bookings for ${e.title}`} icon={Users} onClick={() => openBookings(e)} />
                               <IconButton label={`Edit ${e.title}`} icon={Pencil} onClick={() => openEdit(e)} />
                               <IconButton
                                 label={e.status === 'published' ? `Move ${e.title} to draft` : `Publish ${e.title}`}
@@ -354,13 +439,20 @@ export default function LiveEventsAdmin() {
             onSave={handleSave}
             className="xl:sticky xl:top-6"
           />
+          {viewing && (
+            <EventBookingsPanel event={viewing} onClose={() => setViewing(null)} onUpdated={replace} className="xl:sticky xl:top-6" />
+          )}
         </div>
       </div>
 
       <ConfirmDialog
         open={!!confirmDeleteId}
         title="Delete event"
-        message="This will permanently delete the event. This cannot be undone."
+        message={
+          deleting && deleting.bookings > 0 && Date.parse(deleting.endsAt) > today
+            ? `This permanently deletes the event. The ${deleting.bookings === 1 ? 'learner who booked is' : `${deleting.bookings} learners who booked are`} told it won’t go ahead. This cannot be undone.`
+            : 'This will permanently delete the event. This cannot be undone.'
+        }
         confirmLabel="Delete event"
         onConfirm={() => confirmDeleteId && handleDelete(confirmDeleteId)}
         onCancel={() => setConfirmDeleteId(null)}
@@ -402,7 +494,7 @@ function StatCell({
   )
 }
 
-function LinkDot({ on, icon: Icon, label }: { on: boolean; icon: LucideIcon; label: string }) {
+function LinkDot({ on, warn, icon: Icon, label }: { on: boolean; warn?: boolean; icon: LucideIcon; label: string }) {
   return (
     <span
       role="img"
@@ -410,7 +502,7 @@ function LinkDot({ on, icon: Icon, label }: { on: boolean; icon: LucideIcon; lab
       title={label}
       className={cn(
         'inline-flex h-[26px] w-[26px] items-center justify-center rounded-[7px]',
-        on ? 'bg-ui-brand-soft text-ui-brand-text' : 'bg-ui-surface-2 text-ui-muted',
+        warn ? 'bg-ui-danger-soft text-ui-danger' : on ? 'bg-ui-brand-soft text-ui-brand-text' : 'bg-ui-surface-2 text-ui-muted',
       )}
     >
       <Icon className="h-[15px] w-[15px]" strokeWidth={1.75} aria-hidden />

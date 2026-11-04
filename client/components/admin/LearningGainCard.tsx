@@ -10,17 +10,31 @@ import { useQuery } from '@tanstack/react-query'
 import { TrendingUp } from 'lucide-react'
 import { Skeleton } from '@/components/kit'
 import { AdminChartCard } from '@/components/admin/widgets/AdminChartCard'
-import { fetchLearningGain } from '@/lib/api/adminReports'
+import { fetchLearningGain, type LearningGain } from '@/lib/api/adminReports'
 import { cn } from '@/lib/utils'
 
 const signed = (n: number) => `${n > 0 ? '+' : ''}${Number.isInteger(n) ? n : n.toFixed(1)}`
 
-export function LearningGainCard({ className, maxCourses = 5 }: { className?: string; maxCourses?: number }) {
-  const { data, isLoading, isError, refetch } = useQuery({
+export function LearningGainCard({
+  className,
+  maxCourses = 5,
+  data: given,
+}: {
+  className?: string
+  maxCourses?: number
+  /** Already loaded (an organisation's dashboard): shown as is, nothing is fetched. */
+  data?: LearningGain
+}) {
+  const query = useQuery({
     queryKey: ['admin', 'learning-gain'],
     queryFn: fetchLearningGain,
     staleTime: 60_000,
+    enabled: !given,
   })
+  const data = given ?? query.data
+  const isLoading = !given && query.isLoading
+  const isError = !given && query.isError
+  const refetch = query.refetch
 
   return (
     <AdminChartCard

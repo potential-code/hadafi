@@ -23,9 +23,12 @@ const DATASETS: Record<ExportDataset, { label: string; hint: string }> = {
 export function ExportMenu({
   datasets = Object.keys(DATASETS) as ExportDataset[],
   align = 'end',
+  download = downloadExport,
 }: {
   datasets?: ExportDataset[]
   align?: 'start' | 'end'
+  /** Where the files come from (default: the admin exports). Organisations pass their own. */
+  download?: (dataset: ExportDataset, format: 'csv' | 'xlsx') => Promise<number>
 }) {
   const [open, setOpen] = useState(false)
   const [busy, setBusy] = useState<string | null>(null)
@@ -61,7 +64,7 @@ export function ExportMenu({
     setOpen(false)
     triggerRef.current?.focus()
     try {
-      const n = await downloadExport(dataset, format)
+      const n = await download(dataset, format)
       toast.success(`${DATASETS[dataset].label} exported`, { description: `${n} row${n === 1 ? '' : 's'}` })
     } catch {
       toast.error('That export didn’t download. Please try again.')

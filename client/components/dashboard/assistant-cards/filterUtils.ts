@@ -90,5 +90,5 @@ export function filterEventsByIds(events: LiveEvent[], ids: string[]): LiveEvent
 }
 
 export function isEventPast(event: LiveEvent): boolean {
-  return new Date(event.date) < new Date(new Date().setHours(0, 0, 0, 0))
+  return Date.parse(event.endsAt) < Date.now() || !!event.endedAt
 }

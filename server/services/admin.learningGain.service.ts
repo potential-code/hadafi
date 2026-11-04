@@ -41,7 +41,16 @@ export interface LearningGain {
   courses: LearningGainCourse[];
 }
 
-const PAIRS = sql`
+/** Optional scope: one partner organisation's learners. */
+export interface LearnerScope {
+  organisationId?: string;
+}
+
+/** "AND <alias>.organisation_id = …" when scoped. `alias` is always a literal from our own SQL. */
+export const orgOf = (alias: string, scope: LearnerScope) =>
+  scope.organisationId ? sql`AND ${sql.raw(alias)}.organisation_id = ${scope.organisationId}` : sql``;
+
+const PAIRS = (scope: LearnerScope = {}) => sql`
   WITH attempts AS (
     SELECT aa.user_id, s.course_id, s.assessment_type, aa.score, aa.completed_at
     FROM assessment_attempts aa
@@ -61,16 +70,16 @@ const PAIRS = sql`
   SELECT pre.user_id, pre.course_id, pre.score AS pre_score, post.score AS post_score,
          pre.completed_at AS pre_at, post.completed_at AS post_at
   FROM pre JOIN post USING (user_id, course_id)
-  JOIN users u ON u.id = pre.user_id AND u.role = 'sme'
+  JOIN users u ON u.id = pre.user_id AND u.role = 'sme' ${orgOf("u", scope)}
 `;
 
 const round1 = (n: number) => Math.round(n * 10) / 10;
 const iso = (v: unknown) => (v instanceof Date ? v : new Date(String(v))).toISOString();
 
-export async function getLearningGain(): Promise<LearningGain> {
+export async function getLearningGain(scope: LearnerScope = {}): Promise<LearningGain> {
   const [summaryRes, coursesRes] = await Promise.all([
     db.execute(sql`
-      WITH p AS (${PAIRS})
+      WITH p AS (${PAIRS(scope)})
       SELECT count(*)::int AS pairs,
              avg(pre_score)::float AS avg_pre,
              avg(post_score)::float AS avg_post,
@@ -79,7 +88,7 @@ export async function getLearningGain(): Promise<LearningGain> {
       FROM p
     `),
     db.execute(sql`
-      WITH p AS (${PAIRS})
+      WITH p AS (${PAIRS(scope)})
       SELECT p.course_id, c.title, count(*)::int AS learners,
              avg(pre_score)::float AS avg_pre, avg(post_score)::float AS avg_post,
              avg(post_score - pre_score)::float AS avg_gain
@@ -111,9 +120,9 @@ export async function getLearningGain(): Promise<LearningGain> {
 }
 
 /** One row per learner and course, for the export. */
-export async function listLearningGain(): Promise<LearningGainLearner[]> {
+export async function listLearningGain(scope: LearnerScope = {}): Promise<LearningGainLearner[]> {
   const res = await db.execute(sql`
-    WITH p AS (${PAIRS})
+    WITH p AS (${PAIRS(scope)})
     SELECT u.full_name, u.email, c.title, p.pre_score, p.post_score, p.pre_at, p.post_at
     FROM p JOIN users u ON u.id = p.user_id JOIN courses c ON c.id = p.course_id
     ORDER BY c.title, u.full_name

@@ -4,7 +4,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { Calendar, Clock, PlayCircle, ExternalLink } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { fetchPublishedEvents } from '@/lib/api/liveEvents'
+import { fetchMyEvents } from '@/lib/api/liveEvents'
 import type { LiveEvent } from '@/lib/api/liveEvents'
 import { AssistantCardStrip, AssistantCardSkeleton } from './AssistantCardStrip'
 import { isEventPast, filterEventsByIds } from './filterUtils'
@@ -27,8 +27,8 @@ interface Props {
 
 export function EventAssistantCards({ statusFilter, topic, ids, actionStatus }: Props) {
   const { data: allEvents = [], isLoading } = useQuery({
-    queryKey: ['published-events'],
-    queryFn: fetchPublishedEvents,
+    queryKey: ['live-events', 'mine'],
+    queryFn: fetchMyEvents,
     enabled: actionStatus !== 'inProgress',
   })
 
@@ -50,7 +50,7 @@ export function EventAssistantCards({ statusFilter, topic, ids, actionStatus }: 
       (e) =>
         e.title.toLowerCase().includes(kw) ||
         (e.type?.toLowerCase().includes(kw) ?? false) ||
-        (e.track?.toLowerCase().includes(kw) ?? false),
+        (e.description?.toLowerCase().includes(kw) ?? false),
     )
   }
 

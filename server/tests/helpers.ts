@@ -7,11 +7,12 @@
  *
  * Needs a Postgres reachable via DATABASE_URL with the migrations applied and
  * Hadafi's courses seeded. The dev database is fine: test users use unique
- * @e2e.local emails and are deleted afterwards. Mailpit (:8025/:1025) is
+ * emails under this run's own domain (r<run>.e2e.local) and only this run's
+ * users are deleted afterwards, so two suites can share one database. Mailpit (:8025/:1025) is
  * optional: the email-code round trips in auth.test.ts skip without it.
  */
 import type { Server } from 'node:http'
-import { eq, like } from 'drizzle-orm'
+import { and, eq, like, lt } from 'drizzle-orm'
 import { app } from '../index'
 import { db } from '../db'
 import { users } from '../db/schema'
@@ -19,6 +20,15 @@ import { createLearnerAccount } from '../auth/accounts'
 
 /** The site origin Better Auth trusts (its CSRF check rejects other origins). */
 export const ORIGIN = process.env['BETTER_AUTH_URL'] || process.env['FRONTEND_URL'] || 'http://localhost:3000'
+
+/** One id per test process: every fixture email of this run ends in @r<RUN_ID>.e2e.local. */
+export const RUN_ID = crypto.randomUUID().slice(0, 8)
+const RUN_DOMAIN = `r${RUN_ID}.e2e.local`
+
+/** A unique throwaway address owned by this run (removed by cleanupFixtureUsers). */
+export function fixtureEmail(prefix: string): string {
+  return `${prefix}-${crypto.randomUUID().slice(0, 8)}@${RUN_DOMAIN}`
+}
 
 let server: Server | null = null
 let baseUrl = ''
@@ -107,16 +117,23 @@ let counter = 0
  * run without Mailpit.
  */
 export async function createTestUser(label: string, role: 'sme' | 'mentor' | 'admin' = 'sme'): Promise<TestUser> {
-  const email = `${label}-${Date.now()}-${counter++}@e2e.local`
+  const email = `${label}-${Date.now()}-${counter++}@${RUN_DOMAIN}`
   const password = 'e2e-pass-12345'
   const id = await createLearnerAccount({ fullName: `Test ${label}`, email, password, country: 'AE' })
   if (role !== 'sme') await db.update(users).set({ role }).where(eq(users.id, id))
   return { id, email, role, password, token: await signIn(email, password) }
 }
 
-/** Deletes every test user (their progress, points and certificates cascade). */
+/**
+ * Deletes this run's test users (their progress, points and certificates
+ * cascade), plus leftovers from runs that died more than a day ago. Users of
+ * a suite running at the same time are left alone.
+ */
 export async function cleanupFixtureUsers(): Promise<void> {
-  await db.delete(users).where(like(users.email, '%@e2e.local'))
+  await db.delete(users).where(like(users.email, `%@${RUN_DOMAIN}`))
+  const dayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000)
+  await db.delete(users).where(and(like(users.email, '%.e2e.local'), lt(users.createdAt, dayAgo)))
+  await db.delete(users).where(and(like(users.email, '%@e2e.local'), lt(users.createdAt, dayAgo)))
 }
 
 const MAILPIT_URL = process.env['MAILPIT_URL'] ?? 'http://localhost:8025'

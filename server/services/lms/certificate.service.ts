@@ -11,6 +11,7 @@ import { AppError } from '../../utils/app-error'
 import type { CourseCertificate } from '../../db/schema'
 import { logger } from '../../config/logger'
 import { notify } from '../notifications.service'
+import { checkBadgesSoon } from '../achievements.service'
 
 function getCertDir(): string {
   return path.join(__dirname, '..', 'uploads', 'certificates')
@@ -233,6 +234,7 @@ export async function issueCertificate(userId: string, courseId: string): Promis
     link: '/dashboard/certificates',
     dedupeKey: `certificate:${cert.id}`,
   })
+  checkBadgesSoon(userId)
 
   return updated
 }

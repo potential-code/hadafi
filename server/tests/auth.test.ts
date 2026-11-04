@@ -15,6 +15,7 @@ import {
   fetchOtpFromMailpit,
   signIn,
   type TestUser,
+  fixtureEmail,
 } from './helpers'
 
 /**
@@ -44,7 +45,7 @@ afterAll(async () => {
   await stopTestServer()
 })
 
-const freshEmail = (prefix: string) => `${prefix}-${crypto.randomUUID().slice(0, 8)}@e2e.local`
+const freshEmail = (prefix: string) => fixtureEmail(prefix)
 const SESSION = 'hadafi.session_token='
 
 /** Sends a sign-up code and swaps it for a verifiedToken (needs Mailpit). */

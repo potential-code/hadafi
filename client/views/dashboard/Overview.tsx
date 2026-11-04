@@ -30,7 +30,8 @@ import { useNarrow } from '@/components/dashboard/useNarrow'
 import { fetchLearnerCourses, fetchUserCertificates } from '@/lib/api/lms'
 import { cancelSmeSession, getSmeSessions, getMentors, type MentorUser, type SmeSession } from '@/lib/api/sme'
 import { fetchOffers } from '@/lib/api/offers'
-import { fetchPublishedEvents, type LiveEvent } from '@/lib/api/liveEvents'
+import { fetchMyEvents, type LiveEvent } from '@/lib/api/liveEvents'
+import { timeLabel } from '@/lib/events/eventTime'
 import { fetchStreak, type Streak } from '@/lib/api/redesign'
 import {
   courseHref,
@@ -41,6 +42,7 @@ import {
   type CourseSummary,
 } from '@/components/learner/courseProgress'
 import { cn } from '@/lib/utils'
+import { AchievementsCard } from '@/components/learner/AchievementsCard'
 
 function timeGreeting(d = new Date()) {
   const h = d.getHours()
@@ -89,7 +91,7 @@ export default function DashboardOverview() {
   const courses = allCourses as CourseListItem[]
   const { data: certificates = [] } = useQuery({ queryKey: ['user-certificates'], queryFn: fetchUserCertificates })
   const { data: offersData } = useQuery({ queryKey: ['offers'], queryFn: fetchOffers })
-  const { data: liveEvents = [] } = useQuery({ queryKey: ['live-events'], queryFn: fetchPublishedEvents })
+  const { data: liveEvents = [] } = useQuery({ queryKey: ['live-events', 'mine'], queryFn: fetchMyEvents, refetchInterval: 60_000 })
   const { data: apiMentors = [], isLoading: mentorsLoading } = useQuery({ queryKey: ['mentors'], queryFn: getMentors })
   const streakQuery = useQuery({ queryKey: ['me-streak'], queryFn: fetchStreak, retry: false })
 
@@ -156,18 +158,18 @@ export default function DashboardOverview() {
     }
   }
 
-  // Events are dated YYYY-MM-DD; today's still count as coming up.
-  const [today, setToday] = useState<string | null>(null)
-  useEffect(() => setToday(isoToday()), [])
+  // Events still running or ahead; what she booked first, then soonest first.
+  const [now, setNow] = useState<number | null>(null)
+  useEffect(() => setNow(Date.now()), [])
   const upcomingEvents = useMemo(
     () =>
-      today === null
+      now === null
         ? []
         : liveEvents
-            .filter((e) => e.date.slice(0, 10) >= today)
-            .sort((a, b) => a.date.localeCompare(b.date))
+            .filter((e) => Date.parse(e.endsAt) > now && !e.endedAt)
+            .sort((a, b) => Number(!!b.booked) - Number(!!a.booked) || a.startsAt.localeCompare(b.startsAt))
             .slice(0, 4),
-    [liveEvents, today],
+    [liveEvents, now],
   )
 
   const subtitle = currentSummary
@@ -221,6 +223,7 @@ export default function DashboardOverview() {
           <div className="flex min-w-0 flex-col gap-5">
             <MentorsCard loading={mentorsLoading} mentors={apiMentors.slice(0, 3)} />
             <CertificateCard certificates={certificates} />
+            <AchievementsCard />
             <Card aria-labelledby="h-ai-mentors" role="region">
               <div className="flex items-center justify-between gap-3 px-5 pt-4">
                 <h2 id="h-ai-mentors" className="text-base font-semibold text-ui-text">
@@ -705,9 +708,9 @@ function ComingUpCard({
         </ul>
       )}
       {events.length > 0 && (
-        <ul aria-label="Live events" className={cn('grid gap-x-6 gap-y-4 sm:grid-cols-2', sessions.length > 0 && 'border-t border-ui-line pt-3.5')}>
+        <ul aria-label="Live events" className={cn('grid grid-cols-[minmax(0,1fr)] gap-x-6 gap-y-4 sm:grid-cols-2', sessions.length > 0 && 'border-t border-ui-line pt-3.5')}>
           {events.map((e) => {
-            const d = new Date(`${e.date.slice(0, 10)}T12:00:00`)
+            const d = new Date(e.startsAt)
             return (
               <li key={e.id} className="grid grid-cols-[44px_minmax(0,1fr)] items-start gap-3">
                 <span className="flex h-12 w-11 flex-col items-center justify-center rounded-[10px] border border-ui-line text-[11px] text-ui-muted">
@@ -716,7 +719,10 @@ function ComingUpCard({
                 </span>
                 <span className="flex min-w-0 flex-col gap-0.5">
                   <span className="font-semibold leading-snug text-ui-text">{e.title}</span>
-                  <span className="text-[13px] text-ui-muted">{e.time}</span>
+                  <span className="text-[13px] text-ui-muted">
+                    {timeLabel(e.startsAt)}, {e.format === 'in_person' ? (e.location ?? 'in person') : 'online'}
+                    {e.booked ? ', booked' : ''}
+                  </span>
                   {e.description && <span className="line-clamp-2 text-[13px] leading-snug text-ui-muted">{e.description}</span>}
                   <span className="mt-1 flex gap-3 text-[13px] font-semibold">
                     {e.meetingLink && (

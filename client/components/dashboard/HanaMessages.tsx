@@ -75,8 +75,23 @@ export function HanaTypingIndicator() {
  * Actions under each finished reply (copy, read aloud, try again). A surface
  * opts in by providing a renderer; without one, replies show no actions.
  */
-export type HanaReplyActionsRenderer = (reply: { id: string; text: string; isLast: boolean }) => ReactNode
+export type HanaReplyActionsRenderer = (reply: {
+  id: string
+  text: string
+  isLast: boolean
+  /** The turns before this answer, oldest first (for "report this answer"). */
+  before?: { role: 'learner' | 'ai'; text: string }[]
+}) => ReactNode
 export const HanaReplyActions = createContext<HanaReplyActionsRenderer | null>(null)
+
+/** Text turns before message `idx` (tool-only turns left out), for a report's excerpt. */
+function turnsBefore(list: Array<{ role?: string; content?: unknown }>, idx: number) {
+  return list
+    .slice(Math.max(0, idx - 8), Math.max(0, idx))
+    .filter((mm) => mm.role === 'user' || mm.role === 'assistant')
+    .map((mm) => ({ role: mm.role === 'user' ? ('learner' as const) : ('ai' as const), text: contentToText(mm.content).replace(/<!--[\s\S]*?-->/g, '').trim() }))
+    .filter((t) => t.text)
+}
 
 const PROSE_CLASS =
   'hana-prose [&_p]:mb-2 [&_p:last-child]:mb-0 [&_ul]:list-disc [&_ul]:ps-5 [&_ol]:list-decimal [&_ol]:ps-5 [&_li]:my-0.5 [&_strong]:font-semibold [&_h1]:font-semibold [&_h2]:font-semibold [&_h3]:font-semibold [&_table]:my-2 [&_table]:block [&_table]:overflow-x-auto [&_th]:px-2 [&_th]:py-1 [&_th]:text-start [&_td]:border-t [&_td]:border-ui-line [&_td]:px-2 [&_td]:py-1 [&_code]:rounded [&_code]:bg-ui-surface-2 [&_code]:px-1'
@@ -242,7 +257,7 @@ export function HanaAssistantMessage({ message, messages }: CopilotChatAssistant
             </div>
           )}
           {renderActions && showActions && (
-            <div className="hana-reply-actions">{renderActions({ id: thisId!, text: hasPills ? prose : content, isLast: inLatestTurn })}</div>
+            <div className="hana-reply-actions">{renderActions({ id: thisId!, text: hasPills ? prose : content, isLast: inLatestTurn, before: turnsBefore(answerList, answerIdx) })}</div>
           )}
         </div>
       </div>

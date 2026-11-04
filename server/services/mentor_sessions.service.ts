@@ -6,6 +6,7 @@ import { AppError } from "../utils/app-error";
 import { sendMail } from "../mail/mailer";
 import { logger } from "../config/logger";
 import { notify, whenLabel } from "./notifications.service";
+import { checkBadgesSoon } from "./achievements.service";
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -472,6 +473,7 @@ export async function completeSession(
     .update(mentorSessions)
     .set({ status: "completed", updatedAt: new Date() })
     .where(eq(mentorSessions.id, sessionId));
+  checkBadgesSoon(session.smeUserId);
 }
 
 // ---------------------------------------------------------------------------

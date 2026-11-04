@@ -10,13 +10,13 @@ export type User = {
   id: string
   fullName: string
   email: string
-  role: 'sme' | 'mentor' | 'admin'
+  role: 'sme' | 'mentor' | 'admin' | 'partner'
   country: string | null
 }
 
 /** Better Auth's user (name, role, country…) as the app's User. */
 export function toUser(u: { id: string; name: string; email: string; role?: string | null; country?: string | null }): User {
-  const role = u.role === 'admin' || u.role === 'mentor' ? u.role : 'sme'
+  const role = u.role === 'admin' || u.role === 'mentor' || u.role === 'partner' ? u.role : 'sme'
   return { id: u.id, fullName: u.name, email: u.email, role, country: u.country ?? null }
 }
 
@@ -99,6 +99,7 @@ export async function signOut(): Promise<void> {
 export function homeFor(role: User['role']): string {
   if (role === 'admin') return '/admin/dashboard'
   if (role === 'mentor') return '/mentor/dashboard'
+  if (role === 'partner') return '/partner'
   return '/dashboard'
 }
 

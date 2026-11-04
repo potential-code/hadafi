@@ -3,7 +3,7 @@
 import { useId, useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { CheckCircle2, Eye, EyeOff, User, Mail, Lock, Globe, Tag, ChevronDown, ArrowRight, Loader2 } from 'lucide-react'
+import { Building2, CheckCircle2, Eye, EyeOff, User, Mail, Lock, Globe, Tag, ChevronDown, ArrowRight, Loader2 } from 'lucide-react'
 import { getCountryDataList } from 'countries-list'
 import { toast } from 'sonner'
 import { AuthLayout } from '@/components/auth/AuthLayout'
@@ -13,6 +13,7 @@ import { apiFetch } from '@/lib/api'
 import { AuthAlert } from '@/components/auth/AuthField'
 import { CodeForm, codeErrorMessage } from '@/components/auth/CodeForm'
 import { LEGAL_LINKS } from '@/components/landing/legal'
+import { fetchJoinInfo } from '@/lib/api/organisations'
 
 const COUNTRIES = getCountryDataList()
   .map((c) => c.name)
@@ -61,6 +62,22 @@ function SignUpForm() {
   const [couponError, setCouponError] = useState<string | null>(null)
   const [formError, setFormError] = useState<string | null>(null)
   const [step, setStep] = useState<'details' | 'code'>('details')
+
+  // /sign-up?org=CODE: an organisation's sign-up link. The learner joins that
+  // organisation (it can only ever add her to it, never change her role).
+  const orgParam = searchParams.get('org')?.trim() ?? ''
+  const [org, setOrg] = useState<{ name: string; code: string } | null>(null)
+  const [orgGone, setOrgGone] = useState(false)
+  useEffect(() => {
+    if (!orgParam) return
+    let live = true
+    fetchJoinInfo(orgParam)
+      .then((o) => live && setOrg(o))
+      .catch(() => live && setOrgGone(true))
+    return () => {
+      live = false
+    }
+  }, [orgParam])
 
   // Keep couponCode in sync if URL param changes (e.g. browser back/forward)
   useEffect(() => {
@@ -159,6 +176,7 @@ function SignUpForm() {
           country: form.country,
           ...(form.password ? { password: form.password } : {}),
           ...(form.couponCode.trim() ? { couponCode: form.couponCode.trim() } : {}),
+          ...(org ? { orgCode: org.code } : {}),
           verifiedToken,
         }),
       })
@@ -167,6 +185,11 @@ function SignUpForm() {
       setStep('details')
       if (e?.code === 'EMAIL_EXISTS') setEmailError('An account with this email already exists')
       else if (e?.code === 'INVALID_COUPON') setCouponError('Invalid or already used invite code')
+      else if (e?.code === 'INVALID_ORG_CODE') {
+        setOrg(null)
+        setOrgGone(true)
+        setFormError('That organisation link has stopped working. You can sign up on your own, or ask the organisation for a new link.')
+      }
       else setFormError('Something went wrong. Please try again.')
       return null
     }
@@ -205,6 +228,20 @@ function SignUpForm() {
 
   return (
     <div className="relative rounded-3xl border border-brand-surface-2 bg-white p-7 shadow-[0_20px_60px_-20px_rgba(159,32,99,0.18)]">
+      {org && (
+        <div role="status" className="mb-4 flex items-start gap-3 rounded-xl border border-brand-primary/25 bg-brand-primary/5 px-4 py-3">
+          <Building2 className="mt-0.5 h-[18px] w-[18px] shrink-0 text-brand-primary" aria-hidden />
+          <p className="text-sm leading-relaxed text-brand-text-primary">
+            You&rsquo;re joining with <strong className="font-semibold">{org.name}</strong>. {org.name} will see your name, email and
+            learning record (courses, exams, certificates and mentor sessions). You can leave any time from your profile.
+          </p>
+        </div>
+      )}
+      {orgGone && !org && (
+        <p role="status" className="mb-4 rounded-xl bg-brand-surface px-4 py-3 text-sm text-brand-text-secondary">
+          That organisation link isn&rsquo;t active any more. You can still sign up on your own.
+        </p>
+      )}
       <form onSubmit={handleSubmit} className="space-y-3.5">
         <FloatingField
           label="Full Name"

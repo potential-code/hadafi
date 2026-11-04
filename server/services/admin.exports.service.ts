@@ -1,7 +1,7 @@
 import { sql } from "drizzle-orm";
 import writeXlsxFile, { type Cell as XlsxCell } from "write-excel-file/node";
 import { db } from "../db";
-import { listLearningGain } from "./admin.learningGain.service";
+import { listLearningGain, orgOf, type LearnerScope } from "./admin.learningGain.service";
 import { countryLabel } from "./admin.impact.service";
 import { autoFilter, BRAND_HEX } from "./xlsx";
 
@@ -33,7 +33,7 @@ const int = (v: unknown): number | null => (v == null ? null : Number(v));
 const text = (v: unknown): string | null => (v == null || v === "" ? null : String(v));
 const country = (v: unknown): string | null => (v == null || String(v).trim() === "" ? null : countryLabel(String(v)));
 
-async function learners(): Promise<Table> {
+async function learners(scope: LearnerScope): Promise<Table> {
   const data = await rows(sql`
     SELECT u.full_name, u.email, u.company, u.country, u.points, u.created_at, u.last_active_at,
       (SELECT count(*) FROM course_enrollments e WHERE e.user_id = u.id) AS courses_started,
@@ -42,7 +42,7 @@ async function learners(): Promise<Table> {
       (SELECT count(*) FROM course_certificates c WHERE c.user_id = u.id AND c.status = 'active') AS certificates,
       (SELECT count(*) FROM mentor_sessions s WHERE s.sme_user_id = u.id AND s.status <> 'cancelled') AS mentor_sessions,
       (SELECT count(*) FROM offer_redemptions r WHERE r.user_id = u.id) AS offers_redeemed
-    FROM users u WHERE u.role = 'sme' ORDER BY u.created_at DESC
+    FROM users u WHERE u.role = 'sme' ${orgOf("u", scope)} ORDER BY u.created_at DESC
   `);
   return {
     title: "Learners",
@@ -79,7 +79,7 @@ async function learners(): Promise<Table> {
   };
 }
 
-async function courseProgress(): Promise<Table> {
+async function courseProgress(scope: LearnerScope): Promise<Table> {
   const data = await rows(sql`
     WITH best AS (
       SELECT aa.user_id, s.course_id, s.assessment_type,
@@ -94,7 +94,7 @@ async function courseProgress(): Promise<Table> {
            pre.first_score AS pre_score, post.best_score AS final_score,
            cert.certificate_number
     FROM course_enrollments e
-    JOIN users u ON u.id = e.user_id AND u.role = 'sme'
+    JOIN users u ON u.id = e.user_id AND u.role = 'sme' ${orgOf("u", scope)}
     JOIN courses c ON c.id = e.course_id
     LEFT JOIN user_course_progress p ON p.user_id = e.user_id AND p.course_id = e.course_id
     LEFT JOIN best pre ON pre.user_id = e.user_id AND pre.course_id = e.course_id AND pre.assessment_type = 'pre'
@@ -131,8 +131,8 @@ async function courseProgress(): Promise<Table> {
   };
 }
 
-async function learningGain(): Promise<Table> {
-  const data = await listLearningGain();
+async function learningGain(scope: LearnerScope): Promise<Table> {
+  const data = await listLearningGain(scope);
   return {
     title: "Learning gain",
     columns: [
@@ -158,11 +158,11 @@ async function learningGain(): Promise<Table> {
   };
 }
 
-async function certificates(): Promise<Table> {
+async function certificates(scope: LearnerScope): Promise<Table> {
   const data = await rows(sql`
     SELECT u.full_name, u.email, u.country, c.title, cert.certificate_number, cert.issued_at, cert.status
     FROM course_certificates cert
-    JOIN users u ON u.id = cert.user_id
+    JOIN users u ON u.id = cert.user_id ${orgOf("u", scope)}
     JOIN courses c ON c.id = cert.course_id
     ORDER BY cert.issued_at DESC
   `);
@@ -189,11 +189,11 @@ async function certificates(): Promise<Table> {
   };
 }
 
-async function redemptions(): Promise<Table> {
+async function redemptions(scope: LearnerScope): Promise<Table> {
   const data = await rows(sql`
     SELECT u.full_name, u.email, o.title, r.points_deducted, r.amount_charged, r.order_status, r.redeemed_at
     FROM offer_redemptions r
-    JOIN users u ON u.id = r.user_id
+    JOIN users u ON u.id = r.user_id ${orgOf("u", scope)}
     JOIN offers o ON o.id = r.offer_id
     ORDER BY r.redeemed_at DESC
   `);
@@ -220,12 +220,12 @@ async function redemptions(): Promise<Table> {
   };
 }
 
-async function mentorSessions(): Promise<Table> {
+async function mentorSessions(scope: LearnerScope): Promise<Table> {
   const data = await rows(sql`
     SELECT sme.full_name AS learner, sme.email AS learner_email, m.full_name AS mentor,
            slot.starts_at, slot.ends_at, s.status, s.booked_at, s.cancelled_by
     FROM mentor_sessions s
-    JOIN users sme ON sme.id = s.sme_user_id
+    JOIN users sme ON sme.id = s.sme_user_id ${orgOf("sme", scope)}
     JOIN users m ON m.id = s.mentor_user_id
     LEFT JOIN mentor_availability_slots slot ON slot.id = s.slot_id
     ORDER BY slot.starts_at DESC NULLS LAST
@@ -259,7 +259,7 @@ async function mentorSessions(): Promise<Table> {
   };
 }
 
-const BUILDERS: Record<ExportDataset, () => Promise<Table>> = {
+const BUILDERS: Record<ExportDataset, (scope: LearnerScope) => Promise<Table>> = {
   learners,
   "course-progress": courseProgress,
   "learning-gain": learningGain,
@@ -335,8 +335,19 @@ export interface ExportFile {
   rows: number;
 }
 
-export async function buildExport(dataset: ExportDataset, format: ExportFormat): Promise<ExportFile> {
-  return writeTable(await BUILDERS[dataset](), format, `hadafi-${dataset}`);
+/** What a partner organisation's contacts can download about their own learners. */
+export const ORGANISATION_DATASETS = ["learners", "course-progress", "learning-gain", "certificates", "mentor-sessions"] as const satisfies readonly ExportDataset[];
+
+/**
+ * One dataset as a file. With `scope.organisationId`, only that organisation's
+ * learners (partner downloads); `filePrefix` names the file (default "hadafi").
+ */
+export async function buildExport(
+  dataset: ExportDataset,
+  format: ExportFormat,
+  scope: LearnerScope & { filePrefix?: string } = {},
+): Promise<ExportFile> {
+  return writeTable(await BUILDERS[dataset](scope), format, `${scope.filePrefix ?? "hadafi"}-${dataset}`);
 }
 
 /** Any table as a CSV or Excel download, named `<name>-<date>`. */

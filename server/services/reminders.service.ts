@@ -3,16 +3,20 @@ import { db } from "../db";
 import { sendMail } from "../mail/mailer";
 import { logger } from "../config/logger";
 import { notify, whenLabel } from "./notifications.service";
+import { joinDetails, upcomingBookings } from "./liveEvents.service";
+import { reconcileAttendance, reconcileZoom } from "./eventZoom.service";
 
 /**
  * Scheduled reminders, run every 15 minutes by the API process:
  *  - a session reminder 24 hours and 1 hour before each confirmed mentor
  *    session, to the learner and the mentor;
  *  - a nudge to a learner who started a course but hasn't learned for 7 days
- *    (at most once a week), pointing at the course she touched last.
- *
- * Hadafi's live events have a date and a free-text time (no machine-readable
- * start), so they get no timed reminders.
+ *    (at most once a week), pointing at the course she touched last;
+ *  - an event reminder 24 hours and 1 hour before each live event a learner
+ *    booked (moving the event re-arms them; the 1-hour one carries the join
+ *    link, which opens then);
+ *  - Zoom upkeep: meetings and bookings that didn't sync are tried again, and
+ *    attendance is read back after Zoom events end.
  *
  * Every reminder carries a dedupe key, so a second run, a retry or a second
  * server instance can't send it twice. In-app always; email copies of session
@@ -127,8 +131,49 @@ export async function sendCourseNudges(now = new Date()): Promise<number> {
   return sent;
 }
 
-export async function runReminders(now = new Date()): Promise<{ sessions: number; nudges: number }> {
-  const [sessions, nudges] = await Promise.all([
+/** "in 42 minutes", "in 5 hours". */
+function startsInLabel(minutes: number): string {
+  if (minutes < 60) return `in ${Math.max(1, Math.round(minutes))} minutes`;
+  const hours = Math.round(minutes / 60);
+  return `in ${hours} hour${hours === 1 ? "" : "s"}`;
+}
+
+export async function sendEventReminders(now = new Date()): Promise<number> {
+  const due = await upcomingBookings(now);
+  let sent = 0;
+  for (const { event, rsvp, email, name, timezone } of due) {
+    const minutes = (event.startsAt.getTime() - now.getTime()) / 60_000;
+    const window = minutes <= 60 ? "1h" : "24h";
+    const when = whenLabel(event.startsAt, timezone || event.timezone);
+    const title = window === "1h" ? `Starting soon: ${event.title}` : `Coming up: ${event.title}`;
+    // The start time is in the key, so moving the event re-arms its reminders.
+    const created = await notify(rsvp.userId, {
+      type: "event_reminder",
+      title,
+      body: `${when}. ${event.format === "in_person" ? `At ${event.location}.` : window === "1h" ? "Your join link is on the Events page." : "Your join link appears on the Events page an hour before."}`,
+      link: "/dashboard/events",
+      dedupeKey: `event:${event.id}:${event.startsAt.getTime()}:reminder:${window}`,
+    });
+    sent += created;
+    if (created && reminderEmailsEnabled() && email) {
+      reminderDeps
+        .sendMail({
+          to: email,
+          subject: title,
+          template: "event-reminder",
+          context: { name, title: event.title, when, startsIn: startsInLabel(minutes), ...joinDetails(event, rsvp, now.getTime()) },
+        })
+        .catch((err) => logger.error({ err }, "Event reminder email failed"));
+    }
+  }
+  return sent;
+}
+
+export async function runReminders(now = new Date()): Promise<{ sessions: number; nudges: number; events: number }> {
+  const zoomUpkeep = Promise.all([reconcileZoom(), reconcileAttendance()]).catch((err) => {
+    logger.error({ err }, "Zoom upkeep failed");
+  });
+  const [sessions, nudges, events] = await Promise.all([
     sendSessionReminders(now).catch((err) => {
       logger.error({ err }, "Session reminders failed");
       return 0;
@@ -137,9 +182,14 @@ export async function runReminders(now = new Date()): Promise<{ sessions: number
       logger.error({ err }, "Course nudges failed");
       return 0;
     }),
+    sendEventReminders(now).catch((err) => {
+      logger.error({ err }, "Event reminders failed");
+      return 0;
+    }),
   ]);
-  if (sessions || nudges) logger.info({ sessions, nudges }, "Reminders sent");
-  return { sessions, nudges };
+  await zoomUpkeep;
+  if (sessions || nudges || events) logger.info({ sessions, nudges, events }, "Reminders sent");
+  return { sessions, nudges, events };
 }
 
 let timer: ReturnType<typeof setInterval> | null = null;

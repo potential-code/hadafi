@@ -4,6 +4,7 @@ import { eq, sql } from "drizzle-orm";
 import { db } from "../db";
 import { authAccounts, inviteCodes, mentorRegistrations, mentorSetupTokens, users } from "../db/schema";
 import { findValidToken } from "../services/mentor.service";
+import { findJoinable } from "../services/organisations.service";
 import { AppError } from "../utils/app-error";
 import { hashPassword } from "./password";
 
@@ -25,12 +26,21 @@ async function assertEmailFree(email: string): Promise<void> {
   if (existing) throw new AppError("An account with this email already exists", 409, "EMAIL_EXISTS");
 }
 
+const orgLinkGone = () =>
+  new AppError(
+    "This organisation link isn't active any more. Ask the organisation for a new one, or sign up without it.",
+    400,
+    "INVALID_ORG_CODE",
+  );
+
 /**
- * The checks sign-up can fail on (email taken, invite code not active),
- * without changing anything. createLearnerAccount repeats them atomically.
+ * The checks sign-up can fail on (email taken, invite code not active,
+ * organisation link not active), without changing anything.
+ * createLearnerAccount repeats them atomically.
  */
-export async function assertCanSignUp(email: string, couponCode?: string): Promise<void> {
+export async function assertCanSignUp(email: string, couponCode?: string, orgCode?: string): Promise<void> {
   await assertEmailFree(email);
+  if (orgCode && !(await findJoinable(orgCode))) throw orgLinkGone();
   if (couponCode) {
     const [code] = await db
       .select({ status: inviteCodes.status })
@@ -48,7 +58,7 @@ export async function assertCanSignUp(email: string, couponCode?: string): Promi
  * The password is optional: Hana's chat sign-up creates the account without
  * one and the learner can add one later from Profile.
  *
- * @throws AppError(409, "EMAIL_EXISTS") | AppError(400, "INVALID_COUPON")
+ * @throws AppError(409, "EMAIL_EXISTS") | AppError(400, "INVALID_COUPON") | AppError(400, "INVALID_ORG_CODE")
  */
 export async function createLearnerAccount(data: {
   fullName: string;
@@ -56,8 +66,12 @@ export async function createLearnerAccount(data: {
   country: string;
   couponCode?: string | undefined;
   password?: string | undefined;
+  /** An organisation's sign-up code: the learner joins that organisation (never sets a role). */
+  orgCode?: string | undefined;
 }): Promise<string> {
   await assertEmailFree(data.email);
+  const organisation = data.orgCode ? await findJoinable(data.orgCode) : null;
+  if (data.orgCode && !organisation) throw orgLinkGone();
 
   return db.transaction(async (tx) => {
     // Lock the invite code row so two sign-ups cannot both redeem it.
@@ -80,6 +94,7 @@ export async function createLearnerAccount(data: {
         role: "sme",
         country: data.country,
         inviteCodeId,
+        organisationId: organisation?.id ?? null,
       })
       .returning({ id: users.id });
     if (!user) throw new AppError("Failed to create user", 500, "INSERT_FAILED");

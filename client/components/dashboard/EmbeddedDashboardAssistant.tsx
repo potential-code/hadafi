@@ -27,7 +27,7 @@ import { getUser } from '@/lib/auth'
 import { apiFetch } from '@/lib/api'
 import { getSmeSessions, getMentors } from '@/lib/api/sme'
 import { fetchLearnerCourses, fetchUserCertificates, type CertificateWithCourse } from '@/lib/api/lms'
-import { fetchPublishedEvents } from '@/lib/api/liveEvents'
+import { fetchMyEvents } from '@/lib/api/liveEvents'
 import { fetchOffers } from '@/lib/api/offers'
 import { getAllAiMentors } from '@/lib/dashboardData'
 import { getCountryDataList } from 'countries-list'
@@ -42,7 +42,8 @@ import {
   type HanaReplyActionsRenderer,
 } from './HanaMessages'
 import { HanaChatInput, HanaComposerOptions } from './HanaChatInput'
-import { HanaReplyButtons } from './HanaReplyButtons'
+import { HanaReplyButtons, replyPlainText } from './HanaReplyButtons'
+import { ReportAnswerButton, excerptBefore } from './ReportAnswerButton'
 import { useHanaRunError, HanaConnectionNotice } from './HanaRunError'
 import { useReadAloud } from './useHanaVoice'
 import { AskHanaGreeting, AskHanaShortcuts, AskHanaStarters, ASK_HANA_PENDING_KEY, ASK_STRINGS } from './AskHanaParts'
@@ -906,7 +907,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
               results.aiMentors = getAllAiMentors().map((m) => ({ slug: m.slug, name: m.name }))
             }),
           types.includes('events') &&
-            fetchPublishedEvents()
+            fetchMyEvents()
               .then((d) => { results.events = d.map((e) => ({ id: e.id, title: e.title })) })
               .catch(() => {}),
           types.includes('aiTools') &&
@@ -1068,14 +1069,14 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
     handler: async () => {
       router.push('/dashboard/events')
       try {
-        const data = await fetchPublishedEvents()
+        const data = await fetchMyEvents()
         const events = Array.isArray(data) ? data : []
         const summary = events.map((e) => ({
           title: e.title,
           type: e.type,
-          track: e.track,
           date: e.date,
           time: e.time,
+          booked: e.booked ?? false,
         }))
         return `Opened events page. ${events.length} event(s): ${JSON.stringify(summary)}`
       } catch {
@@ -1736,11 +1737,10 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
     },
     handler: async ({ statusFilter, ids }) => {
       try {
-        const allEvents = await fetchPublishedEvents()
-        const today = new Date(new Date().setHours(0, 0, 0, 0))
+        const allEvents = await fetchMyEvents()
         let filtered = allEvents
-        if (statusFilter === 'upcoming') filtered = allEvents.filter((e) => new Date(e.date) >= today)
-        else if (statusFilter === 'completed') filtered = allEvents.filter((e) => new Date(e.date) < today)
+        if (statusFilter === 'upcoming') filtered = allEvents.filter((e) => Date.parse(e.endsAt) >= Date.now())
+        else if (statusFilter === 'completed') filtered = allEvents.filter((e) => Date.parse(e.endsAt) < Date.now())
         if (ids && ids.length > 0) {
           filtered = filtered.filter((e) => ids.includes(e.id))
         }
@@ -1856,18 +1856,27 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
 
   // Copy, read aloud and try again under each finished reply.
   const renderReplyActions = useCallback<HanaReplyActionsRenderer>(
-    (reply) => (
-      <HanaReplyButtons
-        {...reply}
-        readAloud={readAloud}
-        onRegenerate={() => {
-          readAloud.stop()
-          regenerate()
-        }}
-        busy={isRunning}
-      />
+    ({ before, ...reply }) => (
+      <>
+        <HanaReplyButtons
+          {...reply}
+          readAloud={readAloud}
+          onRegenerate={() => {
+            readAloud.stop()
+            regenerate()
+          }}
+          busy={isRunning}
+        />
+        <ReportAnswerButton
+          surface="ask-hana"
+          reply={replyPlainText(reply.text)}
+          question={[...(before ?? [])].reverse().find((t) => t.role === 'learner')?.text}
+          excerpt={excerptBefore(before ?? [])}
+          conversation={threadId}
+        />
+      </>
     ),
-    [readAloud, regenerate, isRunning],
+    [readAloud, regenerate, isRunning, threadId],
   )
 
   // Starters and shortcut menus go through the same send path as typing.

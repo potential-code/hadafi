@@ -3,6 +3,7 @@ import { z } from "zod";
 import rateLimit from "express-rate-limit";
 
 import { authenticate } from "../middleware/authenticate";
+import { requireRole } from "../middleware/require-role";
 import { validate } from "../middleware/validate";
 import * as accountController from "../controllers/account.controller";
 
@@ -94,10 +95,12 @@ router.get("/me", authenticate, accountController.me);
 router.put("/me", authenticate, validate(updateProfileDto), accountController.updateProfile);
 router.post("/set-password", authenticate, validate(setPasswordDto), accountController.setPassword);
 // Short-lived service JWT for the AI backend (chat + voice) — signed-in users only.
-router.get("/copilot-token", authenticate, accountController.copilotToken);
+// Hana is for learners, mentors and admins; partner logins only see their organisation's portal.
+const hanaRoles = requireRole("sme", "mentor", "admin");
+router.get("/copilot-token", authenticate, hanaRoles, accountController.copilotToken);
 // Anonymous variant for the public landing-page chat (rate-limited, 30 min).
 router.get("/copilot-token/guest", guestTokenLimiter, accountController.guestCopilotToken);
-router.get("/voice-token", authenticate, accountController.voiceToken);
+router.get("/voice-token", authenticate, hanaRoles, accountController.voiceToken);
 router.post("/check-email", lookupLimiter, accountController.checkEmail);
 // Advisory coupon pre-validation. Always returns HTTP 200; valid:false means invalid code.
 router.get("/check-coupon", lookupLimiter, accountController.checkCoupon);

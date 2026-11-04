@@ -15,16 +15,21 @@ import {
   ImageIcon,
   Landmark,
   LayoutDashboard,
+  LayoutGrid,
   Link2,
+  Megaphone,
+  MessageSquareText,
+  ShieldCheck,
   Sparkles,
   Tag,
+  Trophy,
   UserCheck,
   UserRound,
   Users,
   type LucideIcon,
 } from 'lucide-react'
 
-export type ShellRole = 'learner' | 'mentor' | 'admin'
+export type ShellRole = 'learner' | 'mentor' | 'admin' | 'partner'
 
 export type ShellNavItem = {
   label: string
@@ -49,9 +54,8 @@ export type ShellConfig = {
   quickAction?: ShellNavItem
 }
 
-// Only pages Hadafi has today. Multi Learning and AI Examiner (learner) and
-// AI Insights, Announcements, AI safety review (admin) join these menus as
-// each of those features lands.
+// Only pages Hadafi has today. Multi Learning and AI Examiner (learner) join
+// these menus as each of those features lands.
 const ASK_HANA: ShellNavItem = { label: 'Ask Hana', href: '/dashboard/assistant', icon: Sparkles }
 
 export const SHELL_CONFIG: Record<ShellRole, ShellConfig> = {
@@ -66,6 +70,7 @@ export const SHELL_CONFIG: Record<ShellRole, ShellConfig> = {
         items: [
           { label: 'Courses', href: '/dashboard/courses', icon: GraduationCap },
           { label: 'Certificates', href: '/dashboard/certificates', icon: Award },
+          { label: 'Achievements', href: '/dashboard/achievements', icon: Trophy },
         ],
       },
       {
@@ -116,6 +121,18 @@ export const SHELL_CONFIG: Record<ShellRole, ShellConfig> = {
       { label: 'Mentees', href: '/mentor/dashboard/mentees', icon: Users },
     ],
   },
+  // Partner contacts: their organisation's participants only (read only).
+  partner: {
+    roleLabel: 'Partner',
+    homeHref: '/partner',
+    profileHref: '/partner/profile',
+    groups: [{ items: [{ label: 'Participants', href: '/partner', icon: LayoutDashboard, exact: true }] }],
+    footer: [{ label: 'Profile', href: '/partner/profile', icon: UserRound }],
+    tabs: [
+      { label: 'Participants', href: '/partner', icon: LayoutDashboard, exact: true },
+      { label: 'Profile', href: '/partner/profile', icon: UserRound },
+    ],
+  },
   admin: {
     roleLabel: 'Admin',
     homeHref: '/admin/dashboard',
@@ -125,6 +142,10 @@ export const SHELL_CONFIG: Record<ShellRole, ShellConfig> = {
         items: [
           { label: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard, exact: true },
           { label: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
+          { label: 'AI Insights', href: '/admin/ai-insights', icon: MessageSquareText },
+          { label: 'AI Dashboard', href: '/admin/ai-dashboard', icon: LayoutGrid },
+          { label: 'Announcements', href: '/admin/announcements', icon: Megaphone },
+          { label: 'AI safety review', href: '/admin/ai-safety', icon: ShieldCheck },
           { label: 'Invites', href: '/admin/invites', icon: Link2 },
         ],
       },
@@ -139,7 +160,10 @@ export const SHELL_CONFIG: Record<ShellRole, ShellConfig> = {
       },
       {
         title: 'People',
-        items: [{ label: 'Mentor Applications', href: '/admin/applications', icon: UserCheck }],
+        items: [
+          { label: 'Mentor Applications', href: '/admin/applications', icon: UserCheck },
+          { label: 'Organisations', href: '/admin/organisations', icon: Building2 },
+        ],
       },
       {
         title: 'Stakeholders',
