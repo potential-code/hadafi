@@ -8,7 +8,7 @@
     ],
     "module": "esnext",
     "moduleResolution": "bundler",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "noEmit": true,
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
@@ -55,13 +55,15 @@
     "client/components/**/*",
     "client/hooks/**/*",
     "client/lib/**/*",
-    "client/middleware.ts",
+    "client/proxy.ts",
     "client/next-env.d.ts",
     "client/services/**/*",
     "client/views/**/*",
     "server/**/*",
     "shared/**/*",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "client/.next/dev/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",

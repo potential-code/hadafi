@@ -39,7 +39,7 @@ export function getUser(): User | null {
 export function setAuth(token: string, user: User): void {
   window.localStorage.setItem(TOKEN_KEY, token)
   window.localStorage.setItem(USER_KEY, JSON.stringify(user))
-  // Mirror cookie so Next.js middleware can read it for role-based routing.
+  // Mirror cookie so the Next.js proxy (client/proxy.ts) can read it for role-based routing.
   // Not httpOnly — intentional: we need client-side access via document.cookie.
   document.cookie = `${TOKEN_KEY}=${token}; path=/; max-age=43200; SameSite=Lax`
   window.dispatchEvent(new Event('hadafi:auth-changed'))

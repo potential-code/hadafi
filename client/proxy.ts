@@ -8,9 +8,9 @@ function getDashboardForRole(role: string): string {
   return '/dashboard'
 }
 
-// Decode JWT payload without verifying the signature.
-// Edge runtime has no Node crypto, so verification happens on every real API
-// call via Express. This cookie gate is only for fast UX redirects.
+// Decode JWT payload without verifying the signature. Verification happens on
+// every real API call via Express; this cookie gate is only for fast UX
+// redirects.
 function decodeRole(token: string): string | null {
   try {
     const payloadB64 = token.split('.')[1]
@@ -22,7 +22,7 @@ function decodeRole(token: string): string | null {
   }
 }
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl
 
   const token = req.cookies.get(COOKIE_NAME)?.value
