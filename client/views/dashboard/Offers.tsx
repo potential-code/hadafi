@@ -94,7 +94,7 @@ export default function OffersPage() {
   return (
     <DashboardLayout>
       <PageHeader
-        title="Offers"
+        title="Marketplace Offers"
         subtitle="Member-only discounts from program partners. Redeem them with the points you earn from courses."
         className="mb-[22px]"
       />

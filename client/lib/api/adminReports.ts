@@ -100,7 +100,7 @@ export const fetchLearningGain = () =>
 
 // ── Exports ──────────────────────────────────────────────────────────────────
 
-export type ExportDataset = 'learners' | 'course-progress' | 'learning-gain' | 'certificates' | 'redemptions' | 'mentor-sessions'
+export type ExportDataset = 'learners' | 'course-progress' | 'learning-gain' | 'certificates' | 'redemptions' | 'mentor-sessions' | 'newsletter'
 
 /** Downloads one export as a file; resolves with the number of rows in it. */
 export async function downloadExport(dataset: ExportDataset, format: 'csv' | 'xlsx'): Promise<number> {

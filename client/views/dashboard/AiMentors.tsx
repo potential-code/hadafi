@@ -16,7 +16,7 @@ export default function AiMentorsPage() {
   return (
     <DashboardLayout>
       <PageHeader
-        title="AI Mentors"
+        title="AI Coaches"
         subtitle="Specialist AI coaches you can chat with any time. Pick a mentor and start a conversation."
         className="mb-7"
       />

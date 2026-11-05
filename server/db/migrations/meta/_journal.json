@@ -225,6 +225,13 @@
       "when": 1793811669598,
       "tag": "0031_tutor_translations",
       "breakpoints": true
+    },
+    {
+      "idx": 32,
+      "version": "7",
+      "when": 1793879193091,
+      "tag": "0032_newsletter",
+      "breakpoints": true
     }
   ]
 }

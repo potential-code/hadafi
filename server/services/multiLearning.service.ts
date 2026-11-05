@@ -64,19 +64,19 @@ import { translateContent, type TranslationDomain } from './tutorTranslation.ser
  * video's outline, "Read More" its narration transcript, "Case Study" and
  * "Quotes" are supplements.
  *
- * Languages: English, Arabic and Urdu, as SMEEP (which also has Hindi). Every
+ * Languages: English, Arabic, Hindi and Urdu, as SMEEP. Every
  * card and name is served in the learner's language through the translation
  * cache (tutorTranslation.service); the unit material Hana loads stays English
  * and she writes in the learner's language. The page keeps its own labels in
  * English and shows Arabic and Urdu content right to left.
  */
 
-export type LearnerLanguage = 'en' | 'ar' | 'ur'
+export type LearnerLanguage = 'en' | 'ar' | 'hi' | 'ur'
 
-export const LEARNER_LANGUAGES: readonly LearnerLanguage[] = ['en', 'ar', 'ur']
+export const LEARNER_LANGUAGES: readonly LearnerLanguage[] = ['en', 'ar', 'hi', 'ur']
 
 export function isLearnerLanguage(value: unknown): value is LearnerLanguage {
-  return value === 'en' || value === 'ar' || value === 'ur'
+  return value === 'en' || value === 'ar' || value === 'hi' || value === 'ur'
 }
 
 /**

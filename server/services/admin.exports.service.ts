@@ -13,7 +13,7 @@ import { autoFilter, BRAND_HEX } from "./xlsx";
  * columns Hadafi doesn't have.
  */
 
-export const EXPORT_DATASETS = ["learners", "course-progress", "learning-gain", "certificates", "redemptions", "mentor-sessions"] as const;
+export const EXPORT_DATASETS = ["learners", "course-progress", "learning-gain", "certificates", "redemptions", "mentor-sessions", "newsletter"] as const;
 export type ExportDataset = (typeof EXPORT_DATASETS)[number];
 export type ExportFormat = "csv" | "xlsx";
 
@@ -259,6 +259,32 @@ async function mentorSessions(scope: LearnerScope): Promise<Table> {
   };
 }
 
+/** Homepage newsletter sign-ups. Platform-wide only: an organisation's export never includes it. */
+async function newsletter(scope: LearnerScope): Promise<Table> {
+  const data = scope.organisationId
+    ? []
+    : await rows(sql`
+        SELECT email, source, created_at, unsubscribed_at FROM newsletter_subscribers ORDER BY created_at DESC
+      `);
+  return {
+    title: "Newsletter subscribers",
+    columns: [
+      { key: "email", label: "Email", width: 34 },
+      { key: "status", label: "Status" },
+      { key: "source", label: "Signed up on" },
+      { key: "date", label: "Signed up", width: 14 },
+      { key: "left", label: "Unsubscribed", width: 14 },
+    ],
+    rows: data.map((r) => ({
+      email: text(r.email),
+      status: r.unsubscribed_at ? "Unsubscribed" : "Subscribed",
+      source: text(r.source),
+      date: date(r.created_at),
+      left: r.unsubscribed_at ? date(r.unsubscribed_at) : null,
+    })),
+  };
+}
+
 const BUILDERS: Record<ExportDataset, (scope: LearnerScope) => Promise<Table>> = {
   learners,
   "course-progress": courseProgress,
@@ -266,6 +292,7 @@ const BUILDERS: Record<ExportDataset, (scope: LearnerScope) => Promise<Table>> =
   certificates,
   redemptions,
   "mentor-sessions": mentorSessions,
+  newsletter,
 };
 
 // ── Writers ──────────────────────────────────────────────────────────────────

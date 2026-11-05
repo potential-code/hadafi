@@ -18,6 +18,7 @@ const DATASETS: Record<ExportDataset, { label: string; hint: string }> = {
   certificates: { label: 'Certificates', hint: 'Every certificate issued' },
   redemptions: { label: 'Offer redemptions', hint: 'Points used and amounts paid' },
   'mentor-sessions': { label: 'Mentor sessions', hint: 'Bookings, times and status' },
+  newsletter: { label: 'Newsletter subscribers', hint: 'Homepage sign-ups and opt-outs' },
 }
 
 export function ExportMenu({

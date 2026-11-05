@@ -85,14 +85,14 @@ type UserSnapshot = {
 }
 
 const PAGE_NAMES: Record<string, string> = {
-  '/dashboard': 'Overview',
+  '/dashboard': 'Dashboard',
   '/dashboard/profile': 'Profile',
-  '/dashboard/sessions': 'Sessions',
+  '/dashboard/sessions': 'My Bookings',
   '/dashboard/courses': 'Courses',
   '/dashboard/events': 'Events',
-  '/dashboard/offers': 'Offers',
+  '/dashboard/offers': 'Marketplace Offers',
   '/dashboard/human-mentors': 'Human Mentors',
-  '/dashboard/ai-mentors': 'AI Mentors',
+  '/dashboard/ai-mentors': 'AI Coaches',
   '/dashboard/support': 'Support',
   '/dashboard/assistant': 'Ask Hana',
 }

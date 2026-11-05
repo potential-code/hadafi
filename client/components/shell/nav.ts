@@ -54,8 +54,8 @@ export type ShellConfig = {
   quickAction?: ShellNavItem
 }
 
-// Only pages Hadafi has today. Multi Learning and AI Examiner (learner) join
-// these menus as each of those features lands.
+// Learner groups and names follow SMEEP's sidebar (Learn, Get Certified, Connect, Grow), without its
+// learning journeys, community and competitions, which Hadafi does not have.
 const ASK_HANA: ShellNavItem = { label: 'Ask Hana', href: '/dashboard/assistant', icon: Sparkles }
 
 export const SHELL_CONFIG: Record<ShellRole, ShellConfig> = {
@@ -64,38 +64,41 @@ export const SHELL_CONFIG: Record<ShellRole, ShellConfig> = {
     homeHref: '/dashboard',
     profileHref: '/dashboard/profile',
     groups: [
-      { items: [{ label: 'Home', href: '/dashboard', icon: House, exact: true }, ASK_HANA] },
+      { items: [{ label: 'Dashboard', href: '/dashboard', icon: House, exact: true }, ASK_HANA] },
       {
         title: 'Learn',
+        items: [{ label: 'Courses', href: '/dashboard/courses', icon: GraduationCap }],
+      },
+      {
+        title: 'Get Certified',
         items: [
-          { label: 'Courses', href: '/dashboard/courses', icon: GraduationCap },
           { label: 'AI Examiner', href: '/dashboard/ai-examiner', icon: ShieldCheck },
           { label: 'Certificates', href: '/dashboard/certificates', icon: Award },
           { label: 'Achievements', href: '/dashboard/achievements', icon: Trophy },
         ],
       },
       {
-        title: 'Mentors',
+        title: 'Connect',
         items: [
-          { label: 'AI Mentors', href: '/dashboard/ai-mentors', icon: Bot },
+          { label: 'AI Coaches', href: '/dashboard/ai-mentors', icon: Bot },
           { label: 'Human Mentors', href: '/dashboard/human-mentors', icon: Users },
-          { label: 'My Sessions', href: '/dashboard/sessions', icon: CalendarCheck2 },
+          { label: 'My Bookings', href: '/dashboard/sessions', icon: CalendarCheck2 },
         ],
       },
       {
         title: 'Grow',
         items: [
-          { label: 'Offers', href: '/dashboard/offers', icon: Tag },
+          { label: 'Marketplace Offers', href: '/dashboard/offers', icon: Tag },
           { label: 'Events', href: '/dashboard/events', icon: Calendar },
         ],
       },
     ],
     footer: [{ label: 'Support', href: '/dashboard/support', icon: CircleHelp }],
     tabs: [
-      { label: 'Home', href: '/dashboard', icon: House, exact: true },
+      { label: 'Dashboard', href: '/dashboard', icon: House, exact: true },
       { label: 'Courses', href: '/dashboard/courses', icon: GraduationCap },
       ASK_HANA,
-      { label: 'Mentors', href: '/dashboard/human-mentors', icon: Users },
+      { label: 'Coaches', href: '/dashboard/ai-mentors', icon: Bot },
     ],
     quickAction: ASK_HANA,
   },
