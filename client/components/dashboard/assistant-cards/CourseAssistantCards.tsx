@@ -3,14 +3,14 @@
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
-import { BookOpenCheck, GraduationCap, Loader2 } from 'lucide-react'
+import { GraduationCap, Loader2 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { toast } from 'sonner'
 import { fetchLearnerCourses, apiEnrollInCourse } from '@/lib/api/lms'
 import { filterCourses, filterCoursesByIds, getCourseCta } from './filterUtils'
 import { AssistantCardStrip, AssistantCardSkeleton } from './AssistantCardStrip'
 import { cn } from '@/lib/utils'
-import { optimizedSrc } from '@/lib/images'
+import { courseCoverSrc } from '@/lib/images'
 
 interface Props {
   intent: string
@@ -62,17 +62,7 @@ export function CourseAssistantCards({ intent, topic, ids, actionStatus }: Props
             className="w-52 flex-shrink-0 rounded-[14px] bg-ui-surface border border-ui-line overflow-hidden transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-ui"
           >
             <div className="relative h-24 overflow-hidden">
-              {course.cover ? (
-                <img
-                  src={optimizedSrc(course.cover)}
-                  alt={course.title}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="w-full h-full bg-ui-brand-soft flex items-center justify-center">
-                  <BookOpenCheck className="w-6 h-6 text-ui-brand-text" aria-hidden />
-                </div>
-              )}
+              <img src={courseCoverSrc(course.cover)} alt={course.title} className="w-full h-full object-cover" />
               <span
                 className={cn(
                   'absolute top-1.5 end-1.5 px-2 py-0.5 rounded-md text-[11px] font-semibold bg-ui-surface/95 text-ui-text',

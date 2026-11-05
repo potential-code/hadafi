@@ -8,7 +8,7 @@ import { forwardRef, type ComponentPropsWithoutRef, type ReactNode } from 'react
 import { cva, type VariantProps } from 'class-variance-authority'
 import type { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { optimizedSrc } from '@/lib/images'
+import { courseCoverSrc, optimizedSrc } from '@/lib/images'
 
 // ── Buttons (class helper so it works on <button>, <Link> and <a>) ───────────
 
@@ -324,13 +324,12 @@ export function Avatar({
   )
 }
 
-const TILE_TONES = ['#4c1d6e', '#1d4e89', '#1f6f5c', '#8a4513', '#2f4858', '#7a1a4c', '#3d3a1e']
-
-/** Course cover: the image when there is one, else a coloured tile with an icon. */
+/**
+ * Course cover: the course's image, or Hadafi's default cover when it has none.
+ * `title` and `icon` are kept for callers; the default cover replaced the old coloured tile.
+ */
 export function CoverTile({
   src,
-  title,
-  icon: Icon,
   className,
 }: {
   src?: string | null
@@ -338,16 +337,7 @@ export function CoverTile({
   icon?: LucideIcon
   className?: string
 }) {
-  if (src) return <img src={optimizedSrc(src)} alt="" className={cn('aspect-video w-full object-cover', className)} />
-  return (
-    <span
-      aria-hidden
-      className={cn('flex aspect-video w-full items-center justify-center text-white/85', className)}
-      style={{ background: TILE_TONES[hashIndex(title, TILE_TONES.length)] }}
-    >
-      {Icon ? <Icon className="h-9 w-9" strokeWidth={1.5} /> : <span className="text-2xl font-semibold">{initialsOf(title)}</span>}
-    </span>
-  )
+  return <img src={courseCoverSrc(src)} alt="" className={cn('aspect-video w-full object-cover', className)} />
 }
 
 // ── Forms ─────────────────────────────────────────────────────────────────────

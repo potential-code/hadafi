@@ -4,19 +4,27 @@ import './globals.css'
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'swap' })
 
+// Icons and the shared-link image are files in this folder (favicon.ico, icon.svg,
+// apple-icon.png, opengraph-image.jpg, twitter-image.jpg), as on SMEEP; Next adds
+// their tags. metadataBase makes the image URLs absolute, which link previews need.
 export const metadata: Metadata = {
-  title: 'Hadafi – Women Entrepreneurship Program',
+  metadataBase: new URL('https://hadafi.potential.org'),
+  // Each page sets its own title, shown as "Courses | Hadafi"; the homepage keeps the full name.
+  title: { default: 'Hadafi – Women Entrepreneurship Program', template: '%s | Hadafi' },
   description:
     'Hadafi empowers women entrepreneurs with free AI tools, training courses, mentorship, and partner resources. Start or grow your business today.',
   keywords: 'Hadafi, women entrepreneurship, AI, business empowerment, women entrepreneurs, free program',
   openGraph: {
     title: 'Hadafi – Women Entrepreneurship Program',
-    description: 'Free AI-powered program empowering women entrepreneurs worldwide.',
+    description: 'Free courses, AI tools and mentors for women entrepreneurs. Powered by Potential.org.',
     type: 'website',
+    siteName: 'Hadafi',
+    url: '/',
   },
-  icons: {
-    icon: '/images/hadafi-logo.png',
-    apple: '/images/hadafi-logo.png',
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hadafi – Women Entrepreneurship Program',
+    description: 'Free courses, AI tools and mentors for women entrepreneurs. Powered by Potential.org.',
   },
 }
 
