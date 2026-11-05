@@ -31,7 +31,7 @@ import { changePassword, getUser, renameCachedUser, setFirstPassword } from '@/l
 import { downloadCertificate, fetchLearnerCourses, fetchUserCertificates, type CertificateWithCourse } from '@/lib/api/lms'
 import { fetchOffers } from '@/lib/api/offers'
 import { cn } from '@/lib/utils'
-import { optimizedSrc } from '@/lib/images'
+import { courseCoverSrc } from '@/lib/images'
 
 const COUNTRIES = getCountryDataList()
   .map((c) => c.name)
@@ -365,13 +365,7 @@ export default function ProfilePage() {
                 <ul className="flex flex-col gap-3">
                   {enrolled.slice(0, 4).map((c) => (
                     <li key={c.id} className="grid grid-cols-[40px_minmax(0,1fr)_38px] items-center gap-2.5">
-                      {c.cover ? (
-                        <img src={optimizedSrc(c.cover)} alt="" className="h-[30px] w-10 rounded-md object-cover" />
-                      ) : (
-                        <span aria-hidden className="inline-flex h-[30px] w-10 items-center justify-center rounded-md bg-[#4c1d6e] text-[#f3d7ea]">
-                          <FileText className="h-4 w-4" />
-                        </span>
-                      )}
+                      <img src={courseCoverSrc(c.cover)} alt="" className="h-[30px] w-10 rounded-md object-cover" />
                       <span className="flex min-w-0 flex-col gap-[5px]">
                         <Link href={`/dashboard/courses/${c.id}`} className="truncate text-[13px] font-semibold text-ui-text hover:underline">
                           {c.title}
