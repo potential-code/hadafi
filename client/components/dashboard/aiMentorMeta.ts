@@ -44,7 +44,7 @@ const META: Record<string, { icon: LucideIcon; tile: { bg: string; fg: string };
   },
   'sustainability-bot': {
     icon: Leaf,
-    tile: { bg: '#E7F4EC', fg: '#1d7f53' },
+    tile: { bg: '#E7F4EC', fg: '#1a7149' },
     starters: ['Cut my energy costs', 'Make my packaging greener', 'Write a simple sustainability policy'],
   },
   'corporate-security': {

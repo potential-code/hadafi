@@ -4,6 +4,7 @@ import { btn } from '@/components/kit'
 import { SOCIAL_LINKS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { CONTACT_EMAIL } from './legal'
+import { NewsletterForm } from './NewsletterForm'
 
 export function XIcon({ className }: { className?: string }) {
   return (
@@ -46,13 +47,14 @@ export function LandingCommunity() {
           >
             Share your story with {CONTACT_EMAIL}
           </a>
-          {FOLLOW.length > 0 && (
-            <div className="mt-1 flex flex-col gap-2 border-t border-ui-line pt-4">
-              <p className="text-sm text-ui-muted">
-                <strong className="font-semibold text-ui-text">Stay in the loop.</strong> Follow Hadafi for new
-                courses, live event invites and member offers.
-              </p>
-              <ul className="flex flex-wrap gap-2">
+          <div className="mt-1 flex flex-col gap-2.5 border-t border-ui-line pt-4">
+            <p className="text-sm text-ui-muted">
+              <strong className="font-semibold text-ui-text">Stay in the loop.</strong> New courses, live event
+              invites and member offers{FOLLOW.length > 0 ? ', by email or on social media' : ' by email'}.
+            </p>
+            <NewsletterForm />
+            {FOLLOW.length > 0 && (
+              <ul className="flex flex-wrap gap-2" aria-label="Hadafi on social media">
                 {FOLLOW.map((s) => {
                   const Icon = ICONS[s.icon]
                   return (
@@ -70,8 +72,8 @@ export function LandingCommunity() {
                   )
                 })}
               </ul>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         <div className="flex min-w-0 flex-col justify-center gap-4 rounded-[14px] border border-ui-brand bg-ui-brand p-7 text-white">

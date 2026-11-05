@@ -32,7 +32,7 @@ const AI_STYLE: Record<string, { icon: LucideIcon; tone: string; blurb: string }
   'marketing-coach': { icon: Megaphone, tone: 'bg-[#E8EEF9] text-[#1d4e89]', blurb: 'Data-driven marketing to grow your brand and customer base.' },
   'legal-consultant': { icon: Scale, tone: 'bg-[#FDF1E3] text-[#8a4513]', blurb: 'Business legalities, contracts and compliance.' },
   'leadership-mentor': { icon: Users, tone: 'bg-[#EEE8F6] text-[#4c1d6e]', blurb: 'Leadership skills to inspire teams and drive growth.' },
-  'sustainability-bot': { icon: Leaf, tone: 'bg-[#E7F4EC] text-[#1d7f53]', blurb: 'Sustainable practices that reduce costs and boost reputation.' },
+  'sustainability-bot': { icon: Leaf, tone: 'bg-[#E7F4EC] text-[#1a7149]', blurb: 'Sustainable practices that reduce costs and boost reputation.' },
   'corporate-security': { icon: ShieldCheck, tone: 'bg-[#EDEFF2] text-[#2f4858]', blurb: 'Security policies and safety protocols for your business.' },
 }
 const AI_ORDER = Object.keys(AI_STYLE)

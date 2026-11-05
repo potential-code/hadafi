@@ -17,17 +17,17 @@ import { SERVER_CLAIMS } from './serviceTokenClaims'
  * malformed reply, a timeout) returns the English original: a learner may see
  * an untranslated line, never a broken page.
  *
- * Hadafi offers English, Arabic and Urdu. The app's own labels stay English;
+ * Hadafi offers English, Arabic, Hindi and Urdu, as SMEEP. The app's own labels stay English;
  * only course content and Hana's words change language.
  */
 
-export type ContentLanguage = 'ar' | 'ur'
+export type ContentLanguage = 'ar' | 'hi' | 'ur'
 export type TranslationDomain = 'catalogue' | 'lesson'
 
-export const CONTENT_LANGUAGES: readonly ContentLanguage[] = ['ar', 'ur']
+export const CONTENT_LANGUAGES: readonly ContentLanguage[] = ['ar', 'hi', 'ur']
 
 export function isContentLanguage(value: unknown): value is ContentLanguage {
-  return value === 'ar' || value === 'ur'
+  return value === 'ar' || value === 'hi' || value === 'ur'
 }
 
 const BATCH_SIZE = 25

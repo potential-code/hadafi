@@ -10,11 +10,12 @@ import type { LearnerLanguage } from './api'
 export const LANGUAGES: ReadonlyArray<{ code: LearnerLanguage; label: string; short: string; name: string; dir: 'ltr' | 'rtl' }> = [
   { code: 'en', label: 'English', short: 'EN', name: 'English', dir: 'ltr' },
   { code: 'ar', label: 'العربية', short: 'ع', name: 'Arabic', dir: 'rtl' },
+  { code: 'hi', label: 'हिन्दी', short: 'हि', name: 'Hindi', dir: 'ltr' },
   { code: 'ur', label: 'اردو', short: 'اردو', name: 'Urdu', dir: 'rtl' },
 ]
 
 export function isLearnerLanguage(value: unknown): value is LearnerLanguage {
-  return value === 'en' || value === 'ar' || value === 'ur'
+  return value === 'en' || value === 'ar' || value === 'hi' || value === 'ur'
 }
 
 /** Direction of course content in a language. The page around it stays left to right. */
@@ -39,6 +40,7 @@ export function contentDir(text: string | null | undefined): 'rtl' | 'auto' {
 export const RECOGNITION_LOCALE: Record<LearnerLanguage, string> = {
   en: 'en-US',
   ar: 'ar-AE',
+  hi: 'hi-IN',
   ur: 'ur-PK',
 }
 

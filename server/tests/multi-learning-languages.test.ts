@@ -25,7 +25,7 @@ type Call = { texts: string[]; targetLang: string; domain: string; claims: Recor
 const calls: Call[] = []
 let failNext = false
 
-const PREFIX: Record<string, string> = { ar: 'ترجمة', ur: 'ترجمہ' }
+const PREFIX: Record<string, string> = { ar: 'ترجمة', hi: 'अनुवाद', ur: 'ترجمہ' }
 
 const realFetch = globalThis.fetch
 const saved = { base: process.env['NEXT_PUBLIC_AI_BACKEND_URL'], secret: process.env['COPILOT_SERVICE_JWT_SECRET'] }
@@ -193,6 +193,17 @@ describe('Tutor languages: translated cards for an enrolled learner', () => {
     expect(calls.every((c) => c.targetLang === 'ur')).toBe(true)
   })
 
+  it('serves Hindi, left to right in Devanagari, through the same translation path', async () => {
+    calls.length = 0
+    const res = await get<{ title: string; introduction: string }>(learner, `/api/multi-learning/units/${ids.unit}/intro?lang=hi`)
+    expect(res.status).toBe(200)
+    expect(res.body.data.title).toBe(`अनुवाद: ${TAG} unit`)
+    expect(calls.length).toBeGreaterThan(0)
+    expect(calls.every((c) => c.targetLang === 'hi')).toBe(true)
+    const state = await get<State>(learner, `/api/multi-learning/state?courseId=${ids.course}&lang=hi`)
+    expect(state.body.data.language).toBe('hi')
+  })
+
   it('translates the unit introduction, but the material Hana loads stays English', async () => {
     const intro = await get<{ title: string; introduction: string }>(learner, `/api/multi-learning/units/${ids.unit}/intro?lang=ar`)
     expect(intro.status).toBe(200)
@@ -245,7 +256,7 @@ describe('Tutor languages: the cache', () => {
 
 describe('Tutor languages: a whitelist', () => {
   it('serves English, with no translation call, for any other language', async () => {
-    for (const lang of ['en', 'hi', 'fr', 'AR', 'ar-AE', '', '../ar']) {
+    for (const lang of ['en', 'de', 'fr', 'AR', 'HI', 'ar-AE', '', '../ar']) {
       const res = await get<State>(learner, `/api/multi-learning/state?courseId=${ids.course}&lang=${encodeURIComponent(lang)}`)
       expect(res.status).toBe(200)
       expect(res.body.data.language).toBe('en')

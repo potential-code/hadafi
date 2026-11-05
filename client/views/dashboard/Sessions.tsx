@@ -389,7 +389,7 @@ export default function SmeSessions() {
   return (
     <DashboardLayout>
       <PageHeader
-        title="My Sessions"
+        title="My Bookings"
         subtitle={`Your upcoming and past mentoring sessions.${timezone ? ` Times shown in your timezone (${timezone}${abbr ? `, ${abbr}` : ''}).` : ''}`}
         className="mb-[22px] max-sm:flex-col max-sm:items-start"
         actions={

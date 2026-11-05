@@ -58,8 +58,8 @@ export type NextStep =
   | { action: 'show_action_plan'; unitId: string; learningBlockId: string; checkIn?: boolean }
   | { action: 'show_quiz'; assessmentId: string; retake: boolean; pretest?: boolean }
 
-/** English, Arabic or Urdu (Hadafi's offer; the server treats anything else as English). */
-export type LearnerLanguage = 'en' | 'ar' | 'ur'
+/** English, Arabic, Hindi or Urdu (as SMEEP; the server treats anything else as English). */
+export type LearnerLanguage = 'en' | 'ar' | 'hi' | 'ur'
 
 export interface CourseState {
   language: LearnerLanguage

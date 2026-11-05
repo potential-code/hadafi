@@ -1,6 +1,6 @@
 'use client'
 
-/** Small confirm dialog in the redesign kit style (My Sessions cancel confirmation). */
+/** Small confirm dialog in the redesign kit style (My Bookings cancel confirmation). */
 import { useEffect, useRef, type ReactNode } from 'react'
 import { AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/kit'

@@ -287,7 +287,7 @@ export function initialsOf(name: string) {
 const AVATAR_TONES = [
   'bg-[#FBEEF4] text-[#9f2063]',
   'bg-[#E8EEF9] text-[#1d4e89]',
-  'bg-[#E7F4EC] text-[#1d7f53]',
+  'bg-[#E7F4EC] text-[#1a7149]',
   'bg-[#FDF1E3] text-[#8a4513]',
   'bg-[#EEE8F6] text-[#4c1d6e]',
   'bg-[#EDEFF2] text-[#2f4858]',

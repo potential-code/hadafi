@@ -758,7 +758,7 @@ function ComingUpCard({
           Find a mentor
         </Link>
         <Link href="/dashboard/sessions" className={cn(btn({ variant: 'ghost', size: 'sm' }), 'h-9')}>
-          My sessions
+          My bookings
         </Link>
         <Link href="/dashboard/events" className={cn(btn({ variant: 'ghost', size: 'sm' }), 'h-9')}>
           All events

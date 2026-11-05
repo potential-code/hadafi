@@ -27,7 +27,7 @@ const send =
 
 const uid = (req: Request) => req.user!.userId
 const param = (req: Request, name: string) => String(req.params[name] ?? '')
-/** ?lang=: English, Arabic or Urdu; anything else is English (as SMEEP). */
+/** ?lang=: English, Arabic, Hindi or Urdu; anything else is English (as SMEEP). */
 const lang = (req: Request): tutor.LearnerLanguage => (tutor.isLearnerLanguage(req.query['lang']) ? req.query['lang'] : 'en')
 
 // Same bound as the course page's progress endpoints.
