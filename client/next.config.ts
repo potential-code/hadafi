@@ -4,6 +4,15 @@ import path from 'path'
 
 loadEnv({ path: path.resolve(__dirname, '../.env'), override: false })
 
+// Where the API server is reachable from this Next server (in Docker, the
+// compose service name). Read when the app is built: the browser only ever
+// talks to this site, which forwards /api and /uploads there, so the
+// session cookie is first-party and httpOnly. `||`: compose passes unset
+// variables as empty strings.
+const API_INTERNAL_URL = (
+  process.env.API_INTERNAL_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5100'
+).replace(/\/$/, '')
+
 const config: NextConfig = {
   output: 'standalone',
   // Monorepo: `next` is hoisted to the workspace root node_modules. Trace from
@@ -27,8 +36,20 @@ const config: NextConfig = {
   ],
   // Don't advertise the framework in every response.
   poweredByHeader: false,
+  async rewrites() {
+    return [
+      { source: '/api/:path*', destination: `${API_INTERNAL_URL}/api/:path*` },
+      { source: '/uploads/:path*', destination: `${API_INTERNAL_URL}/uploads/:path*` },
+    ]
+  },
   async headers() {
     return [
+      {
+        // public/images file names are not content-hashed, so cache for a day
+        // and revalidate in the background for a week rather than forever.
+        source: '/images/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=604800' }],
+      },
       {
         // Every page (the /api responses get theirs from the API's helmet).
         // Other sites can't frame Hadafi, so they can't trick a signed-in

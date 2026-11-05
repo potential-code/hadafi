@@ -10,9 +10,11 @@ import type {
 } from '@copilotkit/react-core/v2'
 import { CopilotChatToolCallsView } from '@copilotkit/react-core/v2'
 import { motion } from 'framer-motion'
-import { SendHorizontal, Square, Copy, Check } from 'lucide-react'
+import { SendHorizontal, Square, Copy, Check, Loader2, Volume2 } from 'lucide-react'
 import { getUser } from '@/lib/auth'
 import { ChatLoadingContext } from './chat-loading-context'
+import { useReadAloud } from './useHanaVoice'
+import { replyPlainText } from './HanaReplyButtons'
 
 // ─── Module-level refs shared between HadafiChatInput and EmbeddedDashboardAssistant ──
 //
@@ -30,6 +32,9 @@ export const onPillClickRef: { current: ((text: string) => void) | null } = { cu
 // V2: onSubmitMessage from CopilotChatInput. Pill clicks use this ref so they
 // go through the same submission path as typed messages.
 export const copilotSendRef: { current: ((text: string) => void) | null } = { current: null }
+// Custom `input` renderers bypass CopilotChat's `labels.chatInputPlaceholder`, so callers that
+// need a non-default placeholder write it here instead. null = use the default.
+export const chatPlaceholderRef: { current: string | null } = { current: null }
 
 // When a new pill set mounts it calls this to disable the previous set.
 let disablePreviousPills: (() => void) | null = null
@@ -49,9 +54,16 @@ export type ParsedMessage = { prose: string; pills: string[]; label: string; mul
 // Label is optional in both forms. Without the sentinel the list renders as plain markdown.
 const OPTIONS_SENTINEL_RE = /^<!-- options(-multi)?(?::\s*(.+?))?\s*-->$/
 const SUGGEST_SENTINEL_RE = /^<!-- suggest:\s*(.+?)\s*-->$/m
+const ANY_SENTINEL_RE = /<!-- (?:options(?:-multi)?|suggest)\b[^\n]*?-->/g
 
-export function parseAssistantPills(content: string): ParsedMessage {
-  const empty = (c: string): ParsedMessage => ({ prose: c, pills: [], label: '', multiSelect: false, isSuggest: false })
+export function parseAssistantPills(raw: string): ParsedMessage {
+  // A marker the parser can't use must never reach the learner as text.
+  const empty = (c: string): ParsedMessage => ({ prose: c.replace(ANY_SENTINEL_RE, '').trim(), pills: [], label: '', multiSelect: false, isSuggest: false })
+  // Models sometimes put the options marker at the end of the question line;
+  // move it onto its own line so the block below can find it.
+  const content = raw.includes('<!-- options')
+    ? raw.replace(/[ \t]*(<!-- options(?:-multi)?(?::[^\n]*?)?\s*-->)[ \t]*/g, '\n$1\n').replace(/\n{3,}/g, '\n\n')
+    : raw
 
   // Suggest sentinel — pipe-separated, no numbered list, no prose
   if (content.includes('<!-- suggest:')) {
@@ -74,16 +86,20 @@ export function parseAssistantPills(content: string): ParsedMessage {
   while (cursor >= 0) {
     const line = lines[cursor].trim()
     if (line === '') break
-    const m = line.match(/^(\d+)\.\s+(.+)$/)
+    // "1. Option", "1) Option", or a bullet ("- Option", "* Option", "• Option").
+    const m = line.match(/^(?:(\d+)[.)]|[-*•])\s+(.+)$/)
     if (!m) break
-    items.unshift({ lineIdx: cursor, text: m[2], num: parseInt(m[1], 10) })
+    items.unshift({ lineIdx: cursor, text: m[2], num: m[1] ? parseInt(m[1], 10) : 0 })
     cursor--
   }
 
   if (items.length < 2) return empty(content)
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].num !== i + 1) return empty(content)
-  }
+  // Numbered lists must count 1, 2, 3; bulleted lists have no numbers to check.
+  if (items.every((it) => it.num > 0)) {
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].num !== i + 1) return empty(content)
+    }
+  } else if (items.some((it) => it.num > 0)) return empty(content)
   if (items.some(it => it.text.length > 200)) return empty(content)
 
   // Sentinel must appear on the line immediately before the numbered block.
@@ -100,7 +116,28 @@ export function parseAssistantPills(content: string): ParsedMessage {
   const proseLines = lines.slice(0, preIdx)
   while (proseLines.length > 0 && proseLines[proseLines.length - 1].trim() === '') proseLines.pop()
 
-  return { prose: proseLines.join('\n'), pills: items.map(it => it.text), label, multiSelect, isSuggest: false }
+  // Defensive cleanup: a sloppy model sometimes emits the question + options
+  // block twice in one message. The trailing block became the pills above;
+  // strip any earlier sentinel blocks (sentinel line + its numbered list)
+  // still embedded in the prose, then drop a line that exactly repeats the
+  // previous kept line (the duplicated question the stripping exposes).
+  const cleaned: string[] = []
+  let li = 0
+  while (li < proseLines.length) {
+    if (OPTIONS_SENTINEL_RE.test(proseLines[li].trim())) {
+      li++
+      while (li < proseLines.length && (proseLines[li].trim() === '' || /^(?:\d+[.)]|[-*•])\s+/.test(proseLines[li].trim()))) li++
+      continue
+    }
+    const trimmed = proseLines[li].trim()
+    const prevKept = [...cleaned].reverse().find((l) => l.trim() !== '')
+    if (trimmed !== '' && prevKept?.trim() === trimmed) { li++; continue }
+    cleaned.push(proseLines[li])
+    li++
+  }
+  while (cleaned.length > 0 && cleaned[cleaned.length - 1].trim() === '') cleaned.pop()
+
+  return { prose: cleaned.join('\n'), pills: items.map(it => it.text), label, multiSelect, isSuggest: false }
 }
 
 // ─── HadafiTypingCursor ───────────────────────────────────────────────────────
@@ -109,7 +146,7 @@ export function HadafiTypingCursor() {
   return (
     <div className="flex gap-2 items-end mb-3">
       <img
-        src="/images/redesign/hana-avatar.png"
+        src="/images/redesign/hana-avatar.webp"
         alt="Hana"
         className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
       />
@@ -133,6 +170,56 @@ export function HadafiTypingCursor() {
 
 // ─── HadafiAssistantMessage ────────────────────────────────────────────────────
 
+/**
+ * Copy and read aloud in the corner of a sign-up chat reply (the same actions
+ * as under Hana's answers in the other chats). Visitors without an account
+ * hear the browser's own voice (useReadAloud).
+ */
+function BubbleActions({ id, text }: { id: string; text: string }) {
+  const [copied, setCopied] = useState(false)
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current) }, [])
+  const readAloud = useReadAloud()
+  const plain = replyPlainText(text)
+  const loading = readAloud.loadingId === id
+  const playing = readAloud.playingId === id
+  const on = loading || playing
+  if (!plain) return null
+  const btnClass =
+    'inline-flex h-6 w-6 items-center justify-center rounded-md transition-colors hover:bg-[#fdf2f8] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#e41674]'
+  return (
+    <span className="absolute bottom-0.5 right-1 flex items-center gap-0.5">
+      <button
+        type="button"
+        onClick={() => void (on ? readAloud.stop() : readAloud.play(id, plain))}
+        aria-pressed={on}
+        aria-label={on ? 'Stop reading' : 'Read aloud'}
+        title={on ? 'Stop reading' : 'Read aloud'}
+        className={btnClass}
+        style={{ color: on ? '#b50d5c' : '#6b7280' }}
+      >
+        {loading ? <Loader2 size={12} className="animate-spin" aria-hidden /> : playing ? <Square size={10} fill="currentColor" aria-hidden /> : <Volume2 size={13} strokeWidth={2} aria-hidden />}
+      </button>
+      <button
+        type="button"
+        onClick={() =>
+          void navigator.clipboard.writeText(plain).then(() => {
+            setCopied(true)
+            if (timerRef.current) clearTimeout(timerRef.current)
+            timerRef.current = setTimeout(() => setCopied(false), 3000)
+          }).catch(() => undefined)
+        }
+        aria-label={copied ? 'Copied' : 'Copy message'}
+        title={copied ? 'Copied' : 'Copy'}
+        className={btnClass}
+        style={{ color: copied ? '#b50d5c' : '#6b7280' }}
+      >
+        {copied ? <Check size={12} strokeWidth={2.5} aria-hidden /> : <Copy size={12} strokeWidth={2} aria-hidden />}
+      </button>
+    </span>
+  )
+}
+
 export function HadafiAssistantMessage({ message, messages }: CopilotChatAssistantMessageProps) {
   const m = message as { name?: string; content?: unknown; toolCalls?: unknown[] } | undefined
 
@@ -150,15 +237,12 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
   const hasPills = pills.length > 0
 
   // ── All hooks unconditionally ─────────────────────────────────────────────
-  const [copied, setCopied] = useState(false)
   const [pillsDisabledByNewer, setPillsDisabledByNewer] = useState(false)
   const [selectedPills, setSelectedPills] = useState<Set<number>>(new Set())
   const streaming = useContext(ChatLoadingContext)
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   // Guards against React Strict Mode's double-effect invocation.
   const hasRegisteredPillsRef = useRef(false)
 
-  useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current) }, [])
 
   // When this message first gets pills, disable the previous pill set and register ours.
   useEffect(() => {
@@ -197,7 +281,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
       <>
         <div className="flex gap-2 items-end mb-3">
           <img
-            src="/images/redesign/hana-avatar.png"
+            src="/images/redesign/hana-avatar.webp"
             alt="Hana"
             className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
           />
@@ -206,18 +290,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
             style={{ borderRadius: '14px 14px 14px 0', maxWidth: '85%' }}
           >
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
-            <button
-              onClick={() => navigator.clipboard.writeText(content).then(() => {
-                setCopied(true)
-                if (timerRef.current) clearTimeout(timerRef.current)
-                timerRef.current = setTimeout(() => setCopied(false), 3000)
-              })}
-              aria-label={copied ? 'Copied' : 'Copy message'}
-              className="absolute bottom-1.5 right-2 flex items-center gap-1 transition-colors"
-              style={{ color: copied ? '#e41674' : 'rgba(107,114,128,0.5)' }}
-            >
-              {copied ? <Check size={11} strokeWidth={2.5} /> : <Copy size={11} strokeWidth={2} />}
-            </button>
+            {!(streaming && !isStale) && thisId && <BubbleActions id={thisId} text={content} />}
           </div>
         </div>
         {hasToolCalls && (
@@ -258,7 +331,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
     <>
       <div className="flex gap-2 items-start mb-3">
         <img
-          src="/images/redesign/hana-avatar.png"
+          src="/images/redesign/hana-avatar.webp"
           alt="Hana"
           className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0 mt-0.5"
         />
@@ -269,18 +342,7 @@ export function HadafiAssistantMessage({ message, messages }: CopilotChatAssista
               style={{ borderRadius: '14px 14px 14px 0' }}
             >
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{prose}</ReactMarkdown>
-              <button
-                onClick={() => navigator.clipboard.writeText(prose).then(() => {
-                  setCopied(true)
-                  if (timerRef.current) clearTimeout(timerRef.current)
-                  timerRef.current = setTimeout(() => setCopied(false), 3000)
-                })}
-                aria-label={copied ? 'Copied' : 'Copy message'}
-                className="absolute bottom-1.5 right-2 flex items-center gap-1 transition-colors"
-                style={{ color: copied ? '#e41674' : 'rgba(107,114,128,0.5)' }}
-              >
-                {copied ? <Check size={11} strokeWidth={2.5} /> : <Copy size={11} strokeWidth={2} />}
-              </button>
+              {!(streaming && !isStale) && thisId && <BubbleActions id={thisId} text={prose} />}
             </div>
           )}
           {label && (

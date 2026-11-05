@@ -1,31 +1,32 @@
 'use client'
 
-import { useState, useEffect, type FormEvent } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect, type FormEvent, type ReactNode } from 'react'
 import {
-  Save,
-  Pencil,
-  X,
-  User as UserIcon,
-  Mail,
   Briefcase,
-  Shield,
-  Lock,
-  KeyRound,
-  Phone,
-  MapPin,
   Building2,
-  ChevronDown,
+  KeyRound,
+  Loader2,
+  Mail,
+  MapPin,
+  Pencil,
+  Phone,
+  ShieldCheck,
+  User as UserIcon,
 } from 'lucide-react'
 import { getCountryDataList } from 'countries-list'
-
-const COUNTRIES = getCountryDataList().map((c) => c.name).sort((a, b) => a.localeCompare(b))
 import { toast } from 'sonner'
 import { AdminLayout } from '@/components/admin/AdminLayout'
-import { PageHeader } from '@/components/dashboard/widgets/PageHeader'
-import { getUser, getToken, setAuth } from '@/lib/auth'
+import { PartnerLayout } from '@/components/partner/PartnerLayout'
+import { Avatar, btn, inputClass, PageHeader } from '@/components/kit'
+import { fmtDate, Pill, selectClass } from '@/components/admin/ui'
+import { changePassword as updatePassword, getUser, renameCachedUser, setFirstPassword } from '@/lib/auth'
 import { apiFetch } from '@/lib/api'
 import { PhoneField } from '@/components/ui/PhoneField'
+import { cn } from '@/lib/utils'
+
+const COUNTRIES = getCountryDataList()
+  .map((c) => c.name)
+  .sort((a, b) => a.localeCompare(b))
 
 interface MeUser {
   id: string
@@ -37,13 +38,17 @@ interface MeUser {
   company: string | null
   phone: string | null
   avatarUrl: string | null
+  timezone?: string | null
+  createdAt?: string
+  hasPassword?: boolean
 }
 
-function avatarUrl(name: string) {
-  return `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name)}&backgroundColor=4c1d6e&fontSize=42&radius=50`
-}
+type ApiErr = { error?: { message?: string; code?: string; errors?: Record<string, string[]> } }
 
-export default function AdminProfilePage() {
+/** The signed-in admin's own profile and password; partner contacts get the same page in their own shell. */
+export default function AdminProfilePage({ variant = 'admin' }: { variant?: 'admin' | 'partner' }) {
+  const partner = variant === 'partner'
+  const Layout = partner ? PartnerLayout : AdminLayout
   const cached = getUser()
 
   const [serverUser, setServerUser] = useState<MeUser | null>(null)
@@ -62,9 +67,10 @@ export default function AdminProfilePage() {
   const [pwSaving, setPwSaving] = useState(false)
   const [pwErrors, setPwErrors] = useState<Record<string, string>>({})
 
+
   useEffect(() => {
     let cancelled = false
-    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/auth/me')
+    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/account/me')
       .then(({ data }) => {
         if (cancelled) return
         const u = data.user
@@ -78,10 +84,11 @@ export default function AdminProfilePage() {
         })
       })
       .catch(() => {
-        if (cancelled) return
-        // silently keep cached values
+        // keep the cached values
       })
-    return () => { cancelled = true }
+    return () => {
+      cancelled = true
+    }
   }, [])
 
   function update<K extends keyof typeof form>(k: K, v: (typeof form)[K]) {
@@ -91,17 +98,19 @@ export default function AdminProfilePage() {
 
   function validateForm() {
     const e: Record<string, string> = {}
-    if (!form.fullName.trim() || form.fullName.trim().length < 2)
-      e.fullName = 'Name must be at least 2 characters'
+    if (!form.fullName.trim() || form.fullName.trim().length < 2) e.fullName = 'Name must be at least 2 characters'
     return e
   }
 
   function onSubmit(e: FormEvent) {
     e.preventDefault()
     const errs = validateForm()
-    if (Object.keys(errs).length > 0) { setErrors(errs); return }
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs)
+      return
+    }
     setSaving(true)
-    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/auth/me', {
+    apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/account/me', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -121,19 +130,14 @@ export default function AdminProfilePage() {
           company: data.user.company ?? '',
           country: data.user.country ?? '',
         })
-        const currentUser = getUser()
-        if (currentUser) {
-          setAuth(getToken()!, { ...currentUser, fullName: data.user.fullName })
-        }
+        renameCachedUser(data.user.fullName)
         setEditing(false)
         toast.success('Profile updated')
       })
-      .catch((err: { error?: { message?: string; code?: string; errors?: Record<string, string[]> } }) => {
+      .catch((err: ApiErr) => {
         if (err?.error?.code === 'VALIDATION_ERROR' && err.error.errors) {
           const mapped: Record<string, string> = {}
-          for (const [k, msgs] of Object.entries(err.error.errors)) {
-            mapped[k] = msgs[0] ?? ''
-          }
+          for (const [k, msgs] of Object.entries(err.error.errors)) mapped[k] = msgs[0] ?? ''
           setErrors(mapped)
         } else {
           toast.error(err?.error?.message ?? 'Failed to save changes')
@@ -143,21 +147,25 @@ export default function AdminProfilePage() {
   }
 
   function cancelEdit() {
-    if (!serverUser) return
-    setForm({
-      fullName: serverUser.fullName,
-      phone: serverUser.phone ?? '',
-      bio: serverUser.bio ?? '',
-      company: serverUser.company ?? '',
-      country: serverUser.country ?? '',
-    })
+    if (serverUser) {
+      setForm({
+        fullName: serverUser.fullName,
+        phone: serverUser.phone ?? '',
+        bio: serverUser.bio ?? '',
+        company: serverUser.company ?? '',
+        country: serverUser.country ?? '',
+      })
+    }
     setErrors({})
     setEditing(false)
   }
 
+  // Accounts made by email code have no password yet; they add one instead of changing it.
+  const firstPassword = serverUser?.hasPassword === false
+
   function validatePw() {
     const e: Record<string, string> = {}
-    if (!pwForm.current) e.current = 'Current password is required'
+    if (!firstPassword && !pwForm.current) e.current = 'Current password is required'
     if (pwForm.next.length < 8) e.next = 'Must be at least 8 characters'
     if (pwForm.next !== pwForm.confirm) e.confirm = "Passwords don't match"
     return e
@@ -166,26 +174,24 @@ export default function AdminProfilePage() {
   function changePassword(e: FormEvent) {
     e.preventDefault()
     const errs = validatePw()
-    if (Object.keys(errs).length > 0) { setPwErrors(errs); return }
+    if (Object.keys(errs).length > 0) {
+      setPwErrors(errs)
+      return
+    }
     setPwSaving(true)
-    apiFetch('/api/auth/change-password', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ currentPassword: pwForm.current, newPassword: pwForm.next }),
-    })
+    ;(firstPassword ? setFirstPassword(pwForm.next) : updatePassword(pwForm.current, pwForm.next))
       .then(() => {
         setPwForm({ current: '', next: '', confirm: '' })
         setPwErrors({})
-        toast.success('Password updated')
+        if (firstPassword) setServerUser((p) => (p ? { ...p, hasPassword: true } : p))
+        toast.success(firstPassword ? 'Password set' : 'Password updated')
       })
-      .catch((err: { error?: { message?: string; code?: string; errors?: Record<string, string[]> } }) => {
+      .catch((err: ApiErr) => {
         if (err?.error?.code === 'INVALID_PASSWORD') {
           setPwErrors({ current: 'Current password is incorrect' })
         } else if (err?.error?.code === 'VALIDATION_ERROR' && err.error.errors) {
           const mapped: Record<string, string> = {}
-          for (const [k, msgs] of Object.entries(err.error.errors)) {
-            mapped[k] = msgs[0] ?? ''
-          }
+          for (const [k, msgs] of Object.entries(err.error.errors)) mapped[k] = msgs[0] ?? ''
           setPwErrors(mapped)
         } else {
           toast.error(err?.error?.message ?? 'Failed to update password')
@@ -195,285 +201,270 @@ export default function AdminProfilePage() {
   }
 
   const displayName = serverUser?.fullName ?? cached?.fullName ?? ''
+  const email = serverUser?.email ?? cached?.email ?? ''
+  const role = serverUser?.role ?? cached?.role ?? ''
 
   return (
-    <AdminLayout>
+    <Layout>
       <PageHeader
-        eyebrow="Profile"
-        title="Admin"
-        highlight="account"
-        subtitle="Manage your administrator profile and security settings."
+        className="mb-5 max-md:flex-col max-md:items-start"
+        title="Profile"
+        subtitle={partner ? 'Manage your partner login and contact details.' : 'Manage your administrator profile and security settings.'}
       />
 
-      <div className="grid grid-cols-12 gap-4 lg:gap-6">
-        {/* Profile card */}
-        <motion.aside
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="col-span-12 lg:col-span-4 rounded-2xl bg-brand-deep text-white border border-white/10 p-6 relative overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-noise opacity-[0.05] mix-blend-overlay pointer-events-none" />
-          <motion.div
-            aria-hidden
-            className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-brand-primary/40 blur-3xl"
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
-          <div className="relative text-center">
-            <div className="relative w-28 h-28 mx-auto rounded-full overflow-hidden ring-4 ring-white/15 shadow-2xl">
-              <img src={avatarUrl(displayName)} alt={displayName} className="w-full h-full object-cover" />
-              <span className="absolute -bottom-0.5 right-3 w-4 h-4 rounded-full bg-emerald-400 ring-2 ring-brand-deep" />
-            </div>
-            <h3 className="mt-4 text-xl font-black">{displayName}</h3>
-            <p className="text-sm text-white/70 capitalize">{serverUser?.role ?? cached?.role}</p>
+      <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 lg:grid-cols-[300px_minmax(0,1fr)]">
+        {/* Identity card */}
+        <aside className="rounded-[14px] border border-ui-line bg-ui-surface p-6 text-center">
+          <Avatar name={displayName || (partner ? 'Partner' : 'Admin')} src={serverUser?.avatarUrl} size={88} className="mx-auto text-[28px]" />
+          <h2 className="mt-4 break-words text-lg font-semibold text-ui-text">{displayName}</h2>
+          <p className="mt-0.5 break-all text-sm text-ui-muted">{email}</p>
+          <Pill tone="brand" className="mt-3">
+            <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+            {partner ? 'Partner' : 'Administrator'}
+          </Pill>
+          <dl className="mt-5 space-y-2 border-t border-ui-line pt-4 text-left text-[13px]">
+            <InfoRow label="Role" value={<span className="capitalize">{role}</span>} />
+            {serverUser?.createdAt && <InfoRow label="Member since" value={fmtDate(serverUser.createdAt)} />}
+            {serverUser?.timezone && <InfoRow label="Time zone" value={serverUser.timezone} />}
+          </dl>
+        </aside>
 
-            <div className="mt-5 flex items-center justify-center gap-1.5">
-              <Shield className="w-3.5 h-3.5 text-brand-primary-light" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-primary-light">
-                Super admin
-              </span>
-            </div>
-          </div>
-        </motion.aside>
-
-        {/* Personal details form */}
-        <motion.form
-          onSubmit={onSubmit}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.05 }}
-          className="col-span-12 lg:col-span-8 rounded-2xl bg-white border border-brand-surface-2 p-6 space-y-5"
-        >
-          <div className="flex items-center justify-between gap-3">
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-text-muted">
-                {editing ? 'Editing details' : 'Personal details'}
-              </p>
-              <p className="text-xs text-brand-text-muted/80 mt-0.5">
-                Update your administrator identity.
-              </p>
-            </div>
-            {!editing && (
-              <button
-                type="button"
-                onClick={() => setEditing(true)}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-primary/10 text-brand-primary text-xs font-bold hover:bg-brand-primary hover:text-white transition-colors"
-              >
-                <Pencil className="w-3.5 h-3.5" />
-                Edit profile
-              </button>
-            )}
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Field icon={<UserIcon className="w-3.5 h-3.5" />} label="Full name" error={errors.fullName}>
-              {editing ? (
-                <input
-                  value={form.fullName}
-                  onChange={(e) => update('fullName', e.target.value)}
-                  className={`profile-input${errors.fullName ? ' border-rose-400' : ''}`}
-                />
-              ) : (
-                <p className="profile-readonly">{displayName}</p>
+        <div className="flex min-w-0 flex-col gap-5">
+          {/* Details */}
+          <form onSubmit={onSubmit} className="rounded-[14px] border border-ui-line bg-ui-surface" aria-labelledby="h-details">
+            <div className="flex items-start justify-between gap-3 border-b border-ui-line px-5 py-4">
+              <div>
+                <h2 id="h-details" className="text-base font-semibold text-ui-text">
+                  {editing ? 'Editing details' : 'Personal details'}
+                </h2>
+                <p className="mt-0.5 text-[13px] text-ui-muted">{partner ? 'Your name and contact details.' : 'Name, contact and bio shown to other admins.'}</p>
+              </div>
+              {!editing && (
+                <button type="button" onClick={() => setEditing(true)} className={btn({ variant: 'secondary', size: 'sm' })}>
+                  <Pencil className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+                  Edit profile
+                </button>
               )}
-            </Field>
-            <Field icon={<Mail className="w-3.5 h-3.5" />} label="Email">
-              <p className="profile-readonly">{serverUser?.email ?? cached?.email}</p>
-            </Field>
-            <Field icon={<Phone className="w-3.5 h-3.5" />} label="Phone">
-              {editing ? (
-                <PhoneField
-                  value={form.phone}
-                  onChange={(v) => update('phone', v)}
-                />
-              ) : (
-                <p className="profile-readonly">{serverUser?.phone || '—'}</p>
-              )}
-            </Field>
-            <Field icon={<MapPin className="w-3.5 h-3.5" />} label="Country">
-              {editing ? (
-                <div className="relative">
+            </div>
+
+            <div className="grid grid-cols-[minmax(0,1fr)] gap-4 px-5 py-5 sm:grid-cols-2">
+              <FormRow id="p-name" icon={UserIcon} label="Full name" error={errors.fullName}>
+                {editing ? (
+                  <input
+                    id="p-name"
+                    value={form.fullName}
+                    onChange={(e) => update('fullName', e.target.value)}
+                    aria-invalid={!!errors.fullName}
+                    className={cn(inputClass, errors.fullName && 'border-ui-danger')}
+                  />
+                ) : (
+                  <ReadValue>{displayName}</ReadValue>
+                )}
+              </FormRow>
+              <FormRow id="p-email" icon={Mail} label="Email">
+                {editing ? <input id="p-email" value={email} readOnly className={cn(inputClass, 'bg-ui-surface-2 text-ui-muted')} /> : <ReadValue>{email}</ReadValue>}
+              </FormRow>
+              <FormRow id="p-phone" icon={Phone} label="Phone" error={errors.phone}>
+                {editing ? (
+                  <PhoneField
+                    value={form.phone}
+                    onChange={(v) => update('phone', v)}
+                    hasError={!!errors.phone}
+                    placeholder="Add a phone number"
+                    className="h-10 rounded-[10px] border-ui-line bg-ui-surface focus-within:border-ui-brand focus-within:ring-ui-brand/20 [&>div]:border-ui-line [&_input]:text-ui-text [&_input]:placeholder:text-ui-muted [&_select]:text-ui-text [&_svg]:text-ui-muted"
+                  />
+                ) : (
+                  <ReadValue empty={!serverUser?.phone}>{serverUser?.phone || 'Not added'}</ReadValue>
+                )}
+              </FormRow>
+              <FormRow id="p-country" icon={MapPin} label="Country">
+                {editing ? (
                   <select
+                    id="p-country"
                     value={form.country}
                     onChange={(e) => update('country', e.target.value)}
-                    className="profile-input appearance-none pr-8 cursor-pointer"
+                    className={cn(selectClass, 'h-10 w-full text-sm font-normal')}
                   >
-                    <option value="">Select country…</option>
+                    <option value="">Select country</option>
                     {COUNTRIES.map((name) => (
-                      <option key={name} value={name}>{name}</option>
+                      <option key={name} value={name}>
+                        {name}
+                      </option>
                     ))}
                   </select>
-                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-text-muted pointer-events-none" />
-                </div>
-              ) : (
-                <p className="profile-readonly">{serverUser?.country || '—'}</p>
-              )}
-            </Field>
-            <Field icon={<Building2 className="w-3.5 h-3.5" />} label="Company">
-              {editing ? (
-                <input
-                  value={form.company}
-                  onChange={(e) => update('company', e.target.value)}
-                  className="profile-input"
-                />
-              ) : (
-                <p className="profile-readonly">{serverUser?.company || '—'}</p>
-              )}
-            </Field>
-            <Field icon={<Briefcase className="w-3.5 h-3.5" />} label="Role">
-              <p className="profile-readonly capitalize">{serverUser?.role ?? cached?.role}</p>
-            </Field>
-          </div>
+                ) : (
+                  <ReadValue empty={!serverUser?.country}>{serverUser?.country || 'Not set'}</ReadValue>
+                )}
+              </FormRow>
+              <FormRow id="p-company" icon={Building2} label="Company" error={errors.company}>
+                {editing ? (
+                  <input
+                    id="p-company"
+                    value={form.company}
+                    onChange={(e) => update('company', e.target.value)}
+                    placeholder="Add a company"
+                    className={inputClass}
+                  />
+                ) : (
+                  <ReadValue empty={!serverUser?.company}>{serverUser?.company || 'Not added'}</ReadValue>
+                )}
+              </FormRow>
+              <FormRow id="p-role" icon={Briefcase} label="Role">
+                {editing ? (
+                  <input id="p-role" value={role} readOnly className={cn(inputClass, 'bg-ui-surface-2 capitalize text-ui-muted')} />
+                ) : (
+                  <ReadValue>
+                    <span className="capitalize">{role}</span>
+                  </ReadValue>
+                )}
+              </FormRow>
+              <FormRow id="p-bio" label="Bio" error={errors.bio} className="sm:col-span-2">
+                {editing ? (
+                  <textarea
+                    id="p-bio"
+                    value={form.bio}
+                    onChange={(e) => update('bio', e.target.value)}
+                    rows={3}
+                    maxLength={500}
+                    placeholder="Tell us more about yourself."
+                    className={cn(inputClass, 'h-auto resize-y py-2.5 leading-normal')}
+                  />
+                ) : (
+                  <ReadValue empty={!serverUser?.bio} className="whitespace-pre-line">
+                    {serverUser?.bio || 'No bio yet'}
+                  </ReadValue>
+                )}
+              </FormRow>
+            </div>
 
-          <Field label="Bio">
-            {editing ? (
-              <textarea
-                value={form.bio}
-                onChange={(e) => update('bio', e.target.value)}
-                rows={4}
-                maxLength={500}
-                className="profile-input resize-none"
-                placeholder="Tell us more about yourself."
-              />
-            ) : (
-              <p className="profile-readonly leading-relaxed whitespace-pre-line">
-                {serverUser?.bio || '—'}
-              </p>
+            {editing && (
+              <div className="flex justify-end gap-2 border-t border-ui-line px-5 py-3">
+                <button type="button" onClick={cancelEdit} className={btn({ variant: 'secondary' })}>
+                  Cancel
+                </button>
+                <button type="submit" disabled={saving} className={btn()}>
+                  {saving && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
+                  {saving ? 'Saving' : 'Save changes'}
+                </button>
+              </div>
             )}
-          </Field>
+          </form>
 
-          {editing && (
-            <div className="flex items-center justify-end gap-2 pt-2">
-              <button
-                type="button"
-                onClick={cancelEdit}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-surface text-brand-text-primary text-sm font-semibold hover:bg-brand-surface-2 transition-colors"
-              >
-                <X className="w-4 h-4" />
-                Cancel
-              </button>
-              <button
-                type="submit"
-                disabled={saving}
-                className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark disabled:opacity-50 transition-colors shadow-lg"
-              >
-                <Save className="w-4 h-4" />
-                {saving ? 'Saving…' : 'Save changes'}
-              </button>
+          {/* Security */}
+          <form onSubmit={changePassword} className="rounded-[14px] border border-ui-line bg-ui-surface" aria-labelledby="h-security">
+            <div className="border-b border-ui-line px-5 py-4">
+              <h2 id="h-security" className="text-base font-semibold text-ui-text">Security</h2>
+              <p className="mt-0.5 text-[13px] text-ui-muted">
+                {firstPassword
+                  ? 'You sign in with a code sent to your email. Add a password if you also want to sign in with one.'
+                  : 'Keep this account locked down.'}
+              </p>
             </div>
-          )}
-        </motion.form>
-
-        {/* Security */}
-        <motion.section
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="col-span-12 rounded-2xl bg-white border border-brand-surface-2 p-6"
-        >
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center">
-              <Lock className="w-4 h-4" />
+            <div className={cn('grid grid-cols-[minmax(0,1fr)] gap-4 px-5 py-5', firstPassword ? 'md:grid-cols-2' : 'md:grid-cols-3')}>
+              {!firstPassword && (
+                <FormRow id="pw-current" icon={KeyRound} label="Current password" error={pwErrors.current}>
+                  <input
+                    id="pw-current"
+                    type="password"
+                    autoComplete="current-password"
+                    value={pwForm.current}
+                    onChange={(e) => {
+                      setPwForm((p) => ({ ...p, current: e.target.value }))
+                      setPwErrors((e2) => ({ ...e2, current: '' }))
+                    }}
+                    aria-invalid={!!pwErrors.current}
+                    className={cn(inputClass, pwErrors.current && 'border-ui-danger')}
+                  />
+                </FormRow>
+              )}
+              <FormRow id="pw-next" icon={KeyRound} label={firstPassword ? 'Password' : 'New password'} error={pwErrors.next}>
+                <input
+                  id="pw-next"
+                  type="password"
+                  autoComplete="new-password"
+                  value={pwForm.next}
+                  onChange={(e) => {
+                    setPwForm((p) => ({ ...p, next: e.target.value }))
+                    setPwErrors((e2) => ({ ...e2, next: '' }))
+                  }}
+                  aria-invalid={!!pwErrors.next}
+                  className={cn(inputClass, pwErrors.next && 'border-ui-danger')}
+                />
+              </FormRow>
+              <FormRow id="pw-confirm" icon={KeyRound} label="Confirm" error={pwErrors.confirm}>
+                <input
+                  id="pw-confirm"
+                  type="password"
+                  autoComplete="new-password"
+                  value={pwForm.confirm}
+                  onChange={(e) => {
+                    setPwForm((p) => ({ ...p, confirm: e.target.value }))
+                    setPwErrors((e2) => ({ ...e2, confirm: '' }))
+                  }}
+                  aria-invalid={!!pwErrors.confirm}
+                  className={cn(inputClass, pwErrors.confirm && 'border-ui-danger')}
+                />
+              </FormRow>
             </div>
-            <div>
-              <p className="font-bold text-brand-text-primary">Security</p>
-              <p className="text-[11px] text-brand-text-muted">Keep this account locked down.</p>
-            </div>
-          </div>
-
-          <form onSubmit={changePassword} className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <Field icon={<KeyRound className="w-3.5 h-3.5" />} label="Current" error={pwErrors.current}>
-              <input
-                type="password"
-                autoComplete="current-password"
-                value={pwForm.current}
-                onChange={(e) => { setPwForm((p) => ({ ...p, current: e.target.value })); setPwErrors((e2) => ({ ...e2, current: '' })) }}
-                className={`profile-input${pwErrors.current ? ' border-rose-400' : ''}`}
-              />
-            </Field>
-            <Field icon={<KeyRound className="w-3.5 h-3.5" />} label="New password" error={pwErrors.next}>
-              <input
-                type="password"
-                autoComplete="new-password"
-                value={pwForm.next}
-                onChange={(e) => { setPwForm((p) => ({ ...p, next: e.target.value })); setPwErrors((e2) => ({ ...e2, next: '' })) }}
-                className={`profile-input${pwErrors.next ? ' border-rose-400' : ''}`}
-              />
-            </Field>
-            <Field icon={<KeyRound className="w-3.5 h-3.5" />} label="Confirm" error={pwErrors.confirm}>
-              <input
-                type="password"
-                autoComplete="new-password"
-                value={pwForm.confirm}
-                onChange={(e) => { setPwForm((p) => ({ ...p, confirm: e.target.value })); setPwErrors((e2) => ({ ...e2, confirm: '' })) }}
-                className={`profile-input${pwErrors.confirm ? ' border-rose-400' : ''}`}
-              />
-            </Field>
-            <div className="md:col-span-3 flex justify-end">
-              <button
-                type="submit"
-                disabled={pwSaving}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark disabled:opacity-50 transition-colors"
-              >
-                {pwSaving ? 'Updating…' : 'Update password'}
+            <div className="flex justify-end border-t border-ui-line px-5 py-3">
+              <button type="submit" disabled={pwSaving} className={btn({ variant: 'secondary' })}>
+                {pwSaving && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
+                {pwSaving ? 'Saving' : firstPassword ? 'Set password' : 'Update password'}
               </button>
             </div>
           </form>
-        </motion.section>
+
+        </div>
       </div>
 
-      <style>{`
-        .profile-input {
-          width: 100%;
-          background: var(--color-brand-surface);
-          border: 1px solid var(--color-brand-surface-2);
-          border-radius: 0.75rem;
-          padding: 0.625rem 0.875rem;
-          font-size: 0.875rem;
-          color: var(--color-brand-text-primary);
-          transition: all 0.15s ease;
-        }
-        .profile-input:focus {
-          outline: none;
-          background: white;
-          border-color: var(--color-brand-primary);
-          box-shadow: 0 0 0 3px rgba(159, 32, 99, 0.15);
-        }
-        .profile-readonly {
-          width: 100%;
-          padding: 0.625rem 0.875rem;
-          font-size: 0.875rem;
-          color: var(--color-brand-text-primary);
-          background: transparent;
-          border: 1px dashed transparent;
-          border-radius: 0.75rem;
-          min-height: 2.5rem;
-          word-break: break-word;
-        }
-      `}</style>
-    </AdminLayout>
+    </Layout>
   )
 }
 
-function Field({
+function InfoRow({ label, value }: { label: string; value: ReactNode }) {
+  return (
+    <div className="flex items-center justify-between gap-3">
+      <dt className="text-ui-muted">{label}</dt>
+      <dd className="text-right text-ui-text">{value}</dd>
+    </div>
+  )
+}
+
+function FormRow({
+  id,
   label,
-  icon,
+  icon: Icon,
   error,
   children,
+  className,
 }: {
+  id: string
   label: string
-  icon?: React.ReactNode
+  icon?: typeof UserIcon
   error?: string
-  children: React.ReactNode
+  children: ReactNode
+  className?: string
 }) {
   return (
-    <div>
-      <label className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-text-muted mb-1.5 cursor-default">
-        {icon}
+    <div className={cn('flex min-w-0 flex-col gap-1.5', className)}>
+      <label htmlFor={id} className="flex items-center gap-1.5 text-[13px] font-semibold text-ui-text">
+        {Icon && <Icon className="h-3.5 w-3.5 text-ui-muted" strokeWidth={1.75} aria-hidden />}
         {label}
       </label>
       {children}
-      {error && <p className="mt-1 text-[11px] text-rose-500">{error}</p>}
+      {error && (
+        <p className="text-[13px] text-ui-danger" role="alert">
+          {error}
+        </p>
+      )}
     </div>
+  )
+}
+
+function ReadValue({ children, empty, className }: { children: ReactNode; empty?: boolean; className?: string }) {
+  return (
+    <p className={cn('min-h-10 break-words rounded-[10px] bg-ui-bg px-3 py-2.5 text-sm', empty ? 'text-ui-muted' : 'text-ui-text', className)}>
+      {children}
+    </p>
   )
 }

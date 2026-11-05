@@ -58,17 +58,22 @@ export function clearLandingPageThreadId(): void {
 // --- Copilot service token --------------------------------------------------
 // The AI backend (potential-ai) requires a service JWT on every request — chat
 // runs, transcription, TTS, and the voice WebSocket. Logged-in users obtain a
-// short-lived token from the Hadafi server (GET /api/auth/copilot-token); the
+// short-lived token from the Hadafi server (GET /api/account/copilot-token); the
 // shared signing secret never reaches the browser. The token is cached in
 // localStorage and re-minted shortly before expiry.
 import { useEffect, useState } from 'react'
 import { apiFetch } from '@/lib/api'
-import { getToken } from '@/lib/auth'
+import { getUser } from '@/lib/auth'
 
 const COPILOT_JWT_KEY = 'hadafi_copilot_jwt'
 const COPILOT_JWT_EXP_KEY = 'hadafi_copilot_jwt_exp'
 // 'user' (logged-in, per-user claims) or 'guest' (anonymous landing-chat token).
 const COPILOT_JWT_KIND_KEY = 'hadafi_copilot_jwt_kind'
+// Who the cached token was minted for (user id, or 'guest'). A token is only
+// ever used for that same person: if the signed-in account changes without a
+// sign-out in this tab (another tab, an expired session), it is re-minted.
+const COPILOT_JWT_OWNER_KEY = 'hadafi_copilot_jwt_owner'
+const currentOwner = (): string => getUser()?.id ?? 'guest'
 // Re-mint well before the recorded expiry so in-flight requests never
 // straddle the boundary.
 const EXPIRY_MARGIN_MS = 5 * 60 * 1000
@@ -78,7 +83,9 @@ export function getCopilotJwt(): string {
   if (typeof window === 'undefined') return ''
   try {
     const exp = Number(window.localStorage.getItem(COPILOT_JWT_EXP_KEY) || 0)
-    if (Date.now() < exp - EXPIRY_MARGIN_MS) {
+    const owner = window.localStorage.getItem(COPILOT_JWT_OWNER_KEY)
+    // A guest token names nobody, so it is safe for anyone; a user token only for its own user.
+    if (Date.now() < exp - EXPIRY_MARGIN_MS && (owner === 'guest' || owner === currentOwner())) {
       return window.localStorage.getItem(COPILOT_JWT_KEY) || ''
     }
   } catch {
@@ -90,7 +97,7 @@ export function getCopilotJwt(): string {
 let inflightMint: Promise<string | null> | null = null
 
 async function mintFrom(
-  endpoint: '/api/auth/copilot-token' | '/api/auth/copilot-token/guest',
+  endpoint: '/api/account/copilot-token' | '/api/account/copilot-token/guest',
   kind: 'user' | 'guest',
 ): Promise<string> {
   const res = await apiFetch<{ success: boolean; data: { token: string; expiresAt: number } }>(
@@ -101,6 +108,7 @@ async function mintFrom(
     window.localStorage.setItem(COPILOT_JWT_KEY, token)
     window.localStorage.setItem(COPILOT_JWT_EXP_KEY, String(expiresAt))
     window.localStorage.setItem(COPILOT_JWT_KIND_KEY, kind)
+    window.localStorage.setItem(COPILOT_JWT_OWNER_KEY, kind === 'user' ? currentOwner() : 'guest')
   } catch {
     /* noop */
   }
@@ -112,13 +120,13 @@ async function mintFrom(
  * needed. Logged-in users get a per-user token; anonymous visitors (the public
  * landing chat) get a short-lived guest token.
  *
- * Robustness: a `hadafi_token` lingering in localStorage doesn't mean the
- * session is still valid (it may be expired). If the user-token mint fails
- * (e.g. 401 on a stale session), we fall back to a guest token so the assistant
- * still works instead of breaking — the landing chat must never hard-fail.
+ * Robustness: a cached signed-in user doesn't prove the session is still
+ * valid (it may have ended). If the user-token mint fails (e.g. 401), we fall
+ * back to a guest token so the assistant still works instead of breaking —
+ * the landing chat must never hard-fail.
  */
 export function ensureCopilotToken(): Promise<string | null> {
-  const desiredKind = getToken() ? 'user' : 'guest'
+  const desiredKind = getUser() ? 'user' : 'guest'
   const cached = getCopilotJwt()
   let cachedKind = ''
   try {
@@ -132,7 +140,7 @@ export function ensureCopilotToken(): Promise<string | null> {
   inflightMint = (async () => {
     if (desiredKind === 'user') {
       try {
-        return await mintFrom('/api/auth/copilot-token', 'user')
+        return await mintFrom('/api/account/copilot-token', 'user')
       } catch (err) {
         // Stale/expired login token — fall back to an anonymous token so the
         // assistant degrades gracefully instead of 401-ing forever.
@@ -140,7 +148,7 @@ export function ensureCopilotToken(): Promise<string | null> {
       }
     }
     try {
-      return await mintFrom('/api/auth/copilot-token/guest', 'guest')
+      return await mintFrom('/api/account/copilot-token/guest', 'guest')
     } catch (err) {
       console.warn('[copilot] guest token mint failed', err)
       return null

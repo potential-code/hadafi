@@ -16,7 +16,7 @@ export const getMyAvailability = () =>
   apiFetch<AvailabilityData>('/api/mentor/availability')
 
 export const addSlots = (slots: { startsAt: string }[]) =>
-  apiFetch<{ slots: Slot[] }>('/api/mentor/availability', {
+  apiFetch<{ slots: Slot[]; skippedDuplicates?: number }>('/api/mentor/availability', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ slots }),

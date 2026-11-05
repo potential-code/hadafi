@@ -1,688 +1,692 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
-  Calendar,
-  Clock,
-  MapPin,
-  PlayCircle,
-  Sparkles,
-  ArrowRight,
-  X,
+  CalendarCheck,
+  CalendarDays,
+  CalendarPlus,
   ChevronLeft,
   ChevronRight,
+  Clock,
   ExternalLink,
+  Globe,
+  Loader2,
+  MapPin,
+  Play,
+  RefreshCw,
+  Search,
+  Users,
+  Video,
+  X,
 } from 'lucide-react'
+import { toast } from 'sonner'
 import { DashboardLayout } from '@/components/dashboard/DashboardLayout'
-import { PageHeader } from '@/components/dashboard/widgets/PageHeader'
-import {
-  fetchPublishedEvents,
-  type LiveEvent,
-} from '@/lib/api/liveEvents'
-import { gsap, useGSAP } from '@/lib/gsap'
+import { Button, Card, Chip, EmptyState, PageHeader, Skeleton, btn, inputClass } from '@/components/kit'
+import { apiBookEvent, apiCancelBooking, fetchMyEvents, type LiveEvent } from '@/lib/api/liveEvents'
+import { errorMessage } from '@/lib/api/errors'
+import { dateParts, eventPhaseAt, longDayLabel, timeRange, untilLabel, useNow, type EventPhase } from '@/lib/events/eventTime'
+import { downloadIcs, googleCalendarUrl } from '@/lib/events/calendar'
 import { cn } from '@/lib/utils'
-
-type EventItem = LiveEvent
+import { optimizedSrc } from '@/lib/images'
 
 const GRID_PAGE_SIZE = 6
 
-function parseDate(d: string) {
-  const [year = '', monthNum = '', dayRaw = ''] = d.split('-')
-  const month = new Date(`${year}-${monthNum}-01`).toLocaleString('en-US', { month: 'short' })
-  return { month, day: dayRaw.replace(/^0/, ''), year }
+/** Events without their own cover borrow one of the program's webinar banners (as on the homepage). */
+const EVENT_ART = ['/images/events/webinar-1.webp', '/images/events/webinar-2.webp', '/images/events/webinar-3.webp']
+
+/** The event's cover, else a webinar banner picked by id so it stays put across pages. */
+function eventArt(e: LiveEvent) {
+  if (e.coverImage) return optimizedSrc(e.coverImage)
+  let h = 0
+  for (let i = 0; i < e.id.length; i++) h = (h * 31 + e.id.charCodeAt(i)) >>> 0
+  return EVENT_ART[h % EVENT_ART.length]
 }
 
-// ── Event detail modal ──────────────────────────────────────────────────────
+const phaseOf = (e: LiveEvent, now: number | null): EventPhase => (now === null ? 'upcoming' : eventPhaseAt(e, now))
 
-function EventDetailModal({
-  event,
-  onClose,
-}: {
-  event: EventItem | null
-  onClose: () => void
-}) {
-  if (!event) return null
+/** The start in the event's own zone, for a viewer elsewhere ("6:00 PM Riyadh time"). */
+function eventZoneTime(e: LiveEvent): string | null {
+  const local = Intl.DateTimeFormat().resolvedOptions().timeZone
+  const fmt = (tz: string) => new Date(e.startsAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: tz })
+  try {
+    if (fmt(local) === fmt(e.timezone)) return null
+    const city = e.timezone === 'Asia/Dubai' ? 'UAE' : (e.timezone.split('/').pop() ?? e.timezone).replace(/_/g, ' ')
+    return `${fmt(e.timezone)} ${city} time`
+  } catch {
+    return null
+  }
+}
 
-  const { month, day, year } = parseDate(event.date)
-  const isPast = new Date(event.date) < new Date(new Date().setHours(0, 0, 0, 0))
-  const primaryLink = isPast ? event.recordingLink : null
+function whereLabel(e: LiveEvent): string {
+  if (e.format === 'in_person') return e.location ?? 'In person'
+  if (e.format === 'zoom') return 'Online, on Zoom'
+  return 'Online'
+}
 
+// ── Pieces ────────────────────────────────────────────────────────────────────
+
+function DateBlock({ startsAt, size = 'md', soft }: { startsAt: string; size?: 'sm' | 'md'; soft?: boolean }) {
+  const { month, day, year } = dateParts(startsAt)
   return (
-    <AnimatePresence>
-      <motion.div
-        key="event-detail-overlay"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
-        onClick={onClose}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.97 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 16, scale: 0.97 }}
-          transition={{ duration: 0.2 }}
-          onClick={(e) => e.stopPropagation()}
-          className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-brand-surface-2 overflow-hidden flex flex-col max-h-[90vh]"
-        >
-          {/* Cover image */}
-          {event.coverImage && (
-            <div className="relative h-48 flex-shrink-0 bg-brand-surface-2">
-              <Image src={event.coverImage} alt={event.title} fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-            </div>
-          )}
-
-          {/* Close button */}
-          <button
-            onClick={onClose}
-            className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur flex items-center justify-center text-brand-text-muted hover:bg-white hover:text-brand-text-primary transition-colors shadow-md"
-            aria-label="Close"
-          >
-            <X className="w-4 h-4" />
-          </button>
-
-          {/* Body */}
-          <div className="flex-1 overflow-y-auto px-6 py-5 space-y-4">
-            {/* Type badge */}
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-[10px] font-bold uppercase tracking-wider">
-              <Calendar className="w-2.5 h-2.5" />
-              {event.type}
-            </span>
-
-            {/* Title */}
-            <h2 className="text-xl font-black text-brand-text-primary leading-tight">
-              {event.title}
-            </h2>
-
-            {/* Date + time */}
-            <div className="flex flex-wrap gap-4 text-sm text-brand-text-muted">
-              <span className="flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-brand-primary flex-shrink-0" />
-                {day} {month} {year}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-brand-primary flex-shrink-0" />
-                {event.time}
-              </span>
-            </div>
-
-            {/* Description */}
-            {event.description && (
-              <p className="text-sm text-brand-text-muted leading-relaxed">
-                {event.description}
-              </p>
-            )}
-          </div>
-
-          {/* Footer CTA */}
-          <div className="flex-shrink-0 border-t border-brand-surface-2 px-6 py-4 flex gap-2">
-            {isPast ? (
-              primaryLink ? (
-                <a
-                  href={primaryLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex flex-1 items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-brand-primary text-white text-sm font-bold hover:opacity-90 transition-opacity"
-                >
-                  <PlayCircle className="w-4 h-4" />
-                  Watch Recording
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
-              ) : null
-            ) : (
-              event.meetingLink ? (
-                <a
-                  href={event.meetingLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex flex-1 items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-brand-primary text-white text-sm font-bold hover:opacity-90 transition-opacity"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Join
-                </a>
-              ) : null
-            )}
-          </div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
+    <span
+      className={cn(
+        'flex shrink-0 flex-col items-center justify-center gap-px rounded-xl border',
+        size === 'md' ? 'w-[76px] py-2.5' : 'w-14 py-2',
+        soft ? 'border-transparent bg-ui-brand-soft' : 'border-ui-line bg-ui-surface',
+      )}
+      aria-hidden
+    >
+      <span className="text-xs font-semibold text-ui-brand-text">{month}</span>
+      <span className={cn('font-bold leading-[1.1] text-ui-text tabular-nums', size === 'md' ? 'text-[26px]' : 'text-[19px]')}>{day}</span>
+      <span className="text-[11px] text-ui-muted tabular-nums">{year}</span>
+    </span>
   )
 }
 
-// ── Pagination ──────────────────────────────────────────────────────────────
+function Meta({ event, past }: { event: LiveEvent; past: boolean }) {
+  const Where = event.format === 'in_person' ? MapPin : event.format === 'zoom' ? Video : Globe
+  return (
+    <div className="flex flex-wrap items-center gap-x-3.5 gap-y-1 text-[13px] text-ui-muted">
+      <span className="sr-only">{longDayLabel(event.startsAt)}</span>
+      <span className="inline-flex items-center gap-1.5">
+        <Clock className="h-[15px] w-[15px]" strokeWidth={1.75} aria-hidden />
+        {timeRange(event.startsAt, event.endsAt)}
+      </span>
+      <span className="inline-flex min-w-0 items-center gap-1.5">
+        <Where className="h-[15px] w-[15px] shrink-0" strokeWidth={1.75} aria-hidden />
+        <span className="truncate">{whereLabel(event)}</span>
+      </span>
+      {!past && !event.booked && event.spotsLeft != null && (
+        <span className="inline-flex items-center gap-1.5">
+          <Users className="h-[15px] w-[15px] shrink-0" strokeWidth={1.75} aria-hidden />
+          {event.full ? 'Fully booked' : `${event.spotsLeft} ${event.spotsLeft === 1 ? 'place' : 'places'} left`}
+        </span>
+      )}
+    </div>
+  )
+}
 
-function Pagination({
-  page,
-  pageCount,
-  onPage,
-}: {
-  page: number
-  pageCount: number
-  onPage: (p: number) => void
-}) {
-  if (pageCount <= 1) return null
+function ReplayChip({ label = 'Replay' }: { label?: string }) {
+  return (
+    <Chip tone="brand" className="h-[22px]">
+      <Play className="h-3 w-3 fill-current" aria-hidden />
+      {label}
+    </Chip>
+  )
+}
 
-  function visiblePages(): (number | '...')[] {
-    if (pageCount <= 5) {
-      return Array.from({ length: pageCount }, (_, i) => i + 1)
+/** Book and cancel, shared by the cards and the details. */
+function useBooking(event: LiveEvent, onChange: (e: LiveEvent) => void) {
+  const [busy, setBusy] = useState(false)
+  async function book() {
+    setBusy(true)
+    try {
+      const e = await apiBookEvent(event.id)
+      onChange(e)
+      toast.success('You’re booked', {
+        description:
+          e.format === 'in_person'
+            ? 'We’ll remind you the day before and an hour before.'
+            : e.meetingLink
+              ? 'Your join link is ready on this page.'
+              : 'Your join link appears here an hour before the start. We’ll remind you the day before and an hour before.',
+      })
+    } catch (err) {
+      toast.error(errorMessage(err, 'The booking didn’t go through. Please try again.'))
+    } finally {
+      setBusy(false)
     }
-    const pages: (number | '...')[] = []
-    if (page <= 3) {
-      pages.push(1, 2, 3, 4, '...', pageCount)
-    } else if (page >= pageCount - 2) {
-      pages.push(1, '...', pageCount - 3, pageCount - 2, pageCount - 1, pageCount)
-    } else {
-      pages.push(1, '...', page - 1, page, page + 1, '...', pageCount)
-    }
-    return pages
   }
+  async function cancel() {
+    setBusy(true)
+    try {
+      onChange(await apiCancelBooking(event.id))
+      toast.success('Booking cancelled')
+    } catch (err) {
+      toast.error(errorMessage(err, 'The booking couldn’t be cancelled. Please try again.'))
+    } finally {
+      setBusy(false)
+    }
+  }
+  return { busy, book, cancel }
+}
+
+/** The main button for an event: replay, book, join (once the link is there), or booked. */
+function PrimaryAction({
+  event,
+  now,
+  onChange,
+  onDetails,
+  size,
+  className,
+}: {
+  event: LiveEvent
+  now: number | null
+  onChange: (e: LiveEvent) => void
+  onDetails: (e: LiveEvent) => void
+  size?: 'sm'
+  className?: string
+}) {
+  const { busy, book } = useBooking(event, onChange)
+  const phase = phaseOf(event, now)
+  const b = (variant?: 'secondary') => cn(btn({ variant, size }), size === 'sm' && 'h-9', className)
+
+  if (phase === 'ended') {
+    return event.recordingLink ? (
+      <a href={event.recordingLink} target="_blank" rel="noreferrer" className={b('secondary')} aria-label={`Watch the recording of ${event.title}`}>
+        <Play className="h-4 w-4" aria-hidden />
+        Watch recording
+      </a>
+    ) : (
+      <span className={cn('self-center text-[13px] text-ui-muted', className)}>Recording coming soon</span>
+    )
+  }
+  if (!event.booked) {
+    if (event.full) {
+      return (
+        <button type="button" className={b('secondary')} disabled aria-label={`${event.title} is fully booked`}>
+          Fully booked
+        </button>
+      )
+    }
+    return (
+      <button type="button" className={b()} onClick={book} disabled={busy} aria-label={`Book a place at ${event.title}`}>
+        {busy ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : <CalendarPlus className="h-4 w-4" aria-hidden />}
+        Book my place
+      </button>
+    )
+  }
+  if (event.format !== 'in_person' && event.meetingLink) {
+    const now2 = phase === 'opening' || phase === 'live'
+    return (
+      <a href={event.meetingLink} target="_blank" rel="noreferrer" className={b(now2 ? undefined : 'secondary')} aria-label={`Join ${event.title}`}>
+        <ExternalLink className="h-4 w-4" aria-hidden />
+        {phase === 'live' ? 'Join now' : 'Join'}
+      </a>
+    )
+  }
+  return (
+    <button type="button" className={b('secondary')} onClick={() => onDetails(event)} aria-label={`Booked. Details for ${event.title}`}>
+      <CalendarCheck className="h-4 w-4 text-ui-ok" aria-hidden />
+      Booked
+    </button>
+  )
+}
+
+function BookedNote({ event, phase, now }: { event: LiveEvent; phase: EventPhase; now: number | null }) {
+  if (event.format === 'in_person') return <p className="text-sm text-ui-text">You&rsquo;re booked. See you at {event.location}.</p>
+  if (event.meetingLink) {
+    return (
+      <p className="text-sm text-ui-text">
+        {phase === 'live' ? 'It’s on now. Join with the button below.' : 'Your join link is ready. Join with the button below.'}
+        {event.format === 'zoom' && ' This Zoom link is yours alone, so please don’t share it.'}
+      </p>
+    )
+  }
+  if (event.joinPending) {
+    return <p className="text-sm text-ui-text">Your personal Zoom link is being set up. It appears here shortly.</p>
+  }
+  return (
+    <p className="text-sm text-ui-text">
+      You&rsquo;re booked. Your join link appears here
+      {event.joinOpensAt && now !== null ? ` ${untilLabel(event.joinOpensAt, now)}` : ' an hour before the start'}, and we&rsquo;ll remind you the
+      day before and an hour before.
+    </p>
+  )
+}
+
+function EventDetailModal({
+  event,
+  now,
+  onChange,
+  onClose,
+}: {
+  event: LiveEvent
+  now: number | null
+  onChange: (e: LiveEvent) => void
+  onClose: () => void
+}) {
+  const closeRef = useRef<HTMLButtonElement>(null)
+  const phase = phaseOf(event, now)
+  const past = phase === 'ended'
+  const { busy, cancel } = useBooking(event, onChange)
+  const [confirmCancel, setConfirmCancel] = useState(false)
+  const zoneTime = eventZoneTime(event)
+  useEffect(() => {
+    closeRef.current?.focus()
+    function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [onClose])
+
+  const showPrimary = past || !event.booked || !!event.meetingLink
 
   return (
-    <div className="flex items-center justify-center gap-1.5 mt-5">
-      <button
-        onClick={() => onPage(page - 1)}
-        disabled={page === 1}
-        className="w-8 h-8 rounded-lg flex items-center justify-center bg-white border border-brand-surface-2 text-brand-text-muted hover:border-brand-primary/30 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-        aria-label="Previous page"
+    <div
+      className="fixed inset-0 z-[70] flex items-end justify-center bg-black/40 p-4 sm:items-center"
+      onMouseDown={(e) => {
+        if (e.target === e.currentTarget) onClose()
+      }}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="ev-detail-title"
+        className="relative flex max-h-[90vh] w-full max-w-lg flex-col overflow-hidden rounded-[14px] border border-ui-line bg-ui-surface shadow-ui"
       >
-        <ChevronLeft className="w-4 h-4" />
-      </button>
+        {event.coverImage && <img src={optimizedSrc(event.coverImage)} alt="" className="h-48 w-full shrink-0 object-cover" />}
+        <Button ref={closeRef} variant="secondary" size="icon-sm" aria-label="Close" onClick={onClose} className="absolute end-3 top-3 z-10">
+          <X className="h-4 w-4" aria-hidden />
+        </Button>
+        <div className="flex flex-1 flex-col gap-3 overflow-y-auto p-5 pe-14">
+          <div className="flex flex-wrap gap-1.5">
+            <Chip className="h-[22px]">{event.type}</Chip>
+            {phase === 'live' && <Chip tone="danger" className="h-[22px]">Live now</Chip>}
+            {!past && phase !== 'live' && !event.booked && <Chip tone="brand" className="h-[22px]">Coming up</Chip>}
+            {event.booked && !past && (
+              <Chip tone="ok" className="h-[22px]">
+                <CalendarCheck className="h-3 w-3" aria-hidden />
+                Booked
+              </Chip>
+            )}
+            {past && event.recordingLink && <ReplayChip label="Replay available" />}
+          </div>
+          <h2 id="ev-detail-title" className="text-xl font-semibold leading-tight text-ui-text">{event.title}</h2>
+          <div className="flex flex-col gap-1 text-sm text-ui-muted">
+            <span className="inline-flex flex-wrap items-center gap-1.5">
+              <CalendarDays className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
+              {longDayLabel(event.startsAt)}
+              {!past && now !== null && phase !== 'live' && <span className="text-ui-text">· {untilLabel(event.startsAt, now)}</span>}
+            </span>
+            <span className="inline-flex flex-wrap items-center gap-1.5">
+              <Clock className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
+              {timeRange(event.startsAt, event.endsAt)}
+              {zoneTime && <span>({zoneTime})</span>}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              {event.format === 'in_person' ? (
+                <MapPin className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
+              ) : (
+                <Globe className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
+              )}
+              {whereLabel(event)}
+            </span>
+            {!past && !event.booked && event.spotsLeft != null && (
+              <span className="inline-flex items-center gap-1.5">
+                <Users className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
+                {event.full ? 'Fully booked' : `${event.spotsLeft} ${event.spotsLeft === 1 ? 'place' : 'places'} left`}
+              </span>
+            )}
+          </div>
+          {event.description && <p className="whitespace-pre-line text-sm leading-relaxed text-ui-text">{event.description}</p>}
 
-      {visiblePages().map((p, i) =>
+          {event.booked && !past && (
+            <div className="flex flex-col gap-2 rounded-[12px] border border-ui-line bg-ui-bg p-3.5">
+              <BookedNote event={event} phase={phase} now={now} />
+              {event.format === 'zoom' && event.meetingId && (
+                <p className="text-[13px] text-ui-muted">
+                  Zoom meeting ID {event.meetingId}
+                  {event.passcode ? `, passcode ${event.passcode}` : ''}
+                </p>
+              )}
+              <div className="flex flex-wrap gap-2">
+                <button type="button" className={btn({ variant: 'secondary', size: 'sm' })} onClick={() => downloadIcs(event)}>
+                  <CalendarPlus className="h-4 w-4" aria-hidden />
+                  Add to calendar
+                </button>
+                <a
+                  href={googleCalendarUrl(event)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={btn({ variant: 'secondary', size: 'sm' })}
+                  aria-label={`Add ${event.title} to Google Calendar`}
+                >
+                  Google Calendar
+                </a>
+              </div>
+            </div>
+          )}
+        </div>
+        {(showPrimary || (event.booked && !past)) && (
+          <div className="flex flex-col gap-2 border-t border-ui-line px-5 py-4">
+            {showPrimary && <PrimaryAction event={event} now={now} onChange={onChange} onDetails={() => undefined} className="w-full" />}
+            {event.booked &&
+              !past &&
+              (confirmCancel ? (
+                <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
+                  <span className="text-ui-text">Cancel your booking?</span>
+                  <span className="flex gap-2">
+                    <button type="button" className={btn({ variant: 'ghost', size: 'sm' })} onClick={() => setConfirmCancel(false)}>
+                      Keep it
+                    </button>
+                    <button type="button" className={btn({ variant: 'secondary', size: 'sm' })} onClick={cancel} disabled={busy}>
+                      {busy && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
+                      Cancel booking
+                    </button>
+                  </span>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  className="self-center rounded text-[13px] font-semibold text-ui-muted hover:text-ui-text hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand"
+                  onClick={() => setConfirmCancel(true)}
+                >
+                  Can&rsquo;t make it? Cancel booking
+                </button>
+              ))}
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+function Pagination({ page, pageCount, onPage, label }: { page: number; pageCount: number; onPage: (p: number) => void; label: string }) {
+  if (pageCount <= 1) return null
+  const pages: (number | '...')[] =
+    pageCount <= 5
+      ? Array.from({ length: pageCount }, (_, i) => i + 1)
+      : page <= 3
+        ? [1, 2, 3, 4, '...', pageCount]
+        : page >= pageCount - 2
+          ? [1, '...', pageCount - 3, pageCount - 2, pageCount - 1, pageCount]
+          : [1, '...', page - 1, page, page + 1, '...', pageCount]
+  const cell =
+    'inline-flex h-9 w-9 items-center justify-center rounded-[10px] border text-[13px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand disabled:cursor-not-allowed disabled:opacity-45'
+  return (
+    <nav aria-label={label} className="flex flex-wrap justify-center gap-1.5">
+      <button type="button" aria-label="Previous page" disabled={page === 1} onClick={() => onPage(page - 1)} className={cn(cell, 'border-ui-line bg-ui-surface text-ui-text hover:bg-ui-surface-2')}>
+        <ChevronLeft className="h-4 w-4" aria-hidden />
+      </button>
+      {pages.map((p, i) =>
         p === '...' ? (
-          <span key={`ellipsis-${i}`} className="w-8 h-8 flex items-center justify-center text-xs text-brand-text-muted">
-            …
+          <span key={`e${i}`} className="inline-flex h-9 w-6 items-center justify-center text-ui-muted" aria-hidden>
+            ...
           </span>
         ) : (
           <button
             key={p}
-            onClick={() => onPage(p as number)}
-            className={cn(
-              'w-8 h-8 rounded-lg text-xs font-bold transition-colors',
-              page === p
-                ? 'bg-brand-primary text-white'
-                : 'bg-white border border-brand-surface-2 text-brand-text-muted hover:border-brand-primary/30'
-            )}
+            type="button"
             aria-current={page === p ? 'page' : undefined}
+            aria-label={`Page ${p}`}
+            onClick={() => onPage(p)}
+            className={cn(cell, page === p ? 'border-ui-text bg-ui-text text-ui-bg' : 'border-ui-line bg-ui-surface text-ui-text hover:bg-ui-surface-2')}
           >
             {p}
           </button>
-        )
+        ),
       )}
-
-      <button
-        onClick={() => onPage(page + 1)}
-        disabled={page === pageCount}
-        className="w-8 h-8 rounded-lg flex items-center justify-center bg-white border border-brand-surface-2 text-brand-text-muted hover:border-brand-primary/30 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
-        aria-label="Next page"
-      >
-        <ChevronRight className="w-4 h-4" />
+      <button type="button" aria-label="Next page" disabled={page === pageCount} onClick={() => onPage(page + 1)} className={cn(cell, 'border-ui-line bg-ui-surface text-ui-text hover:bg-ui-surface-2')}>
+        <ChevronRight className="h-4 w-4" aria-hidden />
       </button>
-    </div>
+    </nav>
   )
 }
-
-// ── FeaturedCard ────────────────────────────────────────────────────────────
 
 function FeaturedCard({
   event,
-  badge,
-  replayBadge,
+  upcoming,
+  now,
+  onChange,
+  onDetails,
 }: {
-  event: EventItem
-  badge: string
-  replayBadge?: boolean
+  event: LiveEvent
+  upcoming: boolean
+  now: number | null
+  onChange: (e: LiveEvent) => void
+  onDetails: (e: LiveEvent) => void
 }) {
-  const { month, day, year } = parseDate(event.date)
-  const isPast = new Date(event.date) < new Date(new Date().setHours(0, 0, 0, 0))
-
+  const titleId = `ev-feat-${event.id}`
+  const phase = phaseOf(event, now)
+  const showAction = upcoming || !!event.recordingLink
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-deep via-brand-deep to-brand-violet/60 text-white border border-white/10"
+    <Card
+      aria-labelledby={titleId}
+      className={cn('flex flex-wrap items-center gap-4 p-[18px] lg:flex-nowrap lg:gap-[22px] lg:px-6', upcoming ? 'shadow-ui lg:py-[22px]' : 'lg:py-5')}
     >
-      <div className="absolute inset-0 bg-noise opacity-[0.05] mix-blend-overlay pointer-events-none" />
-      <motion.div
-        aria-hidden
-        className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-brand-primary/40 blur-3xl"
-        animate={{ scale: [1, 1.08, 1] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
-
-      <div className="relative p-6 sm:p-8">
-        {/* Badges */}
-        <div className="flex flex-wrap items-center gap-2 mb-5">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] font-bold uppercase tracking-[0.18em]">
-            <Sparkles className="w-3 h-3 text-brand-primary-light" />
-            {badge}
-          </span>
-          {replayBadge && (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-400/15 border border-emerald-400/30 text-emerald-200 text-[10px] font-bold uppercase tracking-[0.18em]">
-              <PlayCircle className="w-3 h-3" />
-              Replay available
-            </span>
-          )}
-        </div>
-
-        {/* Content row */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
-          {/* Date block */}
-          <div className="rounded-xl bg-white text-brand-text-primary text-center px-5 py-3 shadow-xl min-w-[84px] flex-shrink-0">
-            <p className="text-[10px] font-bold text-brand-primary uppercase tracking-widest">{month}</p>
-            <p className="text-3xl font-black leading-none mt-1">{day}</p>
-            <p className="text-[10px] text-brand-text-muted mt-1 font-bold tracking-wider">{year}</p>
-          </div>
-
-          {/* Info */}
-          <div className="flex-1 min-w-0">
-            <h2 className="text-xl sm:text-2xl font-black leading-tight text-white group-hover:text-brand-primary-light transition-colors">
-              {event.title}
-            </h2>
-            <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-white/70">
-              <span className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-brand-primary-light flex-shrink-0" />
-                {event.time}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-brand-primary-light flex-shrink-0" />
-                Online · global access
-              </span>
-            </div>
-            {event.description && (
-              <p className="mt-2 text-sm text-white/55 line-clamp-2">{event.description}</p>
-            )}
-          </div>
-
-          {/* CTA */}
-          <div className="flex-shrink-0 flex items-center gap-2">
-            {isPast ? (
-              event.recordingLink ? (
-                <a
-                  href={event.recordingLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-brand-primary text-sm font-bold hover:bg-brand-primary hover:text-white transition-colors"
-                >
-                  <PlayCircle className="w-4 h-4" />
-                  Watch Recording
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
-                </a>
-              ) : null
+      <img src={eventArt(event)} alt="" className="hidden aspect-[2/1] w-[176px] shrink-0 rounded-[10px] bg-ui-surface-2 object-cover sm:block" />
+      <DateBlock startsAt={event.startsAt} soft={upcoming} />
+      <div className="flex min-w-0 flex-1 basis-[200px] flex-col gap-2">
+        <div className="flex flex-wrap gap-1.5">
+          <Chip className="h-[22px]">{upcoming ? event.type : 'Latest session'}</Chip>
+          {upcoming ? (
+            phase === 'live' ? (
+              <Chip tone="danger" className="h-[22px]">Live now</Chip>
+            ) : event.booked ? (
+              <Chip tone="ok" className="h-[22px]">
+                <CalendarCheck className="h-3 w-3" aria-hidden />
+                Booked
+              </Chip>
             ) : (
-              event.meetingLink ? (
-                <a
-                  href={event.meetingLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-brand-primary text-sm font-bold hover:bg-brand-primary hover:text-white transition-colors"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Join
-                </a>
-              ) : null
-            )}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  )
-}
-
-// ── EventCard ───────────────────────────────────────────────────────────────
-
-interface EventCardProps {
-  event: EventItem
-  isPast: boolean
-  index: number
-  onViewDetails: (e: EventItem) => void
-}
-
-function EventCard({ event, isPast, index, onViewDetails }: EventCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const { month, day, year } = parseDate(event.date)
-  const hasRecording = isPast && !!event.recordingLink
-
-  useGSAP(
-    () => {
-      const card = cardRef.current
-      if (!card) return
-
-      function onEnter() {
-        gsap.to('[data-date-block]', { scale: 1.08, y: -2, duration: 0.25, ease: 'back.out(2)' })
-        gsap.to('[data-cta-arrow]', { x: 3, duration: 0.2 })
-      }
-
-      function onLeave() {
-        gsap.to('[data-date-block]', { scale: 1, y: 0, duration: 0.2 })
-        gsap.to('[data-cta-arrow]', { x: 0, duration: 0.18 })
-      }
-
-      card.addEventListener('mouseenter', onEnter)
-      card.addEventListener('mouseleave', onLeave)
-
-      return () => {
-        card.removeEventListener('mouseenter', onEnter)
-        card.removeEventListener('mouseleave', onLeave)
-      }
-    },
-    { scope: cardRef },
-  )
-
-  return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.04 * index, duration: 0.4 }}
-      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      whileTap={{ scale: 0.985, transition: { duration: 0.12 } }}
-      className="group flex flex-col bg-white rounded-2xl border border-brand-surface-2 hover:border-brand-primary/40 hover:shadow-[0_12px_36px_-10px_rgba(159,32,99,0.18)] transition-all overflow-hidden"
-    >
-      {/* ── Header: with-image or gradient ────────────────────────────── */}
-      {event.coverImage ? (
-        <div className="relative h-40 bg-brand-surface-2 flex-shrink-0 overflow-hidden">
-          <Image
-            src={event.coverImage}
-            alt={event.title}
-            fill
-            className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-
-          {/* Replay badge top-right */}
-          {isPast && (
-            <span className="absolute top-3 right-3 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/90 backdrop-blur-sm text-white text-[9px] font-bold">
-              <PlayCircle className="w-2.5 h-2.5" /> Replay
-            </span>
+              <Chip tone="brand" className="h-[22px]">Coming up</Chip>
+            )
+          ) : (
+            event.recordingLink && <ReplayChip label="Replay available" />
           )}
-
-          {/* Date badge bottom-left */}
-          <div
-            data-date-block
-            className="absolute bottom-3 left-3 rounded-lg bg-white/95 backdrop-blur-sm shadow-lg text-center px-2.5 py-1.5 min-w-[52px]"
-          >
-            <p className="text-[8px] font-bold uppercase tracking-wider text-brand-primary">{month}</p>
-            <p className="text-base font-black leading-none text-brand-text-primary">{day}</p>
-            <p className="text-[8px] text-brand-text-muted font-semibold">{year}</p>
-          </div>
         </div>
-      ) : (
-        <div className="relative bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-violet/80 px-4 py-4 flex-shrink-0 overflow-hidden">
-          <div className="absolute -top-8 -right-8 w-28 h-28 rounded-full bg-white/10 blur-2xl pointer-events-none" />
-          <div className="flex items-center gap-3">
-            <div
-              data-date-block
-              className="rounded-xl bg-white/95 shadow-lg text-center px-3 py-2.5 min-w-[60px]"
-            >
-              <p className="text-[9px] font-bold uppercase tracking-wider text-brand-primary">{month}</p>
-              <p className="text-xl font-black leading-none text-brand-text-primary mt-0.5">{day}</p>
-              <p className="text-[9px] text-brand-text-muted font-semibold mt-0.5">{year}</p>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/15 border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider">
-                {event.type}
-              </span>
-              {isPast && (
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-400/20 border border-emerald-400/30 text-emerald-200 text-[9px] font-bold">
-                  <PlayCircle className="w-2.5 h-2.5" /> Replay
-                </span>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── Perforated divider ────────────────────────────────────────── */}
-      <div className="relative h-0 border-t border-dashed border-brand-surface-2 group-hover:border-brand-primary/20 transition-colors">
-        <span className="absolute -top-2 left-3 w-4 h-4 rounded-full bg-brand-surface border border-brand-surface-2 pointer-events-none" />
-        <span className="absolute -top-2 right-3 w-4 h-4 rounded-full bg-brand-surface border border-brand-surface-2 pointer-events-none" />
-      </div>
-
-      {/* ── Content body ──────────────────────────────────────────────── */}
-      <div className="flex flex-col flex-1 px-4 py-3.5">
-        {/* Show type badge only if has image (gradient header already shows type) */}
-        {event.coverImage && (
-          <span className="mb-2 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary text-[10px] font-bold uppercase tracking-wider w-fit">
-            <Calendar className="w-2.5 h-2.5" />
-            {event.type}
-          </span>
-        )}
-        <h3 className="text-sm font-bold text-brand-text-primary group-hover:text-brand-primary transition-colors line-clamp-2 leading-snug">
+        <h3 id={titleId} className={cn('font-semibold tracking-[-0.01em] text-ui-text', upcoming ? 'text-[22px] leading-tight' : 'text-lg')}>
           {event.title}
         </h3>
-        {event.description && (
-          <p className="mt-1.5 text-[11px] text-brand-text-muted line-clamp-2 leading-relaxed">
-            {event.description}
-          </p>
+        <Meta event={event} past={!upcoming} />
+        {event.description && <p className="line-clamp-2 max-w-[70ch] text-sm leading-relaxed text-ui-muted">{event.description}</p>}
+      </div>
+      <div className="flex w-full gap-2 lg:w-auto">
+        {(upcoming || event.description || event.coverImage) && (
+          <Button variant="secondary" className="max-lg:flex-1" onClick={() => onDetails(event)} aria-label={`Details for ${event.title}`}>
+            Details
+          </Button>
         )}
-        <div className="mt-2 flex items-center gap-3 text-[11px] text-brand-text-muted">
-          <span className="flex items-center gap-1">
-            <Clock className="w-3 h-3 text-brand-primary flex-shrink-0" />
-            {event.time}
-          </span>
-          <span className="flex items-center gap-1">
-            <MapPin className="w-3 h-3 text-brand-primary flex-shrink-0" />
-            Online
+        {showAction && <PrimaryAction event={event} now={now} onChange={onChange} onDetails={onDetails} className="max-lg:flex-1" />}
+      </div>
+    </Card>
+  )
+}
+
+function EventCard({
+  event,
+  past,
+  now,
+  onChange,
+  onDetails,
+}: {
+  event: LiveEvent
+  past: boolean
+  now: number | null
+  onChange: (e: LiveEvent) => void
+  onDetails: (e: LiveEvent) => void
+}) {
+  const hasDetails = !past || !!event.description || !!event.coverImage
+  return (
+    <Card interactive className="flex flex-col overflow-hidden">
+      <img src={eventArt(event)} alt="" loading="lazy" className="aspect-[2/1] w-full shrink-0 bg-ui-surface-2 object-cover" />
+      <div className="flex flex-1 flex-col gap-3 p-4">
+        <div className="flex items-center gap-3">
+          <DateBlock startsAt={event.startsAt} size="sm" />
+          <span className="flex flex-wrap gap-1.5">
+            <Chip className="h-[22px]">{event.type}</Chip>
+            {past && event.recordingLink && <ReplayChip />}
+            {!past && event.booked && (
+              <Chip tone="ok" className="h-[22px]">
+                <CalendarCheck className="h-3 w-3" aria-hidden />
+                Booked
+              </Chip>
+            )}
           </span>
         </div>
+        <h3 className="text-[15px] font-semibold leading-[1.35] text-ui-text">{event.title}</h3>
+        {event.description && <p className="line-clamp-2 text-[13px] leading-relaxed text-ui-muted">{event.description}</p>}
+        <div className="mt-auto">
+          <Meta event={event} past={past} />
+        </div>
       </div>
-
-      {/* ── CTA footer ────────────────────────────────────────────────── */}
-      <div className="flex-shrink-0 border-t border-brand-surface-2 px-4 py-3 flex items-center gap-2">
-        {isPast ? (
-          hasRecording ? (
-            <a
-              href={event.recordingLink!}
-              target="_blank"
-              rel="noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-1.5 bg-brand-primary text-white text-xs font-bold rounded-xl px-3 py-2 hover:bg-brand-primary-dark transition-colors"
-            >
-              <PlayCircle className="w-3.5 h-3.5" />
-              Watch Recording
-              <span data-cta-arrow className="inline-block">
-                <ArrowRight className="w-3 h-3" />
-              </span>
-            </a>
-          ) : (
-            <span className="text-[11px] text-brand-text-muted italic flex-1">
-              Recording coming soon
-            </span>
-          )
-        ) : (
-          <>
-            {event.meetingLink && (
-              <a
-                href={event.meetingLink}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 bg-brand-primary text-white text-xs font-bold rounded-xl px-3 py-2 hover:bg-brand-primary-dark transition-colors"
-              >
-                <ExternalLink className="w-3.5 h-3.5" />
-                Join
-                <span data-cta-arrow className="inline-block">
-                  <ArrowRight className="w-3 h-3" />
-                </span>
-              </a>
-            )}
-            <button
-              onClick={() => onViewDetails(event)}
-              className="inline-flex items-center gap-1 border border-brand-surface-2 text-brand-text-muted hover:border-brand-primary/40 hover:text-brand-primary text-xs font-bold rounded-xl px-3 py-2 transition-colors"
-            >
-              Details
-            </button>
-          </>
+      <div className="flex gap-2 border-t border-ui-line px-4 py-3">
+        <PrimaryAction event={event} now={now} onChange={onChange} onDetails={onDetails} size="sm" className="flex-1" />
+        {hasDetails && (
+          <Button variant="secondary" size="sm" className="h-9" onClick={() => onDetails(event)} aria-label={`Details for ${event.title}`}>
+            Details
+          </Button>
         )}
       </div>
-    </motion.div>
+    </Card>
   )
 }
 
-// ── EventGrid ───────────────────────────────────────────────────────────────
-
-function EventGrid({
-  events,
-  isPast,
-  onViewDetails,
-}: {
-  events: EventItem[]
-  isPast: boolean
-  onViewDetails: (e: EventItem) => void
-}) {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {events.map((e, i) => (
-        <EventCard
-          key={e.id}
-          event={e}
-          isPast={isPast}
-          index={i}
-          onViewDetails={onViewDetails}
-        />
-      ))}
-    </div>
-  )
-}
-
-// ── EventsPage ──────────────────────────────────────────────────────────────
+// ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function EventsPage() {
-  const [events, setEvents] = useState<LiveEvent[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
-  const [detailEvent, setDetailEvent] = useState<EventItem | null>(null)
+  const qc = useQueryClient()
+  const now = useNow()
+  // Refetched every minute, so the join link shows up when it opens.
+  const { data: events = [], isLoading: loading, isError: error, refetch } = useQuery({
+    queryKey: ['live-events', 'mine'],
+    queryFn: fetchMyEvents,
+    refetchInterval: 60_000,
+  })
+  const [detailId, setDetailId] = useState<string | null>(null)
   const [upcomingPage, setUpcomingPage] = useState(1)
   const [pastPage, setPastPage] = useState(1)
+  const [q, setQ] = useState('')
 
-  useEffect(() => {
-    fetchPublishedEvents()
-      .then((data) => {
-        setEvents(data)
-        setUpcomingPage(1)
-        setPastPage(1)
-      })
-      .catch(() => setError(true))
-      .finally(() => setLoading(false))
-  }, [])
+  function update(e: LiveEvent) {
+    qc.setQueryData<LiveEvent[]>(['live-events', 'mine'], (cur) => (cur ?? []).map((x) => (x.id === e.id ? e : x)))
+  }
+  const detailEvent = events.find((e) => e.id === detailId) ?? null
+  const isPast = (e: LiveEvent) => phaseOf(e, now) === 'ended'
 
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
-  const upcoming = events.filter(e => new Date(e.date) >= today)
-  const past = events.filter(e => new Date(e.date) < today)
+  const query = q.trim().toLowerCase()
+  const visible = useMemo(
+    () => (query ? events.filter((e) => `${e.title} ${e.description ?? ''} ${e.type}`.toLowerCase().includes(query)) : events),
+    [events, query],
+  )
 
+  // Upcoming: what she booked first, then soonest first. Recordings newest first.
+  const upcoming = visible
+    .filter((e) => !isPast(e))
+    .sort((a, b) => Number(!!b.booked) - Number(!!a.booked) || a.startsAt.localeCompare(b.startsAt))
+  const past = visible.filter((e) => isPast(e)).sort((a, b) => b.startsAt.localeCompare(a.startsAt))
   const [featuredUpcoming, ...allRestUpcoming] = upcoming
   const [featuredPast, ...allRestPast] = past
 
   const upcomingPageCount = Math.ceil(allRestUpcoming.length / GRID_PAGE_SIZE)
   const pastPageCount = Math.ceil(allRestPast.length / GRID_PAGE_SIZE)
-
-  const restUpcoming = allRestUpcoming.slice(
-    (upcomingPage - 1) * GRID_PAGE_SIZE,
-    upcomingPage * GRID_PAGE_SIZE
-  )
-  const restPast = allRestPast.slice(
-    (pastPage - 1) * GRID_PAGE_SIZE,
-    pastPage * GRID_PAGE_SIZE
-  )
+  const restUpcoming = allRestUpcoming.slice((upcomingPage - 1) * GRID_PAGE_SIZE, upcomingPage * GRID_PAGE_SIZE)
+  const restPast = allRestPast.slice((pastPage - 1) * GRID_PAGE_SIZE, pastPage * GRID_PAGE_SIZE)
+  const cardProps = { now, onChange: update, onDetails: (e: LiveEvent) => setDetailId(e.id) }
 
   return (
     <DashboardLayout>
       <PageHeader
-        eyebrow="Live events"
-        title="Webinars &"
-        highlight="live sessions"
-        subtitle="Join AI and business experts live, or watch the replay anytime."
+        title="Events"
+        subtitle="Book a place, join business experts live, or watch the replay any time."
+        className="[&>div:last-child]:w-full sm:[&>div:last-child]:w-auto"
+        actions={
+          <div className="relative w-full sm:w-[300px]">
+            <label htmlFor="ev-search" className="sr-only">
+              Search events
+            </label>
+            <Search className="pointer-events-none absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ui-muted" aria-hidden />
+            <input
+              id="ev-search"
+              type="search"
+              value={q}
+              onChange={(e) => {
+                setQ(e.target.value)
+                setUpcomingPage(1)
+                setPastPage(1)
+              }}
+              placeholder="Search events"
+              className={cn(inputClass, 'h-[42px] ps-9')}
+            />
+          </div>
+        }
       />
 
-      <div className="space-y-10">
-        {loading && (
-          <div className="animate-pulse space-y-4">
-            <div className="h-40 bg-brand-surface-2 rounded-2xl" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="h-52 bg-brand-surface-2 rounded-2xl" />
-              ))}
-            </div>
+      {loading ? (
+        <div className="flex flex-col gap-4" aria-busy="true" aria-label="Loading events">
+          <Skeleton className="h-6 w-28" />
+          <Skeleton className="h-[120px] w-full rounded-[14px]" />
+          <div className="grid grid-cols-[minmax(0,1fr)] gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {Array.from({ length: 3 }, (_, i) => (
+              <Skeleton key={i} className="h-52 rounded-[14px]" />
+            ))}
           </div>
-        )}
-
-        {error && !loading && (
-          <div className="rounded-2xl border border-brand-surface-2 p-8 text-center text-brand-text-muted text-sm">
-            Couldn&apos;t load events. Please try again later.
-          </div>
-        )}
-
-        {!loading && !error && (
-          <>
-            {/* ── Upcoming events ── */}
-            {upcoming.length > 0 && (
-              <section>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-brand-text-muted mb-4">
-                  Upcoming
-                </h2>
-                <div className="space-y-4">
-                  {featuredUpcoming && (
-                    <FeaturedCard
-                      event={featuredUpcoming}
-                      badge="Coming up"
-                    />
-                  )}
-                  {restUpcoming.length > 0 && (
-                    <EventGrid
-                      events={restUpcoming}
-                      isPast={false}
-                      onViewDetails={setDetailEvent}
-                    />
-                  )}
-                  <Pagination
-                    page={upcomingPage}
-                    pageCount={upcomingPageCount}
-                    onPage={setUpcomingPage}
-                  />
-                </div>
-              </section>
+        </div>
+      ) : error ? (
+        <Card>
+          <EmptyState
+            icon={CalendarDays}
+            title="Events could not load"
+            body="Something went wrong while loading events."
+            action={
+              <Button variant="secondary" size="sm" onClick={() => void refetch()}>
+                <RefreshCw className="h-4 w-4" aria-hidden />
+                Try again
+              </Button>
+            }
+          />
+        </Card>
+      ) : query && visible.length === 0 ? (
+        <Card>
+          <EmptyState
+            icon={Search}
+            title="No events match"
+            body={`Nothing matches "${q.trim()}". Try another word.`}
+            action={
+              <Button variant="secondary" size="sm" onClick={() => setQ('')}>
+                Clear search
+              </Button>
+            }
+          />
+        </Card>
+      ) : (
+        <div className="flex flex-col gap-6">
+          <section aria-labelledby="ev-up" className="flex flex-col gap-3.5">
+            <h2 id="ev-up" className="text-lg font-semibold text-ui-text">Upcoming</h2>
+            {featuredUpcoming && <FeaturedCard event={featuredUpcoming} upcoming {...cardProps} />}
+            {restUpcoming.length > 0 && (
+              <div className="grid grid-cols-[minmax(0,1fr)] gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                {restUpcoming.map((e) => (
+                  <EventCard key={e.id} event={e} past={false} {...cardProps} />
+                ))}
+              </div>
             )}
-
-            {/* ── Past recordings ── */}
-            {past.length > 0 && (
-              <section>
-                <h2 className="text-xs font-bold uppercase tracking-widest text-brand-text-muted mb-4">
-                  Recordings
-                </h2>
-                <div className="space-y-4">
-                  {featuredPast && (
-                    <FeaturedCard
-                      event={featuredPast}
-                      badge="Latest session"
-                      replayBadge
-                    />
-                  )}
-                  {restPast.length > 0 && (
-                    <EventGrid
-                      events={restPast}
-                      isPast={true}
-                      onViewDetails={setDetailEvent}
-                    />
-                  )}
-                  <Pagination
-                    page={pastPage}
-                    pageCount={pastPageCount}
-                    onPage={setPastPage}
-                  />
-                </div>
-              </section>
+            <Pagination page={upcomingPage} pageCount={upcomingPageCount} onPage={setUpcomingPage} label="Upcoming events pages" />
+            {upcoming.length <= 1 && (
+              <div className="flex items-center gap-3 rounded-[14px] border border-dashed border-ui-line px-[18px] py-4 text-sm text-ui-muted">
+                <CalendarDays className="h-[18px] w-[18px] shrink-0" strokeWidth={1.75} aria-hidden />
+                {upcoming.length === 0
+                  ? query
+                    ? 'No upcoming events match your search.'
+                    : 'No events are scheduled right now. New webinars appear here as soon as they are announced.'
+                  : 'No other events are scheduled yet. New webinars appear here as soon as they are announced.'}
+              </div>
             )}
-          </>
-        )}
-      </div>
+          </section>
 
-      <EventDetailModal
-        event={detailEvent}
-        onClose={() => setDetailEvent(null)}
-      />
+          {past.length > 0 && (
+            <section aria-labelledby="ev-rec" className="flex flex-col gap-3.5">
+              <div className="flex items-baseline justify-between gap-3">
+                <h2 id="ev-rec" className="text-lg font-semibold text-ui-text">Recordings</h2>
+                <span className="text-[13px] text-ui-muted">Past webinars</span>
+              </div>
+              {featuredPast && <FeaturedCard event={featuredPast} upcoming={false} {...cardProps} />}
+              {restPast.length > 0 && (
+                <div className="grid grid-cols-[minmax(0,1fr)] gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                  {restPast.map((e) => (
+                    <EventCard key={e.id} event={e} past {...cardProps} />
+                  ))}
+                </div>
+              )}
+              <Pagination page={pastPage} pageCount={pastPageCount} onPage={setPastPage} label="Recordings pages" />
+            </section>
+          )}
+        </div>
+      )}
+
+      {detailEvent && <EventDetailModal event={detailEvent} now={now} onChange={update} onClose={() => setDetailId(null)} />}
     </DashboardLayout>
   )
 }

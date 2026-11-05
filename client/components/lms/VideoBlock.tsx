@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { CheckCircle2, ChevronDown, ChevronUp, Video } from 'lucide-react'
+import { CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { motion, AnimatePresence } from 'framer-motion'
 import { apiUpdateBlockProgress, type LearnerBlock } from '@/lib/api/lms'
@@ -61,23 +61,12 @@ export function VideoBlock({ block, onCompleted, onAdvance, onWatchThreshold }: 
 
   return (
     <div>
-      <div className="flex items-center gap-2 mb-3">
-        <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-brand-primary/10 text-brand-primary shrink-0">
-          <Video className="w-4 h-4" />
-        </span>
-        <div className="flex-1 min-w-0">
-          <p className="text-[10px] font-bold text-brand-primary uppercase tracking-[0.2em]">Watch</p>
-          <h3 className="text-base sm:text-lg font-black text-brand-text-primary leading-tight">
-            {block.title}
-          </h3>
-        </div>
-        {isAlreadyCompleted && (
-          <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1 shrink-0">
-            <CheckCircle2 className="w-3.5 h-3.5" />
-            Completed
-          </span>
-        )}
-      </div>
+      {isAlreadyCompleted && (
+        <p className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-ui-ok-soft px-3 py-1 text-xs font-semibold text-ui-ok">
+          <CheckCircle2 className="h-3.5 w-3.5" aria-hidden />
+          Watched
+        </p>
+      )}
 
       {isYouTube ? (
         <YouTubePlayer
@@ -85,7 +74,7 @@ export function VideoBlock({ block, onCompleted, onAdvance, onWatchThreshold }: 
           onProgress={handleYtProgress}
         />
       ) : (
-        <div className="relative rounded-2xl overflow-hidden bg-black aspect-video shadow-lg ring-1 ring-black/5">
+        <div className="relative rounded-[14px] overflow-hidden bg-black aspect-video shadow-lg ring-1 ring-black/5">
           <video
             key={block.id}
             src={block.videoUrl ?? undefined}
@@ -99,19 +88,19 @@ export function VideoBlock({ block, onCompleted, onAdvance, onWatchThreshold }: 
 
       {!isAlreadyCompleted && isYouTube && (
         <div className="mt-3">
-          <div className="flex items-center justify-between text-[10px] font-bold text-brand-text-muted mb-1.5">
+          <div className="flex items-center justify-between text-xs font-medium text-ui-muted mb-1.5">
             <span>Watch 95% to complete</span>
             <span>{Math.round(ytWatchPct)}%</span>
           </div>
-          <div className="h-1.5 rounded-full bg-brand-surface-2 overflow-hidden">
+          <div className="h-1.5 rounded-full bg-ui-surface-2 overflow-hidden">
             <motion.div
               animate={{ width: `${ytWatchPct}%` }}
               transition={{ duration: 0.3 }}
               className={cn(
                 'h-full rounded-full transition-colors',
                 ytWatchPct >= 95
-                  ? 'bg-emerald-500'
-                  : 'bg-gradient-to-r from-brand-primary to-brand-primary-dark',
+                  ? 'bg-ui-ok'
+                  : 'bg-ui-brand',
               )}
             />
           </div>
@@ -120,19 +109,19 @@ export function VideoBlock({ block, onCompleted, onAdvance, onWatchThreshold }: 
 
       {!isAlreadyCompleted && !isYouTube && (
         <div className="mt-3">
-          <div className="flex items-center justify-between text-[10px] font-bold text-brand-text-muted mb-1.5">
+          <div className="flex items-center justify-between text-xs font-medium text-ui-muted mb-1.5">
             <span>Watch 95% to complete</span>
             <span>{Math.round(watchPct)}%</span>
           </div>
-          <div className="h-1.5 rounded-full bg-brand-surface-2 overflow-hidden">
+          <div className="h-1.5 rounded-full bg-ui-surface-2 overflow-hidden">
             <motion.div
               animate={{ width: `${watchPct}%` }}
               transition={{ duration: 0.3 }}
               className={cn(
                 'h-full rounded-full transition-colors',
                 watchPct >= 95
-                  ? 'bg-emerald-500'
-                  : 'bg-gradient-to-r from-brand-primary to-brand-primary-dark',
+                  ? 'bg-ui-ok'
+                  : 'bg-ui-brand',
               )}
             />
           </div>
@@ -143,9 +132,11 @@ export function VideoBlock({ block, onCompleted, onAdvance, onWatchThreshold }: 
         <div className="mt-4">
           <button
             onClick={() => setTranscriptOpen((v) => !v)}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-text-muted hover:text-brand-primary transition-colors"
+            type="button"
+            aria-expanded={transcriptOpen}
+            className="inline-flex items-center gap-1.5 rounded-md text-xs font-bold text-ui-muted transition-colors hover:text-ui-brand-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand"
           >
-            {transcriptOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+            {transcriptOpen ? <ChevronUp className="w-3.5 h-3.5" aria-hidden /> : <ChevronDown className="w-3.5 h-3.5" aria-hidden />}
             Transcript
           </button>
           <AnimatePresence initial={false}>
@@ -157,10 +148,10 @@ export function VideoBlock({ block, onCompleted, onAdvance, onWatchThreshold }: 
                 transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                 className="overflow-hidden"
               >
-                <div className="mt-3 rounded-xl border border-brand-surface-2 bg-brand-surface p-4">
+                <div className="mt-3 rounded-[10px] border border-ui-line bg-ui-bg p-4">
                   <RichContent
                     content={block.transcript}
-                    className="text-sm text-brand-text-muted"
+                    className="text-sm [&_p]:!text-ui-text [&_li]:!text-ui-text"
                   />
                 </div>
               </motion.div>

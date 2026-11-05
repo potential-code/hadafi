@@ -2,6 +2,7 @@ import { drizzle } from 'drizzle-orm/node-postgres'
 import pg from 'pg'
 import { eq } from 'drizzle-orm'
 import { liveEvents } from '../schema/index.ts'
+import { legacyTimes } from './legacyEventTimes.ts'
 import cardsData from './seed-data/hadafi-event-cards.json' with { type: 'json' }
 
 const client = new pg.Client({ connectionString: process.env.DATABASE_URL })
@@ -58,10 +59,12 @@ for (const item of items) {
 
   const imgUrl = item.extra_image_url || item.featured_image_url || null
 
+  const time = nullIfBlank(item.meta.time) ?? '5:00 PM / GST - UAE time'
   await db.insert(liveEvents).values({
     title: item.title,
     date: item.meta.fulldate,
-    time: nullIfBlank(item.meta.time) ?? '5:00 PM / GST - UAE time',
+    time,
+    ...legacyTimes(item.meta.fulldate, time),
     description: nullIfBlank(item.meta.overview_txt),
     type: nullIfBlank(item.meta.event_category) ?? 'Webinar',
     recordingLink: nullIfBlank(item.meta.recording_link),

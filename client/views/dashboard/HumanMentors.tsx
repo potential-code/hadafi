@@ -1,19 +1,19 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Linkedin, Calendar, Filter, Search, Star } from 'lucide-react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Calendar, Check, Linkedin, Search, Star, Users } from 'lucide-react'
 import { DashboardLayout } from '@/components/dashboard/DashboardLayout'
-import { PageHeader } from '@/components/dashboard/widgets/PageHeader'
-import { BookingModal } from '@/components/mentor/BookingModal'
-import type { BookingModalProps } from '@/components/mentor/BookingModal'
+import { BookingPanel } from '@/components/mentor/BookingModal'
+import type { BookingPanelMentor } from '@/components/mentor/BookingModal'
+import { Avatar, Button, Card, Chip, EmptyState, FilterChips, PageHeader, Skeleton, btn, inputClass } from '@/components/kit'
 import { getMentors } from '@/lib/api/sme'
 import type { MentorUser } from '@/lib/api/sme'
 import { cn } from '@/lib/utils'
 
-const CATEGORIES = ['All', 'Leadership', 'Strategy', 'Marketing', 'Sales', 'Finance', 'Legal', 'Operations']
+const CATEGORIES = ['All', 'Leadership', 'Strategy', 'Marketing', 'Sales', 'Finance', 'Legal', 'Operations'] as const
+type Category = (typeof CATEGORIES)[number]
 
-const TAG_TO_CATEGORY: Record<string, string> = {
+const TAG_TO_CATEGORY: Record<string, Category> = {
   // Leadership
   'leadership': 'Leadership',
   'team building': 'Leadership',
@@ -53,8 +53,8 @@ const TAG_TO_CATEGORY: Record<string, string> = {
   'csr and corporate affairs': 'Operations',
 }
 
-function getCategories(expertise: string[]): string[] {
-  const cats = new Set<string>()
+function getCategories(expertise: string[]): Category[] {
+  const cats = new Set<Category>()
   for (const tag of expertise) {
     const cat = TAG_TO_CATEGORY[tag.toLowerCase().trim()]
     if (cat) cats.add(cat)
@@ -62,197 +62,234 @@ function getCategories(expertise: string[]): string[] {
   return Array.from(cats)
 }
 
-function diceBearUrl(name: string) {
-  return `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name)}&backgroundColor=9f2063&fontSize=42&radius=50`
-}
-
-interface DisplayMentor {
-  id: string
-  name: string
+interface DisplayMentor extends BookingPanelMentor {
   specialty: string
-  primaryTag: string
-  avatar: string
-  linkedin: string
-  featured: boolean
-  expertise: string[]
+  categories: Category[]
 }
 
 function toDisplayMentor(m: MentorUser): DisplayMentor {
   const tags = m.expertise ?? []
-  const cats = getCategories(tags)
   return {
-    id: m.id,
+    userId: m.id,
     name: m.fullName,
-    specialty: m.bio ?? 'Mentor',
-    primaryTag: cats[0] ?? '',
-    avatar: m.avatarUrl ?? diceBearUrl(m.fullName),
-    linkedin: m.linkedinUrl ?? '#',
-    featured: tags.some(e => /^featured$/i.test(e)),
+    avatarUrl: m.avatarUrl,
+    linkedinUrl: m.linkedinUrl,
+    featured: tags.some((e) => /^featured$/i.test(e)),
     expertise: tags,
+    specialty: m.bio ?? 'Mentor',
+    categories: getCategories(tags),
   }
 }
 
 export default function HumanMentorsPage() {
-  const [cat, setCat] = useState<string>('All')
+  const [cat, setCat] = useState<Category>('All')
   const [q, setQ] = useState('')
-  const [dbMentors, setDbMentors] = useState<MentorUser[]>([])
+  const [mentors, setMentors] = useState<DisplayMentor[]>([])
   const [loaded, setLoaded] = useState(false)
-  const [bookingMentor, setBookingMentor] = useState<BookingModalProps['mentor'] | null>(null)
+  const [failed, setFailed] = useState(false)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     getMentors()
       .then((users) => {
-        setDbMentors(users)
-        setCat('All')
+        const list = users.map(toDisplayMentor).sort((a, b) => a.name.localeCompare(b.name))
+        setMentors(list)
+        // A deep link (?mentor=<id>, e.g. "Book" from an AI mentor chat) opens
+        // that mentor; otherwise open a featured mentor so booking is visible.
+        const wanted = new URLSearchParams(window.location.search).get('mentor')
+        const linked = wanted ? list.find((m) => m.userId === wanted) : undefined
+        if (linked) choose(linked.userId)
+        else setSelectedId((list.find((m) => m.featured) ?? list[0])?.userId ?? null)
       })
-      .catch(() => {})
+      .catch(() => setFailed(true))
       .finally(() => setLoaded(true))
   }, [])
 
-  const allMentors: DisplayMentor[] = dbMentors.map(toDisplayMentor)
+  const counts = useMemo(() => {
+    const c: Record<string, number> = { All: mentors.length }
+    for (const m of mentors) for (const k of m.categories) c[k] = (c[k] ?? 0) + 1
+    return c
+  }, [mentors])
 
-  const filtered = allMentors.filter((m) => {
-    if (cat !== 'All' && !getCategories(m.expertise).includes(cat)) return false
-    if (q && !`${m.name} ${m.specialty}`.toLowerCase().includes(q.toLowerCase())) return false
+  const query = q.trim().toLowerCase()
+  const filtered = mentors.filter((m) => {
+    if (cat !== 'All' && !m.categories.includes(cat)) return false
+    if (query && !`${m.name} ${m.specialty} ${m.expertise.join(' ')}`.toLowerCase().includes(query)) return false
     return true
   })
+  const selected = mentors.find((m) => m.userId === selectedId) ?? null
+
+  function choose(id: string) {
+    setSelectedId(id)
+    // Below xl the panel sits above the list: bring it into view.
+    if (typeof window !== 'undefined' && window.matchMedia('(max-width: 1279px)').matches) {
+      requestAnimationFrame(() => panelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+    }
+  }
 
   return (
     <DashboardLayout>
       <PageHeader
-        eyebrow="Programme mentors"
-        title="Book a session with a"
-        highlight="human expert"
+        title="Human Mentors"
         subtitle="Verified business mentors from across the world. One-on-one sessions, free for Hadafi members."
+        className="mb-5 [&>div:last-child]:w-full sm:[&>div:last-child]:w-auto"
         actions={
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-text-muted" />
+          <div className="relative w-full sm:w-[300px]">
+            <label htmlFor="hm-search" className="sr-only">
+              Search mentors
+            </label>
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ui-muted" aria-hidden />
             <input
+              id="hm-search"
+              type="search"
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Search mentors…"
-              className="rounded-xl border border-brand-surface-2 bg-white pl-9 pr-3 py-2 text-sm w-56 focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
+              placeholder="Search by name or expertise"
+              className={cn(inputClass, 'h-[42px] pl-9')}
             />
           </div>
         }
       />
 
-      <div className="mb-6">
-        <div className="flex items-center gap-2 flex-wrap">
-          <Filter className="w-4 h-4 text-brand-text-muted flex-shrink-0" />
-          {CATEGORIES.map((c) => {
-            const active = c === cat
-            return (
-              <button
-                key={c}
-                onClick={() => setCat(c)}
-                className={cn(
-                  'relative flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors whitespace-nowrap',
-                  active ? 'text-white' : 'text-brand-text-muted hover:text-brand-primary',
-                )}
-              >
-                {active && (
-                  <motion.span
-                    layoutId="human-cat-active"
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-brand-primary to-brand-primary-dark"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <span className="relative">{c}</span>
-              </button>
-            )
-          })}
-        </div>
-      </div>
+      <FilterChips<Category>
+        label="Filter by expertise"
+        options={CATEGORIES.map((c) => ({ value: c, label: c, count: loaded ? counts[c] ?? 0 : undefined }))}
+        active={cat}
+        onChange={setCat}
+        className="mb-[22px] lg:flex-wrap"
+      />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {loaded && filtered.length === 0 && (
-          <p className="col-span-full py-12 text-center text-sm text-brand-text-muted">
-            No mentors available yet.
-          </p>
-        )}
-        {filtered.map((m, i) => {
-          const canBook = !!m.id
-          return (
-            <motion.article
-              key={m.id}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.03 * i, duration: 0.4 }}
-              whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-2xl bg-white border border-brand-surface-2 hover:border-brand-primary/40 hover:shadow-xl transition-all"
-            >
-              <div className="relative aspect-square overflow-hidden">
-                <img
-                  src={m.avatar}
-                  alt={m.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 to-transparent" />
-                {m.featured && (
-                  <span className="absolute top-3 left-3 inline-flex items-center gap-1 px-2 py-1 rounded-full bg-amber-400/95 text-amber-950 text-[9px] font-bold uppercase tracking-wider">
-                    <Star className="w-3 h-3 fill-current" />
-                    Featured
-                  </span>
-                )}
-                {!!m.primaryTag && (
-                  <span className="absolute top-3 right-3 inline-flex items-center px-2 py-1 rounded-full bg-white/95 text-brand-primary text-[9px] font-bold uppercase tracking-wider">
-                    {m.primaryTag}
-                  </span>
-                )}
-              </div>
-              <div className="p-4">
-                <h3 className="font-bold text-brand-text-primary leading-tight">{m.name}</h3>
-                <p className="mt-1 text-[11px] text-brand-text-muted leading-snug line-clamp-2 min-h-[2.5em]">
-                  {m.specialty}
-                </p>
-                <div className="mt-3 flex gap-2">
-                  <button
-                    disabled={!canBook}
-                    title={!canBook ? 'Not yet available for booking' : undefined}
+      <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-6 xl:grid-cols-[minmax(0,1fr)_360px] 2xl:grid-cols-[minmax(0,1fr)_400px]">
+        <Card className="overflow-hidden">
+          <div className="flex items-center justify-between gap-3 px-4 py-3.5">
+            <h2 className="text-base font-semibold text-ui-text">
+              {loaded ? `${filtered.length} ${filtered.length === 1 ? 'mentor' : 'mentors'}` : 'Mentors'}
+            </h2>
+            <span className="text-[13px] text-ui-muted">Featured mentors are marked</span>
+          </div>
+
+          {!loaded ? (
+            <ul aria-busy="true" aria-label="Loading mentors">
+              {Array.from({ length: 6 }, (_, i) => (
+                <li key={i} className="flex items-center gap-4 border-t border-ui-line px-4 py-4">
+                  <Skeleton className="h-[72px] w-[72px] shrink-0 rounded-full" />
+                  <div className="flex flex-1 flex-col gap-2">
+                    <Skeleton className="h-4 w-40" />
+                    <Skeleton className="h-3 w-64 max-w-full" />
+                  </div>
+                  <Skeleton className="h-9 w-20" />
+                </li>
+              ))}
+            </ul>
+          ) : failed ? (
+            <EmptyState
+              icon={Users}
+              title="Mentors could not load"
+              body="Something went wrong while loading the mentor list. Refresh the page to try again."
+              className="border-t border-ui-line"
+            />
+          ) : filtered.length === 0 ? (
+            <EmptyState
+              icon={Search}
+              title={mentors.length === 0 ? 'No mentors available yet' : 'No mentors match'}
+              body={
+                mentors.length === 0
+                  ? 'Mentors will appear here as soon as they join the program.'
+                  : 'Try another expertise or a different search.'
+              }
+              action={
+                mentors.length > 0 ? (
+                  <Button
+                    variant="secondary"
+                    size="sm"
                     onClick={() => {
-                      if (!canBook) return
-                      setBookingMentor({
-                        name: m.name,
-                        specialty: m.specialty,
-                        avatar: m.avatar,
-                        userId: m.id,
-                      })
+                      setQ('')
+                      setCat('All')
                     }}
+                  >
+                    Clear filters
+                  </Button>
+                ) : undefined
+              }
+              className="border-t border-ui-line"
+            />
+          ) : (
+            <ul>
+              {filtered.map((m) => {
+                const on = m.userId === selectedId
+                return (
+                  <li
+                    key={m.userId}
+                    aria-current={on ? 'true' : undefined}
                     className={cn(
-                      'flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg px-2.5 py-2 text-[11px] font-bold transition-colors',
-                      canBook
-                        ? 'bg-brand-primary text-white hover:bg-brand-primary-dark'
-                        : 'bg-brand-surface text-brand-text-muted cursor-not-allowed opacity-60',
+                      'grid grid-cols-[72px_minmax(0,1fr)_auto] items-center gap-3.5 border-t border-ui-line px-3 py-4 sm:gap-4 sm:px-4',
+                      on && 'bg-ui-brand-soft',
                     )}
                   >
-                    <Calendar className="w-3 h-3" />
-                    Book
-                  </button>
-                  <a
-                    href={m.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand-surface text-brand-text-primary hover:bg-brand-primary hover:text-white transition-colors"
-                    aria-label={`${m.name} on LinkedIn`}
-                  >
-                    <Linkedin className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
-            </motion.article>
-          )
-        })}
-      </div>
+                    <Avatar name={m.name} src={m.avatarUrl} size={72} className="object-[50%_20%] ring-1 ring-ui-line" />
+                    <span className="flex min-w-0 flex-col gap-1">
+                      <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                        <span className="text-[15px] font-semibold text-ui-text">{m.name}</span>
+                        {m.featured && (
+                          <Chip tone="brand" className="h-[22px]">
+                            <Star className="h-3 w-3" strokeWidth={2} aria-hidden />
+                            Featured
+                          </Chip>
+                        )}
+                      </span>
+                      <span className="text-sm text-ui-muted">{m.specialty}</span>
+                    </span>
+                    <span className="flex items-center gap-2">
+                      {m.categories[0] && (
+                        <Chip className="hidden font-medium md:inline-flex">{m.categories[0]}</Chip>
+                      )}
+                      {m.linkedinUrl && (
+                        <a
+                          href={m.linkedinUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${m.name} on LinkedIn`}
+                          className={cn(btn({ variant: 'secondary', size: 'icon-sm' }), 'hidden h-9 w-9 md:inline-flex')}
+                        >
+                          <Linkedin className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+                        </a>
+                      )}
+                      <Button
+                        variant="secondary"
+                        aria-pressed={on}
+                        aria-label={on ? `${m.name} selected` : `Book ${m.name}`}
+                        onClick={() => choose(m.userId)}
+                        className={cn('h-9 px-3.5', on && 'border-ui-brand text-ui-brand-text')}
+                      >
+                        {on ? <Check className="h-4 w-4" aria-hidden /> : <Calendar className="h-4 w-4" aria-hidden />}
+                        {on ? 'Selected' : 'Book'}
+                      </Button>
+                    </span>
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+        </Card>
 
-      <AnimatePresence>
-        {bookingMentor && (
-          <BookingModal
-            mentor={bookingMentor}
-            onClose={() => setBookingMentor(null)}
-          />
+        {(selected || !loaded) && (
+          <div ref={panelRef} className="order-first scroll-mt-20 xl:sticky xl:top-6 xl:order-none">
+            {selected ? (
+              <BookingPanel mentor={selected} />
+            ) : (
+              <Card className="flex flex-col gap-4 p-5" aria-hidden>
+                <div className="flex items-center gap-3.5">
+                  <Skeleton className="h-14 w-14 rounded-full" />
+                  <Skeleton className="h-5 w-40" />
+                </div>
+                <Skeleton className="h-24 w-full" />
+                <Skeleton className="h-10 w-full" />
+              </Card>
+            )}
+          </div>
         )}
-      </AnimatePresence>
+      </div>
     </DashboardLayout>
   )
 }

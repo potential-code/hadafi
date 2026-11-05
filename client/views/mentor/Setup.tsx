@@ -7,17 +7,12 @@ import { Eye, EyeOff, Lock, ArrowRight, AlertCircle, Loader2 } from 'lucide-reac
 import { toast } from 'sonner'
 import { AuthLayout } from '@/components/auth/AuthLayout'
 import { FloatingField } from '@/components/auth/FloatingField'
-import { setAuth, type User } from '@/lib/auth'
+import { refreshUser } from '@/lib/auth'
 import { apiFetch } from '@/lib/api'
 
 interface TokenInfo {
   name: string
   email: string
-}
-
-interface SetupResponse {
-  token: string
-  user: User
 }
 
 function SetupForm() {
@@ -53,15 +48,18 @@ function SetupForm() {
 
     setLoading(true)
     try {
-      const { token: jwt, user } = await apiFetch<SetupResponse>('/api/mentor/setup', {
+      // Creates the mentor account and signs in (session cookie). The link
+      // was emailed to the applicant, so it proves the address.
+      await apiFetch('/api/auth/hadafi/mentor-setup', {
         method: 'POST',
         body: JSON.stringify({ token, password }),
       })
-      setAuth(jwt, user)
+      await refreshUser()
       router.push('/mentor/dashboard')
     } catch (err: unknown) {
+      // Better Auth errors put `code` at the top level.
       const body = err as { code?: string }
-      if (body?.code === 'TOKEN_EXPIRED') {
+      if (body?.code === 'TOKEN_EXPIRED' || body?.code === 'TOKEN_NOT_FOUND' || body?.code === 'EMAIL_EXISTS') {
         setTokenError(true)
       } else {
         toast.error('Something went wrong', { description: 'Please try again.' })

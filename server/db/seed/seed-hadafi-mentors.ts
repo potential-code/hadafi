@@ -1,5 +1,3 @@
-import bcrypt from 'bcryptjs'
-import { randomUUID } from 'crypto'
 import { drizzle } from 'drizzle-orm/node-postgres'
 import pg from 'pg'
 import { eq } from 'drizzle-orm'
@@ -61,13 +59,12 @@ for (const item of items) {
   const linkedinUrl = nullIfBlank(item.meta.linkedinurl)
   const expertise = parseExpertise(item.meta.expert_category ?? '')
 
-  // Step A: insert user (onConflictDoNothing — email is unique)
-  const passwordHash = await bcrypt.hash(randomUUID(), 10)
+  // Step A: insert user (onConflictDoNothing — email is unique). No password:
+  // mentors sign in with an email code, which also verifies their email.
 
   await db.insert(users).values({
     fullName: item.title,
     email,
-    passwordHash,
     role: 'mentor',
     bio,
     avatarUrl,

@@ -7,16 +7,23 @@ const __dirname = path.dirname(__filename)
 import cors from "cors";
 import helmet from "helmet";
 import pinoHttp from "pino-http";
+import { toNodeHandler } from "better-auth/node";
 import router from "./routes";
+import { auth } from "./auth";
 import { logger } from "./config/logger";
 import { basicAuthGate } from "./middleware/basic-auth";
 import { errorHandler } from "./middleware/error-handler";
+import { UPLOADS_ROOT } from "./middleware/upload";
 import { refreshOutdatedCertificates } from "./services/lms/certificate.service";
+import { startReminders } from "./services/reminders.service";
+import { startAnnouncementDispatcher } from "./services/announcements.service";
+import zoomWebhookRouter from "./routes/zoomWebhook";
 
-// Fail fast if JWT_SECRET is missing — auth cannot function without it.
-if (!process.env["JWT_SECRET"]) {
+// Fail fast without a session-signing secret. BETTER_AUTH_SECRET is preferred;
+// JWT_SECRET (the pre-Better-Auth secret) is accepted so deploys keep working.
+if (!process.env["BETTER_AUTH_SECRET"] && !process.env["JWT_SECRET"]) {
   throw new Error(
-    "JWT_SECRET environment variable is required but was not provided.",
+    "BETTER_AUTH_SECRET (or JWT_SECRET) environment variable is required but was not provided.",
   );
 }
 
@@ -73,13 +80,33 @@ app.use(cors({
   origin: process.env["FRONTEND_URL"] || "http://localhost:3000",
   credentials: true,
 }));
+// Better Auth reads the raw request body, so it is mounted before the body
+// parsers. It owns everything under /api/auth (sign-in, sign-up, sessions).
+app.all("/api/auth/*splat", toNodeHandler(auth));
+
+// Zoom signs the raw body, so its webhook is mounted before the JSON parser.
+app.use("/api/webhooks/zoom", zoomWebhookRouter);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve uploaded files without authentication — files are addressed by
 // opaque filenames and do not expose sensitive data beyond the file itself.
 // The basicAuthGate (admin UI guard) is intentionally bypassed here.
-app.use("/uploads", express.static(path.join(__dirname, '..', 'uploads')));
+app.use(
+  "/uploads",
+  express.static(UPLOADS_ROOT, {
+    setHeaders: (res, filePath) => {
+      // Never let the browser guess a different type than the extension says.
+      res.setHeader("X-Content-Type-Options", "nosniff");
+      // An SVG opened directly is a document that can run script on this
+      // origin; sandbox it. <img> embeds are unaffected.
+      if (filePath.toLowerCase().endsWith(".svg")) {
+        res.setHeader("Content-Security-Policy", "default-src 'none'; style-src 'unsafe-inline'; sandbox");
+      }
+    },
+  }),
+);
 
 app.use(basicAuthGate);
 
@@ -115,6 +142,13 @@ if (process.env["HADAFI_SKIP_LISTEN"] !== "1") {
   // Certificates drawn by an older renderer (or never drawn) are drawn again,
   // in the background; it never blocks the boot.
   void refreshOutdatedCertificates();
+
+  // Session reminders and course nudges, every 15 minutes (in-app; emails
+  // only with REMINDER_EMAILS_ENABLED=true; REMINDERS_ENABLED=false stops it).
+  startReminders();
+
+  // Scheduled announcements go out, and ended ones come down, every minute.
+  startAnnouncementDispatcher();
 }
 
 export { app };

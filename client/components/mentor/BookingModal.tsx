@@ -1,576 +1,469 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+/**
+ * Learner booking panel for a human mentor (Human Mentors page).
+ * Shows a 7-day strip of the learner's own calendar days, the mentor's real
+ * open slots from `/api/mentors/:id/availability` grouped by the learner's
+ * timezone, a summary and the confirm action. Kept in this file (formerly the
+ * booking modal) because the Human Mentors page is its only consumer; the
+ * assistant's MentorBookingWidget has its own calendar.
+ */
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
 import {
-  X,
+  CalendarCheck2,
+  CalendarX2,
   ChevronLeft,
   ChevronRight,
-  CheckCircle2,
   ExternalLink,
-  CalendarClock,
+  Linkedin,
   Loader2,
+  Star,
 } from 'lucide-react'
 import { toast } from 'sonner'
 import { apiFetch } from '@/lib/api'
-import { getMentorAvailability, bookSession } from '@/lib/api/sme'
+import { apiErrorMessage, getMentorAvailability, bookSession } from '@/lib/api/sme'
 import type { Slot, SmeSession } from '@/lib/api/sme'
+import { Avatar, Button, Chip, EmptyState, Skeleton, btn } from '@/components/kit'
 import { cn } from '@/lib/utils'
 
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
+export interface BookingPanelMentor {
+  userId: string
+  name: string
+  avatarUrl: string | null
+  linkedinUrl: string | null
+  featured: boolean
+  expertise: string[]
+}
 
-export interface BookingModalProps {
-  mentor: {
-    name: string
-    specialty: string
-    avatar: string
-    userId: string
-    meetingLink?: string | null
+// ── Date helpers (all keyed as YYYY-MM-DD in the learner's timezone) ──────────
+
+function browserTz() {
+  try {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone
+  } catch {
+    return 'UTC'
   }
-  onClose: () => void
 }
 
-// ---------------------------------------------------------------------------
-// Calendar helpers
-// ---------------------------------------------------------------------------
-
-const MONTH_NAMES = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
-]
-
-const DAY_HEADERS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-
-function toDateKey(date: Date): string {
-  const y = date.getFullYear()
-  const m = String(date.getMonth() + 1).padStart(2, '0')
-  const d = String(date.getDate()).padStart(2, '0')
-  return `${y}-${m}-${d}`
-}
-
-function todayKey(): string {
-  return toDateKey(new Date())
-}
-
-function formatSlotTime(iso: string, timeZone?: string | null): string {
-  return new Intl.DateTimeFormat('en-US', {
-    hour: '2-digit',
-    minute: '2-digit',
-    ...(timeZone ? { timeZone } : {}),
-  }).format(new Date(iso))
-}
-
-function formatDateLong(iso: string, timeZone?: string | null): string {
-  return new Intl.DateTimeFormat('en-US', {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    ...(timeZone ? { timeZone } : {}),
-  }).format(new Date(iso))
-}
-
-// ---------------------------------------------------------------------------
-// Mini calendar — adapted from Availability.tsx pattern
-// ---------------------------------------------------------------------------
-
-function BookingCalendar({
-  year,
-  month,
-  availableDates,
-  selectedDate,
-  onSelectDate,
-  onPrevMonth,
-  onNextMonth,
-}: {
-  year: number
-  month: number
-  availableDates: Set<string>
-  selectedDate: string | null
-  onSelectDate: (key: string) => void
-  onPrevMonth: () => void
-  onNextMonth: () => void
-}) {
-  const today = todayKey()
-  const nowDate = new Date()
-  const isPrevDisabled = year === nowDate.getFullYear() && month === nowDate.getMonth()
-
-  const firstDay = new Date(year, month, 1)
-  let startOffset = firstDay.getDay() - 1
-  if (startOffset < 0) startOffset = 6
-
-  const daysInMonth = new Date(year, month + 1, 0).getDate()
-
-  const cells: Array<{ key: string; day: number } | null> = [
-    ...Array(startOffset).fill(null),
-    ...Array.from({ length: daysInMonth }, (_, i) => {
-      const d = new Date(year, month, i + 1)
-      return { key: toDateKey(d), day: i + 1 }
-    }),
-  ]
-
-  const remainder = cells.length % 7
-  if (remainder !== 0) {
-    for (let i = 0; i < 7 - remainder; i++) cells.push(null)
-  }
-
-  return (
-    <div className="rounded-2xl bg-brand-surface border border-brand-surface-2 overflow-hidden">
-      <div className="flex items-center justify-between px-4 py-3 border-b border-brand-surface-2">
-        <button
-          type="button"
-          onClick={onPrevMonth}
-          disabled={isPrevDisabled}
-          className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${isPrevDisabled ? 'opacity-30 cursor-not-allowed' : 'hover:bg-white'}`}
-          aria-label="Previous month"
-        >
-          <ChevronLeft className="w-4 h-4 text-brand-text-secondary" />
-        </button>
-        <span className="text-sm font-bold text-brand-text-primary">
-          {MONTH_NAMES[month]} {year}
-        </span>
-        <button
-          type="button"
-          onClick={onNextMonth}
-          className="w-8 h-8 rounded-lg hover:bg-white flex items-center justify-center transition-colors"
-          aria-label="Next month"
-        >
-          <ChevronRight className="w-4 h-4 text-brand-text-secondary" />
-        </button>
-      </div>
-
-      <div className="grid grid-cols-7 text-center px-2 pt-2">
-        {DAY_HEADERS.map((d) => (
-          <div key={d} className="text-[10px] font-bold text-brand-text-muted uppercase tracking-wide py-1">
-            {d}
-          </div>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-7 gap-0.5 px-2 pb-3">
-        {cells.map((cell, idx) => {
-          if (!cell) return <div key={`empty-${idx}`} />
-
-          const isPast = cell.key < today
-          const isToday = cell.key === today
-          const isSelected = cell.key === selectedDate
-          const hasSlots = availableDates.has(cell.key)
-          const isDisabled = isPast || !hasSlots
-
-          return (
-            <button
-              key={cell.key}
-              type="button"
-              disabled={isDisabled}
-              onClick={() => !isDisabled && onSelectDate(cell.key)}
-              className={cn(
-                'relative mx-auto flex flex-col items-center justify-center w-9 h-9 rounded-full text-sm font-medium transition-all',
-                isDisabled
-                  ? 'opacity-30 cursor-not-allowed text-brand-text-muted'
-                  : isSelected
-                    ? 'bg-brand-primary text-white shadow-md'
-                    : isToday && hasSlots
-                      ? 'ring-2 ring-brand-primary text-brand-primary font-bold hover:bg-brand-primary/10'
-                      : hasSlots
-                        ? 'text-brand-text-primary hover:bg-white cursor-pointer'
-                        : 'text-brand-text-muted',
-              )}
-              aria-label={`${cell.key}${isDisabled ? ' (unavailable)' : ''}`}
-            >
-              {cell.day}
-              {hasSlots && !isSelected && (
-                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-brand-primary" />
-              )}
-            </button>
-          )
-        })}
-      </div>
-    </div>
+function dateKeyIn(iso: string | Date, timeZone: string) {
+  // en-CA formats as YYYY-MM-DD
+  return new Intl.DateTimeFormat('en-CA', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' }).format(
+    typeof iso === 'string' ? new Date(iso) : iso,
   )
 }
 
-// ---------------------------------------------------------------------------
-// Main modal
-// ---------------------------------------------------------------------------
+/** Noon UTC of a date key, so weekday/day arithmetic never crosses a boundary. */
+function keyToDate(key: string) {
+  return new Date(`${key}T12:00:00Z`)
+}
 
-export function BookingModal({ mentor, onClose }: BookingModalProps) {
-  const [step, setStep] = useState<'calendar' | 'confirm' | 'success'>('calendar')
-  const [availability, setAvailability] = useState<Record<string, Slot[]>>({})
-  const [loadingAvail, setLoadingAvail] = useState(true)
-  const [viewYear, setViewYear] = useState(new Date().getFullYear())
-  const [viewMonth, setViewMonth] = useState(new Date().getMonth())
+function addDays(key: string, n: number) {
+  const d = keyToDate(key)
+  d.setUTCDate(d.getUTCDate() + n)
+  return d.toISOString().slice(0, 10)
+}
+
+function fmtKey(key: string, opts: Intl.DateTimeFormatOptions) {
+  return new Intl.DateTimeFormat('en-GB', { timeZone: 'UTC', ...opts }).format(keyToDate(key)).replace(/\bSept\b/, 'Sep')
+}
+
+function rangeLabel(start: string, end: string) {
+  const sameMonth = start.slice(0, 7) === end.slice(0, 7)
+  return sameMonth
+    ? `${fmtKey(start, { day: 'numeric' })} to ${fmtKey(end, { day: 'numeric', month: 'short' })}`
+    : `${fmtKey(start, { day: 'numeric', month: 'short' })} to ${fmtKey(end, { day: 'numeric', month: 'short' })}`
+}
+
+function fmtTime(iso: string, timeZone: string) {
+  return new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone }).format(new Date(iso))
+}
+
+function fmtDuration(slot: Slot) {
+  const mins = Math.round((new Date(slot.endsAt).getTime() - new Date(slot.startsAt).getTime()) / 60000)
+  if (!Number.isFinite(mins) || mins <= 0) return '1 hour'
+  if (mins % 60 === 0) return mins === 60 ? '1 hour' : `${mins / 60} hours`
+  return `${mins} minutes`
+}
+
+function tzAbbr(timeZone: string) {
+  try {
+    return (
+      new Intl.DateTimeFormat('en-US', { timeZoneName: 'short', timeZone })
+        .formatToParts(new Date())
+        .find((p) => p.type === 'timeZoneName')?.value ?? ''
+    )
+  } catch {
+    return ''
+  }
+}
+
+// ── Panel ─────────────────────────────────────────────────────────────────────
+
+export function BookingPanel({ mentor, className }: { mentor: BookingPanelMentor; className?: string }) {
+  const [timezone, setTimezone] = useState<string>(browserTz)
+  const [slots, setSlots] = useState<Slot[] | null>(null)
+  const [loadFailed, setLoadFailed] = useState(false)
+  const [windowStart, setWindowStart] = useState<string>(() => dateKeyIn(new Date(), browserTz()))
   const [selectedDate, setSelectedDate] = useState<string | null>(null)
   const [selectedSlot, setSelectedSlot] = useState<Slot | null>(null)
   const [booking, setBooking] = useState(false)
-  const [confirmedSession, setConfirmedSession] = useState<{
-    session: SmeSession
-    mentorName: string
-  } | null>(null)
-  const [timezone, setTimezone] = useState<string | null>(null)
+  const [booked, setBooked] = useState<{ session: SmeSession; slot: Slot } | null>(null)
 
+  // The learner's saved timezone wins over the browser's.
   useEffect(() => {
-    apiFetch<{ success: boolean; data: { user: { timezone: string | null } } }>('/api/auth/me')
-      .then(({ data }) => setTimezone(data.user.timezone))
+    apiFetch<{ success: boolean; data: { user: { timezone: string | null } } }>('/api/account/me')
+      .then(({ data }) => {
+        if (data.user.timezone) setTimezone(data.user.timezone)
+      })
       .catch(() => {})
   }, [])
 
-  useEffect(() => {
+  const load = useCallback(() => {
+    setSlots(null)
+    setLoadFailed(false)
     getMentorAvailability(mentor.userId)
-      .then((data) => {
-        setAvailability(data)
-        setLoadingAvail(false)
-      })
+      .then((byDay) => setSlots(Object.values(byDay).flat().sort((a, b) => a.startsAt.localeCompare(b.startsAt))))
       .catch(() => {
-        setLoadingAvail(false)
+        setSlots([])
+        setLoadFailed(true)
       })
   }, [mentor.userId])
 
-  // Close on Escape
   useEffect(() => {
-    function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') onClose()
+    setSelectedSlot(null)
+    setSelectedDate(null)
+    setBooked(null)
+    load()
+  }, [load])
+
+  const today = dateKeyIn(new Date(), timezone)
+
+  // Slots regrouped by the learner's local date (the API groups by UTC date).
+  const byDate = useMemo(() => {
+    const map = new Map<string, Slot[]>()
+    for (const s of slots ?? []) {
+      if (!s.isAvailable) continue
+      const k = dateKeyIn(s.startsAt, timezone)
+      map.set(k, [...(map.get(k) ?? []), s])
     }
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [onClose])
+    return map
+  }, [slots, timezone])
 
-  const availableDates = new Set(Object.keys(availability))
-  const hasAnyAvailability = availableDates.size > 0
+  // When slots arrive, open the strip on the first week that has times and
+  // preselect that first day.
+  useEffect(() => {
+    if (!slots) return
+    const first = [...byDate.keys()].sort()[0]
+    if (!first) {
+      setWindowStart(today)
+      return
+    }
+    const start = first > addDays(today, 6) ? first : today
+    setWindowStart(start)
+    setSelectedDate(first)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slots, timezone])
 
-  const slotsForDate: Slot[] = selectedDate ? (availability[selectedDate] ?? []) : []
+  const days = Array.from({ length: 7 }, (_, i) => addDays(windowStart, i))
+  const windowEnd = days[6]
+  const hasAny = byDate.size > 0
+  const daySlots = selectedDate ? byDate.get(selectedDate) ?? [] : []
+  const prevDisabled = windowStart <= today
 
-  function prevMonth() {
-    const current = new Date()
-    if (viewYear === current.getFullYear() && viewMonth === current.getMonth()) return
-    if (viewMonth === 0) { setViewYear((y) => y - 1); setViewMonth(11) }
-    else setViewMonth((m) => m - 1)
-  }
-
-  function nextMonth() {
-    if (viewMonth === 11) { setViewYear((y) => y + 1); setViewMonth(0) }
-    else setViewMonth((m) => m + 1)
-  }
-
-  function handleSelectDate(key: string) {
-    setSelectedDate(key)
+  function shiftWeek(dir: 1 | -1) {
+    const next = dir === 1 ? addDays(windowStart, 7) : addDays(windowStart, -7) < today ? today : addDays(windowStart, -7)
+    setWindowStart(next)
+    const firstWithSlots = Array.from({ length: 7 }, (_, i) => addDays(next, i)).find((k) => byDate.has(k)) ?? null
+    setSelectedDate(firstWithSlots)
     setSelectedSlot(null)
   }
 
-  async function handleConfirm() {
+  async function confirm() {
     if (!selectedSlot) return
     setBooking(true)
     try {
       const result = await bookSession(selectedSlot.id)
-      setConfirmedSession({ session: result.session, mentorName: result.mentorName })
-      setStep('success')
+      setBooked({ session: result.session, slot: selectedSlot })
+      toast.success(`Session booked with ${mentor.name}`, {
+        description: result.session.meetingLink
+          ? 'We emailed you a calendar invite with the meeting link.'
+          : 'We emailed you a calendar invite.',
+      })
     } catch (err: unknown) {
-      const e = err as { success?: boolean; error?: { message?: string; code?: string } }
+      const e = err as { error?: { code?: string } }
       if (e?.error?.code === 'SLOT_UNAVAILABLE') {
-        toast.error('This slot was just taken. Please pick another time.')
+        toast.error('That time was just taken. Please pick another one.')
         setSelectedSlot(null)
-        setStep('calendar')
+        load()
       } else {
-        toast.error(e?.error?.message ?? 'Failed to book session. Please try again.')
+        toast.error(apiErrorMessage(err, 'Could not book the session. Please try again.'))
       }
     } finally {
       setBooking(false)
     }
   }
 
-  const tzAbbr = timezone
-    ? new Intl.DateTimeFormat('en-US', { timeZoneName: 'short', timeZone: timezone })
-        .formatToParts(new Date())
-        .find((p) => p.type === 'timeZoneName')?.value ?? ''
-    : ''
+  const tags = mentor.expertise.filter((t) => !/^featured$/i.test(t))
+  const abbr = tzAbbr(timezone)
+  const firstName = mentor.name.split(' ')[0]
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
-      onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
+    <section
+      aria-labelledby="bk-name"
+      className={cn('flex flex-col gap-[18px] rounded-[14px] border border-ui-line bg-ui-surface p-5 shadow-ui', className)}
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95, y: 16 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: 16 }}
-        transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full max-w-md rounded-3xl bg-white shadow-2xl overflow-hidden"
-        role="dialog"
-        aria-modal="true"
-        aria-label={`Book a session with ${mentor.name}`}
-      >
-        {/* Close button */}
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-brand-surface hover:bg-brand-surface-2 flex items-center justify-center transition-colors"
-          aria-label="Close"
-        >
-          <X className="w-4 h-4 text-brand-text-secondary" />
-        </button>
+      <div className="flex items-center gap-3.5">
+        <Avatar name={mentor.name} src={mentor.avatarUrl} size={56} />
+        <div className="flex min-w-0 flex-1 flex-col gap-1">
+          <h2 id="bk-name" className="text-lg font-semibold leading-tight text-ui-text">{mentor.name}</h2>
+          <span className="flex items-center gap-1.5">
+            {mentor.featured && (
+              <Chip tone="brand" className="h-[22px]">
+                <Star className="h-3 w-3" strokeWidth={2} aria-hidden />
+                Featured
+              </Chip>
+            )}
+            <span className="text-[13px] text-ui-muted">Mentor</span>
+          </span>
+        </div>
+        {mentor.linkedinUrl && (
+          <a
+            href={mentor.linkedinUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${mentor.name} on LinkedIn`}
+            className={cn(btn({ variant: 'secondary', size: 'icon-sm' }), 'h-9 w-9')}
+          >
+            <Linkedin className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+          </a>
+        )}
+      </div>
 
-        <AnimatePresence mode="wait">
-          {/* ----------------------------------------------------------------
-              Step 1: Calendar
-          ---------------------------------------------------------------- */}
-          {step === 'calendar' && (
-            <motion.div
-              key="calendar"
-              initial={{ opacity: 0, x: 24 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -24 }}
-              transition={{ duration: 0.22 }}
-              className="p-6"
-            >
-              {/* Mentor header */}
-              <div className="flex items-center gap-3 mb-5 pr-8">
-                <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-brand-surface-2 flex-shrink-0">
-                  <img
-                    src={mentor.avatar}
-                    alt={mentor.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="min-w-0">
-                  <h2 className="font-bold text-brand-text-primary leading-tight truncate">
-                    {mentor.name}
-                  </h2>
-                  <p className="text-xs text-brand-text-muted line-clamp-1">{mentor.specialty}</p>
-                </div>
-              </div>
+      {tags.length > 0 && (
+        <div className="flex flex-col gap-2">
+          <span className="text-[13px] font-semibold text-ui-text">Expertise</span>
+          <div className="flex flex-wrap gap-1.5">
+            {tags.map((t) => (
+              <Chip key={t} className="font-medium">{t}</Chip>
+            ))}
+          </div>
+        </div>
+      )}
 
-              <p className="text-sm font-semibold text-brand-text-secondary mb-4">
-                Select a date and time
+      {booked ? (
+        <div className="flex flex-col gap-4 border-t border-ui-line pt-4" role="status">
+          <div className="flex items-center gap-3">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-ui-ok-soft text-ui-ok">
+              <CalendarCheck2 className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+            </span>
+            <div className="flex flex-col">
+              <h3 className="text-[15px] font-semibold text-ui-text">Session booked</h3>
+              <p className="text-[13px] text-ui-muted">
+                {booked.session.meetingLink
+                  ? 'Check your email for the calendar invite with the meeting link.'
+                  : 'Check your email for the calendar invite.'}
               </p>
-
-              {loadingAvail ? (
-                <div className="flex items-center justify-center py-16">
-                  <Loader2 className="w-6 h-6 text-brand-primary animate-spin" />
-                </div>
-              ) : !hasAnyAvailability ? (
-                <div className="flex flex-col items-center justify-center py-10 text-center">
-                  <CalendarClock className="w-10 h-10 text-brand-text-muted opacity-40 mb-3" />
-                  <p className="text-sm font-semibold text-brand-text-secondary">No availability yet.</p>
-                  <p className="text-xs text-brand-text-muted mt-1">
-                    Check back soon — {mentor.name} will add slots.
-                  </p>
-                </div>
-              ) : (
-                <>
-                  <BookingCalendar
-                    year={viewYear}
-                    month={viewMonth}
-                    availableDates={availableDates}
-                    selectedDate={selectedDate}
-                    onSelectDate={handleSelectDate}
-                    onPrevMonth={prevMonth}
-                    onNextMonth={nextMonth}
-                  />
-
-                  {/* Time slots */}
-                  {selectedDate && (
-                    <div className="mt-4">
-                      <p className="text-xs font-bold uppercase tracking-[0.15em] text-brand-text-muted mb-2">
-                        Available times
-                      </p>
-                      {slotsForDate.length === 0 ? (
-                        <p className="text-sm text-brand-text-muted text-center py-3">
-                          No slots on this date.
-                        </p>
-                      ) : (
-                        <div className="flex flex-wrap gap-2">
-                          {slotsForDate.map((slot) => (
-                            <button
-                              key={slot.id}
-                              type="button"
-                              onClick={() => setSelectedSlot(slot)}
-                              className={cn(
-                                'px-3 py-1.5 rounded-xl text-xs font-bold transition-all border',
-                                selectedSlot?.id === slot.id
-                                  ? 'bg-brand-primary text-white border-brand-primary shadow-sm'
-                                  : 'bg-brand-surface text-brand-text-secondary border-brand-surface-2 hover:border-brand-primary/40 hover:text-brand-primary',
-                              )}
-                            >
-                              {formatSlotTime(slot.startsAt, timezone)}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  )}
-
-                  {!selectedDate && (
-                    <p className="mt-3 text-xs text-brand-text-muted text-center">
-                      Highlighted dates have open slots — tap one to begin.
-                    </p>
-                  )}
-
-                  <p className="mt-3 text-[10px] text-brand-text-muted text-center">
-                    {timezone && <>Times shown in your timezone ({timezone} — {tzAbbr})</>}
-                  </p>
-                </>
-              )}
-
-              <button
-                type="button"
-                disabled={!selectedSlot}
-                onClick={() => setStep('confirm')}
-                className="mt-5 w-full py-2.5 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark disabled:opacity-40 disabled:cursor-not-allowed transition-colors shadow-sm"
-              >
-                Continue
-              </button>
-            </motion.div>
+            </div>
+          </div>
+          <dl className="flex flex-col gap-2.5 rounded-[10px] bg-ui-surface-2 p-3.5 text-sm">
+            <div className="flex justify-between gap-3">
+              <dt className="text-ui-muted">Date and time</dt>
+              <dd className="text-right font-semibold text-ui-text">
+                {fmtKey(dateKeyIn(booked.slot.startsAt, timezone), { weekday: 'short', day: 'numeric', month: 'short' })},{' '}
+                {fmtTime(booked.slot.startsAt, timezone)}
+              </dd>
+            </div>
+            <div className="flex justify-between gap-3">
+              <dt className="text-ui-muted">Duration</dt>
+              <dd className="font-semibold text-ui-text">{fmtDuration(booked.slot)}</dd>
+            </div>
+          </dl>
+          {booked.session.meetingLink && (
+            <a href={booked.session.meetingLink} target="_blank" rel="noreferrer" className={cn(btn(), 'w-full')}>
+              <ExternalLink className="h-4 w-4" aria-hidden />
+              Open meeting link
+            </a>
           )}
-
-          {/* ----------------------------------------------------------------
-              Step 2: Confirm
-          ---------------------------------------------------------------- */}
-          {step === 'confirm' && selectedSlot && (
-            <motion.div
-              key="confirm"
-              initial={{ opacity: 0, x: 24 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -24 }}
-              transition={{ duration: 0.22 }}
-              className="p-6"
+          <div className="grid grid-cols-2 gap-2">
+            <Link href="/dashboard/sessions" className={btn({ variant: 'secondary' })}>
+              My sessions
+            </Link>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setBooked(null)
+                setSelectedSlot(null)
+                load()
+              }}
             >
-              <h2 className="font-bold text-brand-text-primary text-lg mb-1 pr-8">
-                Confirm your session
-              </h2>
-              <p className="text-xs text-brand-text-muted mb-6">
-                Review the details below before booking.
-              </p>
+              Book another
+            </Button>
+          </div>
+        </div>
+      ) : slots === null ? (
+        <div className="flex flex-col gap-3 border-t border-ui-line pt-4" aria-busy="true" aria-label="Loading open times">
+          <Skeleton className="h-5 w-40" />
+          <div className="grid grid-cols-7 gap-1.5">
+            {Array.from({ length: 7 }, (_, i) => (
+              <Skeleton key={i} className="h-[62px]" />
+            ))}
+          </div>
+          <Skeleton className="h-10 w-full" />
+        </div>
+      ) : !hasAny ? (
+        <div className="border-t border-ui-line pt-2">
+          <EmptyState
+            icon={CalendarX2}
+            title={loadFailed ? 'Open times could not load' : 'No open times right now'}
+            body={
+              loadFailed
+                ? 'Something went wrong while loading this mentor’s calendar. Try again in a moment.'
+                : `${firstName} has not opened any times yet. Check back soon, or pick another mentor.`
+            }
+            action={
+              loadFailed ? (
+                <Button variant="secondary" size="sm" onClick={load}>
+                  Try again
+                </Button>
+              ) : undefined
+            }
+            className="py-6"
+          />
+        </div>
+      ) : (
+        <>
+          <div className="flex flex-col gap-3 border-t border-ui-line pt-4">
+            <div className="flex items-center gap-2">
+              <h3 className="flex-1 text-[15px] font-semibold text-ui-text">Select a date and time</h3>
+              <Button
+                variant="secondary"
+                size="icon-sm"
+                aria-label="Previous 7 days"
+                disabled={prevDisabled}
+                onClick={() => shiftWeek(-1)}
+              >
+                <ChevronLeft className="h-4 w-4" aria-hidden />
+              </Button>
+              <span className="whitespace-nowrap text-[13px] font-semibold text-ui-text tabular-nums">
+                {rangeLabel(windowStart, windowEnd)}
+              </span>
+              <Button variant="secondary" size="icon-sm" aria-label="Next 7 days" onClick={() => shiftWeek(1)}>
+                <ChevronRight className="h-4 w-4" aria-hidden />
+              </Button>
+            </div>
 
-              <div className="rounded-2xl bg-brand-surface border border-brand-surface-2 p-4 space-y-3 mb-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-brand-surface-2 flex-shrink-0">
-                    <img
-                      src={mentor.avatar}
-                      alt={mentor.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-brand-text-primary">{mentor.name}</p>
-                    <p className="text-xs text-brand-text-muted">{mentor.specialty}</p>
-                  </div>
-                </div>
-
-                <div className="border-t border-brand-surface-2 pt-3 space-y-1.5 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-brand-text-muted text-xs font-medium">Date & Time</span>
-                    <span className="text-brand-text-primary font-semibold text-xs text-right max-w-[60%]">
-                      {formatDateLong(selectedSlot.startsAt, timezone)}
+            <div role="group" aria-label="Days" className="grid grid-cols-7 gap-1.5">
+              {days.map((k) => {
+                const open = byDate.has(k)
+                const on = k === selectedDate
+                const label = fmtKey(k, { weekday: 'long', day: 'numeric', month: 'long' })
+                return (
+                  <button
+                    key={k}
+                    type="button"
+                    aria-pressed={on}
+                    aria-disabled={!open}
+                    aria-label={open ? label : `${label}, no open times`}
+                    title={open ? undefined : 'No open times'}
+                    onClick={() => {
+                      if (!open) return
+                      setSelectedDate(k)
+                      setSelectedSlot(null)
+                    }}
+                    className={cn(
+                      'flex flex-col items-center gap-0.5 rounded-[10px] border py-2 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand',
+                      on
+                        ? 'border-ui-brand bg-ui-brand text-white'
+                        : open
+                          ? 'border-ui-line bg-ui-surface text-ui-text hover:border-ui-brand'
+                          : 'cursor-not-allowed border-transparent bg-ui-surface-2 text-ui-muted',
+                    )}
+                  >
+                    <span className={cn('text-xs font-medium', on ? 'text-white/85' : 'text-ui-muted')}>
+                      {fmtKey(k, { weekday: 'short' })}
                     </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-brand-text-muted text-xs font-medium">Duration</span>
-                    <span className="text-brand-text-primary font-semibold text-xs">1 hour</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-brand-text-muted text-xs font-medium">Cost</span>
-                    <span className="text-emerald-600 font-bold text-xs">Free for Hadafi members</span>
-                  </div>
+                    <span className="text-[15px] font-semibold tabular-nums">{fmtKey(k, { day: 'numeric' })}</span>
+                    <span
+                      aria-hidden
+                      className={cn('h-[5px] w-[5px] rounded-full', open ? (on ? 'bg-white' : 'bg-ui-brand') : 'invisible')}
+                    />
+                  </button>
+                )
+              })}
+            </div>
+
+            {selectedDate && daySlots.length > 0 ? (
+              <>
+                <span className="text-[13px] text-ui-muted">
+                  {fmtKey(selectedDate, { weekday: 'long', day: 'numeric', month: 'long' })}
+                </span>
+                <div role="group" aria-label="Open times" className="grid grid-cols-3 gap-2">
+                  {daySlots.map((s) => {
+                    const on = selectedSlot?.id === s.id
+                    return (
+                      <button
+                        key={s.id}
+                        type="button"
+                        aria-pressed={on}
+                        onClick={() => setSelectedSlot(s)}
+                        className={cn(
+                          'h-10 rounded-[10px] border text-sm font-semibold tabular-nums transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand',
+                          on
+                            ? 'border-ui-brand bg-ui-brand-soft text-ui-brand-text'
+                            : 'border-ui-line bg-ui-surface text-ui-text hover:border-ui-brand',
+                        )}
+                      >
+                        {fmtTime(s.startsAt, timezone)}
+                      </button>
+                    )
+                  })}
                 </div>
-              </div>
-
-              <div className="flex gap-3">
-                <button
-                  type="button"
-                  onClick={() => setStep('calendar')}
-                  className="flex-1 py-2.5 rounded-xl bg-brand-surface text-brand-text-secondary text-sm font-bold hover:bg-brand-surface-2 transition-colors border border-brand-surface-2"
-                >
-                  Back
-                </button>
-                <button
-                  type="button"
-                  disabled={booking}
-                  onClick={handleConfirm}
-                  className="flex-1 py-2.5 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark disabled:opacity-60 disabled:cursor-not-allowed transition-colors shadow-sm inline-flex items-center justify-center gap-2"
-                >
-                  {booking ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      Booking…
-                    </>
-                  ) : (
-                    'Confirm Booking'
-                  )}
-                </button>
-              </div>
-            </motion.div>
-          )}
-
-          {/* ----------------------------------------------------------------
-              Step 3: Success
-          ---------------------------------------------------------------- */}
-          {step === 'success' && confirmedSession && selectedSlot && (
-            <motion.div
-              key="success"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.25 }}
-              className="p-6 text-center"
-            >
-              <div className="flex items-center justify-center mb-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center">
-                  <CheckCircle2 className="w-8 h-8 text-emerald-500" />
-                </div>
-              </div>
-
-              <h2 className="text-xl font-black text-brand-text-primary mb-1">
-                Session confirmed!
-              </h2>
-              <p className="text-sm text-brand-text-muted mb-4">
-                Your session with{' '}
-                <span className="font-semibold text-brand-text-primary">{mentor.name}</span>
-                {' '}is booked.
+              </>
+            ) : (
+              <p className="rounded-[10px] bg-ui-surface-2 px-3 py-3 text-center text-[13px] text-ui-muted">
+                No open times this week. Use the arrows to see other weeks.
               </p>
+            )}
+            <p className="text-xs text-ui-muted">
+              Days with a dot have open times. Times shown in your timezone ({timezone}
+              {abbr ? `, ${abbr}` : ''}).
+            </p>
+          </div>
 
-              <div className="rounded-2xl bg-brand-surface border border-brand-surface-2 p-4 mb-4 text-left space-y-1.5">
-                <div className="flex justify-between">
-                  <span className="text-xs text-brand-text-muted font-medium">Date & Time</span>
-                  <span className="text-xs font-semibold text-brand-text-primary text-right max-w-[60%]">
-                    {formatDateLong(selectedSlot.startsAt, timezone)}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-xs text-brand-text-muted font-medium">Duration</span>
-                  <span className="text-xs font-semibold text-brand-text-primary">1 hour</span>
-                </div>
-              </div>
-
-              {confirmedSession.session.meetingLink && (
-                <a
-                  href={confirmedSession.session.meetingLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full mb-3 inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark transition-colors shadow-sm"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Join Session
-                </a>
+          <dl className="flex flex-col gap-2.5 rounded-[10px] bg-ui-surface-2 p-3.5 text-sm">
+            <div className="flex justify-between gap-3">
+              <dt className="text-ui-muted">Date and time</dt>
+              <dd className="text-right font-semibold text-ui-text">
+                {selectedSlot
+                  ? `${fmtKey(dateKeyIn(selectedSlot.startsAt, timezone), { weekday: 'short', day: 'numeric', month: 'short' })}, ${fmtTime(selectedSlot.startsAt, timezone)}`
+                  : 'Pick a time'}
+              </dd>
+            </div>
+            <div className="flex justify-between gap-3">
+              <dt className="text-ui-muted">Duration</dt>
+              <dd className="font-semibold text-ui-text">{selectedSlot ? fmtDuration(selectedSlot) : '1 hour'}</dd>
+            </div>
+            <div className="flex justify-between gap-3">
+              <dt className="text-ui-muted">Cost</dt>
+              <dd className="text-right font-semibold text-ui-text">Free for Hadafi members</dd>
+            </div>
+          </dl>
+          <div className="flex flex-col gap-2.5">
+            <Button className="w-full" disabled={!selectedSlot || booking} onClick={confirm}>
+              {booking ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+                  Booking
+                </>
+              ) : (
+                'Confirm booking'
               )}
-
-              <p className="text-xs text-brand-text-muted mb-4">
-                A confirmation email has been sent to you.
-              </p>
-
-              <button
-                type="button"
-                onClick={onClose}
-                className="w-full py-2.5 rounded-xl bg-brand-surface text-brand-text-secondary text-sm font-bold hover:bg-brand-surface-2 transition-colors border border-brand-surface-2"
-              >
-                Done
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
-    </div>
+            </Button>
+            <p className="text-center text-xs text-ui-muted">You get a confirmation email and the meeting link.</p>
+          </div>
+        </>
+      )}
+    </section>
   )
 }

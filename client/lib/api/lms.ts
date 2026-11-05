@@ -1,3 +1,5 @@
+import type { CourseTopic } from './redesign'
+
 // ── Learner-facing types ─────────────────────────────────────────────────────
 
 export type LearnerCourse = {
@@ -9,11 +11,15 @@ export type LearnerCourse = {
   pointsPerUnit: number
   enableCertificate: boolean
   status: 'published'
+  /** Course topic (see COURSE_TOPICS in ./redesign), or null when uncategorised. */
+  category: CourseTopic | null
   createdAt: string
   updatedAt: string
   isEnrolled: boolean
   progressPercentage: number
   enrolledCount: number | undefined
+  /** Units in the course (course list only). */
+  unitCount?: number
 }
 
 export type BlockProgress = {
@@ -59,11 +65,32 @@ export type LearnerModule = Omit<CourseModule, 'units'> & {
   isLocked: boolean
 }
 
+export type CoursePreviewUnit = {
+  title: string
+  description: string | null
+  lessons: number
+  videos: number
+  readings: number
+  activities: number
+}
+
+/** What a learner sees before starting a course: the outline and counts, no lesson content. */
+export type CoursePreview = {
+  units: CoursePreviewUnit[]
+  totals: { units: number; lessons: number; videos: number; readings: number; activities: number }
+  hasPreTest: boolean
+  hasFinalExam: boolean
+  /** Learners who have started the course. */
+  learners: number
+}
+
 export type LearnerCourseDetail = LearnerCourse & {
   modules: LearnerModule[]
   preAssessment: (LearnerAssessment & { isLocked: boolean; isCompleted: boolean }) | null
   postAssessment: (LearnerAssessment & { isLocked: boolean }) | null
   courseProgress: CourseProgress | null
+  /** Only before enrolment (isEnrolled false): the course outline. */
+  preview?: CoursePreview
 }
 
 export type AssessmentSummary = {
@@ -110,6 +137,8 @@ export type CourseSummary = {
   pointsPerUnit: number
   enableCertificate: boolean
   status: 'draft' | 'published'
+  /** Course topic (see COURSE_TOPICS in ./redesign), or null when uncategorised. */
+  category: CourseTopic | null
   enrolled: number
   createdAt: string
   updatedAt: string
@@ -195,20 +224,16 @@ export type CourseWithContent = CourseSummary & {
   postAssessment: Assessment | null
 }
 
-const BASE = `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'}/api/lms`
-
-function getToken(): string | null {
-  if (typeof window === 'undefined') return null
-  return localStorage.getItem('hadafi_token')
-}
+// Same-origin: next.config.ts forwards /api to the API server, and the
+// httpOnly session cookie rides along.
+const BASE = '/api/lms'
 
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
-  const token = getToken()
   const res = await fetch(`${BASE}${path}`, {
     ...init,
+    credentials: 'same-origin',
     headers: {
       'Content-Type': 'application/json',
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...(init?.headers ?? {}),
     },
   })
@@ -332,7 +357,7 @@ export const fetchActionPlan = (courseId: string) =>
 /** Returns a raw Response so the caller can stream the PDF blob. */
 export const downloadActionPlanPdf = (courseId: string) =>
   fetch(`${BASE}/courses/${courseId}/action-plan/pdf`, {
-    headers: { Authorization: `Bearer ${getToken()}` },
+    credentials: 'same-origin',
   })
 
 // Assessments
@@ -353,5 +378,5 @@ export const fetchUserCertificates = () =>
 /** Returns a raw Response so the caller can stream the certificate PDF blob. */
 export const downloadCertificate = (certId: string) =>
   fetch(`${BASE}/certificates/${certId}/download`, {
-    headers: { Authorization: `Bearer ${getToken()}` },
+    credentials: 'same-origin',
   })

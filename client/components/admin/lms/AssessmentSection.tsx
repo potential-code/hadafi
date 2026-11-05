@@ -1,11 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Plus, Pencil, Trash2, ClipboardList, ChevronDown, ChevronRight, BadgeCheck, CircleOff } from 'lucide-react'
+import { ChevronDown, ChevronUp, ClipboardCheck, FileCheck2, Pencil, Plus, Sparkles, Trash2 } from 'lucide-react'
 import { toast } from 'sonner'
 import { cn } from '@/lib/utils'
 import { ConfirmDialog } from '@/components/admin/widgets/ConfirmDialog'
+import { IconButton, Tag } from '@/components/admin/ui'
+import { Button } from '@/components/kit'
 import {
   apiCreateAssessment,
   apiUpdateAssessment,
@@ -18,10 +19,17 @@ import {
 } from '@/lib/api/lms'
 import { AssessmentDialog } from './AssessmentDialog'
 import { AssessmentQuestionDialog } from './AssessmentQuestionDialog'
+import { AiQuestionsDialog } from './AiQuestionsDialog'
+import type { DraftQuestion } from '@/lib/api/adminReports'
+import { errorMessage } from './shared'
 
 type AssessmentFormData = Omit<Assessment, 'id' | 'courseId' | 'assessmentType' | 'questions'>
 type QuestionFormData = Omit<AssessmentQuestion, 'id' | 'assessmentId' | 'order'>
 
+/**
+ * One assessment (pre-test or post-test) as a row inside the course editor's
+ * "Assessments" card: summary tags, expandable question list, and dialogs.
+ */
 export function AssessmentSection({
   courseId,
   type,
@@ -29,6 +37,8 @@ export function AssessmentSection({
   onCreated,
   onUpdated,
   onDeleted,
+  defaultExpanded = true,
+  className,
 }: {
   courseId: string
   type: 'pre' | 'post'
@@ -36,22 +46,26 @@ export function AssessmentSection({
   onCreated: (a: Assessment) => void
   onUpdated: (a: Assessment) => void
   onDeleted: () => void
+  defaultExpanded?: boolean
+  className?: string
 }) {
   const [assessment, setAssessment] = useState<Assessment | null>(initialAssessment)
-  const [questionsExpanded, setQuestionsExpanded] = useState(true)
+  const [questionsExpanded, setQuestionsExpanded] = useState(defaultExpanded)
 
   useEffect(() => { setAssessment(initialAssessment) }, [initialAssessment])
   const [showDialog, setShowDialog] = useState(false)
   const [editingQuestion, setEditingQuestion] = useState<AssessmentQuestion | null>(null)
   const [addingQuestion, setAddingQuestion] = useState(false)
+  const [writingWithAi, setWritingWithAi] = useState(false)
   const [confirmDeleteAssessment, setConfirmDeleteAssessment] = useState(false)
   const [confirmDeleteQuestionId, setConfirmDeleteQuestionId] = useState<string | null>(null)
 
   const label = type === 'pre' ? 'Pre-test' : 'Post-test'
   const labelDesc =
     type === 'pre'
-      ? 'Shown before learners enter the course modules'
-      : 'Shown after learners complete all modules'
+      ? 'Shown before learners enter the course modules.'
+      : 'Shown after learners complete all modules.'
+  const Icon = type === 'pre' ? ClipboardCheck : FileCheck2
 
   async function handleSaveAssessment(data: AssessmentFormData) {
     try {
@@ -68,8 +82,8 @@ export function AssessmentSection({
         toast.success(`${label} created`)
       }
       setShowDialog(false)
-    } catch {
-      toast.error(`Failed to save ${label}`)
+    } catch (e) {
+      toast.error(errorMessage(e))
     }
   }
 
@@ -80,8 +94,8 @@ export function AssessmentSection({
       setAssessment(null)
       onDeleted()
       toast.success(`${label} removed`)
-    } catch {
-      toast.error(`Failed to delete ${label}`)
+    } catch (e) {
+      toast.error(errorMessage(e))
     }
     setConfirmDeleteAssessment(false)
   }
@@ -105,8 +119,34 @@ export function AssessmentSection({
         toast.success('Question added')
         setAddingQuestion(false)
       }
-    } catch {
-      toast.error('Failed to save question')
+    } catch (e) {
+      toast.error(errorMessage(e))
+    }
+  }
+
+  /** Saves the AI drafts the admin kept, in order; whatever saved stays even if one fails. */
+  async function handleAddDrafts(drafts: DraftQuestion[]) {
+    if (!assessment) return
+    const created: AssessmentQuestion[] = []
+    try {
+      for (const d of drafts) {
+        created.push(
+          await apiCreateAssessmentQuestion(assessment.id, {
+            questionType: d.format,
+            questionText: d.question,
+            options: d.options,
+            correctAnswer: d.correctIndex,
+            explanation: d.explanation || null,
+          }),
+        )
+      }
+    } finally {
+      if (created.length) {
+        const next = { ...assessment, questions: [...assessment.questions, ...created] }
+        setAssessment(next)
+        onUpdated(next)
+        toast.success(`${created.length} question${created.length === 1 ? '' : 's'} added`)
+      }
     }
   }
 
@@ -118,183 +158,110 @@ export function AssessmentSection({
       setAssessment(next)
       onUpdated(next)
       toast.success('Question removed')
-    } catch {
-      toast.error('Failed to delete question')
+    } catch (e) {
+      toast.error(errorMessage(e))
     }
     setConfirmDeleteQuestionId(null)
   }
 
+  const count = assessment?.questions.length ?? 0
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="rounded-2xl border border-brand-surface-2 bg-white overflow-hidden"
-    >
-      {/* Header */}
-      <div
-        className={cn(
-          'flex items-center gap-3 px-4 py-3',
-          type === 'pre'
-            ? 'bg-brand-primary/5 border-b border-brand-primary/10'
-            : 'bg-amber-500/5 border-b border-amber-500/10',
-        )}
-      >
-        <div
+    <div id={`assessment-${type}`} className={cn('flex scroll-mt-6 flex-col gap-3 px-5 py-3.5', className)}>
+      <div className="flex items-center gap-2">
+        <span
+          aria-hidden
           className={cn(
-            'w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0',
-            type === 'pre'
-              ? 'bg-brand-primary/10 text-brand-primary'
-              : 'bg-amber-500/10 text-amber-700',
+            'mr-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg',
+            type === 'pre' ? 'bg-ui-surface-2 text-ui-muted' : 'bg-ui-brand-soft text-ui-brand-text',
           )}
         >
-          {type === 'pre' ? <ClipboardList className="w-4 h-4" /> : <BadgeCheck className="w-4 h-4" />}
-        </div>
-        <div className="flex-1 min-w-0">
-          <p className="font-bold text-brand-text-primary text-sm">{label}</p>
-          <p className="text-[11px] text-brand-text-muted">{labelDesc}</p>
-        </div>
+          <Icon className="h-[18px] w-[18px]" strokeWidth={1.75} />
+        </span>
+
+        {assessment ? (
+          <>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold text-ui-text">
+                {label}: {assessment.title}
+              </p>
+              <div className="mt-1 flex flex-wrap gap-1.5">
+                <Tag>{assessment.isGraded ? `Graded, ${assessment.passingScore}% to pass` : 'Ungraded'}</Tag>
+                {assessment.showAnswers && <Tag>Shows correct answers</Tag>}
+                <Tag>
+                  {assessment.maxAttempts === 0
+                    ? 'Unlimited attempts'
+                    : `${assessment.maxAttempts} attempt${assessment.maxAttempts > 1 ? 's' : ''}`}
+                </Tag>
+                {!questionsExpanded && <Tag>{count} {count === 1 ? 'question' : 'questions'}</Tag>}
+              </div>
+            </div>
+            <IconButton
+              label={`${questionsExpanded ? 'Collapse' : 'Expand'} ${label} questions`}
+              icon={questionsExpanded ? ChevronUp : ChevronDown}
+              aria-expanded={questionsExpanded}
+              onClick={() => setQuestionsExpanded((e) => !e)}
+            />
+            <IconButton label={`Edit ${label}`} icon={Pencil} onClick={() => setShowDialog(true)} />
+            <IconButton
+              label={`Delete ${label}`}
+              icon={Trash2}
+              tone="danger"
+              onClick={() => setConfirmDeleteAssessment(true)}
+            />
+          </>
+        ) : (
+          <>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold text-ui-text">No {label.toLowerCase()} yet</p>
+              <p className="text-[13px] text-ui-muted">{labelDesc}</p>
+            </div>
+            <Button variant="secondary" size="sm" onClick={() => setShowDialog(true)}>
+              <Plus className="h-4 w-4" aria-hidden />
+              Add {label.toLowerCase()}
+            </Button>
+          </>
+        )}
       </div>
 
-      {/* No assessment yet */}
-      {!assessment && (
-        <div className="p-5 text-center">
-          <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-brand-surface text-brand-text-muted mb-3">
-            <CircleOff className="w-5 h-5" />
-          </div>
-          <p className="text-sm font-semibold text-brand-text-primary mb-1">
-            No {label.toLowerCase()} yet
-          </p>
-          <p className="text-[11px] text-brand-text-muted mb-4">
-            Add a {label.toLowerCase()} to test learners&apos; knowledge.
-          </p>
-          <button
-            onClick={() => setShowDialog(true)}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark transition-colors"
-          >
-            <Plus className="w-4 h-4" />
-            Add {label.toLowerCase()}
-          </button>
-        </div>
-      )}
-
-      {/* Assessment exists */}
-      {assessment && (
+      {assessment && questionsExpanded && (
         <>
-          {/* Assessment metadata */}
-          <div className="px-4 pt-3 pb-2 flex flex-wrap items-center gap-2">
-            <span className="text-sm font-bold text-brand-text-primary flex-1 min-w-0 truncate">
-              {assessment.title}
-            </span>
-            <span
-              className={cn(
-                'px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider',
-                assessment.isGraded
-                  ? 'bg-emerald-500/10 text-emerald-700'
-                  : 'bg-brand-surface text-brand-text-muted',
-              )}
-            >
-              {assessment.isGraded ? `Graded · ${assessment.passingScore}% to pass` : 'Ungraded'}
-            </span>
-            <span className="px-2 py-0.5 rounded-full bg-brand-surface text-[10px] font-bold text-brand-text-muted">
-              {assessment.maxAttempts === 0
-                ? 'Unlimited attempts'
-                : `${assessment.maxAttempts} attempt${assessment.maxAttempts > 1 ? 's' : ''}`}
-            </span>
-            <button
-              onClick={() => setShowDialog(true)}
-              className="w-7 h-7 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-brand-primary hover:text-white transition-colors"
-              aria-label={`Edit ${label}`}
-            >
-              <Pencil className="w-3.5 h-3.5" />
-            </button>
-            <button
-              onClick={() => setConfirmDeleteAssessment(true)}
-              className="w-7 h-7 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-rose-500 hover:text-white transition-colors"
-              aria-label={`Delete ${label}`}
-            >
-              <Trash2 className="w-3.5 h-3.5" />
-            </button>
-          </div>
-
-          {/* Questions list */}
-          <div className="px-4 pb-4">
-            {/* Questions header with collapse toggle */}
-            <button
-              onClick={() => setQuestionsExpanded(e => !e)}
-              className="w-full flex items-center justify-between mb-2 group"
-            >
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-text-muted group-hover:text-brand-primary transition-colors">
-                Questions ({assessment.questions.length})
-              </p>
-              <span className="text-brand-text-muted group-hover:text-brand-primary transition-colors">
-                {questionsExpanded ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
-              </span>
-            </button>
-
-            <AnimatePresence initial={false}>
-              {questionsExpanded && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="overflow-hidden space-y-1.5"
+          {count === 0 ? (
+            <p className="rounded-[10px] border border-dashed border-ui-line px-3 py-4 text-center text-[13px] text-ui-muted">
+              No questions yet. Add one to get started.
+            </p>
+          ) : (
+            <ol className="overflow-hidden rounded-[10px] border border-ui-line">
+              {assessment.questions.map((q, i) => (
+                <li
+                  key={q.id}
+                  className={cn('flex items-center gap-2.5 py-1 pl-3 pr-1.5', i > 0 && 'border-t border-ui-line')}
                 >
-                  {assessment.questions.length === 0 && (
-                    <p className="text-[11px] text-brand-text-muted text-center py-3">
-                      No questions yet — add one to get started.
-                    </p>
-                  )}
-
-                  {assessment.questions.map((q, i) => (
-                    <div
-                      key={q.id}
-                      className="flex items-center gap-2 rounded-lg border border-brand-surface-2 bg-brand-surface/40 px-3 py-2"
-                    >
-                      <span className="w-5 h-5 rounded-full bg-brand-primary/10 text-brand-primary text-[10px] font-black flex items-center justify-center flex-shrink-0">
-                        {i + 1}
-                      </span>
-                      <span className="text-xs font-medium text-brand-text-primary flex-1 min-w-0 truncate">
-                        {q.questionText || 'Untitled question'}
-                      </span>
-                      <span
-                        className={cn(
-                          'px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wide flex-shrink-0',
-                          q.questionType === 'multiple-choice'
-                            ? 'bg-brand-violet/10 text-brand-violet'
-                            : 'bg-amber-500/10 text-amber-700',
-                        )}
-                      >
-                        {q.questionType === 'multiple-choice' ? 'MC' : 'T/F'}
-                      </span>
-                      <button
-                        onClick={() => setEditingQuestion(q)}
-                        className="w-6 h-6 rounded flex items-center justify-center text-brand-text-muted hover:bg-brand-primary hover:text-white transition-colors flex-shrink-0"
-                        aria-label={`Edit question ${i + 1}`}
-                      >
-                        <Pencil className="w-3 h-3" />
-                      </button>
-                      <button
-                        onClick={() => setConfirmDeleteQuestionId(q.id)}
-                        className="w-6 h-6 rounded flex items-center justify-center text-brand-text-muted hover:bg-rose-500 hover:text-white transition-colors flex-shrink-0"
-                        aria-label={`Delete question ${i + 1}`}
-                      >
-                        <Trash2 className="w-3 h-3" />
-                      </button>
-                    </div>
-                  ))}
-
-                  <button
-                    onClick={() => setAddingQuestion(true)}
-                    className="mt-1 inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-brand-primary text-white text-[11px] font-bold hover:bg-brand-primary-dark transition-colors"
-                  >
-                    <Plus className="w-3 h-3" />
-                    Add question
-                  </button>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
+                  <span className="w-5 shrink-0 text-xs font-semibold tabular-nums text-ui-muted">{i + 1}</span>
+                  <span className="min-w-0 flex-1 truncate text-sm text-ui-text" title={q.questionText}>
+                    {q.questionText || 'Untitled question'}
+                  </span>
+                  <Tag className="shrink-0">{q.questionType === 'multiple-choice' ? 'MC' : 'T/F'}</Tag>
+                  <IconButton label={`Edit question ${i + 1}`} icon={Pencil} onClick={() => setEditingQuestion(q)} />
+                  <IconButton
+                    label={`Delete question ${i + 1}`}
+                    icon={Trash2}
+                    tone="danger"
+                    onClick={() => setConfirmDeleteQuestionId(q.id)}
+                  />
+                </li>
+              ))}
+            </ol>
+          )}
+          <div className="flex flex-wrap gap-2">
+            <Button variant="secondary" size="sm" onClick={() => setAddingQuestion(true)}>
+              <Plus className="h-4 w-4" aria-hidden />
+              Add question
+            </Button>
+            <Button variant="secondary" size="sm" onClick={() => setWritingWithAi(true)}>
+              <Sparkles className="h-4 w-4" aria-hidden />
+              Write with AI
+            </Button>
           </div>
         </>
       )}
@@ -305,6 +272,14 @@ export function AssessmentSection({
         initial={assessment ?? undefined}
         onClose={() => setShowDialog(false)}
         onSave={handleSaveAssessment}
+      />
+      <AiQuestionsDialog
+        open={writingWithAi}
+        assessmentId={assessment?.id ?? null}
+        title={`Write ${label.toLowerCase()} questions with AI`}
+        source={type === 'pre' ? 'the course, as a check of what learners know before they start' : 'the whole course'}
+        onClose={() => setWritingWithAi(false)}
+        onAdd={handleAddDrafts}
       />
       <AssessmentQuestionDialog
         open={addingQuestion || !!editingQuestion}
@@ -331,6 +306,6 @@ export function AssessmentSection({
         onConfirm={() => confirmDeleteQuestionId && handleDeleteQuestion(confirmDeleteQuestionId)}
         onCancel={() => setConfirmDeleteQuestionId(null)}
       />
-    </motion.div>
+    </div>
   )
 }

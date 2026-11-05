@@ -1,12 +1,13 @@
 import { pool, db } from "../index";
-import { users, liveEvents } from "../schema";
+import { users, liveEvents, authAccounts } from "../schema";
 import { eq, sql } from "drizzle-orm";
-import bcrypt from "bcryptjs";
+import { hashPassword } from "../../auth/password";
 import { seedMentors } from "./seed-mentors";
 import { seedOffers } from "./seed-offers";
 import { seedCourses } from "./seed-courses";
 import { seedCourseContent } from "./seed-course-content";
 import { seedPosttests } from "./seed-posttests";
+import { legacyTimes } from "./legacyEventTimes";
 
 const ADMIN_EMAIL = "admin@email.com";
 const ADMIN_PASSWORD = "password";
@@ -156,8 +157,8 @@ async function seedLiveEvents(): Promise<void> {
   await db.insert(liveEvents).values(
     WP_EVENTS.map((e) => ({
       ...e,
+      ...legacyTimes(e.date, e.time),
       status: "published" as const,
-      track: null,
       meetingLink: null,
     })),
   )
@@ -180,12 +181,16 @@ export async function seed(): Promise<void> {
     .limit(1)
 
   if (existing.length === 0) {
-    const passwordHash = await bcrypt.hash(ADMIN_PASSWORD, 12)
-    await db.insert(users).values({
-      fullName: "Admin",
-      email: ADMIN_EMAIL,
-      passwordHash,
-      role: "admin",
+    const [admin] = await db
+      .insert(users)
+      .values({ fullName: "Admin", email: ADMIN_EMAIL, emailVerified: true, role: "admin" })
+      .returning({ id: users.id })
+    // A Better Auth credential account is what makes the password work.
+    await db.insert(authAccounts).values({
+      accountId: admin!.id,
+      providerId: "credential",
+      userId: admin!.id,
+      password: await hashPassword(ADMIN_PASSWORD),
     })
     console.log("[seed] Admin user created: admin@email.com")
   } else {

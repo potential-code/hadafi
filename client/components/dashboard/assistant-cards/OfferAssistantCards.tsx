@@ -8,6 +8,7 @@ import { motion } from 'framer-motion'
 import { fetchOffers } from '@/lib/api/offers'
 import { filterOffers, filterOffersByIds } from './filterUtils'
 import { AssistantCardStrip, AssistantCardSkeleton } from './AssistantCardStrip'
+import { optimizedSrc } from '@/lib/images'
 
 interface Props {
   topic?: string
@@ -46,45 +47,45 @@ export function OfferAssistantCards({ topic, ids, redeemableOnly, actionStatus }
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 * i }}
-            className="w-52 flex-shrink-0 rounded-xl bg-white border border-brand-surface-2 overflow-hidden hover:border-brand-primary/40 hover:shadow-md transition-all"
+            className="w-52 flex-shrink-0 rounded-[14px] bg-ui-surface border border-ui-line overflow-hidden transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-ui"
           >
-            <div className="relative h-24 overflow-hidden bg-gradient-to-br from-brand-primary via-brand-primary-dark to-violet-700">
+            <div className="relative h-24 overflow-hidden bg-ui-brand-soft">
               {offer.imageUrl && (
                 <img
-                  src={offer.imageUrl}
+                  src={optimizedSrc(offer.imageUrl)}
                   alt={offer.title}
                   className="w-full h-full object-cover"
                 />
               )}
-              <span className="absolute top-1.5 left-1.5 px-2 py-0.5 rounded-full bg-white/90 text-brand-primary text-[9px] font-bold uppercase tracking-wider">
+              <span className="absolute top-1.5 start-1.5 px-2 py-0.5 rounded-full bg-ui-surface/90 text-ui-brand-text text-[11px] font-semibold">
                 {offer.category}
               </span>
             </div>
 
             <div className="p-3 flex flex-col gap-1.5">
-              <h4 className="font-bold text-[12px] text-brand-text-primary leading-snug line-clamp-2">
+              <h4 className="font-semibold text-[14px] text-ui-text leading-snug line-clamp-2">
                 {offer.title}
               </h4>
-              <div className="flex items-center gap-1 text-[11px]">
-                <Coins className="w-3 h-3 text-violet-500 flex-shrink-0" />
-                <span className="font-semibold text-violet-600">
+              <div className="flex items-center gap-1 text-[13px]">
+                <Coins className="w-3 h-3 text-ui-brand-text flex-shrink-0" />
+                <span className="font-semibold text-ui-brand-text">
                   {offer.pointsCost.toLocaleString()} pts
                 </span>
                 {offer.priceLabel && (
-                  <span className="text-brand-text-muted">· {offer.priceLabel}</span>
+                  <span className="text-ui-muted">· {offer.priceLabel}</span>
                 )}
               </div>
 
               {canRedeem ? (
                 <button
                   onClick={() => router.push(`/dashboard/offers/${offer.id}`)}
-                  className="mt-1 w-full inline-flex items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white px-3 py-1.5 text-[11px] font-bold shadow-sm hover:-translate-y-0.5 transition-all"
+                  className="mt-1 w-full inline-flex items-center justify-center gap-1.5 rounded-[10px] bg-ui-brand hover:bg-ui-brand-hover text-white h-8 px-3 text-[13px] font-semibold transition-colors"
                 >
                   <ShoppingBag className="w-3 h-3" />
-                  Redeem Now
+                  Redeem now
                 </button>
               ) : (
-                <div className="mt-1 w-full inline-flex items-center justify-center gap-1.5 rounded-lg border border-brand-surface-2 bg-brand-surface text-brand-text-muted px-3 py-1.5 text-[11px] font-semibold cursor-default">
+                <div className="mt-1 w-full inline-flex items-center justify-center gap-1.5 rounded-lg border border-ui-line bg-ui-surface-2 text-ui-muted h-8 px-3 text-[13px] font-semibold cursor-default">
                   <Lock className="w-3 h-3" />
                   Need {pointsShort.toLocaleString()} more pts
                 </div>

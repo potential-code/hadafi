@@ -3,6 +3,8 @@ import { z } from 'zod'
 import { authenticate } from '../middleware/authenticate'
 import { requireRole } from '../middleware/require-role'
 import { validate } from '../middleware/validate'
+import { patchOf } from '../utils/zodPatch'
+import { COURSE_TOPICS } from '../db/schema'
 import * as courses from '../controllers/lms/courses.controller'
 import * as modulesCtrl from '../controllers/lms/modules.controller'
 import * as unitsCtrl from '../controllers/lms/units.controller'
@@ -38,10 +40,17 @@ const createCourseDto = z.object({
   pointsPerUnit: z.number().int().min(0).default(10),
   enableCertificate: z.boolean().default(true),
   status: z.enum(['draft', 'published']).default('draft'),
+  /** Course topic for learner filters; one of COURSE_TOPICS, or null for uncategorised. */
+  category: z.enum(COURSE_TOPICS).optional().nullable(),
 })
 
-/** Partial update — every field optional; same allowlist as create (no timestamps). */
-const updateCourseDto = createCourseDto.partial()
+/**
+ * Partial update — every field optional; same allowlist as create (no timestamps).
+ * Built without the create defaults: under Zod 4, `.partial()` still applies
+ * `.default()` values, so a PATCH of one field would silently reset status to
+ * 'draft' (unpublishing the course), difficulty, points and certificate.
+ */
+const updateCourseDto = patchOf(createCourseDto)
 
 // --- Module DTOs ---
 
@@ -51,7 +60,7 @@ const createModuleDto = z.object({
   description: z.string().max(5000).optional().nullable(),
 })
 
-const updateModuleDto = createModuleDto.partial()
+const updateModuleDto = patchOf(createModuleDto)
 
 /**
  * Used by all reorder endpoints. Validated as a non-empty UUID array at the
@@ -67,7 +76,7 @@ const createUnitDto = z.object({
   durationMinutes: z.number().int().min(0).optional().nullable(),
 })
 
-const updateUnitDto = createUnitDto.partial()
+const updateUnitDto = patchOf(createUnitDto)
 
 // --- Block DTOs ---
 
@@ -84,7 +93,7 @@ const createBlockDto = z.object({
  * `type` is immutable after creation — omit it from the update allowlist so
  * changing the block type via PATCH is rejected at the schema level.
  */
-const updateBlockDto = createBlockDto.partial().omit({ type: true })
+const updateBlockDto = patchOf(createBlockDto).omit({ type: true })
 
 // --- Block Question DTOs ---
 
@@ -98,7 +107,7 @@ const createBlockQuestionDto = z.object({
   placeholder: z.string().optional().nullable(),
 })
 
-const updateBlockQuestionDto = createBlockQuestionDto.partial()
+const updateBlockQuestionDto = patchOf(createBlockQuestionDto)
 
 // --- Assessment DTOs ---
 
@@ -116,7 +125,7 @@ const createAssessmentDto = z.object({
  * `assessmentType` ('pre'/'post') is immutable after creation — omit it from
  * the update allowlist to prevent silently swapping assessment purpose.
  */
-const updateAssessmentDto = createAssessmentDto.partial().omit({ assessmentType: true })
+const updateAssessmentDto = patchOf(createAssessmentDto).omit({ assessmentType: true })
 
 // --- Assessment Question DTOs ---
 
@@ -128,7 +137,7 @@ const createAssessmentQuestionDto = z.object({
   explanation: z.string().optional().nullable(),
 })
 
-const updateAssessmentQuestionDto = createAssessmentQuestionDto.partial()
+const updateAssessmentQuestionDto = patchOf(createAssessmentQuestionDto)
 
 // ---------------------------------------------------------------------------
 // Request DTOs — Learner
@@ -145,8 +154,9 @@ const unitProgressDto = z.object({
 
 const questionAnswerDto = z.object({
   answerData: z.object({
-    selectedAnswer: z.number().int().optional(),
-    openEndedAnswer: z.string().optional(),
+    selectedAnswer: z.number().int().min(0).max(50).optional(),
+    // A written answer, e.g. an action-plan step; long enough for a real plan.
+    openEndedAnswer: z.string().max(10_000).optional(),
   }),
 })
 

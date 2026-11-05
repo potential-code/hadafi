@@ -1,0 +1,37 @@
+/* The AI Examiner's thread cards (the scene, marking, the scorecard), ported
+   from SMEEP's folio inserts. Lives beside hana-studio.css, which supplies the
+   chat surface itself. */
+
+.hana-studio .hx-card {
+  position: relative;
+  isolation: isolate;
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  border-radius: 14px;
+  box-shadow: var(--ui-shadow);
+}
+.hana-studio .hx-card[data-latest='true'] {
+  animation: hana-fadeup 240ms ease both;
+}
+.hana-studio .hx-kind {
+  font-size: 13px;
+  color: var(--ui-muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hana-studio .hx-card[data-latest='true'] {
+    animation: none;
+  }
+}
+
+/* CopilotChat can wrap itself in an anonymous div that doesn't inherit
+   height, which top-anchors the thread and floats the composer mid-page.
+   Make the chat fill its container. */
+.hana-studio .hadafi-examiner-chat > div {
+  height: 100%;
+}
+
+/* The "exam is over" note sits where the composer docks, which CopilotChat
+   lays out with pointer-events: none. */
+.hana-studio .hx-closed {
+  pointer-events: auto;
+}

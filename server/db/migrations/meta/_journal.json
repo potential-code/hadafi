@@ -148,6 +148,83 @@
       "when": 1793782413621,
       "tag": "0020_points_ledger",
       "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1793789151463,
+      "tag": "0021_redesign_features",
+      "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "7",
+      "when": 1793793678448,
+      "tag": "0022_better_auth",
+      "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "7",
+      "when": 1793804705877,
+      "tag": "0023_notifications",
+      "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1793806166110,
+      "tag": "0024_achievements",
+      "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "7",
+      "when": 1793806233282,
+      "tag": "0025_event_times",
+      "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1793806234463,
+      "tag": "0026_announcements",
+      "breakpoints": true
+    },
+    {
+      "idx": 27,
+      "version": "7",
+      "when": 1793806241810,
+      "tag": "0027_ai_safety",
+      "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "7",
+      "when": 1793806252651,
+      "tag": "0028_organisations",
+      "breakpoints": true
+    },
+    {
+      "idx": 29,
+      "version": "7",
+      "when": 1793806577677,
+      "tag": "0029_ai_views",
+      "breakpoints": true
+    },
+    {
+      "idx": 30,
+      "version": "7",
+      "when": 1793808888977,
+      "tag": "0030_ai_examiner",
+      "breakpoints": true
+    },
+    {
+      "idx": 31,
+      "version": "7",
+      "when": 1793811669598,
+      "tag": "0031_tutor_translations",
+      "breakpoints": true
     }
   ]
 }

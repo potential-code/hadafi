@@ -1,22 +1,28 @@
-const BASE = `${process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'}/api/media`
+// Same-origin: next.config.ts forwards /api to the API server, and the
+// httpOnly session cookie rides along.
+const BASE = '/api/media'
 
-function getToken(): string | null {
-  return localStorage.getItem('hadafi_token')
+/** The server's error message, or a plain fallback for this status. */
+function messageFrom(status: number, body: unknown): string {
+  const m = (body as { error?: { message?: unknown } } | null)?.error?.message
+  if (typeof m === 'string' && m.trim()) return m
+  if (status === 413) return 'That file is too large. Each file must be 50 MB or smaller.'
+  if (status === 401 || status === 403) return 'Your session has ended. Sign in again and retry.'
+  return 'Something went wrong on our side. Please try again.'
 }
 
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
-  const token = getToken()
   const res = await fetch(`${BASE}${path}`, {
     ...init,
+    credentials: 'same-origin',
     headers: {
       'Content-Type': 'application/json',
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...init?.headers,
     },
   })
   if (!res.ok) {
-    const body = await res.json().catch(() => ({}))
-    throw new Error(body.message ?? `HTTP ${res.status}`)
+    const body = await res.json().catch(() => null)
+    throw new Error(messageFrom(res.status, body))
   }
   const data = await res.json()
   return data.data
@@ -59,15 +65,19 @@ export function uploadMediaFile(
         const body = JSON.parse(xhr.responseText)
         resolve(body.data[0] as MediaFile)
       } else {
-        reject(new Error(`Upload failed: ${xhr.status}`))
+        let body: unknown = null
+        try {
+          body = JSON.parse(xhr.responseText)
+        } catch {
+          /* not JSON (e.g. a proxy's error page) */
+        }
+        reject(new Error(messageFrom(xhr.status, body)))
       }
     }
 
-    xhr.onerror = () => reject(new Error('Network error during upload'))
+    xhr.onerror = () => reject(new Error('The upload was interrupted. Check your connection and try again.'))
 
-    const token = getToken()
     xhr.open('POST', `${BASE}/upload`)
-    if (token) xhr.setRequestHeader('Authorization', `Bearer ${token}`)
     xhr.send(formData)
   })
 }

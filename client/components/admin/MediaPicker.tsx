@@ -1,13 +1,16 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useId, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useQuery } from '@tanstack/react-query'
-import { Search, X, CheckCircle2, FileText, FileVideo, ImageIcon } from 'lucide-react'
+import { CheckCircle2, FileText, FileVideo, ImageIcon, ImageOff, X } from 'lucide-react'
 import { fetchMediaFiles, type MediaFile } from '@/lib/api/media'
+import { IconButton, SearchInput } from '@/components/admin/ui'
+import { EmptyState, Skeleton } from '@/components/kit'
 import { cn } from '@/lib/utils'
+import { API_BASE } from '@/lib/api'
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'
+const SERVER_URL = API_BASE
 
 function getFileType(mimeType: string): 'image' | 'pdf' | 'doc' | 'video' | 'other' {
   if (mimeType.startsWith('image/')) return 'image'
@@ -24,11 +27,20 @@ interface Props {
   accept?: 'image' | 'video' | 'all'
 }
 
+/**
+ * Media library picker. Opens above other dialogs (z-70) and keeps Escape to
+ * itself so closing it does not also close the dialog underneath.
+ */
 export default function MediaPicker({ open, onClose, onSelect, accept = 'all' }: Props) {
   const [search, setSearch] = useState('')
-  const inputRef = useRef<HTMLInputElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
+  const titleId = useId()
+  const closeRef = useRef(onClose)
+  useEffect(() => {
+    closeRef.current = onClose
+  }, [onClose])
 
-  const { data: files = [], isLoading } = useQuery({
+  const { data: files = [], isLoading, isError } = useQuery({
     queryKey: ['media'],
     queryFn: fetchMediaFiles,
     enabled: open,
@@ -37,19 +49,29 @@ export default function MediaPicker({ open, onClose, onSelect, accept = 'all' }:
   useEffect(() => {
     if (!open) return
     setSearch('')
-    setTimeout(() => inputRef.current?.focus(), 50)
+    const prevFocus = document.activeElement as HTMLElement | null
+    const t = window.setTimeout(() => panelRef.current?.querySelector<HTMLInputElement>('input')?.focus(), 30)
 
+    // Capture phase on window runs before the document listeners other
+    // dialogs use, so stopping it here keeps their Escape handlers quiet.
     function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') { e.stopPropagation(); onClose() }
+      if (e.key === 'Escape') {
+        e.stopPropagation()
+        closeRef.current()
+      }
     }
-    document.addEventListener('keydown', onKey)
+    window.addEventListener('keydown', onKey, true)
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     return () => {
-      document.removeEventListener('keydown', onKey)
+      window.clearTimeout(t)
+      window.removeEventListener('keydown', onKey, true)
       document.body.style.overflow = prev
+      prevFocus?.focus?.()
     }
-  }, [open, onClose])
+  }, [open])
+
+  if (!open || typeof document === 'undefined') return null
 
   const filtered = files.filter((f) => {
     const type = getFileType(f.mimeType)
@@ -58,98 +80,87 @@ export default function MediaPicker({ open, onClose, onSelect, accept = 'all' }:
     return matchesType && matchesSearch
   })
 
-  return (
-    <AnimatePresence>
-      {open && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
-          onClick={onClose}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 12 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: 12 }}
-            transition={{ duration: 0.2 }}
-            className="relative w-full max-w-3xl max-h-[80vh] rounded-2xl bg-white shadow-2xl overflow-hidden flex flex-col"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between gap-3 px-6 py-5 border-b border-brand-surface-2">
-              <h3 className="text-lg font-black text-brand-text-primary">Media Library</h3>
-              <button
-                onClick={onClose}
-                className="w-8 h-8 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-brand-surface transition-colors"
-                aria-label="Close"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
+  const kind = accept === 'image' ? 'images' : accept === 'video' ? 'videos' : 'files'
 
-            {/* Search */}
-            <div className="px-6 py-4 border-b border-brand-surface-2">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-text-muted" />
-                <input
-                  ref={inputRef}
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search files…"
-                  className="w-full rounded-xl border border-brand-surface-2 bg-brand-surface pl-9 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-primary/30"
-                />
-              </div>
-            </div>
+  return createPortal(
+    <div className="fixed inset-0 z-[70] flex items-end justify-center sm:items-center sm:p-4">
+      <div className="absolute inset-0 bg-black/40" aria-hidden onClick={onClose} />
+      <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="relative z-10 flex max-h-[88dvh] w-full max-w-3xl flex-col overflow-hidden rounded-t-[14px] border border-ui-line bg-ui-surface text-ui-text shadow-ui sm:max-h-[80vh] sm:rounded-[14px]"
+      >
+        <header className="flex items-start justify-between gap-3 border-b border-ui-line px-5 py-4">
+          <div className="min-w-0">
+            <h2 id={titleId} className="text-base font-semibold">Media library</h2>
+            <p className="mt-0.5 text-[13px] text-ui-muted">Choose one of the uploaded {kind}.</p>
+          </div>
+          <IconButton label="Close" icon={X} onClick={onClose} className="-mr-1.5 -mt-1" />
+        </header>
 
-            {/* Grid */}
-            <div className="flex-1 overflow-y-auto p-6">
-              {isLoading ? (
-                <p className="text-center text-brand-text-muted text-sm py-8">Loading…</p>
-              ) : filtered.length === 0 ? (
-                <p className="text-center text-brand-text-muted text-sm py-8">No files found</p>
-              ) : (
-                <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
-                  {filtered.map((file) => {
-                    const type = getFileType(file.mimeType)
-                    return (
-                      <button
-                        key={file.id}
-                        type="button"
-                        onClick={() => { onSelect(file); onClose() }}
-                        className={cn(
-                          'group relative rounded-xl border border-brand-surface-2 bg-white overflow-hidden text-left transition-all',
-                          'hover:border-brand-primary/50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-brand-primary/30',
+        <div className="border-b border-ui-line px-5 py-3">
+          <SearchInput value={search} onChange={setSearch} placeholder="Search files" className="w-full" />
+        </div>
+
+        <div className="min-h-0 flex-1 overflow-y-auto p-5">
+          {isLoading ? (
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <Skeleton key={i} className="aspect-square rounded-[10px]" />
+              ))}
+            </div>
+          ) : isError ? (
+            <EmptyState icon={ImageOff} title="The media library could not be loaded" body="Close this and try again." />
+          ) : filtered.length === 0 ? (
+            <EmptyState
+              icon={ImageOff}
+              title={search ? 'No files match your search' : `No ${kind} uploaded yet`}
+              body={search ? 'Try a different name.' : 'Upload files in the Media Library, then pick them here.'}
+            />
+          ) : (
+            <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {filtered.map((file) => {
+                const type = getFileType(file.mimeType)
+                return (
+                  <li key={file.id}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onSelect(file)
+                        onClose()
+                      }}
+                      className={cn(
+                        'group relative block w-full overflow-hidden rounded-[10px] border border-ui-line bg-ui-surface text-left transition-colors',
+                        'hover:border-ui-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand',
+                      )}
+                    >
+                      <span className="flex aspect-square items-center justify-center overflow-hidden bg-ui-surface-2 text-ui-muted">
+                        {type === 'image' ? (
+                          <img src={`${SERVER_URL}/${file.path}`} alt="" className="h-full w-full object-cover" />
+                        ) : type === 'video' ? (
+                          <FileVideo className="h-8 w-8" strokeWidth={1.5} aria-hidden />
+                        ) : type === 'pdf' ? (
+                          <FileText className="h-8 w-8" strokeWidth={1.5} aria-hidden />
+                        ) : (
+                          <ImageIcon className="h-8 w-8" strokeWidth={1.5} aria-hidden />
                         )}
-                      >
-                        <div className="aspect-square flex items-center justify-center bg-brand-surface overflow-hidden">
-                          {type === 'image' ? (
-                            <img
-                              src={`${SERVER_URL}/${file.path}`}
-                              alt={file.originalName}
-                              className="w-full h-full object-cover"
-                            />
-                          ) : type === 'video' ? (
-                            <FileVideo className="w-8 h-8 text-amber-500" />
-                          ) : type === 'pdf' ? (
-                            <FileText className="w-8 h-8 text-rose-500" />
-                          ) : (
-                            <ImageIcon className="w-8 h-8 text-brand-text-muted" />
-                          )}
-                        </div>
-                        <div className="px-2 py-1.5">
-                          <p className="text-xs font-semibold truncate text-brand-text-primary">{file.originalName}</p>
-                        </div>
-                        <CheckCircle2 className="absolute top-1.5 right-1.5 w-4 h-4 text-brand-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </button>
-                    )
-                  })}
-                </div>
-              )}
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+                      </span>
+                      <span className="block truncate px-2.5 py-2 text-xs font-medium text-ui-text">{file.originalName}</span>
+                      <CheckCircle2
+                        className="absolute right-1.5 top-1.5 h-5 w-5 rounded-full bg-ui-surface text-ui-brand opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
+                        aria-hidden
+                      />
+                    </button>
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+        </div>
+      </div>
+    </div>,
+    document.body,
   )
 }

@@ -1,53 +1,187 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { X, Loader2, ImageIcon } from 'lucide-react'
-import { type LiveEvent } from '@/lib/api/liveEvents'
-import { Field, DialogStyles } from '@/components/admin/widgets/CourseDialog'
+import { useEffect, useId, useRef, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { AlertTriangle, CalendarDays, Info, Link2, Loader2, MapPin, Video, X } from 'lucide-react'
+import { fetchZoomInfo, type AdminLiveEvent, type EventFormat, type EventInput } from '@/lib/api/liveEvents'
+import { btn, Field, inputClass } from '@/components/kit'
+import { IconButton, Segmented, selectClass } from '@/components/admin/ui'
 import MediaPicker from '@/components/admin/MediaPicker'
 import { type MediaFile } from '@/lib/api/media'
+import { revealIfStacked } from '@/components/admin/content/useMediaQuery'
+import { errorMessage } from '@/lib/api/errors'
+import { cn } from '@/lib/utils'
+import { API_BASE } from '@/lib/api'
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'
+const SERVER_URL = API_BASE
 
 interface Props {
   open: boolean
-  initial?: LiveEvent | null
+  initial?: AdminLiveEvent | null
   onClose: () => void
-  onSave: (data: Partial<LiveEvent>) => Promise<void>
+  onSave: (data: EventInput) => Promise<void>
+  className?: string
 }
 
-const EMPTY: Partial<LiveEvent> = {
+/** The form: the start is entered as a day and time in the chosen time zone. */
+type Form = {
+  title: string
+  description: string
+  type: string
+  day: string
+  start: string
+  timezone: string
+  durationMinutes: number
+  /** Empty for no limit. */
+  capacity: string
+  format: EventFormat
+  meetingLink: string
+  location: string
+  recordingLink: string
+  coverImage: string
+  status: 'draft' | 'published'
+}
+
+const EMPTY: Form = {
   title: '',
   description: '',
   type: 'Webinar',
-  date: '',
-  time: '',
+  day: '',
+  start: '17:00',
+  timezone: 'Asia/Dubai',
+  durationMinutes: 60,
+  capacity: '',
+  format: 'zoom',
   meetingLink: '',
+  location: '',
   recordingLink: '',
   coverImage: '',
   status: 'draft',
 }
 
-export function LiveEventDialog({ open, initial, onClose, onSave }: Props) {
-  const [form, setForm] = useState<Partial<LiveEvent>>(initial ?? EMPTY)
+const DURATIONS = [30, 45, 60, 90, 120, 180]
+
+/** Zones offered first; the event's own zone is always in the list. */
+const TIMEZONES: { value: string; label: string }[] = [
+  { value: 'Asia/Dubai', label: 'UAE time (Dubai, GMT+4)' },
+  { value: 'Asia/Riyadh', label: 'Saudi Arabia time (Riyadh, GMT+3)' },
+  { value: 'Asia/Qatar', label: 'Qatar time (Doha, GMT+3)' },
+  { value: 'Asia/Bahrain', label: 'Bahrain time (GMT+3)' },
+  { value: 'Asia/Kuwait', label: 'Kuwait time (GMT+3)' },
+  { value: 'Asia/Muscat', label: 'Oman time (Muscat, GMT+4)' },
+  { value: 'Africa/Cairo', label: 'Egypt time (Cairo)' },
+  { value: 'Asia/Amman', label: 'Jordan time (Amman)' },
+  { value: 'Asia/Beirut', label: 'Lebanon time (Beirut)' },
+  { value: 'Africa/Casablanca', label: 'Morocco time (Casablanca)' },
+  { value: 'Europe/London', label: 'UK time (London)' },
+  { value: 'UTC', label: 'UTC' },
+]
+
+function formFrom(e: AdminLiveEvent | null | undefined, zoomReady: boolean): Form {
+  if (!e) return { ...EMPTY, format: zoomReady ? 'zoom' : 'link' }
+  return {
+    title: e.title,
+    description: e.description ?? '',
+    type: e.type,
+    // The day and time as entered, in the event's own zone (from the server).
+    day: e.startDate,
+    start: e.startTime,
+    timezone: e.timezone,
+    durationMinutes: e.durationMinutes,
+    capacity: e.capacity == null ? '' : String(e.capacity),
+    format: e.format,
+    meetingLink: e.meetingLink ?? '',
+    location: e.location ?? '',
+    recordingLink: e.recordingLink ?? '',
+    coverImage: e.coverImage ?? '',
+    status: e.status,
+  }
+}
+
+const TYPES = ['Webinar', 'Workshop', 'Panel', 'Masterclass', 'Other']
+
+/**
+ * Create / edit panel for a live event (redesign: a side panel next to the
+ * events table on wide screens, stacked under it on narrow ones).
+ * Same props as the old modal dialog.
+ */
+export function LiveEventDialog({ open, initial, onClose, onSave, className }: Props) {
+  const { data: zoomInfo } = useQuery({ queryKey: ['admin', 'zoom-info'], queryFn: fetchZoomInfo, staleTime: 5 * 60_000 })
+  const zoomReady = zoomInfo?.configured ?? true
+  const [form, setForm] = useState<Form>(() => formFrom(initial, zoomReady))
   const [saving, setSaving] = useState(false)
   const [mediaPicker, setMediaPicker] = useState(false)
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
+  const [imgBroken, setImgBroken] = useState(false)
+  const panelRef = useRef<HTMLElement>(null)
+  const titleRef = useRef<HTMLInputElement>(null)
+  const uid = useId()
+  const id = (k: string) => `${uid}-${k}`
 
   useEffect(() => {
-    if (open) { setForm(initial ?? EMPTY); setFieldErrors({}) }
+    if (open) {
+      setForm(formFrom(initial, zoomReady))
+      setFieldErrors({})
+    }
+    // zoomReady only picks the default for a new event; don't reset an open form when it loads.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, initial])
+
+  // Focus the title and bring the panel into view when it opens or switches event.
+  useEffect(() => {
+    if (!open) return
+    const t = window.setTimeout(() => {
+      titleRef.current?.focus({ preventScroll: true })
+      revealIfStacked(panelRef.current)
+    }, 0)
+    return () => window.clearTimeout(t)
+  }, [open, initial?.id])
+
+  useEffect(() => setImgBroken(false), [form.coverImage])
+
+  if (!open) return null
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setSaving(true)
     setFieldErrors({})
+    if (!form.day || !form.start) {
+      setFieldErrors({ startsAt: 'Pick a day and a start time' })
+      setSaving(false)
+      return
+    }
+    const capacity = form.capacity.trim() === '' ? null : Number(form.capacity)
+    if (capacity !== null && (!Number.isInteger(capacity) || capacity < 1)) {
+      setFieldErrors({ capacity: 'Use a whole number of places, or leave it empty for no limit' })
+      setSaving(false)
+      return
+    }
     try {
-      await onSave(form)
+      await onSave({
+        title: form.title.trim(),
+        description: form.description.trim() || null,
+        type: form.type,
+        startDate: form.day,
+        startTime: form.start,
+        timezone: form.timezone,
+        durationMinutes: form.durationMinutes,
+        capacity,
+        format: form.format,
+        meetingLink: form.format === 'link' ? form.meetingLink.trim() || null : null,
+        location: form.format === 'in_person' ? form.location.trim() || null : null,
+        recordingLink: form.recordingLink.trim() || null,
+        coverImage: form.coverImage.trim() || null,
+        status: form.status,
+      })
     } catch (err: unknown) {
-      const e = err as { error?: { code?: string; errors?: Record<string, string[]> } }
-      if (e?.error?.code === 'VALIDATION_ERROR') {
+      const e = err as { error?: { code?: string; message?: string; errors?: Record<string, string[]> } }
+      if (e?.error?.code === 'LOCATION_REQUIRED') setFieldErrors({ location: e.error.message ?? 'Add where it takes place' })
+      else if (e?.error?.code === 'ZOOM_NOT_CONFIGURED') setFieldErrors({ format: e.error.message ?? 'Zoom isn’t connected' })
+      else if (e?.error?.code === 'CAPACITY_BELOW_BOOKINGS') setFieldErrors({ capacity: errorMessage(err, 'More learners have already booked') })
+      else if (e?.error?.code && ['START_REQUIRED', 'INVALID_START', 'INVALID_TIMEZONE'].includes(e.error.code)) {
+        setFieldErrors({ startsAt: errorMessage(err, 'Check the day and time') })
+      }
+      else if (e?.error?.code === 'VALIDATION_ERROR') {
         const mapped: Record<string, string> = {}
         for (const [key, msgs] of Object.entries(e.error.errors ?? {})) {
           if (Array.isArray(msgs) && msgs[0]) mapped[key] = msgs[0]
@@ -59,7 +193,7 @@ export function LiveEventDialog({ open, initial, onClose, onSave }: Props) {
     }
   }
 
-  function set<K extends keyof LiveEvent>(key: K, value: LiveEvent[K]) {
+  function set<K extends keyof Form>(key: K, value: Form[K]) {
     setForm((f) => ({ ...f, [key]: value }))
   }
 
@@ -77,270 +211,265 @@ export function LiveEventDialog({ open, initial, onClose, onSave }: Props) {
     setMediaPicker(false)
   }
 
+  const isEdit = !!initial?.id
+  const headingId = id('heading')
+
   return (
     <>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={onClose}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.97 }}
-              transition={{ duration: 0.2 }}
-              onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-brand-surface-2 overflow-hidden flex flex-col max-h-[90vh]"
+      <aside
+        ref={panelRef}
+        aria-labelledby={headingId}
+        className={cn('flex scroll-mt-20 flex-col rounded-[14px] border border-ui-line bg-ui-surface', className)}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape' && !mediaPicker) onClose()
+        }}
+      >
+        <div className="flex items-center gap-2.5 border-b border-ui-line px-[18px] py-3.5">
+          <h2 id={headingId} className="flex-1 text-base font-semibold text-ui-text">
+            {isEdit ? 'Edit event' : 'New event'}
+          </h2>
+          <IconButton label="Close" icon={X} onClick={onClose} className="-mr-1.5" />
+        </div>
+
+        <form onSubmit={handleSubmit} className="flex flex-col">
+          <div className="flex flex-col gap-3.5 px-[18px] py-4">
+            <span className="text-xs font-semibold text-ui-muted">Event details</span>
+
+            <Field label="Title *" htmlFor={id('title')}>
+              <input
+                id={id('title')}
+                ref={titleRef}
+                value={form.title}
+                onChange={(e) => set('title', e.target.value)}
+                className={inputClass}
+                placeholder="e.g. AI for Women Entrepreneurs: A Practical Masterclass"
+                required
+              />
+            </Field>
+
+            <Field label="Type" htmlFor={id('type')}>
+              <select
+                id={id('type')}
+                value={form.type}
+                onChange={(e) => set('type', e.target.value)}
+                className={cn(selectClass, 'h-10 w-full text-sm')}
+              >
+                {TYPES.map((t) => (
+                  <option key={t}>{t}</option>
+                ))}
+              </select>
+            </Field>
+
+            <div className="grid grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-2.5">
+              <Field label="Date *" htmlFor={id('date')} error={fieldErrors.startsAt}>
+                <input
+                  id={id('date')}
+                  type="date"
+                  value={form.day}
+                  onChange={(e) => { set('day', e.target.value); clearFieldError('startsAt') }}
+                  className={cn(inputClass, 'px-2.5')}
+                  required
+                />
+              </Field>
+              <Field label="Starts *" htmlFor={id('time')}>
+                <input
+                  id={id('time')}
+                  type="time"
+                  step={300}
+                  value={form.start}
+                  onChange={(e) => { set('start', e.target.value); clearFieldError('startsAt') }}
+                  className={cn(inputClass, 'px-2.5')}
+                  required
+                />
+              </Field>
+            </div>
+            <Field label="Time zone" htmlFor={id('tz')} hint="Learners see the time in their own zone.">
+              <select
+                id={id('tz')}
+                value={form.timezone}
+                onChange={(e) => { set('timezone', e.target.value); clearFieldError('startsAt') }}
+                className={cn(selectClass, 'h-10 w-full text-sm')}
+              >
+                {(TIMEZONES.some((t) => t.value === form.timezone) ? TIMEZONES : [{ value: form.timezone, label: form.timezone }, ...TIMEZONES]).map((t) => (
+                  <option key={t.value} value={t.value}>
+                    {t.label}
+                  </option>
+                ))}
+              </select>
+            </Field>
+            {initial?.timeNeedsReview && (
+              <p role="status" className="flex items-start gap-2 rounded-[10px] bg-ui-danger-soft px-3 py-2 text-[13px] text-ui-danger">
+                <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+                <span>
+                  The old time{initial.legacyTime ? ` (“${initial.legacyTime}”)` : ''} couldn’t be read, so this event was kept at noon on its date. Set
+                  the real start time and save.
+                </span>
+              </p>
+            )}
+            <Field label="Length" htmlFor={id('duration')}>
+              <select
+                id={id('duration')}
+                value={form.durationMinutes}
+                onChange={(e) => set('durationMinutes', Number(e.target.value))}
+                className={cn(selectClass, 'h-10 w-full text-sm')}
+              >
+                {[...new Set([...DURATIONS, form.durationMinutes])].sort((a, b) => a - b).map((m) => (
+                  <option key={m} value={m}>
+                    {m < 60 ? `${m} minutes` : `${m / 60} hour${m === 60 ? '' : 's'}`.replace('.5 hours', '½ hours')}
+                  </option>
+                ))}
+              </select>
+            </Field>
+
+            <Field
+              label="Places"
+              htmlFor={id('capacity')}
+              error={fieldErrors.capacity}
+              hint="Leave empty for no limit. Booking closes when it’s full."
             >
-              {/* Header */}
-              <header className="flex items-center justify-between gap-3 px-6 py-4 border-b border-brand-surface-2 flex-shrink-0">
-                <h3 className="text-lg font-black text-brand-text-primary">
-                  {initial?.id ? 'Edit event' : 'New event'}
-                </h3>
-                <button
-                  onClick={onClose}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-brand-surface transition-colors"
-                  aria-label="Close"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </header>
+              <input
+                id={id('capacity')}
+                type="number"
+                inputMode="numeric"
+                min={1}
+                step={1}
+                value={form.capacity}
+                onChange={(e) => { set('capacity', e.target.value); clearFieldError('capacity') }}
+                className={inputClass}
+                placeholder="No limit"
+              />
+            </Field>
 
-              {/* Form body */}
-              <form onSubmit={handleSubmit} className="flex flex-col flex-1 overflow-hidden">
-                <div className="flex-1 overflow-y-auto px-6 py-5 space-y-6">
+            <div className="flex flex-col gap-1.5">
+              <span className="text-sm font-medium text-ui-text">Where</span>
+              <Segmented<EventFormat>
+                label="Where the event happens"
+                className="self-start"
+                value={form.format}
+                onChange={(v) => { set('format', v); clearFieldError('format'); clearFieldError('location') }}
+                options={[
+                  { value: 'zoom', label: 'Zoom meeting', icon: Video },
+                  { value: 'link', label: 'Other link', icon: Link2 },
+                  { value: 'in_person', label: 'In person', icon: MapPin },
+                ]}
+              />
+              {fieldErrors.format && <p className="text-[13px] text-ui-danger" role="alert">{fieldErrors.format}</p>}
+              {form.format === 'zoom' && (
+                <p className={cn('flex items-start gap-2 rounded-[10px] px-3 py-2 text-[13px]', zoomReady ? 'bg-ui-surface-2 text-ui-muted' : 'bg-ui-danger-soft text-ui-danger')}>
+                  <Info className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+                  {!zoomReady
+                    ? 'Zoom isn’t connected on this server yet. Add the Zoom credentials, or choose another link.'
+                    : zoomInfo?.mock
+                      ? 'Test mode: Zoom isn’t connected here, so meetings and links are placeholders.'
+                      : 'Hadafi creates the Zoom meeting. Everyone who books gets their own join link, and attendance is read back afterwards.'}
+                </p>
+              )}
+              {form.format === 'link' && (
+                <Field label="Meeting link" htmlFor={id('meeting')} error={fieldErrors.meetingLink} hint="Teams, Google Meet, LinkedIn Live. Only learners who booked see it, from an hour before." className="mt-1">
+                  <input
+                    id={id('meeting')}
+                    type="url"
+                    value={form.meetingLink}
+                    onChange={(e) => { set('meetingLink', e.target.value); clearFieldError('meetingLink') }}
+                    className={inputClass}
+                    placeholder="https://"
+                  />
+                </Field>
+              )}
+              {form.format === 'in_person' && (
+                <Field label="Venue *" htmlFor={id('location')} error={fieldErrors.location} className="mt-1">
+                  <input
+                    id={id('location')}
+                    value={form.location}
+                    maxLength={300}
+                    onChange={(e) => { set('location', e.target.value); clearFieldError('location') }}
+                    className={inputClass}
+                    placeholder="e.g. Hub71, Al Khatem Tower, Abu Dhabi"
+                  />
+                </Field>
+              )}
+            </div>
 
-                  {/* ── Section 1: Event details ── */}
-                  <div className="space-y-4">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary">
-                      Event details
-                    </p>
+            <Field label="Description" htmlFor={id('desc')}>
+              <textarea
+                id={id('desc')}
+                value={form.description}
+                onChange={(e) => set('description', e.target.value)}
+                rows={3}
+                className={cn(inputClass, 'h-auto resize-y py-2.5 leading-normal')}
+                placeholder="Brief description of this event"
+              />
+            </Field>
 
-                    <Field label="Title *">
-                      <input
-                        value={form.title ?? ''}
-                        onChange={(e) => set('title', e.target.value)}
-                        className="admin-input"
-                        placeholder="e.g. AI for SMEs: A Practical Masterclass"
-                        required
-                      />
-                    </Field>
+            <span className="border-t border-ui-line pt-3.5 text-xs font-semibold text-ui-muted">Cover image (optional)</span>
+            <div className="flex items-center gap-2.5">
+              <span className="inline-flex h-10 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-ui-surface-2 text-ui-muted">
+                {form.coverImage && !imgBroken ? (
+                  <img src={form.coverImage} alt="Cover preview" className="h-full w-full object-cover" onError={() => setImgBroken(true)} />
+                ) : (
+                  <CalendarDays className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                )}
+              </span>
+              <span className="min-w-0 flex-1 text-xs text-ui-muted">Pick from the media library or paste a URL directly.</span>
+              <button type="button" onClick={() => setMediaPicker(true)} className={btn({ variant: 'secondary', size: 'sm' })}>
+                Choose from library
+              </button>
+            </div>
+            <Field label="Image URL" htmlFor={id('img')} error={fieldErrors.coverImage}>
+              <input
+                id={id('img')}
+                value={form.coverImage}
+                onChange={(e) => { set('coverImage', e.target.value); clearFieldError('coverImage') }}
+                className={inputClass}
+                placeholder="/images/events/webinar-1.webp or https://"
+              />
+            </Field>
 
-                    <Field label="Type">
-                      <select
-                        value={form.type ?? 'Webinar'}
-                        onChange={(e) => set('type', e.target.value)}
-                        className="admin-input"
-                      >
-                        <option>Webinar</option>
-                        <option>Workshop</option>
-                        <option>Panel</option>
-                        <option>Masterclass</option>
-                        <option>Other</option>
-                      </select>
-                    </Field>
+            <span className="border-t border-ui-line pt-3.5 text-xs font-semibold text-ui-muted">After the event</span>
+            <Field
+              label="Recording link"
+              htmlFor={id('recording')}
+              error={fieldErrors.recordingLink}
+              hint="Add after the event ends (YouTube, Vimeo)."
+            >
+              <input
+                id={id('recording')}
+                type="url"
+                value={form.recordingLink}
+                onChange={(e) => { set('recordingLink', e.target.value); clearFieldError('recordingLink') }}
+                className={inputClass}
+                placeholder="https://youtube.com/watch?v= or Vimeo URL"
+              />
+            </Field>
 
-                    <div className="grid grid-cols-2 gap-3">
-                      <Field label="Date *">
-                        <input
-                          type="date"
-                          value={form.date ?? ''}
-                          onChange={(e) => set('date', e.target.value)}
-                          className="admin-input"
-                          required
-                        />
-                      </Field>
-                      <Field label="Time *">
-                        <input
-                          value={form.time ?? ''}
-                          onChange={(e) => set('time', e.target.value)}
-                          className="admin-input"
-                          placeholder="e.g. 5:00 PM / GST - UAE time"
-                          required
-                        />
-                      </Field>
-                    </div>
+            <div className="flex flex-col gap-1.5">
+              <span className="text-sm font-medium text-ui-text">Status</span>
+              <Segmented
+                label="Status"
+                className="self-start"
+                value={form.status}
+                onChange={(v) => set('status', v)}
+                options={[
+                  { value: 'draft', label: 'Draft' },
+                  { value: 'published', label: 'Published' },
+                ]}
+              />
+            </div>
+          </div>
 
-                    <Field label="Description">
-                      <textarea
-                        value={form.description ?? ''}
-                        onChange={(e) => set('description', e.target.value)}
-                        rows={4}
-                        className="admin-input resize-none"
-                        placeholder="Brief description of this event…"
-                      />
-                    </Field>
-                  </div>
+          <div className="flex justify-end gap-2 border-t border-ui-line px-[18px] py-3">
+            <button type="button" onClick={onClose} className={btn({ variant: 'secondary' })}>
+              Cancel
+            </button>
+            <button type="submit" disabled={saving} className={btn()}>
+              {saving && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
+              {isEdit ? 'Save changes' : 'Create event'}
+            </button>
+          </div>
+        </form>
+      </aside>
 
-                  {/* ── Section 2: Cover image ── */}
-                  <div className="space-y-4">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary">
-                      Cover image (optional)
-                    </p>
-
-                    <Field label="Image URL">
-                      <div className="flex items-center gap-2">
-                        <input
-                          value={form.coverImage ?? ''}
-                          onChange={(e) => set('coverImage', e.target.value)}
-                          className="admin-input flex-1"
-                          placeholder="/images/events/webinar-1.jpg or https://…"
-                        />
-                        {form.coverImage && (
-                          <div className="flex-shrink-0 w-14 h-10 rounded-lg overflow-hidden border border-brand-surface-2 bg-brand-surface">
-                            <img
-                              src={form.coverImage}
-                              alt="Preview"
-                              className="w-full h-full object-cover"
-                              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
-                            />
-                          </div>
-                        )}
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => setMediaPicker(true)}
-                        className="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-surface-2 bg-white text-brand-text-muted text-xs font-semibold hover:border-brand-primary/40 hover:text-brand-primary transition-colors"
-                      >
-                        <ImageIcon className="w-3.5 h-3.5" />
-                        Choose from library
-                      </button>
-                    </Field>
-                    <p className="text-[11px] text-brand-text-muted -mt-2">
-                      Pick from the media library or paste a URL directly.
-                    </p>
-                  </div>
-
-                  {/* ── Section 3: Links ── */}
-                  <div className="space-y-4">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary">
-                      Links
-                    </p>
-
-                    <div className="rounded-xl border border-brand-surface-2 overflow-hidden">
-                      {/* Meeting link */}
-                      <div className="px-4 pt-4 pb-3">
-                        <label className="block">
-                          <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-brand-text-muted mb-1.5">
-                            Meeting / Registration link
-                          </span>
-                          <input
-                            type="url"
-                            value={form.meetingLink ?? ''}
-                            onChange={(e) => { set('meetingLink', e.target.value); clearFieldError('meetingLink') }}
-                            className="admin-input"
-                            placeholder="https://zoom.us/j/… or LinkedIn Live URL"
-                          />
-                        </label>
-                        {fieldErrors.meetingLink ? (
-                          <p className="mt-1 text-xs text-red-500">{fieldErrors.meetingLink}</p>
-                        ) : (
-                          <p className="mt-1.5 text-[11px] text-brand-text-muted">
-                            Optional. Add before the event (Zoom, LinkedIn Live, Eventbrite…)
-                          </p>
-                        )}
-                      </div>
-
-                      {/* Before / After divider */}
-                      <div className="relative flex items-center px-4 py-2">
-                        <div className="flex-1 h-px bg-brand-surface-2" />
-                        <span className="mx-3 px-2.5 py-0.5 rounded-full border border-brand-surface-2 bg-white text-[10px] font-semibold text-brand-text-muted whitespace-nowrap">
-                          Before ↕ After
-                        </span>
-                        <div className="flex-1 h-px bg-brand-surface-2" />
-                      </div>
-
-                      {/* Recording link */}
-                      <div className="px-4 pb-4 pt-3">
-                        <label className="block">
-                          <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-brand-text-muted mb-1.5">
-                            Recording link
-                          </span>
-                          <input
-                            type="url"
-                            value={form.recordingLink ?? ''}
-                            onChange={(e) => { set('recordingLink', e.target.value); clearFieldError('recordingLink') }}
-                            className="admin-input"
-                            placeholder="https://youtube.com/watch?v=… or Vimeo URL"
-                          />
-                        </label>
-                        {fieldErrors.recordingLink ? (
-                          <p className="mt-1 text-xs text-red-500">{fieldErrors.recordingLink}</p>
-                        ) : (
-                          <p className="mt-1.5 text-[11px] text-brand-text-muted">
-                            Add after the event ends (YouTube, Vimeo…)
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Footer */}
-                <div className="flex-shrink-0 border-t border-brand-surface-2 px-6 py-4 flex items-center justify-between gap-4">
-                  {/* Status toggle */}
-                  <div className="inline-flex rounded-xl border border-brand-surface-2 bg-brand-surface p-1 gap-1">
-                    <button
-                      type="button"
-                      onClick={() => set('status', 'draft')}
-                      className={
-                        form.status === 'draft'
-                          ? 'px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500 text-white transition-colors'
-                          : 'px-3 py-1.5 rounded-lg text-xs font-semibold text-brand-text-muted hover:text-brand-text-primary transition-colors'
-                      }
-                    >
-                      Draft
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => set('status', 'published')}
-                      className={
-                        form.status === 'published'
-                          ? 'px-3 py-1.5 rounded-lg text-xs font-bold bg-brand-primary text-white transition-colors'
-                          : 'px-3 py-1.5 rounded-lg text-xs font-semibold text-brand-text-muted hover:text-brand-text-primary transition-colors'
-                      }
-                    >
-                      Published
-                    </button>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={onClose}
-                      className="px-4 py-2 rounded-xl bg-brand-surface text-brand-text-primary text-sm font-semibold hover:bg-brand-surface-2 transition-colors"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      disabled={saving}
-                      className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark transition-colors shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
-                    >
-                      {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
-                      Save
-                    </button>
-                  </div>
-                </div>
-              </form>
-
-              <DialogStyles />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <MediaPicker
-        open={mediaPicker}
-        onClose={() => setMediaPicker(false)}
-        onSelect={handleMediaSelect}
-        accept="image"
-      />
+      <MediaPicker open={mediaPicker} onClose={() => setMediaPicker(false)} onSelect={handleMediaSelect} accept="image" />
     </>
   )
 }

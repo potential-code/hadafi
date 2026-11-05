@@ -28,7 +28,9 @@ export async function listLearnerCourses(req: Request, res: Response, next: Next
 /**
  * GET /lms/courses/:courseId
  * Returns the full nested course structure with per-item progress and lock status
- * for an enrolled learner. Returns 403 if the learner is not enrolled.
+ * for an enrolled learner. For a published course the learner has not joined,
+ * returns the course header and an outline preview (isEnrolled=false, no lesson
+ * content) so the client can offer enrolment. 404 for missing or draft courses.
  */
 export async function getLearnerCourse(
   req: Request<{ courseId: string }>,
@@ -39,8 +41,8 @@ export async function getLearnerCourse(
     const data = await learnerSvc.getLearnerCourse(req.user!.userId, req.params.courseId)
     res.json({ success: true, data })
   } catch (e) {
-    if (e instanceof Error && e.message === 'NOT_ENROLLED') {
-      return next(new AppError('Not enrolled', 403, 'NOT_ENROLLED'))
+    if (e instanceof Error && e.message === 'COURSE_NOT_FOUND') {
+      return next(new AppError('Course not found', 404, 'COURSE_NOT_FOUND'))
     }
     next(e)
   }
@@ -111,7 +113,7 @@ export async function updateUnitProgress(
   try {
     const { status } = req.body as { status: 'not_started' | 'in_progress' | 'completed' }
     if (status === 'completed') await progressSvc.assertUnitCompletable(req.user!.userId, req.params.unitId)
-    const data = await progressSvc.updateUnitProgress(req.user!.userId, req.params.unitId, status)
+    const data = await progressSvc.updateUnitProgress(req.user!.userId, req.params.unitId, status, { recordStep: true })
     res.json({ success: true, data })
   } catch (e) {
     next(e)
@@ -307,12 +309,20 @@ export async function issueCertificate(
         COURSE_NOT_FOUND: 'Course not found',
         CERTIFICATE_DISABLED: 'This course does not give a certificate',
         NOT_ENROLLED: 'Enrol in this course first',
-        ALREADY_ISSUED: 'Your certificate for this course has already been issued',
         PROGRESS_INCOMPLETE: 'Finish every part of the course first',
         POST_ASSESSMENT_NOT_PASSED: 'Pass the final exam first',
         POST_ASSESSMENT_NOT_ATTEMPTED: 'Take the final exam first',
       }
       const reason = check.reason ?? 'NOT_ELIGIBLE'
+      // Asking again returns the certificate already issued, never a second one.
+      if (reason === 'ALREADY_ISSUED') {
+        const [existing] = await db.select().from(courseCertificates)
+          .where(and(eq(courseCertificates.userId, req.user!.userId), eq(courseCertificates.courseId, req.params.courseId)))
+        if (existing) {
+          res.json({ success: true, data: existing })
+          return
+        }
+      }
       const status = reason === 'COURSE_NOT_FOUND' || reason === 'NOT_ENROLLED' ? 404 : 409
       return next(new AppError(messages[reason] ?? 'This certificate is not available yet', status, reason))
     }

@@ -1,0 +1,36 @@
+{{#> layout}}
+
+  <p style="margin:0 0 16px;font-family:'Noto Sans',system-ui,sans-serif;font-size:15px;line-height:1.65;color:#1A0A12;">
+    Hi <strong>{{name}}</strong>,
+  </p>
+
+  <h1 style="margin:0 0 16px;font-family:'Noto Sans',system-ui,sans-serif;font-size:20px;line-height:1.35;color:#1A0A12;">{{title}}</h1>
+
+  {{#each paragraphs}}
+  <p style="margin:0 0 16px;font-family:'Noto Sans',system-ui,sans-serif;font-size:15px;line-height:1.65;color:#1A0A12;white-space:pre-line;">{{this}}</p>
+  {{/each}}
+
+  {{#if link}}
+  <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="margin:8px 0 28px;">
+    <tr>
+      <td align="center" bgcolor="#c8106a"
+          style="background-color:#c8106a;border-radius:8px;mso-padding-alt:0;">
+        <a href="{{link}}" target="_blank"
+           style="display:inline-block;padding:14px 32px;
+                  font-family:'Noto Sans',system-ui,sans-serif;
+                  font-size:15px;font-weight:700;color:#ffffff;
+                  text-decoration:none;border-radius:8px;
+                  mso-padding-alt:14px 32px;">
+          {{linkLabel}}
+        </a>
+      </td>
+    </tr>
+  </table>
+  {{/if}}
+
+  <p style="margin:24px 0 0;font-family:'Noto Sans',system-ui,sans-serif;font-size:12px;line-height:1.6;color:#6B7280;">
+    You're getting this because you have a Hadafi account.
+    <a href="{{unsubscribeUrl}}" style="color:#6B7280;text-decoration:underline;">Stop announcement emails</a>.
+  </p>
+
+{{/layout}}

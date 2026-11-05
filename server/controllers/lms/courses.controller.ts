@@ -1,6 +1,7 @@
 import type { Request, Response, NextFunction } from 'express'
 import * as svc from '../../services/lms/courses.service'
 import { AppError } from '../../utils/app-error'
+import type { CourseTopic } from '../../db/schema'
 
 /**
  * GET /lms/admin/courses
@@ -40,7 +41,7 @@ export async function create(req: Request, res: Response, next: NextFunction): P
   try {
     // req.body has been parsed and sanitised by Zod — destructure only the
     // explicit allowlist so no extra fields (e.g. createdAt) can leak through.
-    const { title, description, cover, difficulty, pointsPerUnit, enableCertificate, status } = req.body as {
+    const { title, description, cover, difficulty, pointsPerUnit, enableCertificate, status, category } = req.body as {
       title: string
       description?: string | null
       cover?: string | null
@@ -48,10 +49,11 @@ export async function create(req: Request, res: Response, next: NextFunction): P
       pointsPerUnit: number
       enableCertificate: boolean
       status: 'draft' | 'published'
+      category?: CourseTopic | null
     }
     res.status(201).json({
       success: true,
-      data: await svc.createCourse({ title, description, cover, difficulty, pointsPerUnit, enableCertificate, status }),
+      data: await svc.createCourse({ title, description, cover, difficulty, pointsPerUnit, enableCertificate, status, category: category ?? null }),
     })
   } catch (e) {
     next(e)
@@ -67,7 +69,7 @@ export async function update(req: Request<{ id: string }>, res: Response, next: 
   try {
     // Destructure only the explicit allowlist — Zod has already stripped unknown
     // fields, but being explicit here documents intent and keeps types precise.
-    const { title, description, cover, difficulty, pointsPerUnit, enableCertificate, status } = req.body as {
+    const { title, description, cover, difficulty, pointsPerUnit, enableCertificate, status, category } = req.body as {
       title?: string
       description?: string | null
       cover?: string | null
@@ -75,6 +77,7 @@ export async function update(req: Request<{ id: string }>, res: Response, next: 
       pointsPerUnit?: number
       enableCertificate?: boolean
       status?: 'draft' | 'published'
+      category?: CourseTopic | null
     }
     const c = await svc.updateCourse(req.params.id, {
       title,
@@ -84,6 +87,7 @@ export async function update(req: Request<{ id: string }>, res: Response, next: 
       pointsPerUnit,
       enableCertificate,
       status,
+      category,
     })
     if (!c) {
       throw new AppError('Not found', 404, 'NOT_FOUND')

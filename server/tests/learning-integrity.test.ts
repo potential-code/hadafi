@@ -5,7 +5,7 @@ import {
   courses, modules, units, learningBlocks, blockQuestions, assessments, assessmentQuestions,
   courseEnrollments, users, courseCertificates,
 } from '../db/schema'
-import { startTestServer, stopTestServer, api, createTestUser, cleanupFixtureUsers, type TestUser } from './helpers'
+import { startTestServer, stopTestServer, api, createTestUser, cleanupFixtureUsers, mailpitAvailable, type TestUser } from './helpers'
 
 /**
  * The learner's browser is never trusted with learning records. These cover
@@ -139,6 +139,13 @@ describe('an enrolled learner', () => {
     expect((await block()).status).toBe(200)
   })
 
+  it('cannot save an oversized written answer', async () => {
+    const res = await api('POST', `/api/lms/questions/${ids.planQs[0]}/answer`, {
+      token: learner.token, body: { answerData: { openEndedAnswer: 'x'.repeat(10_001) } },
+    })
+    expect(res.status).toBe(422)
+  })
+
   it('gets back only their own saved answers', async () => {
     const mine = await api<{ data: Array<{ questionId: string; answerData: { openEndedAnswer?: string } }> }>(
       'GET', `/api/lms/learning-blocks/${ids.planBlock}/answers`, { token: learner.token },
@@ -186,7 +193,9 @@ describe('an enrolled learner', () => {
     // Reaching 100% issues the certificate on its own; asking again doesn't make a second.
     const cert = await api<{ data: { id: string } }>('GET', `/api/lms/courses/${ids.course}/certificate`, t)
     expect(cert.status).toBe(200)
-    expect((await api('POST', `/api/lms/courses/${ids.course}/certificate`, t)).status).toBe(409)
+    const again = await api<{ data: { id: string } }>('POST', `/api/lms/courses/${ids.course}/certificate`, t)
+    expect(again.status).toBe(200)
+    expect(again.body.data.id).toBe(cert.body.data.id)
     const rows = await db.select().from(courseCertificates).where(eq(courseCertificates.userId, learner.id))
     expect(rows.length).toBe(1)
 
@@ -211,6 +220,17 @@ describe('mentor contact details', () => {
 })
 
 describe('the PDF email tool', () => {
+  it('only ever emails the learner\'s own address', async () => {
+    if (!(await mailpitAvailable())) return
+    const user = await createTestUser('pdf-own')
+    const res = await api<{ email?: string }>('POST', '/api/ai-tools/generate-pdf', {
+      token: user.token,
+      body: { documentType: 'business-plan', content: 'A short plan.', emailAddress: 'stranger@example.com' },
+    })
+    expect(res.status).toBe(200)
+    expect(res.body.email).toBe(user.email)
+  })
+
   it('turns down an oversized document', async () => {
     const res = await api('POST', '/api/ai-tools/generate-pdf', {
       token: outsider.token,
@@ -231,11 +251,4 @@ describe('the PDF email tool', () => {
   })
 })
 
-describe('sign-in', () => {
-  it('stops password guessing on one account after 10 tries', async () => {
-    const email = `guess-${Date.now()}@e2e.local`
-    const tryOnce = () => api('POST', '/api/auth/login', { body: { email, password: 'wrong-password-1' } })
-    for (let i = 0; i < 10; i++) expect((await tryOnce()).status).not.toBe(429)
-    expect((await tryOnce()).status).toBe(429)
-  })
-})
+// Per-email sign-in limits (codes and passwords) are covered in auth.test.ts.

@@ -1,7 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useId, useRef, useState } from 'react'
 import Link from 'next/link'
 import {
   DndContext,
@@ -11,46 +10,10 @@ import {
   useSensors,
   type DragEndEvent,
 } from '@dnd-kit/core'
-import {
-  arrayMove,
-  SortableContext,
-  useSortable,
-  verticalListSortingStrategy,
-} from '@dnd-kit/sortable'
-import { CSS } from '@dnd-kit/utilities'
-import {
-  ArrowLeft,
-  ChevronDown,
-  ChevronRight,
-  GripVertical,
-  Plus,
-  Pencil,
-  Trash2,
-  FileText,
-  Video,
-  HelpCircle,
-  ImageIcon,
-  Save,
-  Eye,
-  Sparkles,
-  Settings,
-  BookOpen,
-  BookOpenCheck,
-  Layers,
-  ListChecks,
-  Clock,
-} from 'lucide-react'
+import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { ArrowLeft, BookOpen, EyeOff, Layers, ListChecks, Pencil, Plus, Send, Trash2 } from 'lucide-react'
 import { toast } from 'sonner'
 import { AdminLayout } from '@/components/admin/AdminLayout'
-import {
-  newBlock,
-  newQuestion,
-  type AdminLearningBlock,
-  type AdminQuestion,
-  type AdminQuestionBlock,
-  type AdminQuestionFormat,
-  type AdminQuestionKind,
-} from '@/lib/adminData'
 import {
   fetchCourse,
   apiUpdateCourse,
@@ -67,38 +30,35 @@ import {
   apiDeleteBlock,
   apiReorderBlocks,
   apiCreateBlockQuestion,
-  apiUpdateBlockQuestion,
-  apiDeleteBlockQuestion,
-  type CourseWithContent,
   type CourseModule,
   type Unit,
   type LearningBlock,
   type BlockQuestion,
 } from '@/lib/api/lms'
-import { cn } from '@/lib/utils'
-import { Field, SimpleDialog, DialogStyles } from '@/components/admin/widgets/CourseDialog'
+import type { CourseTopic } from '@/lib/api/redesign'
 import { ConfirmDialog } from '@/components/admin/widgets/ConfirmDialog'
 import { AssessmentSection } from '@/components/admin/lms/AssessmentSection'
-import { RichTextEditor } from '@/components/admin/widgets/RichTextEditor'
-import MediaPicker from '@/components/admin/MediaPicker'
-import type { MediaFile } from '@/lib/api/media'
+import { BlockDialog } from '@/components/admin/lms/BlockEditor'
+import { BlockCard, defaultCollapsed } from '@/components/admin/lms/BlockCard'
+import { CurriculumTree } from '@/components/admin/lms/CurriculumTree'
+import { CourseSettingsPanel, CourseStats, type EditableCourse } from '@/components/admin/lms/CourseSettingsPanel'
+import { CourseThumb } from '@/components/admin/lms/CourseThumb'
+import { DialogActions, FormField, errorMessage, fieldClass, textareaClass } from '@/components/admin/lms/shared'
+import { IconButton, Modal, Pill, Tag } from '@/components/admin/ui'
+import { Button, Card, EmptyState, Skeleton } from '@/components/kit'
+import { optimizedSrc } from '@/lib/images'
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000'
-
-const BLOCK_ICON = { text: FileText, video: Video, question: HelpCircle, image: ImageIcon }
-const BLOCK_LABEL = { text: 'Text', video: 'Video', question: 'Question', image: 'Image' }
-const BLOCK_TONE = {
-  text: 'bg-brand-primary/10 text-brand-primary',
-  video: 'bg-brand-violet/15 text-brand-violet',
-  question: 'bg-amber-500/15 text-amber-700',
-  image: 'bg-teal-500/15 text-teal-700',
+/** The course settings that autosave on blur (topic saves on its own). */
+function settingsKey(c: EditableCourse) {
+  return JSON.stringify([c.title, c.description, c.cover, c.difficulty, c.pointsPerUnit, c.enableCertificate])
 }
 
 export default function AdminCourseBuilder({ id }: { id: string }) {
-  const [course, setCourse] = useState<CourseWithContent | null>(null)
+  const [course, setCourse] = useState<EditableCourse | null>(null)
   const [loading, setLoading] = useState(true)
   const [openModules, setOpenModules] = useState<Record<string, boolean>>({})
-  const [openUnits, setOpenUnits] = useState<Record<string, boolean>>({})
+  const [selectedUnitId, setSelectedUnitId] = useState<string | null>(null)
+  const [collapsedBlocks, setCollapsedBlocks] = useState<Record<string, boolean>>({})
   const [editingModule, setEditingModule] = useState<CourseModule | null>(null)
   const [creatingModule, setCreatingModule] = useState(false)
   const [unitCtx, setUnitCtx] = useState<{ moduleId: string; unit: Unit | null } | null>(null)
@@ -110,18 +70,23 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
   const [confirmDeleteModuleId, setConfirmDeleteModuleId] = useState<string | null>(null)
   const [confirmDeleteUnit, setConfirmDeleteUnit] = useState<{ moduleId: string; unitId: string } | null>(null)
   const [confirmDeleteBlock, setConfirmDeleteBlock] = useState<{ moduleId: string; unitId: string; blockId: string } | null>(null)
+  const [topicSaving, setTopicSaving] = useState(false)
+  const savedSettings = useRef<string>('')
 
   useEffect(() => {
     fetchCourse(id)
       .then((data) => {
-        setCourse(data)
+        const c = data as EditableCourse
+        setCourse(c)
+        savedSettings.current = settingsKey(c)
         const open: Record<string, boolean> = {}
-        data.modules.forEach((m) => {
+        c.modules.forEach((m) => {
           open[m.id] = true
         })
         setOpenModules(open)
+        setSelectedUnitId(c.modules.flatMap((m) => m.units)[0]?.id ?? null)
       })
-      .catch(() => toast.error('Failed to load course'))
+      .catch((e: unknown) => toast.error(errorMessage(e)))
       .finally(() => setLoading(false))
   }, [id])
 
@@ -130,13 +95,38 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
   if (loading)
     return (
       <AdminLayout>
-        <div className="flex items-center justify-center h-64 text-brand-text-muted">Loading…</div>
+        <div className="flex flex-col gap-5" aria-busy="true">
+          <Skeleton className="h-4 w-24" />
+          <div className="flex items-center gap-4">
+            <Skeleton className="hidden h-[60px] w-24 sm:block" />
+            <div className="flex flex-1 flex-col gap-2">
+              <Skeleton className="h-5 w-40" />
+              <Skeleton className="h-8 w-72 max-w-full" />
+            </div>
+          </div>
+          <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 min-[901px]:grid-cols-[260px_minmax(0,1fr)] min-[1281px]:grid-cols-[256px_minmax(0,1fr)_280px]">
+            <Skeleton className="h-96 rounded-[14px]" />
+            <Skeleton className="h-[480px] rounded-[14px]" />
+            <Skeleton className="hidden h-96 rounded-[14px] min-[1281px]:block" />
+          </div>
+        </div>
       </AdminLayout>
     )
   if (!course)
     return (
       <AdminLayout>
-        <div className="flex items-center justify-center h-64 text-brand-text-muted">Course not found.</div>
+        <Card>
+          <EmptyState
+            icon={BookOpen}
+            title="Course not found"
+            body="It may have been deleted, or it could not be loaded."
+            action={
+              <Link href="/admin/courses" className="text-sm font-semibold text-ui-brand-text hover:underline">
+                Back to all courses
+              </Link>
+            }
+          />
+        </Card>
       </AdminLayout>
     )
 
@@ -146,12 +136,32 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
     0,
   )
 
-  function updateCourse(patch: Partial<CourseWithContent>) {
+  // Selected unit (falls back to the first unit when the selection is gone).
+  const allUnits = course.modules.flatMap((m) => m.units.map((u, i) => ({ module: m, unit: u, index: i })))
+  const current = allUnits.find((x) => x.unit.id === selectedUnitId) ?? allUnits[0] ?? null
+  const published = course.status === 'published'
+
+  function updateCourse(patch: Partial<EditableCourse>) {
     setCourse((c) => (c ? { ...c, ...patch } : c))
+  }
+
+  function patchUnit(moduleId: string, unitId: string, fn: (u: Unit) => Unit) {
+    setCourse((c) =>
+      c
+        ? {
+            ...c,
+            modules: c.modules.map((m) =>
+              m.id !== moduleId ? m : { ...m, units: m.units.map((u) => (u.id !== unitId ? u : fn(u))) },
+            ),
+          }
+        : c,
+    )
   }
 
   async function saveCourseSettings() {
     if (!course) return
+    const key = settingsKey(course)
+    if (key === savedSettings.current) return // nothing changed since the last save
     try {
       await apiUpdateCourse(course.id, {
         title: course.title,
@@ -161,9 +171,27 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
         pointsPerUnit: course.pointsPerUnit,
         enableCertificate: course.enableCertificate,
       })
+      savedSettings.current = key
       toast.success('Settings saved')
-    } catch {
-      toast.error('Failed to save settings')
+    } catch (e) {
+      toast.error(errorMessage(e))
+    }
+  }
+
+  async function saveTopic(next: CourseTopic | null) {
+    if (!course) return
+    const prev = course.category ?? null
+    if (next === prev) return
+    updateCourse({ category: next })
+    setTopicSaving(true)
+    try {
+      await apiUpdateCourse(course.id, { category: next })
+      toast.success(next ? `Topic set to ${next}` : 'Topic cleared')
+    } catch (e) {
+      updateCourse({ category: prev })
+      toast.error(`Could not save the topic. ${errorMessage(e)}`)
+    } finally {
+      setTopicSaving(false)
     }
   }
 
@@ -174,8 +202,8 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
       await apiUpdateCourse(course.id, { status: next })
       setCourse((c) => (c ? { ...c, status: next } : c))
       toast.success(next === 'published' ? 'Course published' : 'Course unpublished')
-    } catch {
-      toast.error('Failed to update status')
+    } catch (e) {
+      toast.error(errorMessage(e))
     }
   }
 
@@ -188,9 +216,9 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
     const reorderedIds = reordered.map((m) => m.id)
     const prev = course.modules
     setCourse((c) => (c ? { ...c, modules: reordered } : c))
-    apiReorderModules(course.id, reorderedIds).catch(() => {
+    apiReorderModules(course.id, reorderedIds).catch((e: unknown) => {
       setCourse((c) => (c ? { ...c, modules: prev } : c))
-      toast.error('Failed to save order')
+      toast.error(errorMessage(e))
     })
   }
 
@@ -204,17 +232,13 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
     const reorderedIds = reordered.map((u) => u.id)
     const prevUnits = mod.units
     setCourse((c) =>
-      c
-        ? { ...c, modules: c.modules.map((m) => (m.id !== moduleId ? m : { ...m, units: reordered })) }
-        : c,
+      c ? { ...c, modules: c.modules.map((m) => (m.id !== moduleId ? m : { ...m, units: reordered })) } : c,
     )
-    apiReorderUnits(moduleId, reorderedIds).catch(() => {
+    apiReorderUnits(moduleId, reorderedIds).catch((e: unknown) => {
       setCourse((c) =>
-        c
-          ? { ...c, modules: c.modules.map((m) => (m.id !== moduleId ? m : { ...m, units: prevUnits })) }
-          : c,
+        c ? { ...c, modules: c.modules.map((m) => (m.id !== moduleId ? m : { ...m, units: prevUnits })) } : c,
       )
-      toast.error('Failed to save order')
+      toast.error(errorMessage(e))
     })
   }
 
@@ -228,42 +252,10 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
     const reordered = arrayMove(unit.blocks, oldIdx, newIdx)
     const reorderedIds = reordered.map((b) => b.id)
     const prevBlocks = unit.blocks
-    setCourse((c) =>
-      c
-        ? {
-            ...c,
-            modules: c.modules.map((m) =>
-              m.id !== moduleId
-                ? m
-                : {
-                    ...m,
-                    units: m.units.map((u) =>
-                      u.id !== unitId ? u : { ...u, blocks: reordered },
-                    ),
-                  },
-            ),
-          }
-        : c,
-    )
-    apiReorderBlocks(unitId, reorderedIds).catch(() => {
-      setCourse((c) =>
-        c
-          ? {
-              ...c,
-              modules: c.modules.map((m) =>
-                m.id !== moduleId
-                  ? m
-                  : {
-                      ...m,
-                      units: m.units.map((u) =>
-                        u.id !== unitId ? u : { ...u, blocks: prevBlocks },
-                      ),
-                    },
-              ),
-            }
-          : c,
-      )
-      toast.error('Failed to save order')
+    patchUnit(moduleId, unitId, (u) => ({ ...u, blocks: reordered }))
+    apiReorderBlocks(unitId, reorderedIds).catch((e: unknown) => {
+      patchUnit(moduleId, unitId, (u) => ({ ...u, blocks: prevBlocks }))
+      toast.error(errorMessage(e))
     })
   }
 
@@ -276,14 +268,7 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
           description: data.description ?? undefined,
         })
         setCourse((c) =>
-          c
-            ? {
-                ...c,
-                modules: c.modules.map((m) =>
-                  m.id === editingModule.id ? { ...m, ...updated } : m,
-                ),
-              }
-            : c,
+          c ? { ...c, modules: c.modules.map((m) => (m.id === editingModule.id ? { ...m, ...updated } : m)) } : c,
         )
         toast.success('Module updated')
         setEditingModule(null)
@@ -297,8 +282,8 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
         toast.success('Module created')
         setCreatingModule(false)
       }
-    } catch {
-      toast.error('Failed to save module')
+    } catch (e) {
+      toast.error(errorMessage(e))
     }
   }
 
@@ -307,8 +292,8 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
       await apiDeleteModule(modId)
       setCourse((c) => (c ? { ...c, modules: c.modules.filter((m) => m.id !== modId) } : c))
       toast.success('Module removed')
-    } catch {
-      toast.error('Failed to delete module')
+    } catch (e) {
+      toast.error(errorMessage(e))
     }
   }
 
@@ -321,23 +306,7 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
           description: data.description ?? undefined,
           durationMinutes: data.durationMinutes ?? undefined,
         })
-        setCourse((c) =>
-          c
-            ? {
-                ...c,
-                modules: c.modules.map((m) =>
-                  m.id !== unitCtx.moduleId
-                    ? m
-                    : {
-                        ...m,
-                        units: m.units.map((u) =>
-                          u.id === unitCtx.unit!.id ? { ...u, ...updated } : u,
-                        ),
-                      },
-                ),
-              }
-            : c,
-        )
+        patchUnit(unitCtx.moduleId, unitCtx.unit.id, (u) => ({ ...u, ...updated, blocks: u.blocks }))
         toast.success('Unit updated')
       } else {
         const fresh = await apiCreateUnit(unitCtx.moduleId, {
@@ -350,17 +319,32 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
             ? {
                 ...c,
                 modules: c.modules.map((m) =>
-                  m.id !== unitCtx.moduleId ? m : { ...m, units: [...m.units, fresh] },
+                  m.id !== unitCtx.moduleId ? m : { ...m, units: [...m.units, { ...fresh, blocks: fresh.blocks ?? [] }] },
                 ),
               }
             : c,
         )
-        setOpenUnits((o) => ({ ...o, [fresh.id]: true }))
+        setOpenModules((o) => ({ ...o, [unitCtx.moduleId]: true }))
+        setSelectedUnitId(fresh.id)
         toast.success('Unit added')
       }
       setUnitCtx(null)
-    } catch {
-      toast.error('Failed to save unit')
+    } catch (e) {
+      toast.error(errorMessage(e))
+    }
+  }
+
+  /** Inline description / duration edits from the unit panel. */
+  async function saveUnitFields(moduleId: string, unit: Unit, fields: { description: string; durationMinutes: number | null }) {
+    try {
+      const updated = await apiUpdateUnit(unit.id, {
+        description: fields.description,
+        durationMinutes: fields.durationMinutes ?? undefined,
+      })
+      patchUnit(moduleId, unit.id, (u) => ({ ...u, ...updated, blocks: u.blocks }))
+      toast.success('Unit saved')
+    } catch (e) {
+      toast.error(errorMessage(e))
     }
   }
 
@@ -377,9 +361,10 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
             }
           : c,
       )
+      if (selectedUnitId === unitId) setSelectedUnitId(null)
       toast.success('Unit removed')
-    } catch {
-      toast.error('Failed to delete unit')
+    } catch (e) {
+      toast.error(errorMessage(e))
     }
   }
 
@@ -389,32 +374,10 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
       const { id: _id, unitId: _uid, order: _ord, questions: _qs, ...blockData } = data
       if (blockCtx.block) {
         const updated = await apiUpdateBlock(blockCtx.block.id, blockData)
-        setCourse((c) =>
-          c
-            ? {
-                ...c,
-                modules: c.modules.map((m) =>
-                  m.id !== blockCtx.moduleId
-                    ? m
-                    : {
-                        ...m,
-                        units: m.units.map((u) =>
-                          u.id !== blockCtx.unitId
-                            ? u
-                            : {
-                                ...u,
-                                blocks: u.blocks.map((b) =>
-                                  b.id === blockCtx.block!.id
-                                    ? { ...updated, questions: data.questions }
-                                    : b,
-                                ),
-                              },
-                        ),
-                      },
-                ),
-              }
-            : c,
-        )
+        patchUnit(blockCtx.moduleId, blockCtx.unitId, (u) => ({
+          ...u,
+          blocks: u.blocks.map((b) => (b.id === blockCtx.block!.id ? { ...updated, questions: data.questions } : b)),
+        }))
         toast.success('Block updated')
       } else {
         const fresh = await apiCreateBlock(blockCtx.unitId, blockData)
@@ -434,234 +397,240 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
                 ),
               )
             : []
-        const newBlock = { ...fresh, questions: createdQs }
-        setCourse((c) =>
-          c
-            ? {
-                ...c,
-                modules: c.modules.map((m) =>
-                  m.id !== blockCtx.moduleId
-                    ? m
-                    : {
-                        ...m,
-                        units: m.units.map((u) =>
-                          u.id !== blockCtx.unitId
-                            ? u
-                            : { ...u, blocks: [...u.blocks, newBlock] },
-                        ),
-                      },
-                ),
-              }
-            : c,
-        )
+        const created = { ...fresh, questions: createdQs }
+        patchUnit(blockCtx.moduleId, blockCtx.unitId, (u) => ({ ...u, blocks: [...u.blocks, created] }))
         toast.success('Block added')
       }
       setBlockCtx(null)
-    } catch {
-      toast.error('Failed to save block')
+    } catch (e) {
+      toast.error(errorMessage(e))
     }
   }
 
   async function deleteBlock(moduleId: string, unitId: string, blockId: string) {
     try {
       await apiDeleteBlock(blockId)
-      setCourse((c) =>
-        c
-          ? {
-              ...c,
-              modules: c.modules.map((m) =>
-                m.id !== moduleId
-                  ? m
-                  : {
-                      ...m,
-                      units: m.units.map((u) =>
-                        u.id !== unitId
-                          ? u
-                          : { ...u, blocks: u.blocks.filter((b) => b.id !== blockId) },
-                      ),
-                    },
-              ),
-            }
-          : c,
-      )
+      patchUnit(moduleId, unitId, (u) => ({ ...u, blocks: u.blocks.filter((b) => b.id !== blockId) }))
       toast.success('Block removed')
-    } catch {
-      toast.error('Failed to delete block')
+    } catch (e) {
+      toast.error(errorMessage(e))
     }
   }
 
+  function setBlockQuestions(moduleId: string, unitId: string, blockId: string, qs: BlockQuestion[]) {
+    patchUnit(moduleId, unitId, (u) => ({
+      ...u,
+      blocks: u.blocks.map((b) => (b.id === blockId ? { ...b, questions: qs } : b)),
+    }))
+  }
+
+  function selectUnit(_moduleId: string, unitId: string) {
+    setSelectedUnitId(unitId)
+    // On one-column layouts the unit sits below the tree; bring it into view.
+    if (typeof window !== 'undefined' && window.innerWidth < 901) {
+      window.requestAnimationFrame(() =>
+        document.getElementById('unit-panel')?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+      )
+    }
+  }
+
+  const firstModule = course.modules[0]
+
   return (
     <AdminLayout>
-      <div className="mb-6">
+      <div className="flex flex-col gap-5">
         <Link
           href="/admin/courses"
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-primary hover:gap-2 transition-all"
+          className="inline-flex items-center gap-1.5 self-start text-[13px] font-semibold text-ui-brand-text hover:underline"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
+          <ArrowLeft className="h-4 w-4" aria-hidden />
           All courses
         </Link>
-      </div>
 
-      {/* Header */}
-      <motion.header
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="rounded-2xl bg-white border border-brand-surface-2 p-5 mb-6 flex flex-col lg:flex-row lg:items-center gap-4"
-      >
-        {course.cover ? (
-          <img
-            src={course.cover}
-            alt=""
-            className="w-full lg:w-32 h-32 lg:h-20 object-cover rounded-xl flex-shrink-0"
-          />
-        ) : (
-          <div className="w-full lg:w-32 h-32 lg:h-20 rounded-xl bg-gradient-to-br from-brand-primary via-brand-primary-dark to-brand-violet flex items-center justify-center flex-shrink-0">
-            <BookOpenCheck className="w-10 h-10 text-white/70" />
-          </div>
-        )}
-        <div className="flex-1 min-w-0">
-          <div className="flex flex-wrap items-center gap-2 mb-1.5">
-            <span
-              className={cn(
-                'inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider',
-                course.status === 'published'
-                  ? 'bg-emerald-500/15 text-emerald-700'
-                  : 'bg-amber-500/15 text-amber-700',
-              )}
-            >
-              {course.status}
-            </span>
-            <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-brand-violet/10 text-brand-violet text-[10px] font-bold uppercase tracking-wider">
-              {course.difficulty}
-            </span>
-          </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-brand-text-primary">{course.title}</h1>
-          <p className="text-sm text-brand-text-muted mt-1 line-clamp-2">
-            {course.description || 'No description yet.'}
-          </p>
-        </div>
-        <button
-          onClick={togglePublish}
-          className={cn(
-            'inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-colors shadow-lg flex-shrink-0',
-            course.status === 'published'
-              ? 'bg-brand-surface text-brand-text-primary hover:bg-brand-surface-2'
-              : 'bg-brand-primary text-white hover:bg-brand-primary-dark',
-          )}
-        >
-          {course.status === 'published' ? <Eye className="w-4 h-4" /> : <Sparkles className="w-4 h-4" />}
-          {course.status === 'published' ? 'Unpublish' : 'Publish'}
-        </button>
-      </motion.header>
-
-      <div className="grid grid-cols-12 gap-4 lg:gap-6">
-        {/* Modules section */}
-        <div className="col-span-12 lg:col-span-8 space-y-4">
-          {/* Pre-test */}
-          <AssessmentSection
-            courseId={course.id}
-            type="pre"
-            assessment={course.preAssessment}
-            onCreated={a => setCourse(c => c ? { ...c, preAssessment: a } : c)}
-            onUpdated={a => setCourse(c => c ? { ...c, preAssessment: a } : c)}
-            onDeleted={() => setCourse(c => c ? { ...c, preAssessment: null } : c)}
-          />
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-text-muted">
-                Curriculum
-              </p>
-              <h2 className="text-xl font-black text-brand-text-primary">Modules & content</h2>
-            </div>
-            <button
-              onClick={() => setCreatingModule(true)}
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark transition-colors"
-            >
-              <Plus className="w-4 h-4" />
-              Add module
-            </button>
-          </div>
-
-          <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={reorderModules}>
-            <SortableContext
-              items={course.modules.map((m) => m.id)}
-              strategy={verticalListSortingStrategy}
-            >
-              <div className="space-y-3">
-                {course.modules.map((mod, i) => (
-                  <SortableModule
-                    key={mod.id}
-                    module={mod}
-                    index={i}
-                    open={!!openModules[mod.id]}
-                    onToggle={() => setOpenModules((o) => ({ ...o, [mod.id]: !o[mod.id] }))}
-                    onEdit={() => setEditingModule(mod)}
-                    onDelete={() => setConfirmDeleteModuleId(mod.id)}
-                    onAddUnit={() => setUnitCtx({ moduleId: mod.id, unit: null })}
-                    onEditUnit={(u) => setUnitCtx({ moduleId: mod.id, unit: u })}
-                    onDeleteUnit={(uid) => setConfirmDeleteUnit({ moduleId: mod.id, unitId: uid })}
-                    openUnits={openUnits}
-                    onToggleUnit={(uid) => setOpenUnits((o) => ({ ...o, [uid]: !o[uid] }))}
-                    onUnitsReorder={(e) => reorderUnits(mod.id, e)}
-                    onAddBlock={(uid) => setBlockCtx({ moduleId: mod.id, unitId: uid, block: null })}
-                    onEditBlock={(uid, b) =>
-                      setBlockCtx({ moduleId: mod.id, unitId: uid, block: b })
-                    }
-                    onDeleteBlock={(uid, bid) => setConfirmDeleteBlock({ moduleId: mod.id, unitId: uid, blockId: bid })}
-                    onBlocksReorder={(uid, e) => reorderBlocks(mod.id, uid, e)}
-                    sensors={sensors}
-                  />
-                ))}
-              </div>
-            </SortableContext>
-          </DndContext>
-
-          {course.modules.length === 0 && (
-            <div className="rounded-2xl border-2 border-dashed border-brand-surface-2 bg-white p-10 text-center">
-              <p className="text-sm text-brand-text-muted">
-                No modules yet — add one to get started.
-              </p>
-            </div>
-          )}
-
-          {/* Post-test */}
-          <div className="mt-4">
-            <AssessmentSection
-              courseId={course.id}
-              type="post"
-              assessment={course.postAssessment}
-              onCreated={a => setCourse(c => c ? { ...c, postAssessment: a } : c)}
-              onUpdated={a => setCourse(c => c ? { ...c, postAssessment: a } : c)}
-              onDeleted={() => setCourse(c => c ? { ...c, postAssessment: null } : c)}
+        {/* Header */}
+        <header className="flex items-center gap-4 max-md:flex-col max-md:items-start">
+          {course.cover ? (
+            <img
+              src={optimizedSrc(course.cover)}
+              alt=""
+              className="hidden h-[60px] w-24 shrink-0 rounded-[10px] object-cover sm:block"
             />
+          ) : (
+            <CourseThumb title={course.title} size={60} className="hidden sm:inline-flex" />
+          )}
+          <div className="flex min-w-0 flex-1 flex-col gap-1">
+            <div className="flex flex-wrap gap-1.5">
+              <Pill tone={published ? 'brand' : 'neutral'} dot>
+                {published ? 'Published' : 'Draft'}
+              </Pill>
+              <Tag>{course.difficulty}</Tag>
+              {course.category && <Tag>{course.category}</Tag>}
+            </div>
+            <h1 className="text-2xl font-semibold tracking-[-0.02em] text-ui-text sm:text-[28px] sm:leading-tight">
+              {course.title || 'Untitled course'}
+            </h1>
+            <p className="line-clamp-2 text-[15px] text-ui-muted">{course.description || 'No description yet.'}</p>
           </div>
-        </div>
+          <Button variant={published ? 'secondary' : 'primary'} onClick={togglePublish}>
+            {published ? <EyeOff className="h-4 w-4" aria-hidden /> : <Send className="h-4 w-4" aria-hidden />}
+            {published ? 'Unpublish' : 'Publish course'}
+          </Button>
+        </header>
 
-        {/* Settings rail */}
-        <aside className="col-span-12 lg:col-span-4 space-y-4">
-          <SettingsPanel
-            course={course}
-            onChange={updateCourse}
-            onSave={saveCourseSettings}
-            onPublish={togglePublish}
+        <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 min-[901px]:grid-cols-[260px_minmax(0,1fr)] min-[1281px]:grid-cols-[256px_minmax(0,1fr)_280px]">
+          <CurriculumTree
+            className="min-[901px]:sticky min-[901px]:top-4 min-[901px]:max-h-[calc(100dvh-2rem)] min-[901px]:overflow-y-auto"
+            modules={course.modules}
+            openModules={openModules}
+            onToggleModule={(mid) => setOpenModules((o) => ({ ...o, [mid]: !o[mid] }))}
+            selectedUnitId={current?.unit.id ?? null}
+            onSelectUnit={selectUnit}
+            onAddModule={() => setCreatingModule(true)}
+            onEditModule={(m) => setEditingModule(m)}
+            onDeleteModule={(mid) => setConfirmDeleteModuleId(mid)}
+            onAddUnit={(mid) => setUnitCtx({ moduleId: mid, unit: null })}
+            onModulesReorder={reorderModules}
+            onUnitsReorder={reorderUnits}
+            preCount={course.preAssessment ? course.preAssessment.questions.length : null}
+            postCount={course.postAssessment ? course.postAssessment.questions.length : null}
+            sensors={sensors}
           />
 
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="rounded-2xl border border-brand-surface-2 bg-white p-5"
-          >
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-text-muted">
-              Statistics
-            </p>
-            <div className="mt-3 grid grid-cols-3 gap-2">
-              <Stat icon={<Layers className="w-3.5 h-3.5" />} label="Modules" value={course.modules.length} />
-              <Stat icon={<BookOpen className="w-3.5 h-3.5" />} label="Units" value={totalUnits} />
-              <Stat icon={<ListChecks className="w-3.5 h-3.5" />} label="Blocks" value={totalBlocks} />
-            </div>
-          </motion.div>
-        </aside>
+          {/* Canvas */}
+          <div className="flex min-w-0 flex-col gap-3.5">
+            {course.modules.length === 0 ? (
+              <Card>
+                <EmptyState
+                  icon={Layers}
+                  title="No modules yet"
+                  body="Add a module, then add units and learning blocks to it."
+                  action={
+                    <Button size="sm" onClick={() => setCreatingModule(true)}>
+                      <Plus className="h-4 w-4" aria-hidden />
+                      Add module
+                    </Button>
+                  }
+                />
+              </Card>
+            ) : !current ? (
+              <Card>
+                <EmptyState
+                  icon={BookOpen}
+                  title="No units yet"
+                  body={`Add a unit to ${firstModule.title} to start adding learning blocks.`}
+                  action={
+                    <Button size="sm" onClick={() => setUnitCtx({ moduleId: firstModule.id, unit: null })}>
+                      <Plus className="h-4 w-4" aria-hidden />
+                      Add unit
+                    </Button>
+                  }
+                />
+              </Card>
+            ) : (
+              <>
+                <UnitPanel
+                  key={current.unit.id}
+                  unit={current.unit}
+                  position={`Unit ${current.index + 1} of ${current.module.units.length}${
+                    course.modules.length > 1 ? `, ${current.module.title}` : ''
+                  }`}
+                  onEdit={() => setUnitCtx({ moduleId: current.module.id, unit: current.unit })}
+                  onDelete={() => setConfirmDeleteUnit({ moduleId: current.module.id, unitId: current.unit.id })}
+                  onSaveFields={(fields) => saveUnitFields(current.module.id, current.unit, fields)}
+                />
+
+                <div className="mt-1.5 flex flex-wrap items-center justify-between gap-2">
+                  <h2 className="text-base font-semibold text-ui-text">
+                    Learning blocks <span className="font-medium text-ui-muted">{current.unit.blocks.length}</span>
+                  </h2>
+                  <Button
+                    size="sm"
+                    onClick={() => setBlockCtx({ moduleId: current.module.id, unitId: current.unit.id, block: null })}
+                  >
+                    <Plus className="h-4 w-4" aria-hidden />
+                    Add learning block
+                  </Button>
+                </div>
+
+                {current.unit.blocks.length === 0 ? (
+                  <Card>
+                    <EmptyState
+                      icon={ListChecks}
+                      title="No learning blocks yet"
+                      body="Add text, a video, an image, a survey or an action plan to this unit."
+                    />
+                  </Card>
+                ) : (
+                  <DndContext
+                    sensors={sensors}
+                    collisionDetection={closestCenter}
+                    onDragEnd={(e) => reorderBlocks(current.module.id, current.unit.id, e)}
+                  >
+                    <SortableContext items={current.unit.blocks.map((b) => b.id)} strategy={verticalListSortingStrategy}>
+                      {current.unit.blocks.map((b) => (
+                        <BlockCard
+                          key={b.id}
+                          block={b}
+                          collapsed={collapsedBlocks[b.id] ?? defaultCollapsed(b)}
+                          onToggleCollapsed={() =>
+                            setCollapsedBlocks((s) => ({ ...s, [b.id]: !(s[b.id] ?? defaultCollapsed(b)) }))
+                          }
+                          onEdit={() => setBlockCtx({ moduleId: current.module.id, unitId: current.unit.id, block: b })}
+                          onDelete={() =>
+                            setConfirmDeleteBlock({ moduleId: current.module.id, unitId: current.unit.id, blockId: b.id })
+                          }
+                          onQuestionsChange={(qs) => setBlockQuestions(current.module.id, current.unit.id, b.id, qs)}
+                        />
+                      ))}
+                    </SortableContext>
+                  </DndContext>
+                )}
+              </>
+            )}
+
+            {/* Assessments */}
+            <section aria-labelledby="assessments-heading" className="mt-1.5 overflow-hidden rounded-[14px] border border-ui-line bg-ui-surface">
+              <div className="border-b border-ui-line px-5 py-3.5">
+                <h2 id="assessments-heading" className="text-base font-semibold text-ui-text">
+                  Assessments
+                </h2>
+                <p className="mt-0.5 text-[13px] text-ui-muted">
+                  The pre-test is shown before the modules, the final exam comes after all modules.
+                </p>
+              </div>
+              <AssessmentSection
+                courseId={course.id}
+                type="pre"
+                defaultExpanded={false}
+                assessment={course.preAssessment}
+                onCreated={(a) => setCourse((c) => (c ? { ...c, preAssessment: a } : c))}
+                onUpdated={(a) => setCourse((c) => (c ? { ...c, preAssessment: a } : c))}
+                onDeleted={() => setCourse((c) => (c ? { ...c, preAssessment: null } : c))}
+              />
+              <AssessmentSection
+                courseId={course.id}
+                type="post"
+                className="border-t border-ui-line"
+                assessment={course.postAssessment}
+                onCreated={(a) => setCourse((c) => (c ? { ...c, postAssessment: a } : c))}
+                onUpdated={(a) => setCourse((c) => (c ? { ...c, postAssessment: a } : c))}
+                onDeleted={() => setCourse((c) => (c ? { ...c, postAssessment: null } : c))}
+              />
+            </section>
+          </div>
+
+          {/* Settings rail */}
+          <aside className="flex flex-col gap-4 min-[901px]:col-start-2 min-[901px]:grid min-[901px]:grid-cols-2 min-[901px]:items-start min-[1281px]:col-start-3 min-[1281px]:flex min-[1281px]:items-stretch">
+            <CourseSettingsPanel
+              course={course}
+              onChange={updateCourse}
+              onSave={saveCourseSettings}
+              onTopicChange={saveTopic}
+              topicSaving={topicSaving}
+            />
+            <CourseStats modules={course.modules.length} units={totalUnits} blocks={totalBlocks} />
+          </aside>
+        </div>
       </div>
 
       <ModuleDialog
@@ -674,12 +643,7 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
         onSave={saveModule}
       />
 
-      <UnitDialog
-        open={!!unitCtx}
-        initial={unitCtx?.unit ?? undefined}
-        onClose={() => setUnitCtx(null)}
-        onSave={saveUnit}
-      />
+      <UnitDialog open={!!unitCtx} initial={unitCtx?.unit ?? undefined} onClose={() => setUnitCtx(null)} onSave={saveUnit} />
 
       <BlockDialog
         open={!!blockCtx}
@@ -694,7 +658,10 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
         title="Delete module"
         message="This will permanently delete this module and all its units and learning blocks. This cannot be undone."
         confirmLabel="Delete module"
-        onConfirm={() => { if (confirmDeleteModuleId) deleteModule(confirmDeleteModuleId); setConfirmDeleteModuleId(null) }}
+        onConfirm={() => {
+          if (confirmDeleteModuleId) deleteModule(confirmDeleteModuleId)
+          setConfirmDeleteModuleId(null)
+        }}
         onCancel={() => setConfirmDeleteModuleId(null)}
       />
       <ConfirmDialog
@@ -702,7 +669,10 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
         title="Delete unit"
         message="This will permanently delete this unit and all its learning blocks. This cannot be undone."
         confirmLabel="Delete unit"
-        onConfirm={() => { if (confirmDeleteUnit) deleteUnit(confirmDeleteUnit.moduleId, confirmDeleteUnit.unitId); setConfirmDeleteUnit(null) }}
+        onConfirm={() => {
+          if (confirmDeleteUnit) deleteUnit(confirmDeleteUnit.moduleId, confirmDeleteUnit.unitId)
+          setConfirmDeleteUnit(null)
+        }}
         onCancel={() => setConfirmDeleteUnit(null)}
       />
       <ConfirmDialog
@@ -710,472 +680,108 @@ export default function AdminCourseBuilder({ id }: { id: string }) {
         title="Delete block"
         message="This will permanently delete this learning block and its content. This cannot be undone."
         confirmLabel="Delete block"
-        onConfirm={() => { if (confirmDeleteBlock) deleteBlock(confirmDeleteBlock.moduleId, confirmDeleteBlock.unitId, confirmDeleteBlock.blockId); setConfirmDeleteBlock(null) }}
+        onConfirm={() => {
+          if (confirmDeleteBlock) deleteBlock(confirmDeleteBlock.moduleId, confirmDeleteBlock.unitId, confirmDeleteBlock.blockId)
+          setConfirmDeleteBlock(null)
+        }}
         onCancel={() => setConfirmDeleteBlock(null)}
       />
     </AdminLayout>
   )
 }
 
-function Stat({ icon, label, value }: { icon: React.ReactNode; label: string; value: number }) {
-  return (
-    <div className="rounded-xl bg-brand-surface p-3 text-center">
-      <div className="mx-auto w-7 h-7 rounded-lg bg-white text-brand-primary flex items-center justify-center mb-1">
-        {icon}
-      </div>
-      <p className="text-lg font-black text-brand-text-primary">{value}</p>
-      <p className="text-[9px] font-bold uppercase tracking-wider text-brand-text-muted">{label}</p>
-    </div>
-  )
-}
+// ─── Selected unit panel ──────────────────────────────────────────────────────
 
-function SettingsPanel({
-  course,
-  onChange,
-  onSave,
-  onPublish,
-}: {
-  course: CourseWithContent
-  onChange: (patch: Partial<CourseWithContent>) => void
-  onSave: () => void
-  onPublish: () => void
-}) {
-  const [coverPickerOpen, setCoverPickerOpen] = useState(false)
-
-  function handleBlur(e: React.FocusEvent<HTMLDivElement>) {
-    if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
-      onSave()
-    }
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="rounded-2xl border border-brand-surface-2 bg-white p-5"
-      onBlur={handleBlur}
-    >
-      <div className="flex items-center gap-2 mb-3">
-        <div className="w-8 h-8 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center">
-          <Settings className="w-4 h-4" />
-        </div>
-        <div>
-          <p className="font-bold text-brand-text-primary">Course settings</p>
-          <p className="text-[11px] text-brand-text-muted">Changes save automatically.</p>
-        </div>
-      </div>
-
-      <div className="space-y-3">
-        <Field label="Title">
-          <input
-            value={course.title}
-            onChange={(e) => onChange({ title: e.target.value })}
-            className="admin-input"
-          />
-        </Field>
-        <Field label="Description">
-          <textarea
-            value={course.description ?? ''}
-            onChange={(e) => onChange({ description: e.target.value })}
-            rows={3}
-            className="admin-input resize-none"
-          />
-        </Field>
-        <Field label="Cover image URL">
-          <div className="flex gap-2">
-            <input
-              value={course.cover ?? ''}
-              onChange={(e) => onChange({ cover: e.target.value })}
-              className="admin-input flex-1"
-              placeholder="Paste image URL or browse library"
-            />
-            <button
-              type="button"
-              onClick={() => setCoverPickerOpen(true)}
-              className="shrink-0 px-3 rounded-xl border border-brand-surface-2 bg-brand-surface text-xs font-semibold text-brand-text-muted hover:text-brand-primary hover:border-brand-primary/40 transition-colors"
-              title="Browse media library"
-            >
-              Browse
-            </button>
-          </div>
-          <MediaPicker
-            open={coverPickerOpen}
-            onClose={() => setCoverPickerOpen(false)}
-            accept="image"
-            onSelect={(file: MediaFile) => {
-              onChange({ cover: `${SERVER_URL}/${file.path}` })
-              setCoverPickerOpen(false)
-            }}
-          />
-        </Field>
-        <Field label="Difficulty">
-          <select
-            value={course.difficulty}
-            onChange={(e) =>
-              onChange({ difficulty: e.target.value as CourseWithContent['difficulty'] })
-            }
-            className="admin-input"
-          >
-            <option>Beginner</option>
-            <option>Intermediate</option>
-            <option>Advanced</option>
-          </select>
-        </Field>
-        <Field label="Points awarded per unit">
-          <input
-            type="number"
-            min={0}
-            value={course.pointsPerUnit}
-            onChange={(e) => onChange({ pointsPerUnit: Number(e.target.value) })}
-            className="admin-input"
-          />
-          <p className="mt-1 text-[11px] text-brand-text-muted">
-            Awarded automatically when a member completes a unit.
-          </p>
-        </Field>
-        <label className="flex items-center justify-between gap-3 rounded-xl border border-brand-surface-2 px-3 py-2.5 cursor-pointer">
-          <span className="text-sm font-semibold text-brand-text-primary">Enable certificate</span>
-          <input
-            type="checkbox"
-            checked={course.enableCertificate}
-            onChange={(e) => onChange({ enableCertificate: e.target.checked })}
-            className="w-4 h-4 accent-brand-primary"
-          />
-        </label>
-        <button
-          type="button"
-          onClick={onPublish}
-          className={cn(
-            'w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-colors shadow-md',
-            course.status === 'published'
-              ? 'bg-brand-surface text-brand-text-primary hover:bg-brand-surface-2'
-              : 'bg-brand-primary text-white hover:bg-brand-primary-dark',
-          )}
-        >
-          <Save className="w-4 h-4" />
-          {course.status === 'published' ? 'Unpublish' : 'Publish course'}
-        </button>
-      </div>
-      <DialogStyles />
-    </motion.div>
-  )
-}
-
-function SortableModule(props: {
-  module: CourseModule
-  index: number
-  open: boolean
-  onToggle: () => void
-  onEdit: () => void
-  onDelete: () => void
-  onAddUnit: () => void
-  onEditUnit: (u: Unit) => void
-  onDeleteUnit: (id: string) => void
-  openUnits: Record<string, boolean>
-  onToggleUnit: (id: string) => void
-  onUnitsReorder: (e: DragEndEvent) => void
-  onAddBlock: (unitId: string) => void
-  onEditBlock: (unitId: string, b: LearningBlock) => void
-  onDeleteBlock: (unitId: string, blockId: string) => void
-  onBlocksReorder: (unitId: string, e: DragEndEvent) => void
-  sensors: ReturnType<typeof useSensors>
-}) {
-  const { module: mod, open, onToggle, onEdit, onDelete, onAddUnit, sensors } = props
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
-    id: mod.id,
-  })
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-    opacity: isDragging ? 0.6 : 1,
-  }
-
-  return (
-    <motion.div
-      ref={setNodeRef}
-      style={style}
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: props.index * 0.04 }}
-      className="rounded-2xl border border-brand-surface-2 bg-white overflow-hidden hover:border-brand-primary/30 transition-colors"
-    >
-      <div className="flex items-center gap-2 px-4 py-3 bg-brand-surface/50">
-        <button
-          {...attributes}
-          {...listeners}
-          className="text-brand-text-muted hover:text-brand-primary cursor-grab active:cursor-grabbing p-1"
-          aria-label="Drag module"
-        >
-          <GripVertical className="w-4 h-4" />
-        </button>
-        <button onClick={onToggle} className="flex items-center gap-2 flex-1 min-w-0 text-left">
-          {open ? (
-            <ChevronDown className="w-4 h-4 text-brand-text-muted" />
-          ) : (
-            <ChevronRight className="w-4 h-4 text-brand-text-muted" />
-          )}
-          <div className="min-w-0">
-            <p className="font-bold text-brand-text-primary truncate">{mod.title}</p>
-            <p className="text-[11px] text-brand-text-muted">
-              {mod.units.length} {mod.units.length === 1 ? 'unit' : 'units'}
-            </p>
-          </div>
-        </button>
-        <button
-          onClick={onEdit}
-          className="w-7 h-7 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-brand-primary hover:text-white transition-colors"
-        >
-          <Pencil className="w-3.5 h-3.5" />
-        </button>
-        <button
-          onClick={onDelete}
-          className="w-7 h-7 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-rose-500 hover:text-white transition-colors"
-        >
-          <Trash2 className="w-3.5 h-3.5" />
-        </button>
-      </div>
-
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="overflow-hidden"
-          >
-            <div className="p-4 space-y-2">
-              <button
-                onClick={onAddUnit}
-                className="w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl border border-dashed border-brand-surface-2 text-xs font-bold text-brand-primary hover:border-brand-primary/40 hover:bg-brand-primary/5 transition-colors"
-              >
-                <Plus className="w-3.5 h-3.5" />
-                Add unit
-              </button>
-              <DndContext
-                sensors={sensors}
-                collisionDetection={closestCenter}
-                onDragEnd={props.onUnitsReorder}
-              >
-                <SortableContext
-                  items={mod.units.map((u) => u.id)}
-                  strategy={verticalListSortingStrategy}
-                >
-                  {mod.units.map((u) => (
-                    <SortableUnit
-                      key={u.id}
-                      unit={u}
-                      open={!!props.openUnits[u.id]}
-                      onToggle={() => props.onToggleUnit(u.id)}
-                      onEdit={() => props.onEditUnit(u)}
-                      onDelete={() => props.onDeleteUnit(u.id)}
-                      onAddBlock={() => props.onAddBlock(u.id)}
-                      onEditBlock={(b) => props.onEditBlock(u.id, b)}
-                      onDeleteBlock={(bid) => props.onDeleteBlock(u.id, bid)}
-                      onBlocksReorder={(e) => props.onBlocksReorder(u.id, e)}
-                      sensors={sensors}
-                    />
-                  ))}
-                </SortableContext>
-              </DndContext>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  )
-}
-
-function SortableUnit(props: {
-  unit: Unit
-  open: boolean
-  onToggle: () => void
-  onEdit: () => void
-  onDelete: () => void
-  onAddBlock: () => void
-  onEditBlock: (b: LearningBlock) => void
-  onDeleteBlock: (id: string) => void
-  onBlocksReorder: (e: DragEndEvent) => void
-  sensors: ReturnType<typeof useSensors>
-}) {
-  const { unit, open, onToggle, onEdit, onDelete, onAddBlock, sensors } = props
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
-    id: unit.id,
-  })
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-    opacity: isDragging ? 0.5 : 1,
-  }
-
-  // Determine prevailing block type for badge
-  const types = unit.blocks.map((b) => b.type)
-  const dominantType = types[0] ?? 'text'
-  const Icon = BLOCK_ICON[dominantType]
-
-  return (
-    <div
-      ref={setNodeRef}
-      style={style}
-      className="rounded-xl border border-brand-surface-2 bg-brand-surface/40 overflow-hidden"
-    >
-      <div className="flex items-center gap-2 px-3 py-2">
-        <button
-          {...attributes}
-          {...listeners}
-          className="text-brand-text-muted hover:text-brand-primary cursor-grab active:cursor-grabbing p-0.5"
-          aria-label="Drag unit"
-        >
-          <GripVertical className="w-3.5 h-3.5" />
-        </button>
-        <button onClick={onToggle} className="flex items-center gap-2 flex-1 min-w-0 text-left">
-          {open ? (
-            <ChevronDown className="w-3.5 h-3.5 text-brand-text-muted" />
-          ) : (
-            <ChevronRight className="w-3.5 h-3.5 text-brand-text-muted" />
-          )}
-          <span
-            className={cn(
-              'inline-flex items-center justify-center w-6 h-6 rounded-md',
-              BLOCK_TONE[dominantType],
-            )}
-          >
-            <Icon className="w-3 h-3" />
-          </span>
-          <div className="min-w-0">
-            <p className="text-sm font-bold text-brand-text-primary truncate">{unit.title}</p>
-            <p className="text-[10px] text-brand-text-muted inline-flex items-center gap-2">
-              <span>
-                {unit.blocks.length} {unit.blocks.length === 1 ? 'block' : 'blocks'}
-              </span>
-              {unit.durationMinutes ? (
-                <span className="inline-flex items-center gap-0.5">
-                  <Clock className="w-2.5 h-2.5" />
-                  {unit.durationMinutes} min
-                </span>
-              ) : null}
-            </p>
-          </div>
-        </button>
-        <button
-          onClick={onEdit}
-          className="w-6 h-6 rounded-md flex items-center justify-center text-brand-text-muted hover:bg-brand-primary hover:text-white transition-colors"
-        >
-          <Pencil className="w-3 h-3" />
-        </button>
-        <button
-          onClick={onDelete}
-          className="w-6 h-6 rounded-md flex items-center justify-center text-brand-text-muted hover:bg-rose-500 hover:text-white transition-colors"
-        >
-          <Trash2 className="w-3 h-3" />
-        </button>
-      </div>
-
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden"
-          >
-            <div className="px-3 pb-3 space-y-1.5">
-              <button
-                onClick={onAddBlock}
-                className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg border border-dashed border-brand-surface-2 text-[11px] font-bold text-brand-primary hover:border-brand-primary/40 hover:bg-brand-primary/5 transition-colors"
-              >
-                <Plus className="w-3 h-3" />
-                Add learning block
-              </button>
-              <DndContext
-                sensors={sensors}
-                collisionDetection={closestCenter}
-                onDragEnd={props.onBlocksReorder}
-              >
-                <SortableContext
-                  items={unit.blocks.map((b) => b.id)}
-                  strategy={verticalListSortingStrategy}
-                >
-                  {unit.blocks.map((b) => (
-                    <SortableBlock
-                      key={b.id}
-                      block={b}
-                      onEdit={() => props.onEditBlock(b)}
-                      onDelete={() => props.onDeleteBlock(b.id)}
-                    />
-                  ))}
-                </SortableContext>
-              </DndContext>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  )
-}
-
-function SortableBlock({
-  block,
+function UnitPanel({
+  unit,
+  position,
   onEdit,
   onDelete,
+  onSaveFields,
 }: {
-  block: LearningBlock
+  unit: Unit
+  position: string
   onEdit: () => void
   onDelete: () => void
+  onSaveFields: (fields: { description: string; durationMinutes: number | null }) => void
 }) {
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
-    id: block.id,
-  })
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-    opacity: isDragging ? 0.5 : 1,
+  const descId = useId()
+  const durId = useId()
+  const [description, setDescription] = useState(unit.description ?? '')
+  const [duration, setDuration] = useState(unit.durationMinutes != null ? String(unit.durationMinutes) : '')
+
+  // Follow outside changes (e.g. the Edit unit dialog).
+  useEffect(() => {
+    setDescription(unit.description ?? '')
+    setDuration(unit.durationMinutes != null ? String(unit.durationMinutes) : '')
+  }, [unit.description, unit.durationMinutes])
+
+  function commit() {
+    const nextDuration = duration.trim() === '' ? null : Math.max(0, Number(duration))
+    const descChanged = description !== (unit.description ?? '')
+    const durChanged = nextDuration !== null && nextDuration !== unit.durationMinutes
+    if (!descChanged && !durChanged) return
+    onSaveFields({ description, durationMinutes: nextDuration })
   }
-  const Icon = BLOCK_ICON[block.type]
+
   return (
-    <div
-      ref={setNodeRef}
-      style={style}
-      className="flex items-center gap-2 rounded-lg border border-brand-surface-2 bg-white px-2.5 py-1.5"
+    <section
+      id="unit-panel"
+      aria-labelledby="unit-panel-heading"
+      className="flex scroll-mt-20 flex-col gap-3.5 rounded-[14px] border border-ui-line bg-ui-surface px-5 py-[18px]"
     >
-      <button
-        {...attributes}
-        {...listeners}
-        className="text-brand-text-muted hover:text-brand-primary cursor-grab active:cursor-grabbing p-0.5"
-        aria-label="Drag block"
-      >
-        <GripVertical className="w-3 h-3" />
-      </button>
-      <span className="text-xs font-medium text-brand-text-primary truncate flex-1">
-        {block.title}
-      </span>
-      <span
-        className={cn(
-          'inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider',
-          BLOCK_TONE[block.type],
-        )}
-      >
-        <Icon className="w-2.5 h-2.5" />
-        {BLOCK_LABEL[block.type]}
-      </span>
-      <button
-        onClick={onEdit}
-        className="w-5 h-5 rounded flex items-center justify-center text-brand-text-muted hover:bg-brand-primary hover:text-white transition-colors"
-      >
-        <Pencil className="w-2.5 h-2.5" />
-      </button>
-      <button
-        onClick={onDelete}
-        className="w-5 h-5 rounded flex items-center justify-center text-brand-text-muted hover:bg-rose-500 hover:text-white transition-colors"
-      >
-        <Trash2 className="w-2.5 h-2.5" />
-      </button>
-    </div>
+      <div className="flex items-start gap-2">
+        <div className="min-w-0 flex-1">
+          <p className="mb-0.5 text-[13px] text-ui-muted">{position}</p>
+          <h2 id="unit-panel-heading" className="text-lg font-semibold leading-snug text-ui-text">
+            {unit.title}
+          </h2>
+        </div>
+        <Button variant="secondary" size="sm" onClick={onEdit}>
+          <Pencil className="h-4 w-4" aria-hidden />
+          Edit unit
+        </Button>
+        <IconButton label={`Delete unit ${unit.title}`} icon={Trash2} tone="danger" onClick={onDelete} />
+      </div>
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-3 sm:grid-cols-[minmax(0,1fr)_180px]">
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor={descId} className="text-[13px] font-semibold text-ui-text">
+            Description
+          </label>
+          <input
+            id={descId}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            onBlur={commit}
+            onKeyDown={(e) => e.key === 'Enter' && (e.target as HTMLInputElement).blur()}
+            placeholder="Add a short description"
+            className={fieldClass}
+          />
+        </div>
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor={durId} className="text-[13px] font-semibold text-ui-text">
+            Duration (minutes, optional)
+          </label>
+          <input
+            id={durId}
+            type="number"
+            min={0}
+            inputMode="numeric"
+            value={duration}
+            onChange={(e) => setDuration(e.target.value)}
+            onBlur={commit}
+            onKeyDown={(e) => e.key === 'Enter' && (e.target as HTMLInputElement).blur()}
+            placeholder="e.g. 15"
+            className={fieldClass}
+          />
+        </div>
+      </div>
+    </section>
   )
 }
 
-// ─── Dialogs ─────────────────────────────────────────────────────────────
+// ─── Dialogs ──────────────────────────────────────────────────────────────────
+
 function ModuleDialog({
   open,
   initial,
@@ -1187,39 +793,45 @@ function ModuleDialog({
   onClose: () => void
   onSave: (m: Partial<CourseModule>) => void
 }) {
+  const formId = useId()
   const [form, setForm] = useState<Partial<CourseModule>>(initial ?? {})
   useEffect(() => {
     if (open) setForm(initial ?? {})
   }, [open, initial])
 
   return (
-    <SimpleDialog open={open} title={initial?.id ? 'Edit module' : 'New module'} onClose={onClose}>
+    <Modal
+      open={open}
+      title={initial?.id ? 'Edit module' : 'New module'}
+      onClose={onClose}
+      footer={<DialogActions formId={formId} onCancel={onClose} />}
+    >
       <form
+        id={formId}
         onSubmit={(e) => {
           e.preventDefault()
           onSave(form)
         }}
-        className="space-y-4"
+        className="flex flex-col gap-4"
       >
-        <Field label="Title">
+        <FormField label="Title">
           <input
             value={form.title ?? ''}
             onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
-            className="admin-input"
+            className={fieldClass}
             required
           />
-        </Field>
-        <Field label="Description">
+        </FormField>
+        <FormField label="Description">
           <textarea
             value={form.description ?? ''}
             onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
             rows={3}
-            className="admin-input resize-none"
+            className={textareaClass}
           />
-        </Field>
-        <DialogActions onCancel={onClose} />
+        </FormField>
       </form>
-    </SimpleDialog>
+    </Modal>
   )
 }
 
@@ -1234,41 +846,46 @@ function UnitDialog({
   onClose: () => void
   onSave: (u: Partial<Unit>) => void
 }) {
+  const formId = useId()
   const isEdit = !!initial?.id
   const [form, setForm] = useState<Partial<Unit>>(initial ?? {})
 
   useEffect(() => {
-    if (open) {
-      setForm(initial ?? {})
-    }
+    if (open) setForm(initial ?? {})
   }, [open, initial])
 
   return (
-    <SimpleDialog open={open} title={isEdit ? 'Edit unit' : 'New unit'} onClose={onClose}>
+    <Modal
+      open={open}
+      title={isEdit ? 'Edit unit' : 'New unit'}
+      onClose={onClose}
+      footer={<DialogActions formId={formId} onCancel={onClose} />}
+    >
       <form
+        id={formId}
         onSubmit={(e) => {
           e.preventDefault()
           onSave(form)
         }}
-        className="space-y-4"
+        className="flex flex-col gap-4"
       >
-        <Field label="Title">
+        <FormField label="Title">
           <input
             value={form.title ?? ''}
             onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
-            className="admin-input"
+            className={fieldClass}
             required
           />
-        </Field>
-        <Field label="Description">
+        </FormField>
+        <FormField label="Description">
           <textarea
             value={form.description ?? ''}
             onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
             rows={3}
-            className="admin-input resize-none"
+            className={textareaClass}
           />
-        </Field>
-        <Field label="Duration (minutes, optional)">
+        </FormField>
+        <FormField label="Duration (minutes, optional)">
           <input
             type="number"
             min={0}
@@ -1279,592 +896,11 @@ function UnitDialog({
                 durationMinutes: e.target.value === '' ? undefined : Number(e.target.value),
               }))
             }
-            className="admin-input"
+            className={fieldClass}
             placeholder="e.g. 15"
           />
-        </Field>
-
-        <DialogActions onCancel={onClose} />
+        </FormField>
       </form>
-    </SimpleDialog>
-  )
-}
-
-function adminBlockToLearningBlock(a: AdminLearningBlock): LearningBlock {
-  const base = {
-    id: a.id,
-    unitId: '',
-    title: a.title,
-    order: 0,
-    body: null,
-    videoUrl: null,
-    transcript: null,
-    imageUrl: null,
-    questions: [] as BlockQuestion[],
-  }
-  if (a.type === 'text') {
-    return { ...base, type: 'text', body: a.body }
-  }
-  if (a.type === 'video') {
-    return { ...base, type: 'video', videoUrl: a.videoUrl, transcript: a.transcript ?? null }
-  }
-  if (a.type === 'image') {
-    return { ...base, type: 'image', imageUrl: a.imageUrl }
-  }
-  // question
-  return {
-    ...base,
-    type: 'question',
-    questions: (a.questions ?? []).map((q) => ({
-      id: q.id,
-      blockId: '',
-      kind: q.kind,
-      format: q.format,
-      prompt: q.prompt,
-      options: q.options ?? null,
-      correctIndex: q.correctIndex ?? null,
-      correctBool: q.correctBool ?? null,
-      placeholder: q.placeholder ?? null,
-      order: 0,
-    })),
-  }
-}
-
-function learningBlockToAdminBlock(b: LearningBlock): AdminLearningBlock {
-  if (b.type === 'text') {
-    return { id: b.id, title: b.title, type: 'text', body: b.body ?? '' }
-  }
-  if (b.type === 'video') {
-    return {
-      id: b.id,
-      title: b.title,
-      type: 'video',
-      videoUrl: b.videoUrl ?? '',
-      transcript: b.transcript ?? '',
-    }
-  }
-  if (b.type === 'image') {
-    return { id: b.id, title: b.title, type: 'image', imageUrl: b.imageUrl ?? '' }
-  }
-  // question
-  return {
-    id: b.id,
-    title: b.title,
-    type: 'question',
-    questions: b.questions.map((q) => ({
-      id: q.id,
-      kind: q.kind,
-      format: q.format,
-      prompt: q.prompt,
-      options: q.options ?? undefined,
-      correctIndex: q.correctIndex ?? undefined,
-      correctBool: q.correctBool ?? undefined,
-      placeholder: q.placeholder ?? undefined,
-    })),
-  }
-}
-
-function BlockDialog({
-  open,
-  initial,
-  blockId,
-  onClose,
-  onSave,
-}: {
-  open: boolean
-  initial?: LearningBlock
-  blockId?: string
-  onClose: () => void
-  onSave: (b: LearningBlock) => void
-}) {
-  const initialAdmin = initial ? learningBlockToAdminBlock(initial) : undefined
-  const [form, setForm] = useState<AdminLearningBlock>(initialAdmin ?? newBlock('text'))
-  const [mediaPickerTarget, setMediaPickerTarget] = useState<null | 'videoUrl' | 'imageUrl'>(null)
-
-  useEffect(() => {
-    if (open) {
-      setForm(initial ? learningBlockToAdminBlock(initial) : newBlock('text'))
-    }
-  }, [open, initial])
-
-  function setType(t: 'text' | 'video' | 'image' | 'question') {
-    if (t === form.type) return
-    const fresh = newBlock(t, form.title)
-    setForm(fresh)
-  }
-
-  function patch<K extends keyof AdminLearningBlock>(k: K, v: AdminLearningBlock[K]) {
-    setForm((f) => ({ ...f, [k]: v }) as AdminLearningBlock)
-  }
-
-  return (
-    <SimpleDialog
-      open={open}
-      title={initial ? 'Edit learning block' : 'New learning block'}
-      onClose={onClose}
-    >
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
-          onSave(adminBlockToLearningBlock(form))
-        }}
-        className="space-y-4"
-      >
-        <Field label="Block type">
-          <div className="grid grid-cols-4 gap-2">
-            {(['text', 'video', 'image', 'question'] as const).map((t) => {
-              const Icon = BLOCK_ICON[t]
-              const active = form.type === t
-              return (
-                <button
-                  key={t}
-                  type="button"
-                  onClick={() => setType(t)}
-                  className={cn(
-                    'inline-flex flex-col items-center gap-1.5 px-3 py-3 rounded-xl border-2 text-xs font-bold transition-all',
-                    active
-                      ? 'border-brand-primary bg-brand-primary/5 text-brand-primary'
-                      : 'border-brand-surface-2 text-brand-text-muted hover:border-brand-primary/40',
-                  )}
-                >
-                  <Icon className="w-4 h-4" />
-                  {BLOCK_LABEL[t]}
-                </button>
-              )
-            })}
-          </div>
-        </Field>
-
-        <Field label={form.type === 'question' ? 'Title (optional)' : 'Title'}>
-          <input
-            value={form.title}
-            onChange={(e) => patch('title', e.target.value)}
-            className="admin-input"
-            required={form.type !== 'question'}
-          />
-        </Field>
-
-        {form.type === 'text' && (
-          <Field label="Body" asDiv>
-            <RichTextEditor
-              value={(form as AdminLearningBlock & { body: string }).body}
-              onChange={(html) => setForm({ ...form, body: html } as AdminLearningBlock)}
-              placeholder="Write your lesson content here…"
-            />
-          </Field>
-        )}
-
-        {form.type === 'video' && (
-          <>
-            <Field label="Video URL">
-              <div className="flex gap-2">
-                <input
-                  value={(form as AdminLearningBlock & { videoUrl: string }).videoUrl}
-                  onChange={(e) =>
-                    setForm({ ...form, videoUrl: e.target.value } as AdminLearningBlock)
-                  }
-                  className="admin-input flex-1"
-                  placeholder="https://…/video.mp4 or browse library"
-                />
-                <button
-                  type="button"
-                  onClick={() => setMediaPickerTarget('videoUrl')}
-                  className="shrink-0 px-3 rounded-xl border border-brand-surface-2 bg-brand-surface text-xs font-semibold text-brand-text-muted hover:text-brand-primary hover:border-brand-primary/40 transition-colors"
-                  title="Browse media library"
-                >
-                  Browse
-                </button>
-              </div>
-            </Field>
-            <Field label="Video transcript (optional)" asDiv>
-              <RichTextEditor
-                value={(form as AdminLearningBlock & { transcript?: string }).transcript ?? ''}
-                onChange={(html) =>
-                  setForm({ ...form, transcript: html } as AdminLearningBlock)
-                }
-                placeholder="Paste or write the video transcript here…"
-              />
-            </Field>
-          </>
-        )}
-
-        {form.type === 'image' && (
-          <Field label="Image URL">
-            <div className="flex gap-2">
-              <input
-                value={(form as AdminLearningBlock & { imageUrl: string }).imageUrl ?? ''}
-                onChange={(e) =>
-                  setForm({ ...form, imageUrl: e.target.value } as AdminLearningBlock)
-                }
-                className="admin-input flex-1"
-                placeholder="https://…/image.jpg or browse library"
-              />
-              <button
-                type="button"
-                onClick={() => setMediaPickerTarget('imageUrl')}
-                className="shrink-0 px-3 rounded-xl border border-brand-surface-2 bg-brand-surface text-xs font-semibold text-brand-text-muted hover:text-brand-primary hover:border-brand-primary/40 transition-colors"
-                title="Browse media library"
-              >
-                Browse
-              </button>
-            </div>
-          </Field>
-        )}
-
-        {form.type === 'question' && (
-          <QuestionsList
-            value={form as AdminLearningBlock & AdminQuestionBlock}
-            onChange={(qs) => setForm({ ...form, questions: qs } as AdminLearningBlock)}
-            blockId={blockId}
-          />
-        )}
-
-        <DialogActions onCancel={onClose} />
-      </form>
-      <MediaPicker
-        open={mediaPickerTarget !== null}
-        onClose={() => setMediaPickerTarget(null)}
-        accept={mediaPickerTarget === 'videoUrl' ? 'video' : 'image'}
-        onSelect={(file: MediaFile) => {
-          const url = `${SERVER_URL}/${file.path}`
-          if (mediaPickerTarget === 'videoUrl') {
-            setForm({ ...form, videoUrl: url } as AdminLearningBlock)
-          } else if (mediaPickerTarget === 'imageUrl') {
-            setForm({ ...form, imageUrl: url } as AdminLearningBlock)
-          }
-          setMediaPickerTarget(null)
-        }}
-      />
-    </SimpleDialog>
-  )
-}
-
-function QuestionsList({
-  value,
-  onChange,
-  blockId,
-}: {
-  value: AdminQuestionBlock
-  onChange: (qs: AdminQuestion[]) => void
-  blockId?: string
-}) {
-  const [editing, setEditing] = useState<{ q: AdminQuestion; index: number | null } | null>(null)
-  const [confirmDeleteIndex, setConfirmDeleteIndex] = useState<number | null>(null)
-
-  const KIND_LABEL: Record<AdminQuestionKind, string> = {
-    survey: 'Survey',
-    'action-plan': 'Action Plan',
-  }
-  const FORMAT_LABEL: Record<AdminQuestionFormat, string> = {
-    'multiple-choice': 'Multiple choice',
-    'true-false': 'True / False',
-    'short-text': 'Open ended',
-  }
-
-  function addQuestion() {
-    setEditing({ q: newQuestion('survey'), index: null })
-  }
-
-  async function saveQuestion(q: AdminQuestion) {
-    if (!editing) return
-    if (blockId) {
-      try {
-        if (editing.index === null) {
-          const created = await apiCreateBlockQuestion(blockId, {
-            kind: q.kind,
-            format: q.format,
-            prompt: q.prompt,
-            options: q.options ?? null,
-            correctIndex: q.correctIndex ?? null,
-            correctBool: q.correctBool ?? null,
-            placeholder: q.placeholder ?? null,
-          })
-          onChange([...value.questions, { ...q, id: created.id }])
-        } else {
-          await apiUpdateBlockQuestion(q.id, {
-            kind: q.kind,
-            format: q.format,
-            prompt: q.prompt,
-            options: q.options ?? null,
-            correctIndex: q.correctIndex ?? null,
-            correctBool: q.correctBool ?? null,
-            placeholder: q.placeholder ?? null,
-          })
-          onChange(value.questions.map((x, i) => (i === editing.index ? q : x)))
-        }
-      } catch {
-        toast.error('Failed to save question')
-      }
-    } else {
-      const list = [...value.questions]
-      if (editing.index === null) list.push(q)
-      else list[editing.index] = q
-      onChange(list)
-    }
-    setEditing(null)
-  }
-
-  async function removeQuestion(i: number) {
-    const q = value.questions[i]
-    if (blockId && q.id) {
-      try {
-        await apiDeleteBlockQuestion(q.id)
-      } catch {
-        toast.error('Failed to delete question')
-        setConfirmDeleteIndex(null)
-        return
-      }
-    }
-    onChange(value.questions.filter((_, idx) => idx !== i))
-    setConfirmDeleteIndex(null)
-  }
-
-  return (
-    <div className="space-y-2 rounded-xl border border-brand-surface-2 bg-brand-surface/40 p-3">
-      <div className="flex items-center justify-between">
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-text-muted">
-          Questions ({value.questions.length})
-        </p>
-        <button
-          type="button"
-          onClick={addQuestion}
-          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-brand-primary text-white text-[11px] font-bold hover:bg-brand-primary-dark transition-colors"
-        >
-          <Plus className="w-3 h-3" />
-          Add question
-        </button>
-      </div>
-
-      {value.questions.length === 0 && (
-        <p className="text-[11px] text-brand-text-muted py-3 text-center">No questions yet.</p>
-      )}
-
-      <div className="space-y-1.5">
-        {value.questions.map((q, i) => (
-          <div
-            key={q.id}
-            className="flex items-center gap-2 rounded-lg border border-brand-surface-2 bg-white px-2.5 py-2"
-          >
-            <div className="min-w-0 flex-1">
-              <div className="flex items-center gap-1.5 mb-0.5">
-                <span className="px-1.5 py-0.5 rounded bg-brand-primary/10 text-brand-primary text-[9px] font-bold uppercase tracking-wide">
-                  {KIND_LABEL[q.kind]}
-                </span>
-                <span className="px-1.5 py-0.5 rounded bg-brand-surface-2 text-brand-text-muted text-[9px] font-bold uppercase tracking-wide">
-                  {FORMAT_LABEL[q.format]}
-                </span>
-              </div>
-              <p className="text-xs font-medium text-brand-text-primary truncate">
-                {q.prompt || 'Untitled question'}
-              </p>
-            </div>
-            <button
-              type="button"
-              onClick={() => setEditing({ q, index: i })}
-              className="w-6 h-6 rounded flex items-center justify-center text-brand-text-muted hover:bg-brand-primary hover:text-white transition-colors"
-            >
-              <Pencil className="w-3 h-3" />
-            </button>
-            <button
-              type="button"
-              onClick={() => setConfirmDeleteIndex(i)}
-              className="w-6 h-6 rounded flex items-center justify-center text-brand-text-muted hover:bg-rose-500 hover:text-white transition-colors"
-            >
-              <Trash2 className="w-3 h-3" />
-            </button>
-          </div>
-        ))}
-      </div>
-
-      <QuestionDialog
-        open={!!editing}
-        initial={editing?.q}
-        onClose={() => setEditing(null)}
-        onSave={saveQuestion}
-      />
-      <ConfirmDialog
-        open={confirmDeleteIndex !== null}
-        title="Delete question"
-        message="This question will be permanently removed. This cannot be undone."
-        confirmLabel="Delete"
-        onConfirm={() => confirmDeleteIndex !== null && removeQuestion(confirmDeleteIndex)}
-        onCancel={() => setConfirmDeleteIndex(null)}
-      />
-    </div>
-  )
-}
-
-function QuestionDialog({
-  open,
-  initial,
-  onClose,
-  onSave,
-}: {
-  open: boolean
-  initial?: AdminQuestion
-  onClose: () => void
-  onSave: (q: AdminQuestion) => void | Promise<void>
-}) {
-  const [q, setQ] = useState<AdminQuestion>(initial ?? newQuestion('survey'))
-  useEffect(() => {
-    if (open) setQ(initial ?? newQuestion('survey'))
-  }, [open, initial])
-
-  function patch<K extends keyof AdminQuestion>(k: K, v: AdminQuestion[K]) {
-    setQ((prev) => ({ ...prev, [k]: v }))
-  }
-
-  return (
-    <SimpleDialog open={open} title={initial ? 'Edit question' : 'New question'} onClose={onClose}>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault()
-          e.stopPropagation()
-          onSave(q)
-        }}
-        className="space-y-4"
-      >
-        <div className="grid grid-cols-2 gap-3">
-          <Field label="Kind">
-            <select
-              value={q.kind}
-              onChange={(e) => patch('kind', e.target.value as AdminQuestionKind)}
-              className="admin-input"
-            >
-              <option value="survey">Survey</option>
-              <option value="action-plan">Action Plan</option>
-            </select>
-          </Field>
-          <Field label="Answer format">
-            <select
-              value={q.format}
-              onChange={(e) => {
-                const newFormat = e.target.value as AdminQuestionFormat
-                setQ((prev) => ({
-                  ...prev,
-                  format: newFormat,
-                  ...(newFormat === 'multiple-choice' && prev.correctIndex == null ? { correctIndex: 0 } : {}),
-                }))
-              }}
-              className="admin-input"
-            >
-              <option value="multiple-choice">Multiple choice</option>
-              <option value="true-false">True / False</option>
-              <option value="short-text">Open ended</option>
-            </select>
-          </Field>
-        </div>
-
-        <Field label="Question text">
-          <textarea
-            value={q.prompt}
-            onChange={(e) => patch('prompt', e.target.value)}
-            rows={2}
-            className="admin-input resize-none"
-            required
-          />
-        </Field>
-
-        {q.format === 'multiple-choice' && (
-          <Field label="Options (mark the correct one)">
-            <div className="space-y-2">
-              {(q.options ?? []).map((opt, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="q-correct-opt"
-                    checked={q.correctIndex === i}
-                    onChange={() => patch('correctIndex', i)}
-                    className="w-4 h-4 accent-brand-primary"
-                  />
-                  <input
-                    value={opt}
-                    onChange={(e) => {
-                      const next = [...(q.options ?? [])]
-                      next[i] = e.target.value
-                      patch('options', next)
-                    }}
-                    className="admin-input"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const next = (q.options ?? []).filter((_, idx) => idx !== i)
-                      patch('options', next)
-                    }}
-                    className="w-7 h-7 rounded-lg flex items-center justify-center text-brand-text-muted hover:bg-rose-500 hover:text-white transition-colors"
-                  >
-                    <Trash2 className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              ))}
-              <button
-                type="button"
-                onClick={() => patch('options', [...(q.options ?? []), 'New option'])}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-primary hover:gap-2 transition-all"
-              >
-                <Plus className="w-3 h-3" />
-                Add option
-              </button>
-            </div>
-          </Field>
-        )}
-
-        {q.format === 'true-false' && (
-          <Field label="Correct answer">
-            <div className="flex gap-2">
-              {[true, false].map((v) => (
-                <button
-                  key={String(v)}
-                  type="button"
-                  onClick={() => patch('correctBool', v)}
-                  className={cn(
-                    'flex-1 px-3 py-2 rounded-xl border-2 text-sm font-bold transition-colors',
-                    q.correctBool === v
-                      ? 'border-brand-primary bg-brand-primary/5 text-brand-primary'
-                      : 'border-brand-surface-2 text-brand-text-muted hover:border-brand-primary/40',
-                  )}
-                >
-                  {v ? 'True' : 'False'}
-                </button>
-              ))}
-            </div>
-          </Field>
-        )}
-
-        {q.format === 'short-text' && (
-          <Field label="Placeholder">
-            <input
-              value={q.placeholder ?? ''}
-              onChange={(e) => patch('placeholder', e.target.value)}
-              className="admin-input"
-              placeholder="What members will see in the input"
-            />
-          </Field>
-        )}
-
-        <DialogActions onCancel={onClose} />
-      </form>
-    </SimpleDialog>
-  )
-}
-
-function DialogActions({ onCancel }: { onCancel: () => void }) {
-  return (
-    <div className="flex justify-end gap-2 pt-2">
-      <button
-        type="button"
-        onClick={onCancel}
-        className="px-4 py-2 rounded-xl bg-brand-surface text-brand-text-primary text-sm font-semibold hover:bg-brand-surface-2 transition-colors"
-      >
-        Cancel
-      </button>
-      <button
-        type="submit"
-        className="px-5 py-2 rounded-xl bg-brand-primary text-white text-sm font-bold hover:bg-brand-primary-dark transition-colors shadow-lg"
-      >
-        Save
-      </button>
-    </div>
+    </Modal>
   )
 }

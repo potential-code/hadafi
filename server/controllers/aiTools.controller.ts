@@ -1,6 +1,9 @@
 import type { Request, Response } from 'express';
 import { generateBusinessDocumentPdf } from '../services/aiTools.service';
+import { eq } from 'drizzle-orm';
 import { sendMail } from '../mail/mailer';
+import { db } from '../db';
+import { users } from '../db/schema';
 
 /** Accepted documentType slugs — validated before processing. */
 const ALLOWED_TYPES = new Set([
@@ -22,22 +25,22 @@ const TYPE_LABELS: Record<string, string> = {
  * POST /api/ai-tools/generate-pdf
  *
  * Generates a branded PDF from AI-produced business document content and
- * emails it to the specified address as an attachment.
+ * emails it to the signed-in learner's own address. The address always comes
+ * from the account, never the request, so the tool can't be used to send mail
+ * to anyone else.
  *
  * Request body:
  *   - documentType  {string}  One of the ALLOWED_TYPES slugs.
  *   - title         {string?} Optional document title; falls back to the type label.
  *   - content       {string}  Plain-text body to render into the PDF.
- *   - emailAddress  {string}  Recipient address for the email with the PDF attachment.
  *
  * Responds with `{ success: true, emailSent: true, email }` on success.
  */
 export async function generatePdf(req: Request, res: Response): Promise<void> {
-  const { documentType, title, content, emailAddress } = req.body as {
+  const { documentType, title, content } = req.body as {
     documentType?: string;
     title?: string;
     content?: string;
-    emailAddress?: string;
   };
 
   if (!documentType || !ALLOWED_TYPES.has(documentType)) {
@@ -53,10 +56,14 @@ export async function generatePdf(req: Request, res: Response): Promise<void> {
     res.status(400).json({ error: 'This document is too long to email' });
     return;
   }
-  if (!emailAddress || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailAddress)) {
-    res.status(400).json({ error: 'Valid emailAddress is required' });
+  const [account] = req.user
+    ? await db.select({ email: users.email }).from(users).where(eq(users.id, req.user.userId)).limit(1)
+    : [];
+  if (!account?.email) {
+    res.status(401).json({ error: 'Please sign in again to email this document' });
     return;
   }
+  const emailAddress = account.email;
 
   const docTitle =
     typeof title === 'string' && title.trim()

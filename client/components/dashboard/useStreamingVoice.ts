@@ -21,7 +21,8 @@
 // ---------------------------------------------------------------------------
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ensureCopilotToken, getCopilotHeaders, getCopilotJwt } from './copilotConfig'
+import { ensureCopilotToken, getCopilotHeaders } from './copilotConfig'
+import { apiFetch } from '@/lib/api'
 
 const AI_BACKEND_URL =
   (process.env.NEXT_PUBLIC_AI_BACKEND_URL as string | undefined)?.replace(/\/$/, '') ||
@@ -29,6 +30,16 @@ const AI_BACKEND_URL =
 const TTS_URL = `${AI_BACKEND_URL}/tts`
 // Realtime streaming-STT WebSocket (http→ws, https→wss).
 const VOICE_WS_URL = `${AI_BACKEND_URL.replace(/^http/, 'ws')}/ws/voice`
+
+/** A 60-second service token for opening the voice WebSocket, or null when signed out. */
+async function fetchVoiceToken(): Promise<string | null> {
+  try {
+    const res = await apiFetch<{ success: boolean; data: { token: string } }>('/api/account/voice-token')
+    return res.data.token
+  } catch {
+    return null
+  }
+}
 const TARGET_SAMPLE_RATE = 16000
 
 // AudioWorklet processor source, loaded via a Blob URL (no separate file).
@@ -614,8 +625,9 @@ export function useStreamingVoice({
     suppressSpeakRef.current = null
     void (async () => {
       // Voice is for logged-in users only; the WS upgrade is authenticated via
-      // a token query param (browsers can't set WebSocket headers).
-      const token = (await ensureCopilotToken()) ?? getCopilotJwt()
+      // a token query param (browsers can't set WebSocket headers). URLs end
+      // up in logs, so it gets a 60-second token rather than the chat token.
+      const token = await fetchVoiceToken()
       if (!token) {
         setStatus('please log in to use voice')
         setVoiceState('error')

@@ -16,8 +16,10 @@ import {
   Link as LinkIcon,
   Link2Off,
   Quote,
+  type LucideIcon,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { richTextClass } from '@/components/admin/lms/shared'
 
 export function RichTextEditor({
   value,
@@ -38,6 +40,7 @@ export function RichTextEditor({
       Link.configure({
         openOnClick: false,
         autolink: true,
+        // Persisted into the stored lesson HTML, so it stays as it was.
         HTMLAttributes: { class: 'text-brand-primary underline' },
       }),
       Placeholder.configure({ placeholder }),
@@ -46,8 +49,12 @@ export function RichTextEditor({
     immediatelyRender: false,
     editorProps: {
       attributes: {
-        class:
-          'prose prose-sm max-w-none focus:outline-none min-h-[140px] px-3 py-2.5 text-brand-text-primary',
+        class: cn(
+          richTextClass,
+          'min-h-[140px] px-3.5 py-3 focus:outline-none',
+          // Placeholder (tiptap sets data-placeholder on the empty first node).
+          '[&_p.is-editor-empty:first-child]:before:pointer-events-none [&_p.is-editor-empty:first-child]:before:float-left [&_p.is-editor-empty:first-child]:before:h-0 [&_p.is-editor-empty:first-child]:before:text-ui-muted [&_p.is-editor-empty:first-child]:before:content-[attr(data-placeholder)]',
+        ),
       },
     },
     onUpdate: ({ editor }) => {
@@ -73,13 +80,11 @@ export function RichTextEditor({
   }, [value, editor])
 
   if (!editor) {
-    return (
-      <div className="rounded-xl border border-brand-surface-2 bg-white min-h-[180px]" />
-    )
+    return <div className="min-h-[180px] rounded-[10px] border border-ui-line bg-ui-surface" />
   }
 
   return (
-    <div className="rounded-xl border border-brand-surface-2 bg-white overflow-hidden focus-within:border-brand-primary focus-within:ring-2 focus-within:ring-brand-primary/15 transition-all">
+    <div className="overflow-hidden rounded-[10px] border border-ui-line bg-ui-surface transition-[border-color,box-shadow] focus-within:border-ui-brand focus-within:ring-2 focus-within:ring-ui-brand/20">
       <Toolbar editor={editor} />
       <EditorContent editor={editor} />
     </div>
@@ -98,110 +103,110 @@ function Toolbar({ editor }: { editor: Editor }) {
     editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run()
   }
 
-  const Btn = ({
-    active,
-    onMouseDown,
-    children,
-    title,
-  }: {
-    active?: boolean
-    onMouseDown: (e: React.MouseEvent) => void
-    children: React.ReactNode
-    title: string
-  }) => (
+  return (
+    <div
+      role="toolbar"
+      aria-label="Formatting"
+      className="flex flex-wrap items-center gap-0.5 border-b border-ui-line bg-ui-surface-2 p-1"
+    >
+      <Btn
+        title="Bold"
+        icon={Bold}
+        active={editor.isActive('bold')}
+        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleBold().run() }}
+      />
+      <Btn
+        title="Italic"
+        icon={Italic}
+        active={editor.isActive('italic')}
+        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleItalic().run() }}
+      />
+      <span aria-hidden className="mx-1 h-4 w-px bg-ui-line" />
+      <Btn
+        title="Heading 1"
+        icon={Heading1}
+        active={editor.isActive('heading', { level: 1 })}
+        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleHeading({ level: 1 }).run() }}
+      />
+      <Btn
+        title="Heading 2"
+        icon={Heading2}
+        active={editor.isActive('heading', { level: 2 })}
+        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleHeading({ level: 2 }).run() }}
+      />
+      <Btn
+        title="Heading 3"
+        icon={Heading3}
+        active={editor.isActive('heading', { level: 3 })}
+        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleHeading({ level: 3 }).run() }}
+      />
+      <span aria-hidden className="mx-1 h-4 w-px bg-ui-line" />
+      <Btn
+        title="Bulleted list"
+        icon={List}
+        active={editor.isActive('bulletList')}
+        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleBulletList().run() }}
+      />
+      <Btn
+        title="Numbered list"
+        icon={ListOrdered}
+        active={editor.isActive('orderedList')}
+        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleOrderedList().run() }}
+      />
+      <Btn
+        title="Blockquote"
+        icon={Quote}
+        active={editor.isActive('blockquote')}
+        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleBlockquote().run() }}
+      />
+      <span aria-hidden className="mx-1 h-4 w-px bg-ui-line" />
+      <Btn
+        title="Add or edit link"
+        icon={LinkIcon}
+        active={editor.isActive('link')}
+        onMouseDown={(e) => { e.preventDefault(); setLink() }}
+      />
+      <Btn
+        title="Remove link"
+        icon={Link2Off}
+        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().unsetLink().run() }}
+      />
+    </div>
+  )
+}
+
+function Btn({
+  active,
+  onMouseDown,
+  icon: Icon,
+  title,
+}: {
+  active?: boolean
+  onMouseDown: (e: React.MouseEvent) => void
+  icon: LucideIcon
+  title: string
+}) {
+  return (
     <button
       type="button"
       title={title}
+      aria-label={title}
+      aria-pressed={active === undefined ? undefined : active}
       // preventDefault on mousedown stops the button from stealing focus from
       // the editor. Without it, clicking a toolbar button blurs the editor,
       // which causes ProseMirror to flush stored marks — so the next typed
       // character inherits the toggled mark (e.g. bold) unintentionally.
       onMouseDown={onMouseDown}
+      // Keyboard users (Enter/Space) get a click without a mousedown.
+      onClick={(e) => {
+        if (e.detail === 0) onMouseDown(e)
+      }}
       className={cn(
-        'w-7 h-7 rounded-md flex items-center justify-center text-xs transition-colors',
-        active
-          ? 'bg-brand-primary text-white'
-          : 'text-brand-text-muted hover:bg-brand-surface hover:text-brand-primary',
+        'inline-flex h-7 w-7 items-center justify-center rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ui-brand',
+        active ? 'bg-ui-brand-soft text-ui-brand-text' : 'text-ui-muted hover:bg-ui-surface hover:text-ui-text',
       )}
     >
-      {children}
+      <Icon className="h-4 w-4" strokeWidth={1.75} aria-hidden />
     </button>
-  )
-
-  return (
-    <div className="flex items-center flex-wrap gap-0.5 border-b border-brand-surface-2 bg-brand-surface/40 px-2 py-1.5">
-      <Btn
-        title="Bold"
-        active={editor.isActive('bold')}
-        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleBold().run() }}
-      >
-        <Bold className="w-3.5 h-3.5" />
-      </Btn>
-      <Btn
-        title="Italic"
-        active={editor.isActive('italic')}
-        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleItalic().run() }}
-      >
-        <Italic className="w-3.5 h-3.5" />
-      </Btn>
-      <span className="w-px h-4 bg-brand-surface-2 mx-1" />
-      <Btn
-        title="Heading 1"
-        active={editor.isActive('heading', { level: 1 })}
-        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleHeading({ level: 1 }).run() }}
-      >
-        <Heading1 className="w-3.5 h-3.5" />
-      </Btn>
-      <Btn
-        title="Heading 2"
-        active={editor.isActive('heading', { level: 2 })}
-        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleHeading({ level: 2 }).run() }}
-      >
-        <Heading2 className="w-3.5 h-3.5" />
-      </Btn>
-      <Btn
-        title="Heading 3"
-        active={editor.isActive('heading', { level: 3 })}
-        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleHeading({ level: 3 }).run() }}
-      >
-        <Heading3 className="w-3.5 h-3.5" />
-      </Btn>
-      <span className="w-px h-4 bg-brand-surface-2 mx-1" />
-      <Btn
-        title="Bulleted list"
-        active={editor.isActive('bulletList')}
-        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleBulletList().run() }}
-      >
-        <List className="w-3.5 h-3.5" />
-      </Btn>
-      <Btn
-        title="Numbered list"
-        active={editor.isActive('orderedList')}
-        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleOrderedList().run() }}
-      >
-        <ListOrdered className="w-3.5 h-3.5" />
-      </Btn>
-      <Btn
-        title="Blockquote"
-        active={editor.isActive('blockquote')}
-        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().toggleBlockquote().run() }}
-      >
-        <Quote className="w-3.5 h-3.5" />
-      </Btn>
-      <span className="w-px h-4 bg-brand-surface-2 mx-1" />
-      <Btn
-        title="Add or edit link"
-        active={editor.isActive('link')}
-        onMouseDown={(e) => { e.preventDefault(); setLink() }}
-      >
-        <LinkIcon className="w-3.5 h-3.5" />
-      </Btn>
-      <Btn
-        title="Remove link"
-        onMouseDown={(e) => { e.preventDefault(); editor.chain().focus().unsetLink().run() }}
-      >
-        <Link2Off className="w-3.5 h-3.5" />
-      </Btn>
-    </div>
   )
 }

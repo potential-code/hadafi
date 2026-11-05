@@ -1,29 +1,23 @@
 'use client'
 
-import { useState, Fragment } from 'react'
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { motion, AnimatePresence } from 'framer-motion'
-import {
-  ChevronDown,
-  CheckCircle2,
-  XCircle,
-  Loader2,
-  AlertCircle,
-  Users,
-  ExternalLink,
-  DollarSign,
-  Linkedin,
-} from 'lucide-react'
+import { Fragment, useMemo, useState } from 'react'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { AlertCircle, Check, ChevronDown, ChevronRight, ExternalLink, Linkedin, Loader2, Mail, Users, X } from 'lucide-react'
 import { toast } from 'sonner'
 import { AdminLayout } from '@/components/admin/AdminLayout'
-import { PageHeader } from '@/components/dashboard/widgets/PageHeader'
+import { Pill, SearchInput, Tag, TableCard, adminTableClass, fmtDate } from '@/components/admin/ui'
+import { ConfirmDialog } from '@/components/admin/widgets/ConfirmDialog'
+import { Button, EmptyState, FilterChips, PageHeader, Skeleton } from '@/components/kit'
 import { apiFetch } from '@/lib/api'
+import { cn } from '@/lib/utils'
+import { errorMessage } from '@/lib/api/errors'
 
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
 
 type AppStatus = 'pending' | 'approved' | 'rejected'
+type Filter = AppStatus | 'all'
 
 interface MentorApplication {
   id: string
@@ -38,76 +32,139 @@ interface MentorApplication {
   createdAt: string
 }
 
-const TABS: { label: string; value: AppStatus | 'all' }[] = [
+const FILTERS: { label: string; value: Filter }[] = [
   { label: 'All', value: 'all' },
   { label: 'Pending', value: 'pending' },
   { label: 'Approved', value: 'approved' },
   { label: 'Rejected', value: 'rejected' },
 ]
 
+type PendingAction = { kind: 'approve' | 'reject'; app: MentorApplication }
+
 // ---------------------------------------------------------------------------
 // Sub-components
 // ---------------------------------------------------------------------------
 
-function StatusBadge({ status }: { status: AppStatus }) {
-  const styles: Record<AppStatus, string> = {
-    pending: 'bg-amber-100 text-amber-700',
-    approved: 'bg-emerald-100 text-emerald-700',
-    rejected: 'bg-rose-100 text-rose-600',
-  }
+function StatusPill({ status }: { status: AppStatus }) {
+  if (status === 'approved')
+    return (
+      <Pill tone="ok">
+        <Check className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+        Approved
+      </Pill>
+    )
+  if (status === 'rejected')
+    return (
+      <Pill tone="danger">
+        <X className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+        Rejected
+      </Pill>
+    )
   return (
-    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold capitalize ${styles[status]}`}>
-      {status}
+    <Pill tone="brand" dot>
+      Pending
+    </Pill>
+  )
+}
+
+function ActionButtons({
+  app,
+  busy,
+  onAsk,
+  className,
+}: {
+  app: MentorApplication
+  busy: string | null
+  onAsk: (a: PendingAction) => void
+  className?: string
+}) {
+  return (
+    <span className={cn('flex gap-1.5', className)}>
+      <Button size="sm" disabled={!!busy} onClick={() => onAsk({ kind: 'approve', app })}>
+        {busy === `${app.id}-approve` ? (
+          <Loader2 className="h-[15px] w-[15px] animate-spin" aria-hidden />
+        ) : (
+          <Check className="h-[15px] w-[15px]" strokeWidth={2} aria-hidden />
+        )}
+        Approve
+      </Button>
+      <Button size="sm" variant="secondary" disabled={!!busy} onClick={() => onAsk({ kind: 'reject', app })}>
+        {busy === `${app.id}-reject` ? (
+          <Loader2 className="h-[15px] w-[15px] animate-spin" aria-hidden />
+        ) : (
+          <X className="h-[15px] w-[15px]" strokeWidth={2} aria-hidden />
+        )}
+        Reject
+      </Button>
     </span>
   )
 }
 
-function formatDate(iso: string): string {
-  return new Date(iso).toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  })
+function DetailBlock({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex min-w-0 flex-col gap-2">
+      <span className="text-xs font-semibold text-ui-muted">{label}</span>
+      {children}
+    </div>
+  )
 }
 
-function ExpandedDetail({ app }: { app: MentorApplication }) {
+function ExpandedDetail({
+  app,
+  busy,
+  onAsk,
+}: {
+  app: MentorApplication
+  busy: string | null
+  onAsk: (a: PendingAction) => void
+}) {
+  const expertise = app.expertise ?? []
+  const methods = app.methods ?? []
   return (
-    <motion.div
-      initial={{ opacity: 0, height: 0 }}
-      animate={{ opacity: 1, height: 'auto' }}
-      exit={{ opacity: 0, height: 0 }}
-      transition={{ duration: 0.2 }}
-      className="overflow-hidden"
-    >
-      <div className="px-5 pb-4 pt-2 border-t border-brand-surface-2 bg-brand-surface/40 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {app.expertise && app.expertise.length > 0 && (
-          <div className="sm:col-span-2">
-            <p className="text-xs font-semibold text-brand-text-secondary uppercase tracking-wider mb-1.5">Areas of Expertise</p>
-            <div className="flex flex-wrap gap-1">
-              {app.expertise.map((e) => (
-                <span key={e} className="px-2 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-medium">{e}</span>
+    // On phones the table scrolls sideways, so pin the panel to the visible width.
+    <div className="max-sm:sticky max-sm:left-5 max-sm:w-[calc(100vw-74px)]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-5 whitespace-normal rounded-[10px] border border-ui-line bg-ui-surface px-4 py-3.5 md:grid-cols-[1fr_1fr_1.4fr]">
+        <DetailBlock label="Areas of expertise">
+          {expertise.length > 0 ? (
+            <span className="flex flex-wrap gap-1.5">
+              {expertise.map((e) => (
+                <Pill key={e} tone="brand">{e}</Pill>
               ))}
-            </div>
-          </div>
-        )}
-        {app.methods && app.methods.length > 0 && (
-          <div className="sm:col-span-2">
-            <p className="text-xs font-semibold text-brand-text-secondary uppercase tracking-wider mb-1.5">Mentoring Methods</p>
-            <div className="flex flex-wrap gap-1">
-              {app.methods.map((m) => (
-                <span key={m} className="px-2 py-0.5 rounded-full bg-brand-surface-2 text-brand-text-primary text-xs">{m}</span>
+            </span>
+          ) : (
+            <span className="text-sm text-ui-muted">Not given</span>
+          )}
+        </DetailBlock>
+        <DetailBlock label="Mentoring methods">
+          {methods.length > 0 ? (
+            <span className="flex flex-wrap gap-1.5">
+              {methods.map((m) => (
+                <Tag key={m}>{m}</Tag>
               ))}
-            </div>
-          </div>
-        )}
-        {app.passion && (
-          <div className="sm:col-span-2">
-            <p className="text-xs font-semibold text-brand-text-secondary uppercase tracking-wider mb-1.5">Passion / Mission</p>
-            <p className="text-sm text-brand-text-primary leading-relaxed">{app.passion}</p>
-          </div>
-        )}
+            </span>
+          ) : (
+            <span className="text-sm text-ui-muted">Not given</span>
+          )}
+        </DetailBlock>
+        <DetailBlock label="Passion and mission">
+          {app.passion ? (
+            <p className="text-sm leading-normal text-ui-text">{app.passion}</p>
+          ) : (
+            <span className="text-sm text-ui-muted">Not given</span>
+          )}
+        </DetailBlock>
       </div>
-    </motion.div>
+      {app.status === 'pending' && (
+        <div className="mt-2.5 flex flex-wrap items-center justify-between gap-3">
+          <p className="flex items-center gap-1.5 text-xs text-ui-muted">
+            <Mail className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden />
+            Approving sends the mentor a setup email.
+          </p>
+          {/* Phones: the Actions column is off screen, so repeat the actions here. */}
+          <ActionButtons app={app} busy={busy} onAsk={onAsk} className="sm:hidden" />
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -117,20 +174,39 @@ function ExpandedDetail({ app }: { app: MentorApplication }) {
 
 export default function ApplicationsPage() {
   const qc = useQueryClient()
-  const [activeTab, setActiveTab] = useState<AppStatus | 'all'>('all')
+  const [activeTab, setActiveTab] = useState<Filter>('all')
+  const [search, setSearch] = useState('')
   const [expandedId, setExpandedId] = useState<string | null>(null)
   const [actionLoading, setActionLoading] = useState<string | null>(null)
+  const [confirm, setConfirm] = useState<PendingAction | null>(null)
 
-  const queryKey = ['admin', 'mentor-applications', activeTab]
-
-  const { data: applications = [], isLoading, isError } = useQuery<MentorApplication[]>({
-    queryKey,
-    queryFn: () => {
-      const params = activeTab !== 'all' ? `?status=${activeTab}` : ''
-      return apiFetch<{ success: boolean; data: MentorApplication[] }>(`/api/admin/mentor-applications${params}`)
-        .then((r) => r.data)
-    },
+  // Fetch every application once so the filter pills can show counts; the
+  // status filter and search run on the client.
+  const {
+    data: applications = [],
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery<MentorApplication[]>({
+    queryKey: ['admin', 'mentor-applications', 'all'],
+    queryFn: () =>
+      apiFetch<{ success: boolean; data: MentorApplication[] }>('/api/admin/mentor-applications').then((r) => r.data),
   })
+
+  const counts = useMemo(() => {
+    const c: Record<Filter, number> = { all: applications.length, pending: 0, approved: 0, rejected: 0 }
+    for (const a of applications) if (a.status in c) c[a.status] += 1
+    return c
+  }, [applications])
+
+  const visible = useMemo(() => {
+    const q = search.trim().toLowerCase()
+    return applications.filter(
+      (a) =>
+        (activeTab === 'all' || a.status === activeTab) &&
+        (!q || a.name.toLowerCase().includes(q) || a.email.toLowerCase().includes(q)),
+    )
+  }, [applications, activeTab, search])
 
   async function handleApprove(id: string) {
     setActionLoading(id + '-approve')
@@ -138,8 +214,8 @@ export default function ApplicationsPage() {
       await apiFetch(`/api/admin/mentor-applications/${id}/approve`, { method: 'POST' })
       toast.success('Application approved', { description: 'The mentor will receive a setup email shortly.' })
       qc.invalidateQueries({ queryKey: ['admin', 'mentor-applications'] })
-    } catch {
-      toast.error('Failed to approve application')
+    } catch (err) {
+      toast.error(errorMessage(err, 'The application could not be approved. Please try again.'))
     } finally {
       setActionLoading(null)
     }
@@ -151,173 +227,217 @@ export default function ApplicationsPage() {
       await apiFetch(`/api/admin/mentor-applications/${id}/reject`, { method: 'POST' })
       toast.success('Application rejected')
       qc.invalidateQueries({ queryKey: ['admin', 'mentor-applications'] })
-    } catch {
-      toast.error('Failed to reject application')
+    } catch (err) {
+      toast.error(errorMessage(err, 'The application could not be rejected. Please try again.'))
     } finally {
       setActionLoading(null)
     }
   }
 
+  function runConfirmed() {
+    if (!confirm) return
+    const { kind, app } = confirm
+    setConfirm(null)
+    if (kind === 'approve') void handleApprove(app.id)
+    else void handleReject(app.id)
+  }
+
+  const emptyTitle =
+    search.trim()
+      ? 'No applications match your search'
+      : activeTab === 'all'
+        ? 'No applications yet'
+        : `No ${activeTab} applications`
+  const emptyBody = search.trim()
+    ? 'Try a different name or email, or clear the search.'
+    : activeTab === 'all'
+      ? 'When an expert applies to mentor through the Join as an Expert form, their application shows here.'
+      : undefined
+
   return (
     <AdminLayout>
-      <PageHeader
-        eyebrow="Admin"
-        title="Mentor Applications"
-        subtitle="Review and manage expert mentor applications."
-      />
+      <div className="flex flex-col gap-5">
+        <PageHeader
+          className="mb-0"
+          title="Mentor Applications"
+          subtitle="Review and manage expert mentor applications."
+        />
 
-      {/* Tab filter */}
-      <div className="flex gap-1.5 mb-5 p-1 bg-brand-surface rounded-xl w-fit border border-brand-surface-2">
-        {TABS.map((tab) => (
-          <button
-            key={tab.value}
-            onClick={() => setActiveTab(tab.value)}
-            className={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all ${
-              activeTab === tab.value
-                ? 'bg-white text-brand-primary shadow-sm border border-brand-surface-2'
-                : 'text-brand-text-secondary hover:text-brand-text-primary'
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <FilterChips
+            label="Filter by status"
+            options={FILTERS.map((f) => ({ ...f, count: isLoading ? undefined : counts[f.value] }))}
+            active={activeTab}
+            onChange={(v) => {
+              setActiveTab(v)
+              setExpandedId(null)
+            }}
+            className="max-w-full"
+          />
+          <SearchInput
+            value={search}
+            onChange={setSearch}
+            placeholder="Search by name or email"
+            label="Search applications"
+            className="w-full sm:w-[280px]"
+          />
+        </div>
 
-      {/* Applications table */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="rounded-2xl border border-brand-surface-2 bg-white shadow-sm overflow-hidden"
-      >
-        {isLoading ? (
-          <div className="flex items-center justify-center py-16">
-            <Loader2 className="w-8 h-8 text-brand-primary/40 animate-spin" />
-          </div>
-        ) : isError ? (
-          <div className="flex flex-col items-center justify-center py-16 gap-2 text-brand-text-secondary">
-            <AlertCircle className="w-8 h-8 text-rose-400" />
-            <p className="text-sm">Failed to load applications</p>
-          </div>
-        ) : applications.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-16 gap-2 text-brand-text-secondary">
-            <Users className="w-8 h-8 opacity-30" />
-            <p className="text-sm">
-              {activeTab === 'all' ? 'No applications yet.' : `No ${activeTab} applications.`}
-            </p>
-          </div>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-brand-surface-2 bg-brand-surface/50">
-                  <th className="px-5 py-3 text-left text-xs font-semibold text-brand-text-secondary uppercase tracking-wider">Name</th>
-                  <th className="px-5 py-3 text-left text-xs font-semibold text-brand-text-secondary uppercase tracking-wider">Email</th>
-                  <th className="px-5 py-3 text-left text-xs font-semibold text-brand-text-secondary uppercase tracking-wider">LinkedIn</th>
-                  <th className="px-5 py-3 text-left text-xs font-semibold text-brand-text-secondary uppercase tracking-wider">Rate</th>
-                  <th className="px-5 py-3 text-left text-xs font-semibold text-brand-text-secondary uppercase tracking-wider">Applied</th>
-                  <th className="px-5 py-3 text-left text-xs font-semibold text-brand-text-secondary uppercase tracking-wider">Status</th>
-                  <th className="px-5 py-3 text-right text-xs font-semibold text-brand-text-secondary uppercase tracking-wider">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {applications.map((app) => (
-                  <Fragment key={app.id}>
-                    <tr
-                      onClick={() => setExpandedId(expandedId === app.id ? null : app.id)}
-                      className="border-b border-brand-surface-2 hover:bg-brand-surface/30 transition-colors cursor-pointer"
-                    >
-                      <td className="px-5 py-3.5 font-medium text-brand-text-primary">
-                        <div className="flex items-center gap-1.5">
-                          <ChevronDown
-                            className={`w-4 h-4 text-brand-text-secondary transition-transform flex-shrink-0 ${expandedId === app.id ? 'rotate-180' : ''}`}
-                          />
-                          {app.name}
-                        </div>
-                      </td>
-                      <td className="px-5 py-3.5 text-brand-text-secondary">{app.email}</td>
-                      <td className="px-5 py-3.5">
-                        {app.linkedinUrl ? (
-                          <a
-                            href={app.linkedinUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="inline-flex items-center gap-1.5 text-brand-primary hover:text-brand-primary-dark text-xs font-medium transition-colors"
-                          >
-                            <Linkedin className="w-3.5 h-3.5" />
-                            View
-                            <ExternalLink className="w-3 h-3 opacity-60" />
-                          </a>
-                        ) : (
-                          <span className="text-brand-text-secondary/40 text-xs">—</span>
-                        )}
-                      </td>
-                      <td className="px-5 py-3.5">
-                        {app.hourlyRate !== null ? (
-                          <span className="inline-flex items-center gap-0.5 text-sm font-semibold text-brand-text-primary">
-                            <DollarSign className="w-3.5 h-3.5 text-brand-text-secondary" />
-                            {app.hourlyRate}<span className="text-xs font-normal text-brand-text-secondary">/hr</span>
-                          </span>
-                        ) : (
-                          <span className="text-brand-text-secondary/40 text-xs">—</span>
-                        )}
-                      </td>
-                      <td className="px-5 py-3.5 text-brand-text-secondary">{formatDate(app.createdAt)}</td>
-                      <td className="px-5 py-3.5">
-                        <StatusBadge status={app.status} />
-                      </td>
-                      <td className="px-5 py-3.5">
-                        <div
-                          className="flex items-center justify-end gap-2"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          {app.status === 'pending' && (
-                            <>
-                              <button
-                                onClick={() => handleApprove(app.id)}
-                                disabled={!!actionLoading}
-                                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold transition-colors disabled:opacity-50"
+        <section aria-label="Applications">
+          {isLoading ? (
+            <TableCard>
+              <div className="flex flex-col gap-3 p-5" aria-busy="true" aria-label="Loading applications">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <Skeleton key={i} className="h-8 w-full" />
+                ))}
+              </div>
+            </TableCard>
+          ) : isError ? (
+            <TableCard>
+              <EmptyState
+                icon={AlertCircle}
+                title="Failed to load applications"
+                body="Check your connection and try again."
+                action={
+                  <Button variant="secondary" size="sm" onClick={() => refetch()}>
+                    Try again
+                  </Button>
+                }
+              />
+            </TableCard>
+          ) : visible.length === 0 ? (
+            <TableCard>
+              <EmptyState icon={Users} title={emptyTitle} body={emptyBody} />
+            </TableCard>
+          ) : (
+            <TableCard
+              footer={
+                visible.length === applications.length
+                  ? `${applications.length} ${applications.length === 1 ? 'application' : 'applications'}`
+                  : `${visible.length} of ${applications.length} applications`
+              }
+            >
+              <table className={cn(adminTableClass, 'min-w-[900px]')}>
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col" className="hidden 2xl:table-cell">Expertise</th>
+                    <th scope="col">LinkedIn</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Applied</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" className="!text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {visible.map((app) => {
+                    const open = expandedId === app.id
+                    const expertise = app.expertise ?? []
+                    const toggle = () => setExpandedId(open ? null : app.id)
+                    return (
+                      <Fragment key={app.id}>
+                        <tr onClick={toggle} className={cn('cursor-pointer', open && 'bg-ui-bg')}>
+                          <td className="whitespace-nowrap">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                toggle()
+                              }}
+                              aria-expanded={open}
+                              aria-label={`${open ? 'Hide' : 'Show'} details for ${app.name}`}
+                              className="-ml-1.5 mr-1.5 inline-flex h-[22px] w-[22px] items-center justify-center rounded-md align-middle text-ui-muted hover:bg-ui-surface-2 hover:text-ui-text focus-visible:outline-2 focus-visible:outline-ui-brand"
+                            >
+                              {open ? (
+                                <ChevronDown className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+                              ) : (
+                                <ChevronRight className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+                              )}
+                            </button>
+                            <span className="font-semibold text-ui-text">{app.name}</span>
+                          </td>
+                          <td className="max-w-[220px] truncate text-ui-muted" title={app.email}>{app.email}</td>
+                          <td className="hidden max-w-[260px] 2xl:table-cell">
+                            {expertise.length > 0 ? (
+                              <span className="flex flex-nowrap gap-1 overflow-hidden">
+                                {expertise.slice(0, 2).map((e) => (
+                                  <Tag key={e}>{e}</Tag>
+                                ))}
+                                {expertise.length > 2 && <Tag>+{expertise.length - 2}</Tag>}
+                              </span>
+                            ) : (
+                              <span className="text-ui-muted">Not given</span>
+                            )}
+                          </td>
+                          <td className="whitespace-nowrap">
+                            {app.linkedinUrl ? (
+                              <a
+                                href={app.linkedinUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                aria-label={`View ${app.name} on LinkedIn (opens in a new tab)`}
+                                className="inline-flex items-center gap-1 text-[13px] font-semibold text-ui-brand-text hover:underline"
                               >
-                                {actionLoading === app.id + '-approve' ? (
-                                  <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                                ) : (
-                                  <CheckCircle2 className="w-3.5 h-3.5" />
-                                )}
-                                Approve
-                              </button>
-                              <button
-                                onClick={() => handleReject(app.id)}
-                                disabled={!!actionLoading}
-                                className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-semibold transition-colors disabled:opacity-50"
-                              >
-                                {actionLoading === app.id + '-reject' ? (
-                                  <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                                ) : (
-                                  <XCircle className="w-3.5 h-3.5" />
-                                )}
-                                Reject
-                              </button>
-                            </>
-                          )}
-                        </div>
-                      </td>
-                    </tr>
-                    <AnimatePresence>
-                      {expandedId === app.id && (
-                        <tr key={app.id + '-expanded'}>
-                          <td colSpan={7} className="p-0">
-                            <ExpandedDetail app={app} />
+                                <Linkedin className="h-[15px] w-[15px]" strokeWidth={1.75} aria-hidden />
+                                View
+                                <ExternalLink className="h-[13px] w-[13px]" strokeWidth={1.75} aria-hidden />
+                              </a>
+                            ) : (
+                              <span className="text-ui-muted">Not given</span>
+                            )}
+                          </td>
+                          <td className="whitespace-nowrap">
+                            {app.hourlyRate !== null ? (
+                              <span className="font-semibold text-ui-text tabular-nums">
+                                ${app.hourlyRate}
+                                <span className="font-normal text-ui-muted">/hr</span>
+                              </span>
+                            ) : (
+                              <span className="text-ui-muted">Not set</span>
+                            )}
+                          </td>
+                          <td className="whitespace-nowrap text-ui-muted">{fmtDate(app.createdAt)}</td>
+                          <td>
+                            <StatusPill status={app.status} />
+                          </td>
+                          <td onClick={(e) => e.stopPropagation()}>
+                            {app.status === 'pending' && (
+                              <ActionButtons app={app} busy={actionLoading} onAsk={setConfirm} className="justify-end" />
+                            )}
                           </td>
                         </tr>
-                      )}
-                    </AnimatePresence>
-                  </Fragment>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </motion.div>
+                        {open && (
+                          <tr className="bg-ui-bg">
+                            <td colSpan={8} className="!border-t-0 !pb-4 !pt-0">
+                              <ExpandedDetail app={app} busy={actionLoading} onAsk={setConfirm} />
+                            </td>
+                          </tr>
+                        )}
+                      </Fragment>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </TableCard>
+          )}
+        </section>
+      </div>
+
+      <ConfirmDialog
+        open={!!confirm}
+        tone={confirm?.kind === 'reject' ? 'danger' : 'primary'}
+        title={confirm?.kind === 'reject' ? `Reject ${confirm.app.name}?` : `Approve ${confirm?.app.name ?? ''}?`}
+        message={
+          confirm?.kind === 'reject'
+            ? 'The application moves to Rejected. The applicant is not emailed.'
+            : 'They become a mentor and receive an email with a link to set up their account.'
+        }
+        confirmLabel={confirm?.kind === 'reject' ? 'Reject' : 'Approve and send email'}
+        onConfirm={runConfirmed}
+        onCancel={() => setConfirm(null)}
+      />
     </AdminLayout>
   )
 }

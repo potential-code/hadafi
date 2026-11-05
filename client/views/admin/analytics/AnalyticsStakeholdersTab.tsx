@@ -1,220 +1,230 @@
 'use client'
 
-import { useEffect, type ReactNode } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
 import { useQuery } from '@tanstack/react-query'
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
-import {
-  BookUser,
-  Building2,
-  // GraduationCap, // hidden until re-enabled (university)
-  Landmark,
-  // Rocket,        // hidden until re-enabled (incubator)
-  TrendingUp,
-  Users,
-} from 'lucide-react'
-import {
-  CartesianGrid,
-  Cell,
-  Legend,
-  Line,
-  LineChart,
-  Pie,
-  PieChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts'
-import { AdminChartCard } from '@/components/admin/widgets/AdminChartCard'
+import { Landmark, TrendingUp, UserCheck, type LucideIcon } from 'lucide-react'
+import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Card, Skeleton } from '@/components/kit'
+import { BarList, chartColors, chartTooltipStyle } from '@/components/admin/ui'
+import { useResolvedColors } from '@/components/admin/analytics/charts'
+import { RANGE_WORDS, countAxisMax, fillSeries, isMonthly } from '@/components/admin/analytics/trend'
 import { fetchStakeholderKpis, fetchStakeholderTrendByType } from '@/lib/api/adminAnalytics'
 import type { AnalyticsRange } from '@/lib/api/adminAnalytics'
-import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { cn } from '@/lib/utils'
 
-const TYPE_CONFIG = [
-  { key: 'expert'     as const, label: 'Expert',     icon: <BookUser   className="w-9 h-9" />, accent: 'bg-brand-primary',      delay: 0    },
-  { key: 'vc'         as const, label: 'Supporter',  icon: <TrendingUp className="w-9 h-9" />, accent: 'bg-brand-violet',       delay: 0.05 },
-  { key: 'government' as const, label: 'Government', icon: <Landmark   className="w-9 h-9" />, accent: 'bg-brand-primary-dark', delay: 0.1  },
-  // --- Hidden until re-enabled ---
-  // { key: 'corporate'  as const, label: 'Corporate',   icon: <Building2     className="w-9 h-9" />, accent: 'bg-brand-primary',      delay: 0.15 },
-  // { key: 'university' as const, label: 'University',  icon: <GraduationCap className="w-9 h-9" />, accent: 'bg-brand-violet',       delay: 0.2  },
-  // { key: 'incubator'  as const, label: 'Incubator',   icon: <Rocket        className="w-9 h-9" />, accent: 'bg-brand-primary-dark', delay: 0.25 },
+// Hadafi takes experts, supporters (the 'vc' type) and government. Corporate,
+// university and incubator applications are switched off for now.
+type TypeKey = 'expert' | 'vc' | 'government'
+
+const TYPE_CONFIG: { key: TypeKey; label: string; icon: LucideIcon; href: string }[] = [
+  { key: 'expert', label: 'Expert', icon: UserCheck, href: '/admin/applications' },
+  { key: 'vc', label: 'Supporter', icon: TrendingUp, href: '/admin/stakeholder-applications/vc' },
+  { key: 'government', label: 'Government', icon: Landmark, href: '/admin/stakeholder-applications/government' },
 ]
 
-function StakeholderTypeCard({
-  label,
-  icon,
-  accent,
-  value,
-  delay = 0,
-}: {
-  label: string
-  icon: ReactNode
-  accent: string
-  value: number
-  delay?: number
-}) {
-  const reduced = useReducedMotion()
-  const count = useMotionValue(0)
-  const rounded = useTransform(count, (v) => Math.round(v).toLocaleString())
-
-  useEffect(() => {
-    if (reduced) { count.set(value); return }
-    const ctrl = animate(count, value, { duration: 1.4, delay, ease: 'easeOut' })
-    return () => ctrl.stop()
-  }, [value, delay, reduced, count])
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -4 }}
-      className={`group relative overflow-hidden rounded-2xl ${accent} p-5 shadow-sm hover:shadow-xl hover:shadow-black/20 transition-all cursor-default`}
-    >
-      {/* ambient glow blob */}
-      <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-white/10 blur-2xl group-hover:opacity-70 transition-opacity pointer-events-none" />
-
-      {/* label */}
-      <p className="text-[10px] font-bold text-white/65 uppercase tracking-[0.16em] truncate mb-3">
-        {label}
-      </p>
-
-      {/* count left, icon right */}
-      <div className="flex items-end justify-between">
-        <motion.p className="text-3xl font-black text-white leading-none tabular-nums">
-          {rounded}
-        </motion.p>
-        <div className="text-white/50 group-hover:text-white/80 group-hover:scale-110 transition-all shrink-0">
-          {icon}
-        </div>
-      </div>
-    </motion.div>
-  )
-}
-
-const PIE_COLORS = ['#9f2063', '#4c1d6e', '#e83e94', '#c42b7a', '#7a1a4c', '#8b5cf6']
-
-const LINE_COLORS: Record<string, string> = {
-  expert:     '#9f2063',
-  vc:         '#4c1d6e',
-  government: '#e83e94',
-  // --- Hidden until re-enabled ---
-  // corporate:  '#c42b7a',
-  // university: '#7a1a4c',
-  // incubator:  '#8b5cf6',
-}
-
-// const LINE_KEYS = ['expert', 'vc', 'government', 'corporate', 'university', 'incubator'] as const
-const LINE_KEYS = ['expert', 'vc', 'government'] as const
+const LINE_KEYS = TYPE_CONFIG.map((t) => t.key)
 
 interface Props {
   range: AnalyticsRange
 }
 
 export function AnalyticsStakeholdersTab({ range }: Props) {
-  const { data: kpis } = useQuery({
+  const { data: kpis, isLoading: kpisLoading } = useQuery({
     queryKey: ['admin', 'analytics', 'stakeholder-kpis'],
     queryFn: fetchStakeholderKpis,
   })
 
-  const { data: trend = [] } = useQuery({
+  const { data: trend = [], isLoading: trendLoading, isError: trendError } = useQuery({
     queryKey: ['admin', 'analytics', 'stakeholder-trend-by-type', range],
     queryFn: () => fetchStakeholderTrendByType(range),
   })
 
-  const distributionData = TYPE_CONFIG.map((t) => ({
-    name: t.label,
-    value: kpis?.[t.key] ?? 0,
-  })).filter((d) => d.value > 0)
+  const series = useMemo(() => fillSeries(range, trend, LINE_KEYS), [range, trend])
+  const totals = useMemo(
+    () => Object.fromEntries(LINE_KEYS.map((k) => [k, series.reduce((s, p) => s + p[k], 0)])) as Record<TypeKey, number>,
+    [series],
+  )
+  const active = TYPE_CONFIG.filter((t) => totals[t.key] > 0)
+  const quiet = TYPE_CONFIG.filter((t) => totals[t.key] === 0)
+  const yMax = countAxisMax(Math.max(0, ...series.flatMap((p) => LINE_KEYS.map((k) => p[k]))))
+
+  const colors = useResolvedColors({
+    brand: chartColors.brand,
+    muted: chartColors.muted,
+    line: chartColors.line,
+    text: chartColors.text,
+    surface: chartColors.surface,
+    s1: chartColors.series[1],
+    s2: chartColors.series[2],
+    s3: chartColors.series[3],
+    s4: chartColors.series[4],
+    s5: chartColors.series[5],
+  })
+  const palette = [colors.brand, colors.s1, colors.s2, colors.s3, colors.s4, colors.s5]
+  const colorFor = (k: TypeKey) => {
+    const i = active.findIndex((t) => t.key === k)
+    return i >= 0 ? palette[i % palette.length] : colors.muted
+  }
+
+  const distributionData = TYPE_CONFIG.map((t) => ({ label: t.label, value: kpis?.[t.key] ?? 0 }))
+  const total = distributionData.reduce((s, d) => s + d.value, 0)
+  // Thin the x-axis labels: every label up to 12 points (every other on phones), else every 5th (10th).
+  const [narrow, setNarrow] = useState(false)
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 639px)')
+    const on = () => setNarrow(mq.matches)
+    on()
+    mq.addEventListener('change', on)
+    return () => mq.removeEventListener('change', on)
+  }, [])
+  const tickEvery = series.length <= 12 ? (narrow ? 1 : 0) : narrow ? 9 : 4
 
   return (
-    <div className="space-y-6">
-      {/* KPI cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-        {TYPE_CONFIG.map((t) => (
-          <StakeholderTypeCard
-            key={t.key}
-            label={t.label}
-            value={kpis?.[t.key] ?? 0}
-            icon={t.icon}
-            accent={t.accent}
-            delay={t.delay}
-          />
-        ))}
+    <section aria-labelledby="h-stake" className="flex flex-col gap-4">
+      <div>
+        <h2 id="h-stake" className="text-lg font-semibold text-ui-text">Stakeholder applications</h2>
+        <p className="mt-0.5 text-sm text-ui-muted">Experts, supporters and government bodies who applied to join.</p>
       </div>
 
-      {/* Charts */}
-      <div className="grid grid-cols-12 gap-4 lg:gap-6">
+      {/* Counts by type, each opens its applications list */}
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-3 min-[420px]:grid-cols-3">
+        {TYPE_CONFIG.map((t) => {
+          const value = kpis?.[t.key] ?? 0
+          const Icon = t.icon
+          return (
+            <Link
+              key={t.key}
+              href={t.href}
+              className="flex flex-col gap-1.5 rounded-[14px] border border-ui-line bg-ui-surface px-[18px] py-4 transition-colors hover:bg-ui-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ui-brand"
+            >
+              <span className="flex items-center gap-2 text-[13px] font-medium text-ui-muted">
+                <Icon className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
+                {t.label}
+              </span>
+              <span className={cn('text-[26px] font-semibold leading-[1.1] tracking-[-0.02em] tabular-nums', value > 0 ? 'text-ui-text' : 'text-ui-muted')}>
+                {kpisLoading ? <span aria-hidden className="inline-block h-7 w-8 animate-pulse rounded-md bg-ui-surface-2 align-middle" /> : value.toLocaleString()}
+              </span>
+            </Link>
+          )
+        })}
+      </div>
+
+      <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         {/* Registrations over time */}
-        <div className="col-span-12 lg:col-span-8">
-          <AdminChartCard
-            title="Registrations over time"
-            subtitle={`New applications · ${range}`}
-            icon={<Users className="w-4 h-4" />}
-            delay={0.1}
-          >
-            <div className="h-72">
+        <Card className="flex flex-col gap-2.5 px-5 py-[18px]">
+          <div className="flex flex-wrap justify-between gap-3">
+            <div>
+              <h3 className="text-base font-semibold text-ui-text">Registrations over time</h3>
+              <p className="mt-0.5 text-[13px] text-ui-muted">
+                New applications per {isMonthly(range) ? 'month' : 'day'}, {RANGE_WORDS[range]}
+              </p>
+            </div>
+            <ul aria-label="Legend" className="flex flex-wrap gap-x-3.5 gap-y-1 text-xs text-ui-muted">
+              {active.map((t) => (
+                <li key={t.key} className="inline-flex items-center gap-1.5">
+                  <span aria-hidden className="h-[3px] w-3 rounded-sm" style={{ background: colorFor(t.key) }} />
+                  {t.label}
+                </li>
+              ))}
+              {quiet.length > 0 && (
+                <li className="inline-flex items-center gap-1.5">
+                  <span aria-hidden className="w-3 border-t-2 border-dashed border-ui-muted" />
+                  {quiet.map((t) => t.label).join(', ')}
+                </li>
+              )}
+            </ul>
+          </div>
+          {trendLoading ? (
+            <Skeleton className="h-[220px]" />
+          ) : trendError ? (
+            <p className="py-16 text-center text-sm text-ui-muted">Could not load registrations.</p>
+          ) : (
+            <div className="h-[220px]" role="img" aria-label={`Stakeholder applications per ${isMonthly(range) ? 'month' : 'day'} by type`}>
               <ResponsiveContainer>
-                <LineChart data={trend} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
-                  <CartesianGrid stroke="#f7e8f0" vertical={false} />
-                  <XAxis dataKey="label" stroke="#6B7280" fontSize={11} tickLine={false} axisLine={false} />
-                  <YAxis stroke="#6B7280" fontSize={11} tickLine={false} axisLine={false} allowDecimals={false} />
-                  <Tooltip contentStyle={{ borderRadius: 12, border: '1px solid #f7e8f0', fontSize: 12 }} />
-                  <Legend iconType="circle" iconSize={8} wrapperStyle={{ fontSize: 11, paddingTop: 8 }} />
-                  {LINE_KEYS.map((key) => (
-                    <Line
-                      key={key}
-                      type="monotone"
-                      dataKey={key}
-                      name={key === 'vc' ? 'Supporter' : key.charAt(0).toUpperCase() + key.slice(1)}
-                      stroke={LINE_COLORS[key]}
-                      strokeWidth={2}
-                      dot={false}
-                      activeDot={{ r: 4 }}
-                    />
-                  ))}
+                <LineChart data={series} margin={{ top: 22, right: 16, left: 0, bottom: 0 }}>
+                  <CartesianGrid stroke={colors.line} strokeDasharray="4 4" vertical={false} />
+                  <XAxis
+                    dataKey="short"
+                    stroke={colors.line}
+                    tick={{ fill: colors.muted, fontSize: 11 }}
+                    tickLine={false}
+                    interval={tickEvery}
+                    padding={{ left: 8, right: 8 }}
+                    minTickGap={4}
+                  />
+                  <YAxis
+                    width={28}
+                    tick={{ fill: colors.muted, fontSize: 11 }}
+                    tickLine={false}
+                    axisLine={false}
+                    allowDecimals={false}
+                    domain={[0, yMax]}
+                    ticks={[0, yMax / 2, yMax]}
+                  />
+                  <Tooltip
+                    {...chartTooltipStyle}
+                    cursor={{ stroke: colors.line }}
+                    labelFormatter={(_, payload) => (payload?.[0]?.payload as { full?: string } | undefined)?.full ?? ''}
+                  />
+                  {/* Quiet (all-zero) types first so active lines draw on top */}
+                  {[...quiet, ...active].map((t) => {
+                    const isActive = totals[t.key] > 0
+                    const peak = Math.max(...series.map((p) => p[t.key]))
+                    const peakIndex = series.findIndex((p) => p[t.key] === peak)
+                    const color = colorFor(t.key)
+                    return (
+                      <Line
+                        key={t.key}
+                        type="linear"
+                        dataKey={t.key}
+                        name={t.label}
+                        stroke={color}
+                        strokeWidth={isActive ? 2 : 1.5}
+                        strokeDasharray={isActive ? undefined : '4 3'}
+                        isAnimationActive={false}
+                        activeDot={isActive ? { r: 4, fill: color, stroke: colors.surface, strokeWidth: 2 } : false}
+                        dot={(props: { cx?: number; cy?: number; index?: number }) => {
+                          const { cx, cy, index } = props
+                          if (!isActive || index !== peakIndex || cx == null || cy == null) return <g key={`${t.key}-${index}`} />
+                          return (
+                            <g key={`${t.key}-${index}`}>
+                              <circle cx={cx} cy={cy} r={4} fill={color} stroke={colors.surface} strokeWidth={2} />
+                              <text x={cx} y={cy - 10} textAnchor="middle" fontSize={11} fontWeight={600} fill={colors.text}>
+                                {peak}
+                              </text>
+                            </g>
+                          )
+                        }}
+                      />
+                    )
+                  })}
                 </LineChart>
               </ResponsiveContainer>
             </div>
-          </AdminChartCard>
-        </div>
+          )}
+          {!trendLoading && !trendError && active.length === 0 && (
+            <p className="text-[13px] text-ui-muted">No applications in the {RANGE_WORDS[range]}.</p>
+          )}
+        </Card>
 
-        {/* Distribution donut */}
-        <div className="col-span-12 lg:col-span-4">
-          <AdminChartCard
-            title="Distribution by type"
-            subtitle="All-time breakdown"
-            icon={<Building2 className="w-4 h-4" />}
-            delay={0.15}
-          >
-            <div className="h-72 flex flex-col items-center justify-center">
-              {distributionData.length === 0 ? (
-                <p className="text-sm text-brand-text-muted">No data yet</p>
-              ) : (
-                <ResponsiveContainer>
-                  <PieChart>
-                    <Pie
-                      data={distributionData}
-                      cx="50%"
-                      cy="45%"
-                      innerRadius={60}
-                      outerRadius={90}
-                      paddingAngle={2}
-                      dataKey="value"
-                    >
-                      {distributionData.map((_, i) => (
-                        <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
-                      ))}
-                    </Pie>
-                    <Tooltip contentStyle={{ borderRadius: 12, border: '1px solid #f7e8f0', fontSize: 12 }} />
-                    <Legend iconType="circle" iconSize={8} wrapperStyle={{ fontSize: 11 }} />
-                  </PieChart>
-                </ResponsiveContainer>
-              )}
+        {/* Distribution by type */}
+        <Card className="flex flex-col gap-4 px-5 py-[18px]">
+          <div>
+            <h3 className="text-base font-semibold text-ui-text">Distribution by type</h3>
+            <p className="mt-0.5 text-[13px] text-ui-muted">
+              All time, {total.toLocaleString()} {total === 1 ? 'application' : 'applications'}
+            </p>
+          </div>
+          {kpisLoading ? (
+            <div className="flex flex-col gap-3">
+              {Array.from({ length: 3 }, (_, i) => <Skeleton key={i} className="h-4" />)}
             </div>
-          </AdminChartCard>
-        </div>
+          ) : (
+            <BarList data={distributionData} max={Math.max(1, ...distributionData.map((d) => d.value))} />
+          )}
+        </Card>
       </div>
-    </div>
+    </section>
   )
 }
