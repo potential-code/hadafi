@@ -73,8 +73,9 @@ export function LandingHero() {
             fetchPriority="high"
             className="block h-[220px] w-full rounded-[14px] object-cover min-[900px]:h-[280px]"
           />
-          {/* Hana's sign-up chat, as it is; it fills a sized, positioned box. */}
-          <div className="relative mx-3 -mt-14 h-[480px] overflow-hidden rounded-2xl shadow-[0_2px_4px_rgba(23,23,28,.06),0_18px_48px_rgba(23,23,28,.16)] min-[900px]:mx-6 min-[900px]:-mt-20 min-[900px]:h-[460px]">
+          {/* Hana's sign-up chat, as it is; it fills a sized, positioned box. The chat is styled as
+              dark glass (white text), so the box gives it a solid dark surface in both themes. */}
+          <div className="relative mx-3 -mt-14 h-[480px] overflow-hidden rounded-2xl bg-[linear-gradient(160deg,#2b0c1f_0%,#170811_100%)] shadow-[0_2px_4px_rgba(23,23,28,.06),0_18px_48px_rgba(23,23,28,.16)] min-[900px]:mx-6 min-[900px]:-mt-20 min-[900px]:h-[460px]">
             <LandingRegistrationChat />
           </div>
         </div>

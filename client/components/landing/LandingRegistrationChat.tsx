@@ -534,7 +534,7 @@ function LandingRegistrationChatInner() {
           labels={{
             title: '',
             placeholder: 'Ask me anything…',
-            initial: "Welcome to Hadafi! 👋 I can help you register for free or log in to your existing account.",
+            initial: "Welcome to Hadafi! I can help you register for free or log in to your existing account.",
           }}
           AssistantMessage={LandingAssistantMessage}
           UserMessage={LandingUserMessage}

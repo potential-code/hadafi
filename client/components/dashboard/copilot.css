@@ -285,9 +285,9 @@
   color: rgba(255, 45, 135, 0.95) !important;
 }
 
-/* Copy button in dark mode */
+/* Copy and read-aloud buttons in dark mode (3:1 against the bubble) */
 .hadafi-landing-dark .hadafi-bot-bubble button {
-  color: rgba(255, 255, 255, 0.22) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 /* Dark typing indicator bubble */
@@ -323,12 +323,12 @@
 }
 
 .hadafi-landing-dark .hadafi-chat-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.28) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 /* Dark hint text */
 .hadafi-landing-dark .hadafi-chat-hint {
-  color: rgba(255, 255, 255, 0.20) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 /* Dark scrollbar */
