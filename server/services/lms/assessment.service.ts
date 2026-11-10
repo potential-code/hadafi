@@ -2,7 +2,7 @@ import { db } from '../../db'
 import {
   assessments, assessmentQuestions, assessmentAttempts, courses, courseEnrollments,
 } from '../../db/schema'
-import { eq, and, asc } from 'drizzle-orm'
+import { eq, and, asc, sql } from 'drizzle-orm'
 import { AppError } from '../../utils/app-error'
 import { recalculateCourseProgress } from './progress.service'
 import { recordLearningStep } from '../streak.service'
@@ -108,9 +108,6 @@ export async function submitAttempt(
   const [assessment] = await db.select().from(assessments).where(eq(assessments.id, assessmentId))
   if (!assessment) throw new Error('NOT_FOUND')
 
-  const existingAttempts = await db.select().from(assessmentAttempts)
-    .where(and(eq(assessmentAttempts.userId, userId), eq(assessmentAttempts.assessmentId, assessmentId)))
-
   // Only for a published course the learner is enrolled in.
   const [enrolled] = await db.select({ id: courseEnrollments.id })
     .from(courseEnrollments)
@@ -122,15 +119,6 @@ export async function submitAttempt(
     ))
   if (!enrolled) throw new AppError('Enrol in this course first', 404, 'NOT_ENROLLED')
 
-  // A passed exam is done: retaking it can't change anything and only adds attempts.
-  if (existingAttempts.some(a => a.passed === true)) {
-    throw new AppError('You have already passed this', 409, 'ALREADY_PASSED')
-  }
-
-  if (assessment.maxAttempts > 0 && existingAttempts.length >= assessment.maxAttempts) {
-    throw new Error('MAX_ATTEMPTS_EXCEEDED')
-  }
-
   const questions = await db.select().from(assessmentQuestions)
     .where(eq(assessmentQuestions.assessmentId, assessmentId))
     .orderBy(asc(assessmentQuestions.order))
@@ -139,8 +127,24 @@ export async function submitAttempt(
   const score = questions.length > 0 ? Math.round((correctCount / questions.length) * 100) : 0
   const passed = assessment.isGraded ? score >= assessment.passingScore : null
 
-  const [attempt] = await db.insert(assessmentAttempts)
-    .values({
+  // One learner's submissions to one test take turns (a transaction-scoped lock,
+  // no schema change), and the "already passed" and attempt-limit checks are made
+  // under it. Without this, requests sent together (a double-click) all read the
+  // same count, and the losers hit the unique attempt-number index as a 500.
+  await db.transaction(async (tx) => {
+    await tx.execute(sql`SELECT pg_advisory_xact_lock(hashtextextended(${`assessment:${userId}:${assessmentId}`}, 0))`)
+    const existingAttempts = await tx.select({ passed: assessmentAttempts.passed }).from(assessmentAttempts)
+      .where(and(eq(assessmentAttempts.userId, userId), eq(assessmentAttempts.assessmentId, assessmentId)))
+
+    // A passed exam is done: retaking it can't change anything and only adds attempts.
+    if (existingAttempts.some(a => a.passed === true)) {
+      throw new AppError('You have already passed this', 409, 'ALREADY_PASSED')
+    }
+    if (assessment.maxAttempts > 0 && existingAttempts.length >= assessment.maxAttempts) {
+      throw new Error('MAX_ATTEMPTS_EXCEEDED')
+    }
+
+    await tx.insert(assessmentAttempts).values({
       userId,
       assessmentId,
       attemptNumber: existingAttempts.length + 1,
@@ -149,7 +153,7 @@ export async function submitAttempt(
       passed,
       completedAt: new Date(),
     })
-    .returning()
+  })
 
   await recordLearningStep(userId)
 

@@ -161,7 +161,9 @@ const questionAnswerDto = z.object({
 })
 
 const assessmentAttemptDto = z.object({
-  answers: z.record(z.string().uuid(), z.number().int().min(0)),
+  // One answer per question; no test has anywhere near 200 questions.
+  answers: z.record(z.string().uuid(), z.number().int().min(0).max(100))
+    .refine((a) => Object.keys(a).length <= 200, { message: 'Too many answers' }),
 })
 
 // ---------------------------------------------------------------------------
