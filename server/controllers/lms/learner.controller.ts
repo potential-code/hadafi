@@ -234,7 +234,7 @@ export async function getAssessmentQuestions(
   next: NextFunction,
 ): Promise<void> {
   try {
-    const data = await assessmentSvc.getAssessmentQuestions(req.params.assessmentId)
+    const data = await assessmentSvc.getAssessmentQuestions(req.user!.userId, req.params.assessmentId)
     res.json({ success: true, data })
   } catch (e) {
     next(e)

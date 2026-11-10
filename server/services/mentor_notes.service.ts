@@ -7,6 +7,7 @@ import { db } from "../db";
 import { mentorMenteeNotes, mentorSessions, users } from "../db/schema";
 import { AppError } from "../utils/app-error";
 import { createMediaFile } from "./media.service";
+import { MEDIA_DIR } from "../config/uploads";
 
 /** Max length of a notes field (session or mentee). */
 export const MAX_NOTES_LENGTH = 20_000;
@@ -102,7 +103,7 @@ export async function saveMenteeNotes(
 // Profile photo
 // ---------------------------------------------------------------------------
 
-const UPLOADS_DIR = path.join(__dirname, "..", "uploads", "media");
+const UPLOADS_DIR = MEDIA_DIR;
 
 /** Detects JPEG/PNG/WebP from the file's leading bytes (never trusts the client's mimetype alone). */
 function sniffImage(buf: Buffer): { ext: "jpg" | "png" | "webp"; mime: string } | null {

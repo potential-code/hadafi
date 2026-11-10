@@ -8,6 +8,24 @@ import { recalculateCourseProgress } from './progress.service'
 import { recordLearningStep } from '../streak.service'
 
 /**
+ * The test, when this learner may see it: it belongs to a published course they
+ * are enrolled in (as SMEEP fffc128). Questions, summary and submit all go
+ * through here, so a learner can't read or sit another course's test, or one in
+ * an unpublished course. Anything else is NOT_FOUND (404), so a test's existence
+ * isn't revealed either.
+ */
+async function assessmentForLearner(userId: string, assessmentId: string) {
+  const [row] = await db.select({ assessment: assessments })
+    .from(assessments)
+    .innerJoin(courses, eq(courses.id, assessments.courseId))
+    .innerJoin(courseEnrollments, and(eq(courseEnrollments.courseId, courses.id), eq(courseEnrollments.userId, userId)))
+    .where(and(eq(assessments.id, assessmentId), eq(courses.status, 'published')))
+    .limit(1)
+  if (!row) throw new AppError('Assessment not found', 404, 'NOT_FOUND')
+  return row.assessment
+}
+
+/**
  * Returns a summary of the assessment state for a learner, including attempt history,
  * best score, whether they can start another attempt, and optionally correct answers.
  *
@@ -15,8 +33,7 @@ import { recordLearningStep } from '../streak.service'
  * @param assessmentId  - UUID of the assessment.
  */
 export async function getAssessmentSummary(userId: string, assessmentId: string) {
-  const [assessment] = await db.select().from(assessments).where(eq(assessments.id, assessmentId))
-  if (!assessment) throw new Error('NOT_FOUND')
+  const assessment = await assessmentForLearner(userId, assessmentId)
 
   const questions = await db.select().from(assessmentQuestions)
     .where(eq(assessmentQuestions.assessmentId, assessmentId))
@@ -81,9 +98,11 @@ export async function getAssessmentSummary(userId: string, assessmentId: string)
  * Returns all questions for an assessment ordered by position.
  * Strips correctAnswer to prevent answer leakage during an active attempt.
  *
+ * @param userId       - UUID of the learner (must be enrolled in the test's published course).
  * @param assessmentId - UUID of the assessment.
  */
-export async function getAssessmentQuestions(assessmentId: string) {
+export async function getAssessmentQuestions(userId: string, assessmentId: string) {
+  await assessmentForLearner(userId, assessmentId)
   const questions = await db.select().from(assessmentQuestions)
     .where(eq(assessmentQuestions.assessmentId, assessmentId))
     .orderBy(asc(assessmentQuestions.order))
@@ -105,19 +124,8 @@ export async function submitAttempt(
   assessmentId: string,
   answers: Record<string, number>,
 ) {
-  const [assessment] = await db.select().from(assessments).where(eq(assessments.id, assessmentId))
-  if (!assessment) throw new Error('NOT_FOUND')
-
   // Only for a published course the learner is enrolled in.
-  const [enrolled] = await db.select({ id: courseEnrollments.id })
-    .from(courseEnrollments)
-    .innerJoin(courses, eq(courses.id, courseEnrollments.courseId))
-    .where(and(
-      eq(courseEnrollments.userId, userId),
-      eq(courseEnrollments.courseId, assessment.courseId),
-      eq(courses.status, 'published'),
-    ))
-  if (!enrolled) throw new AppError('Enrol in this course first', 404, 'NOT_ENROLLED')
+  const assessment = await assessmentForLearner(userId, assessmentId)
 
   const questions = await db.select().from(assessmentQuestions)
     .where(eq(assessmentQuestions.assessmentId, assessmentId))

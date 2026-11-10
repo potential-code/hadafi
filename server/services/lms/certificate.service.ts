@@ -9,12 +9,13 @@ import {
 import { eq, and, desc, notLike, or, isNull } from 'drizzle-orm'
 import { AppError } from '../../utils/app-error'
 import type { CourseCertificate } from '../../db/schema'
+import { CERTIFICATES_DIR } from '../../config/uploads'
 import { logger } from '../../config/logger'
 import { notify } from '../notifications.service'
 import { checkBadgesSoon } from '../achievements.service'
 
 function getCertDir(): string {
-  return path.join(__dirname, '..', 'uploads', 'certificates')
+  return CERTIFICATES_DIR
 }
 
 /** The bundled assets folder: next to the compiled bundle in production, under server/ in dev and tests. */
