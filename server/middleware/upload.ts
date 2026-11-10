@@ -1,17 +1,13 @@
 import multer from 'multer'
-import path from 'path'
 import crypto from 'crypto'
 import fs from 'fs'
 import type { Request, Response, NextFunction } from 'express'
 import { AppError } from '../utils/app-error'
 
-/**
- * Root of everything served at /uploads. Resolved from this file so the
- * source tree (server/middleware) and the bundle (server/dist) both land on
- * server/uploads; index.ts serves this same folder.
- */
-export const UPLOADS_ROOT = path.join(__dirname, '..', 'uploads')
-export const MEDIA_DIR = path.join(UPLOADS_ROOT, 'media')
+import { MEDIA_DIR } from '../config/uploads'
+
+// The uploads folder is defined once, in config/uploads.ts; re-exported for existing imports.
+export { UPLOADS_ROOT, MEDIA_DIR } from '../config/uploads'
 
 if (!fs.existsSync(MEDIA_DIR)) {
   fs.mkdirSync(MEDIA_DIR, { recursive: true })
