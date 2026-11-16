@@ -66,6 +66,11 @@ services:
       ZOOM_HOST_USER_ID: ${ZOOM_HOST_USER_ID:-}
       ZOOM_WEBHOOK_SECRET_TOKEN: ${ZOOM_WEBHOOK_SECRET_TOKEN:-}
       ZOOM_ADAPTER: ${ZOOM_ADAPTER:-}
+      # Operator keys (Maya, the AI operator): label:sha256 entries and the admin
+      # service account they act as. Bearer auth is off while unset.
+      # See server/docs/operator-access.md.
+      OPERATOR_API_KEYS: ${OPERATOR_API_KEYS:-}
+      OPERATOR_SERVICE_USER_EMAIL: ${OPERATOR_SERVICE_USER_EMAIL:-}
       # CRM sync: learner events queue in crm_outbox; sent only when
       # CRM_SYNC_ENABLED is "true" (needs the URL, key and program id).
       CRM_SYNC_ENABLED: ${CRM_SYNC_ENABLED:-}

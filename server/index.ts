@@ -13,6 +13,7 @@ import { auth } from "./auth";
 import { logger } from "./config/logger";
 import { basicAuthGate } from "./middleware/basic-auth";
 import { errorHandler } from "./middleware/error-handler";
+import { auditAdminActions } from "./middleware/audit-log";
 import { UPLOADS_ROOT } from "./middleware/upload";
 import { refreshOutdatedCertificates } from "./services/lms/certificate.service";
 import { startReminders } from "./services/reminders.service";
@@ -90,6 +91,12 @@ app.use("/api/webhooks/zoom", zoomWebhookRouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Admin audit log: every mutating /api request by an admin session or an
+// operator key (and operator-key exports), written after the response.
+// Registered before the routers so it sees each request first; it decides at
+// the end, once authenticate() has set req.user. See middleware/audit-log.ts.
+app.use("/api", auditAdminActions);
 
 // Serve uploaded files without authentication — files are addressed by
 // opaque filenames and do not expose sensitive data beyond the file itself.

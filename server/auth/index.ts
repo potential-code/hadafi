@@ -1,15 +1,16 @@
-import { betterAuth } from "better-auth";
+import { BASE_ERROR_CODES, betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { emailOTP } from "better-auth/plugins";
 
 import { db } from "../db";
 import { authAccounts, authRateLimits, authSessions, authVerifications, users } from "../db/schema";
 import { sendCodeEmail } from "./emails";
-import { createAuthMiddleware } from "better-auth/api";
+import { APIError, createAuthMiddleware } from "better-auth/api";
 import { enforceEmailBudget } from "./emailLimits";
 import { verifyLegacyAccount } from "./legacyVerification";
 import { hashPassword, verifyPassword } from "./password";
 import { hadafiPlugin } from "./hadafiPlugin";
+import { isOperatorServiceAddress } from "./operatorKeys";
 
 // Sessions, sign-in and sign-up for learners, mentors and admins (Hadafi).
 //
@@ -33,6 +34,22 @@ const trustedProxies = (process.env["TRUSTED_PROXIES"] || "127.0.0.1,::1,10.0.0.
   .filter(Boolean);
 
 const DAY = 60 * 60 * 24;
+
+// Better Auth endpoints the operator service account must never get through
+// (see the before hook): ones that check an emailed code, and ones that send one.
+const SERVICE_ACCOUNT_CODE_CHECKS = new Set([
+  "/sign-in/email-otp",
+  "/email-otp/verify-email",
+  "/email-otp/check-verification-otp",
+  "/email-otp/reset-password",
+]);
+const SERVICE_ACCOUNT_CODE_SENDS = new Set([
+  "/email-otp/send-verification-otp",
+  "/email-otp/request-password-reset",
+  "/forget-password/email-otp",
+]);
+// The email-otp plugin's own error (better-auth doesn't export its error codes).
+const INVALID_OTP = { code: "INVALID_OTP", message: "Invalid OTP" };
 
 export const auth = betterAuth({
   appName: "Hadafi",
@@ -131,7 +148,32 @@ export const auth = betterAuth({
       // Per-email limits first (auth/emailLimits.ts), so a spent budget stops
       // the request before any code is sent or checked.
       await enforceEmailBudget(ctx);
+      // The operator service account (OPERATOR_SERVICE_USER_EMAIL, or any
+      // account named as the create script names it, so this holds with the
+      // variable unset) is used only through operator keys: no password or
+      // code sign-in, no codes sent. It gets the same status and body as a
+      // wrong credential or an unknown address would (after the same email
+      // budget). Every sign-in or code request costs the same one lookup,
+      // whatever the address. See docs/operator-access.md.
+      const signInPath =
+        ctx.path === "/sign-in/email" || (!!ctx.path && (SERVICE_ACCOUNT_CODE_CHECKS.has(ctx.path) || SERVICE_ACCOUNT_CODE_SENDS.has(ctx.path)));
+      if (signInPath && (await isOperatorServiceAddress(typeof ctx.body?.email === "string" ? ctx.body.email : null))) {
+        if (ctx.path === "/sign-in/email") {
+          // Better Auth hashes the given password for unknown accounts too (same timing).
+          await ctx.context.password.hash(typeof ctx.body?.password === "string" ? ctx.body.password : "");
+          throw APIError.from("UNAUTHORIZED", BASE_ERROR_CODES.INVALID_EMAIL_OR_PASSWORD);
+        }
+        if (ctx.path && SERVICE_ACCOUNT_CODE_CHECKS.has(ctx.path)) {
+          // What a code check answers when no code was ever sent.
+          throw APIError.from("BAD_REQUEST", INVALID_OTP);
+        }
+        if (ctx.path && SERVICE_ACCOUNT_CODE_SENDS.has(ctx.path)) {
+          // What these answer for an address with no account: success, nothing sent.
+          return ctx.json({ success: true });
+        }
+      }
       await verifyLegacyAccount(ctx);
+      return undefined;
     }),
   },
 

@@ -7,7 +7,9 @@
     "dev": "export NODE_ENV=development && bun run build && bun run start",
     "build": "node ./build.mjs",
     "start": "node --env-file=../.env --enable-source-maps ./dist/index.mjs",
-    "typecheck": "tsc -p ../tsconfig.json --noEmit"
+    "typecheck": "tsc -p ../tsconfig.json --noEmit",
+    "operator:create-user": "node --env-file=../.env ./scripts/create-operator-user.mjs",
+    "operator:generate-key": "node ./scripts/generate-operator-key.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.1046.0",

@@ -39,6 +39,9 @@ COPY --from=builder /app/server/scripts/migrate.mjs ./scripts/migrate.mjs
 COPY --from=builder /app/server/scripts/prod-prep.mjs /app/server/scripts/ai-readonly-role.mjs /app/server/scripts/ai-readonly-role.sql ./scripts/
 # CRM outbox health, read-only: node scripts/crm-outbox-status.mjs
 COPY --from=builder /app/server/scripts/crm-outbox-status.mjs ./scripts/crm-outbox-status.mjs
+# Operator service account bootstrap (docs/operator-access.md):
+#   node scripts/create-operator-user.mjs --email <address> [--apply]
+COPY --from=builder /app/server/scripts/create-operator-user.mjs ./scripts/create-operator-user.mjs
 # Entrypoint: runs migrations then starts server
 COPY server/entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh && mkdir -p ./uploads/certificates ./uploads/media

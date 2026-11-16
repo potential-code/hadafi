@@ -3,7 +3,7 @@ import { z } from "zod";
 import { authenticate } from "../middleware/authenticate";
 import { requireRole } from "../middleware/require-role";
 import { validate } from "../middleware/validate";
-import { perUser, HOUR, MINUTE } from "../middleware/limits";
+import { perUser, HOUR, MINUTE, operatorAnnouncementLimit } from "../middleware/limits";
 import { AppError } from "../utils/app-error";
 import * as svc from "../services/announcements.service";
 
@@ -78,8 +78,10 @@ adminAnnouncementsRouter.get(
   })),
 );
 
+// With an operator key: 3 an hour and 10 a day as well (middleware/limits.ts); admin sessions only have sendLimit.
 adminAnnouncementsRouter.post(
   "/",
+  ...operatorAnnouncementLimit,
   sendLimit,
   validate(announcementDto),
   wrap(async (req, res) => {
