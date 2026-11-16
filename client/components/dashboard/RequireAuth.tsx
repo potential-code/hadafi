@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { checkSession, clearAuth, getUser, homeFor, type User } from '@/lib/auth'
 import { withNext } from '@/lib/returnPath'
 import { apiFetch } from '@/lib/api'
+import { goTo } from '@/lib/consent/store'
 
 type Role = User['role']
 
@@ -88,7 +89,8 @@ export function RequireAuth({ children, role }: Props) {
 
   const roleMismatch = !!user && !!role && user.role !== role
   useEffect(() => {
-    if (roleMismatch && user) router.replace(homeFor(user.role))
+    // Into a staff area while GTM runs: a full load (location.replace), so GTM is gone there.
+    if (roleMismatch && user) goTo(router, homeFor(user.role), { replace: true })
     // Signed out (here or in another tab): a full load. No ?next=: signing out
     // is deliberate, and whoever signs in next shouldn't land on this page.
     else if (!user && confirmed) window.location.replace('/login')

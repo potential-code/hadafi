@@ -121,6 +121,10 @@ services:
     environment:
       NODE_ENV: production
       PORT: "3000"
+      # Google Tag Manager container id (GTM-XXXX), read at run time by
+      # /public-config: changing it needs a restart, not a rebuild. Empty = no
+      # GTM and no cookie banner.
+      GTM_CONTAINER_ID: ${GTM_CONTAINER_ID:-}
     networks:
       - default
     expose:

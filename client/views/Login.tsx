@@ -11,6 +11,7 @@ import { CodeForm, codeErrorMessage } from "@/components/auth/CodeForm";
 import { authClient } from "@/lib/authClient";
 import { afterSignIn, checkSession, clearAuth, getUser, refreshUser } from "@/lib/auth";
 import { withNext } from "@/lib/returnPath";
+import { goTo } from "@/lib/consent/store";
 import { cn } from "@/lib/utils";
 
 // Sign in leads with an email code: enter your email, type the 6-digit code
@@ -75,7 +76,7 @@ export default function LoginPage() {
     void checkSession().then(({ ok, user }) => {
       if (cancelled || !ok) return;
       if (user) {
-        router.replace(afterSignIn(user, returnTo));
+        goTo(router, afterSignIn(user, returnTo), { replace: true });
         return;
       }
       if (hadCachedUser) setExpired(true);
@@ -95,7 +96,8 @@ export default function LoginPage() {
   async function finish() {
     const user = await refreshUser();
     // Back to the page asked for, if this role can use it; else the role's home.
-    if (user) router.push(afterSignIn(user, returnTo));
+    // goTo: into an untracked page (a staff area, a checkout) while GTM runs is a full load.
+    if (user) goTo(router, afterSignIn(user, returnTo));
     else setError("Signed in, but the session didn't stick. Please try again.");
   }
 

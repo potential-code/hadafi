@@ -49,6 +49,8 @@ export type ShellConfig = {
   groups: ShellNavGroup[]
   /** Pinned under the groups, above the user card. */
   footer: ShellNavItem[]
+  /** Show "Cookie settings" under the footer links (when GTM is on). */
+  cookieSettings?: boolean
   /** Phone bottom tab bar; the last slot is always "More" (opens the full menu). */
   tabs: ShellNavItem[]
   /** Shown in the phone top bar next to the menu button. */
@@ -100,6 +102,7 @@ export const SHELL_CONFIG: Record<ShellRole, ShellConfig> = {
       },
     ],
     footer: [{ label: 'Support', href: '/dashboard/support', icon: CircleHelp }],
+    cookieSettings: true,
     tabs: [
       { label: 'Dashboard', href: '/dashboard', icon: House, exact: true },
       { label: 'Courses', href: '/dashboard/courses', icon: GraduationCap },

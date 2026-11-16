@@ -11,6 +11,8 @@ import { FloatingField } from '@/components/auth/FloatingField'
 import { afterSignIn, refreshUser } from '@/lib/auth'
 import { nextInLocation, withNext } from '@/lib/returnPath'
 import { apiFetch } from '@/lib/api'
+import { createAccount } from '@/lib/createAccount'
+import { consentStore, goTo } from '@/lib/consent/store'
 import { AuthAlert } from '@/components/auth/AuthField'
 import { CodeForm, codeErrorMessage } from '@/components/auth/CodeForm'
 import { LEGAL_LINKS } from '@/components/landing/legal'
@@ -137,6 +139,9 @@ function SignUpForm({ org, onOrgGone }: { org: JoiningOrg | null; onOrgGone: () 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [form.email, emailAvailable, emailCheckFailed])
 
+  /** First touch of the form (focus or typing/autofill): GTM sign_up_start, once per page. */
+  const startWebForm = () => consentStore.trackSignUpStart('web_form')
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setTouched({ country: true })
@@ -182,9 +187,8 @@ function SignUpForm({ org, onOrgGone }: { org: JoiningOrg | null; onOrgGone: () 
       return codeErrorMessage(err as ApiErr)
     }
     try {
-      await apiFetch('/api/auth/hadafi/sign-up', {
-        method: 'POST',
-        body: JSON.stringify({
+      await createAccount(
+        {
           fullName: form.fullName,
           email: form.email,
           country: form.country,
@@ -193,8 +197,9 @@ function SignUpForm({ org, onOrgGone }: { org: JoiningOrg | null; onOrgGone: () 
           ...(org ? { orgCode: org.code } : {}),
           ...consentBody({ termsAccepted: form.agreed, marketingOptIn: form.marketingOptIn }),
           verifiedToken,
-        }),
-      })
+        },
+        'web_form',
+      )
     } catch (err: unknown) {
       const e = err as ApiErr
       setStep('details')
@@ -210,7 +215,7 @@ function SignUpForm({ org, onOrgGone }: { org: JoiningOrg | null; onOrgGone: () 
     }
     const user = await refreshUser()
     // ?next= (an emailed course link, carried from /login): there, if this role can use it.
-    router.push(afterSignIn(user, nextInLocation()))
+    goTo(router, afterSignIn(user, nextInLocation()))
     return null
   }
 
@@ -244,7 +249,7 @@ function SignUpForm({ org, onOrgGone }: { org: JoiningOrg | null; onOrgGone: () 
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="space-y-3.5">
+      <form onSubmit={handleSubmit} onFocusCapture={startWebForm} onInputCapture={startWebForm} className="space-y-3.5">
         <FloatingField
           label="Full Name"
           autoComplete="name"

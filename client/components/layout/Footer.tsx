@@ -5,6 +5,7 @@ import { REDESIGN_ASSETS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { XIcon } from '@/components/landing/LandingCommunity'
 import { CONTACT_EMAIL, LEGAL_LINKS } from '@/components/landing/legal'
+import { CookieSettingsLink } from '@/components/consent/CookieSettingsLink'
 
 const SHARE_URL = 'https://hadafi.potential.org'
 const SHARE_TEXT = 'Start and grow your business with Hadafi, the free program for women entrepreneurs by Potential.org'
@@ -136,6 +137,7 @@ export function Footer() {
             <a href={LEGAL_LINKS.terms} target="_blank" rel="noopener noreferrer" className="text-[13px] text-ui-muted hover:text-ui-text">
               Terms of Use
             </a>
+            <CookieSettingsLink className="text-[13px] text-ui-muted" />
           </span>
         </div>
       </div>

@@ -30,6 +30,8 @@ import { CountryPickerCard } from './CountryPickerCard'
 import { RegistrationConfirmCard } from './RegistrationConfirmCard'
 import { SIGN_UP_PROMPT as ASSISTANT_INSTRUCTIONS } from '../../../shared/hana/prompts'
 import { consentBody } from '@/lib/signUpConsent'
+import { createAccount } from '@/lib/createAccount'
+import { consentStore, goTo } from '@/lib/consent/store'
 
 // ---------------------------------------------------------------------------
 // Landing-specific assistant message wrapper
@@ -190,6 +192,7 @@ function LandingRegistrationChatInner() {
   )
 
   const handleRegisterClick = () => {
+    consentStore.trackSignUpStart('hana_chat') // GTM sign_up_start, once per page
     setShowSuggestion(false)
     // Small delay lets React flush the state before CopilotKit processes the send.
     setTimeout(() => copilotSendRef.current?.('I want to register'), 50)
@@ -396,14 +399,14 @@ function LandingRegistrationChatInner() {
         return { error: true, code: 'TERMS_REQUIRED', message: 'The user has not accepted the Terms of Use and Privacy Policy yet' }
       }
       try {
-        await apiFetch('/api/auth/hadafi/sign-up', {
-          method: 'POST',
-          body: JSON.stringify({ fullName, email: registrationData.current.email, country, couponCode, verifiedToken, ...consent }),
-        })
+        await createAccount(
+          { fullName, email: registrationData.current.email, country, couponCode, verifiedToken, ...consent },
+          'hana_chat',
+        )
         registrationData.current.verifiedToken = undefined
         const user = await refreshUser()
         // ?next= (an emailed course link): there, if this role can use it.
-        router.push(afterSignIn(user, nextInLocation()))
+        goTo(router, afterSignIn(user, nextInLocation()))
         return { success: true }
       } catch (err: unknown) {
         // Better Auth errors put `code` at the top level.
@@ -446,7 +449,7 @@ function LandingRegistrationChatInner() {
           if (result.verified) {
             const user = await refreshUser()
             respond?.('Signed in')
-            router.push(afterSignIn(user, nextInLocation()))
+            goTo(router, afterSignIn(user, nextInLocation()))
             return
           }
           respond?.('Sign-in cancelled')

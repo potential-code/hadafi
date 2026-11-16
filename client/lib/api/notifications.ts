@@ -12,6 +12,8 @@ export type NotificationItem = {
   link: string | null
   createdAt: string
   readAt: string | null
+  /** Set by the server for one-time notifications (badge:first_step, certificate:<id>, ...). */
+  dedupeKey?: string | null
 }
 
 export type NotificationList = { items: NotificationItem[]; unread: number }

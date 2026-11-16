@@ -125,6 +125,13 @@ describe('the bell API', () => {
     expect((await api('POST', '/api/me/notifications/00000000-0000-0000-0000-000000000000/read', { token: learner.token })).status).toBe(404)
   })
 
+  it("returns each notification's dedupeKey (the browser's GTM events key off badge:first_step and certificate:<id>)", async () => {
+    await notify(learner.id, { type: 'badge', title: 'Test badge', dedupeKey: 'test:badge-key' })
+    const res = await api<{ data: { items: { title: string; type: string; dedupeKey: string | null }[] } }>('GET', '/api/me/notifications', { token: learner.token })
+    const item = res.body.data.items.find((n) => n.title === 'Test badge')
+    expect(item).toMatchObject({ type: 'badge', dedupeKey: 'test:badge-key' })
+  })
+
   it('needs a signed-in user', async () => {
     expect((await api('GET', '/api/me/notifications', {})).status).toBe(401)
     expect((await api('GET', '/api/me/notifications/unread-count', {})).status).toBe(401)

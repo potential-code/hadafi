@@ -295,3 +295,104 @@ So:
   (locally: `node --env-file=../.env scripts/crm-outbox-status.mjs` from
   `server/`) prints pending / sent / failed counts (read-only). Each run that
   sends something logs "CRM sync run" with the same counts.
+
+## 11. Google Tag Manager and the cookie banner (ported from SMEEP)
+
+- **Off until configured.** `GTM_CONTAINER_ID` on the **client** service
+  (compose passes it through; default empty). Empty, unset or not a
+  `GTM-XXXX` id (`^GTM-[A-Z0-9]{4,10}$`) means no GTM script, no banner and no
+  "Cookie settings" link: the site is exactly as before. That is the kill switch.
+- **Run time, not build time.** The browser reads it from `GET /public-config`
+  (a Next route, `no-store`), so changing it in Dokploy needs a redeploy/restart
+  of the client container, not a code change. Potential.org's "Main" container
+  is `GTM-54W3N48W`; locally use a dummy such as `GTM-TEST1234`.
+- **Old containers are refused.** Hadafi's old `GTM-5C9G6FPK` (and SMEEP's
+  `GTM-NGQNTZJ`, AI Amplify's `GTM-PCDGSJLR`) count as unset in `validGtmId`
+  (`client/lib/consent/gtmId.ts`). Set only the Main id.
+- **Consent Mode v2, default denied.** Before the GTM script is added the page
+  sets `ad_storage`, `analytics_storage`, `ad_user_data` and
+  `ad_personalization` to denied (`wait_for_update: 500`) and
+  `ads_data_redaction`. A returning visitor's Accept is re-applied before GTM
+  loads. Accept grants all four; Reject keeps them denied.
+- **Cookieless pings ("advanced" Consent Mode).** With GTM loaded and consent
+  denied, Google tags can still send cookieless pings. For **zero** requests
+  before Accept, set **"Require additional consent for tag to fire"**
+  (ad_storage / analytics_storage) on every Google tag in the container; the
+  site needs no change for that.
+- **Reject removes this site's cookies only:** `_ga*`, `_gid`, `_gat*`,
+  `_gcl_*`, host-only or set for `hadafi.potential.org` exactly, never the
+  parent `.potential.org` (other Potential.org sites share it and keep their
+  own consent). So Reject can delete them, set `cookie_domain` to
+  `hadafi.potential.org` (not `auto`) in the Google tag / GA4 configuration and
+  the Conversion Linker for this host.
+- **Pages GTM runs on: an allowlist** (`isTrackedUrl` in
+  `client/lib/consent/gtm.ts`). Only `/`, `/login`, `/sign-up` and
+  `/dashboard/**`, minus payment pages (`/dashboard/offers/<id>/checkout`, the
+  Stripe card form; also any `billing`, `payment(s)`, `invoice(s)` page), and
+  only when every query parameter is known to be harmless: `utm_*`, ad click
+  ids (`gclid`, `gbraid`, `wbraid`, ...), `expired` (/login), `mentor`
+  (/dashboard/human-mentors, a mentor id) and `success` (/dashboard/offers).
+  Never tracked: `/mentor/setup?token=` (mentor setup link),
+  `/unsubscribe?token=` (announcement emails), `/sign-up?code=` / `?org=`
+  (invite and organisation codes), `/dashboard/courses?q=` (free-text search),
+  any `?token=`/`?key=`/`?secret=` or other unknown parameter, fragments with
+  values, the staff areas (`/admin`, `/mentor`, `/partner`), the 404 page and
+  any page not on the list. **When you add a page, it is untracked until you
+  add it there; never add a page whose URL can carry a token, code or key.**
+- **GTM starts only in a clean document.** If the current document has shown
+  an untracked URL (e.g. `/sign-up?code=…` then a client-side move to
+  `/login`), or the Navigation API lists one among this document's history
+  entries, GTM does not start for the life of that document. The next full
+  page load on a tracked URL starts fresh. So visitors arriving through an
+  invite, organisation or token link are not tracked for that visit (and their
+  sign-up sends no `sign_up` event).
+- **Referrer-Policy: `strict-origin`** on every page (next.config.ts), so a
+  token or invite URL never shows up in `document.referrer` or another site's
+  logs; only `https://hadafi.potential.org` is sent. The API keeps helmet's
+  `no-referrer`.
+- **Leaving tracked pages.** GTM is loaded with a history guard: a client-side
+  push to an untracked URL becomes `location.assign`, a replace becomes
+  `location.replace`, and Back/Forward or a fragment change onto an untracked
+  URL reloads before GTM's listeners run. Redirects after sign-in (form and
+  Hana's chat), sign-up, mentor setup and RequireAuth's role redirect use
+  `goTo()` (full load into staff areas while GTM runs; client-side as before
+  while GTM is off).
+- **Banner and link.** Choice in `localStorage["hadafi.cookieConsent"]` =
+  `{ choice, version, date }`; asked again after 12 months, or when
+  `CONSENT_VERSION` in `client/lib/consent/consentStorage.ts` goes up. "Cookie
+  settings" (home footer, under the sign-in and sign-up forms, learner
+  sidebar, learner Support > Policies) reopens it; focus returns to the link
+  after the choice. Neither shows on untracked pages. The banner sits above
+  the learner phone tab bar and below menus and dialogs; it uses logical
+  (start/end) placement.
+- **Events.** Pushed only while GTM runs on a tracked page. Only these exact
+  objects, never a name, email, phone, country, course name or id:
+  | Event | When | Where |
+  |---|---|---|
+  | `{ event: 'sign_up_start', method: 'web_form' }` | first focus/typing in the sign-up form, once per page | `client/views/SignUp.tsx` (`startWebForm`) |
+  | `{ event: 'sign_up_start', method: 'hana_chat' }` | Hana's "I want to register" on the homepage, once per page | `LandingRegistrationChat.tsx` (`handleRegisterClick`) |
+  | `{ event: 'sign_up', method: 'web_form' \| 'hana_chat' }` | account created | `client/lib/createAccount.ts` |
+  | `{ event: 'first_lesson_completed' }` | the server's one-time `badge:first_step` notification (first learning step) | `NotificationBell.tsx` -> `consentStore.noteNotifications` |
+  | `{ event: 'course_certificate' }` | the server's one-time `certificate:<id>` notification (certificate issued) | same |
+
+  Hadafi's bell normally polls only the unread count; **while GTM is
+  configured it polls the list** (`GET /api/me/notifications`, 30 items) once
+  a minute and on return to the tab, so the event can arrive up to about a
+  minute later. A notification counts as new if it wasn't in this page's
+  earlier fetches (or, on the first fetch, was created in the last 10
+  minutes); its id is then kept in `localStorage["hadafi.gtmReported"]` so
+  other tabs and later pages don't report it again. Seen first on an untracked
+  page, it is never sent. In GTM, trigger Ads/GA4 conversions on these names.
+- **CSP:** the only Content-Security-Policy is `frame-ancestors 'self'`, which
+  doesn't restrict scripts, so nothing changed. If a script/connect CSP is
+  added later, allow `www.googletagmanager.com`, `*.google-analytics.com`,
+  `*.analytics.google.com`, `googleads.g.doubleclick.net`, `www.google.com`
+  and `*.googlesyndication.com`.
+- **Check after setting it:** in a private window the banner shows; in
+  DevTools `dataLayer[0]` is the consent default; Reject leaves no `_ga`/`_gcl`
+  cookies for this host; Accept adds a `consent update` with all four granted;
+  `/unsubscribe?token=x` and `/mentor/setup?token=x` have no
+  `googletagmanager` script. In Tag Assistant, sign in as an admin from
+  `/login`: the move to `/admin/...` must be a new page load with no GTM, and
+  no History Change or page_view may carry an `/admin` URL (same for a learner
+  opening an offer's checkout).

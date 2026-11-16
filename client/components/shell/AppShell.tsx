@@ -21,6 +21,7 @@ import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
 import { SHELL_CONFIG, allItems, isActive, type ShellConfig, type ShellNavItem, type ShellRole } from './nav'
 import { optimizedSrc } from '@/lib/images'
 import { NotificationBell } from './NotificationBell'
+import { CookieSettingsLink } from '@/components/consent/CookieSettingsLink'
 
 const COLLAPSE_KEY = 'hadafi.sidebarCollapsed'
 
@@ -279,6 +280,7 @@ function ShellSidebar({
       {config.footer.map((item) => (
         <NavLink key={item.href} item={item} active={isActive(pathname, item)} collapsed={collapsed} onNavigate={onNavigate} />
       ))}
+      {config.cookieSettings && !collapsed && <CookieSettingsLink className="px-2.5 text-xs text-ui-muted" />}
 
       <div className={cn('flex items-center gap-2', collapsed ? 'flex-col' : 'rounded-[10px] border border-ui-line p-2', profileActive && !collapsed && 'border-ui-brand bg-ui-brand-soft')}>
         <Link
@@ -522,6 +524,7 @@ export function AppShell({
         {config.tabs.length > 0 && (
           <nav
             aria-label="Main, mobile"
+            data-app-tabbar
             className="sticky bottom-0 z-30 grid shrink-0 grid-cols-5 border-t border-ui-line bg-ui-surface pb-[env(safe-area-inset-bottom)] lg:hidden"
           >
             {config.tabs.map((tab) => {

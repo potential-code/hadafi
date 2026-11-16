@@ -6,6 +6,7 @@ import { ArrowUpRight, ChevronDown, Mail, Search, Sparkles } from 'lucide-react'
 import { DashboardLayout } from '@/components/dashboard/DashboardLayout'
 import { Button, Card, EmptyState, FilterChips, PageHeader, btn, inputClass } from '@/components/kit'
 import { FAQ_TABS } from '@/lib/dashboardData'
+import { CookieSettingsLink } from '@/components/consent/CookieSettingsLink'
 import { cn } from '@/lib/utils'
 
 const SUPPORT_EMAIL = 'hadafi@potential.com'
@@ -163,6 +164,7 @@ export default function SupportPage() {
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
               </a>
             ))}
+            <CookieSettingsLink className="py-1 text-sm text-ui-brand-text hover:text-ui-brand-text hover:underline" />
           </Card>
         </div>
       </div>

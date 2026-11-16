@@ -7,6 +7,7 @@ import { REDESIGN_ASSETS } from '@/lib/constants'
 import { LEGAL_LINKS } from '@/components/landing/legal'
 import { countText, usePublicCounts, type PublicCounts } from '@/components/landing/publicData'
 import { cn } from '@/lib/utils'
+import { CookieSettingsLink } from '@/components/consent/CookieSettingsLink'
 
 /**
  * Public auth screens (sign in, sign up, mentor setup), as SMEEP's AuthSplit:
@@ -60,6 +61,8 @@ export function AuthSplit({
           <a href={LEGAL_LINKS.terms} target="_blank" rel="noopener noreferrer" className="hover:text-ui-text">
             Terms of Use
           </a>
+          {/* Reopens the cookie banner; renders nothing while GTM is off. */}
+          <CookieSettingsLink />
         </div>
       </div>
 

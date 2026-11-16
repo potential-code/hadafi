@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Noto_Sans, Noto_Sans_Arabic, Noto_Sans_Devanagari } from 'next/font/google'
 import './globals.css'
+import { CookieConsent } from '@/components/consent/CookieConsent'
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'swap' })
 
@@ -69,6 +70,8 @@ export default function RootLayout({
           }}
         />
         {children}
+        {/* Google Tag Manager + cookie banner; renders nothing while GTM_CONTAINER_ID is unset. */}
+        <CookieConsent />
       </body>
     </html>
   )

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { goTo } from '@/lib/consent/store'
 import { motion } from 'framer-motion'
 import { Eye, EyeOff, Lock, ArrowRight, AlertCircle, CalendarDays, Check, CheckCircle2, Clock, Loader2, Mail, Users } from 'lucide-react'
 import { toast } from 'sonner'
@@ -57,7 +58,7 @@ function SetupForm() {
         body: JSON.stringify({ token, password }),
       })
       await refreshUser()
-      router.push('/mentor/dashboard')
+      goTo(router, '/mentor/dashboard')
     } catch (err: unknown) {
       // Better Auth errors put `code` at the top level.
       const body = err as { code?: string }

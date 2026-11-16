@@ -7,6 +7,11 @@
  * goes to its page.
  *
  * Self-contained (no React Query): the mentor portal has no query provider.
+ *
+ * While GTM is configured, the poll reads the list instead of the count, so a
+ * newly earned first_step badge or newly issued certificate (the server's
+ * one-time notifications) reaches GTM as first_lesson_completed /
+ * course_certificate (consentStore.noteNotifications; no details are sent).
  */
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
@@ -15,6 +20,8 @@ import type { LucideIcon } from 'lucide-react'
 import { Megaphone, ShieldAlert } from 'lucide-react'
 import { Award, Bell, Building2, CalendarCheck, CalendarClock, CalendarX, CheckCheck, GraduationCap, PlayCircle, Radio, Trophy } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { consentStore, type ConsentStore } from '@/lib/consent/store'
+import { useConsentState } from '@/components/consent/CookieConsent'
 import {
   fetchNotifications,
   fetchUnreadCount,
@@ -43,6 +50,21 @@ const ICONS: Record<string, LucideIcon> = {
 
 const POLL_MS = 60_000
 
+/**
+ * One poll: the unread count. While GTM is configured, the list instead (it
+ * carries the count too), handed to consentStore.noteNotifications. With GTM
+ * off (the kill switch) it is the count alone, as before.
+ */
+export async function pollBell(
+  store: Pick<ConsentStore, 'getState' | 'noteNotifications'> = consentStore,
+  api: { fetchNotifications: typeof fetchNotifications; fetchUnreadCount: typeof fetchUnreadCount } = { fetchNotifications, fetchUnreadCount },
+): Promise<number> {
+  if (!store.getState().gtmId) return api.fetchUnreadCount()
+  const d = await api.fetchNotifications()
+  store.noteNotifications(d.items)
+  return d.unread
+}
+
 function ago(iso: string): string {
   const s = Math.max(0, (Date.now() - new Date(iso).getTime()) / 1000)
   if (s < 60) return 'Just now'
@@ -67,14 +89,18 @@ export function NotificationBell({ variant = 'header' }: { variant?: 'header' | 
   const buttonRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
 
+  // Re-run the poll effect (an immediate check) when /public-config turns GTM on.
+  const { gtmId } = useConsentState()
   const refreshCount = useCallback(() => {
-    fetchUnreadCount().then(setUnread, () => {})
-  }, [])
+    pollBell().then(setUnread, () => {})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gtmId])
   const refreshList = useCallback(() => {
     fetchNotifications().then(
       (d) => {
         setItems(d.items)
         setUnread(d.unread)
+        consentStore.noteNotifications(d.items)
       },
       () => setItems((prev) => prev ?? []),
     )
