@@ -23,6 +23,12 @@ export interface CookieConsentState {
   open: boolean
   /** The current page is on the allowlist (isTrackedUrl). */
   tracked: boolean
+  /**
+   * GTM is loaded in this document. `tracked` alone is not enough: in a
+   * document that has shown an untracked URL GTM never starts, although a
+   * later page in it (e.g. /dashboard after an invite-code sign-up) is tracked.
+   */
+  running: boolean
 }
 
 export type SignUpMethod = 'web_form' | 'hana_chat'
@@ -89,7 +95,7 @@ export function createConsentStore(deps: PlainDeps | Deps = {}) {
             return p.navigate ?? (p.win ? browserNavigate(p.win) : undefined)
           },
         }
-  let state: CookieConsentState = { gtmId: null, choice: null, open: false, tracked: false }
+  let state: CookieConsentState = { gtmId: null, choice: null, open: false, tracked: false, running: false }
   let url: string | null = null
   let asked = false // the banner opens by itself at most once per page load
   // This document has shown an untracked URL (a token, invite code, staff
@@ -98,7 +104,13 @@ export function createConsentStore(deps: PlainDeps | Deps = {}) {
   let tainted = false
   let opener: { focus(): void; isConnected?: boolean } | null = null
   const started = new Set<SignUpMethod>() // sign_up_start sent on this page
-  let seenNotifications: Set<string> | null = null // ids in this document's fetches
+  // Ids in this document's noted fetches, for the signed-in user they belong
+  // to: another account signing in (no page load between) starts afresh.
+  let seenNotifications: Set<string> | null = null
+  let seenFor: string | null = null
+  // Ids whose event this document pushed (whoever was signed in): stops a
+  // repeat when localStorage is unavailable.
+  const pushedHere = new Set<string>()
   const listeners = new Set<() => void>()
 
   const set = (next: Partial<CookieConsentState>) => {
@@ -107,7 +119,8 @@ export function createConsentStore(deps: PlainDeps | Deps = {}) {
       merged.gtmId === state.gtmId &&
       merged.choice === state.choice &&
       merged.open === state.open &&
-      merged.tracked === state.tracked
+      merged.tracked === state.tracked &&
+      merged.running === state.running
     )
       return
     state = merged
@@ -119,7 +132,7 @@ export function createConsentStore(deps: PlainDeps | Deps = {}) {
   /** Pushes only while GTM runs on a tracked page; returns whether it did. */
   const push = (e: MarketingEvent): boolean => {
     const win = d.win()
-    if (!state.gtmId || !state.tracked || !win?.__hadafiGtmLoaded) return false
+    if (!state.gtmId || !state.tracked || !state.running || !win?.__hadafiGtmLoaded) return false
     win.dataLayer = win.dataLayer || []
     win.dataLayer.push({ ...e })
     return true
@@ -137,7 +150,7 @@ export function createConsentStore(deps: PlainDeps | Deps = {}) {
     try {
       d.storage()?.setItem(REPORTED_KEY, JSON.stringify([...reported(), id].slice(-50)))
     } catch {
-      /* private mode: this page's seen set still stops repeats */
+      /* private mode: pushedHere still stops repeats in this document */
     }
   }
 
@@ -165,7 +178,7 @@ export function createConsentStore(deps: PlainDeps | Deps = {}) {
     // change doesn't produce a new pathname) must be tracked.
     const address = currentAddress(win)
     const tracked = isTrackedUrl(url) && (address === null || isTrackedUrl(address))
-    set({ tracked })
+    set({ tracked, running: gtmLoaded() })
     if (!tracked) {
       tainted = true
       // Fallback only: the history guard has normally started a full load to
@@ -185,6 +198,7 @@ export function createConsentStore(deps: PlainDeps | Deps = {}) {
       return
     }
     bootGtm(win, state.gtmId, state.choice, d.navigate() ?? browserNavigate(win))
+    set({ running: gtmLoaded() })
     if (!asked) {
       asked = true
       if (state.choice === null) set({ open: true })
@@ -207,7 +221,7 @@ export function createConsentStore(deps: PlainDeps | Deps = {}) {
     /** Called with the validated container id from /public-config (null = off). */
     configure(gtmId: string | null) {
       if (!gtmId) {
-        set({ gtmId: null, choice: null, open: false, tracked: false })
+        set({ gtmId: null, choice: null, open: false, tracked: false, running: false })
         return
       }
       set({ gtmId, choice: readChoice(d.storage(), d.now()) })
@@ -273,28 +287,37 @@ export function createConsentStore(deps: PlainDeps | Deps = {}) {
       if (push({ event: 'sign_up_start', method })) started.add(method)
     },
     /**
-     * Called with each notifications fetch. A first_step badge or certificate
-     * notification that is new (not in this page's earlier fetches, or on the
-     * first fetch created in the last 10 minutes) and not handled before in
-     * this browser is reported once. Seen on a page that can't be tracked, it
-     * is marked handled and never sent.
+     * Called with each notifications fetch of the signed-in user `userId`. A
+     * first_step badge or certificate notification created in the last 10
+     * minutes, not in this page's earlier fetches for that user and not handled
+     * before in this browser, is reported once.
+     *
+     * Only while GTM runs on a tracked page: anywhere else (GTM off, an
+     * untracked page, a document where GTM never started) the fetch is not
+     * noted at all, so nothing is consumed and the next page where GTM runs
+     * still reports it if it is recent. An id is marked handled only once
+     * its event has been pushed.
      */
-    noteNotifications(items: NotificationLike[]) {
-      if (!state.gtmId) return
-      const first = seenNotifications === null
+    noteNotifications(items: NotificationLike[], userId: string | null) {
+      if (!state.gtmId || !state.tracked || !state.running) return
+      if (userId !== seenFor) {
+        seenFor = userId
+        seenNotifications = null
+      }
+      const seen = seenNotifications ?? new Set<string>()
       const nowMs = d.now().getTime()
       const done = new Set(reported())
       for (const n of items) {
         const e = eventForNotification(n)
-        if (!e || done.has(n.id)) continue
+        if (!e || done.has(n.id) || pushedHere.has(n.id) || seen.has(n.id)) continue
         const created = Date.parse(n.createdAt)
-        const isNew = first ? Number.isFinite(created) && Math.abs(nowMs - created) <= RECENT_MS : !seenNotifications!.has(n.id)
-        if (!isNew) continue
+        if (!Number.isFinite(created) || Math.abs(nowMs - created) > RECENT_MS) continue
+        if (!push(e)) continue
+        pushedHere.add(n.id)
         done.add(n.id)
         markReported(n.id)
-        push(e)
       }
-      seenNotifications = new Set([...(seenNotifications ?? []), ...items.map((n) => n.id)])
+      seenNotifications = new Set([...seen, ...items.map((n) => n.id)])
     },
   }
 }

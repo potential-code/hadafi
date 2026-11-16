@@ -375,14 +375,18 @@ So:
   | `{ event: 'first_lesson_completed' }` | the server's one-time `badge:first_step` notification (first learning step) | `NotificationBell.tsx` -> `consentStore.noteNotifications` |
   | `{ event: 'course_certificate' }` | the server's one-time `certificate:<id>` notification (certificate issued) | same |
 
-  Hadafi's bell normally polls only the unread count; **while GTM is
-  configured it polls the list** (`GET /api/me/notifications`, 30 items) once
-  a minute and on return to the tab, so the event can arrive up to about a
-  minute later. A notification counts as new if it wasn't in this page's
-  earlier fetches (or, on the first fetch, was created in the last 10
-  minutes); its id is then kept in `localStorage["hadafi.gtmReported"]` so
-  other tabs and later pages don't report it again. Seen first on an untracked
-  page, it is never sent. In GTM, trigger Ads/GA4 conversions on these names.
+  Hadafi's bell normally polls only the unread count; **in the learner shell,
+  while GTM actually runs on a tracked page, it polls the list**
+  (`GET /api/me/notifications`, 30 items) once a minute and on return to the
+  tab, so the event can arrive up to about a minute later. A notification
+  counts as new if the server created it in the last 10 minutes and it wasn't
+  in this page's earlier fetches for the same signed-in user; once its event
+  is pushed, its id is kept in `localStorage["hadafi.gtmReported"]` so other
+  tabs and later pages don't report it again. In a document where GTM never
+  started (one that showed an invite-code or token URL first) nothing is
+  consumed, and the next page load where GTM runs reports it if it is still
+  recent. Signing out is a full page load, so a second account in the same tab
+  starts from a clean page. In GTM, trigger Ads/GA4 conversions on these names.
 - **CSP:** the only Content-Security-Policy is `frame-ancestors 'self'`, which
   doesn't restrict scripts, so nothing changed. If a script/connect CSP is
   added later, allow `www.googletagmanager.com`, `*.google-analytics.com`,

@@ -215,7 +215,7 @@ function ShellSidebar({
         {/* The desktop sidebar has the bell (the phone header has its own). */}
         {onToggle && !collapsed && (
           <span className="ml-auto">
-            <NotificationBell variant="sidebar" events={config.notificationEvents} />
+            <NotificationBell variant="sidebar" events={config.notificationEvents} userId={user?.id ?? null} />
           </span>
         )}
         {onToggle && (
@@ -255,7 +255,7 @@ function ShellSidebar({
 
       {onToggle && collapsed && (
         <div className="flex justify-center">
-          <NotificationBell variant="sidebar" events={config.notificationEvents} />
+          <NotificationBell variant="sidebar" events={config.notificationEvents} userId={user?.id ?? null} />
         </div>
       )}
 
@@ -449,7 +449,8 @@ export function AppShell({
 
   // Ends the session on the server (revoking it), not just in this browser,
   // then a full page load: nothing from this account (query cache, in-memory
-  // chat state) carries over to whoever signs in next.
+  // chat state, the consent store's per-page state, the shared bell poll)
+  // carries over to whoever signs in next.
   const logout = useCallback(async () => {
     await signOut().catch(() => {})
     window.location.assign('/login')
@@ -487,7 +488,7 @@ export function AppShell({
           <Link href={config.homeHref} className="mr-auto flex items-center">
             <img src={REDESIGN_ASSETS.logo.src} alt={REDESIGN_ASSETS.logo.alt} className="h-7 w-auto dark:brightness-0 dark:invert" />
           </Link>
-          <NotificationBell events={config.notificationEvents} />
+          <NotificationBell events={config.notificationEvents} userId={user?.id ?? null} />
           {config.quickAction && (
             <Link
               href={config.quickAction.href}

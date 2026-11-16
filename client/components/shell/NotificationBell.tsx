@@ -8,12 +8,13 @@
  *
  * Self-contained (no React Query): the mentor portal has no query provider.
  *
- * In the learner shell, while GTM tracks the page, the poll reads the list
- * instead of the count, so a newly earned first_step badge or newly issued
- * certificate (the server's one-time notifications) reaches GTM as
- * first_lesson_completed / course_certificate (consentStore.noteNotifications;
- * no details are sent). Staff shells, and every shell with GTM off, poll the
- * count alone, as before.
+ * In the learner shell, while GTM runs on a tracked page, the poll reads the
+ * list instead of the count, so a newly earned first_step badge or newly
+ * issued certificate (the server's one-time notifications) reaches GTM as
+ * first_lesson_completed / course_certificate (consentStore.noteNotifications,
+ * with the signed-in user's id; no details are sent). Staff shells, every
+ * shell with GTM off, and a document where GTM never started (one that showed
+ * an invite-code or token URL first) poll the count alone, as before.
  *
  * The shell mounts two bells (sidebar and phone top bar, one hidden by CSS):
  * polls that start together share one request (pollBell).
@@ -59,40 +60,46 @@ const SHARE_MS = 2_000
 
 type BellApi = { fetchNotifications: typeof fetchNotifications; fetchUnreadCount: typeof fetchUnreadCount }
 
-/** The latest poll, shared by every bell on the page. */
-let shared: { list: boolean; at: number; result: Promise<number> } | null = null
+/** The latest poll, shared by every bell on the page (a list poll only with the same user's). */
+let shared: { list: boolean; userId: string | null; at: number; result: Promise<number> } | null = null
 
 /** The next poll asks the server again (after a notification was read). */
 export function forgetBellPoll() {
   shared = null
 }
 
-/** The poll reads the list only in the learner shell, on a page GTM tracks. */
-export function bellReadsList(events: boolean, state: Pick<CookieConsentState, 'gtmId' | 'tracked'>): boolean {
-  return events && !!state.gtmId && state.tracked
+/**
+ * The poll reads the list only in the learner shell, while GTM actually runs
+ * on a tracked page (`tracked` alone isn't enough: in a document that showed
+ * an untracked URL first GTM never starts, and noting there would be wasted).
+ */
+export function bellReadsList(events: boolean, state: Pick<CookieConsentState, 'gtmId' | 'tracked' | 'running'>): boolean {
+  return events && !!state.gtmId && state.tracked && state.running
 }
 
 /**
- * One poll: the unread count. In the learner shell (`events`) while GTM
- * tracks the page, the list instead (it carries the count too), handed to
- * noteNotifications. Every bell on the page that polls within SHARE_MS of
- * another gets that poll's request and result instead of its own.
+ * One poll: the unread count. In the learner shell (`events`) while GTM runs
+ * on a tracked page, the list instead (it carries the count too), handed to
+ * noteNotifications for the signed-in user `userId`. Every bell on the page
+ * that polls within SHARE_MS of another gets that poll's request and result
+ * instead of its own; a list poll only from the same user's.
  */
 export function pollBell(
   events: boolean,
   store: Pick<ConsentStore, 'getState' | 'noteNotifications'> = consentStore,
   api: BellApi = { fetchNotifications, fetchUnreadCount },
+  userId: string | null = null,
 ): Promise<number> {
   const list = bellReadsList(events, store.getState())
   const now = Date.now()
-  if (shared && shared.list === list && now - shared.at < SHARE_MS) return shared.result
+  if (shared && shared.list === list && (!list || shared.userId === userId) && now - shared.at < SHARE_MS) return shared.result
   const result = list
     ? api.fetchNotifications().then((d) => {
-        store.noteNotifications(d.items)
+        store.noteNotifications(d.items, userId)
         return d.unread
       })
     : api.fetchUnreadCount()
-  const entry = { list, at: now, result }
+  const entry = { list, userId, at: now, result }
   shared = entry
   // A failed poll isn't reused: the next one tries again.
   result.catch(() => {
@@ -120,11 +127,14 @@ function announceChange(unread?: unknown) {
 export function NotificationBell({
   variant = 'header',
   events = false,
+  userId = null,
   store = consentStore,
 }: {
   variant?: 'header' | 'sidebar'
   /** The learner shell: new badge/certificate notifications may reach GTM. */
   events?: boolean
+  /** The signed-in user: their list is noted as theirs, never shared with the next account's. */
+  userId?: string | null
   store?: ConsentStore
 }) {
   const router = useRouter()
@@ -136,23 +146,24 @@ export function NotificationBell({
   const panelRef = useRef<HTMLDivElement>(null)
 
   // Re-run the poll effect (an immediate check) when the poll starts or stops
-  // reading the list: GTM turned on by /public-config, or a tracked page.
-  const { gtmId, tracked } = useConsentState(store)
-  const readsList = bellReadsList(events, { gtmId, tracked })
+  // reading the list (GTM started after /public-config, or a tracked page),
+  // or another account signs in.
+  const { gtmId, tracked, running } = useConsentState(store)
+  const readsList = bellReadsList(events, { gtmId, tracked, running })
   const refreshCount = useCallback(() => {
-    pollBell(events, store).then(setUnread, () => {})
+    pollBell(events, store, undefined, userId).then(setUnread, () => {})
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [events, store, readsList])
+  }, [events, store, userId, readsList])
   const refreshList = useCallback(() => {
     fetchNotifications().then(
       (d) => {
         setItems(d.items)
         setUnread(d.unread)
-        if (events) store.noteNotifications(d.items)
+        if (events) store.noteNotifications(d.items, userId)
       },
       () => setItems((prev) => prev ?? []),
     )
-  }, [events, store])
+  }, [events, store, userId])
 
   // The count: now, every minute, and when the tab comes back.
   useEffect(() => {

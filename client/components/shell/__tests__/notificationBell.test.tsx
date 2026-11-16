@@ -9,9 +9,10 @@ import { forgetBellPoll, pollBell } from '../NotificationBell'
  * Hadafi's bell normally polls only the unread count; the list loads when the
  * panel opens. The learner GTM events (first_lesson_completed,
  * course_certificate) come from the server's one-time badge:first_step and
- * certificate:<id> notifications, so in the learner shell, while GTM tracks
- * the page, the poll reads the list and hands it to noteNotifications.
- * Otherwise (GTM off, an untracked page, a staff shell) it is the count alone,
+ * certificate:<id> notifications, so in the learner shell, while GTM runs on
+ * a tracked page, the poll reads the list and hands it to noteNotifications
+ * with the signed-in user's id. Otherwise (GTM off, an untracked page, a
+ * document where GTM never started, a staff shell) it is the count alone,
  * exactly as before. The shell mounts two bells; they share one poll.
  */
 
@@ -46,14 +47,22 @@ function fakeApi() {
 
 function fakeStore(state: Partial<CookieConsentState>) {
   const seen: string[][] = []
+  const users: (string | null)[] = []
   return {
     seen,
+    users,
     store: {
-      getState: (): CookieConsentState => ({ gtmId: null, choice: null, open: false, tracked: false, ...state }),
-      noteNotifications: (items: { id: string }[]) => void seen.push(items.map((i) => i.id)),
+      getState: (): CookieConsentState => ({ gtmId: null, choice: null, open: false, tracked: false, running: false, ...state }),
+      noteNotifications: (items: { id: string }[], userId: string | null) => {
+        seen.push(items.map((i) => i.id))
+        users.push(userId)
+      },
     },
   }
 }
+
+/** GTM loaded and the page tracked. */
+const RUNNING = { gtmId: 'GTM-TEST1234', tracked: true, running: true } as const
 
 describe('the bell poll', () => {
   beforeEach(() => forgetBellPoll())
@@ -67,7 +76,7 @@ describe('the bell poll', () => {
   })
 
   it('reads the list in the learner shell on a tracked page and passes it to noteNotifications', async () => {
-    const { store, seen } = fakeStore({ gtmId: 'GTM-TEST1234', tracked: true })
+    const { store, seen } = fakeStore(RUNNING)
     const { calls, api } = fakeApi()
     expect(await pollBell(true, store, api)).toBe(4)
     expect(calls).toEqual(['list'])
@@ -77,7 +86,7 @@ describe('the bell poll', () => {
   it('reads only the count on an untracked page, and in staff shells', async () => {
     for (const [events, tracked] of [[true, false], [false, true]] as const) {
       forgetBellPoll()
-      const { store, seen } = fakeStore({ gtmId: 'GTM-TEST1234', tracked })
+      const { store, seen } = fakeStore({ ...RUNNING, tracked })
       const { calls, api } = fakeApi()
       expect(await pollBell(events, store, api)).toBe(3)
       expect(calls).toEqual(['count'])
@@ -85,8 +94,25 @@ describe('the bell poll', () => {
     }
   })
 
+  it('reads only the count where GTM never started, although the page is tracked (tainted document)', async () => {
+    const { store, seen } = fakeStore({ ...RUNNING, running: false })
+    const { calls, api } = fakeApi()
+    expect(await pollBell(true, store, api, 'u1')).toBe(3)
+    expect(calls).toEqual(['count'])
+    expect(seen).toEqual([])
+  })
+
+  it("hands the list over with the signed-in user's id; another user's poll is never shared", async () => {
+    const { store, seen, users } = fakeStore(RUNNING)
+    const { calls, api } = fakeApi()
+    await pollBell(true, store, api, 'learner-a')
+    await pollBell(true, store, api, 'learner-b') // within the share window, but another account
+    expect(calls).toEqual(['list', 'list'])
+    expect([seen, users]).toEqual([[['n1'], ['n1']], ['learner-a', 'learner-b']])
+  })
+
   it('polls that start together share one request and its result', async () => {
-    const { store, seen } = fakeStore({ gtmId: 'GTM-TEST1234', tracked: true })
+    const { store, seen } = fakeStore(RUNNING)
     const { calls, api } = fakeApi()
     expect(await Promise.all([pollBell(true, store, api), pollBell(true, store, api)])).toEqual([4, 4])
     expect(await pollBell(true, store, api)).toBe(4) // just after: still the same poll
@@ -231,6 +257,41 @@ describe('the bell, mounted', () => {
     expect(requests).toEqual(['count', 'list'])
     expect(badges(v.host)).toEqual(['Notifications, 4 unread'])
     await v.unmount()
+  })
+
+  it('a tainted document (invite-code sign-up, then /dashboard client-side) polls only the count', async () => {
+    const store = newStore()
+    store.configure('GTM-TEST1234')
+    store.enterPath('/sign-up?code=INV123')
+    store.enterPath('/dashboard')
+    expect(store.getState()).toMatchObject({ tracked: true, running: false })
+    const v = await render(<NotificationBell events userId="u1" store={store} />)
+    expect(requests).toEqual(['count'])
+    await v.unmount()
+  })
+
+  it('a different signed-in user re-polls at once and the list is noted for them', async () => {
+    const store = newStore()
+    store.configure('GTM-TEST1234')
+    store.enterPath('/dashboard')
+    const noted: [string[], string | null][] = []
+    const spy = { ...store, noteNotifications: (items: { id: string }[], userId: string | null) => void noted.push([items.map((i) => i.id), userId]) }
+    const host = g.document.createElement('div')
+    g.document.body.appendChild(host)
+    const root = createRoot(host)
+    const ui = (userId: string) => (
+      <AppRouterContext.Provider value={router}>
+        <NotificationBell events userId={userId} store={spy} />
+      </AppRouterContext.Provider>
+    )
+    await act(async () => root.render(ui('learner-a')))
+    await settle()
+    await act(async () => root.render(ui('learner-b')))
+    await settle()
+    expect(requests).toEqual(['list', 'list'])
+    expect(noted).toEqual([[['n1'], 'learner-a'], [['n1'], 'learner-b']])
+    await act(async () => root.unmount())
+    host.remove()
   })
 
   it('a staff shell bell keeps polling only the count while tracking is on', async () => {

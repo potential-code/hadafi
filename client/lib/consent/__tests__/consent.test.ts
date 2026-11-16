@@ -328,7 +328,7 @@ describe('consent store', () => {
     const { store, win, appended } = setup()
     store.configure(null)
     store.enterPath('/')
-    expect(store.getState()).toEqual({ gtmId: null, choice: null, open: false, tracked: false })
+    expect(store.getState()).toEqual({ gtmId: null, choice: null, open: false, tracked: false, running: false })
     expect(win.dataLayer).toBeUndefined()
     expect(appended).toHaveLength(0)
     store.openSettings()
@@ -341,7 +341,7 @@ describe('consent store', () => {
     const { store, win, appended } = setup()
     store.configure('GTM-TEST1234')
     store.enterPath('/')
-    expect(store.getState()).toEqual({ gtmId: 'GTM-TEST1234', choice: null, open: true, tracked: true })
+    expect(store.getState()).toEqual({ gtmId: 'GTM-TEST1234', choice: null, open: true, tracked: true, running: true })
     expect(appended).toHaveLength(1)
     expect((entries(win.dataLayer)[0] as unknown[])[1]).toBe('default')
   })
@@ -383,7 +383,7 @@ describe('consent store', () => {
     const { store } = setup('rejected')
     store.configure('GTM-TEST1234')
     store.enterPath('/dashboard')
-    expect(store.getState()).toEqual({ gtmId: 'GTM-TEST1234', choice: 'rejected', open: false, tracked: true })
+    expect(store.getState()).toEqual({ gtmId: 'GTM-TEST1234', choice: 'rejected', open: false, tracked: true, running: true })
     store.openSettings()
     expect(store.getState().open).toBe(true)
     store.accept()
@@ -492,6 +492,17 @@ describe('redirects after sign-in and setup', () => {
     store.go('/admin/dashboard', push, 'replace')
     expect(nav.replaced).toEqual(['/admin/dashboard'])
     expect(nav.assigned).toHaveLength(3)
+  })
+
+  it('signing out is a full page load (nothing from the last account survives in the document)', () => {
+    const { readFileSync } = require('node:fs') as typeof import('node:fs')
+    const path = require('node:path') as typeof import('node:path')
+    const root = path.join(import.meta.dir, '..', '..', '..')
+    for (const f of ['components/shell/AppShell.tsx', 'views/mentor/Profile.tsx', 'views/partner/Dashboard.tsx', 'components/dashboard/RequireAuth.tsx']) {
+      const src = readFileSync(path.join(root, f), 'utf8')
+      expect([f, /router\.(push|replace)\(['"]\/login/.test(src)]).toEqual([f, false])
+      expect([f, /window\.location\.(assign|replace)\(['"]\/login/.test(src)]).toEqual([f, true])
+    }
   })
 
   it('every staff-capable redirect goes through goTo', () => {
@@ -640,7 +651,7 @@ describe('marketing events (Maya spec)', () => {
     r.store.enterPath('/mentor/setup?token=abc') // GTM loaded, page untracked (reload pending)
     r.store.trackSignUpStart('web_form')
     r.store.trackSignUp('web_form')
-    r.store.noteNotifications([firstStep('n1', ago(1))])
+    r.store.noteNotifications([firstStep('n1', ago(1))], 'u1')
     expect(pushedEvents(r.win)).toEqual([])
 
     const f = fakeWindow('/dashboard')
@@ -649,43 +660,43 @@ describe('marketing events (Maya spec)', () => {
     off.configure(null)
     off.enterPath('/dashboard')
     off.trackSignUpStart('web_form')
-    off.noteNotifications([firstStep('n1', ago(1))])
+    off.noteNotifications([firstStep('n1', ago(1))], 'u1')
     expect(f.win.dataLayer).toBeUndefined()
     expect(storage.dump()).toEqual({}) // GTM off: nothing stored either
   })
 
   it('first_lesson_completed: when the first_step badge notification is new, exactly once', () => {
     const { win, store } = running()
-    store.noteNotifications([]) // first fetch: nothing yet
-    store.noteNotifications([firstStep('n1', ago(0))]) // the next poll brings the newly earned badge
-    store.noteNotifications([firstStep('n1', ago(0))])
+    store.noteNotifications([], 'u1') // first fetch: nothing yet
+    store.noteNotifications([firstStep('n1', ago(0))], 'u1') // the next poll brings the newly earned badge
+    store.noteNotifications([firstStep('n1', ago(0))], 'u1')
     expect(pushedEvents(win)).toEqual([{ event: 'first_lesson_completed' }])
   })
 
   it('counts a badge already in the first fetch only if the server created it in the last 10 minutes', () => {
     const recent = running()
-    recent.store.noteNotifications([firstStep('n1', ago(2))])
+    recent.store.noteNotifications([firstStep('n1', ago(2))], 'u1')
     expect(pushedEvents(recent.win)).toEqual([{ event: 'first_lesson_completed' }])
     const old = running()
-    old.store.noteNotifications([firstStep('n1', ago(60 * 24))])
+    old.store.noteNotifications([firstStep('n1', ago(60 * 24))], 'u1')
     expect(pushedEvents(old.win)).toEqual([])
   })
 
   it('ignores other badges and notifications', () => {
     const { win, store } = running()
-    store.noteNotifications([])
+    store.noteNotifications([], 'u1')
     store.noteNotifications([
       { id: 'n2', type: 'badge', dedupeKey: 'badge:streak_7', createdAt: ago(0) },
       { id: 'n3', type: 'announcement', dedupeKey: null, createdAt: ago(0) },
-    ])
+    ], 'u1')
     expect(pushedEvents(win)).toEqual([])
   })
 
   it('course_certificate: once per newly issued certificate, with no course name or ids', () => {
     const { win, store } = running('/dashboard/certificates')
-    store.noteNotifications([cert('c0', ago(500))]) // an old one: not new
-    store.noteNotifications([cert('c1', ago(0)), cert('c0', ago(500))])
-    store.noteNotifications([cert('c1', ago(0)), cert('c0', ago(500))])
+    store.noteNotifications([cert('c0', ago(500))], 'u1') // an old one: not new
+    store.noteNotifications([cert('c1', ago(0)), cert('c0', ago(500))], 'u1')
+    store.noteNotifications([cert('c1', ago(0)), cert('c0', ago(500))], 'u1')
     expect(pushedEvents(win)).toEqual([{ event: 'course_certificate' }])
     const all = JSON.stringify(win.dataLayer)
     for (const s of ['Layla', 'c1', 'certificate:', 'LinkedIn']) expect(all).not.toContain(s)
@@ -694,20 +705,67 @@ describe('marketing events (Maya spec)', () => {
   it('another tab or page load in the same browser does not report it again', () => {
     const storage = memoryStorage()
     const a = running('/dashboard', storage)
-    a.store.noteNotifications([firstStep('n1', ago(1))])
+    a.store.noteNotifications([firstStep('n1', ago(1))], 'u1')
     const b = running('/dashboard/courses', storage)
-    b.store.noteNotifications([firstStep('n1', ago(2))])
+    b.store.noteNotifications([firstStep('n1', ago(2))], 'u1')
     expect([pushedEvents(a.win).length, pushedEvents(b.win).length]).toEqual([1, 0])
   })
 
-  it('seen first on an untracked page: never reported later', () => {
+  it('seen where GTM is not running: not consumed, the next page where it runs reports it', () => {
     const storage = memoryStorage()
     const a = running('/', storage)
-    a.store.enterPath('/admin/dashboard')
-    a.store.noteNotifications([firstStep('n1', ago(1))])
+    a.store.enterPath('/admin/dashboard') // untracked (reload pending)
+    a.store.noteNotifications([firstStep('n1', ago(1))], 'u1')
+    expect(storage.dump()['hadafi.gtmReported']).toBeUndefined()
     const b = running('/dashboard', storage)
-    b.store.noteNotifications([firstStep('n1', ago(2))])
-    expect([pushedEvents(a.win).length, pushedEvents(b.win).length]).toEqual([0, 0])
+    b.store.noteNotifications([firstStep('n1', ago(2))], 'u1')
+    expect([pushedEvents(a.win).length, pushedEvents(b.win)]).toEqual([0, [{ event: 'first_lesson_completed' }]])
+  })
+
+  it('a tainted document (invite-code sign-up, then /dashboard client-side) never starts GTM and consumes nothing', () => {
+    const storage = memoryStorage()
+    const f = fakeWindow('/sign-up?code=INV123')
+    const store = createConsentStore({ storage, win: f.win, now, navigate: f.navigate })
+    store.configure('GTM-TEST1234')
+    store.enterPath('/sign-up?code=INV123')
+    f.win.history.pushState(null, '', '/dashboard')
+    store.enterPath('/dashboard')
+    expect(store.getState()).toMatchObject({ tracked: true, running: false })
+    expect(f.win.__hadafiGtmLoaded).toBeUndefined()
+    store.noteNotifications([firstStep('n1', ago(1))], 'u1')
+    expect(f.win.dataLayer ?? []).toEqual([])
+    expect(storage.dump()['hadafi.gtmReported']).toBeUndefined()
+    // The next full page load (GTM runs) still reports it.
+    const next = running('/dashboard', storage)
+    next.store.noteNotifications([firstStep('n1', ago(2))], 'u1')
+    expect(pushedEvents(next.win)).toEqual([{ event: 'first_lesson_completed' }])
+  })
+
+  it('another learner signing in in the same tab: their older notifications are not replayed as new', () => {
+    const { win, store } = running()
+    store.noteNotifications([firstStep('a1', ago(60 * 24))], 'learner-a')
+    store.noteNotifications([], 'learner-a')
+    // A signs out and B signs in without a page load: B's history is not new.
+    store.noteNotifications([firstStep('b1', ago(60 * 24)), cert('b2', ago(300))], 'learner-b')
+    expect(pushedEvents(win)).toEqual([])
+    // B's own newly earned certificate still counts.
+    store.noteNotifications([cert('b3', ago(0)), firstStep('b1', ago(60 * 24)), cert('b2', ago(300))], 'learner-b')
+    expect(pushedEvents(win)).toEqual([{ event: 'course_certificate' }])
+  })
+
+  it('without localStorage, a list noted again once the user id is known is not reported twice', () => {
+    const blocked = { getItem: () => null, setItem: () => { throw new Error('quota') }, removeItem: () => {} }
+    const { win, store } = running('/dashboard', blocked as any)
+    store.noteNotifications([firstStep('n1', ago(1))], null) // the shell hasn't read the user yet
+    store.noteNotifications([firstStep('n1', ago(1))], 'u1')
+    expect(pushedEvents(win)).toEqual([{ event: 'first_lesson_completed' }])
+  })
+
+  it('the 10-minute window applies on every fetch, not only the first', () => {
+    const { win, store } = running()
+    store.noteNotifications([], 'u1')
+    store.noteNotifications([cert('c9', ago(60))], 'u1') // not in the first fetch, but an hour old
+    expect(pushedEvents(win)).toEqual([])
   })
 
   it('wiring: the form and Hana report sign_up_start', () => {
