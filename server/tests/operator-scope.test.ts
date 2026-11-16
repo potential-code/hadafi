@@ -52,6 +52,7 @@ describe('operator route allowlist', () => {
       ['DELETE', `/api/media/${id}`],
       ['GET', '/api/admin/ai-reports'],
       ['PATCH', `/api/admin/ai-reports/${id}`],
+      ['POST', `/api/admin/ai-reports/${id}/notes`],
       ['GET', '/api/admin/stats'],
       ['GET', '/api/admin/analytics/insights'],
       ['GET', '/api/admin/analytics/impact'],
@@ -71,11 +72,13 @@ describe('operator route allowlist', () => {
       ['GET', '/api/admin/exports/newsletter'],
       ['GET', `/api/admin/organisations/${id}/exports/learners`],
       ['POST', '/api/admin/ai/report'],
-      // AI generation, uploads, the Zoom host link, reviewer notes.
+      // AI generation, uploads, the Zoom host link.
       ['POST', '/api/admin/quiz/generate'],
       ['POST', '/api/media/upload'],
       ['GET', `/api/live-events/${id}/zoom/start-url`],
-      ['POST', `/api/admin/ai-reports/${id}/notes`],
+      // Other AI-report routes: only list, status and notes are allowed.
+      ['DELETE', `/api/admin/ai-reports/${id}`],
+      ['GET', `/api/admin/ai-reports/${id}/notes`],
       // Hadafi-only announcement edits (PUT can send): not in SMEEP's scope.
       ['PUT', `/api/admin/announcements/${id}`],
       ['DELETE', `/api/admin/announcements/${id}`],

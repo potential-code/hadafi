@@ -2,7 +2,7 @@ import { describe, it, expect, beforeAll, afterAll, afterEach } from 'bun:test'
 import crypto from 'node:crypto'
 import { and, eq, inArray } from 'drizzle-orm'
 import { db } from '../db'
-import { users, adminAuditLog, organisations } from '../db/schema'
+import { users, adminAuditLog, organisations, aiReports, aiReportNotes } from '../db/schema'
 import { EventEmitter } from 'node:events'
 import { spawn, type ChildProcess } from 'node:child_process'
 import net from 'node:net'
@@ -27,6 +27,7 @@ const serviceEmail = fixtureEmail('maya-audit')
 const KEY = `hadafi_op_${crypto.randomBytes(32).toString('base64url')}`
 const sha256 = (s: string) => crypto.createHash('sha256').update(s).digest('hex')
 const orgIds: string[] = []
+const reportIds: string[] = []
 
 const savedEnv = { keys: process.env['OPERATOR_API_KEYS'], email: process.env['OPERATOR_SERVICE_USER_EMAIL'] }
 const realWrite = auditSink.write
@@ -77,6 +78,7 @@ afterAll(async () => {
   await flushAuditWrites()
   await db.delete(adminAuditLog).where(inArray(adminAuditLog.actorUserId, [admin.id, learner.id, serviceUserId]))
   if (orgIds.length) await db.delete(organisations).where(inArray(organisations.id, orgIds))
+  if (reportIds.length) await db.delete(aiReports).where(inArray(aiReports.id, reportIds)) // notes cascade
   await cleanupFixtureUsers()
   await stopTestServer()
 })
@@ -120,6 +122,30 @@ describe('admin audit log', () => {
     expect(row!.actorKind).toBe('operator_key')
     expect(row!.keyLabel).toBe('maya-audit')
     expect(row!.targetIds).toEqual({ id })
+  })
+
+  it('lets a key add a note to an AI safety report, recorded like any other mutation', async () => {
+    const [report] = await db
+      .insert(aiReports)
+      .values({ userId: learner.id, surface: 'ask-hana', reason: 'wrong', reply: 'Audit test answer', replyHash: crypto.randomUUID() })
+      .returning({ id: aiReports.id })
+    const reportId = report!.id
+    reportIds.push(reportId)
+    const path = `/api/admin/ai-reports/${reportId}/notes`
+
+    const res = await call('POST', path, { key: KEY, body: { text: 'Prompt fixed' } })
+    expect(res.status).toBe(201)
+    const notes = await db.select().from(aiReportNotes).where(eq(aiReportNotes.reportId, reportId))
+    expect(notes.map((n) => [n.text, n.adminId])).toEqual([['Prompt fixed', serviceUserId]])
+
+    const [row] = await rowsFor(serviceUserId, path)
+    expect(row).toBeDefined()
+    expect(row!.actorKind).toBe('operator_key')
+    expect(row!.keyLabel).toBe('maya-audit')
+    expect(row!.method).toBe('POST')
+    expect(row!.statusCode).toBe(201)
+    expect(row!.targetIds).toEqual({ id: reportId })
+    expect(row!.requestSummary).toEqual({ body: { text: 'Prompt fixed' } })
   })
 
   it('does not record plain GETs, by session or by key', async () => {

@@ -14,7 +14,7 @@
 // (/api/admin/exports/*, which is also the only admin way to the newsletter
 // list, and /api/admin/organisations/:id/exports/*), the AI report download
 // (/api/admin/ai/report), AI question writing (/api/admin/quiz/generate),
-// media upload, the Zoom host start link, AI-report reviewer notes, the
+// media upload, the Zoom host start link, the
 // Hadafi-only announcement edit and delete (PUT/DELETE
 // /api/admin/announcements/:id; SMEEP has no such routes, and PUT can send),
 // every learner, mentor, partner and account route.
@@ -111,6 +111,7 @@ export const OPERATOR_ROUTES = [
   "DELETE /api/media/:id",
   "GET /api/admin/ai-reports",
   "PATCH /api/admin/ai-reports/:id",
+  "POST /api/admin/ai-reports/:id/notes", // admin-only reviewer note; reaches no learner
 
   // Analytics
   "GET /api/admin/stats",

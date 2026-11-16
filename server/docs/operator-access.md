@@ -125,28 +125,29 @@ this table in the same change, or the tool gets a 403.**
 | 64 | DELETE | `/api/media/:id` | Delete a file | same |
 | 65 | GET | `/api/admin/ai-reports` | Reported AI answers | same |
 | 66 | PATCH | `/api/admin/ai-reports/:id` | Set a report's status | same |
+| 67 | POST | `/api/admin/ai-reports/:id/notes` | Add a reviewer note (`{ text }`, append-only, admin-only: reaches no learner) | SMEEP sets `adminNote` on the PATCH |
 | | | **Analytics and insights** | | |
-| 67 | GET | `/api/admin/stats` | Overview KPI counts | same |
-| 68 | GET | `/api/admin/analytics/impact` | Impact dashboard | same |
-| 69 | GET | `/api/admin/analytics/learning-gain` | Pre-test vs final exam | same |
-| 70 | GET | `/api/admin/analytics/insights` | Insights: KPIs vs previous period, charts (`?range=7d\|30d\|12m`) | same |
-| 71 | GET | `/api/admin/analytics/kpi-overview` | KPI overview (`?range=`) | same |
-| 72 | GET | `/api/admin/analytics/user-growth` | User growth (`?range=`) | same |
-| 73 | GET | `/api/admin/analytics/enrollments` | Monthly enrolments | same |
-| 74 | GET | `/api/admin/analytics/course-engagement` | Course engagement | same |
-| 75 | GET | `/api/admin/analytics/course-completion` | Completion rates (`?range=`) | same |
-| 76 | GET | `/api/admin/analytics/course-performance` | All-time course table | same |
-| 77 | GET | `/api/admin/analytics/stakeholder-kpis` | Count per stakeholder type | same |
-| 78 | GET | `/api/admin/analytics/stakeholder-trend` | Stakeholder trend (`?range=`) | same |
-| 79 | GET | `/api/admin/analytics/stakeholder-trend-by-type` | Stakeholder trend by type (`?range=`) | same |
+| 68 | GET | `/api/admin/stats` | Overview KPI counts | same |
+| 69 | GET | `/api/admin/analytics/impact` | Impact dashboard | same |
+| 70 | GET | `/api/admin/analytics/learning-gain` | Pre-test vs final exam | same |
+| 71 | GET | `/api/admin/analytics/insights` | Insights: KPIs vs previous period, charts (`?range=7d\|30d\|12m`) | same |
+| 72 | GET | `/api/admin/analytics/kpi-overview` | KPI overview (`?range=`) | same |
+| 73 | GET | `/api/admin/analytics/user-growth` | User growth (`?range=`) | same |
+| 74 | GET | `/api/admin/analytics/enrollments` | Monthly enrolments | same |
+| 75 | GET | `/api/admin/analytics/course-engagement` | Course engagement | same |
+| 76 | GET | `/api/admin/analytics/course-completion` | Completion rates (`?range=`) | same |
+| 77 | GET | `/api/admin/analytics/course-performance` | All-time course table | same |
+| 78 | GET | `/api/admin/analytics/stakeholder-kpis` | Count per stakeholder type | same |
+| 79 | GET | `/api/admin/analytics/stakeholder-trend` | Stakeholder trend (`?range=`) | same |
+| 80 | GET | `/api/admin/analytics/stakeholder-trend-by-type` | Stakeholder trend by type (`?range=`) | same |
 | | | **AI analytics** (pseudonymised `ai.*` views, SELECT-only, guarded server-side) | | |
-| 80 | GET | `/api/admin/ai/catalog` | What can be queried | same |
-| 81 | POST | `/api/admin/ai/query` | Run a guarded query | same |
-| 82 | GET | `/api/admin/ai/dashboards` | Saved boards | same |
-| 83 | GET | `/api/admin/ai/dashboards/:id` | One board | same |
-| 84 | POST | `/api/admin/ai/dashboards` | Save a board | same |
-| 85 | PUT | `/api/admin/ai/dashboards/:id` | Update a board | same |
-| 86 | DELETE | `/api/admin/ai/dashboards/:id` | Delete a board | same |
+| 81 | GET | `/api/admin/ai/catalog` | What can be queried | same |
+| 82 | POST | `/api/admin/ai/query` | Run a guarded query | same |
+| 83 | GET | `/api/admin/ai/dashboards` | Saved boards | same |
+| 84 | GET | `/api/admin/ai/dashboards/:id` | One board | same |
+| 85 | POST | `/api/admin/ai/dashboards` | Save a board | same |
+| 86 | PUT | `/api/admin/ai/dashboards/:id` | Update a board | same |
+| 87 | DELETE | `/api/admin/ai/dashboards/:id` | Delete a board | same |
 
 ### SMEEP routes with no Hadafi equivalent (not in the allowlist)
 
@@ -169,8 +170,10 @@ endpoint; SMEEP's allowlist has none either).
   download `POST /api/admin/ai/report`.
 - AI generation `POST /api/admin/quiz/generate`, media upload
   `POST /api/media/upload`, the Zoom host link
-  `GET /api/live-events/:id/zoom/start-url`, AI-report reviewer notes
-  `POST /api/admin/ai-reports/:id/notes` (SMEEP leaves the same kinds out).
+  `GET /api/live-events/:id/zoom/start-url` (SMEEP leaves the same kinds
+  out). AI-report reviewer notes (`POST /api/admin/ai-reports/:id/notes`) are
+  allowed (row 67): the MCP's `adminNote` lands there, and a note is internal
+  to admins and reaches no learner.
 - `PUT /api/admin/announcements/:id` and `DELETE /api/admin/announcements/:id`
   (edit or delete a draft or scheduled announcement). Hadafi-only: SMEEP has
   no such routes, so the MCP has no tool for them. If the Hadafi adapter needs
@@ -372,7 +375,9 @@ rotate, then review `admin_audit_log` for that `key_label`.
 
 ## Differences from SMEEP
 
-- Allowlist: 86 routes here vs 106 on SMEEP (the 20 SMEEP-only routes above).
+- Allowlist: 87 routes here vs 106 on SMEEP (the 20 SMEEP-only routes above,
+  plus one Hadafi-only: `POST …/ai-reports/:id/notes`, because SMEEP sets the
+  note with `adminNote` on its PATCH and Hadafi keeps notes append-only).
   `POST …/announcements/:id/archive` is `POST …/announcements/:id/end` here.
 - No partner setup links in Hadafi (partners sign in by emailed code), so
   SMEEP's "strip the setup link from responses to a key" change has nothing to
