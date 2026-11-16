@@ -16,10 +16,16 @@ import {
   users,
 } from '../db/schema'
 import { checkBadges } from '../services/achievements.service'
-import { issueCertificate } from '../services/lms/certificate.service'
-import { MARKETING_CONSENT_TEXT, buildCrmPayload, crmOutboxCounts, runCrmSync } from '../services/crmSync.service'
+import { issueCertificate, setCertificateRendererForTests } from '../services/lms/certificate.service'
+import {
+  MARKETING_CONSENT_TEXT,
+  buildCrmPayload,
+  crmEventKey,
+  crmOutboxCounts,
+  runCrmSync,
+  withdrawCourseCompleted,
+} from '../services/crmSync.service'
 import { logger } from '../config/logger'
-import { CERTIFICATES_DIR } from '../config/uploads'
 import { startTestServer, stopTestServer, api, cookieHeader, cleanupFixtureUsers, createTestUser, fixtureEmail } from './helpers'
 
 /**
@@ -345,16 +351,16 @@ describe('certificate that cannot be drawn (Hadafi)', () => {
     if (!course) throw new Error('Seed courses first: need a published course')
     const key = `hadafi:cert:${id}:${course.id}`
     await db.insert(courseEnrollments).values({ userId: id, courseId: course.id }).onConflictDoNothing()
-    fs.mkdirSync(CERTIFICATES_DIR, { recursive: true })
-    const mode = fs.statSync(CERTIFICATES_DIR).mode & 0o777
     try {
-      // The folder can't be written: drawing fails and the certificate row is taken back out.
-      fs.chmodSync(CERTIFICATES_DIR, 0o555)
-      await expect(issueCertificate(id, course.id)).rejects.toThrow()
+      // Drawing fails: the certificate row is taken back out, and its event with it.
+      setCertificateRendererForTests(async () => {
+        throw new Error('drawing failed (test)')
+      })
+      await expect(issueCertificate(id, course.id)).rejects.toThrow('drawing failed (test)')
       expect(await db.select().from(courseCertificates).where(eq(courseCertificates.userId, id))).toEqual([])
       expect((await outboxFor(id)).map((r) => r.eventKey)).not.toContain(key)
     } finally {
-      fs.chmodSync(CERTIFICATES_DIR, mode)
+      setCertificateRendererForTests(null)
     }
     try {
       await issueCertificate(id, course.id)
@@ -390,6 +396,34 @@ describe('marketing consent setting', () => {
 
     const after = await api<{ data: { announcements: boolean; emailEnabled: boolean; marketing: boolean } }>('GET', PREFS, { token })
     expect(after.body.data).toEqual({ announcements: true, emailEnabled: expect.any(Boolean), marketing: false })
+  })
+
+  it("refuses marketing for a mentor (NOT_A_LEARNER) and leaves their announcements as they were", async () => {
+    const mentor = await createTestUser('crm-mentor-prefs', 'mentor')
+    const before = await api<{ data: Record<string, unknown> }>('GET', PREFS, { token: mentor.token })
+    expect(before.status).toBe(200)
+    expect(before.body.data['announcements']).toBe(true)
+
+    for (const body of [{ marketing: true }, { marketing: true, announcements: false }]) {
+      const res = await api<{ error: { code: string } }>('PUT', PREFS, { token: mentor.token, body })
+      expect(res.status).toBe(400)
+      expect(res.body.error.code).toBe('NOT_A_LEARNER')
+    }
+
+    const after = await api<{ data: Record<string, unknown> }>('GET', PREFS, { token: mentor.token })
+    expect(after.body.data).toEqual(before.body.data)
+    const [u] = await db.select().from(users).where(eq(users.id, mentor.id))
+    expect(u!.marketingOptIn).toBe(false)
+    expect(u!.marketingOptInAt).toBeNull()
+    expect(await outboxFor(mentor.id)).toEqual([])
+  })
+
+  it("a mentor's settings have no marketing field", async () => {
+    const mentor = await createTestUser('crm-mentor-get', 'mentor')
+    const res = await api<{ data: Record<string, unknown> }>('GET', PREFS, { token: mentor.token })
+    expect(res.status).toBe(200)
+    expect(res.body.data).toEqual({ announcements: true, emailEnabled: expect.any(Boolean) })
+    expect('marketing' in res.body.data).toBe(false)
   })
 
   it('still accepts the announcements-only body, and rejects an empty one', async () => {
@@ -811,5 +845,97 @@ describe('drain', () => {
     const counts = await crmOutboxCounts()
     expect(counts).toEqual(expect.objectContaining({ pending: expect.any(Number), sent: expect.any(Number), failed: expect.any(Number) }))
     expect(counts.failed).toBeGreaterThanOrEqual(2)
+  })
+})
+
+describe('withdrawing a course completion (certificate taken back)', () => {
+  /** A course_completed row for a made-up learner and course (no user row needed: user_id is null). */
+  async function queueCompletion(learnerId: string, courseId: string, extra: Partial<typeof crmOutbox.$inferInsert> = {}) {
+    const eventKey = crmEventKey.courseCompleted(learnerId, courseId)
+    await db.insert(crmOutbox).values({ eventKey, payload: { submissionId: eventKey, programId: PROGRAM_ID }, ...extra })
+    return eventKey
+  }
+  const sentKeys = (calls: Call[]) => calls.map((c) => JSON.parse(String(c.init.body))['submissionId'] as string)
+  const learnerIds: string[] = []
+  const newLearner = () => {
+    const id = crypto.randomUUID()
+    learnerIds.push(id)
+    return id
+  }
+
+  afterAll(async () => {
+    for (const id of learnerIds) await db.delete(crmOutbox).where(like(crmOutbox.eventKey, `hadafi:cert:${id}:%`))
+  })
+
+  it('deletes an unsent row no drain has claimed', async () => {
+    const learner = newLearner()
+    const course = crypto.randomUUID()
+    const key = await queueCompletion(learner, course)
+    await withdrawCourseCompleted(db, learner, course)
+    expect(await db.select().from(crmOutbox).where(eq(crmOutbox.eventKey, key))).toEqual([])
+  })
+
+  it('never touches a row that has been sent', async () => {
+    const learner = newLearner()
+    const course = crypto.randomUUID()
+    const sentAt = new Date(Date.now() - 60_000)
+    const key = await queueCompletion(learner, course, { sentAt, attempts: 0 })
+    const before = await row(key)
+    await withdrawCourseCompleted(db, learner, course)
+    expect(await row(key)).toEqual(before)
+  })
+
+  it('a row claimed by a running drain but not yet sent is never sent', async () => {
+    const learner = newLearner()
+    const [c1, c2] = [crypto.randomUUID(), crypto.randomUUID()]
+    const k1 = await queueCompletion(learner, c1)
+    const k2 = await queueCompletion(learner, c2, { createdAt: new Date(Date.now() + 1_000) })
+    // Both rows are claimed in one batch; while the first is being sent, the second is withdrawn.
+    const { fn, calls } = fakeFetch(async (body) => {
+      if (body['submissionId'] === k1) await withdrawCourseCompleted(db, learner, c2)
+      return json(200)
+    })
+    const result = await runCrmSync({ fetch: fn, env: CONFIG, eventKeyPrefix: `hadafi:cert:${learner}:` })
+    expect(result.claimed).toBe(2)
+    expect(sentKeys(calls)).toEqual([k1])
+    expect(result.sent).toBe(1)
+    expect(await db.select().from(crmOutbox).where(eq(crmOutbox.eventKey, k2))).toEqual([])
+    expect((await row(k1)).sentAt).toBeInstanceOf(Date)
+  })
+
+  it('a withdrawal that arrives mid-send waits for it, then leaves the sent row alone', async () => {
+    const learner = newLearner()
+    const course = crypto.randomUUID()
+    const key = await queueCompletion(learner, course)
+    let withdrawal: Promise<void> | undefined
+    let withdrawn = false
+    let withdrawnBeforeReply: boolean | undefined
+    const { fn, calls } = fakeFetch(async () => {
+      withdrawal = withdrawCourseCompleted(db, learner, course).then(() => {
+        withdrawn = true
+      })
+      await new Promise((r) => setTimeout(r, 150))
+      withdrawnBeforeReply = withdrawn
+      return json(200)
+    })
+    const result = await runCrmSync({ fetch: fn, env: CONFIG, eventKeyPrefix: `hadafi:cert:${learner}:` })
+    await withdrawal
+    expect(sentKeys(calls)).toEqual([key])
+    expect(result.sent).toBe(1)
+    // It waited for the send to finish (it can't recall a request already on its way).
+    expect(withdrawnBeforeReply).toBe(false)
+    expect(withdrawn).toBe(true)
+    // The send finished first, so the outbox still records that the CRM has it.
+    const r = await row(key)
+    expect(r.sentAt).toBeInstanceOf(Date)
+    expect(r.lastError).toBeNull()
+  })
+
+  it('a row waiting to be retried is withdrawn and never sent', async () => {
+    const learner = newLearner()
+    const course = crypto.randomUUID()
+    const key = await queueCompletion(learner, course, { attempts: 2, lastError: 'HTTP 503', nextAttemptAt: new Date(Date.now() + 120_000) })
+    await withdrawCourseCompleted(db, learner, course)
+    expect(await db.select().from(crmOutbox).where(eq(crmOutbox.eventKey, key))).toEqual([])
   })
 })

@@ -30,7 +30,10 @@ export { MARKETING_CONSENT_TEXT };
  *
  * A timer drains the outbox (startCrmSync): due rows are claimed with
  * FOR UPDATE SKIP LOCKED and a lease, so two API processes never send the same
- * row at once, and POSTed to CRM_INTAKE_URL. Nothing is sent unless
+ * row at once, and POSTed to CRM_INTAKE_URL. Each send runs in its own short
+ * transaction holding the row's lock, after checking the row is still there
+ * and unsent, so an event withdrawn after the claim is never sent (see
+ * withdrawCourseCompleted). Nothing is sent unless
  * CRM_SYNC_ENABLED=true; events keep queueing either way. The rate cap
  * (BATCH_SIZE per INTERVAL_MS) is per API process.
  */
@@ -263,12 +266,24 @@ export function enqueueCourseCompleted(
  * drops its course_completed event too, if it hasn't been sent, so the CRM
  * never hears of a completion without a certificate. Issuing it again later
  * queues the event again. Pass the transaction that deletes the certificate.
+ *
+ * Safe against a running drain: the drain sends each row while holding its
+ * row lock, and only after re-reading it. So the delete either comes first
+ * (a drain that had already claimed the row finds it gone and skips it) or
+ * waits for a send already in progress (at most the request timeout) and then
+ * leaves the sent row alone. A sent row is never deleted.
  */
 export async function withdrawCourseCompleted(exec: Executor, userId: string, courseId: string): Promise<void> {
   const eventKey = crmEventKey.courseCompleted(userId, courseId);
   try {
     await exec.transaction(async (sp) => {
-      await sp.delete(crmOutbox).where(and(eq(crmOutbox.eventKey, eventKey), isNull(crmOutbox.sentAt)));
+      const deleted = await sp
+        .delete(crmOutbox)
+        .where(and(eq(crmOutbox.eventKey, eventKey), isNull(crmOutbox.sentAt)))
+        .returning({ id: crmOutbox.id });
+      if (deleted.length) return;
+      const [sent] = await sp.select({ id: crmOutbox.id }).from(crmOutbox).where(eq(crmOutbox.eventKey, eventKey));
+      if (sent) logger.warn({ eventKey }, "CRM sync: a certificate was taken back after its completion was sent to the CRM");
     });
   } catch (err) {
     logger.error({ eventKey, error: dbError(err) }, "CRM sync: could not withdraw an event (carrying on)");
@@ -440,7 +455,7 @@ async function claimDue(limit: number, opts: CrmSyncOptions): Promise<ClaimedRow
  * event can wait in the outbox while consent changes). Saved, so every retry
  * sends exactly these bytes.
  */
-async function prepareFirstSend(row: ClaimedRow, config: CrmConfig): Promise<Record<string, unknown>> {
+async function prepareFirstSend(tx: Tx, row: ClaimedRow, config: CrmConfig): Promise<Record<string, unknown>> {
   let payload = row.payload;
   // Queued before a valid CRM_PROGRAM_ID was set: use the configured program (and cohort).
   if (!isUuid(payload["programId"])) {
@@ -452,7 +467,7 @@ async function prepareFirstSend(row: ClaimedRow, config: CrmConfig): Promise<Rec
   }
   const event = payload["event"];
   if (row.user_id && event && typeof event === "object") {
-    const [u] = await db
+    const [u] = await tx
       .select({ marketingOptIn: users.marketingOptIn, marketingOptInAt: users.marketingOptInAt, marketingConsentText: users.marketingConsentText })
       .from(users)
       .where(eq(users.id, row.user_id));
@@ -464,14 +479,14 @@ async function prepareFirstSend(row: ClaimedRow, config: CrmConfig): Promise<Rec
     }
   }
   if (JSON.stringify(payload) !== JSON.stringify(row.payload)) {
-    await db.update(crmOutbox).set({ payload }).where(eq(crmOutbox.id, row.id));
+    await tx.update(crmOutbox).set({ payload }).where(eq(crmOutbox.id, row.id));
   }
   return payload;
 }
 
-async function markRetry(row: ClaimedRow, error: string, delayMs: number): Promise<"retried" | "failed"> {
+async function markRetry(tx: Tx, row: ClaimedRow, error: string, delayMs: number): Promise<"retried" | "failed"> {
   const attempts = row.attempts + 1;
-  await db
+  await tx
     .update(crmOutbox)
     .set({ attempts, lastError: error, nextAttemptAt: new Date(Date.now() + delayMs) })
     .where(eq(crmOutbox.id, row.id));
@@ -480,6 +495,66 @@ async function markRetry(row: ClaimedRow, error: string, delayMs: number): Promi
     return "failed";
   }
   return "retried";
+}
+
+type SendOutcome =
+  | { kind: "gone" }
+  | { kind: "sent" }
+  | { kind: "conflict"; error: string }
+  | { kind: "refused"; error: string }
+  | { kind: "retry"; retry: "retried" | "failed"; rateLimitedMs?: number }
+  | { kind: "config"; status: number; code?: string };
+
+/**
+ * Sends one claimed row, inside `tx`. Locks the row first and goes ahead only
+ * if it is still there and unsent: a withdrawal (withdrawCourseCompleted) that
+ * deleted it after the claim wins, and one that comes during the send waits
+ * for this transaction. The lock is held for one request (REQUEST_TIMEOUT_MS
+ * at most). Every write to the row goes through `tx`; a write through `db`
+ * would wait on this transaction's own lock.
+ */
+async function sendRow(tx: Tx, row: ClaimedRow, config: CrmConfig, doFetch: typeof fetch): Promise<SendOutcome> {
+  const [live] = await tx
+    .select({ id: crmOutbox.id })
+    .from(crmOutbox)
+    .where(and(eq(crmOutbox.id, row.id), isNull(crmOutbox.sentAt)))
+    .for("update");
+  if (!live) return { kind: "gone" };
+
+  const payload = row.attempts === 0 ? await prepareFirstSend(tx, row, config) : row.payload;
+
+  let res: Response;
+  try {
+    res = await doFetch(config.url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${config.key}` },
+      body: JSON.stringify(payload),
+      redirect: "error",
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    });
+  } catch (err) {
+    return { kind: "retry", retry: await markRetry(tx, row, networkError(err), retryDelay(row.attempts)) };
+  }
+
+  if (res.ok) {
+    await tx.update(crmOutbox).set({ sentAt: new Date(), lastError: null }).where(eq(crmOutbox.id, row.id));
+    return { kind: "sent" };
+  }
+
+  const code = await crmErrorCode(res);
+  const error = `HTTP ${res.status}${code ? ` ${code}` : ""}`;
+  if ([401, 403, 404].includes(res.status)) return { kind: "config", status: res.status, code };
+  if (res.status === 409) {
+    await tx.update(crmOutbox).set({ sentAt: new Date(), lastError: error }).where(eq(crmOutbox.id, row.id));
+    return { kind: "conflict", error };
+  }
+  if (res.status === 429 || res.status === 408 || res.status >= 500) {
+    const delay = Math.max(retryDelay(row.attempts), res.status === 429 ? retryAfterMs(res) : 0);
+    const retry = await markRetry(tx, row, error, delay);
+    return { kind: "retry", retry, ...(res.status === 429 ? { rateLimitedMs: delay } : {}) };
+  }
+  await tx.update(crmOutbox).set({ attempts: MAX_ATTEMPTS, lastError: error }).where(eq(crmOutbox.id, row.id));
+  return { kind: "refused", error };
 }
 
 /**
@@ -521,71 +596,50 @@ export async function runCrmSync(opts: CrmSyncOptions = {}): Promise<CrmSyncResu
 
   for (let i = 0; i < rows.length; i++) {
     const row = rows[i]!;
-    const payload = row.attempts === 0 ? await prepareFirstSend(row, config) : row.payload;
+    const outcome = await db.transaction((tx) => sendRow(tx, row, config, doFetch));
 
-    let res: Response;
-    try {
-      res = await doFetch(config.url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${config.key}` },
-        body: JSON.stringify(payload),
-        redirect: "error",
-        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-      });
-    } catch (err) {
-      result[await markRetry(row, networkError(err), retryDelay(row.attempts))]++;
-      continue;
-    }
-
-    if (res.ok) {
-      await db.update(crmOutbox).set({ sentAt: new Date(), lastError: null }).where(eq(crmOutbox.id, row.id));
+    if (outcome.kind === "gone") continue;
+    if (outcome.kind === "sent") {
       warnedConfigError = "";
       result.sent++;
       continue;
     }
-
-    const code = await crmErrorCode(res);
-    const error = `HTTP ${res.status}${code ? ` ${code}` : ""}`;
-    if ([401, 403, 404].includes(res.status)) {
+    if (outcome.kind === "config") {
       // Wrong key or URL: not the events' fault. Hand every claimed row back as it was.
-      const rest = rows.slice(i);
-      for (const r of rest) {
+      for (const r of rows.slice(i)) {
         await db.update(crmOutbox).set({ nextAttemptAt: new Date(r.prev_next_attempt_at) }).where(eq(crmOutbox.id, r.id));
       }
-      const signature = `${res.status}:${configSignature}`;
+      const signature = `${outcome.status}:${configSignature}`;
       if (warnedConfigError !== signature) {
         warnedConfigError = signature;
         logger.warn(
-          { status: res.status, code },
-          `CRM sync: the CRM answered ${res.status}; check CRM_INTAKE_URL and POTENTIAL_CRM_INTAKE_KEY. Nothing is sent until it accepts them (events keep queueing)`,
+          { status: outcome.status, code: outcome.code },
+          `CRM sync: the CRM answered ${outcome.status}; check CRM_INTAKE_URL and POTENTIAL_CRM_INTAKE_KEY. Nothing is sent until it accepts them (events keep queueing)`,
         );
       }
-      result.configError = res.status;
+      result.configError = outcome.status;
       break;
     }
-    if (res.status === 409) {
-      await db.update(crmOutbox).set({ sentAt: new Date(), lastError: error }).where(eq(crmOutbox.id, row.id));
-      logger.error({ eventKey: row.event_key, error }, "CRM sync: the CRM has this submission with different data");
+    if (outcome.kind === "conflict") {
+      logger.error({ eventKey: row.event_key, error: outcome.error }, "CRM sync: the CRM has this submission with different data");
       result.conflicts++;
-    } else if (res.status === 429 || res.status === 408 || res.status >= 500) {
-      const delay = Math.max(retryDelay(row.attempts), res.status === 429 ? retryAfterMs(res) : 0);
-      result[await markRetry(row, error, delay)]++;
-      if (res.status === 429) {
+    } else if (outcome.kind === "refused") {
+      logger.error({ eventKey: row.event_key, error: outcome.error }, "CRM sync: the CRM refused an event");
+      result.failed++;
+    } else {
+      result[outcome.retry]++;
+      if (outcome.rateLimitedMs !== undefined) {
         // The CRM asked us to slow down: hand back the rest of the batch untried.
         const rest = rows.slice(i + 1).map((r) => r.id);
         if (rest.length) {
           await db.execute(sql`
-            UPDATE crm_outbox SET next_attempt_at = now() + ${`${delay} milliseconds`}::interval
+            UPDATE crm_outbox SET next_attempt_at = now() + ${`${outcome.rateLimitedMs} milliseconds`}::interval
             WHERE id IN (${sql.join(rest.map((id) => sql`${id}::uuid`), sql`, `)}) AND sent_at IS NULL
           `);
         }
-        logger.warn({ retryInMs: delay }, "CRM sync: rate limited by the CRM, pausing");
+        logger.warn({ retryInMs: outcome.rateLimitedMs }, "CRM sync: rate limited by the CRM, pausing");
         break;
       }
-    } else {
-      await db.update(crmOutbox).set({ attempts: MAX_ATTEMPTS, lastError: error }).where(eq(crmOutbox.id, row.id));
-      logger.error({ eventKey: row.event_key, error }, "CRM sync: the CRM refused an event");
-      result.failed++;
     }
   }
   return result;

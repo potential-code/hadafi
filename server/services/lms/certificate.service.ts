@@ -192,6 +192,20 @@ async function renderCertificatePng(
  * @param userId   - UUID of the learner.
  * @param courseId - UUID of the course.
  */
+type RenderCertificate = typeof renderCertificatePng
+
+/** What issueCertificate draws with; only tests swap it (setCertificateRendererForTests). */
+let renderForIssue: RenderCertificate = renderCertificatePng
+
+/**
+ * Tests only: makes issueCertificate draw with `render` (e.g. one that fails),
+ * or with the real renderer again when given null. Refused outside NODE_ENV=test.
+ */
+export function setCertificateRendererForTests(render: RenderCertificate | null): void {
+  if (process.env.NODE_ENV !== 'test') throw new Error('setCertificateRendererForTests is for tests only')
+  renderForIssue = render ?? renderCertificatePng
+}
+
 export async function issueCertificate(userId: string, courseId: string): Promise<CourseCertificate> {
   // Fetch user and course in parallel — both are needed for the certificate canvas
   const [[user], [course]] = await Promise.all([
@@ -220,7 +234,7 @@ export async function issueCertificate(userId: string, courseId: string): Promis
   // again, and its unsent CRM event with it.
   let drawn: { relativeUrl: string; absoluteFilePath: string }
   try {
-    drawn = await renderCertificatePng(cert.id, certificateNumber, user.fullName, course.title, cert.issuedAt)
+    drawn = await renderForIssue(cert.id, certificateNumber, user.fullName, course.title, cert.issuedAt)
   } catch (err) {
     await db.transaction(async (tx) => {
       await tx.delete(courseCertificates).where(eq(courseCertificates.id, cert.id))
