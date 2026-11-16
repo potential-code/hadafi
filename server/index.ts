@@ -16,6 +16,7 @@ import { errorHandler } from "./middleware/error-handler";
 import { UPLOADS_ROOT } from "./middleware/upload";
 import { refreshOutdatedCertificates } from "./services/lms/certificate.service";
 import { startReminders } from "./services/reminders.service";
+import { startCrmSync } from "./services/crmSync.service";
 import { startAnnouncementDispatcher } from "./services/announcements.service";
 import zoomWebhookRouter from "./routes/zoomWebhook";
 
@@ -149,6 +150,10 @@ if (process.env["HADAFI_SKIP_LISTEN"] !== "1") {
 
   // Scheduled announcements go out, and ended ones come down, every minute.
   startAnnouncementDispatcher();
+
+  // Learner events to the Potential CRM, every 30 seconds (sends only with
+  // CRM_SYNC_ENABLED=true; events queue in crm_outbox either way).
+  startCrmSync();
 }
 
 export { app };

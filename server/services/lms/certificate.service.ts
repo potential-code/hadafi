@@ -13,6 +13,7 @@ import { CERTIFICATES_DIR } from '../../config/uploads'
 import { logger } from '../../config/logger'
 import { notify } from '../notifications.service'
 import { checkBadgesSoon } from '../achievements.service'
+import { enqueueCourseCompleted, withdrawCourseCompleted } from '../crmSync.service'
 
 function getCertDir(): string {
   return CERTIFICATES_DIR
@@ -203,18 +204,28 @@ export async function issueCertificate(userId: string, courseId: string): Promis
 
   const certificateNumber = `CERT-${Date.now()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`
 
-  // Insert the row first so we have the UUID to use as the filename
-  const [cert] = await db.insert(courseCertificates)
-    .values({ userId, courseId, certificateNumber })
-    .returning()
+  // Insert the row first so we have the UUID to use as the filename. The CRM's
+  // course_completed event is queued in the same transaction (in a savepoint:
+  // a failure to queue it never stops the certificate).
+  const cert = await db.transaction(async (tx) => {
+    const [row] = await tx.insert(courseCertificates)
+      .values({ userId, courseId, certificateNumber })
+      .returning()
+    if (user.role === 'sme') await enqueueCourseCompleted(tx, userId, { id: course.id, title: course.title }, row.issuedAt)
+    return row
+  })
 
   // Generate the PNG and write to disk. If drawing fails, take the row back
-  // out, so the learner isn't left with a certificate that can't be issued again.
+  // out, so the learner isn't left with a certificate that can't be issued
+  // again, and its unsent CRM event with it.
   let drawn: { relativeUrl: string; absoluteFilePath: string }
   try {
     drawn = await renderCertificatePng(cert.id, certificateNumber, user.fullName, course.title, cert.issuedAt)
   } catch (err) {
-    await db.delete(courseCertificates).where(eq(courseCertificates.id, cert.id))
+    await db.transaction(async (tx) => {
+      await tx.delete(courseCertificates).where(eq(courseCertificates.id, cert.id))
+      await withdrawCourseCompleted(tx, userId, courseId)
+    })
     throw err
   }
   const { relativeUrl, absoluteFilePath } = drawn

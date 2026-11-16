@@ -11,7 +11,8 @@ import * as svc from "../services/announcements.service";
  * Announcements (ported from SMEEP):
  * - /api/admin/announcements: admins write, schedule, end and review them;
  * - /api/me/announcements: the banners for the signed-in learner or mentor,
- *   and her announcement-email setting;
+ *   and her email settings (announcement emails; for learners, marketing
+ *   from the Potential.org Foundation, which reaches the CRM);
  * - /api/announcements/unsubscribe: the one-click link in an email (no sign-in).
  */
 export const adminAnnouncementsRouter: IRouter = Router();
@@ -115,20 +116,26 @@ adminAnnouncementsRouter.post(
 
 myAnnouncementsRouter.get("/", authenticate, wrap((req) => svc.activeBanners(req.user!.userId, req.user!.role)));
 
-myAnnouncementsRouter.get(
-  "/email-preference",
-  authenticate,
-  wrap(async (req) => ({ announcements: await svc.getAnnouncementEmails(req.user!.userId), emailEnabled: svc.announcementEmailsEnabled() })),
-);
+// { announcements, emailEnabled, marketing? }: marketing is there for learners only.
+myAnnouncementsRouter.get("/email-preference", authenticate, wrap((req) => svc.getEmailPreferences(req.user!.userId)));
 
+// { announcements?: boolean, marketing?: boolean } (marketing: learners only)
 myAnnouncementsRouter.put(
   "/email-preference",
   authenticate,
-  validate(z.object({ announcements: z.boolean() })),
+  validate(
+    z
+      .object({ announcements: z.boolean().optional(), marketing: z.boolean().optional() })
+      .refine((b) => b.announcements !== undefined || b.marketing !== undefined, { message: "Nothing to change" }),
+  ),
   wrap(async (req) => {
-    const on = (req.body as { announcements: boolean }).announcements;
-    await svc.setAnnouncementEmails(req.user!.userId, on);
-    return { announcements: on };
+    const userId = req.user!.userId;
+    const body = req.body as { announcements?: boolean; marketing?: boolean };
+    if (body.marketing !== undefined && !(await svc.setMarketingOptIn(userId, body.marketing))) {
+      throw new AppError("Only learners have this setting.", 400, "NOT_A_LEARNER");
+    }
+    if (body.announcements !== undefined) await svc.setAnnouncementEmails(userId, body.announcements);
+    return svc.getEmailPreferences(userId);
   }),
 );
 

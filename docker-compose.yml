@@ -70,6 +70,13 @@ services:
       ZOOM_HOST_USER_ID: ${ZOOM_HOST_USER_ID:-}
       ZOOM_WEBHOOK_SECRET_TOKEN: ${ZOOM_WEBHOOK_SECRET_TOKEN:-}
       ZOOM_ADAPTER: ${ZOOM_ADAPTER:-}
+      # CRM sync: learner events queue in crm_outbox; sent only when
+      # CRM_SYNC_ENABLED is "true" (needs the URL, key and program id).
+      CRM_SYNC_ENABLED: ${CRM_SYNC_ENABLED:-}
+      CRM_INTAKE_URL: ${CRM_INTAKE_URL:-}
+      POTENTIAL_CRM_INTAKE_KEY: ${POTENTIAL_CRM_INTAKE_KEY:-}
+      CRM_PROGRAM_ID: ${CRM_PROGRAM_ID:-}
+      CRM_COHORT_ID: ${CRM_COHORT_ID:-}
     # `default` is listed explicitly so that Dokploy, when it adds
     # dokploy-network for a domain, adds to it instead of replacing it (Dokploy
     # issue #3562). The alias is how the site reaches the API: unlike "server",

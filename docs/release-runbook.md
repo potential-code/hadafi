@@ -121,6 +121,7 @@ Set these on the compose app (Environment tab) **before** deploying. Already set
 | `ZOOM_ACCOUNT_ID`, `ZOOM_CLIENT_ID`, `ZOOM_CLIENT_SECRET`, `ZOOM_HOST_USER_ID`, `ZOOM_WEBHOOK_SECRET_TOKEN` | Zoom meetings for events. Without them admins choose "Other link" or "In person". Webhook URL: `https://hadafi.potential.org/api/webhooks/zoom` (`meeting.started`, `meeting.ended`) |
 | `ANAM_API_KEY`, `ANAM_AVATAR_ID`, `ANAM_VOICE_ID` (`ANAM_API_URL` only to override Anam's default) | AI Examiner video mode. Without them the examiner offers text and voice |
 | `SERVER_PUBLIC_URL` | `https://hadafi.potential.org`, for absolute upload URLs |
+| `CRM_SYNC_ENABLED`, `CRM_INTAKE_URL`, `POTENTIAL_CRM_INTAKE_KEY`, `CRM_PROGRAM_ID`, `CRM_COHORT_ID` | Learner events to the Potential CRM (section 10). Unset = events queue, nothing is sent |
 | `TRUSTED_PROXIES`, `TRUST_PROXY_HOPS` | Leave unset (Traefik is a private hop). `TRUST_PROXY_HOPS` only behind a CDN |
 | `REMINDERS_ENABLED`, `ANNOUNCEMENTS_TIMER_ENABLED` | Leave unset (timers on). `false` stops one, e.g. on a second API container |
 | `AI_MENTOR_API_URL`, `LOG_LEVEL` | Leave unset (`https://api.potential.com`, `info`) |
@@ -244,3 +245,53 @@ So:
    announcements), then redeploy. Every announcement email has a one-click unsubscribe.
 3. Add a Dokploy backup schedule for the Hadafi Postgres; rotate any secret that was ever pasted in chat;
    remove test accounts in Admin > Users.
+
+## 10. Consent and CRM sync (ported from SMEEP)
+
+- **Migration 0033** adds four nullable/defaulted columns to `users`
+  (`terms_accepted_at`, `marketing_opt_in` default false, `marketing_opt_in_at`,
+  `marketing_consent_text`) and creates `crm_outbox`. It only adds things;
+  existing learners keep `marketing_opt_in = false` and no terms date.
+- **Sign-up now requires the Terms tick** on both paths (form and Hana's chat):
+  the API answers 400 `TERMS_REQUIRED` without it. The optional marketing box is
+  unticked by default; its wording is stored from the server's copy
+  (`shared/marketingConsent.ts`). Learners can change it later on their profile
+  (Profile > Emails; `PUT /api/me/announcements/email-preference { marketing }`).
+  Every event carries the learner's consent when it was queued: an opt-in
+  always with `marketingConsentText` and `marketingConsentAt`; a withdrawal as
+  `marketingOptIn: false` with `marketingConsentAt` = when it was turned off.
+  A change also queues its own consent_changed event, so a withdrawal reaches
+  the CRM promptly.
+- **Events queue from day one** in `crm_outbox` (keys `hadafi:reg:`, `hadafi:act1:`,
+  `hadafi:cert:`, `hadafi:consent:`): registration, first activation and course
+  completed (once each), and consent_changed for each real change of the
+  marketing setting. Synced learners are those who signed up with the consent
+  step, plus existing learners who opt in on their profile (that queues their
+  registration, dated to their original sign-up). Existing learners who never
+  opt in are never sent; there is no backfill. A certificate whose image can't
+  be drawn is taken back, and its unsent course_completed event with it.
+- **Consent is fresh when sent:** the first send of any event refreshes its
+  consent fields from the learner's current row (an event can wait while sync
+  is off) and saves them, so retries send the same bytes.
+- **Sending is off** until `CRM_SYNC_ENABLED=true` with `CRM_INTAKE_URL` (https),
+  `POTENTIAL_CRM_INTAKE_KEY` and `CRM_PROGRAM_ID` set (`CRM_COHORT_ID`
+  optional; both must be UUIDs, or nothing is sent and one warning is logged).
+  Hadafi needs its own program id in the CRM. Names and course names are cut
+  to the CRM's 300 characters. The drain runs every 30 seconds, at most 25
+  events a run, with retries (1 minute doubling to 6 hours, 20 tries). Rows
+  queued before the program id was set get it on their first send.
+- **Deploy the site and the API together.** A sign-up page loaded before this
+  release sends no Terms tick and gets `TERMS_REQUIRED`; the API's message tells
+  the person to refresh the page (the old form shows its generic error; the old
+  chat passes the message on).
+- **Rate cap is per API process:** 25 events every 30 seconds each, so one
+  replica stays at 50 a minute against the CRM's 120. SMEEP sends to the same
+  CRM on its own budget.
+- **401/403/404 from the CRM** are treated as a wrong URL or key: nothing is
+  marked failed, the run stops, one warning is logged until the config changes.
+- **Logs and `last_error`** hold event keys, HTTP status and the CRM's error
+  code only, never names, emails or response text.
+- **Health:** `node scripts/crm-outbox-status.mjs` in the server container
+  (locally: `node --env-file=../.env scripts/crm-outbox-status.mjs` from
+  `server/`) prints pending / sent / failed counts (read-only). Each run that
+  sends something logs "CRM sync run" with the same counts.

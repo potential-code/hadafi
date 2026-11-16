@@ -28,6 +28,7 @@ import {
 import { CountryPickerCard } from './CountryPickerCard'
 import { RegistrationConfirmCard } from './RegistrationConfirmCard'
 import { SIGN_UP_PROMPT as ASSISTANT_INSTRUCTIONS } from '../../../shared/hana/prompts'
+import { consentBody } from '@/lib/signUpConsent'
 
 // ---------------------------------------------------------------------------
 // Landing-specific assistant message wrapper
@@ -75,6 +76,9 @@ interface RegistrationData {
   country?: string       // ISO code e.g. "NG"
   countryName?: string   // display name e.g. "Nigeria"
   couponCode?: string
+  // Ticked by the learner in the confirm card; never set by (or sent to) the AI.
+  termsAccepted?: boolean
+  marketingOptIn?: boolean
 }
 
 interface LoginData {
@@ -351,6 +355,8 @@ function LandingRegistrationChatInner() {
               ? { type: 'confirmed' }
               : { type: 'edit', field: result.field }
             if (result.action === 'confirmed') {
+              registrationData.current.termsAccepted = result.termsAccepted
+              registrationData.current.marketingOptIn = result.marketingOptIn
               respond?.('User confirmed registration. Call submitRegistration now.')
             } else {
               respond?.(`User wants to edit field: ${result.field}`)
@@ -383,10 +389,15 @@ function LandingRegistrationChatInner() {
       if (!verifiedToken || email.trim().toLowerCase() !== registrationData.current.email) {
         return { error: true, code: 'EMAIL_NOT_VERIFIED', message: 'The email needs to be verified' }
       }
+      // Consent comes only from the boxes the learner ticked in the confirm card.
+      const consent = consentBody(registrationData.current)
+      if (!consent) {
+        return { error: true, code: 'TERMS_REQUIRED', message: 'The user has not accepted the Terms of Use and Privacy Policy yet' }
+      }
       try {
         await apiFetch('/api/auth/hadafi/sign-up', {
           method: 'POST',
-          body: JSON.stringify({ fullName, email: registrationData.current.email, country, couponCode, verifiedToken }),
+          body: JSON.stringify({ fullName, email: registrationData.current.email, country, couponCode, verifiedToken, ...consent }),
         })
         registrationData.current.verifiedToken = undefined
         await refreshUser()

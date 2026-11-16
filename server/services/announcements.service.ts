@@ -13,6 +13,7 @@ import { sendMail } from "../mail/mailer";
 import { logger } from "../config/logger";
 import { AppError } from "../utils/app-error";
 import { notify } from "./notifications.service";
+import { changeMarketingConsent } from "./crmSync.service";
 
 /**
  * Announcements from the Hadafi team (ported from SMEEP): a banner at the top
@@ -134,6 +135,34 @@ export async function setAnnouncementEmails(userId: string, on: boolean): Promis
 
 export async function getAnnouncementEmails(userId: string): Promise<boolean> {
   return !(await optedOut([userId])).has(userId);
+}
+
+export interface EmailPreferences {
+  announcements: boolean;
+  /** Whether announcement emails are switched on for the platform (ANNOUNCEMENT_EMAILS_ENABLED). */
+  emailEnabled: boolean;
+  /** Marketing from the Potential.org Foundation (learners only; absent for other roles). */
+  marketing?: boolean;
+}
+
+/** The profile's email settings: announcement emails, and for learners, marketing consent. */
+export async function getEmailPreferences(userId: string): Promise<EmailPreferences> {
+  const [u] = await db.select({ role: users.role, marketing: users.marketingOptIn }).from(users).where(eq(users.id, userId));
+  return {
+    announcements: await getAnnouncementEmails(userId),
+    emailEnabled: announcementEmailsEnabled(),
+    ...(u?.role === "sme" ? { marketing: u.marketing } : {}),
+  };
+}
+
+/**
+ * A learner turns marketing consent on or off from their profile. See
+ * changeMarketingConsent: a real change is timed and reaches the CRM as a
+ * consent_changed event; an existing learner who opts in enters the CRM.
+ * Returns false for anyone who isn't a learner.
+ */
+export function setMarketingOptIn(userId: string, on: boolean): Promise<boolean> {
+  return changeMarketingConsent(userId, on);
 }
 
 // ── Create, edit, send ───────────────────────────────────────────────────────

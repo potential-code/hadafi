@@ -37,6 +37,8 @@ COPY --from=builder /app/server/scripts/migrate.mjs ./scripts/migrate.mjs
 # Release prep (audit, admins, AI read-only role, certificate check), run by
 # hand in the container: node scripts/prod-prep.mjs audit (docs/release-runbook.md)
 COPY --from=builder /app/server/scripts/prod-prep.mjs /app/server/scripts/ai-readonly-role.mjs /app/server/scripts/ai-readonly-role.sql ./scripts/
+# CRM outbox health, read-only: node scripts/crm-outbox-status.mjs
+COPY --from=builder /app/server/scripts/crm-outbox-status.mjs ./scripts/crm-outbox-status.mjs
 # Entrypoint: runs migrations then starts server
 COPY server/entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh && mkdir -p ./uploads/certificates ./uploads/media

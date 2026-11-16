@@ -88,7 +88,7 @@ async function legacyUser(prefix: string, password: string): Promise<string> {
 describe('sign-up (email code first)', () => {
   it('refuses to create an account without a proven email', async () => {
     const res = await api<{ code: string }>('POST', '/api/auth/hadafi/sign-up', {
-      body: { fullName: 'No Proof', email: freshEmail('noproof'), country: 'AE', password: 'e2e-pass-12345', verifiedToken: 'forged' },
+      body: { fullName: 'No Proof', email: freshEmail('noproof'), country: 'AE', password: 'e2e-pass-12345', verifiedToken: 'forged', termsAccepted: true },
     })
     expect(res.status).toBe(400)
     expect(res.body.code).toBe('EMAIL_NOT_VERIFIED')
@@ -99,7 +99,7 @@ describe('sign-up (email code first)', () => {
     const email = freshEmail('signup')
     const verifiedToken = await proveEmail(email)
     const res = await api<{ user: { email: string; role: string; emailVerified: boolean } }>('POST', '/api/auth/hadafi/sign-up', {
-      body: { fullName: 'Sign Up', email, country: 'Jordan', password: 'e2e-pass-12345', verifiedToken },
+      body: { fullName: 'Sign Up', email, country: 'Jordan', password: 'e2e-pass-12345', verifiedToken, termsAccepted: true },
     })
     expect(res.status).toBe(200)
     expect(res.body.user).toMatchObject({ email, role: 'sme', emailVerified: true })
@@ -111,7 +111,7 @@ describe('sign-up (email code first)', () => {
 
     // The verified token is single-use.
     const again = await api('POST', '/api/auth/hadafi/sign-up', {
-      body: { fullName: 'Again', email: freshEmail('again'), country: 'AE', verifiedToken },
+      body: { fullName: 'Again', email: freshEmail('again'), country: 'AE', verifiedToken, termsAccepted: true },
     })
     expect(again.status).toBe(400)
   })
@@ -120,7 +120,7 @@ describe('sign-up (email code first)', () => {
     if (!hasMailpit) return
     const email = freshEmail('nopass')
     const verifiedToken = await proveEmail(email)
-    const res = await api('POST', '/api/auth/hadafi/sign-up', { body: { fullName: 'No Password', email, country: 'AE', verifiedToken } })
+    const res = await api('POST', '/api/auth/hadafi/sign-up', { body: { fullName: 'No Password', email, country: 'AE', verifiedToken, termsAccepted: true } })
     expect(res.status).toBe(200)
     const me = await api<{ data: { user: { hasPassword: boolean } } }>('GET', '/api/account/me', { token: cookieHeader(res.setCookie) })
     expect(me.body.data.user.hasPassword).toBe(false)
@@ -141,7 +141,7 @@ describe('sign-up (email code first)', () => {
 
     const first = freshEmail('coupon-a')
     const res = await api('POST', '/api/auth/hadafi/sign-up', {
-      body: { fullName: 'Coupon A', email: first, country: 'AE', couponCode: code, verifiedToken: await proveEmail(first) },
+      body: { fullName: 'Coupon A', email: first, country: 'AE', couponCode: code, verifiedToken: await proveEmail(first), termsAccepted: true },
     })
     expect(res.status).toBe(200)
     const [used] = await db.select().from(inviteCodes).where(eq(inviteCodes.id, invite!.id))
@@ -151,11 +151,11 @@ describe('sign-up (email code first)', () => {
     const second = freshEmail('coupon-b')
     const token = await proveEmail(second)
     const refused = await api<{ code: string }>('POST', '/api/auth/hadafi/sign-up', {
-      body: { fullName: 'Coupon B', email: second, country: 'AE', couponCode: code, verifiedToken: token },
+      body: { fullName: 'Coupon B', email: second, country: 'AE', couponCode: code, verifiedToken: token, termsAccepted: true },
     })
     expect(refused.status).toBe(400)
     expect(refused.body.code).toBe('INVALID_COUPON')
-    const retry = await api('POST', '/api/auth/hadafi/sign-up', { body: { fullName: 'Coupon B', email: second, country: 'AE', verifiedToken: token } })
+    const retry = await api('POST', '/api/auth/hadafi/sign-up', { body: { fullName: 'Coupon B', email: second, country: 'AE', verifiedToken: token, termsAccepted: true } })
     expect(retry.status).toBe(200)
     await db.delete(inviteCodes).where(eq(inviteCodes.id, invite!.id))
   })

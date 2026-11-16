@@ -232,6 +232,13 @@
       "when": 1793879193091,
       "tag": "0032_newsletter",
       "breakpoints": true
+    },
+    {
+      "idx": 33,
+      "version": "7",
+      "when": 1794821002142,
+      "tag": "0033_crm_outbox_and_consent",
+      "breakpoints": true
     }
   ]
 }

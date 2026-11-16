@@ -120,10 +120,22 @@ export const hadafiPlugin = () =>
             password: password.optional(),
             verifiedToken: z.string().min(1),
             rememberMe: z.boolean().optional(),
+            // The required "I agree to the Terms of Use and Privacy Policy" box.
+            termsAccepted: z.boolean().optional(),
+            // The optional, unticked marketing box. Its wording is the server's.
+            marketingOptIn: z.boolean().optional(),
           }),
         },
         async (ctx) => {
-          const { verifiedToken, rememberMe, ...account } = ctx.body;
+          const { verifiedToken, rememberMe, termsAccepted, marketingOptIn, ...account } = ctx.body;
+          // Checked first, so a missing tick never costs the verified email.
+          if (termsAccepted !== true) {
+            throw APIError.fromStatus("BAD_REQUEST", {
+              // A page loaded before the consent boxes existed sends no tick: say how to get the box.
+              message: "Please accept the Terms of Use and Privacy Policy to create your account. If you don't see that box, refresh the page.",
+              code: "TERMS_REQUIRED",
+            });
+          }
           // Compare before consuming, so a wrong token cannot burn the real one;
           // the atomic consume then makes the right one single-use.
           const notVerified = () =>
@@ -138,6 +150,7 @@ export const hadafiPlugin = () =>
             ...account,
             couponCode: account.couponCode || undefined,
             orgCode: account.orgCode || undefined,
+            consent: { termsAccepted: true, marketingOptIn: marketingOptIn === true },
           }).catch(toApiError);
           return startSession(ctx, userId, rememberMe === false);
         },

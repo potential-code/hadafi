@@ -188,6 +188,7 @@ describe('signing up with an organisation link', () => {
         country: 'AE',
         orgCode: joinCode,
         verifiedToken: await verified(email),
+        termsAccepted: true,
         role: 'partner',
         organisationId: otherOrgId,
         emailVerified: false,
@@ -206,12 +207,12 @@ describe('signing up with an organisation link', () => {
     const token = await verified(email)
     const [other] = await db.select({ code: organisations.joinCode }).from(organisations).where(eq(organisations.id, otherOrgId))
     const res = await api<{ code: string }>('POST', '/api/auth/hadafi/sign-up', {
-      body: { fullName: 'E2E Dead', email, country: 'AE', orgCode: other!.code, verifiedToken: token },
+      body: { fullName: 'E2E Dead', email, country: 'AE', orgCode: other!.code, verifiedToken: token, termsAccepted: true },
     })
     expect(res.status).toBe(400)
     expect(res.body.code).toBe('INVALID_ORG_CODE')
     // Same proof, without the link: signs up on her own.
-    const again = await api('POST', '/api/auth/hadafi/sign-up', { body: { fullName: 'E2E Dead', email, country: 'AE', verifiedToken: token } })
+    const again = await api('POST', '/api/auth/hadafi/sign-up', { body: { fullName: 'E2E Dead', email, country: 'AE', verifiedToken: token, termsAccepted: true } })
     expect(again.status).toBe(200)
     const [u] = await db.select({ org: users.organisationId }).from(users).where(eq(users.email, email))
     expect(u!.org).toBeNull()

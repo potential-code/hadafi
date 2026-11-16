@@ -13,6 +13,7 @@ import { apiFetch } from '@/lib/api'
 import { AuthAlert } from '@/components/auth/AuthField'
 import { CodeForm, codeErrorMessage } from '@/components/auth/CodeForm'
 import { LEGAL_LINKS } from '@/components/landing/legal'
+import { MARKETING_CONSENT_TEXT, consentBody } from '@/lib/signUpConsent'
 import { fetchJoinInfo } from '@/lib/api/organisations'
 
 const COUNTRIES = getCountryDataList()
@@ -52,6 +53,7 @@ function SignUpForm() {
     country: '',
     couponCode: prefillCode,
     agreed: false,
+    marketingOptIn: false,
   })
   const [touched, setTouched] = useState({ country: false })
   const [showPassword, setShowPassword] = useState(false)
@@ -177,6 +179,7 @@ function SignUpForm() {
           ...(form.password ? { password: form.password } : {}),
           ...(form.couponCode.trim() ? { couponCode: form.couponCode.trim() } : {}),
           ...(org ? { orgCode: org.code } : {}),
+          ...consentBody({ termsAccepted: form.agreed, marketingOptIn: form.marketingOptIn }),
           verifiedToken,
         }),
       })
@@ -185,6 +188,7 @@ function SignUpForm() {
       setStep('details')
       if (e?.code === 'EMAIL_EXISTS') setEmailError('An account with this email already exists')
       else if (e?.code === 'INVALID_COUPON') setCouponError('Invalid or already used invite code')
+      else if (e?.code === 'TERMS_REQUIRED') setFormError('Please tick the box to accept the Terms of Use and Privacy Policy.')
       else if (e?.code === 'INVALID_ORG_CODE') {
         setOrg(null)
         setOrgGone(true)
@@ -377,16 +381,37 @@ function SignUpForm() {
             className="mt-0.5 w-4 h-4 rounded border-brand-surface-2 accent-brand-primary cursor-pointer flex-shrink-0"
           />
           <span className="text-xs text-brand-text-secondary leading-snug select-none">
-            By registering, I agree to the{' '}
+            I agree to the{' '}
             <a
               href={LEGAL_LINKS.terms}
               target="_blank"
               rel="noopener noreferrer"
               className="text-brand-primary hover:text-brand-primary-dark font-medium transition-colors"
             >
-              Terms and Conditions
+              Terms of Use
+            </a>{' '}
+            and{' '}
+            <a
+              href={LEGAL_LINKS.privacy}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-primary hover:text-brand-primary-dark font-medium transition-colors"
+            >
+              Privacy Policy
             </a>
             .
+          </span>
+        </label>
+
+        <label className="flex items-start gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={form.marketingOptIn}
+            onChange={(e) => update('marketingOptIn', e.target.checked)}
+            className="mt-0.5 w-4 h-4 rounded border-brand-surface-2 accent-brand-primary cursor-pointer flex-shrink-0"
+          />
+          <span className="text-xs text-brand-text-secondary leading-snug select-none">
+            {MARKETING_CONSENT_TEXT} <span className="text-brand-text-secondary/70">(optional)</span>
           </span>
         </label>
 

@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Check, Eye, EyeOff, Loader2, Pencil, Sparkles } from 'lucide-react'
+import { MARKETING_CONSENT_TEXT } from '@/lib/signUpConsent'
+import { LEGAL_LINKS } from './legal'
 
 const FIELD_LABELS: Record<string, string> = {
   fullName: 'Name',
@@ -34,7 +36,7 @@ interface RegistrationConfirmCardProps {
 type EditableField = 'fullName' | 'email' | 'password' | 'country' | 'couponCode'
 
 type ConfirmResponse =
-  | { action: 'confirmed' }
+  | { action: 'confirmed'; termsAccepted: true; marketingOptIn: boolean }
   | { action: 'edit'; field: EditableField }
 
 // ---------------------------------------------------------------------------
@@ -99,6 +101,10 @@ export function RegistrationConfirmCard({
 }: RegistrationConfirmCardProps) {
   const respondedRef = useRef(false)
   const [showPassword, setShowPassword] = useState(false)
+  // Terms must be ticked to register; marketing is optional and starts unticked.
+  // Only the person ticks these: Hana (the model) never sets or sees them.
+  const [termsAccepted, setTermsAccepted] = useState(false)
+  const [marketingOptIn, setMarketingOptIn] = useState(false)
   const isDisabled = status === 'complete' || respondedRef.current
   const showSpinner = respondedRef.current && status === 'executing'
 
@@ -115,9 +121,9 @@ export function RegistrationConfirmCard({
   }
 
   function handleConfirm() {
-    if (isDisabled || respondedRef.current) return
+    if (isDisabled || respondedRef.current || !termsAccepted) return
     respondedRef.current = true
-    respond({ action: 'confirmed' })
+    respond({ action: 'confirmed', termsAccepted: true, marketingOptIn })
   }
 
   // Build the country display string
@@ -257,13 +263,40 @@ export function RegistrationConfirmCard({
           {/* Footer                                                           */}
           {/* -------------------------------------------------------------- */}
           <div className="px-4 pb-4 pt-3 space-y-3">
-            <p className="text-xs text-center leading-relaxed text-white/35">
-              By clicking Confirm &amp; Register you agree to our Terms &amp; Conditions
-            </p>
+            <label className="flex cursor-pointer items-start gap-2 text-xs leading-relaxed text-white/75">
+              <input
+                type="checkbox"
+                checked={termsAccepted}
+                disabled={isDisabled}
+                onChange={(e) => setTermsAccepted(e.target.checked)}
+                className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-[#e41674]"
+              />
+              <span>
+                I agree to the{' '}
+                <a href={LEGAL_LINKS.terms} target="_blank" rel="noopener noreferrer" className="font-semibold text-white underline underline-offset-2">
+                  Terms of Use
+                </a>{' '}
+                and{' '}
+                <a href={LEGAL_LINKS.privacy} target="_blank" rel="noopener noreferrer" className="font-semibold text-white underline underline-offset-2">
+                  Privacy Policy
+                </a>
+                .
+              </span>
+            </label>
+            <label className="flex cursor-pointer items-start gap-2 text-xs leading-relaxed text-white/75">
+              <input
+                type="checkbox"
+                checked={marketingOptIn}
+                disabled={isDisabled}
+                onChange={(e) => setMarketingOptIn(e.target.checked)}
+                className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-[#e41674]"
+              />
+              <span>{MARKETING_CONSENT_TEXT} (optional)</span>
+            </label>
 
             <button
               type="button"
-              disabled={isDisabled}
+              disabled={isDisabled || !termsAccepted}
               onClick={handleConfirm}
               className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold text-white transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ background: 'linear-gradient(120deg,#e41674,#b50d5c)' }}

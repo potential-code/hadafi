@@ -35,6 +35,26 @@ export const users = pgTable("users", {
   points: integer("points").notNull().default(0),
   // Learner chose to appear on the leaderboard (first name and initial only).
   showOnLeaderboard: boolean("show_on_leaderboard").notNull().default(true),
+  /**
+   * When the learner ticked "I agree to the Terms of Use and Privacy Policy"
+   * at sign-up. Null for accounts created before it was recorded (and for
+   * mentors and partners, who sign up another way).
+   */
+  termsAcceptedAt: timestamp("terms_accepted_at", { withTimezone: true }),
+  /**
+   * Marketing consent: programme updates, offers and event invitations from
+   * the Potential.org Foundation (sent to the CRM; see services/crmSync).
+   * Off unless the learner ticked the optional box or turned it on later.
+   * Not the same as announcement emails, which are a platform notification setting.
+   */
+  marketingOptIn: boolean("marketing_opt_in").notNull().default(false),
+  /**
+   * When marketingOptIn last changed: the opt-in, or the withdrawal if it was
+   * turned off later (null: never opted in).
+   */
+  marketingOptInAt: timestamp("marketing_opt_in_at", { withTimezone: true }),
+  /** The exact wording the learner agreed to (MARKETING_CONSENT_TEXT), server-side. */
+  marketingConsentText: text("marketing_consent_text"),
   timezone: text("timezone"),
   meetingLink: text("meeting_link"),
   createdAt: timestamp("created_at").notNull().default(sql`now()`),
