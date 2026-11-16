@@ -8,10 +8,15 @@
  *
  * Self-contained (no React Query): the mentor portal has no query provider.
  *
- * While GTM is configured, the poll reads the list instead of the count, so a
- * newly earned first_step badge or newly issued certificate (the server's
- * one-time notifications) reaches GTM as first_lesson_completed /
- * course_certificate (consentStore.noteNotifications; no details are sent).
+ * In the learner shell, while GTM tracks the page, the poll reads the list
+ * instead of the count, so a newly earned first_step badge or newly issued
+ * certificate (the server's one-time notifications) reaches GTM as
+ * first_lesson_completed / course_certificate (consentStore.noteNotifications;
+ * no details are sent). Staff shells, and every shell with GTM off, poll the
+ * count alone, as before.
+ *
+ * The shell mounts two bells (sidebar and phone top bar, one hidden by CSS):
+ * polls that start together share one request (pollBell).
  */
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
@@ -20,7 +25,7 @@ import type { LucideIcon } from 'lucide-react'
 import { Megaphone, ShieldAlert } from 'lucide-react'
 import { Award, Bell, Building2, CalendarCheck, CalendarClock, CalendarX, CheckCheck, GraduationCap, PlayCircle, Radio, Trophy } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { consentStore, type ConsentStore } from '@/lib/consent/store'
+import { consentStore, type ConsentStore, type CookieConsentState } from '@/lib/consent/store'
 import { useConsentState } from '@/components/consent/CookieConsent'
 import {
   fetchNotifications,
@@ -49,20 +54,51 @@ const ICONS: Record<string, LucideIcon> = {
 }
 
 const POLL_MS = 60_000
+/** Polls that start within this long of each other share one request. */
+const SHARE_MS = 2_000
+
+type BellApi = { fetchNotifications: typeof fetchNotifications; fetchUnreadCount: typeof fetchUnreadCount }
+
+/** The latest poll, shared by every bell on the page. */
+let shared: { list: boolean; at: number; result: Promise<number> } | null = null
+
+/** The next poll asks the server again (after a notification was read). */
+export function forgetBellPoll() {
+  shared = null
+}
+
+/** The poll reads the list only in the learner shell, on a page GTM tracks. */
+export function bellReadsList(events: boolean, state: Pick<CookieConsentState, 'gtmId' | 'tracked'>): boolean {
+  return events && !!state.gtmId && state.tracked
+}
 
 /**
- * One poll: the unread count. While GTM is configured, the list instead (it
- * carries the count too), handed to consentStore.noteNotifications. With GTM
- * off (the kill switch) it is the count alone, as before.
+ * One poll: the unread count. In the learner shell (`events`) while GTM
+ * tracks the page, the list instead (it carries the count too), handed to
+ * noteNotifications. Every bell on the page that polls within SHARE_MS of
+ * another gets that poll's request and result instead of its own.
  */
-export async function pollBell(
+export function pollBell(
+  events: boolean,
   store: Pick<ConsentStore, 'getState' | 'noteNotifications'> = consentStore,
-  api: { fetchNotifications: typeof fetchNotifications; fetchUnreadCount: typeof fetchUnreadCount } = { fetchNotifications, fetchUnreadCount },
+  api: BellApi = { fetchNotifications, fetchUnreadCount },
 ): Promise<number> {
-  if (!store.getState().gtmId) return api.fetchUnreadCount()
-  const d = await api.fetchNotifications()
-  store.noteNotifications(d.items)
-  return d.unread
+  const list = bellReadsList(events, store.getState())
+  const now = Date.now()
+  if (shared && shared.list === list && now - shared.at < SHARE_MS) return shared.result
+  const result = list
+    ? api.fetchNotifications().then((d) => {
+        store.noteNotifications(d.items)
+        return d.unread
+      })
+    : api.fetchUnreadCount()
+  const entry = { list, at: now, result }
+  shared = entry
+  // A failed poll isn't reused: the next one tries again.
+  result.catch(() => {
+    if (shared === entry) shared = null
+  })
+  return result
 }
 
 function ago(iso: string): string {
@@ -77,10 +113,20 @@ function ago(iso: string): string {
 const CHANGED_EVENT = 'hadafi:notifications-changed'
 /** Tells every bell on the page that the unread count changed (a number sets it; nothing makes each re-check). */
 function announceChange(unread?: unknown) {
+  forgetBellPoll()
   window.dispatchEvent(new CustomEvent(CHANGED_EVENT, { detail: typeof unread === 'number' ? unread : undefined }))
 }
 
-export function NotificationBell({ variant = 'header' }: { variant?: 'header' | 'sidebar' }) {
+export function NotificationBell({
+  variant = 'header',
+  events = false,
+  store = consentStore,
+}: {
+  variant?: 'header' | 'sidebar'
+  /** The learner shell: new badge/certificate notifications may reach GTM. */
+  events?: boolean
+  store?: ConsentStore
+}) {
   const router = useRouter()
   const [open, setOpen] = useState(false)
   const [items, setItems] = useState<NotificationItem[] | null>(null)
@@ -89,22 +135,24 @@ export function NotificationBell({ variant = 'header' }: { variant?: 'header' | 
   const buttonRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
 
-  // Re-run the poll effect (an immediate check) when /public-config turns GTM on.
-  const { gtmId } = useConsentState()
+  // Re-run the poll effect (an immediate check) when the poll starts or stops
+  // reading the list: GTM turned on by /public-config, or a tracked page.
+  const { gtmId, tracked } = useConsentState(store)
+  const readsList = bellReadsList(events, { gtmId, tracked })
   const refreshCount = useCallback(() => {
-    pollBell().then(setUnread, () => {})
+    pollBell(events, store).then(setUnread, () => {})
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gtmId])
+  }, [events, store, readsList])
   const refreshList = useCallback(() => {
     fetchNotifications().then(
       (d) => {
         setItems(d.items)
         setUnread(d.unread)
-        consentStore.noteNotifications(d.items)
+        if (events) store.noteNotifications(d.items)
       },
       () => setItems((prev) => prev ?? []),
     )
-  }, [])
+  }, [events, store])
 
   // The count: now, every minute, and when the tab comes back.
   useEffect(() => {

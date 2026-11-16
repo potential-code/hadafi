@@ -130,14 +130,14 @@ export function Footer() {
 
         <div className="flex flex-col items-start justify-between gap-3 border-t border-ui-line pt-5 min-[900px]:flex-row min-[900px]:items-center">
           <span className="text-[13px] text-ui-muted">Potential © 2005-{year}. All rights reserved.</span>
-          <span className="flex gap-5">
+          <span className="flex flex-wrap gap-x-5 gap-y-2">
             <a href={LEGAL_LINKS.privacy} target="_blank" rel="noopener noreferrer" className="text-[13px] text-ui-muted hover:text-ui-text">
               Privacy Policy
             </a>
             <a href={LEGAL_LINKS.terms} target="_blank" rel="noopener noreferrer" className="text-[13px] text-ui-muted hover:text-ui-text">
               Terms of Use
             </a>
-            <CookieSettingsLink className="text-[13px] text-ui-muted" />
+            <CookieSettingsLink className="text-[13px] text-ui-muted hover:text-ui-text" />
           </span>
         </div>
       </div>

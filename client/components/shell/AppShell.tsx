@@ -215,7 +215,7 @@ function ShellSidebar({
         {/* The desktop sidebar has the bell (the phone header has its own). */}
         {onToggle && !collapsed && (
           <span className="ml-auto">
-            <NotificationBell variant="sidebar" />
+            <NotificationBell variant="sidebar" events={config.notificationEvents} />
           </span>
         )}
         {onToggle && (
@@ -255,7 +255,7 @@ function ShellSidebar({
 
       {onToggle && collapsed && (
         <div className="flex justify-center">
-          <NotificationBell variant="sidebar" />
+          <NotificationBell variant="sidebar" events={config.notificationEvents} />
         </div>
       )}
 
@@ -487,7 +487,7 @@ export function AppShell({
           <Link href={config.homeHref} className="mr-auto flex items-center">
             <img src={REDESIGN_ASSETS.logo.src} alt={REDESIGN_ASSETS.logo.alt} className="h-7 w-auto dark:brightness-0 dark:invert" />
           </Link>
-          <NotificationBell />
+          <NotificationBell events={config.notificationEvents} />
           {config.quickAction && (
             <Link
               href={config.quickAction.href}
