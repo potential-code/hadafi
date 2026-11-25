@@ -103,7 +103,9 @@ export const auth = betterAuth({
     expiresIn: 7 * DAY,
     updateAge: DAY,
     // Session checks read a signed cookie for up to 5 minutes before going
-    // back to the database, so a revoked session can linger that long.
+    // back to the database, so a revoked learner or mentor session can linger
+    // that long. Admin and partner sessions skip it: authenticate() confirms
+    // them with the database on every request.
     cookieCache: { enabled: true, maxAge: 5 * 60 },
   },
 

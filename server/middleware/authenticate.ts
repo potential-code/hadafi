@@ -40,6 +40,18 @@ declare global {
   }
 }
 
+/** Roles whose sessions skip the cookie cache (see authenticate). */
+const DB_CHECKED_ROLES = new Set(["admin", "partner"]);
+
+/** The request's session read from the database, never from the cookie cache. */
+async function sessionFromDb(req: Request): Promise<Awaited<ReturnType<typeof auth.api.getSession>>> {
+  try {
+    return await auth.api.getSession({ headers: fromNodeHeaders(req.headers), query: { disableCookieCache: true } });
+  } catch {
+    return null;
+  }
+}
+
 const unauthorized = (res: Response): void => {
   res.status(401).json({ success: false, error: { message: "Please sign in to continue.", code: "UNAUTHORIZED" } });
 };
@@ -106,15 +118,14 @@ export async function authenticate(req: Request, res: Response, next: NextFuncti
   } catch {
     session = null;
   }
-  // Partner logins can be removed by an admin at any moment; don't let the
-  // 5-minute cookie cache keep a revoked partner session in. Confirm it with
-  // the database (SMEEP f31dd6e).
-  if (session?.user.role === "partner") {
-    try {
-      session = await auth.api.getSession({ headers: fromNodeHeaders(req.headers), query: { disableCookieCache: true } });
-    } catch {
-      session = null;
-    }
+  // Admin and partner sessions are confirmed with the database on every
+  // request: the 5-minute cookie cache must not keep a signed-out, revoked or
+  // removed admin or partner session working (partners: SMEEP f31dd6e). The
+  // cached role is checked here; the fresh one from the users row below.
+  let confirmedInDb = false;
+  if (session && DB_CHECKED_ROLES.has(session.user.role ?? "")) {
+    session = await sessionFromDb(req);
+    confirmedInDb = true;
   }
   if (!session) {
     unauthorized(res);
@@ -139,6 +150,14 @@ export async function authenticate(req: Request, res: Response, next: NextFuncti
   if (!row || isOperatorServiceUser({ email: row.email, name: row.fullName })) {
     unauthorized(res);
     return;
+  }
+  // Made an admin (or partner) since the cookie cache was written: confirm too.
+  if (!confirmedInDb && DB_CHECKED_ROLES.has(row.role)) {
+    const fresh = await sessionFromDb(req);
+    if (!fresh || fresh.user.id !== session.user.id) {
+      unauthorized(res);
+      return;
+    }
   }
 
   req.user = { userId: session.user.id, role: row.role, via: "session" };
