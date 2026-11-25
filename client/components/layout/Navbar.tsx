@@ -6,6 +6,7 @@ import { Menu, X } from 'lucide-react'
 import { btn } from '@/components/kit'
 import { REDESIGN_ASSETS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
+import { HUMAN_MENTORS_ENABLED } from '@/lib/features'
 
 /**
  * In-page anchors. `wide` items hide between 1024px and 1100px so the row
@@ -27,7 +28,7 @@ const MOBILE_NAV = [
   { label: 'Courses', href: '#courses' },
   { label: 'AI mentors', href: '#ai-mentors' },
   { label: 'Hana, your AI assistant', href: '#ai-assistant' },
-  { label: 'Expert mentors', href: '#mentors' },
+  ...(HUMAN_MENTORS_ENABLED ? [{ label: 'Expert mentors', href: '#mentors' }] : []),
   { label: 'Events', href: '#events' },
   { label: 'Offers', href: '#offers' },
   { label: 'Stakeholders', href: '#stakeholder' },

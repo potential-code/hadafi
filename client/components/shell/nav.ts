@@ -28,6 +28,7 @@ import {
   Users,
   type LucideIcon,
 } from 'lucide-react'
+import { HUMAN_MENTORS_ENABLED } from '@/lib/features'
 
 export type ShellRole = 'learner' | 'mentor' | 'admin' | 'partner'
 
@@ -81,8 +82,13 @@ export const SHELL_CONFIG: Record<ShellRole, ShellConfig> = {
         title: 'Connect',
         items: [
           { label: 'AI Coaches', href: '/dashboard/ai-mentors', icon: Bot },
-          { label: 'Human Mentors', href: '/dashboard/human-mentors', icon: Users },
-          { label: 'My Bookings', href: '/dashboard/sessions', icon: CalendarCheck2 },
+          // Human mentors and booking stay out of the menu while they're off.
+          ...(HUMAN_MENTORS_ENABLED
+            ? [
+                { label: 'Human Mentors', href: '/dashboard/human-mentors', icon: Users },
+                { label: 'My Bookings', href: '/dashboard/sessions', icon: CalendarCheck2 },
+              ]
+            : []),
         ],
       },
       {

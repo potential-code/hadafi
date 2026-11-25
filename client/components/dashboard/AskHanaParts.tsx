@@ -33,6 +33,7 @@ import {
 } from 'lucide-react'
 import { HANA_AVATAR_SRC } from './HanaMessages'
 import { cn } from '@/lib/utils'
+import { HUMAN_MENTORS_ENABLED } from '@/lib/features'
 
 
 interface Capability {
@@ -50,14 +51,20 @@ export const GOALS: Capability[] = [
 
 const FIND: Capability[] = [
   { label: 'A course for my business', icon: GraduationCap, message: 'Find a course that fits my business' },
-  { label: 'A mentor who knows sales', icon: Users, message: 'Find me a human mentor who knows sales' },
+  HUMAN_MENTORS_ENABLED
+    ? { label: 'A mentor who knows sales', icon: Users, message: 'Find me a human mentor who knows sales' }
+    : { label: 'An AI coach for sales', icon: Users, message: 'Which AI coach can help me with sales?' },
   { label: 'Offers I can redeem with my points', icon: Tag, message: 'Which offers can I redeem with my points?' },
   { label: 'Upcoming events and recordings', icon: CalendarDays, message: 'Show me upcoming events and recordings' },
 ]
 
 const DO: Capability[] = [
-  { label: 'Book a mentor session', icon: CalendarCheck, message: 'I want to book a mentor session' },
-  { label: 'Show my progress and sessions', icon: History, message: 'Show my course progress and my upcoming sessions' },
+  ...(HUMAN_MENTORS_ENABLED
+    ? [
+        { label: 'Book a mentor session', icon: CalendarCheck, message: 'I want to book a mentor session' },
+        { label: 'Show my progress and sessions', icon: History, message: 'Show my course progress and my upcoming sessions' },
+      ]
+    : [{ label: 'Show my progress', icon: History, message: 'Show my course progress' }]),
   { label: 'Update my profile', icon: UserRound, message: 'I want to update my profile' },
 ]
 

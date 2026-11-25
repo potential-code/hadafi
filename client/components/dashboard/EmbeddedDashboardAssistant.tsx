@@ -26,6 +26,7 @@ import { VoiceDock, VoiceModeButton } from './VoiceDock'
 import { getUser } from '@/lib/auth'
 import { apiFetch } from '@/lib/api'
 import { getSmeSessions, getMentors } from '@/lib/api/sme'
+import { HUMAN_MENTORS_ENABLED } from '@/lib/features'
 import { fetchLearnerCourses, fetchUserCertificates, type CertificateWithCourse } from '@/lib/api/lms'
 import { fetchMyEvents } from '@/lib/api/liveEvents'
 import { fetchOffers } from '@/lib/api/offers'
@@ -73,6 +74,11 @@ import { ASK_HANA_PROMPT as ASSISTANT_INSTRUCTIONS } from '../../../shared/hana/
 // When false, the LLM never sees these actions — all content queries go through
 // the card-display actions (showXxxCards) instead.
 const NAVIGATION_ACTIONS_ENABLED = false
+// Human mentors (cards, booking, sessions) are off until real mentors can sign
+// in and set times; Hana then never sees those tools or mentors in her catalogue.
+const GOAL_TYPES = HUMAN_MENTORS_ENABLED
+  ? '["courses","offers","humanMentors","aiMentors","aiTools"]'
+  : '["courses","offers","aiMentors","aiTools"]'
 
 // ─── User snapshot type ───────────────────────────────────────────────────────
 
@@ -866,14 +872,16 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
         .array(z.string())
         .describe(
           'The type(s) needed for your next action. ' +
-            'For showResourcesForIntent (GOAL intent): pass ALL five types at once: ' +
-            '["courses","offers","humanMentors","aiMentors","aiTools"]. ' +
+            `For showResourcesForIntent (GOAL intent): pass all of these types at once: ${GOAL_TYPES}. ` +
             'For individual show*Cards: pass ONLY the one matching type — ' +
             '["courses"] for showCoursesByTopic, ["offers"] for showOfferCards, ' +
-            '["humanMentors"] for showHumanMentorCards, ["aiMentors"] for showAiMentorCards, ' +
+            (HUMAN_MENTORS_ENABLED ? '["humanMentors"] for showHumanMentorCards, ' : '') +
+            '["aiMentors"] for showAiMentorCards, ' +
             '["events"] for showEventCards, ["aiTools"] for showAiToolCards. ' +
-            'Only ["humanMentors","aiMentors"] together when the user asks for mentors without specifying AI or human. ' +
-            'NEVER pass all five types for individual show*Cards actions.',
+            (HUMAN_MENTORS_ENABLED
+              ? 'Only ["humanMentors","aiMentors"] together when the user asks for mentors without specifying AI or human. '
+              : 'Mentors on Hadafi are the AI mentors: there are no human mentor sessions to offer right now. ') +
+            'NEVER pass all the GOAL types for individual show*Cards actions.',
         ),
     }),
     render: ({ status }) => {
@@ -892,7 +900,8 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
             fetchOffers()
               .then((d) => { results.offers = (d?.offers ?? []).map((o) => ({ id: o.id, title: o.title })) })
               .catch(() => {}),
-          types.includes('humanMentors') &&
+          HUMAN_MENTORS_ENABLED &&
+            types.includes('humanMentors') &&
             getMentors()
               .then((d) => { results.humanMentors = d.map((m) => ({ id: m.id, name: m.fullName })) })
               .catch(() => {}),
@@ -1008,7 +1017,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
 
   useFrontendTool({
     name: 'openSessionsAndGetData',
-    available: NAVIGATION_ACTIONS_ENABLED,
+    available: NAVIGATION_ACTIONS_ENABLED && HUMAN_MENTORS_ENABLED,
     description:
       "Open the sessions page and fetch the user's upcoming and past mentor sessions. Call this when the user mentions: sessions, appointments, bookings, upcoming calls, scheduled calls, my schedule, or mentor sessions.",
     handler: async () => {
@@ -1103,7 +1112,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
 
   useFrontendTool({
     name: 'openHumanMentorsAndGetData',
-    available: NAVIGATION_ACTIONS_ENABLED,
+    available: NAVIGATION_ACTIONS_ENABLED && HUMAN_MENTORS_ENABLED,
     description:
       'Open the human mentors page and fetch the list of available real human mentors. Call this when the user mentions: human mentors, real mentor, real coach, book a mentor, find a mentor, expert session, programme mentor, human coach, one-on-one session, or 1-on-1. This is NOT for AI mentors — use openAiMentorsAndGetData for those.',
     handler: async () => {
@@ -1337,6 +1346,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
 
   useFrontendTool({
     name: 'showHumanMentorCards',
+    available: HUMAN_MENTORS_ENABLED,
     description:
       'Display filtered human mentor cards inline in the chat. Use for recommendation queries ("recommend a mentor", "find a mentor for X", "who can help with sales"). When the user mentions a topic or need, consult the catalogue and pass the IDs of semantically matching mentors. For explicit navigation ("go to mentors", "open human mentors"), use openHumanMentorsAndGetData instead.',
     parameters: z.object({
@@ -1465,13 +1475,13 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
   useFrontendTool({
     name: 'showResourcesForIntent',
     description:
-      'Show all relevant platform resources (courses, offers, human mentors, AI mentors, AI tools) ' +
+      `Show all relevant platform resources (courses, offers, ${HUMAN_MENTORS_ENABLED ? 'human mentors, ' : ''}AI mentors, AI tools) ` +
       'grouped by category based on the user\'s business goal or challenge. ' +
       'Use for GOAL intent — when the user describes a business objective or problem in natural language ' +
       'without explicitly asking for a specific resource type. ' +
       'Examples: "I want to increase sales", "How can I close more deals?", ' +
       '"I need more customers", "How do I improve my marketing?", "How can I grow my business?". ' +
-      'BEFORE calling this, call searchCatalogue(["courses","offers","humanMentors","aiMentors","aiTools"]) ' +
+      `BEFORE calling this, call searchCatalogue(${GOAL_TYPES}) ` +
       'to get all catalogue items, then pass the semantically matched IDs for each category. ' +
       'Pass an empty array for any category with no relevant matches — that section is hidden automatically. ' +
       'In every list, put the best match first: cards are shown in the order given.',
@@ -1484,7 +1494,11 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
         .describe('IDs of offers semantically relevant to the user\'s goal. Pass empty array if none match.'),
       mentorIds: z
         .array(z.string())
-        .describe('IDs of human mentors semantically relevant to the user\'s goal. Pass empty array if none match.'),
+        .describe(
+          HUMAN_MENTORS_ENABLED
+            ? 'IDs of human mentors semantically relevant to the user\'s goal. Pass empty array if none match.'
+            : 'Always pass an empty array: human mentor sessions are not available right now.',
+        ),
       aiMentorSlugs: z
         .array(z.string())
         .describe('Slugs of AI mentors semantically relevant to the user\'s goal. Pass empty array if none match.'),
@@ -1520,7 +1534,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
               <OfferAssistantCards ids={offerIds} actionStatus={status} />
             </div>
           )}
-          {mentorIds.length > 0 && (
+          {HUMAN_MENTORS_ENABLED && mentorIds.length > 0 && (
             <div>
               <p className="text-[13px] font-semibold text-ui-muted mb-2">Here are matching human mentors</p>
               <HumanMentorAssistantCards
@@ -1563,7 +1577,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
           const n = (data?.offers ?? []).filter((o) => offerIds.includes(o.id)).length
           if (n) counts.push(`${n} offer(s)`)
         }
-        if (mentorIds?.length) {
+        if (HUMAN_MENTORS_ENABLED && mentorIds?.length) {
           const mentors = await getMentors()
           const n = mentors.filter((m) => mentorIds.includes(m.id)).length
           if (n) counts.push(`${n} human mentor(s)`)
@@ -1583,6 +1597,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
 
   useHumanInTheLoop({
     name: 'bookMentorSession',
+    available: HUMAN_MENTORS_ENABLED,
     description:
       'Show an inline booking widget for a named human mentor. ' +
       'Call this when the user wants to book and has named a mentor. ' +
@@ -1657,6 +1672,7 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
 
   useFrontendTool({
     name: 'showSessionCards',
+    available: HUMAN_MENTORS_ENABLED,
     description:
       'Display filtered session cards inline in the chat. Use for status-based session queries: "show upcoming sessions", "show completed sessions", "show cancelled sessions", "my scheduled calls". For explicit navigation ("go to sessions", "open sessions"), use openSessionsAndGetData instead.',
     parameters: z.object({

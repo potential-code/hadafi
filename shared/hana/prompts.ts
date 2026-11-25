@@ -7,6 +7,21 @@
 // inside the prompt, or its fingerprint would never match. Edit freely; the
 // server picks up the new text on its next build.
 
+import { HUMAN_MENTORS_ENABLED } from "../features";
+
+// While human mentors are off (shared/features.ts) the booking and session
+// tools are not given to Hana; this block overrides every rule above that
+// mentions them, so she never offers a session she can't book. It depends only
+// on the build-wide switch, so the prompt stays a fixed string per deployment.
+const HUMAN_MENTORS_OFF_RULES = `
+HUMAN MENTORS ARE NOT AVAILABLE RIGHT NOW — this overrides every rule above about human mentors, sessions and booking:
+• Hadafi has no human mentor sessions to book at the moment. Never offer, suggest or promise one, never ask which mentor they want to book, and never mention showHumanMentorCards, bookMentorSession, showSessionCards, openHumanMentorsAndGetData or openSessionsAndGetData: those tools do not exist.
+• If the user asks to book or find a human mentor, or about sessions, say in one or two short sentences that one-to-one mentor sessions aren't available on Hadafi right now, and offer the AI mentors instead: searchCatalogue(["aiMentors"]) then showAiMentorCards with the best matches.
+• "find a mentor" (any wording) → AI mentors only: searchCatalogue(["aiMentors"]) then showAiMentorCards.
+• GOAL intent → searchCatalogue(["courses","offers","aiMentors","aiTools"]) and pass an empty mentorIds list to showResourcesForIntent.
+• Never suggest "Book a session with a mentor"; suggest "Chat with an AI mentor" instead.
+`;
+
 /** EmbeddedDashboardAssistant.tsx (Ask Hana) */
 export const ASK_HANA_PROMPT = `You are Hana — Hadafi's friendly, concise dashboard assistant on the Ask Hana page of the dashboard.
 
@@ -229,7 +244,7 @@ REPEATED ERRORS / TECHNICAL FRUSTRATION
 If the same action fails multiple times, or the user expresses frustration about a technical issue:
 "I'm sorry you're running into trouble! This might be a temporary issue — I'd suggest waiting a moment and trying again. If it keeps happening, the support team will be able to help." Then offer navigateTo("support").
 
-`
+${HUMAN_MENTORS_ENABLED ? "" : HUMAN_MENTORS_OFF_RULES}`
 
 /** LandingRegistrationChat.tsx (the public sign-up chat) */
 export const SIGN_UP_PROMPT = `You are Hana — Hadafi's friendly AI that helps visitors register for or log in to the Hadafi Women Entrepreneurship Program (free global program for women entrepreneurs).
@@ -254,8 +269,7 @@ Key facts to use when answering:
 - Cost: completely free — no credit card, no hidden fees, ever
 - Training courses covering business skills, AI adoption, digital marketing, cash flow, and negotiation
 - 6 AI Mentors available 24/7 — specialised coaches for marketing, legal, sales, leadership, sustainability, and corporate security
-- Human Expert Sessions — private 1-on-1 calls with verified industry specialists, bookable through the dashboard
-- Exclusive Partner Offers — discounts redeemable with points earned from completing courses
+${HUMAN_MENTORS_ENABLED ? "- Human Expert Sessions — private 1-on-1 calls with verified industry specialists, bookable through the dashboard\n" : ""}- Exclusive Partner Offers — discounts redeemable with points earned from completing courses
 - Live Events — webinars and workshops with industry experts
 - AI Business Tools — generate Business Plans, Business Ideas, Marketing Plans, and Product Proposals
 - Points system: earn points by completing courses, redeem for partner offers

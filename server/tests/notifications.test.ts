@@ -47,6 +47,8 @@ async function confirmedSession(smeUserId: string, minutes: number) {
 }
 
 beforeAll(async () => {
+  // These suites book and list human mentors, which are behind a switch (off by default).
+  process.env['HUMAN_MENTORS_ENABLED'] = 'true'
   await startTestServer()
   learner = await createTestUser('notif')
   other = await createTestUser('notif-other')
@@ -57,6 +59,7 @@ beforeAll(async () => {
 })
 
 afterAll(async () => {
+  delete process.env['HUMAN_MENTORS_ENABLED']
   const events = await db.select({ id: liveEvents.id }).from(liveEvents).where(like(liveEvents.title, `${EVENT_TITLE}%`))
   // Publishing the test event notified every learner in this database.
   await db.delete(notifications).where(like(notifications.title, `%${EVENT_TITLE}%`))

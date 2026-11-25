@@ -1,3 +1,5 @@
+import { HUMAN_MENTORS_ENABLED } from '@/lib/features'
+
 export type NavLink =
   | { label: string; href: string }
   | {
@@ -16,7 +18,7 @@ export const NAV_LINKS: NavLink[] = [
       { label: 'Live Events', href: '#events', description: 'Webinars & replays' },
       { label: 'AI Mentors', href: '#ai-mentors', description: 'On-demand AI guidance' },
       { label: 'AI Chatbot', href: '#ai-assistant', description: 'Ask Hadafi anything' },
-      { label: 'Human Mentors', href: '#mentors', description: 'Real expert mentors' },
+      ...(HUMAN_MENTORS_ENABLED ? [{ label: 'Human Mentors', href: '#mentors', description: 'Real expert mentors' }] : []),
       { label: 'Offers', href: '#offers', description: 'Perks & partner deals' },
     ],
   },

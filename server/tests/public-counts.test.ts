@@ -19,7 +19,8 @@ async function dbCounts(): Promise<PublicCounts> {
   const n = async (q: Promise<{ n: number }[]>) => Number((await q)[0]?.n ?? 0)
   return {
     courses: await n(db.select({ n: count() }).from(courses).where(eq(courses.status, 'published'))),
-    mentors: await n(db.select({ n: count() }).from(users).where(eq(users.role, 'mentor'))),
+    // Human mentors are behind a switch (off by default): no count while off.
+    mentors: process.env['HUMAN_MENTORS_ENABLED'] === 'true' ? await n(db.select({ n: count() }).from(users).where(eq(users.role, 'mentor'))) : 0,
     aiMentors: AI_MENTOR_BOT_IDS.size,
     offers: await n(db.select({ n: count() }).from(offers).where(eq(offers.status, 'published'))),
     events: await n(db.select({ n: count() }).from(liveEvents).where(eq(liveEvents.status, 'published'))),
@@ -43,6 +44,20 @@ describe('GET /api/public/counts', () => {
     expect(res.body.success).toBe(true)
     expect(res.body.data).toEqual(await dbCounts())
     expect(res.body.data.aiMentors).toBe(6)
+  })
+
+  it('counts expert mentors only while human mentors are switched on', async () => {
+    delete process.env['HUMAN_MENTORS_ENABLED']
+    resetPublicCache()
+    expect((await api<Envelope<PublicCounts>>('GET', '/api/public/counts')).body.data.mentors).toBe(0)
+    process.env['HUMAN_MENTORS_ENABLED'] = 'true'
+    resetPublicCache()
+    try {
+      expect((await api<Envelope<PublicCounts>>('GET', '/api/public/counts')).body.data).toEqual(await dbCounts())
+    } finally {
+      delete process.env['HUMAN_MENTORS_ENABLED']
+      resetPublicCache()
+    }
   })
 
   it('counts a newly published course, but not a draft, once the cache is cleared', async () => {

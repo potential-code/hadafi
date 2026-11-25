@@ -32,6 +32,8 @@ async function points(userId: string): Promise<number> {
 }
 
 beforeAll(async () => {
+  // These suites book and list human mentors, which are behind a switch (off by default).
+  process.env['HUMAN_MENTORS_ENABLED'] = 'true'
   await startTestServer()
   learner = await createTestUser('integrity')
   outsider = await createTestUser('integrity-outsider')
@@ -78,6 +80,7 @@ beforeAll(async () => {
 })
 
 afterAll(async () => {
+  delete process.env['HUMAN_MENTORS_ENABLED']
   await db.delete(courseCertificates).where(inArray(courseCertificates.courseId, [ids.course, ids.draftCourse]))
   await db.delete(courses).where(inArray(courses.id, [ids.course, ids.draftCourse]))
   await cleanupFixtureUsers()

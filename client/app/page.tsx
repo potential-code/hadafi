@@ -7,6 +7,7 @@ import { LandingAiMentors, LandingHumanMentors } from '@/components/landing/Land
 import { LandingEventsOffers } from '@/components/landing/LandingEventsOffers'
 import { LandingStakeholders } from '@/components/landing/LandingStakeholders'
 import { LandingCommunity } from '@/components/landing/LandingCommunity'
+import { HUMAN_MENTORS_ENABLED } from '@/lib/features'
 
 // Structured data for search engines: who runs the programme.
 const ORGANIZATION_JSON_LD = {
@@ -50,7 +51,7 @@ export default function HomePage() {
         <LandingHero />
         <LandingCourses />
         <LandingAiMentors />
-        <LandingHumanMentors />
+        {HUMAN_MENTORS_ENABLED && <LandingHumanMentors />}
         <LandingEventsOffers />
         <LandingStakeholders />
         <LandingCommunity />

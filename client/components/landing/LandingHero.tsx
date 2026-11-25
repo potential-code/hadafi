@@ -5,20 +5,21 @@ import { ArrowRight, Check } from 'lucide-react'
 import { btn, Skeleton } from '@/components/kit'
 import { REDESIGN_ASSETS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
+import { HUMAN_MENTORS_ENABLED } from '@/lib/features'
 import { LandingRegistrationChat } from './LandingRegistrationChat'
 import { countText, usePublicCounts, type PublicCounts } from './publicData'
 
 const INCLUDED = [
   'Free courses and live events',
   'AI mentors and tools, 24/7',
-  'Private 1:1 expert sessions',
+  ...(HUMAN_MENTORS_ENABLED ? ['Private 1:1 expert sessions'] : ['Certificates you can share']),
   'Exclusive member offers',
 ]
 
 /** Live figures only: each one comes from GET /api/public/counts. */
 const STATS: { key: keyof PublicCounts; label: string }[] = [
   { key: 'courses', label: 'free courses' },
-  { key: 'mentors', label: 'expert mentors' },
+  ...(HUMAN_MENTORS_ENABLED ? [{ key: 'mentors' as const, label: 'expert mentors' }] : []),
   { key: 'aiMentors', label: 'AI mentors, 24/7' },
   { key: 'offers', label: 'member offers' },
 ]
@@ -37,7 +38,7 @@ export function LandingHero() {
           </h1>
           <p className="max-w-[640px] text-[17px] leading-[1.55] text-ui-muted">
             Hadafi is a free program for women entrepreneurs by Potential.org. Learn with free courses and AI tools,
-            get guidance from AI and expert mentors, join live events and unlock member offers.
+            get guidance from {HUMAN_MENTORS_ENABLED ? 'AI and expert mentors' : 'AI mentors'}, join live events and unlock member offers.
           </p>
           <ul
             aria-label="What the program includes"

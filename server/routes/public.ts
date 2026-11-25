@@ -3,6 +3,7 @@ import { asc, count, eq } from "drizzle-orm";
 import { db } from "../db";
 import { courses, modules, units, users, offers, liveEvents } from "../db/schema";
 import { AI_MENTOR_BOT_IDS } from "../controllers/aiMentor.controller";
+import { humanMentorsEnabled } from "../middleware/humanMentors";
 
 /**
  * Unauthenticated figures for the public homepage, so every number it shows
@@ -16,7 +17,7 @@ const TTL = 5 * 60_000;
 export type PublicCounts = {
   /** Published courses. */
   courses: number;
-  /** Expert (human) mentors: the same people GET /api/mentors/public lists. */
+  /** Expert (human) mentors: the same people GET /api/mentors/public lists (0 while they're switched off). */
   mentors: number;
   /** AI mentors learners can chat with (the server's allow-list). */
   aiMentors: number;
@@ -46,7 +47,7 @@ async function loadCounts(): Promise<PublicCounts> {
   ]);
   return {
     courses: Number(c[0]?.n ?? 0),
-    mentors: Number(m[0]?.n ?? 0),
+    mentors: humanMentorsEnabled() ? Number(m[0]?.n ?? 0) : 0,
     aiMentors: AI_MENTOR_BOT_IDS.size,
     offers: Number(o[0]?.n ?? 0),
     events: Number(e[0]?.n ?? 0),

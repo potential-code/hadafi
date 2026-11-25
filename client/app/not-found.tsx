@@ -17,6 +17,7 @@ import {
 import { btn } from '@/components/kit'
 import { REDESIGN_ASSETS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
+import { HUMAN_MENTORS_ENABLED } from '@/lib/features'
 import { CONTACT_EMAIL } from '@/components/landing/legal'
 
 type Dest = { label: string; meta: string; href: string; icon: LucideIcon; keywords: string }
@@ -32,7 +33,7 @@ const DESTINATIONS: Dest[] = [
   },
   {
     label: 'Mentors',
-    meta: 'AI and human',
+    meta: HUMAN_MENTORS_ENABLED ? 'AI and human' : 'AI coaches, 24/7',
     href: '/#ai-mentors',
     icon: Users,
     keywords: 'mentor mentors coach ai human session book expert hana assistant',

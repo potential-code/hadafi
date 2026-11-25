@@ -4,6 +4,7 @@ import { z } from "zod";
 import { validate } from "../middleware/validate";
 import { authenticate } from "../middleware/authenticate";
 import { requireRole } from "../middleware/require-role";
+import { emptyListWhenHumanMentorsOff, requireHumanMentors } from "../middleware/humanMentors";
 import {
   listMentors,
   listMentorsPublic,
@@ -21,24 +22,27 @@ const bookSessionDto = z.object({
 });
 
 // ---------------------------------------------------------------------------
-// Mentor discovery — any authenticated user may view mentors and their slots
+// Mentor discovery — any authenticated user may view mentors and their slots.
+// While human mentors are off (HUMAN_MENTORS_ENABLED) the lists are empty and
+// open times and booking are refused; existing sessions can still be listed
+// and cancelled.
 // ---------------------------------------------------------------------------
 
 /** GET /api/mentors/public — unauthenticated, landing page use only */
-router.get("/mentors/public", listMentorsPublic);
+router.get("/mentors/public", emptyListWhenHumanMentorsOff, listMentorsPublic);
 
 /** GET /api/mentors — list all mentor users */
-router.get("/mentors", authenticate, listMentors);
+router.get("/mentors", authenticate, emptyListWhenHumanMentorsOff, listMentors);
 
 /** GET /api/mentors/:id/availability — get available slots for a specific mentor */
-router.get("/mentors/:id/availability", authenticate, getMentorAvailabilityHandler);
+router.get("/mentors/:id/availability", authenticate, requireHumanMentors, getMentorAvailabilityHandler);
 
 // ---------------------------------------------------------------------------
 // SME session management
 // ---------------------------------------------------------------------------
 
 /** POST /api/sessions — book a slot (SME only) */
-router.post("/sessions", authenticate, requireRole("sme"), validate(bookSessionDto), postBookSession);
+router.post("/sessions", authenticate, requireRole("sme"), requireHumanMentors, validate(bookSessionDto), postBookSession);
 
 /** GET /api/sessions — list the authenticated SME's sessions */
 router.get("/sessions", authenticate, requireRole("sme"), getSmeSessionsHandler);

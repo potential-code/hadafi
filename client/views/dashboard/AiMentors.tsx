@@ -7,11 +7,12 @@ import { Avatar, btn, Card, Chip, PageHeader, SectionHeader } from '@/components
 import { aiMentorViews } from '@/components/dashboard/aiMentorMeta'
 import { getMentors } from '@/lib/api/sme'
 import { cn } from '@/lib/utils'
+import { HUMAN_MENTORS_ENABLED } from '@/lib/features'
 
 export default function AiMentorsPage() {
   const mentors = aiMentorViews()
   // Real human mentor faces for the "prefer a person" banner.
-  const { data: humans } = useQuery({ queryKey: ['mentors'], queryFn: getMentors })
+  const { data: humans } = useQuery({ queryKey: ['mentors'], queryFn: getMentors, enabled: HUMAN_MENTORS_ENABLED })
 
   return (
     <DashboardLayout>
@@ -59,28 +60,30 @@ export default function AiMentorsPage() {
         </ul>
       </section>
 
-      <Card className="flex flex-wrap items-center gap-[18px] px-5 py-[18px]">
-        {humans && humans.length > 0 && (
-          <div aria-hidden className="flex flex-shrink-0">
-            {humans.slice(0, 3).map((h, i) => (
-              <Avatar
-                key={h.id}
-                name={h.fullName}
-                src={h.avatarUrl}
-                size={40}
-                className={cn('border-2 border-ui-surface', i > 0 && '-ms-2.5')}
-              />
-            ))}
+      {HUMAN_MENTORS_ENABLED && (
+        <Card className="flex flex-wrap items-center gap-[18px] px-5 py-[18px]">
+          {humans && humans.length > 0 && (
+            <div aria-hidden className="flex flex-shrink-0">
+              {humans.slice(0, 3).map((h, i) => (
+                <Avatar
+                  key={h.id}
+                  name={h.fullName}
+                  src={h.avatarUrl}
+                  size={40}
+                  className={cn('border-2 border-ui-surface', i > 0 && '-ms-2.5')}
+                />
+              ))}
+            </div>
+          )}
+          <div className="flex min-w-0 flex-1 basis-[240px] flex-col gap-0.5">
+            <h2 className="text-base font-semibold text-ui-text">Prefer to talk to a person?</h2>
+            <p className="text-sm text-ui-muted">Book a free one-on-one session with one of our verified business mentors.</p>
           </div>
-        )}
-        <div className="flex min-w-0 flex-1 basis-[240px] flex-col gap-0.5">
-          <h2 className="text-base font-semibold text-ui-text">Prefer to talk to a person?</h2>
-          <p className="text-sm text-ui-muted">Book a free one-on-one session with one of our verified business mentors.</p>
-        </div>
-        <Link href="/dashboard/human-mentors" className={btn({ variant: 'secondary', size: 'md' })}>
-          Browse human mentors
-        </Link>
-      </Card>
+          <Link href="/dashboard/human-mentors" className={btn({ variant: 'secondary', size: 'md' })}>
+            Browse human mentors
+          </Link>
+        </Card>
+      )}
     </DashboardLayout>
   )
 }

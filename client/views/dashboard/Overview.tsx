@@ -29,6 +29,7 @@ import { useDictation } from '@/components/dashboard/useHanaVoice'
 import { useNarrow } from '@/components/dashboard/useNarrow'
 import { fetchLearnerCourses, fetchUserCertificates } from '@/lib/api/lms'
 import { cancelSmeSession, getSmeSessions, getMentors, type MentorUser, type SmeSession } from '@/lib/api/sme'
+import { HUMAN_MENTORS_ENABLED } from '@/lib/features'
 import { fetchOffers } from '@/lib/api/offers'
 import { fetchMyEvents, type LiveEvent } from '@/lib/api/liveEvents'
 import { timeLabel } from '@/lib/events/eventTime'
@@ -92,7 +93,7 @@ export default function DashboardOverview() {
   const { data: certificates = [] } = useQuery({ queryKey: ['user-certificates'], queryFn: fetchUserCertificates })
   const { data: offersData } = useQuery({ queryKey: ['offers'], queryFn: fetchOffers })
   const { data: liveEvents = [] } = useQuery({ queryKey: ['live-events', 'mine'], queryFn: fetchMyEvents, refetchInterval: 60_000 })
-  const { data: apiMentors = [], isLoading: mentorsLoading } = useQuery({ queryKey: ['mentors'], queryFn: getMentors })
+  const { data: apiMentors = [], isLoading: mentorsLoading } = useQuery({ queryKey: ['mentors'], queryFn: getMentors, enabled: HUMAN_MENTORS_ENABLED })
   const streakQuery = useQuery({ queryKey: ['me-streak'], queryFn: fetchStreak, retry: false })
 
   const inProgress = useMemo(() => courses.filter((c) => c.isEnrolled && c.progressPercentage < 100), [courses])
@@ -221,7 +222,7 @@ export default function DashboardOverview() {
             <BusinessToolsCard />
           </div>
           <div className="flex min-w-0 flex-col gap-5">
-            <MentorsCard loading={mentorsLoading} mentors={apiMentors.slice(0, 3)} />
+            {HUMAN_MENTORS_ENABLED && <MentorsCard loading={mentorsLoading} mentors={apiMentors.slice(0, 3)} />}
             <CertificateCard certificates={certificates} />
             <AchievementsCard />
             <Card aria-labelledby="h-ai-mentors" role="region">
@@ -747,19 +748,24 @@ function ComingUpCard({
       )}
       {events.length === 0 && (
         <p className="text-[13px] text-ui-muted">
-          {sessions.length === 0 && !sessionsFailed ? 'No mentor sessions booked and no live events scheduled.' : 'No live events scheduled.'}{' '}
+          {HUMAN_MENTORS_ENABLED && sessions.length === 0 && !sessionsFailed ? 'No mentor sessions booked and no live events scheduled.' : 'No live events scheduled.'}{' '}
           <Link href="/dashboard/events" className="font-semibold text-ui-brand-text hover:underline">
             Browse past recordings
           </Link>
         </p>
       )}
       <div className="flex flex-wrap gap-2 sm:justify-end">
-        <Link href="/dashboard/human-mentors" className={cn(btn({ variant: 'secondary', size: 'sm' }), 'h-9 max-sm:flex-1')}>
-          Find a mentor
+        <Link
+          href={HUMAN_MENTORS_ENABLED ? '/dashboard/human-mentors' : '/dashboard/ai-mentors'}
+          className={cn(btn({ variant: 'secondary', size: 'sm' }), 'h-9 max-sm:flex-1')}
+        >
+          {HUMAN_MENTORS_ENABLED ? 'Find a mentor' : 'Ask an AI coach'}
         </Link>
-        <Link href="/dashboard/sessions" className={cn(btn({ variant: 'ghost', size: 'sm' }), 'h-9')}>
-          My bookings
-        </Link>
+        {HUMAN_MENTORS_ENABLED && (
+          <Link href="/dashboard/sessions" className={cn(btn({ variant: 'ghost', size: 'sm' }), 'h-9')}>
+            My bookings
+          </Link>
+        )}
         <Link href="/dashboard/events" className={cn(btn({ variant: 'ghost', size: 'sm' }), 'h-9')}>
           All events
         </Link>

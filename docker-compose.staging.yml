@@ -47,6 +47,9 @@ services:
       # AI Insights / AI Dashboard: the read-only role (prod-prep.mjs ai-readonly-role).
       # Empty = those admin pages say they aren't set up.
       AI_READONLY_DATABASE_URL: ${AI_READONLY_DATABASE_URL:-}
+      # Human mentors and booking. Off until real mentors can sign in and set
+      # times; the same value is passed to the site build below.
+      HUMAN_MENTORS_ENABLED: ${HUMAN_MENTORS_ENABLED:-false}
       # AI Examiner video mode (Anam avatar). Unset = text and voice only.
       ANAM_API_KEY: ${ANAM_API_KEY:-}
       ANAM_AVATAR_ID: ${ANAM_AVATAR_ID:-}
@@ -109,6 +112,7 @@ services:
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-}
         NEXT_PUBLIC_AI_BACKEND_URL: ${NEXT_PUBLIC_AI_BACKEND_URL}
         NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY:-}
+        NEXT_PUBLIC_HUMAN_MENTORS_ENABLED: ${HUMAN_MENTORS_ENABLED:-false}
     environment:
       NODE_ENV: production
       PORT: "3000"
