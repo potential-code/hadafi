@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 import { AlertTriangle, Info } from 'lucide-react'
+import { btn } from '@/components/kit'
+import { cn } from '@/lib/utils'
 
 interface ConfirmDialogProps {
   title: string
@@ -23,7 +24,11 @@ export function ConfirmDialog({
   onConfirm,
   onCancel,
 }: ConfirmDialogProps) {
+  const cancelRef = useRef<HTMLButtonElement>(null)
+
   useEffect(() => {
+    // Destructive actions start on Cancel so Enter never confirms by accident.
+    cancelRef.current?.focus()
     function onKey(e: KeyboardEvent) {
       if (e.key === 'Escape') onCancel()
     }
@@ -31,62 +36,50 @@ export function ConfirmDialog({
     return () => document.removeEventListener('keydown', onKey)
   }, [onCancel])
 
+  const danger = variant === 'danger'
+
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
-      onClick={(e) => { if (e.target === e.currentTarget) onCancel() }}
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 p-4"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onCancel()
+      }}
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95, y: 12 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.95, y: 12 }}
-        transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full max-w-sm rounded-2xl bg-white shadow-2xl p-6"
+      <div
+        className="w-full max-w-sm rounded-[14px] border border-ui-line bg-ui-surface p-5 shadow-ui"
         role="alertdialog"
         aria-modal="true"
         aria-labelledby="confirm-title"
         aria-describedby="confirm-message"
       >
-        <div className="flex items-start gap-3 mb-4">
-          <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${
-            variant === 'danger' ? 'bg-rose-100' : 'bg-brand-surface'
-          }`}>
-            {variant === 'danger'
-              ? <AlertTriangle className="w-4 h-4 text-rose-600" />
-              : <Info className="w-4 h-4 text-brand-primary" />
-            }
-          </div>
-          <div>
-            <h2 id="confirm-title" className="text-sm font-bold text-brand-text-primary leading-snug">
+        <div className="mb-5 flex items-start gap-3">
+          <span
+            className={cn(
+              'inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px]',
+              danger ? 'bg-ui-danger-soft text-ui-danger' : 'bg-ui-brand-soft text-ui-brand-text',
+            )}
+          >
+            {danger ? <AlertTriangle className="h-4 w-4" aria-hidden /> : <Info className="h-4 w-4" aria-hidden />}
+          </span>
+          <div className="min-w-0">
+            <h2 id="confirm-title" className="text-[15px] font-semibold leading-snug text-ui-text">
               {title}
             </h2>
-            <p id="confirm-message" className="text-xs text-brand-text-muted mt-1 leading-relaxed">
+            <p id="confirm-message" className="mt-1 text-sm leading-relaxed text-ui-muted">
               {message}
             </p>
           </div>
         </div>
 
-        <div className="flex gap-2 justify-end">
-          <button
-            type="button"
-            onClick={onCancel}
-            className="px-4 py-2 rounded-xl bg-brand-surface text-brand-text-secondary text-xs font-bold hover:bg-brand-surface-2 transition-colors border border-brand-surface-2"
-          >
+        <div className="flex justify-end gap-2">
+          <button ref={cancelRef} type="button" onClick={onCancel} className={btn({ variant: 'secondary', size: 'sm' })}>
             {cancelLabel}
           </button>
-          <button
-            type="button"
-            onClick={onConfirm}
-            className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors shadow-sm ${
-              variant === 'danger'
-                ? 'bg-rose-600 text-white hover:bg-rose-700'
-                : 'bg-brand-primary text-white hover:bg-brand-primary-dark'
-            }`}
-          >
+          <button type="button" onClick={onConfirm} className={btn({ variant: danger ? 'danger' : 'primary', size: 'sm' })}>
             {confirmLabel}
           </button>
         </div>
-      </motion.div>
+      </div>
     </div>
   )
 }

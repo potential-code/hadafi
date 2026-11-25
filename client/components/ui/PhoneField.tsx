@@ -90,23 +90,23 @@ export function PhoneField({
   return (
     <div
       className={cn(
-        'flex items-stretch rounded-xl border bg-white text-sm transition-colors',
-        'focus-within:border-brand-primary focus-within:ring-2 focus-within:ring-brand-primary/20',
+        'flex items-stretch rounded-xl border bg-ui-surface text-sm transition-colors',
+        'focus-within:border-ui-brand focus-within:ring-2 focus-within:ring-ui-brand/20',
         hasError
-          ? 'border-rose-400 ring-2 ring-rose-400/20'
-          : 'border-brand-surface-2',
+          ? 'border-ui-danger/40 ring-2 ring-ui-danger/20'
+          : 'border-ui-line',
         disabled && 'opacity-60 cursor-not-allowed',
         className,
       )}
     >
       {/* Country code selector */}
-      <div className="relative flex items-center shrink-0 border-r border-brand-surface-2">
+      <div className="relative flex items-center shrink-0 border-r border-ui-line">
         <select
           value={iso2}
           onChange={(e) => handleCountryChange(e.target.value)}
           disabled={disabled}
           aria-label="Country dial code"
-          className="h-full appearance-none bg-transparent pl-2.5 pr-7 py-2 text-sm text-brand-text-primary cursor-pointer focus:outline-none disabled:cursor-not-allowed"
+          className="h-full appearance-none bg-transparent pl-2.5 pr-7 py-2 text-sm text-ui-text cursor-pointer focus:outline-none disabled:cursor-not-allowed"
         >
           {COUNTRIES.map((c) => (
             <option key={c.iso2} value={c.iso2}>
@@ -114,7 +114,7 @@ export function PhoneField({
             </option>
           ))}
         </select>
-        <ChevronDown className="pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-brand-text-secondary/60" />
+        <ChevronDown className="pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-ui-muted" />
       </div>
 
       {/* Digits-only phone number input */}
@@ -125,7 +125,7 @@ export function PhoneField({
         onChange={handleNumberChange}
         disabled={disabled}
         placeholder={placeholder}
-        className="flex-1 min-w-0 bg-transparent px-3 py-2 text-brand-text-primary placeholder:text-brand-text-secondary/40 focus:outline-none disabled:cursor-not-allowed"
+        className="flex-1 min-w-0 bg-transparent px-3 py-2 text-ui-text placeholder:text-ui-muted focus:outline-none disabled:cursor-not-allowed"
       />
     </div>
   )
