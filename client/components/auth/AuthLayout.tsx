@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { REDESIGN_ASSETS } from '@/lib/constants'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { countText, usePublicCounts, type PublicCounts } from '@/components/landing/publicData'
 
 interface AuthLayoutProps {
   badge?: string
@@ -15,11 +16,33 @@ interface AuthLayoutProps {
   children: ReactNode
 }
 
-const STATS = [
-  { value: '100K+', label: 'Women entrepreneurs' },
-  { value: '50+', label: 'Countries reached' },
-  { value: 'Free', label: 'No credit card ever' },
+// Only figures read live from the database (GET /api/public/counts), plus
+// "Free", which is a fact of the program. No reach or country claims.
+const LIVE_STATS: { key: keyof PublicCounts; label: string }[] = [
+  { key: 'courses', label: 'Free courses' },
+  { key: 'aiMentors', label: 'AI mentors, 24/7' },
 ]
+
+function AsideStats() {
+  const { counts } = usePublicCounts()
+  const stats = [
+    ...LIVE_STATS.flatMap((s) => {
+      const value = counts ? countText(counts[s.key]) : null
+      return value ? [{ value, label: s.label }] : []
+    }),
+    { value: 'Free', label: 'No credit card ever' },
+  ]
+  return (
+    <div className="border-t border-white/10 pt-8 grid grid-cols-3 gap-4">
+      {stats.map(({ value, label }) => (
+        <div key={label}>
+          <p className="text-2xl font-bold text-white">{value}</p>
+          <p className="text-xs text-white/50 mt-0.5">{label}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export function AuthLayout({
   badge,
@@ -93,21 +116,14 @@ export function AuthLayout({
             </motion.div>
           </div>
 
-          {/* Bottom: social proof stats */}
+          {/* Bottom: live figures */}
           <motion.div
             initial={reduced ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="relative z-10 p-12 xl:p-16"
           >
-            <div className="border-t border-white/10 pt-8 grid grid-cols-3 gap-4">
-              {STATS.map(({ value, label }) => (
-                <div key={label}>
-                  <p className="text-2xl font-bold text-white">{value}</p>
-                  <p className="text-xs text-white/50 mt-0.5">{label}</p>
-                </div>
-              ))}
-            </div>
+            <AsideStats />
           </motion.div>
         </aside>
 
