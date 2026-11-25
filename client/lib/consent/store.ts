@@ -43,6 +43,12 @@ export type MarketingEvent =
   | { event: 'sign_up_start'; method: SignUpMethod }
   | { event: 'first_lesson_completed' }
   | { event: 'course_certificate' }
+  /**
+   * The visitor clicked Accept on this page (not a choice restored at page
+   * load). Tags blocked at page view fire on a "consent_update" custom-event
+   * trigger, so the landing page itself is measured.
+   */
+  | { event: 'consent_update'; consent: 'granted' }
 
 /** A notification as GET /api/me/notifications returns it (fields used here). */
 export interface NotificationLike {
@@ -104,6 +110,7 @@ export function createConsentStore(deps: PlainDeps | Deps = {}) {
   let tainted = false
   let opener: { focus(): void; isConnected?: boolean } | null = null
   const started = new Set<SignUpMethod>() // sign_up_start sent on this page
+  let consentSignalled = false // consent_update sent on this page
   // Ids in this document's noted fetches, for the signed-in user they belong
   // to: another account signing in (no page load between) starts afresh.
   let seenNotifications: Set<string> | null = null
@@ -236,9 +243,15 @@ export function createConsentStore(deps: PlainDeps | Deps = {}) {
     },
     accept() {
       if (!state.gtmId) return
+      const wasAccepted = state.choice === 'accepted'
       saveChoice(d.storage(), 'accepted', d.now())
       const win = d.win()
       if (win) setConsent(win, 'accepted')
+      // Only on the move to accepted (first choice, or from rejected via
+      // Cookie settings), after the consent update, at most once per page.
+      // A choice restored at page load needs none: consent was granted before
+      // GTM's page view.
+      if (!wasAccepted && !consentSignalled && push({ event: 'consent_update', consent: 'granted' })) consentSignalled = true
       closeAndRestoreFocus({ choice: 'accepted' })
     },
     reject() {

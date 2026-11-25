@@ -274,6 +274,113 @@ describe('GTM loader', () => {
     }
   })
 
+  it('tracks GTM Preview (Tag Assistant) visits: ?gtm_debug=x or a timestamp only', () => {
+    for (const p of ['/?gtm_debug=x', '/?gtm_debug=1794901234567', '/sign-up?gtm_debug=x&utm_source=prod-qa']) {
+      expect([p, isTrackedUrl(p)]).toEqual([p, true])
+    }
+    for (const p of ['/?gtm_debug=', '/?gtm_debug=yes', '/?gtm_debug=a@b.com', '/?gtm_debug=x&token=abc', `/?gtm_debug=${'1'.repeat(17)}`]) {
+      expect([p, isTrackedUrl(p)]).toEqual([p, false])
+    }
+  })
+
+  it('tracks campaign links (utm_*) unless a value carries personal data', () => {
+    for (const p of [
+      '/sign-up?utm_medium=newsletter&utm_campaign=nov-2026',
+      // ordinary campaign links: free text, empty values, long numeric ids
+      '/?utm_source=sendy&utm_medium=email&utm_campaign=Hadafi%20Search%20UAE',
+      '/?utm_campaign=Black+Friday',
+      '/?utm_source=',
+      '/?utm_source=google&utm_term=women+leadership+course',
+      '/?utm_term=career%20coaching&utm_content=Spring%20offer%20(2026)',
+      '/?utm_content=712345678901', // Google Ads {creative}
+      '/?utm_id=21345678901', // Google Ads {campaignid}
+      '/?utm_content=offer%2050%25%20off', // a literal '%'
+      `/?utm_content=${'a'.repeat(200)}`,
+    ]) {
+      expect([p, isTrackedUrl(p)]).toEqual([p, true])
+    }
+    for (const p of [
+      // utm_*: no email, nothing over 200 characters
+      '/?utm_source=layla%40example.com',
+      '/?utm_campaign=hi%20sara@example.com',
+      '/?utm_content=sara@example.com',
+      '/?utm_term=sara%40example.com',
+      '/?utm_term=sara%EF%BC%A0example.com', // full-width ＠
+      '/?utm_content=sara%2540example.com', // double-encoded @
+      `/?utm_content=${'a'.repeat(201)}`,
+      // utm_term: no phone numbers, whatever the separators or digits
+      '/?utm_term=call%20123456789',
+      '/?utm_term=050_123_4567',
+      '/?utm_term=050%2F123%2F4567',
+      '/?utm_term=%2B971%20(50)%20123-4567',
+      '/?utm_term=050.123.4567',
+      '/?utm_term=%D9%A0%D9%A5%D9%A0%D9%A1%D9%A2%D9%A3%D9%A4%D9%A5%D9%A6%D9%A7', // Arabic-Indic ٠٥٠١٢٣٤٥٦٧
+      '/?utm_term=%EF%BC%90%EF%BC%95%EF%BC%90%EF%BC%91%EF%BC%92%EF%BC%93%EF%BC%94', // full-width ０５０１２３４
+      // Hadafi has no partner links: ?ref= stays untracked
+      '/?ref=acme',
+      '/?utm_source=x&token=abc', // other parameters unchanged
+    ]) {
+      expect([p, isTrackedUrl(p)]).toEqual([p, false])
+    }
+  })
+
+  it('tracks /login and /sign-up with ?next= only when next is a tracked learner page', () => {
+    const course = '/dashboard/courses/e0999a0f-8c95-4365-8c28-6fc812610df8'
+    const enc = encodeURIComponent
+    for (const p of [
+      `/login?next=${enc(course)}`,
+      `/login?expired=1&next=${enc(course)}`,
+      `/sign-up?next=${enc(course)}`,
+      `/login?next=${enc('/dashboard/offers?success=1')}`,
+      '/login?next=%2Fdashboard',
+    ]) {
+      expect([p, isTrackedUrl(p)]).toEqual([p, true])
+    }
+    for (const p of [
+      // staff areas and payment pages are never tracked, so not as next either
+      `/login?next=${enc('/admin/learners/1')}`,
+      `/login?next=${enc('/mentor/dashboard')}`,
+      `/login?next=${enc('/partner/learners/1')}`,
+      `/login?next=${enc('/dashboard/offers/1/checkout')}`,
+      // an untracked parameter inside next, or a nested next
+      `/login?next=${enc('/dashboard?token=abc')}`,
+      `/login?next=${enc('/dashboard/courses?q=layla@example.com')}`,
+      `/login?next=${enc(`/dashboard?next=${enc(course)}`)}`,
+      // anything safeNextPath refuses
+      `/login?next=${enc('//evil.com/dashboard')}`,
+      `/login?next=${enc('https://evil.com')}`,
+      `/login?next=${enc('/\\evil.com')}`,
+      '/login?next=',
+      `/login?next=${enc(`/dashboard/${'a'.repeat(2100)}`)}`,
+      // other untracked parameters still untrack the page
+      `/sign-up?code=INVITE1&next=${enc(course)}`,
+      // an email-looking value inside next
+      '/login?next=%2Fdashboard%3Fmentor%3Dfoo%40bar.com',
+      // next is a harmless parameter on /login and /sign-up only
+      `/?next=${enc(course)}`,
+      `/dashboard?next=${enc(course)}`,
+      `/dashboard/courses/1?next=${enc(course)}`,
+    ]) {
+      expect([p, isTrackedUrl(p)]).toEqual([p, false])
+    }
+  })
+
+  it('never tracks a page where any allowed parameter holds an email address', () => {
+    for (const p of [
+      '/dashboard/human-mentors?mentor=a@b.com',
+      '/dashboard/human-mentors?mentor=a%40b.com',
+      '/dashboard/human-mentors?mentor=x%2540y.com', // double-encoded
+      '/dashboard/human-mentors?mentor=sara%EF%BC%A0example.com', // full-width ＠
+      '/login?expired=a@b.com',
+      '/dashboard/offers?success=a@b.com',
+    ]) {
+      expect([p, isTrackedUrl(p)]).toEqual([p, false])
+    }
+    for (const p of ['/dashboard/human-mentors?mentor=sara-ali', '/login?expired=1']) {
+      expect([p, isTrackedUrl(p)]).toEqual([p, true])
+    }
+  })
+
   it('after GTM loads, a client-side navigation to an untracked URL becomes a full page load', () => {
     const { win, pushed, nav, navigate } = fakeWindow('/login')
     bootGtm(win, 'GTM-TEST1234', null, navigate)
@@ -353,7 +460,72 @@ describe('consent store', () => {
     store.accept()
     expect(store.getState()).toMatchObject({ choice: 'accepted', open: false })
     expect(readChoice(storage, now())).toBe('accepted')
-    expect(entries(win.dataLayer).at(-1)).toEqual(['consent', 'update', GRANTED])
+    // The consent update, then the signal for tags blocked at page view.
+    expect(entries(win.dataLayer).slice(-2)).toEqual([['consent', 'update', GRANTED], { event: 'consent_update', consent: 'granted' }])
+  })
+
+  describe('consent_update event', () => {
+    const signals = (win: any) => (win.dataLayer ?? []).filter((e: any) => e?.event === 'consent_update')
+
+    it('is pushed once when the visitor clicks Accept', () => {
+      const { store, win } = setup()
+      store.configure('GTM-TEST1234')
+      store.enterPath('/?utm_source=sendy')
+      store.accept()
+      expect(signals(win)).toEqual([{ event: 'consent_update', consent: 'granted' }])
+    })
+
+    it('is not pushed at page load when an earlier Accept is restored', () => {
+      const { store, win } = setup('accepted')
+      store.configure('GTM-TEST1234')
+      store.enterPath('/')
+      expect(entries(win.dataLayer)).toContainEqual(['consent', 'update', GRANTED])
+      expect(signals(win)).toEqual([])
+      // Accepting again from Cookie settings is no change either.
+      store.openSettings()
+      store.accept()
+      expect(signals(win)).toEqual([])
+    })
+
+    it('is not pushed on Reject', () => {
+      const { store, win } = setup()
+      store.configure('GTM-TEST1234')
+      store.enterPath('/')
+      store.reject()
+      expect(signals(win)).toEqual([])
+    })
+
+    it('is pushed when a visitor who rejected accepts from Cookie settings', () => {
+      const { store, win } = setup('rejected')
+      store.configure('GTM-TEST1234')
+      store.enterPath('/dashboard')
+      expect(signals(win)).toEqual([])
+      store.openSettings()
+      store.accept()
+      expect(signals(win)).toEqual([{ event: 'consent_update', consent: 'granted' }])
+    })
+
+    it('is pushed at most once per page', () => {
+      const { store, win } = setup()
+      store.configure('GTM-TEST1234')
+      store.enterPath('/')
+      store.accept()
+      store.accept()
+      store.openSettings()
+      store.reject()
+      store.openSettings()
+      store.accept()
+      expect(signals(win)).toHaveLength(1)
+    })
+
+    it('is not pushed where GTM is not loaded', () => {
+      const { store, win } = setup()
+      store.configure('GTM-TEST1234')
+      store.enterPath('/sign-up?code=INVITE1') // untracked: GTM never starts
+      store.accept()
+      expect(win.__hadafiGtmLoaded).toBeUndefined()
+      expect(signals(win)).toEqual([])
+    })
   })
 
   it('Reject stores the choice, keeps consent denied and clears Google cookies', () => {

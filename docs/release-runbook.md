@@ -332,6 +332,16 @@ So:
   only when every query parameter is known to be harmless: `utm_*`, ad click
   ids (`gclid`, `gbraid`, `wbraid`, ...), `expired` (/login), `mentor`
   (/dashboard/human-mentors, a mentor id) and `success` (/dashboard/offers).
+  No value of any parameter may look like an email address (decoded and
+  NFKC-normalised, so `%40`, `%2540` and a full-width `＠` count). `utm_*` are
+  free text (Sendy campaign titles, Google Ads `{keyword}`), empty allowed,
+  up to 200 characters; `utm_term` also may not hold 7+ digits in a row once
+  separators are removed (a phone number). `gtm_debug=x` (or a timestamp) is
+  allowed so GTM Preview / Tag Assistant can connect. `next` (where to go
+  after signing in) is allowed on `/login` and `/sign-up` only, and only when
+  it is a safe return path that is itself a tracked learner page (an emailed
+  course link); pointing at a staff area or a checkout it untracks the page.
+  Hadafi has no partner `?ref=` links, so `ref` is untracked.
   Never tracked: `/mentor/setup?token=` (mentor setup link),
   `/unsubscribe?token=` (announcement emails), `/sign-up?code=` / `?org=`
   (invite and organisation codes), `/dashboard/courses?q=` (free-text search),
@@ -374,6 +384,7 @@ So:
   | `{ event: 'sign_up', method: 'web_form' \| 'hana_chat' }` | account created | `client/lib/createAccount.ts` |
   | `{ event: 'first_lesson_completed' }` | the server's one-time `badge:first_step` notification (first learning step) | `NotificationBell.tsx` -> `consentStore.noteNotifications` |
   | `{ event: 'course_certificate' }` | the server's one-time `certificate:<id>` notification (certificate issued) | same |
+  | `{ event: 'consent_update', consent: 'granted' }` | the visitor clicks Accept (first choice, or from Rejected via Cookie settings), right after the consent update; once per page; never for an Accept restored at page load, never on Reject | `client/lib/consent/store.ts` (`accept`) |
 
   Hadafi's bell normally polls only the unread count; **in the learner shell,
   while GTM actually runs on a tracked page, it polls the list**
@@ -387,6 +398,12 @@ So:
   consumed, and the next page load where GTM runs reports it if it is still
   recent. Signing out is a full page load, so a second account in the same tab
   starts from a clean page. In GTM, trigger Ads/GA4 conversions on these names.
+  **`consent_update`:** tags blocked at page view (consent still denied) don't
+  fire again by themselves when the visitor accepts on that page. In GTM, add a
+  Custom Event trigger `consent_update` to the GA4 config/Google tag and the
+  Ads remarketing/conversion-linker tags (alongside their page-view
+  triggers), so the landing page (e.g. a campaign link) is measured once
+  consent is given. (Same trigger as SMEEP's: the container is shared.)
 - **CSP:** the only Content-Security-Policy is `frame-ancestors 'self'`, which
   doesn't restrict scripts, so nothing changed. If a script/connect CSP is
   added later, allow `www.googletagmanager.com`, `*.google-analytics.com`,

@@ -132,11 +132,13 @@ describe('cookie banner', () => {
     await click(button('Accept')!)
     expect(banner()).toBeNull()
     expect(JSON.parse(g.window.localStorage.getItem(CONSENT_KEY)).choice).toBe('accepted')
-    expect(Array.from(g.window.dataLayer.at(-1))).toEqual([
+    expect(Array.from(g.window.dataLayer.at(-2))).toEqual([
       'consent',
       'update',
       { ad_storage: 'granted', analytics_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' },
     ])
+    // Then the signal for tags that were blocked at page view.
+    expect(g.window.dataLayer.at(-1)).toEqual({ event: 'consent_update', consent: 'granted' })
     await v.unmount()
   })
 

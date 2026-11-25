@@ -5,6 +5,7 @@
  * Pattern: https://developers.google.com/tag-platform/security/guides/consent
  */
 import type { CookieChoice } from './consentStorage'
+import { safeNextPath } from '../returnPath'
 
 type ConsentValue = 'granted' | 'denied'
 type ConsentState = Record<'ad_storage' | 'analytics_storage' | 'ad_user_data' | 'ad_personalization', ConsentValue>
@@ -67,7 +68,8 @@ const EXCLUDED_PATHS = [/^\/dashboard\/(.*\/)?(checkout|billing|payments?|invoic
 /**
  * Query parameters allowed on a tracked page: the ones Hadafi's tracked pages
  * use (/login?expired=1, /dashboard/human-mentors?mentor=<mentor id>,
- * /dashboard/offers?success=1) and ad/campaign ids. Anything else (token,
+ * /dashboard/offers?success=1) and ad/campaign ids, with any value that
+ * doesn't look like an email address (see SAFE_PARAM). Anything else (token,
  * code, org, key, secret, Stripe's payment_intent_client_secret, free-text
  * `q` searches on Courses, ...) makes the page untracked. /sign-up?code= and
  * ?org= carry invite/organisation codes.
@@ -76,7 +78,69 @@ const SAFE_PARAMS = new Set([
   'expired', 'mentor', 'success',
   'gclid', 'gbraid', 'wbraid', 'dclid', 'gad_source', 'gad_campaignid', '_gl', 'fbclid', 'msclkid', 'li_fat_id',
 ])
-const SAFE_PARAM = (k: string) => SAFE_PARAMS.has(k) || /^utm_[a-z_]+$/.test(k)
+/**
+ * Campaign parameters are checked by value too, so personal data pasted into
+ * a link (an email, a phone number) makes the page untracked, while ordinary
+ * campaign links stay tracked (as SMEEP):
+ * - every utm_* (source, medium, campaign, term, content, id, ...): free
+ *   text, empty allowed (Sendy tags utm_campaign with the campaign title;
+ *   Google Ads fills {keyword}, {creative}, {campaignid}). Untracked only if
+ *   the value, decoded and NFKC-normalised (so a full-width '＠' counts),
+ *   contains '@' or is over 200 characters.
+ * - utm_term only (free search keywords): also untracked if it holds 7+
+ *   digits in a row (any script: Arabic-Indic too) once spaces, '-', '.',
+ *   '_', '/', '(', ')' and '+' are removed: a phone number.
+ * Hadafi has no partner ?ref= links, so `ref` stays untracked.
+ */
+const UTM_PARAM = /^utm_[a-z_]+$/
+const normalised = (v: string): string => {
+  let out = v
+  try {
+    out = decodeURIComponent(v) // URLSearchParams has decoded once; catches a double-encoded %2540
+  } catch {
+    /* a literal '%' (e.g. "50% off") */
+  }
+  return out.normalize('NFKC')
+}
+const PHONE_RUN = /\p{Nd}{7,}/u
+const PHONE_SEPARATORS = /[\s\-._/()+]/g
+const isSafeUtm = (k: string, v: string): boolean => {
+  const n = normalised(v)
+  if (n.includes('@') || n.length > 200) return false
+  return k !== 'utm_term' || !PHONE_RUN.test(n.replace(PHONE_SEPARATORS, ''))
+}
+/**
+ * Tag Assistant (GTM Preview) opens the site with ?gtm_debug=x (or a
+ * timestamp). Without it GTM never loads in debug mode and Preview can't
+ * connect. Only those exact values pass.
+ */
+const GTM_DEBUG = /^(x|\d{1,16})$/
+/**
+ * `next` (where to go after signing in) is allowed only on /login and
+ * /sign-up, and only when it is a safe return path (safeNextPath) that is
+ * itself a tracked URL with no `next` of its own: a learner page such as an
+ * emailed course link, which GTM sees anyway once the learner lands there.
+ * On any other page, or pointing at a staff area, a payment page, a path with
+ * an untracked parameter, or anything safeNextPath refuses, it makes the page
+ * untracked, so it is never sent.
+ */
+const NEXT_PAGES = new Set(['/login', '/sign-up'])
+const isTrackedNext = (v: string): boolean => {
+  const path = safeNextPath(v)
+  if (!path) return false
+  const u = new URL(path, 'https://hadafi.potential.org')
+  return !u.searchParams.has('next') && isTrackedUrl(path)
+}
+/** `path`: the page's path (no trailing '/'), for parameters allowed on some pages only. */
+const SAFE_PARAM = (k: string, v: string, path: string): boolean => {
+  // No value of any parameter may look like an email address (decoded once and
+  // NFKC-normalised, as for utm_*): ?mentor=a@b.com makes the page untracked.
+  if (normalised(v).includes('@')) return false
+  if (k === 'gtm_debug') return GTM_DEBUG.test(v)
+  if (k === 'next') return NEXT_PAGES.has(path) && isTrackedNext(v)
+  if (UTM_PARAM.test(k)) return isSafeUtm(k, v)
+  return SAFE_PARAMS.has(k)
+}
 /** `url` may be relative; an absolute one must be on `origin` (this site). */
 export function isTrackedUrl(url: string, origin = 'https://hadafi.potential.org'): boolean {
   let u: URL
@@ -88,7 +152,7 @@ export function isTrackedUrl(url: string, origin = 'https://hadafi.potential.org
   }
   const path = u.pathname.length > 1 ? u.pathname.replace(/\/+$/, '') : u.pathname
   if (!TRACKED_PATHS.some((re) => re.test(path)) || EXCLUDED_PATHS.some((re) => re.test(path))) return false
-  for (const k of u.searchParams.keys()) if (!SAFE_PARAM(k)) return false
+  for (const [k, v] of u.searchParams) if (!SAFE_PARAM(k, v, path)) return false
   // Plain in-page anchors only (#community), never a fragment with values.
   return u.hash === '' || /^#[A-Za-z0-9_-]*$/.test(u.hash)
 }
