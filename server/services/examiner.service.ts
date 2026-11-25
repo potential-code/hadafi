@@ -1,5 +1,4 @@
 import { and, asc, desc, eq, inArray } from 'drizzle-orm'
-import jwt from 'jsonwebtoken'
 import { db } from '../db'
 import {
   courseEnrollments,
@@ -14,7 +13,7 @@ import {
 import { AppError } from '../utils/app-error'
 import { checkBadges } from './achievements.service'
 import { htmlToMarkdown } from './lms/quizGenerator.service'
-import { SERVER_CLAIMS } from './serviceTokenClaims'
+import { SERVER_CLAIMS, signServiceToken } from './serviceTokenClaims'
 
 /**
  * The AI Examiner (ported from SMEEP 7c7331f, 4744f93 and 21abecf): Hana plays
@@ -52,7 +51,7 @@ function aiBaseUrl(): string {
 function serverToken(userId: string): string {
   const secret = process.env['COPILOT_SERVICE_JWT_SECRET']
   if (!secret) throw NOT_SET_UP()
-  return jwt.sign({ platformId: 'hadafi', userId, ...SERVER_CLAIMS }, secret, { algorithm: 'HS256', expiresIn: 300 })
+  return signServiceToken({ platformId: 'hadafi', userId, ...SERVER_CLAIMS }, secret, 300)
 }
 
 // ---------------------------------------------------------------------------

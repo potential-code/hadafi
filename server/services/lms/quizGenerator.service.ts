@@ -1,9 +1,8 @@
 import { eq } from 'drizzle-orm'
-import jwt from 'jsonwebtoken'
 import { db } from '../../db'
 import { assessments, assessmentQuestions } from '../../db/schema'
 import { AppError } from '../../utils/app-error'
-import { SERVER_CLAIMS } from '../serviceTokenClaims'
+import { SERVER_CLAIMS, signServiceToken } from '../serviceTokenClaims'
 import { getCourse } from './courses.service'
 
 /**
@@ -159,7 +158,7 @@ export function getAiBaseUrl(): string {
 export function mintServiceToken(userId: string): string {
   const secret = process.env['COPILOT_SERVICE_JWT_SECRET']
   if (!secret) throw new AppError('The AI writer is not set up yet.', 503, 'AI_NOT_CONFIGURED')
-  return jwt.sign({ platformId: 'hadafi', userId, ...SERVER_CLAIMS }, secret, { algorithm: 'HS256', expiresIn: 300 })
+  return signServiceToken({ platformId: 'hadafi', userId, ...SERVER_CLAIMS }, secret, 300)
 }
 
 /**

@@ -1,8 +1,7 @@
-import jwt from 'jsonwebtoken'
 import { and, eq } from 'drizzle-orm'
 import { db } from '../db'
 import { tutorTranslations } from '../db/schema'
-import { SERVER_CLAIMS } from './serviceTokenClaims'
+import { SERVER_CLAIMS, signServiceToken } from './serviceTokenClaims'
 
 /**
  * Translation of course content for Learn with Hana (course and unit names,
@@ -102,10 +101,7 @@ async function callPotentialAi(texts: string[], lang: ContentLanguage, domain: T
     console.warn('[translation] AI backend not configured; content stays in English')
     return null
   }
-  const token = jwt.sign({ platformId: 'hadafi', userId: 'tutor-translation', ...SERVER_CLAIMS }, secret, {
-    algorithm: 'HS256',
-    expiresIn: 300,
-  })
+  const token = signServiceToken({ platformId: 'hadafi', userId: 'tutor-translation', ...SERVER_CLAIMS }, secret, 300)
   const res = await fetch(`${base}/api/learning/translate`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },

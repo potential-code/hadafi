@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import jwt from "jsonwebtoken";
 import { ASK_HANA_PROMPT, SIGN_UP_PROMPT } from "../../shared/hana/prompts";
 
 // Claims for the service tokens Hadafi mints for potential-ai (see
@@ -37,3 +38,23 @@ export const guestClaims = () => ({ scope: "guest" as const, prompts: SIGN_UP })
 
 /** Hadafi's own server calling potential-ai's /api/* endpoints (none yet). */
 export const SERVER_CLAIMS = { scope: "server" as const };
+
+/** Who mints these tokens and who they are for (the `iss` and `aud` claims). */
+export const SERVICE_TOKEN_ISSUER = "hadafi";
+export const SERVICE_TOKEN_AUDIENCE = "potential-ai";
+
+/**
+ * Signs a service token for potential-ai: HS256 with COPILOT_SERVICE_JWT_SECRET
+ * (potential-ai's SERVICE_JWT_SECRET), iss "hadafi", aud "potential-ai", so a
+ * token can be told apart from tokens other platforms sign with a shared
+ * secret, and refused anywhere it wasn't meant for once potential-ai checks
+ * them (it ignores both claims today).
+ */
+export function signServiceToken(payload: Record<string, unknown>, secret: string, expiresInSeconds: number): string {
+  return jwt.sign(payload, secret, {
+    algorithm: "HS256",
+    issuer: SERVICE_TOKEN_ISSUER,
+    audience: SERVICE_TOKEN_AUDIENCE,
+    expiresIn: expiresInSeconds,
+  });
+}

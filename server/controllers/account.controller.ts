@@ -1,12 +1,11 @@
 import type { Request, Response, NextFunction } from "express";
 import { z } from "zod";
-import jwt from "jsonwebtoken";
 import { fromNodeHeaders } from "better-auth/node";
 import { isAPIError } from "better-auth/api";
 
 import { auth } from "../auth";
 import * as accountService from "../services/account.service";
-import { browserClaims, browserScope, guestClaims } from "../services/serviceTokenClaims";
+import { browserClaims, browserScope, guestClaims, signServiceToken } from "../services/serviceTokenClaims";
 
 /**
  * GET /api/account/copilot-token
@@ -33,10 +32,10 @@ export async function copilotToken(
       return;
     }
     const expiresInSeconds = 60 * 60; // 1 hour; the client refreshes before expiry
-    const token = jwt.sign(
+    const token = signServiceToken(
       { ...browserClaims(req.user!.role), platformId: "hadafi", userId: req.user!.userId },
       secret,
-      { algorithm: "HS256", expiresIn: expiresInSeconds },
+      expiresInSeconds,
     );
     res.status(200).json({
       success: true,
@@ -70,10 +69,7 @@ export async function guestCopilotToken(
       return;
     }
     const expiresInSeconds = 30 * 60; // 30 minutes
-    const token = jwt.sign({ ...guestClaims(), platformId: "hadafi" }, secret, {
-      algorithm: "HS256",
-      expiresIn: expiresInSeconds,
-    });
+    const token = signServiceToken({ ...guestClaims(), platformId: "hadafi" }, secret, expiresInSeconds);
     res.status(200).json({
       success: true,
       data: { token, expiresAt: Date.now() + expiresInSeconds * 1000 },
@@ -232,10 +228,7 @@ export async function voiceToken(req: Request, res: Response, next: NextFunction
       });
       return;
     }
-    const token = jwt.sign({ scope: browserScope(req.user!.role), platformId: "hadafi", userId: req.user!.userId }, secret, {
-      algorithm: "HS256",
-      expiresIn: 60,
-    });
+    const token = signServiceToken({ scope: browserScope(req.user!.role), platformId: "hadafi", userId: req.user!.userId }, secret, 60);
     res.status(200).json({ success: true, data: { token } });
   } catch (err) {
     next(err);

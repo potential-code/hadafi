@@ -134,3 +134,31 @@ describe('GET /api/account/voice-token', () => {
     expect((await tokenFor('/api/account/voice-token', admin)).scope).toBe('admin')
   })
 })
+
+describe('issuer and audience (iss "hadafi", aud "potential-ai")', () => {
+  const strict = { algorithms: ['HS256'] as jwt.Algorithm[], issuer: 'hadafi', audience: 'potential-ai' }
+  const raw = async (urlPath: string, user?: TestUser) =>
+    (await api<{ data: { token: string } }>('GET', urlPath, { token: user?.token })).body.data.token
+
+  it('every browser token carries both', async () => {
+    for (const [p, u] of [
+      ['/api/account/copilot-token', learner],
+      ['/api/account/copilot-token/guest', undefined],
+      ['/api/account/voice-token', admin],
+    ] as const) {
+      const token = await raw(p, u)
+      const c = jwt.verify(token, secret, strict) as { iss: string; aud: string }
+      expect(c.iss).toBe('hadafi')
+      expect(c.aud).toBe('potential-ai')
+      // A verifier expecting another audience or issuer refuses it.
+      expect(() => jwt.verify(token, secret, { ...strict, audience: 'smeep' })).toThrow()
+      expect(() => jwt.verify(token, secret, { ...strict, issuer: 'smeep' })).toThrow()
+    }
+  })
+
+  it("the server's own tokens (quiz drafts, marking, translation) carry both", async () => {
+    const { mintServiceToken } = await import('../services/lms/quizGenerator.service')
+    const c = jwt.verify(mintServiceToken(learner.id), secret, strict) as { iss: string; aud: string; scope: string }
+    expect(c).toMatchObject({ iss: 'hadafi', aud: 'potential-ai', scope: 'server' })
+  })
+})
