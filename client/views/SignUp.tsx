@@ -3,10 +3,10 @@
 import { useId, useRef, useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { Building2, CheckCircle2, Eye, EyeOff, User, Mail, Lock, Globe, Tag, ChevronDown, ArrowRight, Loader2 } from 'lucide-react'
 import { getCountryDataList } from 'countries-list'
-import { toast } from 'sonner'
-import { AuthLayout } from '@/components/auth/AuthLayout'
+import { AuthSplit, AuthHeading, AsideChecklist, AsideHana, AsideStats, asideAccent, asideMuted } from '@/components/auth/AuthSplit'
 import { FloatingField } from '@/components/auth/FloatingField'
 import { afterSignIn, refreshUser } from '@/lib/auth'
 import { nextInLocation, withNext } from '@/lib/returnPath'
@@ -16,6 +16,7 @@ import { CodeForm, codeErrorMessage } from '@/components/auth/CodeForm'
 import { LEGAL_LINKS } from '@/components/landing/legal'
 import { MARKETING_CONSENT_TEXT, consentBody } from '@/lib/signUpConsent'
 import { fetchJoinInfo } from '@/lib/api/organisations'
+import { cn } from '@/lib/utils'
 
 const COUNTRIES = getCountryDataList()
   .map((c) => c.name)
@@ -38,8 +39,11 @@ type ApiErr = { code?: string; status?: number; message?: string; error?: { code
 // 6-digit code to the address, then the account is created and signed in
 // (server/auth/hadafiPlugin.ts).
 
+/** The organisation a /sign-up?org=CODE link joins. */
+type JoiningOrg = { name: string; code: string }
+
 // Inner component that reads search params (must be inside Suspense)
-function SignUpForm() {
+function SignUpForm({ org, onOrgGone }: { org: JoiningOrg | null; onOrgGone: () => void }) {
   const countryId = useId()
   const searchParams = useSearchParams()
   const router = useRouter()
@@ -71,22 +75,6 @@ function SignUpForm() {
   const [couponError, setCouponError] = useState<string | null>(null)
   const [formError, setFormError] = useState<string | null>(null)
   const [step, setStep] = useState<'details' | 'code'>('details')
-
-  // /sign-up?org=CODE: an organisation's sign-up link. The learner joins that
-  // organisation (it can only ever add her to it, never change her role).
-  const orgParam = searchParams.get('org')?.trim() ?? ''
-  const [org, setOrg] = useState<{ name: string; code: string } | null>(null)
-  const [orgGone, setOrgGone] = useState(false)
-  useEffect(() => {
-    if (!orgParam) return
-    let live = true
-    fetchJoinInfo(orgParam)
-      .then((o) => live && setOrg(o))
-      .catch(() => live && setOrgGone(true))
-    return () => {
-      live = false
-    }
-  }, [orgParam])
 
   // Keep couponCode in sync if URL param changes (e.g. browser back/forward)
   useEffect(() => {
@@ -214,8 +202,7 @@ function SignUpForm() {
       else if (e?.code === 'INVALID_COUPON') setCouponError('Invalid or already used invite code')
       else if (e?.code === 'TERMS_REQUIRED') setFormError('Please tick the box to accept the Terms of Use and Privacy Policy.')
       else if (e?.code === 'INVALID_ORG_CODE') {
-        setOrg(null)
-        setOrgGone(true)
+        onOrgGone()
         setFormError('That organisation link has stopped working. You can sign up on your own, or ask the organisation for a new link.')
       }
       else setFormError('Something went wrong. Please try again.')
@@ -229,7 +216,7 @@ function SignUpForm() {
 
   if (step === 'code') {
     return (
-      <div className="relative rounded-3xl border border-brand-surface-2 bg-white p-7 shadow-[0_20px_60px_-20px_rgba(159,32,99,0.18)]">
+      <div>
         <CodeForm
           email={form.email}
           intro={
@@ -256,21 +243,7 @@ function SignUpForm() {
   }
 
   return (
-    <div className="relative rounded-3xl border border-brand-surface-2 bg-white p-7 shadow-[0_20px_60px_-20px_rgba(159,32,99,0.18)]">
-      {org && (
-        <div role="status" className="mb-4 flex items-start gap-3 rounded-xl border border-brand-primary/25 bg-brand-primary/5 px-4 py-3">
-          <Building2 className="mt-0.5 h-[18px] w-[18px] shrink-0 text-brand-primary" aria-hidden />
-          <p className="text-sm leading-relaxed text-brand-text-primary">
-            You&rsquo;re joining with <strong className="font-semibold">{org.name}</strong>. {org.name} will see your name, email and
-            learning record (courses, exams, certificates and mentor sessions). You can leave any time from your profile.
-          </p>
-        </div>
-      )}
-      {orgGone && !org && (
-        <p role="status" className="mb-4 rounded-xl bg-brand-surface px-4 py-3 text-sm text-brand-text-secondary">
-          That organisation link isn&rsquo;t active any more. You can still sign up on your own.
-        </p>
-      )}
+    <div>
       <form onSubmit={handleSubmit} className="space-y-3.5">
         <FloatingField
           label="Full Name"
@@ -299,7 +272,7 @@ function SignUpForm() {
           externalError={emailError}
           trailing={
             emailChecking
-              ? <Loader2 className="w-4 h-4 text-brand-text-secondary/50 animate-spin" />
+              ? <Loader2 className="w-4 h-4 text-ui-muted animate-spin" />
               : undefined
           }
         />
@@ -316,7 +289,7 @@ function SignUpForm() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="p-2 text-brand-text-secondary/70 hover:text-brand-primary transition-colors"
+              className="p-2 text-ui-muted hover:text-ui-brand-text transition-colors"
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -327,21 +300,21 @@ function SignUpForm() {
         {/* Country — custom floating select */}
         <div>
           <div
-            className={`relative rounded-xl bg-white border transition-all ${
+            className={`relative rounded-xl bg-ui-surface border transition-all ${
               countryError
                 ? 'border-rose-400 ring-2 ring-rose-400/20'
                 : form.country
                   ? 'border-emerald-500/60'
-                  : 'border-brand-surface-2 hover:border-brand-text-secondary/40 focus-within:border-brand-primary focus-within:ring-2 focus-within:ring-brand-primary/20'
+                  : 'border-ui-line hover:border-ui-muted focus-within:border-brand-primary focus-within:ring-2 focus-within:ring-brand-primary/20'
             }`}
           >
-            <Globe className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-text-secondary/70 pointer-events-none z-10" />
+            <Globe className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-ui-muted pointer-events-none z-10" />
             <label
               htmlFor={countryId}
               className={`pointer-events-none absolute left-10 transition-all duration-200 ${
                 form.country
-                  ? 'top-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-text-secondary'
-                  : 'top-1/2 -translate-y-1/2 text-sm text-brand-text-secondary/70'
+                  ? 'top-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ui-muted'
+                  : 'top-1/2 -translate-y-1/2 text-sm text-ui-muted'
               }`}
             >
               Country
@@ -355,7 +328,7 @@ function SignUpForm() {
                 setTouched((t) => ({ ...t, country: true }))
               }}
               onBlur={() => setTouched((t) => ({ ...t, country: true }))}
-              className="w-full appearance-none bg-transparent pl-10 pr-10 pt-5 pb-2 text-sm text-brand-text-primary focus:outline-none cursor-pointer"
+              className="w-full appearance-none bg-transparent pl-10 pr-10 pt-5 pb-2 text-sm text-ui-text focus:outline-none cursor-pointer dark:[color-scheme:dark]"
             >
               <option value="" disabled hidden></option>
               {COUNTRIES.map((name) => (
@@ -364,22 +337,22 @@ function SignUpForm() {
                 </option>
               ))}
             </select>
-            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-text-secondary/70 pointer-events-none" />
+            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ui-muted pointer-events-none" />
           </div>
           {countryError && (
-            <p className="px-1 mt-1.5 text-[11px] text-rose-600">{countryError}</p>
+            <p className="px-1 mt-1.5 text-[11px] text-ui-danger">{countryError}</p>
           )}
         </div>
 
         {/* Invite / coupon code */}
         <div>
           {hasInviteCode ? (
-            <div className="flex items-center gap-2 rounded-xl border border-emerald-500/60 bg-emerald-50/60 px-3.5 py-3">
-              <Tag className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-              <span className="flex-1 text-sm font-mono tracking-widest text-brand-text-primary">
+            <div className="flex items-center gap-2 rounded-xl border border-emerald-500/60 bg-ui-ok-soft px-3.5 py-3">
+              <Tag className="w-4 h-4 text-ui-ok flex-shrink-0" />
+              <span className="flex-1 text-sm font-mono tracking-widest text-ui-text">
                 {form.couponCode}
               </span>
-              <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700">
+              <span className="inline-flex items-center gap-1 text-xs font-semibold text-ui-ok">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 Invite code applied
               </span>
@@ -394,7 +367,7 @@ function SignUpForm() {
             />
           )}
           {couponError && (
-            <p className="px-1 mt-1.5 text-[11px] text-rose-600">{couponError}</p>
+            <p className="px-1 mt-1.5 text-[11px] text-ui-danger">{couponError}</p>
           )}
         </div>
 
@@ -404,15 +377,15 @@ function SignUpForm() {
             required
             checked={form.agreed}
             onChange={(e) => update('agreed', e.target.checked)}
-            className="mt-0.5 w-4 h-4 rounded border-brand-surface-2 accent-brand-primary cursor-pointer flex-shrink-0"
+            className="mt-0.5 w-4 h-4 rounded border-ui-line accent-ui-brand cursor-pointer flex-shrink-0"
           />
-          <span className="text-xs text-brand-text-secondary leading-snug select-none">
+          <span className="text-xs text-ui-muted leading-snug select-none">
             I agree to the{' '}
             <a
               href={LEGAL_LINKS.terms}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-brand-primary hover:text-brand-primary-dark font-medium transition-colors"
+              className="text-ui-brand-text hover:underline font-medium"
             >
               Terms of Use
             </a>{' '}
@@ -421,7 +394,7 @@ function SignUpForm() {
               href={LEGAL_LINKS.privacy}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-brand-primary hover:text-brand-primary-dark font-medium transition-colors"
+              className="text-ui-brand-text hover:underline font-medium"
             >
               Privacy Policy
             </a>
@@ -434,10 +407,10 @@ function SignUpForm() {
             type="checkbox"
             checked={form.marketingOptIn}
             onChange={(e) => update('marketingOptIn', e.target.checked)}
-            className="mt-0.5 w-4 h-4 rounded border-brand-surface-2 accent-brand-primary cursor-pointer flex-shrink-0"
+            className="mt-0.5 w-4 h-4 rounded border-ui-line accent-ui-brand cursor-pointer flex-shrink-0"
           />
-          <span className="text-xs text-brand-text-secondary leading-snug select-none">
-            {MARKETING_CONSENT_TEXT} <span className="text-brand-text-secondary/70">(optional)</span>
+          <span className="text-xs text-ui-muted leading-snug select-none">
+            {MARKETING_CONSENT_TEXT} <span>(optional)</span>
           </span>
         </label>
 
@@ -478,27 +451,129 @@ function useLoginHref(): string {
 
 export default function SignUpPage() {
   const loginHref = useLoginHref()
+  // /sign-up?org=CODE: an organisation's sign-up link. The learner joins that
+  // organisation (it can only ever add her to it, never change her role).
+  const [org, setOrg] = useState<JoiningOrg | null>(null)
+  const [orgGone, setOrgGone] = useState(false)
+  useEffect(() => {
+    const code = new URLSearchParams(window.location.search).get('org')?.trim()
+    if (!code) return
+    let live = true
+    fetchJoinInfo(code)
+      .then((o) => live && setOrg(o))
+      .catch(() => live && setOrgGone(true))
+    return () => {
+      live = false
+    }
+  }, [])
+
   return (
-    <AuthLayout
-      badge="Free · No credit card"
-      heading={
-        <>
-          Join <span className="text-gradient-magenta">Hadafi</span> today
-        </>
-      }
-      subheading="Empower your business with AI — it only takes a minute."
-      topRightPrompt={{ text: 'Already a member?', ctaLabel: 'Log in', ctaHref: loginHref }}
-      altPrompt={{ text: 'Already have an account?', ctaLabel: 'Log in', ctaHref: loginHref }}
+    <AuthSplit
+      topPrompt={{ text: 'Already a member?', ctaLabel: 'Log in', ctaHref: loginHref }}
+      asideLabelledBy={org ? 'h-org-join' : 'h-join'}
+      aside={org ? <OrgAside name={org.name} /> : <JoinAside />}
+      width={420}
     >
+      <AuthHeading
+        title="Join Hadafi today"
+        subtitle="Empower your business with AI. Free, no credit card, and it only takes a minute."
+      />
+
+      {org && (
+        <div role="status" className="flex items-start gap-3 rounded-[12px] border border-[color-mix(in_srgb,var(--ui-brand)_25%,var(--ui-line))] bg-ui-brand-soft px-4 py-3">
+          <Building2 className="mt-0.5 h-[18px] w-[18px] shrink-0 text-ui-brand-text" aria-hidden />
+          <p className="text-sm leading-relaxed text-ui-text">
+            You&rsquo;re joining with <strong className="font-semibold">{org.name}</strong>. {org.name} will see your name, email and
+            learning record (courses, exams, certificates and mentor sessions). You can leave any time from your profile.
+          </p>
+        </div>
+      )}
+      {orgGone && !org && (
+        <p role="status" className="rounded-[12px] bg-ui-surface-2 px-4 py-3 text-sm text-ui-muted">
+          That organisation link isn&rsquo;t active any more. You can still sign up on your own.
+        </p>
+      )}
+
       <Suspense
         fallback={
-          <div className="flex items-center justify-center py-16">
-            <div className="w-10 h-10 rounded-full border-2 border-brand-primary/20 border-t-brand-primary animate-spin" />
+          <div role="status" className="flex items-center justify-center py-16">
+            <Loader2 className="h-7 w-7 animate-spin text-ui-brand" aria-label="Loading" />
           </div>
         }
       >
-        <SignUpForm />
+        <SignUpForm
+          org={org}
+          onOrgGone={() => {
+            setOrg(null)
+            setOrgGone(true)
+          }}
+        />
       </Suspense>
-    </AuthLayout>
+
+      <p className="text-sm text-ui-muted">
+        Already have an account?{' '}
+        <Link href={loginHref} className="font-semibold text-ui-brand-text hover:underline">
+          Log in
+        </Link>
+      </p>
+    </AuthSplit>
+  )
+}
+
+/** The side panel on the sign-up page. */
+function JoinAside() {
+  return (
+    <>
+      <div className="flex max-w-[460px] flex-col gap-4">
+        <h2 id="h-join" className="text-[36px] font-semibold leading-[1.1] tracking-[-0.03em]">
+          Empower your business with Hadafi, for free.
+        </h2>
+        <p className={cn('text-base leading-[1.6]', asideMuted)}>
+          Training, mentors, tools and a global community of women entrepreneurs. Everything you need to start and
+          grow your business.
+        </p>
+      </div>
+      <AsideChecklist
+        items={[
+          '24/7 AI mentors built for women entrepreneurs',
+          'Live events with global industry experts',
+          'Exclusive partner offers and discounts',
+          'No credit card. No catch.',
+        ]}
+      />
+      <div className="mt-auto flex max-w-[460px] flex-col gap-3.5">
+        <AsideHana>
+          Hi, I&apos;m Hana. Once you&apos;ve joined, I&apos;m here to help with your courses and your business,
+          any time.
+        </AsideHana>
+        <AsideStats />
+      </div>
+    </>
+  )
+}
+
+/** The side panel when signing up with an organisation's link: what joining means. */
+function OrgAside({ name }: { name: string }) {
+  const points = [
+    'Free courses, AI mentors and live events, like every Hadafi learner.',
+    `${name} sees your name, email and learning record: courses, exams, certificates and mentor sessions.`,
+    'You can leave the organisation any time from your profile.',
+  ]
+  return (
+    <>
+      <div className="flex max-w-[460px] flex-col gap-3">
+        <h2 id="h-org-join" className="text-[32px] font-semibold leading-[1.12] tracking-[-0.03em]">
+          Join Hadafi with {name}.
+        </h2>
+      </div>
+      <ul className="flex flex-col gap-2.5">
+        {points.map((p) => (
+          <li key={p} className="flex items-start gap-3 rounded-[14px] border border-white/10 bg-white/[0.05] px-4 py-3.5">
+            <CheckCircle2 className={cn('mt-0.5 h-[18px] w-[18px] shrink-0', asideAccent)} aria-hidden />
+            <span className={cn('text-[15px] leading-normal', asideMuted)}>{p}</span>
+          </li>
+        ))}
+      </ul>
+    </>
   )
 }

@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Clock, KeyRound, Loader2, Lock, Mail } from "lucide-react";
 import { btn } from "@/components/kit";
 import { AuthField, AuthAlert, AuthNote, PasswordToggle } from "@/components/auth/AuthField";
-import { AuthLayout } from "@/components/auth/AuthLayout";
+import { AuthSplit, AuthHeading, AsideChecklist, AsideHana, AsideStats, asideMuted } from "@/components/auth/AuthSplit";
 import { CodeForm, codeErrorMessage } from "@/components/auth/CodeForm";
 import { authClient } from "@/lib/authClient";
 import { afterSignIn, clearAuth, getUser, refreshUser } from "@/lib/auth";
@@ -160,18 +160,15 @@ export default function LoginPage() {
   );
 
   return (
-    <AuthLayout
-      badge="Welcome back"
-      heading={
-        <>
-          Log in to <span className="text-gradient-magenta">Hadafi</span>
-        </>
-      }
-      subheading={subtitles[mode]}
-      topRightPrompt={{ text: "New here?", ctaLabel: "Create a free account", ctaHref: signUpHref }}
-      altPrompt={{ text: "Don't have an account?", ctaLabel: "Register for free", ctaHref: signUpHref }}
+    <AuthSplit
+      topPrompt={{ text: "New here?", ctaLabel: "Create a free account", ctaHref: signUpHref }}
+      asideLabel="About Hadafi"
+      aside={<SignInAside />}
+      width={400}
     >
-      <div className="relative rounded-3xl border border-brand-surface-2 bg-white p-7 shadow-[0_20px_60px_-20px_rgba(159,32,99,0.18)]">
+      <div className="flex flex-col gap-7">
+        <AuthHeading title="Sign in to Hadafi" subtitle={subtitles[mode]} />
+
         <div className="flex flex-col gap-4">
           {expired && mode === "email" && (
             <AuthNote icon={<Clock />}>Your session has ended. Please sign in again to continue.</AuthNote>
@@ -329,7 +326,50 @@ export default function LoginPage() {
             </CodeForm>
           )}
         </div>
+
+        <p className="text-sm text-ui-muted">
+          Don&apos;t have an account?{" "}
+          <Link href={signUpHref} className="font-semibold text-ui-brand-text hover:underline">
+            Register for free
+          </Link>
+        </p>
       </div>
-    </AuthLayout>
+    </AuthSplit>
+  );
+}
+
+function SignInAside() {
+  return (
+    <>
+      <div className="flex max-w-[460px] flex-col gap-4">
+        <h2 className="text-[36px] font-semibold leading-[1.1] tracking-[-0.03em]">
+          Empower your business with Hadafi, for free.
+        </h2>
+        <p className={cn("text-base leading-[1.6]", asideMuted)}>
+          Training, mentors, tools and a global community of women entrepreneurs. Everything you need to start and
+          grow your business.
+        </p>
+      </div>
+      <AsideChecklist
+        items={[
+          "24/7 AI mentors built for women entrepreneurs",
+          "Live events with global industry experts",
+          "Exclusive partner offers and discounts",
+          "No credit card. No catch.",
+        ]}
+      />
+      <img
+        src="/images/redesign/hadafi-hero.webp"
+        alt=""
+        className="block h-[200px] w-full rounded-[14px] object-cover object-[60%_40%] opacity-[0.92]"
+      />
+      <div className="mt-auto flex max-w-[460px] flex-col gap-3.5">
+        <AsideHana>
+          Welcome back. Once you&apos;re in, I&apos;ll pick up where you left off: your next lesson, your certificates
+          and your points.
+        </AsideHana>
+        <AsideStats />
+      </div>
+    </>
   );
 }

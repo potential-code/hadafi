@@ -32,18 +32,18 @@ export const FloatingField = forwardRef<HTMLInputElement, FloatingFieldProps>(
     return (
       <div className="relative">
         <div
-          className={`relative rounded-xl bg-white border transition-all ${
+          className={`relative rounded-xl bg-ui-surface border transition-all ${
             error
               ? 'border-rose-400 ring-2 ring-rose-400/20'
               : valid
                 ? 'border-emerald-500/60'
                 : focused
                   ? 'border-brand-primary ring-2 ring-brand-primary/20'
-                  : 'border-brand-surface-2 hover:border-brand-text-secondary/40'
+                  : 'border-ui-line hover:border-ui-muted'
           }`}
         >
           {icon && (
-            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-text-secondary/70 pointer-events-none">
+            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-ui-muted pointer-events-none">
               {icon}
             </span>
           )}
@@ -51,8 +51,8 @@ export const FloatingField = forwardRef<HTMLInputElement, FloatingFieldProps>(
             htmlFor={id}
             className={`pointer-events-none absolute left-10 transition-all duration-200 ${
               floated
-                ? 'top-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-text-secondary'
-                : 'top-1/2 -translate-y-1/2 text-sm text-brand-text-secondary/70'
+                ? 'top-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ui-muted'
+                : 'top-1/2 -translate-y-1/2 text-sm text-ui-muted'
             }`}
           >
             {label}
@@ -69,7 +69,7 @@ export const FloatingField = forwardRef<HTMLInputElement, FloatingFieldProps>(
             }}
             className={`w-full bg-transparent ${icon ? 'pl-10' : 'pl-4'} ${
               trailing ? 'pr-10' : 'pr-4'
-            } pt-5 pb-2 text-sm text-brand-text-primary placeholder-transparent focus:outline-none ${
+            } pt-5 pb-2 text-sm text-ui-text placeholder-transparent focus:outline-none ${
               className ?? ''
             }`}
             {...rest}
@@ -91,7 +91,7 @@ export const FloatingField = forwardRef<HTMLInputElement, FloatingFieldProps>(
               animate={{ opacity: 1, y: 0, height: 'auto' }}
               exit={{ opacity: 0, y: -4, height: 0 }}
               transition={{ duration: 0.18 }}
-              className="flex items-center gap-1.5 px-1 mt-1.5 text-[11px] text-rose-600"
+              className="flex items-center gap-1.5 px-1 mt-1.5 text-[11px] text-ui-danger"
             >
               <AlertCircle className="w-3 h-3" />
               {error}
@@ -99,7 +99,7 @@ export const FloatingField = forwardRef<HTMLInputElement, FloatingFieldProps>(
           )}
         </AnimatePresence>
         {!error && hint && (
-          <p className="px-1 mt-1.5 text-[11px] text-brand-text-secondary">{hint}</p>
+          <p className="px-1 mt-1.5 text-[11px] text-ui-muted">{hint}</p>
         )}
       </div>
     )

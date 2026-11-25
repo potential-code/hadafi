@@ -3,13 +3,14 @@
 import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { Eye, EyeOff, Lock, ArrowRight, AlertCircle, Loader2, Mail } from 'lucide-react'
+import { Eye, EyeOff, Lock, ArrowRight, AlertCircle, CalendarDays, Check, CheckCircle2, Clock, Loader2, Mail, Users } from 'lucide-react'
 import { toast } from 'sonner'
-import { AuthLayout } from '@/components/auth/AuthLayout'
+import { AuthSplit, AuthHeading, AsideHana, asideAccent, asideMuted } from '@/components/auth/AuthSplit'
 import { FloatingField } from '@/components/auth/FloatingField'
 import { refreshUser } from '@/lib/auth'
 import { apiFetch } from '@/lib/api'
 import { CONTACT_EMAIL } from '@/components/landing/legal'
+import { cn } from '@/lib/utils'
 
 interface TokenInfo {
   name: string
@@ -72,27 +73,28 @@ function SetupForm() {
 
   if (loadingToken) {
     return (
-      <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-8 h-8 text-brand-primary/40 animate-spin" />
+      <div role="status" className="flex min-h-[200px] flex-col items-center justify-center gap-3.5 rounded-[14px] border border-ui-line bg-ui-surface p-5 text-center">
+        <Loader2 className="h-7 w-7 animate-spin text-ui-brand" aria-hidden />
+        <span className="font-semibold text-ui-text">Checking your setup link</span>
+        <span className="text-[13px] text-ui-muted">This takes a second.</span>
       </div>
     )
   }
 
   if (tokenError || !tokenInfo) {
     return (
-      <div className="relative rounded-3xl border border-brand-surface-2 bg-white p-8 shadow-[0_20px_60px_-20px_rgba(159,32,99,0.18)] text-center">
-        <div className="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-4">
-          <AlertCircle className="w-6 h-6 text-rose-500" />
-        </div>
-        <h2 className="text-lg font-bold text-brand-text-primary mb-2">Link expired or invalid</h2>
-        <p className="text-sm text-brand-text-secondary">
+      <div role="alert" className="flex flex-col items-center gap-2.5 rounded-[14px] border border-ui-line bg-ui-surface p-6 text-center">
+        <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-ui-danger-soft text-ui-danger">
+          <AlertCircle className="h-[22px] w-[22px]" aria-hidden />
+        </span>
+        <h2 className="text-[17px] font-semibold text-ui-text">Link expired or invalid</h2>
+        <p className="text-sm leading-[1.55] text-ui-muted">
           This setup link has expired or has already been used. Email{' '}
-          <strong className="font-semibold text-brand-text-primary">{CONTACT_EMAIL}</strong> and we&rsquo;ll send you
-          a new one.
+          <strong className="font-semibold text-ui-text">{CONTACT_EMAIL}</strong> and we&rsquo;ll send you a new one.
         </p>
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="mt-4 inline-flex h-10 items-center gap-2 rounded-xl border border-brand-surface-2 px-4 text-sm font-semibold text-brand-primary hover:bg-brand-surface"
+          className="mt-1 inline-flex h-10 items-center gap-2 rounded-xl border border-ui-line px-4 text-sm font-semibold text-ui-brand-text hover:bg-ui-surface-2"
         >
           <Mail className="h-4 w-4" aria-hidden />
           Email {CONTACT_EMAIL}
@@ -102,17 +104,21 @@ function SetupForm() {
   }
 
   return (
-    <div className="relative rounded-3xl border border-brand-surface-2 bg-white p-7 shadow-[0_20px_60px_-20px_rgba(159,32,99,0.18)]">
+    <div className="flex flex-col gap-[22px]">
+      <div className="flex items-center gap-2.5 rounded-[10px] bg-ui-ok-soft px-3.5 py-3 text-sm font-medium">
+        <CheckCircle2 className="h-[18px] w-[18px] shrink-0 text-ui-ok" aria-hidden />
+        <span className="text-ui-text">Your application was approved. Create a password to access your mentor dashboard.</span>
+      </div>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Pre-filled read-only fields */}
         <div className="space-y-3">
-          <div className="rounded-xl border border-brand-surface-2 bg-brand-surface px-4 py-3">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-brand-text-secondary mb-0.5">Full Name</p>
-            <p className="text-sm font-medium text-brand-text-primary">{tokenInfo.name}</p>
+          <div className="rounded-xl border border-ui-line bg-ui-bg px-4 py-3">
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-ui-muted mb-0.5">Full Name</p>
+            <p className="text-sm font-medium text-ui-text">{tokenInfo.name}</p>
           </div>
-          <div className="rounded-xl border border-brand-surface-2 bg-brand-surface px-4 py-3">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-brand-text-secondary mb-0.5">Email Address</p>
-            <p className="text-sm font-medium text-brand-text-primary">{tokenInfo.email}</p>
+          <div className="rounded-xl border border-ui-line bg-ui-bg px-4 py-3">
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-ui-muted mb-0.5">Email Address</p>
+            <p className="min-w-0 truncate text-sm font-medium text-ui-text">{tokenInfo.email}</p>
           </div>
         </div>
 
@@ -129,7 +135,7 @@ function SetupForm() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="p-2 text-brand-text-secondary/70 hover:text-brand-primary transition-colors"
+              className="p-2 text-ui-muted hover:text-ui-brand-text transition-colors"
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -160,33 +166,113 @@ function SetupForm() {
   )
 }
 
+const STEPS = ['Applied', 'Approved', 'Set password', 'Dashboard']
+
+function Steps() {
+  return (
+    <ol aria-label="Mentor onboarding progress" className="flex items-start">
+      {STEPS.map((label, i) => {
+        const done = i < 2
+        const current = i === 2
+        return (
+          <li
+            key={label}
+            aria-current={current ? 'step' : undefined}
+            className="relative flex flex-1 flex-col items-center gap-1.5 text-center"
+          >
+            {i > 0 && (
+              <span aria-hidden className={cn('absolute right-1/2 top-3.5 h-0.5 w-full -translate-y-1/2', i <= 2 ? 'bg-ui-brand' : 'bg-ui-line')} style={{ marginRight: 14 }} />
+            )}
+            <span
+              className={cn(
+                'relative z-10 inline-flex h-7 w-7 items-center justify-center rounded-full border text-xs font-semibold',
+                done && 'border-ui-brand bg-ui-brand text-white',
+                current && 'border-2 border-ui-brand bg-ui-surface text-ui-brand-text shadow-[0_0_0_4px_var(--ui-brand-soft)]',
+                !done && !current && 'border-ui-line bg-ui-surface text-ui-muted',
+              )}
+            >
+              {done ? <Check className="h-3.5 w-3.5" strokeWidth={2.6} aria-hidden /> : i + 1}
+            </span>
+            <span className={cn('text-xs', current ? 'font-semibold text-ui-text' : 'font-medium text-ui-muted')}>
+              {label}
+              {done && <span className="sr-only"> (done)</span>}
+            </span>
+          </li>
+        )
+      })}
+    </ol>
+  )
+}
+
+const NEXT = [
+  { icon: Clock, title: 'Set your availability', body: 'Add the time slots learners can book.' },
+  { icon: CalendarDays, title: 'Receive session bookings', body: 'See upcoming sessions on your dashboard and calendar.' },
+  { icon: Users, title: 'Get to know your mentees', body: 'Keep track of the women entrepreneurs you work with.' },
+]
+
+function MentorAside() {
+  return (
+    <>
+      <div className="flex max-w-[460px] flex-col gap-3">
+        <h2 id="h-next" className="text-[32px] font-semibold leading-[1.12] tracking-[-0.03em]">
+          Welcome to the Hadafi mentor network.
+        </h2>
+        <p className={cn('text-base leading-[1.6]', asideMuted)}>
+          Share your expertise with women entrepreneurs. Here is what you can do once you&apos;re in.
+        </p>
+      </div>
+      <ul className="flex flex-col gap-2.5">
+        {NEXT.map(({ icon: Icon, title, body }) => (
+          <li key={title} className="flex items-start gap-3.5 rounded-[14px] border border-white/10 bg-white/[0.05] px-4 py-3.5">
+            <span className={cn('inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-[#F39CC5]/[0.14]', asideAccent)}>
+              <Icon className="h-[18px] w-[18px]" aria-hidden />
+            </span>
+            <span className="flex flex-col gap-0.5">
+              <span className="text-[15px] font-semibold">{title}</span>
+              <span className={cn('text-sm', asideMuted)}>{body}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-auto max-w-[460px]">
+        <AsideHana size={44}>
+          Learners book one of your open time slots. Sessions appear on your dashboard straight away.
+        </AsideHana>
+      </div>
+    </>
+  )
+}
+
 export default function MentorSetupPage() {
   return (
-    <AuthLayout
-      badge="Mentor Onboarding"
-      heading={
-        <>
-          Set up your <span className="text-gradient-magenta">Hadafi</span> account
-        </>
-      }
-      subheading="Your application was approved. Create your password to access your mentor dashboard."
-      altPrompt={{ text: 'Already have an account?', ctaLabel: 'Log in', ctaHref: '/login' }}
+    <AuthSplit
+      topPrompt={{ text: 'Already have an account?', ctaLabel: 'Log in', ctaHref: '/login' }}
+      asideLabelledBy="h-next"
+      aside={<MentorAside />}
+      width={420}
     >
-      <Suspense
-        fallback={
-          <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 text-brand-primary/40 animate-spin" />
-          </div>
-        }
-      >
-        <SetupForm />
-      </Suspense>
-      <p className="mt-4 text-center text-[13px] text-brand-text-muted">
-        Need help? Email{' '}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-brand-primary hover:underline">
-          {CONTACT_EMAIL}
-        </a>
-      </p>
-    </AuthLayout>
+      <div className="flex flex-col gap-[26px]">
+        <Steps />
+        <AuthHeading
+          title="Set up your Hadafi account"
+          subtitle="Finish setting up your mentor account to start receiving session bookings."
+        />
+        <Suspense
+          fallback={
+            <div role="status" className="flex min-h-[200px] items-center justify-center">
+              <Loader2 className="h-7 w-7 animate-spin text-ui-brand" aria-label="Loading" />
+            </div>
+          }
+        >
+          <SetupForm />
+        </Suspense>
+        <p className="text-[13px] text-ui-muted">
+          Need help? Email{' '}
+          <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-ui-brand-text hover:underline">
+            {CONTACT_EMAIL}
+          </a>
+        </p>
+      </div>
+    </AuthSplit>
   )
 }
