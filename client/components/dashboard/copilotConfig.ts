@@ -220,10 +220,17 @@ export function useCopilotTokenReady(): boolean {
     }
     void mintAndArm()
     window.addEventListener('hadafi:auth-changed', onAuthChanged)
+    // A token potential-ai refused was replaced (see renewCopilotToken):
+    // re-render so the providers send the new Authorization header.
+    const onRenewed = () => {
+      if (!cancelled) setVersion((v) => v + 1)
+    }
+    window.addEventListener(COPILOT_TOKEN_RENEWED_EVENT, onRenewed)
     return () => {
       cancelled = true
       if (timer) clearTimeout(timer)
       window.removeEventListener('hadafi:auth-changed', onAuthChanged)
+      window.removeEventListener(COPILOT_TOKEN_RENEWED_EVENT, onRenewed)
     }
   }, [])
   return version > 0
@@ -247,3 +254,126 @@ export function msUntilCopilotRefresh(): number {
     return 30_000
   }
 }
+
+// --- Refused tokens: re-mint and retry once ----------------------------------
+// A cached token can stop being accepted before it expires: the signing secret
+// was rotated, or potential-ai started requiring claims an older token lacks.
+// Without this, every AI request 401s until the cached token's hour runs out.
+// So every request to the AI backend that comes back 401 with one of
+// potential-ai's token codes drops the cached token, mints a fresh one (once,
+// however many requests failed together), retries that request once with it,
+// and tells the CopilotKit providers to re-render with the new header.
+
+/** Fired on window after a refused token was replaced with a fresh one. */
+export const COPILOT_TOKEN_RENEWED_EVENT = 'copilot-token-renewed'
+
+/** potential-ai's codes for a token it won't accept (src/lib/serviceToken.ts). */
+const REFUSED_TOKEN_CODES = new Set(['auth_invalid', 'auth_expired', 'auth_invalid_claims'])
+
+function aiBackendOrigin(): string | null {
+  try {
+    return new URL(AI_BACKEND_URL).origin
+  } catch {
+    return null
+  }
+}
+
+/** Forget the cached token, so the next ensureCopilotToken() mints a new one. */
+export function clearCopilotToken(): void {
+  try {
+    window.localStorage.removeItem(COPILOT_JWT_KEY)
+    window.localStorage.removeItem(COPILOT_JWT_EXP_KEY)
+    window.localStorage.removeItem(COPILOT_JWT_KIND_KEY)
+  } catch {
+    /* noop */
+  }
+}
+
+let inflightRenew: Promise<string | null> | null = null
+
+/**
+ * Replace a token potential-ai refused. `refused` is the token that was sent:
+ * if the cache already holds a different one (another request renewed it
+ * first), that one is used and nothing is minted.
+ */
+export function renewCopilotToken(refused: string): Promise<string | null> {
+  const current = getCopilotJwt()
+  if (current && current !== refused) return Promise.resolve(current)
+  if (inflightRenew) return inflightRenew
+  inflightRenew = (async () => {
+    clearCopilotToken()
+    const fresh = await ensureCopilotToken()
+    if (fresh && fresh !== refused) {
+      try {
+        window.dispatchEvent(new Event(COPILOT_TOKEN_RENEWED_EVENT))
+      } catch {
+        /* noop */
+      }
+      return fresh
+    }
+    return null
+  })().finally(() => {
+    inflightRenew = null
+  })
+  return inflightRenew
+}
+
+function bearerOf(input: RequestInfo | URL, init?: RequestInit): string | null {
+  const headers = new Headers(init?.headers ?? (input instanceof Request ? input.headers : undefined))
+  const auth = headers.get('Authorization') || ''
+  return auth.startsWith('Bearer ') ? auth.slice(7) : null
+}
+
+async function refusedTokenCode(res: Response): Promise<string | null> {
+  if (res.status !== 401) return null
+  try {
+    const body = (await res.clone().json()) as { error?: { code?: unknown } } | null
+    const code = body?.error?.code
+    return typeof code === 'string' && REFUSED_TOKEN_CODES.has(code) ? code : null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Wrap fetch so AI-backend requests recover from a refused token. Only
+ * requests to the AI backend's origin that carried a Bearer token are touched;
+ * everything else passes straight through. A request is retried at most once,
+ * and only when its body can be sent again (a string, form or blob — not a
+ * stream); otherwise the fresh token still serves the next request.
+ */
+export function installCopilotAuthRetry(target: { fetch: typeof fetch } = globalThis): void {
+  const origin = aiBackendOrigin()
+  const marked = target as { fetch: typeof fetch; __copilotAuthRetry?: boolean }
+  if (!origin || marked.__copilotAuthRetry || typeof target.fetch !== 'function') return
+  const send = target.fetch.bind(target)
+  marked.__copilotAuthRetry = true
+  const retrying = async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
+    let url: URL | null = null
+    try {
+      url = new URL(input instanceof Request ? input.url : String(input), window.location.origin)
+    } catch {
+      /* not a URL we can read: pass through */
+    }
+    const sent = url?.origin === origin ? bearerOf(input, init) : null
+    if (!sent) return send(input, init)
+
+    // A Request's body can be read only once: keep a copy for the retry.
+    const spare = input instanceof Request && !input.bodyUsed ? input.clone() : null
+    const res = await send(input, init)
+    if (!(await refusedTokenCode(res))) return res
+
+    const fresh = await renewCopilotToken(sent)
+    if (!fresh) return res
+    if (init?.body instanceof ReadableStream) return res
+    if (input instanceof Request && !spare) return res
+
+    const headers = new Headers(init?.headers ?? (spare ? spare.headers : undefined))
+    headers.set('Authorization', `Bearer ${fresh}`)
+    return spare ? send(new Request(spare, { ...init, headers })) : send(input, { ...init, headers })
+  }
+  // Keep anything the runtime hangs on fetch itself (e.g. fetch.preconnect).
+  target.fetch = Object.assign(retrying, target.fetch) as typeof fetch
+}
+
+if (typeof window !== 'undefined') installCopilotAuthRetry()

@@ -133,3 +133,100 @@ describe('the cached Hana token', () => {
     expect(cfg.getCopilotJwt()).toBe(tokenFor(null, 'guest'))
   })
 })
+
+describe('a token potential-ai refuses', () => {
+  const AI = 'http://localhost:8000'
+  const refused = () => new Response(JSON.stringify({ success: false, error: { code: 'auth_invalid' } }), { status: 401, headers: { 'Content-Type': 'application/json' } })
+  const ok = () => new Response('{"ok":true}', { status: 200, headers: { 'Content-Type': 'application/json' } })
+
+  // A stand-in AI backend: refuses the stale token, accepts any other.
+  const backend = (stale: string, answer401 = refused) => {
+    const seen: string[] = []
+    const target = {
+      fetch: (async (input: RequestInfo | URL, init?: RequestInit) => {
+        const h = new Headers(init?.headers ?? (input instanceof Request ? input.headers : undefined))
+        const token = (h.get('Authorization') || '').replace('Bearer ', '')
+        seen.push(token)
+        return token === stale ? answer401() : ok()
+      }) as typeof fetch,
+    }
+    cfg.installCopilotAuthRetry(target)
+    return { target, seen }
+  }
+  let renewedEvents = 0
+  beforeEach(() => {
+    renewedEvents = 0
+    ;(globalThis as unknown as { window: { dispatchEvent: (e: Event) => boolean } }).window.dispatchEvent = (e: Event) => {
+      if (e.type === cfg.COPILOT_TOKEN_RENEWED_EVENT) renewedEvents++
+      return true
+    }
+    auth.cacheUser(user('user-b'))
+    sessionUser = 'user-b'
+    mintFor = 'user-b'
+  })
+
+  it('is replaced with a fresh one and the request is retried once', async () => {
+    const stale = tokenFor('user-b') + 'old'
+    cacheToken(stale, 'user')
+    const { target, seen } = backend(stale)
+    const res = await target.fetch(`${AI}/copilotkit`, { method: 'POST', body: '{"q":1}', headers: { Authorization: `Bearer ${stale}` } })
+    expect(res.status).toBe(200)
+    expect(seen).toHaveLength(2)
+    expect(seen[1]).not.toBe(stale)
+    expect(cfg.getCopilotJwt()).toBe(seen[1]!)
+    expect(minted.filter((u) => u.endsWith('/api/account/copilot-token'))).toHaveLength(1)
+    expect(renewedEvents).toBe(1)
+  })
+
+  it('is replaced once when several requests fail together', async () => {
+    const stale = tokenFor('user-b') + 'old'
+    cacheToken(stale, 'user')
+    const { target } = backend(stale)
+    const send = () => target.fetch(`${AI}/api/tts`, { method: 'POST', body: 'x', headers: { Authorization: `Bearer ${stale}` } })
+    const results = await Promise.all([send(), send(), send()])
+    expect(results.map((r) => r.status)).toEqual([200, 200, 200])
+    expect(minted.filter((u) => u.endsWith('/api/account/copilot-token'))).toHaveLength(1)
+  })
+
+  it('works for a Request object too', async () => {
+    const stale = tokenFor('user-b') + 'old'
+    cacheToken(stale, 'user')
+    const { target, seen } = backend(stale)
+    const res = await target.fetch(new Request(`${AI}/copilotkit`, { method: 'POST', body: '{"q":1}', headers: { Authorization: `Bearer ${stale}` } }))
+    expect(res.status).toBe(200)
+    expect(seen).toHaveLength(2)
+  })
+
+  it('leaves other 401s alone (not a token code)', async () => {
+    const stale = tokenFor('user-b') + 'old'
+    cacheToken(stale, 'user')
+    const { target, seen } = backend(stale, () => new Response('{"error":{"code":"something_else"}}', { status: 401 }))
+    const res = await target.fetch(`${AI}/copilotkit`, { method: 'POST', body: 'x', headers: { Authorization: `Bearer ${stale}` } })
+    expect(res.status).toBe(401)
+    expect(seen).toHaveLength(1)
+    expect(minted).toHaveLength(0)
+    expect(cfg.getCopilotJwt()).toBe(stale)
+  })
+
+  it("doesn't touch requests to other sites", async () => {
+    const stale = tokenFor('user-b') + 'old'
+    cacheToken(stale, 'user')
+    const { target, seen } = backend(stale)
+    const res = await target.fetch('https://example.test/x', { headers: { Authorization: `Bearer ${stale}` } })
+    expect(res.status).toBe(401)
+    expect(seen).toHaveLength(1)
+    expect(minted).toHaveLength(0)
+  })
+
+  it("renews but doesn't resend a streamed body", async () => {
+    const stale = tokenFor('user-b') + 'old'
+    cacheToken(stale, 'user')
+    const { target, seen } = backend(stale)
+    const body = new ReadableStream({ start: (c) => { c.enqueue(new TextEncoder().encode('x')); c.close() } })
+    const res = await target.fetch(`${AI}/api/stt`, { method: 'POST', body, headers: { Authorization: `Bearer ${stale}` }, duplex: 'half' } as RequestInit)
+    expect(res.status).toBe(401)
+    expect(seen).toHaveLength(1)
+    expect(cfg.getCopilotJwt()).not.toBe(stale)
+    expect(cfg.getCopilotJwt()).not.toBe('')
+  })
+})
