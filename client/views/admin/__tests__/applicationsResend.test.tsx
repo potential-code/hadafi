@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- test doubles for window/fetch */
 import { afterAll, beforeAll, describe, expect, it, mock, spyOn } from 'bun:test'
+// jsdom is a test-only dependency here without @types/jsdom; the root typecheck has noImplicitAny.
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { JSDOM } from 'jsdom'
 
 /**
