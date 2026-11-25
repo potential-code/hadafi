@@ -1,6 +1,6 @@
 'use client'
 
-import { useId, useState, useEffect, Suspense } from 'react'
+import { useId, useRef, useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Building2, CheckCircle2, Eye, EyeOff, User, Mail, Lock, Globe, Tag, ChevronDown, ArrowRight, Loader2 } from 'lucide-react'
@@ -61,6 +61,12 @@ function SignUpForm() {
   const [emailError, setEmailError] = useState<string | null>(null)
   const [emailChecking, setEmailChecking] = useState(false)
   const [emailAvailable, setEmailAvailable] = useState<boolean | null>(null)
+  // The availability check couldn't run (network). Don't block sign-up on it:
+  // the server checks the email again when the code is sent.
+  const [emailCheckFailed, setEmailCheckFailed] = useState(false)
+  // The address being typed now, so a slow answer for an older one is ignored.
+  const latestEmail = useRef(form.email)
+  latestEmail.current = form.email
   const [couponError, setCouponError] = useState<string | null>(null)
   const [formError, setFormError] = useState<string | null>(null)
   const [step, setStep] = useState<'details' | 'code'>('details')
@@ -98,32 +104,49 @@ function SignUpForm() {
     form.agreed &&
     form.fullName.trim().length >= 2 &&
     !validateEmail(form.email) &&
-    emailAvailable === true &&
+    (emailAvailable === true || emailCheckFailed) &&
     !emailChecking &&
     !validatePassword(form.password) &&
     !!form.country
 
   async function handleEmailBlur() {
-    if (validateEmail(form.email)) return
+    const email = form.email
+    if (validateEmail(email)) return
     setEmailChecking(true)
     try {
       const res = await apiFetch<{ success: boolean; data: { available: boolean } }>('/api/account/check-email', {
         method: 'POST',
-        body: JSON.stringify({ email: form.email }),
+        body: JSON.stringify({ email }),
       })
+      if (latestEmail.current !== email) return
       const available = res.data.available
       setEmailAvailable(available)
       setEmailError(available ? null : 'An account with this email already exists')
     } catch (err: unknown) {
+      if (latestEmail.current !== email) return
       const body = err as { error?: { code?: string } }
       if (body?.error?.code === 'VALIDATION_ERROR') {
         setEmailError('Enter a valid email address')
+      } else {
+        // Network failure: don't block sign-up; the server checks again on submit.
+        setEmailCheckFailed(true)
       }
-      // true network failures — let server validate on submit
     } finally {
       setEmailChecking(false)
     }
   }
+
+  // The availability check used to run only on the email field's blur: a user
+  // whose browser autofilled the form (no blur ever fired) faced a submit
+  // button that was silently disabled forever. Debounce the same check off the
+  // value itself so a valid email always gets verified.
+  useEffect(() => {
+    if (validateEmail(form.email)) return
+    if (emailAvailable !== null || emailCheckFailed) return // already checked this value
+    const id = window.setTimeout(() => void handleEmailBlur(), 600)
+    return () => window.clearTimeout(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form.email, emailAvailable, emailCheckFailed])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -266,6 +289,7 @@ function SignUpForm() {
             update('email', e.target.value)
             setEmailError(null)
             setEmailAvailable(null)
+            setEmailCheckFailed(false)
           }}
           onBlur={handleEmailBlur}
           icon={<Mail className="w-4 h-4" />}
