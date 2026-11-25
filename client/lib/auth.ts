@@ -33,6 +33,9 @@ export function getUser(): User | null {
 
 /** Stores (or clears) the cached user and tells the app it changed. */
 export function cacheUser(user: User | null): void {
+  // A different account (or none) from the one cached: the previous person's
+  // Hana token must not carry over (shared browsers, sign-in without sign-out).
+  if ((user?.id ?? null) !== (getUser()?.id ?? null)) clearCopilotTokens()
   try {
     if (user) window.localStorage.setItem(USER_KEY, JSON.stringify(user))
     else window.localStorage.removeItem(USER_KEY)
@@ -69,15 +72,23 @@ export async function checkSession(): Promise<{ ok: boolean; user: User | null }
   return { ok: true, user }
 }
 
-/** Forgets everything this browser holds for the signed-in user. */
-export function clearAuth(): void {
+/** Forgets the cached Hana (copilot) token; see components/dashboard/copilotConfig.ts. */
+function clearCopilotTokens(): void {
   try {
     for (const key of Object.keys(window.localStorage)) {
-      // The AI chat token, and the pre-Better-Auth login token if one is left.
-      if (key.startsWith('hadafi_copilot_jwt') || key === 'hadafi_token') {
-        window.localStorage.removeItem(key)
-      }
+      if (key.startsWith('hadafi_copilot_jwt')) window.localStorage.removeItem(key)
     }
+  } catch {
+    // storage unavailable
+  }
+}
+
+/** Forgets everything this browser holds for the signed-in user. */
+export function clearAuth(): void {
+  clearCopilotTokens()
+  try {
+    // The pre-Better-Auth login token, if one is left.
+    window.localStorage.removeItem('hadafi_token')
   } catch {
     // storage unavailable
   }

@@ -63,35 +63,53 @@ export function clearLandingPageThreadId(): void {
 // localStorage and re-minted shortly before expiry.
 import { useEffect, useState } from 'react'
 import { apiFetch } from '@/lib/api'
-import { getUser } from '@/lib/auth'
+import { checkSession, getUser } from '@/lib/auth'
 
 const COPILOT_JWT_KEY = 'hadafi_copilot_jwt'
 const COPILOT_JWT_EXP_KEY = 'hadafi_copilot_jwt_exp'
 // 'user' (logged-in, per-user claims) or 'guest' (anonymous landing-chat token).
 const COPILOT_JWT_KIND_KEY = 'hadafi_copilot_jwt_kind'
-// Who the cached token was minted for (user id, or 'guest'). A token is only
-// ever used for that same person: if the signed-in account changes without a
-// sign-out in this tab (another tab, an expired session), it is re-minted.
-const COPILOT_JWT_OWNER_KEY = 'hadafi_copilot_jwt_owner'
-const currentOwner = (): string => getUser()?.id ?? 'guest'
 // Re-mint well before the recorded expiry so in-flight requests never
 // straddle the boundary.
 const EXPIRY_MARGIN_MS = 5 * 60 * 1000
 
-/** Cached, still-valid copilot service JWT — or '' when absent/expired. */
+/**
+ * The account a token was minted for: its `userId` claim (the Hadafi server
+ * writes it), or null when absent or unreadable. Read only, never trusted for
+ * anything but this local check: potential-ai verifies the signature.
+ */
+export function tokenUserId(token: string): string | null {
+  try {
+    const part = token.split('.')[1]
+    if (!part) return null
+    const b64 = part.replace(/-/g, '+').replace(/_/g, '/')
+    const claims = JSON.parse(atob(b64.padEnd(b64.length + ((4 - (b64.length % 4)) % 4), '=')))
+    return typeof claims?.userId === 'string' ? claims.userId : null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Cached, still-valid copilot service JWT — or '' when absent, expired, or
+ * minted for someone else. A user token only ever serves the account it names:
+ * on a shared browser, signing in as a different person (without signing the
+ * first one out) must never run their Hana chats under the first account.
+ * A guest token names nobody, so it is safe for anyone.
+ */
 export function getCopilotJwt(): string {
   if (typeof window === 'undefined') return ''
   try {
     const exp = Number(window.localStorage.getItem(COPILOT_JWT_EXP_KEY) || 0)
-    const owner = window.localStorage.getItem(COPILOT_JWT_OWNER_KEY)
-    // A guest token names nobody, so it is safe for anyone; a user token only for its own user.
-    if (Date.now() < exp - EXPIRY_MARGIN_MS && (owner === 'guest' || owner === currentOwner())) {
-      return window.localStorage.getItem(COPILOT_JWT_KEY) || ''
-    }
+    const token = window.localStorage.getItem(COPILOT_JWT_KEY) || ''
+    if (!token || Date.now() >= exp - EXPIRY_MARGIN_MS) return ''
+    const kind = window.localStorage.getItem(COPILOT_JWT_KIND_KEY)
+    if (kind === 'guest') return token
+    const owner = tokenUserId(token)
+    return owner !== null && owner === getUser()?.id ? token : ''
   } catch {
-    /* noop */
+    return ''
   }
-  return ''
 }
 
 let inflightMint: Promise<string | null> | null = null
@@ -108,7 +126,6 @@ async function mintFrom(
     window.localStorage.setItem(COPILOT_JWT_KEY, token)
     window.localStorage.setItem(COPILOT_JWT_EXP_KEY, String(expiresAt))
     window.localStorage.setItem(COPILOT_JWT_KIND_KEY, kind)
-    window.localStorage.setItem(COPILOT_JWT_OWNER_KEY, kind === 'user' ? currentOwner() : 'guest')
   } catch {
     /* noop */
   }
@@ -125,7 +142,15 @@ async function mintFrom(
  * back to a guest token so the assistant still works instead of breaking —
  * the landing chat must never hard-fail.
  */
-export function ensureCopilotToken(): Promise<string | null> {
+// Once per page load, ask the server who is signed in before any cached token
+// is used. The cached user can be stale for a moment after another account
+// signs in on the same browser; confirming first (checkSession updates the
+// cache, which drops a token minted for someone else) closes that window.
+let sessionConfirmed: Promise<unknown> | null = null
+const confirmSession = () => (sessionConfirmed ??= checkSession().catch(() => null))
+
+export async function ensureCopilotToken(): Promise<string | null> {
+  await confirmSession()
   const desiredKind = getUser() ? 'user' : 'guest'
   const cached = getCopilotJwt()
   let cachedKind = ''
@@ -134,7 +159,7 @@ export function ensureCopilotToken(): Promise<string | null> {
   } catch {
     /* noop */
   }
-  if (cached && cachedKind === desiredKind) return Promise.resolve(cached)
+  if (cached && cachedKind === desiredKind) return cached
   if (inflightMint) return inflightMint
 
   inflightMint = (async () => {
@@ -177,6 +202,8 @@ export function useCopilotTokenReady(): boolean {
     const mintAndArm = async () => {
       const token = await ensureCopilotToken()
       if (cancelled) return
+      // Two runs can overlap (an auth change during a mint): keep one timer.
+      if (timer) clearTimeout(timer)
       if (token) {
         setVersion((v) => v + 1)
         timer = setTimeout(() => void mintAndArm(), msUntilCopilotRefresh())
@@ -185,10 +212,18 @@ export function useCopilotTokenReady(): boolean {
         timer = setTimeout(() => void mintAndArm(), 60_000)
       }
     }
+    // A different account signing in (or out) drops the cached token: mint the
+    // new person's own one straight away instead of waiting for the refresh.
+    const onAuthChanged = () => {
+      if (timer) clearTimeout(timer)
+      void mintAndArm()
+    }
     void mintAndArm()
+    window.addEventListener('hadafi:auth-changed', onAuthChanged)
     return () => {
       cancelled = true
       if (timer) clearTimeout(timer)
+      window.removeEventListener('hadafi:auth-changed', onAuthChanged)
     }
   }, [])
   return version > 0
