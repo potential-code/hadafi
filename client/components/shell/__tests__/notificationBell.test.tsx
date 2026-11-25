@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- test doubles for window/fetch */
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, jest } from 'bun:test'
-// @ts-expect-error -- jsdom ships no types (installed for isomorphic-dompurify)
+// jsdom is a test-only dependency here without @types/jsdom; the root typecheck has noImplicitAny.
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { JSDOM } from 'jsdom'
 import { createConsentStore, type CookieConsentState } from '@/lib/consent/store'
 import { forgetBellPoll, pollBell } from '../NotificationBell'
