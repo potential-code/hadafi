@@ -538,7 +538,7 @@ function JoinAside() {
           '24/7 AI mentors built for women entrepreneurs',
           'Live events with global industry experts',
           'Exclusive partner offers and discounts',
-          'No credit card. No catch.',
+          'Free to join, no credit card needed',
         ]}
       />
       <div className="mt-auto flex max-w-[460px] flex-col gap-3.5">

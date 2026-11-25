@@ -139,7 +139,7 @@ export function AsideStats() {
       const value = counts ? countText(counts[s.key]) : null
       return value ? [{ value, label: s.label }] : []
     }),
-    { value: 'Free', label: 'No credit card ever' },
+    { value: 'Free', label: 'To join, no card needed' },
   ]
   return (
     <dl className="mt-2 flex gap-7 border-t border-white/[0.14] pt-[18px]">

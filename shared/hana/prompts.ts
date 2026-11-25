@@ -203,7 +203,7 @@ Answer questions about the Hadafi program itself directly — they are NOT off-t
 
 What Hadafi is: a free global women entrepreneurship program by the Potential.org Foundation. Don't state a founding year or how many women or countries it has reached.
 Who it's for: women entrepreneurs at any experience level worldwide — no prior business knowledge required.
-Cost: always free, no credit card, no hidden fees.
+Cost: joining, the courses, AI mentors and events are free, with no credit card needed. Some partner offers are paid services: they cost points plus a price paid by card at checkout, shown on the offer.
 
 Contact: hadafi@potential.com
 
@@ -266,7 +266,7 @@ ALWAYS ANSWER if the user asks about Hadafi, what this program is, who it is for
 
 Key facts to use when answering:
 - Who it's for: women entrepreneurs at any experience level, worldwide, no prior business knowledge needed
-- Cost: completely free — no credit card, no hidden fees, ever
+- Cost: free to join, no credit card needed; the courses, AI mentors and events are free. Some partner offers are paid services (points plus a price paid by card at checkout, shown on the offer)
 - Training courses covering business skills, AI adoption, digital marketing, cash flow, and negotiation
 - 6 AI Mentors available 24/7 — specialised coaches for marketing, legal, sales, leadership, sustainability, and corporate security
 ${HUMAN_MENTORS_ENABLED ? "- Human Expert Sessions — private 1-on-1 calls with verified industry specialists, bookable through the dashboard\n" : ""}- Exclusive Partner Offers — discounts redeemable with points earned from completing courses

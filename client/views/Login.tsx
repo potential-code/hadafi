@@ -9,7 +9,7 @@ import { AuthField, AuthAlert, AuthNote, PasswordToggle } from "@/components/aut
 import { AuthSplit, AuthHeading, AsideChecklist, AsideHana, AsideStats, asideMuted } from "@/components/auth/AuthSplit";
 import { CodeForm, codeErrorMessage } from "@/components/auth/CodeForm";
 import { authClient } from "@/lib/authClient";
-import { afterSignIn, clearAuth, getUser, refreshUser } from "@/lib/auth";
+import { afterSignIn, checkSession, clearAuth, getUser, refreshUser } from "@/lib/auth";
 import { withNext } from "@/lib/returnPath";
 import { cn } from "@/lib/utils";
 
@@ -64,12 +64,27 @@ export default function LoginPage() {
   const returnTo = searchParams.get("next");
   const signUpHref = withNext("/sign-up", returnTo);
 
-  // Arriving here means no session. A cached user left behind means it ended
-  // (expired, or signed out elsewhere): say so, and drop the stale copy.
+  // Ask the server before deciding anything. Already signed in (say, in
+  // another tab): go where they were headed instead of showing the form.
+  // No session: a cached user left behind means it ended (expired, or signed
+  // out elsewhere), so say so and drop the stale copy. If the server couldn't
+  // answer, change nothing.
   useEffect(() => {
-    if (getUser()) setExpired(true);
-    if (getUser() || searchParams.get("expired") === "1") clearAuth();
-  }, [searchParams]);
+    let cancelled = false;
+    const hadCachedUser = getUser() !== null;
+    void checkSession().then(({ ok, user }) => {
+      if (cancelled || !ok) return;
+      if (user) {
+        router.replace(afterSignIn(user, returnTo));
+        return;
+      }
+      if (hadCachedUser) setExpired(true);
+      if (hadCachedUser || searchParams.get("expired") === "1") clearAuth();
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [searchParams, router, returnTo]);
 
   function go(next: Mode) {
     setError(null);
@@ -355,7 +370,7 @@ function SignInAside() {
           "24/7 AI mentors built for women entrepreneurs",
           "Live events with global industry experts",
           "Exclusive partner offers and discounts",
-          "No credit card. No catch.",
+          "Free to join, no credit card needed",
         ]}
       />
       <img
