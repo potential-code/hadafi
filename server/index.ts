@@ -19,6 +19,7 @@ import { startReminders } from "./services/reminders.service";
 import { startCrmSync } from "./services/crmSync.service";
 import { startAnnouncementDispatcher } from "./services/announcements.service";
 import zoomWebhookRouter from "./routes/zoomWebhook";
+import { requireSameOrigin } from "./middleware/same-origin";
 
 // Fail fast without a session-signing secret. BETTER_AUTH_SECRET is preferred;
 // JWT_SECRET (the pre-Better-Auth secret) is accepted so deploys keep working.
@@ -88,8 +89,12 @@ app.all("/api/auth/*splat", toNodeHandler(auth));
 // Zoom signs the raw body, so its webhook is mounted before the JSON parser.
 app.use("/api/webhooks/zoom", zoomWebhookRouter);
 
+// Every other state-changing /api request must come from the site itself
+// (Origin or Referer = FRONTEND_URL): see middleware/same-origin.ts.
+app.use("/api", requireSameOrigin);
+
+// JSON only: nothing posts HTML forms (urlencoded) to the API.
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // Admin audit log: every mutating /api request by an admin session or an
 // operator key (and operator-key exports), written after the response.

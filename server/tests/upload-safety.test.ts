@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll, afterAll } from 'bun:test'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { startTestServer, stopTestServer, api, createTestUser, cleanupFixtureUsers, type TestUser } from './helpers'
+import { startTestServer, stopTestServer, api, createTestUser, cleanupFixtureUsers, ORIGIN, type TestUser } from './helpers'
 
 /**
  * Admin media uploads can't plant a page that runs script on Hadafi's address
@@ -38,7 +38,7 @@ async function upload(body: Buffer, type: string, name: string) {
   form.append('files', new Blob([new Uint8Array(body)], { type }), name)
   const res = await fetch(`${baseUrl}/api/media/upload`, {
     method: 'POST',
-    headers: { Connection: 'close', Cookie: admin.token },
+    headers: { Connection: 'close', Origin: ORIGIN, Cookie: admin.token },
     body: form,
   })
   const json = (await res.json().catch(() => null)) as { data?: Uploaded[]; error?: { message: string } } | null

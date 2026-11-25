@@ -208,6 +208,11 @@ export const auth = betterAuth({
     useSecureCookies: isProduction,
     database: { generateId: "uuid" },
     ipAddress: { ipAddressHeaders: ["x-forwarded-for"], trustedProxies },
+    // Check the Origin of every request, as in production, in every
+    // environment: Better Auth would otherwise skip it when NODE_ENV=test (or
+    // TEST is set), so the tests never saw this check. The rest of /api has
+    // its own check (middleware/same-origin.ts).
+    disableOriginCheck: false,
   },
 });
 

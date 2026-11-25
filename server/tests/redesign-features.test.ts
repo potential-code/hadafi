@@ -19,6 +19,7 @@ import {
   api,
   createTestUser,
   cleanupFixtureUsers,
+  ORIGIN,
   type TestUser,
 } from './helpers'
 
@@ -283,7 +284,7 @@ describe('mentor photo upload', () => {
       method: 'POST',
       // Connection: close so a rejected (413) upload doesn't leave a
       // half-sent keep-alive socket that blocks stopTestServer().
-      headers: { Connection: 'close', ...(token ? { Cookie: token } : {}) },
+      headers: { Connection: 'close', Origin: ORIGIN, ...(token ? { Cookie: token } : {}) },
       body: form,
     })
     return { status: res.status, body: (await res.json().catch(() => null)) as { data?: { avatarUrl: string } } | null }
@@ -313,7 +314,7 @@ describe('mentor photo upload', () => {
     // server isn't left holding an unread multipart stream.
     const asLearner = await fetch(`${baseUrl}/api/mentor/profile/photo`, {
       method: 'POST',
-      headers: { Cookie: learner.token },
+      headers: { Origin: ORIGIN, Cookie: learner.token },
     })
     expect(asLearner.status).toBe(403)
     expect((await upload(undefined, PNG, 'image/png')).status).toBe(401)
