@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 'use client'
 
 import { useParams } from 'next/navigation'
@@ -10,8 +9,6 @@ import { Card, Chip, EmptyState, PageHeader, Skeleton, btn } from '@/components/
 import { OfferArt, OfferCard, OfferPrice, pointsLabel } from '@/components/learner-grow/OfferCard'
 import { fetchOffer, fetchOffers, type Offer } from '@/lib/api/offers'
 import { cn } from '@/lib/utils'
-
-export const metadata: Metadata = { title: 'Offer' }
 
 function BackLink() {
   return (

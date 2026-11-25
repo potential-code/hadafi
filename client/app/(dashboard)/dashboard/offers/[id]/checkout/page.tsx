@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 'use client'
 
 import { useEffect, useState } from 'react'
@@ -21,8 +20,6 @@ import { getUser } from '@/lib/auth'
 import { apiFetch } from '@/lib/api'
 import { cn } from '@/lib/utils'
 import { getCountryDataList } from 'countries-list'
-
-export const metadata: Metadata = { title: 'Checkout' }
 
 // ── Stripe singleton (created once, outside React tree) ──────────────────────
 
