@@ -31,6 +31,28 @@ export function perUser(
   })
 }
 
+/**
+ * Limits one visitor address, for public routes anyone can call (a form that
+ * sends an email to the address typed in, say). Behind the proxy, req.ip is
+ * the visitor's own address (trust proxy in index.ts); IPv6 addresses count
+ * per /56 network, so one machine can't rotate through its own range.
+ */
+export function perIp(
+  name: string,
+  windowMs: number,
+  max: number,
+  message = 'Too many requests, please try again later.',
+): RateLimitRequestHandler {
+  return rateLimit({
+    windowMs,
+    limit: max,
+    standardHeaders: 'draft-7',
+    legacyHeaders: false,
+    keyGenerator: (req: Request) => `${name}:${ipKeyGenerator(req.ip ?? '')}`,
+    message: tooMany(message),
+  })
+}
+
 // Per-email limits on sign-in codes and passwords are counted in the database
 // by Better Auth hooks (server/auth/emailLimits.ts), not here.
 

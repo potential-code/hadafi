@@ -2,6 +2,7 @@ import { Router, type IRouter } from "express";
 import { z } from "zod";
 
 import { validate } from "../middleware/validate";
+import { perIp, HOUR } from "../middleware/limits";
 import * as stakeholdersController from "../controllers/stakeholders.controller";
 
 const router: IRouter = Router();
@@ -55,9 +56,14 @@ const organisationDto = z.object({
  * POST  /api/stakeholders/organisation  — register as an organisation stakeholder
  */
 
-router.post("/expert", validate(expertDto), stakeholdersController.registerExpert);
+// Public forms (the mentor one emails the address given): 5 an hour per
+// visitor address, both forms together (as SMEEP).
+const formLimit = perIp("stakeholder-form", HOUR, 5, "Too many applications from your network. Please try again later.");
+
+router.post("/expert", formLimit, validate(expertDto), stakeholdersController.registerExpert);
 router.post(
   "/organisation",
+  formLimit,
   validate(organisationDto),
   stakeholdersController.registerOrganisation,
 );

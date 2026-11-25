@@ -4,6 +4,12 @@ import { db } from "../db";
 import { mentorRegistrations, stakeholderRegistrations } from "../db/schema";
 import { AppError } from "../utils/app-error";
 import { sendMail } from "../mail/mailer";
+import { plainName } from "../utils/plainName";
+
+/** The name as the confirmation email greets it: plain words only, or "there". */
+export function confirmationName(name: string): string {
+  return plainName(name) || "there";
+}
 
 // ---------------------------------------------------------------------------
 // registerExpert
@@ -73,11 +79,13 @@ export async function registerExpert(data: {
 
   // --- 3. Send confirmation email (outside the insert, non-blocking on failure)
   // If the mailer fails the registration is still accepted — the row is committed.
+  // Anyone can fill in this form with any address, so the name goes into the
+  // email without links or markup (utils/plainName.ts).
   await sendMail({
     to: email,
     subject: "We've received your Hadafi mentor application",
     template: "mentor-application-received",
-    context: { name },
+    context: { name: confirmationName(name) },
   }).catch((err: unknown) => {
     console.error("[mail] Failed to send mentor application received email:", (err as Error)?.message ?? err);
   });
