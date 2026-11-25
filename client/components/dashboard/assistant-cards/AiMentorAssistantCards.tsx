@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { getAllAiMentors } from '@/lib/dashboardData'
 import { filterAiMentorsBySlugs } from './filterUtils'
 import { AssistantCardStrip } from './AssistantCardStrip'
+import { aiMentorPortrait } from '../aiMentorMeta'
 
 interface Props {
   topic?: string
@@ -48,7 +49,7 @@ export function AiMentorAssistantCards({ topic, slugs, actionStatus }: Props) {
         >
           <div className="relative aspect-[4/3] overflow-hidden">
             <img
-              src={mentor.avatar}
+              src={aiMentorPortrait(mentor.slug) ?? mentor.avatar}
               alt=""
               loading="lazy"
               className="w-full h-full bg-ui-surface-2 object-cover"

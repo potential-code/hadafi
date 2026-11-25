@@ -85,3 +85,21 @@ export function aiMentorViewBySlug(slug: string): AiMentorView | undefined {
 export function aiMentorViewByBotId(botId: string): AiMentorView | undefined {
   return aiMentorViews().find((m) => m.botId === botId)
 }
+
+/**
+ * Local portraits (AI-generated headshots of women, for a women's programme)
+ * by slug; the catalog's own avatars are old remote GIFs. Used on Hana's
+ * coach cards; the AI Coaches page keeps its icon tiles.
+ */
+const PORTRAITS: Record<string, string> = {
+  'sales-coach': '/images/mentors/coaches/ai-sales.webp',
+  'marketing-coach': '/images/mentors/coaches/ai-marketing.webp',
+  'legal-consultant': '/images/mentors/coaches/ai-legal.webp',
+  'leadership-mentor': '/images/mentors/coaches/ai-leadership.webp',
+  'sustainability-bot': '/images/mentors/coaches/ai-sustainability.webp',
+  'corporate-security': '/images/mentors/coaches/ai-security.webp',
+}
+
+export function aiMentorPortrait(slug: string): string | undefined {
+  return PORTRAITS[slug]
+}
