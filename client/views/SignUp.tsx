@@ -8,7 +8,8 @@ import { getCountryDataList } from 'countries-list'
 import { toast } from 'sonner'
 import { AuthLayout } from '@/components/auth/AuthLayout'
 import { FloatingField } from '@/components/auth/FloatingField'
-import { homeFor, refreshUser } from '@/lib/auth'
+import { afterSignIn, refreshUser } from '@/lib/auth'
+import { nextInLocation, withNext } from '@/lib/returnPath'
 import { apiFetch } from '@/lib/api'
 import { AuthAlert } from '@/components/auth/AuthField'
 import { CodeForm, codeErrorMessage } from '@/components/auth/CodeForm'
@@ -221,7 +222,8 @@ function SignUpForm() {
       return null
     }
     const user = await refreshUser()
-    router.push(user ? homeFor(user.role) : '/dashboard')
+    // ?next= (an emailed course link, carried from /login): there, if this role can use it.
+    router.push(afterSignIn(user, nextInLocation()))
     return null
   }
 
@@ -464,7 +466,18 @@ function SignUpForm() {
   )
 }
 
+/**
+ * /login, carrying this page's ?next= (if safe) so switching to sign-in keeps
+ * the return path. Read after mount, so the server render matches.
+ */
+function useLoginHref(): string {
+  const [href, setHref] = useState('/login')
+  useEffect(() => setHref(withNext('/login', nextInLocation())), [])
+  return href
+}
+
 export default function SignUpPage() {
+  const loginHref = useLoginHref()
   return (
     <AuthLayout
       badge="Free · No credit card"
@@ -474,8 +487,8 @@ export default function SignUpPage() {
         </>
       }
       subheading="Empower your business with AI — it only takes a minute."
-      topRightPrompt={{ text: 'Already a member?', ctaLabel: 'Log in', ctaHref: '/login' }}
-      altPrompt={{ text: 'Already have an account?', ctaLabel: 'Log in', ctaHref: '/login' }}
+      topRightPrompt={{ text: 'Already a member?', ctaLabel: 'Log in', ctaHref: loginHref }}
+      altPrompt={{ text: 'Already have an account?', ctaLabel: 'Log in', ctaHref: loginHref }}
     >
       <Suspense
         fallback={

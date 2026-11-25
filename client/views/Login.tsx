@@ -9,7 +9,8 @@ import { AuthField, AuthAlert, AuthNote, PasswordToggle } from "@/components/aut
 import { AuthLayout } from "@/components/auth/AuthLayout";
 import { CodeForm, codeErrorMessage } from "@/components/auth/CodeForm";
 import { authClient } from "@/lib/authClient";
-import { clearAuth, getUser, homeFor, refreshUser } from "@/lib/auth";
+import { afterSignIn, clearAuth, getUser, refreshUser } from "@/lib/auth";
+import { withNext } from "@/lib/returnPath";
 import { cn } from "@/lib/utils";
 
 // Sign in leads with an email code: enter your email, type the 6-digit code
@@ -58,6 +59,10 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [expired, setExpired] = useState(searchParams.get("expired") === "1");
+  // ?next=: the page to return to after signing in (an emailed course link).
+  // Only used once returnPath has checked it; never rendered as text.
+  const returnTo = searchParams.get("next");
+  const signUpHref = withNext("/sign-up", returnTo);
 
   // Arriving here means no session. A cached user left behind means it ended
   // (expired, or signed out elsewhere): say so, and drop the stale copy.
@@ -74,7 +79,8 @@ export default function LoginPage() {
 
   async function finish() {
     const user = await refreshUser();
-    if (user) router.push(homeFor(user.role));
+    // Back to the page asked for, if this role can use it; else the role's home.
+    if (user) router.push(afterSignIn(user, returnTo));
     else setError("Signed in, but the session didn't stick. Please try again.");
   }
 
@@ -162,8 +168,8 @@ export default function LoginPage() {
         </>
       }
       subheading={subtitles[mode]}
-      topRightPrompt={{ text: "New here?", ctaLabel: "Create a free account", ctaHref: "/sign-up" }}
-      altPrompt={{ text: "Don't have an account?", ctaLabel: "Register for free", ctaHref: "/sign-up" }}
+      topRightPrompt={{ text: "New here?", ctaLabel: "Create a free account", ctaHref: signUpHref }}
+      altPrompt={{ text: "Don't have an account?", ctaLabel: "Register for free", ctaHref: signUpHref }}
     >
       <div className="relative rounded-3xl border border-brand-surface-2 bg-white p-7 shadow-[0_20px_60px_-20px_rgba(159,32,99,0.18)]">
         <div className="flex flex-col gap-4">
@@ -190,7 +196,7 @@ export default function LoginPage() {
                 <>
                   If <strong className="font-semibold">{email}</strong> has a Hadafi account, we sent it a 6-digit code.
                   No email after a minute? Check spam, or{" "}
-                  <Link href="/sign-up" className="font-semibold text-ui-brand-text hover:underline">
+                  <Link href={signUpHref} className="font-semibold text-ui-brand-text hover:underline">
                     create a free account
                   </Link>
                   .

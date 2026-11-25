@@ -13,7 +13,8 @@ import {
   clearLandingPageThreadId,
   useCopilotTokenReady,
 } from '../dashboard/copilotConfig'
-import { homeFor, refreshUser } from '@/lib/auth'
+import { afterSignIn, refreshUser } from '@/lib/auth'
+import { nextInLocation } from '@/lib/returnPath'
 import { authClient } from '@/lib/authClient'
 import { ChatCodeCard } from '@/components/auth/ChatCodeCard'
 import '../dashboard/copilot.css'
@@ -400,8 +401,9 @@ function LandingRegistrationChatInner() {
           body: JSON.stringify({ fullName, email: registrationData.current.email, country, couponCode, verifiedToken, ...consent }),
         })
         registrationData.current.verifiedToken = undefined
-        await refreshUser()
-        router.push('/dashboard')
+        const user = await refreshUser()
+        // ?next= (an emailed course link): there, if this role can use it.
+        router.push(afterSignIn(user, nextInLocation()))
         return { success: true }
       } catch (err: unknown) {
         // Better Auth errors put `code` at the top level.
@@ -444,7 +446,7 @@ function LandingRegistrationChatInner() {
           if (result.verified) {
             const user = await refreshUser()
             respond?.('Signed in')
-            router.push(user ? homeFor(user.role) : '/dashboard')
+            router.push(afterSignIn(user, nextInLocation()))
             return
           }
           respond?.('Sign-in cancelled')

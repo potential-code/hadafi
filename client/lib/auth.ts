@@ -1,4 +1,5 @@
 import { authClient } from './authClient'
+import { nextForRole } from './returnPath'
 
 // The session lives in an httpOnly cookie (Better Auth). This module keeps a
 // small, non-secret copy of the signed-in user in localStorage so the shell
@@ -121,6 +122,16 @@ export function homeFor(role: User['role']): string {
   if (role === 'mentor') return '/mentor/dashboard'
   if (role === 'partner') return '/partner'
   return '/dashboard'
+}
+
+/**
+ * Where to go once signed in: `next` (/login?next=, e.g. an emailed course
+ * link) when it is a safe path this role can use, else the role's home.
+ * No user (the session didn't stick) is treated as a learner, as before.
+ */
+export function afterSignIn(user: Pick<User, 'role'> | null, next: unknown): string {
+  const role = user?.role ?? 'sme'
+  return nextForRole(next, role) ?? homeFor(role)
 }
 
 /**
