@@ -48,5 +48,9 @@ COPY --from=builder /app/client/.next/standalone ./
 # alongside the nested server.js under client/.
 COPY --from=builder /app/client/.next/static ./client/.next/static
 COPY --from=builder /app/client/public ./client/public
+# Run as the unprivileged "node" user (uid 1000). The app's files stay
+# root-owned and read-only to it; only Next's cache folder is writable.
+RUN mkdir -p client/.next/cache && chown node:node client/.next/cache
+USER node
 EXPOSE 3000
 CMD ["node", "client/server.js"]

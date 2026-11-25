@@ -19,6 +19,9 @@ RUN node ./server/build.mjs
 FROM node:22-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
+# su-exec: the entrypoint starts as root only to chown the uploads volume,
+# then drops to the unprivileged "node" user (uid 1000) for everything else.
+RUN apk add --no-cache su-exec
 # Compiled server bundle
 COPY --from=builder /app/server/dist ./dist
 # Seed data files read at runtime by seed-course-content and seed-posttests.
@@ -42,8 +45,12 @@ COPY --from=builder /app/server/scripts/crm-outbox-status.mjs ./scripts/crm-outb
 # Operator service account bootstrap (docs/operator-access.md):
 #   node scripts/create-operator-user.mjs --email <address> [--apply]
 COPY --from=builder /app/server/scripts/create-operator-user.mjs ./scripts/create-operator-user.mjs
-# Entrypoint: runs migrations then starts server
+# Entrypoint: hands /app/uploads to "node", drops to it, runs migrations, starts
+# the server. The app's own files stay root-owned (read-only to the server);
+# uploads (the volume) is the only place it writes.
 COPY server/entrypoint.sh ./entrypoint.sh
-RUN chmod +x ./entrypoint.sh && mkdir -p ./uploads/certificates ./uploads/media
+RUN chmod 755 ./entrypoint.sh && mkdir -p ./uploads/certificates ./uploads/media && chown -R node:node ./uploads
 EXPOSE 5000
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+  CMD wget -qO- http://localhost:5000/api/health || exit 1
 ENTRYPOINT ["./entrypoint.sh"]
