@@ -262,7 +262,10 @@ export default function AchievementsPage() {
 
   return (
     <DashboardLayout>
-      <PageHeader title="Achievements" subtitle="Your points, your badges, and where you stand among Hadafi learners." />
+      <PageHeader
+        title="Achievements"
+        subtitle={boardLive ? 'Your points, your badges, and where you stand among Hadafi learners.' : 'Your points and badges.'}
+      />
 
       <div className={cn('mb-6 grid grid-cols-[minmax(0,1fr)] gap-4', rankLive ? 'sm:grid-cols-3' : 'sm:grid-cols-2')}>
         <StatCard
