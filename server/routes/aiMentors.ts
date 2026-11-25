@@ -1,5 +1,6 @@
 import { Router, type IRouter } from "express";
 import { authenticate } from "../middleware/authenticate";
+import { requireRole } from "../middleware/require-role";
 import { validate } from "../middleware/validate";
 import { perUser, MINUTE, DAY } from "../middleware/limits";
 import { aiMentorChatDto, chatWithAiMentor, getAiMentor } from "../controllers/aiMentor.controller";
@@ -28,10 +29,13 @@ const chatPerDay = perUser(
   "You've reached today's limit for mentor chat. Please try again tomorrow.",
 );
 
+// Learners, mentors and admins; partner logins only see their organisation's portal.
+const mentorRoles = requireRole("sme", "mentor", "admin");
+
 /** GET /api/ai-mentors/:botId — name, greeting, ice-breakers. */
-router.get("/:botId", authenticate, getAiMentor);
+router.get("/:botId", authenticate, mentorRoles, getAiMentor);
 
 /** POST /api/ai-mentors/:botId/chat — streams the mentor's reply (SSE). */
-router.post("/:botId/chat", authenticate, chatPerMinute, chatPerDay, validate(aiMentorChatDto), chatWithAiMentor);
+router.post("/:botId/chat", authenticate, mentorRoles, chatPerMinute, chatPerDay, validate(aiMentorChatDto), chatWithAiMentor);
 
 export default router;

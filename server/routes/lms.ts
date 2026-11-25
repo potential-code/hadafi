@@ -223,11 +223,12 @@ adminRouter.patch('/assessment-questions/:questionId', validate(updateAssessment
 adminRouter.delete('/assessment-questions/:questionId', assessmentsCtrl.removeQuestion)
 
 // ---------------------------------------------------------------------------
-// Learner sub-router — requires JWT only (any authenticated role)
+// Learner sub-router — learners, mentors and admins (partner logins only see
+// their organisation's portal, /api/partner)
 // ---------------------------------------------------------------------------
 
 const learnerRouter: IRouter = Router()
-learnerRouter.use(authenticate)
+learnerRouter.use(authenticate, requireRole('sme', 'mentor', 'admin'))
 
 // Courses
 learnerRouter.get('/courses', learner.listLearnerCourses)
