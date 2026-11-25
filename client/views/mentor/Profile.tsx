@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { Camera, ChevronDown, Globe, Linkedin, Lock, LogOut, Mail } from 'lucide-react'
 import { getCountryDataList } from 'countries-list'
 import { toast } from 'sonner'
@@ -72,7 +71,6 @@ function fieldErrors(err: unknown): Record<string, string> | null {
 }
 
 export default function MentorProfile() {
-  const router = useRouter()
   const [serverUser, setServerUser] = useState<MeUser | null>(null)
   const [loaded, setLoaded] = useState(false)
   const [form, setForm] = useState<Form>({ fullName: '', phone: '', bio: '', company: '', country: '', linkedinUrl: '', meetingLink: '' })
@@ -226,7 +224,8 @@ export default function MentorProfile() {
 
   async function logout() {
     await signOut().catch(() => {})
-    router.push('/login')
+    // A full page load, so nothing from this account stays in memory.
+    window.location.assign('/login')
   }
 
   const name = serverUser?.fullName ?? ''

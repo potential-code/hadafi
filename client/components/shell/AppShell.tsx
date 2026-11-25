@@ -438,7 +438,6 @@ export function AppShell({
 }) {
   const config = SHELL_CONFIG[role]
   const pathname = usePathname() ?? ''
-  const router = useRouter()
   const user = useAuthUser()
   const avatarUrl = useAvatarUrl(user)
   const theme = useAppTheme()
@@ -446,11 +445,13 @@ export function AppShell({
   const [mobileOpen, setMobileOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
 
-  // Ends the session on the server (revoking it), not just in this browser.
+  // Ends the session on the server (revoking it), not just in this browser,
+  // then a full page load: nothing from this account (query cache, in-memory
+  // chat state) carries over to whoever signs in next.
   const logout = useCallback(async () => {
     await signOut().catch(() => {})
-    router.push('/login')
-  }, [router])
+    window.location.assign('/login')
+  }, [])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

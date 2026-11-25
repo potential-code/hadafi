@@ -85,6 +85,15 @@ function clearCopilotTokens(): void {
 
 /** Forgets everything this browser holds for the signed-in user. */
 export function clearAuth(): void {
+  // Checkout billing drafts are per-user data: drop them so the next person
+  // on a shared browser can't see the previous user's details.
+  try {
+    for (const key of Object.keys(window.sessionStorage)) {
+      if (key.startsWith('hadafi.checkoutDraft.')) window.sessionStorage.removeItem(key)
+    }
+  } catch {
+    // storage unavailable: nothing to clear
+  }
   clearCopilotTokens()
   try {
     // The pre-Better-Auth login token, if one is left.
