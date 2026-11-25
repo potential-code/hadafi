@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 'use client'
 
 import { useEffect, useState } from 'react'
@@ -20,6 +21,8 @@ import { getUser } from '@/lib/auth'
 import { apiFetch } from '@/lib/api'
 import { cn } from '@/lib/utils'
 import { getCountryDataList } from 'countries-list'
+
+export const metadata: Metadata = { title: 'Checkout' }
 
 // ── Stripe singleton (created once, outside React tree) ──────────────────────
 
@@ -503,7 +506,6 @@ export default function CheckoutPage() {
     queryKey: ['me'],
     queryFn: () => apiFetch<{ success: boolean; data: { user: MeUser } }>('/api/account/me').then((r) => r.data.user),
   })
-
 
   const isLoading = offerLoading || listLoading || (Boolean(offer) && !shortOfPoints && intentLoading) || profileLoading
   const isError = offerError || intentError || shortOfPoints

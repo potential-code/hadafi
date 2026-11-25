@@ -201,7 +201,7 @@ export const AI_MENTORS = {
     {
       name: 'Corporate Security & Safety Coach',
       slug: 'corporate-security',
-      botId: '64b78f8ea3495eade7931f1f',
+      botId: '6b06d2d73460887e1896aeb0',
       specialty: 'Risk Management',
       description: 'Expert guidance on corporate security policies and safety protocols.',
       avatar:
@@ -210,7 +210,7 @@ export const AI_MENTORS = {
     {
       name: 'Enterprise Sales Coach',
       slug: 'sales-coach',
-      botId: '64b7b59c2d7b52ec97f3a258',
+      botId: '6b06d2e73460887e1896aebb',
       specialty: 'Sales Strategy',
       description: 'Strategies for scaling enterprise sales and closing high-value deals.',
       avatar: 'https://api.potential.com/static/mentors/1689761179954-Sales%20Coach.gif',
@@ -218,7 +218,7 @@ export const AI_MENTORS = {
     {
       name: 'Marketing Coach',
       slug: 'marketing-coach',
-      botId: '64b7a7682d7b52ec97f3a21d',
+      botId: '6b06d2ec3460887e1896aec6',
       specialty: 'Marketing',
       description: 'Data-driven marketing strategies to grow your brand and customer base.',
       avatar: 'https://api.potential.com/static/mentors/1689757544593-Marketing%20Coach.gif',
@@ -244,7 +244,7 @@ export const AI_MENTORS = {
     {
       name: 'Leadership Mentor',
       slug: 'leadership-mentor',
-      botId: '64b79d632d7b52ec97f3a204',
+      botId: '6b06d2f03460887e1896aed1',
       specialty: 'Leadership',
       description: 'Develop leadership skills to inspire teams and drive organizational growth.',
       avatar: 'https://api.potential.com/static/mentors/1689756174815-Leadership%20Coach.gif',

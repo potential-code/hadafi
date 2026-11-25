@@ -10,7 +10,7 @@ import { withDocument } from '../controllers/aiMentor.controller'
  * stands in for the bot service (AI_MENTOR_API_URL).
  */
 
-const BOT = '64b7b59c2d7b52ec97f3a258' // Enterprise Sales Coach
+const BOT = '6b06d2e73460887e1896aebb' // Enterprise Sales Coach
 let learner: TestUser
 let fake: Server
 let lastChat: { url: string; body: { message: string; sessionId: string } } | null = null

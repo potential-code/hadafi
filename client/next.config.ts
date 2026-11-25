@@ -44,6 +44,11 @@ const config: NextConfig = {
   },
   async headers() {
     return [
+      // Signed-in areas and one-off links stay out of search results.
+      ...['/dashboard/:path*', '/dashboard', '/admin/:path*', '/admin', '/mentor/:path*', '/mentor', '/partner/:path*', '/partner', '/login', '/unsubscribe'].map((source) => ({
+        source,
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      })),
       {
         // public/images file names are not content-hashed, so cache for a day
         // and revalidate in the background for a week rather than forever.

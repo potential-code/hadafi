@@ -17,12 +17,12 @@ function upstream(): string {
 
 /** Hadafi's six AI mentors (client/lib/constants/content.ts AI_MENTORS). No other bot can be reached. */
 export const AI_MENTOR_BOT_IDS = new Set([
-  "64b78f8ea3495eade7931f1f", // Corporate Security & Safety Coach
-  "64b7b59c2d7b52ec97f3a258", // Enterprise Sales Coach
-  "64b7a7682d7b52ec97f3a21d", // Marketing Coach
+  "6b06d2d73460887e1896aeb0", // Corporate Security & Safety Coach
+  "6b06d2e73460887e1896aebb", // Enterprise Sales Coach
+  "6b06d2ec3460887e1896aec6", // Marketing Coach
   "6540b46f64bed7823ecd4209", // Legal Consultant
   "64cb87a1293c2813e908395e", // Sustainability Bot
-  "64b79d632d7b52ec97f3a204", // Leadership Mentor
+  "6b06d2f03460887e1896aed1", // Leadership Mentor
 ]);
 
 const unavailable = {

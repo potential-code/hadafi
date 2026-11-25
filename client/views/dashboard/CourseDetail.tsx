@@ -55,6 +55,7 @@ import { getUser } from '@/lib/auth'
 import { CourseHana } from '@/components/course-hana/CourseHana'
 import type { HanaStep } from '@/components/course-hana/CourseHanaChat'
 import { useMinWidth } from '@/components/course-hana/useMinWidth'
+import { useDocumentTitle } from '@/lib/useDocumentTitle'
 
 // ─── Nav item types ────────────────────────────────────────────────────────────
 
@@ -116,6 +117,7 @@ export default function CourseDetailPage() {
     enabled: !!courseId,
     staleTime: 30_000,
   })
+  useDocumentTitle(course?.title)
 
   const enrollMutation = useMutation({
     mutationFn: () => apiEnrollInCourse(courseId),
