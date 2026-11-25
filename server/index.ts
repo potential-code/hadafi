@@ -11,7 +11,6 @@ import { toNodeHandler } from "better-auth/node";
 import router from "./routes";
 import { auth } from "./auth";
 import { logger } from "./config/logger";
-import { basicAuthGate } from "./middleware/basic-auth";
 import { errorHandler } from "./middleware/error-handler";
 import { auditAdminActions } from "./middleware/audit-log";
 import { UPLOADS_ROOT } from "./middleware/upload";
@@ -100,7 +99,6 @@ app.use("/api", auditAdminActions);
 
 // Serve uploaded files without authentication — files are addressed by
 // opaque filenames and do not expose sensitive data beyond the file itself.
-// The basicAuthGate (admin UI guard) is intentionally bypassed here.
 app.use(
   "/uploads",
   express.static(UPLOADS_ROOT, {
@@ -115,8 +113,6 @@ app.use(
     },
   }),
 );
-
-app.use(basicAuthGate);
 
 app.use("/api", router);
 
