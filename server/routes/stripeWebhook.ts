@@ -4,7 +4,7 @@ import type Stripe from "stripe";
 import { stripe } from "../config/stripe";
 import { logger } from "../config/logger";
 import { AppError } from "../utils/app-error";
-import { recordPaidOrder } from "../services/offers.service";
+import { recordPaidOrder, STRIPE_PLATFORM_TAG } from "../services/offers.service";
 
 /**
  * POST /api/webhooks/stripe: Stripe's own confirmation of a paid offer.
@@ -58,8 +58,11 @@ router.post("/", express.raw({ type: "*/*", limit: "1mb" }), async (req: Request
   }
 
   const pi = event.data.object;
-  // Only intents createPaymentIntent made for an offer carry these.
-  if (!pi.metadata?.["offerId"] && !pi.metadata?.["userId"]) {
+  // The Stripe account is shared with Potential's other sites, so every one of
+  // their payments arrives here too. Only intents createPaymentIntent made
+  // (tagged platform: "hadafi") are Hadafi's; anything else is acknowledged
+  // and left alone, so other sites' payments never raise "NOT recorded" alerts.
+  if (pi.metadata?.["platform"] !== STRIPE_PLATFORM_TAG) {
     res.json({ received: true });
     return;
   }

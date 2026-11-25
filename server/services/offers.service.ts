@@ -171,7 +171,9 @@ export async function createPaymentIntent(
   const pi = await stripe.paymentIntents.create({
     amount: offer.price,
     currency: "usd",
-    metadata: { offerId, userId },
+    // platform: the Stripe account is shared with Potential's other sites, so
+    // the webhook (routes/stripeWebhook.ts) only handles intents tagged hadafi.
+    metadata: { offerId, userId, platform: STRIPE_PLATFORM_TAG },
   });
 
   if (!pi.client_secret) {
@@ -285,6 +287,9 @@ async function existingPaidOrder(
  *     and the order is inserted in one transaction, and the confirmation
  *     email goes out.
  */
+/** Tag on every PaymentIntent Hadafi creates; other apps share the Stripe account. */
+export const STRIPE_PLATFORM_TAG = "hadafi";
+
 export async function recordPaidOrder(
   pi: Stripe.PaymentIntent,
   opts: { expect?: { offerId: string; userId: string }; billing?: BillingDetails } = {},

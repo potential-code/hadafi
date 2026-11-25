@@ -42,7 +42,7 @@ const intent = (over: Partial<Stripe.PaymentIntent> & { metadata?: Record<string
   amount: PRICE,
   currency: 'usd',
   status: 'succeeded',
-  metadata: { offerId: paidOffer, userId: learner.id },
+  metadata: { offerId: paidOffer, userId: learner.id, platform: 'hadafi' },
   ...over,
 }) as unknown as Stripe.PaymentIntent
 
@@ -171,7 +171,7 @@ describe('payment_intent.succeeded', () => {
   })
 
   it("/complete can't claim another learner's payment", async () => {
-    const pi = intent({ metadata: { offerId: paidOffer, userId: other.id } })
+    const pi = intent({ metadata: { offerId: paidOffer, userId: other.id, platform: 'hadafi' } })
     const retrieve = spyOn(stripe.paymentIntents, 'retrieve').mockResolvedValue(pi as never)
     try {
       const res = await api<{ error: { code: string } }>('POST', `/api/offers/${paidOffer}/complete`, { token: learner.token, body: { paymentIntentId: pi.id } })
@@ -191,8 +191,17 @@ describe('payment_intent.succeeded', () => {
     expect([...(await ordersFor(plain.id)), ...(await ordersFor(other.id))]).toHaveLength(0)
   })
 
+  it("leaves other sites' payments on the shared Stripe account alone, even with offer-like metadata", async () => {
+    // e.g. another Potential app's payment that happens to carry these keys.
+    const foreign = intent({ metadata: { offerId: paidOffer, userId: learner.id } })
+    const tagged = intent({ metadata: { offerId: paidOffer, userId: learner.id, platform: 'smeep' } })
+    expect((await deliver(eventFor(foreign))).status).toBe(200)
+    expect((await deliver(eventFor(tagged))).status).toBe(200)
+    expect([...(await ordersFor(foreign.id)), ...(await ordersFor(tagged.id))]).toHaveLength(0)
+  })
+
   it('refuses bad metadata (not a real offer/learner id) without recording, and stops Stripe retrying', async () => {
-    const pi = intent({ metadata: { offerId: 'not-a-uuid', userId: learner.id } })
+    const pi = intent({ metadata: { offerId: 'not-a-uuid', userId: learner.id, platform: 'hadafi' } })
     expect((await deliver(eventFor(pi))).status).toBe(200)
     expect(await ordersFor(pi.id)).toHaveLength(0)
   })
@@ -200,7 +209,7 @@ describe('payment_intent.succeeded', () => {
   it("doesn't record (or overdraw) when the learner no longer has the points", async () => {
     const poor = await createTestUser('stripe-poor')
     await db.update(users).set({ points: COST - 1 }).where(eq(users.id, poor.id))
-    const pi = intent({ metadata: { offerId: paidOffer, userId: poor.id } })
+    const pi = intent({ metadata: { offerId: paidOffer, userId: poor.id, platform: 'hadafi' } })
     expect((await deliver(eventFor(pi))).status).toBe(200)
     expect(await ordersFor(pi.id)).toHaveLength(0)
     expect(await pointsOf(poor.id)).toBe(COST - 1)
