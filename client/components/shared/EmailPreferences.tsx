@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * "Emails" on the learner's profile (GET/PUT /api/me/announcements/email-preference):
+ * "Emails" on the learner's and the mentor's profile (GET/PUT /api/me/announcements/email-preference):
  * marketing from the Potential.org Foundation (the consent given or not at
  * sign-up; a change reaches the CRM), and Hadafi announcement emails once
  * they are switched on for the platform.

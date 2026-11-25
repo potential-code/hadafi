@@ -241,6 +241,20 @@ describe('audience seam', () => {
   })
 })
 
+describe('email preferences for mentors', () => {
+  it('lets a mentor read and change announcement emails, with no marketing setting', async () => {
+    const url = '/api/me/announcements/email-preference'
+    const before = await api<{ data: { announcements: boolean; marketing?: boolean } }>('GET', url, { token: mentor.token })
+    expect(before.status).toBe(200)
+    expect(before.body.data).not.toHaveProperty('marketing')
+    const off = await api<{ data: { announcements: boolean } }>('PUT', url, { token: mentor.token, body: { announcements: false } })
+    expect(off.status).toBe(200)
+    expect(off.body.data.announcements).toBe(false)
+    expect((await api('PUT', url, { token: mentor.token, body: { marketing: true } })).status).toBe(400)
+    await api('PUT', url, { token: mentor.token, body: { announcements: true } })
+  })
+})
+
 describe('unsubscribe', () => {
   it('turns announcement emails off from the email link, without signing in', async () => {
     const res = await api('POST', '/api/announcements/unsubscribe', { body: { token: unsubscribeToken(learner.id) } })

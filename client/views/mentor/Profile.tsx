@@ -21,6 +21,7 @@ import { changePassword, renameCachedUser, setFirstPassword, signOut } from '@/l
 import { getMyAvailability } from '@/lib/api/mentorAvailability'
 import { uploadMentorPhoto } from '@/lib/api/redesign'
 import { cn } from '@/lib/utils'
+import { EmailPreferences } from '@/components/shared/EmailPreferences'
 
 const COUNTRIES = getCountryDataList()
   .map((c) => c.name)
@@ -463,6 +464,9 @@ export default function MentorProfile() {
                   </ul>
                 )}
               </section>
+
+              {/* Announcement emails (mentors are an audience); hidden until they're switched on. */}
+              <EmailPreferences />
 
               <section aria-labelledby="h-acc" className="flex flex-col gap-2.5 rounded-[14px] border border-ui-line bg-ui-surface px-[18px] py-4 text-[13px]">
                 <h2 id="h-acc" className="text-[15px] font-semibold text-ui-text">Account</h2>
