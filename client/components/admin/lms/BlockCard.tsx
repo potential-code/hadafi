@@ -1,5 +1,6 @@
 'use client'
 
+import DOMPurify from 'isomorphic-dompurify'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { ChevronDown, ChevronUp, GripVertical, Pencil, Trash2 } from 'lucide-react'
@@ -123,7 +124,7 @@ function BlockBody({
           {htmlToText(block.body) ? (
             <div
               className={cn(richTextClass, 'rounded-[10px] border border-ui-line px-3.5 py-3')}
-              dangerouslySetInnerHTML={{ __html: block.body ?? '' }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(block.body ?? '') }}
             />
           ) : (
             <p className={emptyClass}>No content yet. Edit the block to write it.</p>

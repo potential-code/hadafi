@@ -253,6 +253,13 @@
       "when": 1795611321562,
       "tag": "0035_video_position",
       "breakpoints": true
+    },
+    {
+      "idx": 36,
+      "version": "7",
+      "when": 1795615331520,
+      "tag": "0036_leaderboard_opt_in",
+      "breakpoints": true
     }
   ]
 }

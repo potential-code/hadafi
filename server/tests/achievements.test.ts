@@ -11,7 +11,7 @@ import { startTestServer, stopTestServer, api, createTestUser, cleanupFixtureUse
 import { awardPointsForUnit } from '../services/lms/progress.service'
 import { recordLearningStep } from '../services/streak.service'
 import { completeSession } from '../services/mentor_sessions.service'
-import { checkBadges, displayName } from '../services/achievements.service'
+import { checkBadges, displayName, topPercentBand } from '../services/achievements.service'
 
 /**
  * Achievements: points history, the leaderboard (points earned, first name +
@@ -29,7 +29,7 @@ let unitId = ''
 const settle = () => new Promise((r) => setTimeout(r, 400))
 
 type Entry = { rank: number; name: string; initials: string; avatarUrl: string | null; points: number; badges: number; isYou: boolean }
-type Board = { data: { period: string; entries: Entry[]; you: { rank: number; points: number } | null; hidden: boolean; total: number } }
+type Board = { data: { period: string; open: boolean; minLearners: number; entries: Entry[]; you: { rank: number | null; topPercent: number | null; points: number } | null; hidden: boolean } }
 type Badge = { key: string; earnedAt: string | null; progress: { current: number; target: number } }
 type Achievements = { data: { balance: number; earned: number; showOnLeaderboard: boolean; badges: Badge[] } }
 const board = (token: string, period = 'week') => api<Board>('GET', `/api/me/leaderboard?period=${period}`, { token })
@@ -46,10 +46,16 @@ function backfillSql(): string {
 }
 
 beforeAll(async () => {
+  // These tests rank a couple of fixtures (the real threshold, 20, has its own
+  // test) and include the Mentored badge, so human mentors are on here.
+  process.env['LEADERBOARD_MIN_LEARNERS'] = '1'
+  process.env['HUMAN_MENTORS_ENABLED'] = 'true'
   await startTestServer()
   top = await createTestUser('top')
   viewer = await createTestUser('viewer')
   mentor = await createTestUser('mentor-ach', 'mentor')
+  // Appearing on the leaderboard is opt-in.
+  for (const u of [top, viewer]) await api('PUT', '/api/me/leaderboard-visibility', { token: u.token, body: { show: true } })
   const [course] = await db.insert(courses).values({ title: 'E2E achievements course', status: 'published', pointsPerUnit: PTS }).returning()
   courseId = course!.id
   const [mod] = await db.insert(modules).values({ courseId, title: 'Module' }).returning()
@@ -62,6 +68,8 @@ afterAll(async () => {
   await db.delete(mentorAvailabilitySlots).where(eq(mentorAvailabilitySlots.mentorUserId, mentor.id))
   await db.delete(courseCertificates).where(eq(courseCertificates.courseId, courseId))
   await db.delete(courses).where(eq(courses.id, courseId))
+  delete process.env['LEADERBOARD_MIN_LEARNERS']
+  delete process.env['HUMAN_MENTORS_ENABLED']
   await cleanupFixtureUsers()
   await stopTestServer()
 })
@@ -102,6 +110,8 @@ describe('leaderboard', () => {
   })
 
   it('hides a learner who opts out from everyone else, but still shows her own place', async () => {
+    // Someone else with points keeps the board open while the top learner hides.
+    await db.insert(pointsEvents).values({ userId: viewer.id, reason: 'test', ref: 'viewer', amount: 5 })
     const off = await api('PUT', '/api/me/leaderboard-visibility', { token: top.token, body: { show: false } })
     expect(off.status).toBe(200)
     for (const period of ['week', 'month', 'all']) {
@@ -134,6 +144,54 @@ describe('leaderboard', () => {
     expect((await api('GET', '/api/me/leaderboard', { token: mentor.token })).status).toBe(403)
     expect((await api('GET', '/api/me/achievements', { token: mentor.token })).status).toBe(403)
     expect((await api('PUT', '/api/me/leaderboard-visibility', { token: mentor.token, body: { show: false } })).status).toBe(403)
+  })
+
+  it('is opt-in: a new learner is not on it until she chooses to be', async () => {
+    const fresh = await createTestUser('lb-fresh')
+    const [u] = await db.select({ show: users.showOnLeaderboard }).from(users).where(eq(users.id, fresh.id))
+    expect(u!.show).toBe(false)
+  })
+
+  it('stays closed, with no entries and no counts, until enough learners appear on it', async () => {
+    process.env['LEADERBOARD_MIN_LEARNERS'] = '100000'
+    try {
+      const res = (await board(top.token, 'all')).body.data
+      expect(res.open).toBe(false)
+      expect(res.minLearners).toBe(100000)
+      expect(res.entries).toEqual([])
+      expect(res.you).toBeNull()
+      expect(JSON.stringify(res)).not.toMatch(/total|count/i)
+      const summary = await api<{ data: Record<string, unknown> }>('GET', '/api/me/achievements/summary', { token: top.token })
+      if (summary.status === 200) {
+        expect(summary.body.data).not.toHaveProperty('ranked')
+        expect(summary.body.data.rank).toBeNull()
+      }
+    } finally {
+      process.env['LEADERBOARD_MIN_LEARNERS'] = '1'
+    }
+  })
+
+  it('never reports how many learners there are, only bands outside the top list', async () => {
+    const res = (await board(top.token, 'all')).body.data
+    expect(res.open).toBe(true)
+    expect(res).not.toHaveProperty('total')
+    expect(topPercentBand(1, 200)).toBe(1)
+    expect(topPercentBand(7, 120)).toBe(10)
+    expect(topPercentBand(30, 120)).toBe(25)
+    expect(topPercentBand(70, 120)).toBeNull()
+    expect(topPercentBand(0, 0)).toBeNull()
+  })
+
+  it('leaves out the Mentored badge while human mentors are off', async () => {
+    delete process.env['HUMAN_MENTORS_ENABLED']
+    try {
+      const off = (await achievements(viewer.token)).body.data
+      expect(off.badges.some((b) => b.key === 'mentored')).toBe(false)
+    } finally {
+      process.env['HUMAN_MENTORS_ENABLED'] = 'true'
+    }
+    const on = (await achievements(viewer.token)).body.data
+    expect(on.badges.some((b) => b.key === 'mentored')).toBe(true)
   })
 
   it('shortens names', () => {

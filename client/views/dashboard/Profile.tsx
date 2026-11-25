@@ -25,6 +25,7 @@ import { toast } from 'sonner'
 import { DashboardLayout } from '@/components/dashboard/DashboardLayout'
 import { OrganisationMembership } from '@/components/organisations/OrganisationMembership'
 import { EmailPreferences } from '@/components/shared/EmailPreferences'
+import { LeaderboardPreference } from '@/components/shared/LeaderboardPreference'
 import { Avatar, Button, Card, Field, PageHeader, ProgressBar, Skeleton, inputClass } from '@/components/kit'
 import { PhoneInput, errorRing } from '@/components/learner-grow/PhoneInput'
 import { apiFetch } from '@/lib/api'
@@ -572,6 +573,8 @@ export default function ProfilePage() {
             </section>
 
             <EmailPreferences />
+
+            <LeaderboardPreference />
 
             {/* ── Security ─────────────────────────────────────────────── */}
 

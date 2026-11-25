@@ -32,7 +32,11 @@ export function AchievementsCard() {
         <span className="flex min-w-0 flex-col">
           <span className="font-semibold tabular-nums text-ui-text">
             {data.badges} of {data.total} badges
-            {data.rank !== null && <span className="font-normal text-ui-muted">, #{data.rank} this month</span>}
+            {data.rank !== null ? (
+              <span className="font-normal text-ui-muted">, #{data.rank} this month</span>
+            ) : data.topPercent !== null ? (
+              <span className="font-normal text-ui-muted">, top {data.topPercent}% this month</span>
+            ) : null}
           </span>
           <span className="truncate text-[13px] text-ui-muted">
             {data.next ? `Next: ${data.next}` : 'Every badge earned. Well done.'}

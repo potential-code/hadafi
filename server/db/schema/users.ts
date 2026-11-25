@@ -33,8 +33,8 @@ export const users = pgTable("users", {
   // (role 'partner') works for. Leaving or being removed sets it back to null.
   organisationId: uuid("organisation_id").references(() => organisations.id, { onDelete: "set null" }),
   points: integer("points").notNull().default(0),
-  // Learner chose to appear on the leaderboard (first name and initial only).
-  showOnLeaderboard: boolean("show_on_leaderboard").notNull().default(true),
+  /** Learners appear on the leaderboard (as first name + initial) only if they turn this on. */
+  showOnLeaderboard: boolean("show_on_leaderboard").notNull().default(false),
   /**
    * When the learner ticked "I agree to the Terms of Use and Privacy Policy"
    * at sign-up. Null for accounts created before it was recorded (and for

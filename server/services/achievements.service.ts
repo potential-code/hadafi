@@ -5,6 +5,7 @@ import { logger } from "../config/logger";
 import { getStreak } from "./streak.service";
 import { notify } from "./notifications.service";
 import { enqueueFirstActivation } from "./crmSync.service";
+import { humanMentorsEnabled } from "../middleware/humanMentors";
 
 /**
  * Badges and the leaderboard (ported from SMEEP). Badges come from what
@@ -151,7 +152,9 @@ export async function listBadges(userId: string): Promise<BadgeView[]> {
     db.select().from(userBadges).where(eq(userBadges.userId, userId)),
   ]);
   const earnedAt = new Map(rows.map((r) => [r.badge, r.earnedAt.toISOString()]));
-  return BADGES.map((b) => ({
+  // While human mentors are off, nobody can earn "Mentored": don't show it (unless already earned).
+  const shown = BADGES.filter((b) => b.key !== "mentored" || humanMentorsEnabled() || earnedAt.has(b.key));
+  return shown.map((b) => ({
     key: b.key,
     title: b.title,
     description: b.description,
@@ -174,13 +177,38 @@ export interface LeaderboardEntry {
 
 export interface Leaderboard {
   period: LeaderboardPeriod;
+  /** False until enough learners appear on it (leaderboardMinLearners): no entries, no counts. */
+  open: boolean;
+  /** How many learners must appear before it opens, for the page's "opens as more join" line. */
+  minLearners: number;
   entries: LeaderboardEntry[];
-  /** The viewer's own place, also when outside the top list. Null with no points in the period. */
-  you: { rank: number; points: number } | null;
+  /**
+   * The viewer's own place. `rank` only inside the top list; outside it a band
+   * ("top 10%") so the page never reveals how many learners there are. Null
+   * while closed or with no points in the period.
+   */
+  you: { rank: number | null; topPercent: number | null; points: number } | null;
   /** The viewer chose not to appear: others don't see them; they still see their own row. */
   hidden: boolean;
-  /** Learners with points in the period. */
-  total: number;
+}
+
+/**
+ * The leaderboard opens only once this many learners who chose to appear have
+ * points in the period, so a small or new programme isn't exposed ("#1 of 2").
+ * Read per call so tests can lower it.
+ */
+export const leaderboardMinLearners = (): number => {
+  const n = Number(process.env["LEADERBOARD_MIN_LEARNERS"]);
+  return Number.isInteger(n) && n > 0 ? n : 20;
+};
+
+const TOP_BANDS = [1, 5, 10, 25, 50];
+
+/** Position 7 of 120 → 10 (top 10%); past the top half → null. */
+export function topPercentBand(position: number, total: number): number | null {
+  if (total <= 0 || position <= 0) return null;
+  const pct = (position / total) * 100;
+  return TOP_BANDS.find((band) => pct <= band) ?? null;
 }
 
 /** "Mariam Al Hashimi" → "Mariam H." */
@@ -228,13 +256,18 @@ export async function getLeaderboard(userId: string, period: LeaderboardPeriod, 
       )
       SELECT r.user_id, r.points, r.rank, r.pos, u.full_name, u.avatar_url,
              (SELECT count(*) FROM user_badges b WHERE b.user_id = r.user_id)::int AS badges,
-             (SELECT count(*) FROM ranked)::int AS total
+             (SELECT count(*) FROM ranked)::int AS total,
+             (SELECT count(*) FROM ranked rr JOIN users uu ON uu.id = rr.user_id WHERE uu.show_on_leaderboard)::int AS visible
       FROM ranked r JOIN users u ON u.id = r.user_id
       WHERE r.pos <= ${limit} OR r.user_id = ${userId}
       ORDER BY r.pos
     `)
-  ).rows as Array<{ user_id: string; points: number; rank: number; pos: number; full_name: string; avatar_url: string | null; badges: number; total: number }>;
+  ).rows as Array<{ user_id: string; points: number; rank: number; pos: number; full_name: string; avatar_url: string | null; badges: number; total: number; visible: number }>;
 
+  const minLearners = leaderboardMinLearners();
+  if ((rows[0]?.visible ?? 0) < minLearners) {
+    return { period, open: false, minLearners, entries: [], you: null, hidden };
+  }
   const mine = rows.find((r) => r.user_id === userId);
   const entries = rows
     .filter((r) => Number(r.pos) <= limit)
@@ -247,12 +280,20 @@ export async function getLeaderboard(userId: string, period: LeaderboardPeriod, 
       badges: r.badges,
       isYou: r.user_id === userId,
     }));
+  const inTop = mine ? Number(mine.pos) <= limit : false;
   return {
     period,
+    open: true,
+    minLearners,
     entries,
-    you: mine ? { rank: mine.rank, points: mine.points } : null,
+    you: mine
+      ? {
+          rank: inTop ? mine.rank : null,
+          topPercent: inTop ? null : topPercentBand(Number(mine.pos), rows[0]?.total ?? 0),
+          points: mine.points,
+        }
+      : null,
     hidden,
-    total: rows[0]?.total ?? 0,
   };
 }
 
@@ -269,7 +310,7 @@ export async function pointsEarned(userId: string): Promise<{ balance: number; e
       FROM users u WHERE u.id = ${userId}
     `)
   ).rows as Array<{ balance: number; earned: number; show: boolean }>;
-  return { balance: row?.balance ?? 0, earned: row?.earned ?? 0, showOnLeaderboard: row?.show ?? true };
+  return { balance: row?.balance ?? 0, earned: row?.earned ?? 0, showOnLeaderboard: row?.show ?? false };
 }
 
 /** The small card on the learner home: badge count, the next badge and this month's rank. */
@@ -278,15 +319,16 @@ export async function achievementsSummary(userId: string): Promise<{
   total: number;
   next: string | null;
   rank: number | null;
-  ranked: number;
+  /** "Top 10%" band this month, only once the leaderboard is open; never a learner count. */
+  topPercent: number | null;
 }> {
-  const [badges, board] = await Promise.all([listBadges(userId), getLeaderboard(userId, "month", 0)]);
+  const [badges, board] = await Promise.all([listBadges(userId), getLeaderboard(userId, "month", 10)]);
   const earned = badges.filter((b) => b.earnedAt);
   return {
     badges: earned.length,
     total: badges.length,
     next: badges.find((b) => !b.earnedAt)?.title ?? null,
-    rank: board.you?.rank ?? null,
-    ranked: board.total,
+    rank: board.open ? (board.you?.rank ?? null) : null,
+    topPercent: board.open ? (board.you?.topPercent ?? null) : null,
   };
 }

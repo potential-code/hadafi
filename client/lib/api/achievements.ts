@@ -25,12 +25,15 @@ export type LeaderboardEntry = {
 }
 export type Leaderboard = {
   period: LeaderboardPeriod
+  /** Closed until enough learners appear on it: no entries and no counts, so a small programme isn't exposed. */
+  open: boolean
+  minLearners: number
   entries: LeaderboardEntry[]
-  you: { rank: number; points: number } | null
+  /** Rank inside the top list; outside it a band ("top 10%"), never "of N learners". */
+  you: { rank: number | null; topPercent: number | null; points: number } | null
   hidden: boolean
-  total: number
 }
-export type AchievementsSummary = { badges: number; total: number; next: string | null; rank: number | null; ranked: number }
+export type AchievementsSummary = { badges: number; total: number; next: string | null; rank: number | null; topPercent: number | null }
 
 export function fetchAchievements() {
   return apiFetch<{ data: Achievements }>('/api/me/achievements').then((r) => r.data)

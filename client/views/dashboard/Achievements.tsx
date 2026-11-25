@@ -33,6 +33,7 @@ import {
   setLeaderboardVisibility,
   type Achievements,
   type Badge,
+  type Leaderboard,
   type LeaderboardEntry,
   type LeaderboardPeriod,
 } from '@/lib/api/achievements'
@@ -146,6 +147,14 @@ function Row({ e, hidden }: { e: LeaderboardEntry; hidden: boolean }) {
   )
 }
 
+/** "#3", "Top 10%", or null when there's nothing to show yet. */
+function placeLabel(you: Leaderboard['you']): string | null {
+  if (!you) return null
+  if (you.rank) return `#${you.rank}`
+  if (you.topPercent) return `Top ${you.topPercent}%`
+  return null
+}
+
 function LeaderboardCard({ show }: { show: boolean | undefined }) {
   const qc = useQueryClient()
   const [period, setPeriod] = useState<LeaderboardPeriod>('month')
@@ -186,6 +195,12 @@ function LeaderboardCard({ show }: { show: boolean | undefined }) {
         </div>
       ) : isError || !data ? (
         <EmptyState icon={Trophy} title="The leaderboard is taking a moment" body="Refresh the page to see where you stand." />
+      ) : !data.open ? (
+        <EmptyState
+          icon={Trophy}
+          title="No ranking for this period yet"
+          body="Rankings for this period appear once more learners have earned points in it."
+        />
       ) : data.entries.length === 0 ? (
         <EmptyState icon={Trophy} title={`No points ${emptyWhen}`} body="Finish a course unit to earn points and get on the board." />
       ) : (
@@ -199,9 +214,9 @@ function LeaderboardCard({ show }: { show: boolean | undefined }) {
                 ⋯
               </li>
               <li className="flex items-center gap-3 bg-ui-brand-soft px-4 py-2.5">
-                <RankMark rank={data.you.rank} />
                 <p className="min-w-0 flex-1 text-sm font-semibold text-ui-text">
-                  Your place {data.hidden && <span className="font-normal text-ui-muted">(hidden from others)</span>}
+                  {data.you.topPercent ? `You’re in the top ${data.you.topPercent}%` : 'Keep going to reach the top'}{' '}
+                  {data.hidden && <span className="font-normal text-ui-muted">(hidden from others)</span>}
                 </p>
                 <span className="shrink-0 text-sm font-semibold tabular-nums text-ui-text">
                   {nf.format(data.you.points)} <span className="font-normal text-ui-muted">pts</span>
@@ -219,7 +234,7 @@ function LeaderboardCard({ show }: { show: boolean | undefined }) {
         <Switch
           id="lb-show"
           aria-label="Show me on the leaderboard"
-          checked={show ?? true}
+          checked={show ?? false}
           disabled={show === undefined || visibility.isPending}
           onCheckedChange={(v) => visibility.mutate(v)}
           // The off track must stand out from the card (3:1) with its white thumb.
@@ -233,6 +248,15 @@ function LeaderboardCard({ show }: { show: boolean | undefined }) {
 export default function AchievementsPage() {
   const { data, isLoading, isError } = useQuery({ queryKey: ['me', 'achievements'], queryFn: fetchAchievements })
   const { data: month } = useQuery({ queryKey: ['me', 'leaderboard', 'month'], queryFn: () => fetchLeaderboard('month') })
+  // The leaderboard and rank stay off the page until enough learners take part
+  // (all-time has the most), so nothing here hints at how many learners there are.
+  const { data: allTime } = useQuery({
+    queryKey: ['me', 'leaderboard', 'all'],
+    queryFn: () => fetchLeaderboard('all'),
+    enabled: !!data,
+  })
+  const boardLive = !!allTime?.open
+  const rankLive = !!month?.open
   const earned = data?.badges.filter((b) => b.earnedAt) ?? []
   const next = data?.badges.filter((b) => !b.earnedAt) ?? []
 
@@ -240,7 +264,7 @@ export default function AchievementsPage() {
     <DashboardLayout>
       <PageHeader title="Achievements" subtitle="Your points, your badges, and where you stand among Hadafi learners." />
 
-      <div className="mb-6 grid grid-cols-[minmax(0,1fr)] gap-4 sm:grid-cols-3">
+      <div className={cn('mb-6 grid grid-cols-[minmax(0,1fr)] gap-4', rankLive ? 'sm:grid-cols-3' : 'sm:grid-cols-2')}>
         <StatCard
           label="Points earned"
           icon={Coins}
@@ -262,15 +286,17 @@ export default function AchievementsPage() {
           value={data ? `${earned.length} of ${data.badges.length}` : '–'}
           hint={next[0] ? `Next: ${next[0].title}` : data ? 'Every badge earned' : undefined}
         />
-        <StatCard
-          label="Your rank"
-          icon={Trophy}
-          value={month?.you ? `#${month.you.rank}` : '–'}
-          hint={month ? (month.you ? `of ${nf.format(month.total)} learners, last 30 days` : 'Earn points to get ranked') : undefined}
-        />
+        {rankLive && (
+          <StatCard
+            label="Your rank"
+            icon={Trophy}
+            value={placeLabel(month?.you ?? null) ?? '–'}
+            hint={month?.you ? 'Last 30 days' : 'Earn points to get ranked'}
+          />
+        )}
       </div>
 
-      <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 xl:grid-cols-[minmax(0,1fr)_400px]">
+      <div className={cn('grid grid-cols-[minmax(0,1fr)] items-start gap-5', boardLive && 'xl:grid-cols-[minmax(0,1fr)_400px]')}>
         <section aria-labelledby="ach-badges" className="flex min-w-0 flex-col gap-3">
           <h2 id="ach-badges" className="text-base font-semibold text-ui-text sm:text-lg">
             Badges
@@ -293,7 +319,7 @@ export default function AchievementsPage() {
             </ul>
           )}
         </section>
-        <LeaderboardCard show={data?.showOnLeaderboard} />
+        {boardLive && <LeaderboardCard show={data?.showOnLeaderboard} />}
       </div>
     </DashboardLayout>
   )
