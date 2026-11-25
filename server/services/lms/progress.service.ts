@@ -356,6 +356,45 @@ export async function assertQuestionAvailable(userId: string, questionId: string
   await assertUnitAvailable(userId, q.unitId)
 }
 
+/**
+ * Saves where a learner is in a block's video (sent every few seconds while
+ * it plays), so they resume there on any device. Watched % only ever goes up,
+ * and a completed block stays completed. Only for a video block in a
+ * published course the learner is enrolled in.
+ *
+ * @param userId      - UUID of the learner.
+ * @param blockId     - UUID of the learning block (must be a video block).
+ * @param positionSec - Current position, in whole seconds.
+ * @param watchPct    - Share of the video actually watched so far, 0-100.
+ * @returns the saved position and watched %, or null when the block is not a video.
+ * @throws AppError(404, "UNIT_NOT_AVAILABLE") when the learner isn't enrolled.
+ */
+export async function saveVideoPosition(
+  userId: string,
+  blockId: string,
+  positionSec: number,
+  watchPct: number,
+): Promise<{ videoPositionSec: number; videoWatchPct: number } | null> {
+  const [block] = await db.select({ type: learningBlocks.type, unitId: learningBlocks.unitId })
+    .from(learningBlocks).where(eq(learningBlocks.id, blockId))
+  if (!block || block.type !== 'video') return null
+  await assertUnitAvailable(userId, block.unitId)
+
+  const [row] = await db.insert(userLearningBlockProgress)
+    .values({ userId, learningBlockId: blockId, status: 'in_progress', videoPositionSec: positionSec, videoWatchPct: watchPct })
+    .onConflictDoUpdate({
+      target: [userLearningBlockProgress.userId, userLearningBlockProgress.learningBlockId],
+      set: {
+        videoPositionSec: positionSec,
+        videoWatchPct: sql`greatest(coalesce(${userLearningBlockProgress.videoWatchPct}, 0), ${watchPct})`,
+        status: sql`case when ${userLearningBlockProgress.status} = 'not_started' then 'in_progress'::block_progress_status else ${userLearningBlockProgress.status} end`,
+      },
+    })
+    .returning({ videoPositionSec: userLearningBlockProgress.videoPositionSec, videoWatchPct: userLearningBlockProgress.videoWatchPct })
+
+  return row ? { videoPositionSec: row.videoPositionSec ?? 0, videoWatchPct: row.videoWatchPct ?? 0 } : null
+}
+
 /** Before a learner marks a block complete. */
 export async function assertBlockCompletable(userId: string, blockId: string): Promise<void> {
   const [block] = await db.select({ unitId: learningBlocks.unitId, type: learningBlocks.type })

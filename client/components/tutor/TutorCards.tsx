@@ -17,7 +17,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { ArrowLeft, ArrowRight, Check, ChevronDown, CircleCheck, Loader2, RotateCcw } from 'lucide-react'
 import { ProgressBar, Skeleton, btn, inputClass } from '@/components/kit'
-import { YouTubePlayer } from '@/components/lms/YouTubePlayer'
+import { VideoPlayer } from '@/components/media/VideoPlayer'
 import { cn } from '@/lib/utils'
 import { apiErrorMessage, type QuestionStep, type Quiz, type QuizResult, type StepAnswer, type UnitIntro, type VideoLesson } from './api'
 import { useTutor } from './context'
@@ -436,7 +436,8 @@ export function VideoCard({ learningBlockId, latest }: { learningBlockId: string
       }
     >
       {isYouTube(data.videoUrl) ? (
-        <YouTubePlayer videoUrl={data.videoUrl} onProgress={(pct) => pct >= 95 && void onWatched()} />
+        // Hadafi's own player: no YouTube links or suggestions, and it resumes.
+        <VideoPlayer url={data.videoUrl} title={data.title} onProgress={(pct) => pct >= 95 && void onWatched()} className="rounded-[10px]" />
       ) : (
         <div className="relative aspect-video overflow-hidden rounded-[10px] bg-black">
           <video

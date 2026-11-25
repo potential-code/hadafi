@@ -4,8 +4,8 @@ import { useRef, useState } from 'react'
 import { CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { motion, AnimatePresence } from 'framer-motion'
-import { apiUpdateBlockProgress, type LearnerBlock } from '@/lib/api/lms'
-import { YouTubePlayer } from './YouTubePlayer'
+import { apiSaveVideoPosition, apiUpdateBlockProgress, type LearnerBlock } from '@/lib/api/lms'
+import { VideoPlayer } from '@/components/media/VideoPlayer'
 import { RichContent } from './RichContent'
 import { cn } from '@/lib/utils'
 
@@ -25,7 +25,8 @@ export function VideoBlock({ block, onCompleted, onAdvance, onWatchThreshold }: 
   const hasFired = useRef(false)
   const thresholdFiredRef = useRef(false)
   const [watchPct, setWatchPct] = useState(0)
-  const [ytWatchPct, setYtWatchPct] = useState(0)
+  // Starts from what the server saved (any device), then only goes up.
+  const [ytWatchPct, setYtWatchPct] = useState(() => block.blockProgress?.videoWatchPct ?? 0)
   const [transcriptOpen, setTranscriptOpen] = useState(false)
 
   const isAlreadyCompleted = block.blockProgress?.status === 'completed'
@@ -69,9 +70,14 @@ export function VideoBlock({ block, onCompleted, onAdvance, onWatchThreshold }: 
       )}
 
       {isYouTube ? (
-        <YouTubePlayer
-          videoUrl={block.videoUrl!}
+        <VideoPlayer
+          url={block.videoUrl!}
+          title={block.title}
+          gated={!isAlreadyCompleted}
+          resumeAt={block.blockProgress?.videoPositionSec ?? null}
+          watchedPct={block.blockProgress?.videoWatchPct ?? null}
           onProgress={handleYtProgress}
+          onSavePosition={(positionSec, watchPct) => void apiSaveVideoPosition(block.id, { positionSec, watchPct })}
         />
       ) : (
         <div className="relative rounded-[14px] overflow-hidden bg-black aspect-video shadow-lg ring-1 ring-black/5">

@@ -78,6 +78,28 @@ export async function enrollInCourse(
 // ── Progress endpoints ───────────────────────────────────────────────────────
 
 /**
+ * PUT /lms/learning-blocks/:blockId/video-position  { positionSec, watchPct }
+ * Saves where the learner is in the block's video, for resume on any device.
+ */
+export async function saveVideoPosition(
+  req: Request<{ blockId: string }>,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
+  try {
+    const { positionSec, watchPct } = req.body as { positionSec: number; watchPct: number }
+    const data = await progressSvc.saveVideoPosition(req.user!.userId, req.params.blockId, positionSec, watchPct)
+    if (!data) {
+      res.status(404).json({ success: false, error: { message: 'Video not found', code: 'NOT_FOUND' } })
+      return
+    }
+    res.json({ success: true, data })
+  } catch (e) {
+    next(e)
+  }
+}
+
+/**
  * POST /lms/learning-blocks/:blockId/progress
  * Upserts block-level progress for the authenticated learner.
  * Propagates upward to unit/module/course on completion.

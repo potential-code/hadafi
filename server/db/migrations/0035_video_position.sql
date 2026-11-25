@@ -1,0 +1,1 @@
+ALTER TABLE "user_learning_block_progress" ADD COLUMN "video_position_sec" integer DEFAULT 0;

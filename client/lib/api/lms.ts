@@ -25,6 +25,8 @@ export type LearnerCourse = {
 export type BlockProgress = {
   status: 'not_started' | 'in_progress' | 'completed'
   videoWatchPct: number | null
+  /** Where the learner stopped in the video, in seconds. */
+  videoPositionSec?: number | null
   completedAt: string | null
 }
 
@@ -328,6 +330,15 @@ export const apiUpdateBlockProgress = (
   blockId: string,
   data: { status: 'not_started' | 'in_progress' | 'completed'; videoWatchPct?: number },
 ) => apiFetch<BlockProgress>(`/learning-blocks/${blockId}/progress`, { method: 'POST', body: JSON.stringify(data) })
+/** Saves the video position; keepalive so it also goes out as the page closes. */
+export const apiSaveVideoPosition = (blockId: string, data: { positionSec: number; watchPct: number }) =>
+  fetch(`${BASE}/learning-blocks/${blockId}/video-position`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'same-origin',
+    keepalive: true,
+    body: JSON.stringify(data),
+  }).catch(() => undefined)
 export const apiUpdateUnitProgress = (
   unitId: string,
   data: { status: 'not_started' | 'in_progress' | 'completed' },

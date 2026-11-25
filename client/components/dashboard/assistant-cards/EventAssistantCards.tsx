@@ -9,6 +9,7 @@ import type { LiveEvent } from '@/lib/api/liveEvents'
 import { AssistantCardStrip, AssistantCardSkeleton } from './AssistantCardStrip'
 import { isEventPast, filterEventsByIds } from './filterUtils'
 import { optimizedSrc } from '@/lib/images'
+import { RecordingLink } from '@/components/media/RecordingLink'
 
 function parseDate(d: string) {
   const [year = '', monthNum = '', dayRaw = ''] = d.split('-')
@@ -104,15 +105,14 @@ export function EventAssistantCards({ statusFilter, topic, ids, actionStatus }: 
               </div>
 
               {hasRecording && (
-                <a
-                  href={event.recordingLink!}
-                  target="_blank"
-                  rel="noreferrer"
+                <RecordingLink
+                  url={event.recordingLink!}
+                  title={event.title}
                   className="mt-1 w-full inline-flex items-center justify-center gap-1.5 rounded-[10px] bg-ui-brand hover:bg-ui-brand-hover text-white h-8 px-3 text-[13px] font-semibold transition-colors"
                 >
                   <PlayCircle className="w-3 h-3" />
                   Watch recording
-                </a>
+                </RecordingLink>
               )}
               {canJoin && (
                 <a

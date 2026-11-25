@@ -11,6 +11,8 @@ export const userLearningBlockProgress = pgTable('user_learning_block_progress',
   learningBlockId: uuid('learning_block_id').notNull().references(() => learningBlocks.id, { onDelete: 'cascade' }),
   status: blockProgressStatusEnum('status').notNull().default('not_started'),
   videoWatchPct: integer('video_watch_pct').default(0),
+  /** Where the learner stopped in this block's video, so they can resume. */
+  videoPositionSec: integer('video_position_sec').default(0),
   completedAt: timestamp('completed_at'),
 }, (t) => [unique().on(t.userId, t.learningBlockId)])
 

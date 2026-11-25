@@ -148,6 +148,11 @@ const blockProgressDto = z.object({
   videoWatchPct: z.number().int().min(0).max(100).optional(),
 })
 
+const videoPositionDto = z.object({
+  positionSec: z.number().int().min(0).max(86_400),
+  watchPct: z.number().int().min(0).max(100),
+})
+
 const unitProgressDto = z.object({
   status: z.enum(['not_started', 'in_progress', 'completed']),
 })
@@ -233,6 +238,8 @@ learnerRouter.post('/courses/:courseId/enroll', learner.enrollInCourse)
 // Progress is a claim the server checks (progress.service.ts); this bounds how fast it can be made.
 const progressLimit = perUser('learner-progress', HOUR, 300)
 learnerRouter.post('/learning-blocks/:blockId/progress', progressLimit, validate(blockProgressDto), learner.updateBlockProgress)
+// The player saves every few seconds while a video plays (and on pause/close): its own, larger budget.
+learnerRouter.put('/learning-blocks/:blockId/video-position', perUser('video-position', HOUR, 2000), validate(videoPositionDto), learner.saveVideoPosition)
 learnerRouter.post('/units/:unitId/progress', progressLimit, validate(unitProgressDto), learner.updateUnitProgress)
 learnerRouter.post('/questions/:questionId/answer', progressLimit, validate(questionAnswerDto), learner.saveQuestionAnswer)
 learnerRouter.get('/learning-blocks/:blockId/answers', learner.getBlockAnswers)

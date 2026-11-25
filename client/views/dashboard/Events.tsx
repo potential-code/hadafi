@@ -28,6 +28,7 @@ import { errorMessage } from '@/lib/api/errors'
 import { dateParts, eventPhaseAt, longDayLabel, timeRange, untilLabel, useNow, type EventPhase } from '@/lib/events/eventTime'
 import { downloadIcs, googleCalendarUrl } from '@/lib/events/calendar'
 import { cn } from '@/lib/utils'
+import { RecordingLink } from '@/components/media/RecordingLink'
 import { optimizedSrc } from '@/lib/images'
 
 const GRID_PAGE_SIZE = 6
@@ -174,10 +175,10 @@ function PrimaryAction({
 
   if (phase === 'ended') {
     return event.recordingLink ? (
-      <a href={event.recordingLink} target="_blank" rel="noreferrer" className={b('secondary')} aria-label={`Watch the recording of ${event.title}`}>
+      <RecordingLink url={event.recordingLink} title={event.title} className={b('secondary')}>
         <Play className="h-4 w-4" aria-hidden />
         Watch recording
-      </a>
+      </RecordingLink>
     ) : (
       <span className={cn('self-center text-[13px] text-ui-muted', className)}>Recording coming soon</span>
     )
