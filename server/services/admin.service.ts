@@ -1,13 +1,25 @@
 import { randomBytes } from "node:crypto";
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, sql } from "drizzle-orm";
 
 import { db } from "../db";
 import { inviteCodes, mentorRegistrations, mentorSetupTokens, stakeholderRegistrations, users } from "../db/schema";
 import { AppError } from "../utils/app-error";
 import { sendMail } from "../mail/mailer";
+import { logger } from "../config/logger";
 
 /** Base URL for the frontend, used when constructing invite and setup links. */
 const FRONTEND_URL = process.env["FRONTEND_URL"] ?? "http://localhost:3000";
+
+/** How long a mentor setup link works for. */
+const SETUP_LINK_TTL_MS = 48 * 60 * 60 * 1000;
+
+/** A setup link is not sent again sooner than this many seconds after the previous one. */
+export const SETUP_LINK_RESEND_COOLDOWN_SECONDS = 60;
+
+/** Subject of the email that carries a mentor's setup link (approval and resend). */
+const SETUP_EMAIL_SUBJECT = "Your Hadafi Mentor Application Has Been Approved";
+
+type Tx = Parameters<Parameters<typeof db.transaction>[0]>[0];
 
 // ---------------------------------------------------------------------------
 // Internal helpers
@@ -29,6 +41,59 @@ function generateCode(): string {
     suffix += chars[byte % chars.length];
   }
   return `HADAFI-${suffix}`;
+}
+
+/**
+ * Issues a fresh mentor setup token valid for 48 hours and returns it.
+ *
+ * mentor_setup_tokens holds ONE row per registration (unique
+ * mentor_registration_id), so the row is written or replaced in place: the
+ * previous token value stops existing and any link that carried it no longer
+ * works. used_at is cleared so the new token can be used.
+ */
+async function issueSetupToken(tx: Tx, mentorRegistrationId: string): Promise<{ token: string; expiresAt: Date }> {
+  const token = randomBytes(32).toString("hex");
+  const expiresAt = new Date(Date.now() + SETUP_LINK_TTL_MS);
+
+  // created_at is the database's now(), like the column default, so the resend
+  // cooldown can compare it with now() in SQL, on one clock.
+  await tx
+    .insert(mentorSetupTokens)
+    .values({ mentorRegistrationId, token, expiresAt })
+    .onConflictDoUpdate({
+      target: mentorSetupTokens.mentorRegistrationId,
+      set: { token, expiresAt, usedAt: null, createdAt: sql`now()` },
+    });
+
+  return { token, expiresAt };
+}
+
+/**
+ * Emails a mentor their setup link ("mentor-approval" template). Sent after the
+ * token's transaction has committed, never inside it. A delivery failure is
+ * logged, not thrown: the token is already saved and the admin can resend.
+ *
+ * @returns true when the mail was handed to the mail server.
+ */
+async function sendSetupLinkEmail(
+  mentor: { id: string; name: string; email: string },
+  token: string,
+): Promise<boolean> {
+  try {
+    await sendMail({
+      to: mentor.email,
+      subject: SETUP_EMAIL_SUBJECT,
+      template: "mentor-approval",
+      context: {
+        mentorName: mentor.name,
+        setupLink: `${FRONTEND_URL}/mentor/setup?token=${token}`,
+      },
+    });
+    return true;
+  } catch (err) {
+    logger.error({ err, mentorRegistrationId: mentor.id }, "Mentor setup link email failed");
+    return false;
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -72,7 +137,19 @@ export interface MentorApplication {
   methods: string[] | null;
   passion: string | null;
   status: string;
+  /** True once the mentor has created their account from the setup link. */
+  hasAccount: boolean;
   createdAt: Date;
+}
+
+/** Result of approving an application or resending its setup link. */
+export interface SetupLinkResult {
+  /** Where the setup link was sent. */
+  email: string;
+  /** False when the mail server refused it (logged); the link itself is saved. */
+  emailQueued: boolean;
+  /** When the new link stops working. */
+  expiresAt: Date;
 }
 
 /** Shape of a stakeholder application returned to the admin. */
@@ -202,7 +279,7 @@ export async function listInvites(): Promise<InviteWithUser[]> {
 export async function listMentorApplications(
   status?: string,
 ): Promise<MentorApplication[]> {
-  const query = db
+  const base = db
     .select({
       id: mentorRegistrations.id,
       name: mentorRegistrations.name,
@@ -213,16 +290,16 @@ export async function listMentorApplications(
       methods: mentorRegistrations.methods,
       passion: mentorRegistrations.passion,
       status: mentorRegistrations.status,
+      userId: mentorRegistrations.userId,
       createdAt: mentorRegistrations.createdAt,
     })
     .from(mentorRegistrations)
     .orderBy(desc(mentorRegistrations.createdAt));
 
-  if (status) {
-    return query.where(eq(mentorRegistrations.status, status));
-  }
+  const rows = await (status ? base.where(eq(mentorRegistrations.status, status)) : base);
 
-  return query;
+  // Only whether an account exists goes out, never the user id or any token.
+  return rows.map(({ userId, ...row }) => ({ ...row, hasAccount: userId !== null }));
 }
 
 // ---------------------------------------------------------------------------
@@ -232,23 +309,21 @@ export async function listMentorApplications(
 /**
  * Approves a pending mentor application.
  *
- * Steps performed atomically inside a transaction:
  * 1. Fetch the application and verify it exists and is in 'pending' state.
- * 2. Generate a 32-byte hex setup token with 48-hour expiry.
- * 3. Insert the token into `mentor_setup_tokens`.
- * 4. Update the application status to 'approved'.
- * 5. Send the mentor an approval email containing their setup link.
+ * 2. In one transaction: issue a 48-hour setup token (replacing any token row
+ *    left from an earlier approval, e.g. after a manual status reset) and
+ *    mark the application 'approved'.
+ * 3. After the commit, email the mentor their setup link.
  *
  * Email is sent *outside* the transaction to avoid holding the DB connection
  * open during an external network call. If the email fails after the commit,
- * the status is still updated but the email may need to be resent manually.
+ * the status is still updated and the admin can use "Resend setup link".
  *
  * @param id - UUID of the mentor_registrations row.
  * @throws AppError(404, "NOT_FOUND")         — application does not exist.
  * @throws AppError(400, "ALREADY_PROCESSED") — application is not in 'pending' state.
  */
-export async function approveMentorApplication(id: string): Promise<void> {
-  // --- 1. Fetch and validate the application --------------------------------
+export async function approveMentorApplication(id: string): Promise<SetupLinkResult> {
   const found = await db
     .select()
     .from(mentorRegistrations)
@@ -268,42 +343,94 @@ export async function approveMentorApplication(id: string): Promise<void> {
     );
   }
 
-  // --- 2 & 3. Generate token and persist changes inside a transaction -------
-  const token = randomBytes(32).toString("hex");
-  const expiresAt = new Date(Date.now() + 48 * 60 * 60 * 1000); // 48 hours
-
-  await db.transaction(async (tx) => {
-    // Insert the setup token.
-    await tx.insert(mentorSetupTokens).values({
-      mentorRegistrationId: id,
-      token,
-      expiresAt,
-    });
-
-    // Mark the application as approved.
+  const { token, expiresAt } = await db.transaction(async (tx) => {
+    const issued = await issueSetupToken(tx, id);
     await tx
       .update(mentorRegistrations)
       .set({ status: "approved" })
       .where(eq(mentorRegistrations.id, id));
+    return issued;
   });
 
-  // --- 4. Send the approval email (after transaction commits) ---------------
-  // Wrapped in catch so a mailer failure never rolls back the DB update.
-  const setupLink = `${FRONTEND_URL}/mentor/setup?token=${token}`;
+  const emailQueued = await sendSetupLinkEmail(mentor, token);
+  return { email: mentor.email, emailQueued, expiresAt };
+}
 
-  await sendMail({
-    to: mentor.email,
-    subject: "Your Hadafi Mentor Application Has Been Approved",
-    template: "mentor-approval",
-    context: {
-      mentorName: mentor.name,
-      setupLink,
-    },
-  }).catch((err: unknown) => {
-    // Email delivery failure is non-fatal — the status is already committed.
-    // Log so the error is visible in server output rather than silently lost.
-    console.error("[mail] Failed to send mentor approval email:", (err as Error)?.message ?? err);
+// ---------------------------------------------------------------------------
+// resendMentorSetupLink
+// ---------------------------------------------------------------------------
+
+/**
+ * Sends an approved mentor who has not set up their account yet a new setup
+ * link, e.g. after the 48-hour link expired.
+ *
+ * In one transaction, with the application row locked (so two clicks at once
+ * cannot both send): check it can be resent, then replace the setup token, so
+ * only the newest link works. The email goes out after the commit.
+ *
+ * @param id - UUID of the mentor_registrations row.
+ * @throws AppError(404, "NOT_FOUND")       — application does not exist.
+ * @throws AppError(400, "ALREADY_SET_UP")  — the mentor already has an account,
+ *                                            or their setup link was already used.
+ * @throws AppError(400, "NOT_RESENDABLE")  — the application is not approved.
+ * @throws AppError(429, "RESEND_TOO_SOON") — a link was issued under a minute ago.
+ */
+export async function resendMentorSetupLink(id: string): Promise<SetupLinkResult> {
+  const { mentor, token, expiresAt } = await db.transaction(async (tx) => {
+    const [mentor] = await tx
+      .select({
+        id: mentorRegistrations.id,
+        name: mentorRegistrations.name,
+        email: mentorRegistrations.email,
+        status: mentorRegistrations.status,
+        userId: mentorRegistrations.userId,
+      })
+      .from(mentorRegistrations)
+      .where(eq(mentorRegistrations.id, id))
+      .limit(1)
+      .for("update");
+
+    if (!mentor) {
+      throw new AppError("Mentor application not found", 404, "NOT_FOUND");
+    }
+    if (mentor.userId !== null) {
+      throw new AppError("This mentor has already set up their account", 400, "ALREADY_SET_UP");
+    }
+    if (mentor.status !== "approved") {
+      throw new AppError(
+        "Only approved applications can be sent a setup link",
+        400,
+        "NOT_RESENDABLE",
+      );
+    }
+
+    const [current] = await tx
+      .select({
+        usedAt: mentorSetupTokens.usedAt,
+        recent: sql<boolean>`${mentorSetupTokens.createdAt} > now() - make_interval(secs => ${SETUP_LINK_RESEND_COOLDOWN_SECONDS})`,
+      })
+      .from(mentorSetupTokens)
+      .where(eq(mentorSetupTokens.mentorRegistrationId, id))
+      .limit(1);
+
+    // A used link means an account was created from it (since removed); a
+    // new link would recreate a login, so that stays a deliberate manual step.
+    if (current?.usedAt) {
+      throw new AppError("This mentor's setup link has already been used", 400, "ALREADY_SET_UP");
+    }
+    if (current?.recent) {
+      throw new AppError(
+        "A setup link was sent less than a minute ago. Please wait a moment before sending another.",
+        429,
+        "RESEND_TOO_SOON",
+      );
+    }
+
+    return { mentor, ...(await issueSetupToken(tx, id)) };
   });
+
+  const emailQueued = await sendSetupLinkEmail(mentor, token);
+  return { email: mentor.email, emailQueued, expiresAt };
 }
 
 // ---------------------------------------------------------------------------

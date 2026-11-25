@@ -78,8 +78,29 @@ export async function approveMentorApplication(
   next: NextFunction,
 ): Promise<void> {
   try {
-    await adminService.approveMentorApplication(req.params["id"] as string);
-    res.status(200).json({ success: true, data: { ok: true } });
+    const result = await adminService.approveMentorApplication(req.params["id"] as string);
+    res.status(200).json({ success: true, data: { ok: true, emailQueued: result.emailQueued } });
+  } catch (err) {
+    next(err);
+  }
+}
+
+/**
+ * POST /api/admin/mentor-applications/:id/resend-setup
+ *
+ * Sends an approved mentor who has no account yet a new 48-hour setup link;
+ * their previous link stops working. Returns { email, emailQueued, expiresAt }
+ * (never the token). 400 ALREADY_SET_UP / NOT_RESENDABLE, 404 NOT_FOUND,
+ * 429 RESEND_TOO_SOON within a minute of the previous link.
+ */
+export async function resendMentorSetupLink(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
+  try {
+    const result = await adminService.resendMentorSetupLink(req.params["id"] as string);
+    res.status(200).json({ success: true, data: result });
   } catch (err) {
     next(err);
   }

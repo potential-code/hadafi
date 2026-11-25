@@ -7,6 +7,7 @@ import { toast } from 'sonner'
 import { AdminLayout } from '@/components/admin/AdminLayout'
 import { Pill, SearchInput, Tag, TableCard, adminTableClass, fmtDate } from '@/components/admin/ui'
 import { ConfirmDialog } from '@/components/admin/widgets/ConfirmDialog'
+import { ResendSetupButton, canResendSetup } from '@/components/admin/ResendSetupButton'
 import { Button, EmptyState, FilterChips, PageHeader, Skeleton } from '@/components/kit'
 import { apiFetch } from '@/lib/api'
 import { cn } from '@/lib/utils'
@@ -29,6 +30,8 @@ interface MentorApplication {
   methods: string[] | null
   passion: string | null
   status: AppStatus
+  /** True once the mentor has created their account from the setup link. */
+  hasAccount: boolean
   createdAt: string
 }
 
@@ -162,6 +165,16 @@ function ExpandedDetail({
           </p>
           {/* Phones: the Actions column is off screen, so repeat the actions here. */}
           <ActionButtons app={app} busy={busy} onAsk={onAsk} className="sm:hidden" />
+        </div>
+      )}
+      {canResendSetup(app) && (
+        <div className="mt-2.5 flex flex-wrap items-center justify-between gap-3">
+          <p className="flex items-center gap-1.5 text-xs text-ui-muted">
+            <Mail className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden />
+            Not set up yet. A new setup link replaces the old one and works for 48 hours.
+          </p>
+          {/* Phones: the Actions column is off screen, so repeat the action here. */}
+          <ResendSetupButton app={app} className="sm:hidden" />
         </div>
       )}
     </div>
@@ -405,6 +418,11 @@ export default function ApplicationsPage() {
                           <td onClick={(e) => e.stopPropagation()}>
                             {app.status === 'pending' && (
                               <ActionButtons app={app} busy={actionLoading} onAsk={setConfirm} className="justify-end" />
+                            )}
+                            {canResendSetup(app) && (
+                              <span className="flex justify-end">
+                                <ResendSetupButton app={app} />
+                              </span>
                             )}
                           </td>
                         </tr>

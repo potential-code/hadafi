@@ -3,12 +3,13 @@
 import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { Eye, EyeOff, Lock, ArrowRight, AlertCircle, Loader2 } from 'lucide-react'
+import { Eye, EyeOff, Lock, ArrowRight, AlertCircle, Loader2, Mail } from 'lucide-react'
 import { toast } from 'sonner'
 import { AuthLayout } from '@/components/auth/AuthLayout'
 import { FloatingField } from '@/components/auth/FloatingField'
 import { refreshUser } from '@/lib/auth'
 import { apiFetch } from '@/lib/api'
+import { CONTACT_EMAIL } from '@/components/landing/legal'
 
 interface TokenInfo {
   name: string
@@ -85,8 +86,17 @@ function SetupForm() {
         </div>
         <h2 className="text-lg font-bold text-brand-text-primary mb-2">Link expired or invalid</h2>
         <p className="text-sm text-brand-text-secondary">
-          This setup link has expired or has already been used. Please contact support to request a new one.
+          This setup link has expired or has already been used. Email{' '}
+          <strong className="font-semibold text-brand-text-primary">{CONTACT_EMAIL}</strong> and we&rsquo;ll send you
+          a new one.
         </p>
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
+          className="mt-4 inline-flex h-10 items-center gap-2 rounded-xl border border-brand-surface-2 px-4 text-sm font-semibold text-brand-primary hover:bg-brand-surface"
+        >
+          <Mail className="h-4 w-4" aria-hidden />
+          Email {CONTACT_EMAIL}
+        </a>
       </div>
     )
   }
@@ -171,6 +181,12 @@ export default function MentorSetupPage() {
       >
         <SetupForm />
       </Suspense>
+      <p className="mt-4 text-center text-[13px] text-brand-text-muted">
+        Need help? Email{' '}
+        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-brand-primary hover:underline">
+          {CONTACT_EMAIL}
+        </a>
+      </p>
     </AuthLayout>
   )
 }

@@ -29,6 +29,8 @@
 //        for an application anyone can submit publicly.
 //   POST /api/admin/mentor-applications/:id/reject      the other half of the
 //        same decision; it stays with the person who approves.
+//   POST /api/admin/mentor-applications/:id/resend-setup  emails a new mentor
+//        setup link, i.e. hands out the same login again.
 // Do not add them back for the operator MCP. Reading partners and mentor
 // applications and removing a partner stay: they only take access away.
 export const OPERATOR_ROUTES = [

@@ -64,6 +64,13 @@ router.post("/mentor-applications/:id/approve", adminController.approveMentorApp
  */
 router.post("/mentor-applications/:id/reject", adminController.rejectMentorApplication);
 
+/**
+ * POST /api/admin/mentor-applications/:id/resend-setup
+ * Emails an approved mentor who has not set up their account a new setup
+ * link (the old one stops working). Refused within a minute of the last one.
+ */
+router.post("/mentor-applications/:id/resend-setup", adminController.resendMentorSetupLink);
+
 // ---------------------------------------------------------------------------
 // Stakeholder application routes
 // ---------------------------------------------------------------------------
