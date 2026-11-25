@@ -49,11 +49,14 @@ describe('Newsletter sign-up', () => {
     }
   })
 
-  it('re-activates an address that unsubscribed', async () => {
-    await db.update(newsletterSubscribers).set({ unsubscribedAt: new Date() }).where(like(newsletterSubscribers.email, email))
-    expect((await subscribe({ email })).status).toBe(201)
+  it('leaves an address that unsubscribed unsubscribed (anyone can type it in), with the same answer', async () => {
+    const at = new Date('2026-11-01T10:00:00Z')
+    await db.update(newsletterSubscribers).set({ unsubscribedAt: at }).where(like(newsletterSubscribers.email, email))
+    const res = await subscribe({ email })
+    expect(res.status).toBe(201)
+    expect(res.body).toEqual({ success: true, data: { subscribed: true } })
     const [row] = await db.select().from(newsletterSubscribers).where(like(newsletterSubscribers.email, email))
-    expect(row!.unsubscribedAt).toBeNull()
+    expect(row!.unsubscribedAt?.toISOString()).toBe(at.toISOString())
   })
 })
 

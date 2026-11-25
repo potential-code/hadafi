@@ -1,7 +1,6 @@
 import { Router, type IRouter, type Request, type Response, type NextFunction } from "express";
 import rateLimit, { ipKeyGenerator } from "express-rate-limit";
 import { z } from "zod";
-import { sql } from "drizzle-orm";
 import { db } from "../db";
 import { newsletterSubscribers } from "../db/schema";
 import { validate } from "../middleware/validate";
@@ -10,9 +9,11 @@ import { HOUR } from "../middleware/limits";
 /**
  * POST /api/newsletter/subscribe { email }: the homepage "Stay in the loop" form
  * (ported from SMEEP). Public, so each network gets ten sign-ups an hour.
- * Signing up again keeps the address and re-activates one that unsubscribed.
- * The answer is the same whether or not the address was already on the list,
- * so the form can't be used to find out who is subscribed.
+ * Signing up again changes nothing: in particular an address that
+ * unsubscribed stays unsubscribed, since anyone can type anyone's address
+ * into this form (no confirmation email proves it is theirs). The answer is
+ * the same whether or not the address was already on the list, or had
+ * unsubscribed, so the form can't be used to find out who is subscribed.
  */
 const router: IRouter = Router();
 
@@ -42,7 +43,7 @@ router.post(
       await db
         .insert(newsletterSubscribers)
         .values({ email, source: "homepage" })
-        .onConflictDoUpdate({ target: newsletterSubscribers.email, set: { unsubscribedAt: sql`NULL` } });
+        .onConflictDoNothing({ target: newsletterSubscribers.email });
       res.status(201).json({ success: true, data: { subscribed: true } });
     } catch (e) {
       next(e);
