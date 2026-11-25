@@ -16,10 +16,7 @@ import type { MentorUser, Slot, SmeSession } from '@/lib/api/sme'
 import { apiFetch } from '@/lib/api'
 import { cn } from '@/lib/utils'
 import { optimizedSrc } from '@/lib/images'
-
-function initialsAvatar(name: string) {
-  return `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name)}&backgroundColor=9f2063&fontSize=42&radius=50`
-}
+import { initialsAvatar } from '@/lib/initialsAvatar'
 
 // ── Calendar helpers (same logic as BookingModal) ──────────────────────────
 

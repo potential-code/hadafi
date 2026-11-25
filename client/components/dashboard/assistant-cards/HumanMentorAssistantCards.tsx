@@ -10,10 +10,7 @@ import { filterMentorsByIds } from './filterUtils'
 import { AssistantCardStrip, AssistantCardSkeleton } from './AssistantCardStrip'
 import { ChatLoadingContext } from '@/components/dashboard/chat-loading-context'
 import { optimizedSrc } from '@/lib/images'
-
-function initialsAvatar(name: string) {
-  return `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name)}&backgroundColor=9f2063&fontSize=42&radius=50`
-}
+import { initialsAvatar } from '@/lib/initialsAvatar'
 
 interface Props {
   topic?: string
