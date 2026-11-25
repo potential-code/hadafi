@@ -176,11 +176,52 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-noto-sans), system-ui, sans-serif;
+    /* Geist first, Noto for Arabic, Urdu and Hindi (see --font-ui). */
+    font-family: var(--font-ui);
     -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: #f6bcd8;
+    color: #17171c;
   }
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Neat, unobtrusive scrollbars across the platform, in Hadafi magenta (#c8106a). */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(200, 16, 106, 0.35) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(200, 16, 106, 0.3);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(200, 16, 106, 0.55);
+  }
+  *::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* Dark surfaces (sidebar, dark panels) get a light thumb */
+  .scrollbar-dark {
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  }
+  .scrollbar-dark::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.22);
+  }
+  .scrollbar-dark::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.4);
   }
 }
 
