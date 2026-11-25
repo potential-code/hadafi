@@ -1,5 +1,13 @@
+# Base images are pinned by digest (multi-arch index), so a rebuild uses
+# exactly the images this was tested with: bun 1.2.23 (the bun that wrote
+# bun.lock; a newer bun rewrites it and the frozen install fails) and Node
+# 22.23.5, as of 25 Nov 2026. To refresh, on purpose:
+#   docker buildx imagetools inspect oven/bun:1.2-alpine   (and node:22-alpine)
+# put the new "Digest:" values below (every FROM in server/Dockerfile and
+# client/Dockerfile), rebuild, run the tests and a local docker run.
+
 # Stage 1: Install all workspace dependencies
-FROM oven/bun:1.2-alpine AS deps
+FROM oven/bun:1.2-alpine@sha256:0841c588f6304300baf1d395ae339ce09a6e18c4b6a7cdd4fddcbdb87a2f096a AS deps
 WORKDIR /app
 COPY package.json bun.lock bunfig.toml ./
 COPY server/package.json ./server/
@@ -7,7 +15,7 @@ COPY client/package.json ./client/
 RUN bun install --frozen-lockfile
 
 # Stage 2: Build server bundle with esbuild
-FROM oven/bun:1.2-alpine AS builder
+FROM oven/bun:1.2-alpine@sha256:0841c588f6304300baf1d395ae339ce09a6e18c4b6a7cdd4fddcbdb87a2f096a AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY package.json bunfig.toml tsconfig.json ./
@@ -16,7 +24,7 @@ COPY shared/ ./shared/
 RUN node ./server/build.mjs
 
 # Stage 3: Production runtime
-FROM node:22-alpine AS runner
+FROM node:22-alpine@sha256:1314fb30ec37592d5845e5a160d522c0e680972aa534549940b8d73bde88481a AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 # su-exec: the entrypoint starts as root only to chown the uploads volume,
