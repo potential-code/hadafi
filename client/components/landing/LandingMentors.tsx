@@ -108,6 +108,8 @@ export function LandingAiMentors() {
             <img
               src="/images/redesign/hana-avatar.webp"
               alt=""
+              loading="lazy"
+              decoding="async"
               className="h-14 w-14 shrink-0 rounded-full object-cover object-top ring-4 ring-ui-brand-soft"
             />
             <div className="flex min-w-0 flex-col gap-0.5">

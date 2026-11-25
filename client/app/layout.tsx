@@ -1,8 +1,33 @@
 import type { Metadata } from 'next'
-import { Geist } from 'next/font/google'
+import { Geist, Noto_Sans, Noto_Sans_Arabic, Noto_Sans_Devanagari } from 'next/font/google'
 import './globals.css'
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist', display: 'swap' })
+
+// Glyph fallbacks for the Arabic, Urdu and Hindi (Learn with Hana) text Geist
+// lacks (--font-ui in globals.css). Self-hosted with the site, split by
+// unicode-range, so a browser downloads a file only when the page shows those
+// characters: nothing on an English page. Not preloaded, because Geist is the
+// font for Latin text. (next/font needs literal options in each call.)
+const notoSans = Noto_Sans({
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  preload: false,
+  variable: '--font-noto',
+})
+const notoSansArabic = Noto_Sans_Arabic({
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  preload: false,
+  variable: '--font-noto-arabic',
+})
+const notoSansDevanagari = Noto_Sans_Devanagari({
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  preload: false,
+  variable: '--font-noto-devanagari',
+})
+const fontVariables = [geist, notoSans, notoSansArabic, notoSansDevanagari].map((f) => f.variable).join(' ')
 
 // Icons and the shared-link image are files in this folder (favicon.ico, icon.svg,
 // apple-icon.png, opengraph-image.jpg, twitter-image.jpg), as on SMEEP; Next adds
@@ -34,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`scroll-smooth ${geist.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`scroll-smooth ${fontVariables}`} suppressHydrationWarning>
       <body className="antialiased" suppressHydrationWarning>
         {/* Saved dark mode for the signed-in app, applied before first paint. */}
         <script
@@ -42,12 +67,6 @@ export default function RootLayout({
             __html:
               "try{if(/^\\/(dashboard|mentor\\/dashboard|admin)(\\/|$)/.test(location.pathname)&&localStorage.getItem('hadafi.theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}",
           }}
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
         />
         {children}
       </body>

@@ -125,7 +125,13 @@ function TrackCard({ category }: { category: Category }) {
     <Card className="flex min-w-0 flex-col overflow-hidden shadow-ui" aria-labelledby="h-track">
       <div className="relative h-[168px] overflow-hidden bg-[#4c1d6e]">
         {TRACK_ART[category.name] && (
-          <img src={TRACK_ART[category.name]} alt="" className="absolute inset-0 h-full w-full object-cover" />
+          <img
+            src={TRACK_ART[category.name]}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-[#2a0f22] via-[#2a0f22]/60 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 flex items-end gap-3 p-[22px] text-[#fbe3ef]">

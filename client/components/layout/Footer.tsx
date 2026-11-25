@@ -62,6 +62,8 @@ export function Footer() {
               alt="Hadafi"
               width={1293}
               height={282}
+              loading="lazy"
+              decoding="async"
               className="h-8 w-auto self-start dark:brightness-0 dark:invert"
             />
             <p className="max-w-[300px] text-sm leading-[1.55] text-ui-muted">
