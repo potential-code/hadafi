@@ -1,19 +1,32 @@
 import PDFDocument from 'pdfkit'
 import { db } from '../../db'
 import {
-  courses, modules, units, learningBlocks, blockQuestions, questionAnswers, users,
+  courses, courseEnrollments, modules, units, learningBlocks, blockQuestions, questionAnswers, users,
 } from '../../db/schema'
 import { eq, and, inArray } from 'drizzle-orm'
 
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+
 /**
  * Returns all action-plan block questions for a course along with the learner's saved answers.
+ *
+ * Only for a learner enrolled in the course, and only while it is published
+ * (as the course's tests, assessment.service.ts): the questions of a draft or
+ * of a course the learner isn't on are not theirs to read. Anything else is
+ * COURSE_NOT_FOUND (404), so a course's existence isn't revealed either.
  *
  * @param userId   - UUID of the learner.
  * @param courseId - UUID of the course.
  */
 export async function getActionPlan(userId: string, courseId: string) {
-  const [course] = await db.select().from(courses).where(eq(courses.id, courseId))
-  if (!course) throw new Error('COURSE_NOT_FOUND')
+  if (!UUID_RE.test(courseId)) throw new Error('COURSE_NOT_FOUND')
+  const [row] = await db.select({ course: courses })
+    .from(courses)
+    .innerJoin(courseEnrollments, and(eq(courseEnrollments.courseId, courses.id), eq(courseEnrollments.userId, userId)))
+    .where(and(eq(courses.id, courseId), eq(courses.status, 'published')))
+    .limit(1)
+  if (!row) throw new Error('COURSE_NOT_FOUND')
+  const course = row.course
 
   const courseModules = await db.select().from(modules).where(eq(modules.courseId, courseId))
   const moduleIds = courseModules.map(m => m.id)

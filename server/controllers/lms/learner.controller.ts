@@ -197,6 +197,9 @@ export async function getActionPlan(
     const data = await actionPlanSvc.getActionPlan(req.user!.userId, req.params.courseId)
     res.json({ success: true, data })
   } catch (e) {
+    if (e instanceof Error && e.message === 'COURSE_NOT_FOUND') {
+      return next(new AppError('Course not found', 404, 'COURSE_NOT_FOUND'))
+    }
     next(e)
   }
 }
