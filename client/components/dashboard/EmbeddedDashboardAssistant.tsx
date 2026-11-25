@@ -74,6 +74,11 @@ import { ASK_HANA_PROMPT as ASSISTANT_INSTRUCTIONS } from '../../../shared/hana/
 // When false, the LLM never sees these actions — all content queries go through
 // the card-display actions (showXxxCards) instead.
 const NAVIGATION_ACTIONS_ENABLED = false
+// What openProfileAndGetData tells Hana happened: with navigation off the
+// learner stays in the chat, and Hana must not say they're on their profile.
+const PROFILE_OPENED = NAVIGATION_ACTIONS_ENABLED
+  ? 'Opened profile page.'
+  : 'Loaded the profile. No page was opened: the user is still here in the chat, not on their profile page.'
 // Human mentors (cards, booking, sessions) are off until real mentors can sign
 // in and set times; Hana then never sees those tools or mentors in her catalogue.
 const GOAL_TYPES = HUMAN_MENTORS_ENABLED
@@ -1008,9 +1013,9 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
           role: u['role'],
           certificates: certsArr.map((c) => ({ title: c.courseTitle, number: c.certificateNumber })),
         }
-        return `Opened profile page. Profile data: ${JSON.stringify(summary)}`
+        return `${PROFILE_OPENED} Profile data: ${JSON.stringify(summary)}`
       } catch {
-        return 'Opened profile page. (Could not load profile data.)'
+        return `${PROFILE_OPENED} (Could not load profile data.)`
       }
     },
   })
@@ -1614,7 +1619,15 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
         bookingWasCancelledRef.current = false
         // v2 delivers tool results as strings — the respond() payload arrives
         // JSON-serialized.
-        const outcome = parseToolOutcome<{ cancelled?: boolean; suppressed?: boolean }>(props.result)
+        const outcome = parseToolOutcome<{
+          cancelled?: boolean
+          suppressed?: boolean
+          success?: boolean
+          mentorName?: string
+          sessionDate?: string
+          noAvailability?: boolean
+          error?: string
+        }>(props.result)
         if (outcome?.cancelled) {
           // suppressed=true means this was an erroneous LLM re-invocation auto-cancelled by
           // CancelledBookingGuard — hide the card so no duplicate "Booking not completed" appears.
@@ -1628,6 +1641,34 @@ export function EmbeddedDashboardAssistant({ className }: { className?: string }
                   <p className="text-[12px] text-ui-muted mt-0.5">This booking was cancelled because a new request was started.</p>
                 </div>
               </div>
+            </div>
+          )
+        }
+        // Leave a quiet receipt in the thread instead of vanishing: the widget
+        // disappearing entirely on completion read as a glitch.
+        if (outcome?.success) {
+          return (
+            <div className="rounded-xl border border-ui-line bg-ui-ok-soft px-4 py-2.5 my-2 max-w-sm">
+              <p className="text-xs font-semibold text-ui-ok">
+                ✓ Session with {outcome.mentorName ?? 'your mentor'} booked
+                {outcome.sessionDate ? ` · ${new Date(outcome.sessionDate).toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}` : ''}
+              </p>
+            </div>
+          )
+        }
+        if (outcome?.noAvailability) {
+          return (
+            <div className="rounded-[10px] border border-ui-line bg-ui-surface-2 px-4 py-2.5 my-2 max-w-sm">
+              <p className="text-xs font-semibold text-ui-muted">
+                No open slots for {outcome.mentorName ?? 'this mentor'} right now
+              </p>
+            </div>
+          )
+        }
+        if (outcome?.error === 'not_found') {
+          return (
+            <div className="rounded-[10px] border border-ui-line bg-ui-surface-2 px-4 py-2.5 my-2 max-w-sm">
+              <p className="text-xs font-semibold text-ui-muted">Mentor not found</p>
             </div>
           )
         }
