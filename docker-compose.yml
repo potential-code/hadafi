@@ -42,6 +42,11 @@ services:
       SMTP_USER: ${SMTP_USER:-}
       SMTP_PASS: ${SMTP_PASS:-}
       STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
+      # Signing secret ("whsec_...") of the Stripe webhook endpoint
+      # <site>/api/webhooks/stripe (event payment_intent.succeeded): records a
+      # paid offer even if the learner's browser never confirms it. Unset = the
+      # endpoint answers 503 and orders are recorded by the browser only.
+      STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
       # potential-ai: mints the per-user tokens (must equal its SERVICE_JWT_SECRET,
       # 32+ characters) and is called by the server for quiz drafts and marking.
       COPILOT_SERVICE_JWT_SECRET: ${COPILOT_SERVICE_JWT_SECRET}

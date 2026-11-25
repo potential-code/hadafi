@@ -19,6 +19,7 @@ import { startReminders } from "./services/reminders.service";
 import { startCrmSync } from "./services/crmSync.service";
 import { startAnnouncementDispatcher } from "./services/announcements.service";
 import zoomWebhookRouter from "./routes/zoomWebhook";
+import stripeWebhookRouter from "./routes/stripeWebhook";
 import { requireSameOrigin } from "./middleware/same-origin";
 
 // Fail fast without a session-signing secret. BETTER_AUTH_SECRET is preferred;
@@ -88,6 +89,8 @@ app.all("/api/auth/*splat", toNodeHandler(auth));
 
 // Zoom signs the raw body, so its webhook is mounted before the JSON parser.
 app.use("/api/webhooks/zoom", zoomWebhookRouter);
+// Stripe signs the raw body too (STRIPE_WEBHOOK_SECRET): paid offers.
+app.use("/api/webhooks/stripe", stripeWebhookRouter);
 
 // Every other state-changing /api request must come from the site itself
 // (Origin or Referer = FRONTEND_URL): see middleware/same-origin.ts.

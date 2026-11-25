@@ -15,8 +15,8 @@ import { operatorKeyAllowedFor, operatorKeysEnabled, readBearer } from "../auth/
  * Not checked here (mounted before this in index.ts, or exempted below):
  * - /api/auth/*: Better Auth checks the origin of its own requests
  *   (trustedOrigins in auth/index.ts).
- * - /api/webhooks/zoom: called by Zoom, which sends no Origin; it checks
- *   Zoom's signature instead.
+ * - /api/webhooks/zoom and /api/webhooks/stripe: called by Zoom and Stripe,
+ *   which send no Origin; each checks its sender's signature instead.
  * - Operator keys (Authorization: Bearer, when OPERATOR_API_KEYS is set):
  *   server-to-server, no cookie involved, and a browser on another site
  *   can't add that header without a CORS preflight, which CORS refuses.

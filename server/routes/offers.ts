@@ -4,6 +4,7 @@ import { z } from "zod";
 import { validate } from "../middleware/validate";
 import { authenticate } from "../middleware/authenticate";
 import { requireRole } from "../middleware/require-role";
+import { perUser, HOUR, DAY } from "../middleware/limits";
 import * as ctrl from "../controllers/offers.controller";
 
 const router = Router();
@@ -57,10 +58,19 @@ router.get("/:id", authenticate, ctrl.getOffer);
  * Creates a Stripe PaymentIntent for a paid offer, or signals free.
  * Restricted to SME role — only SMEs purchase offers.
  */
+// Each paid-offer call creates a PaymentIntent in Stripe: 10 an hour and 30
+// a day per learner is far more than buying offers needs.
+export const PAYMENT_INTENT_LIMITS = { perHour: 10, perDay: 30 } as const;
+const paymentIntentLimit = [
+  perUser("offer-payment-intent:h", HOUR, PAYMENT_INTENT_LIMITS.perHour),
+  perUser("offer-payment-intent:d", DAY, PAYMENT_INTENT_LIMITS.perDay, "You've reached today's limit for this. Please try again tomorrow."),
+];
+
 router.post(
   "/:id/payment-intent",
   authenticate,
   requireRole("sme"),
+  ...paymentIntentLimit,
   ctrl.createPaymentIntent,
 );
 

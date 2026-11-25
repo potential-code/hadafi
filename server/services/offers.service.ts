@@ -1,4 +1,4 @@
-import { eq, and, count, desc, sql } from "drizzle-orm";
+import { eq, and, count, desc, sql, type SQL } from "drizzle-orm";
 import type Stripe from "stripe";
 
 import { db } from "../db";
@@ -181,19 +181,6 @@ export async function createPaymentIntent(
   return { clientSecret: pi.client_secret };
 }
 
-/**
- * Atomically completes an offer purchase:
- *  1. Verifies the offer exists and is published.
- *  2. Verifies the user exists and has enough points.
- *  3. For paid offers, verifies the Stripe PaymentIntent succeeded and is
- *     scoped to this offer + user (prevents intent reuse attacks).
- *  4. Deducts points and inserts a redemption record inside a single transaction.
- *
- * @param offerId          - UUID of the offer being redeemed.
- * @param userId           - UUID of the authenticated SME.
- * @param paymentIntentId  - Stripe PI id, required for paid offers.
- * @returns `{ success: true, pointsDeducted: number }`
- */
 export interface BillingDetails {
   firstName?: string;
   lastName?: string;
@@ -204,146 +191,27 @@ export interface BillingDetails {
   notes?: string;
 }
 
-export async function completeOrder(
-  offerId: string,
-  userId: string,
-  paymentIntentId?: string,
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+const PI_ALREADY_USED = () =>
+  new AppError("Payment intent has already been used", 409, "PAYMENT_INTENT_ALREADY_USED");
+
+const billingColumns = (billing?: BillingDetails) => ({
+  billingFirstName: billing?.firstName ?? null,
+  billingLastName: billing?.lastName ?? null,
+  billingEmail: billing?.email ?? null,
+  billingPhone: billing?.phone ?? null,
+  billingCompany: billing?.company ?? null,
+  billingCountry: billing?.country ?? null,
+  billingNotes: billing?.notes ?? null,
+});
+
+/** The order confirmation email; fire-and-forget (a mail failure never undoes an order). */
+function sendOrderEmail(
+  user: { email: string; fullName: string },
+  offer: Offer,
   billing?: BillingDetails,
-): Promise<{ success: true; pointsDeducted: number }> {
-  // Pre-transaction reads — verify offer and user exist before acquiring locks.
-  const [offer] = await db
-    .select()
-    .from(offers)
-    .where(and(eq(offers.id, offerId), eq(offers.status, "published")));
-
-  if (!offer) {
-    throw new AppError("Offer not found", 404, "OFFER_NOT_FOUND");
-  }
-
-  // Change C: explicitly select only the fields we need (email + fullName for the
-  // confirmation email; points for the pre-check) rather than selecting all columns.
-  const [user] = await db
-    .select({ id: users.id, points: users.points, email: users.email, fullName: users.fullName })
-    .from(users)
-    .where(eq(users.id, userId));
-
-  if (!user) {
-    throw new AppError("User not found", 404, "USER_NOT_FOUND");
-  }
-
-  if (user.points < offer.pointsCost) {
-    throw new AppError("Insufficient points", 400, "INSUFFICIENT_POINTS");
-  }
-
-  // Hoist resolvedPi so we can use pi.amount inside the transaction INSERT which
-  // lives outside the `if (offer.price > 0)` block.
-  let resolvedPi: Stripe.PaymentIntent | undefined;
-
-  // Change A: for paid offers, require a paymentIntentId — the old guard silently
-  // skipped Stripe verification when no intent was supplied, allowing free redemption
-  // of paid offers. Now we hard-fail if the intent is missing.
-  if (offer.price > 0) {
-    if (!paymentIntentId) {
-      throw new AppError(
-        "Payment intent required for paid offers",
-        400,
-        "PAYMENT_INTENT_REQUIRED",
-      );
-    }
-
-    // For paid offers, verify the PaymentIntent before entering the transaction.
-    // This avoids holding a DB transaction open while making a network call to Stripe.
-    resolvedPi = await stripe.paymentIntents.retrieve(paymentIntentId);
-
-    if (resolvedPi.status !== "succeeded") {
-      throw new AppError("Payment not confirmed", 402, "PAYMENT_NOT_CONFIRMED");
-    }
-
-    // Validate that the PI was created for this exact offer + user to prevent
-    // a user from reusing another user's payment intent.
-    const meta = resolvedPi.metadata as Record<string, string>;
-    if (meta["offerId"] !== offerId || meta["userId"] !== userId) {
-      throw new AppError("Payment intent mismatch", 400, "PAYMENT_MISMATCH");
-    }
-
-    // Replay pre-check: if this PI already has a redemption record, reject immediately
-    // before entering the transaction. The partial unique index (offer_redemptions_pi_unique_idx)
-    // is the DB-level guard; this is the app-level early exit for a cleaner 409 response.
-    const existingRedemption = await db
-      .select({ id: offerRedemptions.id })
-      .from(offerRedemptions)
-      .where(eq(offerRedemptions.stripePaymentIntentId, paymentIntentId))
-      .limit(1);
-
-    if (existingRedemption.length > 0) {
-      throw new AppError(
-        "Payment intent has already been used",
-        409,
-        "PAYMENT_INTENT_ALREADY_USED",
-      );
-    }
-  }
-
-  // Atomic: deduct points + record redemption in one transaction.
-  // Wrapped in try/catch to convert Postgres unique-constraint violations on
-  // offer_redemptions_pi_unique_idx into a clean 409 — a safety net for the
-  // rare race where two requests clear the replay pre-check simultaneously.
-  try {
-    await db.transaction(async (tx) => {
-      // Change B: race-condition-proof points deduction — the WHERE clause ensures the
-      // UPDATE only executes if the user STILL has enough points at write time, preventing
-      // two concurrent requests from both passing the pre-check and driving the balance negative.
-      const updated = await tx
-        .update(users)
-        .set({
-          points: sql`${users.points} - ${offer.pointsCost}`,
-          updatedAt: sql`now()`,
-        })
-        .where(and(eq(users.id, userId), sql`${users.points} >= ${offer.pointsCost}`))
-        .returning({ newPoints: users.points });
-
-      if (updated.length === 0) {
-        throw new AppError("Insufficient points", 400, "INSUFFICIENT_POINTS");
-      }
-
-      await tx.insert(offerRedemptions).values({
-        userId,
-        offerId,
-        pointsDeducted: offer.pointsCost,
-        // Use the actual amount charged as reported by Stripe (in cents) rather
-        // than the offer's listed price, to handle any discrepancies.
-        amountCharged: resolvedPi?.amount ?? 0,
-        stripePaymentIntentId: paymentIntentId ?? null,
-        orderStatus: offer.price > 0 ? "paid" : "free",
-        billingFirstName: billing?.firstName ?? null,
-        billingLastName: billing?.lastName ?? null,
-        billingEmail: billing?.email ?? null,
-        billingPhone: billing?.phone ?? null,
-        billingCompany: billing?.company ?? null,
-        billingCountry: billing?.country ?? null,
-        billingNotes: billing?.notes ?? null,
-      });
-    });
-  } catch (err) {
-    // Translate DB unique-constraint violation on the PI index into a 409.
-    // This is the safety net for concurrent duplicate submissions that both
-    // cleared the app-level replay pre-check.
-    const pgErr = err as { code?: string; constraint?: string };
-    if (
-      pgErr.code === "23505" &&
-      pgErr.constraint?.includes("offer_redemptions_pi_unique_idx")
-    ) {
-      throw new AppError(
-        "Payment intent has already been used",
-        409,
-        "PAYMENT_INTENT_ALREADY_USED",
-      );
-    }
-    throw err;
-  }
-
-  // Change D: fire-and-forget confirmation email — a mail failure must never roll
-  // back a successfully completed order, so we intentionally do not await this.
+): void {
   sendMail({
     to: user.email,
     subject: `Your order is confirmed – ${offer.title}`,
@@ -369,7 +237,201 @@ export async function completeOrder(
   }).catch((err) => {
     console.error({ err }, "Failed to send offer redemption email");
   });
+}
 
+/**
+ * The order already recorded for this PaymentIntent, if any. It must be the
+ * same learner's order for the same offer (else 409). Billing details sent
+ * now fill in any the order doesn't have yet (the Stripe webhook records an
+ * order without them when it arrives before /complete).
+ */
+async function existingPaidOrder(
+  paymentIntentId: string,
+  offerId: string,
+  userId: string,
+  billing?: BillingDetails,
+): Promise<{ pointsDeducted: number } | null> {
+  const [row] = await db
+    .select({ id: offerRedemptions.id, userId: offerRedemptions.userId, offerId: offerRedemptions.offerId, pointsDeducted: offerRedemptions.pointsDeducted })
+    .from(offerRedemptions)
+    .where(eq(offerRedemptions.stripePaymentIntentId, paymentIntentId))
+    .limit(1);
+  if (!row) return null;
+  if (row.userId !== userId || row.offerId !== offerId) throw PI_ALREADY_USED();
+  const given = billingColumns(billing);
+  const fill: Partial<Record<keyof typeof given, SQL>> = {};
+  for (const key of Object.keys(given) as Array<keyof typeof given>) {
+    const value = given[key];
+    if (value !== null) fill[key] = sql`coalesce(${offerRedemptions[key]}, ${value})`;
+  }
+  if (Object.keys(fill).length > 0) {
+    await db.update(offerRedemptions).set(fill).where(eq(offerRedemptions.id, row.id));
+  }
+  return { pointsDeducted: row.pointsDeducted };
+}
+
+/**
+ * Records a succeeded Stripe PaymentIntent as the learner's order, exactly
+ * once. Both POST /api/offers/:id/complete and the Stripe webhook
+ * (routes/stripeWebhook.ts) come through here, in either order:
+ *  1. The intent must have succeeded and carry the offerId and userId it was
+ *     created with (createPaymentIntent sets them); when the caller expects a
+ *     particular offer and learner, they must match (no reusing someone
+ *     else's payment).
+ *  2. An order already recorded for this intent is returned as it is
+ *     (idempotent; the partial unique index offer_redemptions_pi_unique_idx
+ *     guarantees one order per intent, even for two callers at once).
+ *  3. Otherwise points are deducted (only if the learner still has enough)
+ *     and the order is inserted in one transaction, and the confirmation
+ *     email goes out.
+ */
+export async function recordPaidOrder(
+  pi: Stripe.PaymentIntent,
+  opts: { expect?: { offerId: string; userId: string }; billing?: BillingDetails } = {},
+): Promise<{ pointsDeducted: number; alreadyRecorded: boolean }> {
+  if (pi.status !== "succeeded") {
+    throw new AppError("Payment not confirmed", 402, "PAYMENT_NOT_CONFIRMED");
+  }
+  const meta = (pi.metadata ?? {}) as Record<string, string | undefined>;
+  const offerId = meta["offerId"];
+  const userId = meta["userId"];
+  if (
+    !offerId || !userId || !UUID_RE.test(offerId) || !UUID_RE.test(userId) ||
+    (opts.expect && (opts.expect.offerId !== offerId || opts.expect.userId !== userId))
+  ) {
+    throw new AppError("Payment intent mismatch", 400, "PAYMENT_MISMATCH");
+  }
+
+  const existing = await existingPaidOrder(pi.id, offerId, userId, opts.billing);
+  if (existing) return { ...existing, alreadyRecorded: true };
+
+  const [offer] = await db.select().from(offers).where(eq(offers.id, offerId));
+  if (!offer) throw new AppError("Offer not found", 404, "OFFER_NOT_FOUND");
+  const [user] = await db
+    .select({ id: users.id, points: users.points, email: users.email, fullName: users.fullName })
+    .from(users)
+    .where(eq(users.id, userId));
+  if (!user) throw new AppError("User not found", 404, "USER_NOT_FOUND");
+  if (user.points < offer.pointsCost) {
+    throw new AppError("Insufficient points", 400, "INSUFFICIENT_POINTS");
+  }
+
+  try {
+    await db.transaction(async (tx) => {
+      // Deduct only if the learner STILL has enough points at write time, so
+      // two concurrent orders can't drive the balance negative.
+      const updated = await tx
+        .update(users)
+        .set({ points: sql`${users.points} - ${offer.pointsCost}`, updatedAt: sql`now()` })
+        .where(and(eq(users.id, userId), sql`${users.points} >= ${offer.pointsCost}`))
+        .returning({ newPoints: users.points });
+      if (updated.length === 0) {
+        throw new AppError("Insufficient points", 400, "INSUFFICIENT_POINTS");
+      }
+      await tx.insert(offerRedemptions).values({
+        userId,
+        offerId,
+        pointsDeducted: offer.pointsCost,
+        // The amount Stripe actually charged (cents), not the listed price.
+        amountCharged: pi.amount,
+        stripePaymentIntentId: pi.id,
+        orderStatus: "paid",
+        ...billingColumns(opts.billing),
+      });
+    });
+  } catch (err) {
+    // The other caller (webhook or /complete) recorded it first: the unique
+    // index refused this insert and rolled back this deduction.
+    const pgErr = err as { code?: string; constraint?: string };
+    if (pgErr.code === "23505" && pgErr.constraint?.includes("offer_redemptions_pi_unique_idx")) {
+      const raced = await existingPaidOrder(pi.id, offerId, userId, opts.billing);
+      if (raced) return { ...raced, alreadyRecorded: true };
+      throw PI_ALREADY_USED();
+    }
+    throw err;
+  }
+
+  sendOrderEmail(user, offer, opts.billing);
+  return { pointsDeducted: offer.pointsCost, alreadyRecorded: false };
+}
+
+/**
+ * Completes an offer purchase for the signed-in learner:
+ *  - a free offer: checks points, then deducts them and records the order in
+ *    one transaction;
+ *  - a paid offer: retrieves the PaymentIntent from Stripe and records it
+ *    through recordPaidOrder, which checks it succeeded and belongs to this
+ *    offer and learner. Calling again for the same intent (or after the
+ *    Stripe webhook recorded it) returns the same order, without charging
+ *    points twice.
+ *
+ * @param offerId          - UUID of the offer being redeemed.
+ * @param userId           - UUID of the authenticated SME.
+ * @param paymentIntentId  - Stripe PI id, required for paid offers.
+ * @returns `{ success: true, pointsDeducted: number }`
+ */
+export async function completeOrder(
+  offerId: string,
+  userId: string,
+  paymentIntentId?: string,
+  billing?: BillingDetails,
+): Promise<{ success: true; pointsDeducted: number }> {
+  const [offer] = await db
+    .select()
+    .from(offers)
+    .where(and(eq(offers.id, offerId), eq(offers.status, "published")));
+
+  if (!offer) {
+    throw new AppError("Offer not found", 404, "OFFER_NOT_FOUND");
+  }
+
+  if (offer.price > 0) {
+    // A paid offer always needs its intent: never a free redemption of a paid offer.
+    if (!paymentIntentId) {
+      throw new AppError("Payment intent required for paid offers", 400, "PAYMENT_INTENT_REQUIRED");
+    }
+    // Verified with Stripe before any transaction is opened.
+    const pi = await stripe.paymentIntents.retrieve(paymentIntentId);
+    const { pointsDeducted } = await recordPaidOrder(pi, { expect: { offerId, userId }, billing });
+    return { success: true, pointsDeducted };
+  }
+
+  const [user] = await db
+    .select({ id: users.id, points: users.points, email: users.email, fullName: users.fullName })
+    .from(users)
+    .where(eq(users.id, userId));
+
+  if (!user) {
+    throw new AppError("User not found", 404, "USER_NOT_FOUND");
+  }
+
+  if (user.points < offer.pointsCost) {
+    throw new AppError("Insufficient points", 400, "INSUFFICIENT_POINTS");
+  }
+
+  await db.transaction(async (tx) => {
+    const updated = await tx
+      .update(users)
+      .set({ points: sql`${users.points} - ${offer.pointsCost}`, updatedAt: sql`now()` })
+      .where(and(eq(users.id, userId), sql`${users.points} >= ${offer.pointsCost}`))
+      .returning({ newPoints: users.points });
+
+    if (updated.length === 0) {
+      throw new AppError("Insufficient points", 400, "INSUFFICIENT_POINTS");
+    }
+
+    await tx.insert(offerRedemptions).values({
+      userId,
+      offerId,
+      pointsDeducted: offer.pointsCost,
+      amountCharged: 0,
+      stripePaymentIntentId: null,
+      orderStatus: "free",
+      ...billingColumns(billing),
+    });
+  });
+
+  sendOrderEmail(user, offer, billing);
   return { success: true, pointsDeducted: offer.pointsCost };
 }
 
