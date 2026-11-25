@@ -58,6 +58,9 @@ async function buildAll() {
       "mongodb-client-encryption",
       "nodemailer",
       "handlebars",
+      // jsdom (under isomorphic-dompurify) reads its own files at run time.
+      "isomorphic-dompurify",
+      "jsdom",
       "knex",
       "typeorm",
       "protobufjs",

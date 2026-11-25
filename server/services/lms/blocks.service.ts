@@ -2,6 +2,7 @@ import { db } from '../../db'
 import { learningBlocks, blockQuestions } from '../../db/schema'
 import { and, eq, sql } from 'drizzle-orm'
 import type { LearningBlock, InsertBlockQuestion } from '../../db/schema'
+import { cleanLessonBody } from '../../utils/lessonHtml'
 
 /**
  * Creates a new learning block at the end of a unit's block list.
@@ -15,10 +16,12 @@ export async function createBlock(
   unitId: string,
   data: Omit<LearningBlock, 'id' | 'unitId' | 'order' | 'createdAt' | 'updatedAt'>,
 ) {
+  // Lesson HTML is cleaned as it is stored (utils/lessonHtml.ts).
+  const body = await cleanLessonBody(data.body)
   return db.transaction(async tx => {
     const [{ count }] = await tx.select({ count: sql<number>`count(*)` }).from(learningBlocks).where(eq(learningBlocks.unitId, unitId))
     const [block] = await tx.insert(learningBlocks)
-      .values({ unitId, ...data, order: Number(count) })
+      .values({ unitId, ...data, body, order: Number(count) })
       .returning()
     // Return with empty questions array so the response shape matches getCourse output
     return { ...block, questions: [] }
@@ -35,8 +38,9 @@ export async function updateBlock(
   blockId: string,
   data: Partial<Omit<LearningBlock, 'id' | 'unitId' | 'createdAt'>>,
 ) {
+  const clean = 'body' in data ? { ...data, body: await cleanLessonBody(data.body) } : data
   const [block] = await db.update(learningBlocks)
-    .set({ ...data, updatedAt: new Date() })
+    .set({ ...clean, updatedAt: new Date() })
     .where(eq(learningBlocks.id, blockId))
     .returning()
   return block ?? null

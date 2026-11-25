@@ -115,6 +115,7 @@
         "express": "^5",
         "express-rate-limit": "^8.5.1",
         "handlebars": "^4.7.9",
+        "isomorphic-dompurify": "^3.13.0",
         "jsonwebtoken": "^9.0.3",
         "mammoth": "^1.13.0",
         "multer": "^2.4.0",
