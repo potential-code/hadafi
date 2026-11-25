@@ -5,6 +5,7 @@ import rateLimit from "express-rate-limit";
 import { authenticate } from "../middleware/authenticate";
 import { requireRole } from "../middleware/require-role";
 import { validate } from "../middleware/validate";
+import { httpsUrl } from "../utils/httpsUrl";
 import * as accountController from "../controllers/account.controller";
 
 const router: IRouter = Router();
@@ -47,10 +48,10 @@ const guestTokenLimiter = rateLimit({
 // Request DTOs
 // ---------------------------------------------------------------------------
 
-/** Normalise URL-ish fields: null and "" both become null; valid URLs pass through. */
+/** Normalise URL-ish fields: null and "" both become null; https:// links pass through. */
 const optionalProfileUrl = z.preprocess(
   (v) => (v === '' || v === null ? undefined : v),
-  z.string().url("Must be a valid URL").max(500).optional(),
+  httpsUrl(500).optional(),
 ).transform((v) => v ?? null);
 
 /**

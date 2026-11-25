@@ -201,8 +201,8 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
     }
     if (!expert.linkedin.trim()) {
       errs.linkedin = 'Please enter your LinkedIn profile URL'
-    } else if (!/^https?:\/\/.+/.test(expert.linkedin.trim())) {
-      errs.linkedin = 'Please enter a valid URL (e.g. https://linkedin.com/in/you)'
+    } else if (!/^https:\/\/\S+$/.test(expert.linkedin.trim())) {
+      errs.linkedin = 'Please enter a link that starts with https:// (e.g. https://linkedin.com/in/you)'
     }
     if (!expert.hourlyRate) errs.hourlyRate = 'Please enter your hourly rate'
     if (expert.expertise.length === 0) errs.expertise = 'Please select at least one area of expertise'
@@ -269,8 +269,8 @@ function DialogInner({ kind, onClose }: { kind: StakeholderKind; onClose: () => 
     if (!org.country.trim()) errs.country = 'Please enter your country'
     if (!org.website.trim()) {
       errs.website = 'Please enter your website'
-    } else if (!/^https?:\/\/.+/.test(org.website.trim())) {
-      errs.website = 'Please enter a valid URL (e.g. https://yourorg.com)'
+    } else if (!/^https:\/\/\S+$/.test(org.website.trim())) {
+      errs.website = 'Please enter a link that starts with https:// (e.g. https://yourorg.com)'
     }
     // PhoneField always emits at least the dial code — only the local number can be missing
     if (!org.phone.trim() || !/\s\d/.test(org.phone)) errs.phone = 'Please enter your phone number'

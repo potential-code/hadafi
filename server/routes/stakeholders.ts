@@ -3,6 +3,7 @@ import { z } from "zod";
 
 import { validate } from "../middleware/validate";
 import { perIp, HOUR } from "../middleware/limits";
+import { httpsUrl } from "../utils/httpsUrl";
 import * as stakeholdersController from "../controllers/stakeholders.controller";
 
 const router: IRouter = Router();
@@ -20,7 +21,7 @@ const router: IRouter = Router();
 const expertDto = z.object({
   name: z.string().min(1).max(200).trim(),
   email: z.string().email().toLowerCase(),
-  linkedin: z.string().url().max(500),
+  linkedin: httpsUrl(500),
   hourlyRate: z.number().int().min(0).max(10000),
   expertise: z.array(z.string().min(1)).min(1).max(20),
   methods: z.array(z.string().min(1)).min(1).max(10),
@@ -39,7 +40,7 @@ const organisationDto = z.object({
   title: z.string().min(1).max(200).trim(),
   email: z.string().email().toLowerCase(),
   country: z.string().min(1).max(100),
-  website: z.string().url().max(500),
+  website: httpsUrl(500),
   phone: z.string().min(1).max(50),
   representing: z.string().min(1).max(500),
   involvement: z.array(z.string().min(1)).min(1).max(10),

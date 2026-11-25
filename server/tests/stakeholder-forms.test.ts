@@ -14,6 +14,9 @@ import { startTestServer, stopTestServer, api, RUN_ID } from './helpers'
  */
 
 const domain = `forms-${RUN_ID}.e2e.local`
+// This file's own visitor address (the test client is a trusted proxy hop),
+// so other suites posting these forms don't share its budget.
+const visitor = { 'X-Forwarded-For': `198.51.100.${1 + Math.floor(Math.random() * 250)}` }
 const sent: Array<{ to: string; context: Record<string, unknown> }> = []
 let mailSpy: ReturnType<typeof spyOn>
 
@@ -86,7 +89,7 @@ describe('plainName', () => {
 
 describe('the mentor application form', () => {
   it('emails the plain name, without the link typed into it', async () => {
-    const res = await api('POST', '/api/stakeholders/expert', { body: expert('Mona <b>visit</b> https://evil.example/pay', 1) })
+    const res = await api('POST', '/api/stakeholders/expert', { body: expert('Mona <b>visit</b> https://evil.example/pay', 1), headers: visitor })
     expect(res.status).toBe(201)
     const mail = sent.find((m) => m.to === `mentor1@${domain}`)
     expect(mail?.context['name']).toBe('Mona visit')
@@ -96,11 +99,11 @@ describe('the mentor application form', () => {
 describe('both forms together', () => {
   it('allow 5 applications an hour per visitor address, then 429', async () => {
     // One already sent above; four more of either form are accepted.
-    for (let n = 2; n <= 3; n++) expect((await api('POST', '/api/stakeholders/expert', { body: expert('Mentor', n) })).status).toBe(201)
-    for (let n = 1; n <= 2; n++) expect((await api('POST', '/api/stakeholders/organisation', { body: organisation(n) })).status).toBe(201)
-    const sixth = await api<{ error: { code: string } }>('POST', '/api/stakeholders/organisation', { body: organisation(3) })
+    for (let n = 2; n <= 3; n++) expect((await api('POST', '/api/stakeholders/expert', { body: expert('Mentor', n), headers: visitor })).status).toBe(201)
+    for (let n = 1; n <= 2; n++) expect((await api('POST', '/api/stakeholders/organisation', { body: organisation(n), headers: visitor })).status).toBe(201)
+    const sixth = await api<{ error: { code: string } }>('POST', '/api/stakeholders/organisation', { body: organisation(3), headers: visitor })
     expect(sixth.status).toBe(429)
     expect(sixth.body.error.code).toBe('RATE_LIMITED')
-    expect((await api('POST', '/api/stakeholders/expert', { body: expert('Mentor', 9) })).status).toBe(429)
+    expect((await api('POST', '/api/stakeholders/expert', { body: expert('Mentor', 9), headers: visitor })).status).toBe(429)
   })
 })

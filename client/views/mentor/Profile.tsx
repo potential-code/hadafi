@@ -52,14 +52,6 @@ function toForm(u: MeUser): Form {
   }
 }
 
-function isUrl(v: string) {
-  try {
-    new URL(v)
-    return true
-  } catch {
-    return false
-  }
-}
 
 function fieldErrors(err: unknown): Record<string, string> | null {
   const e = (err as ApiError)?.error
@@ -121,7 +113,7 @@ export default function MentorProfile() {
   function validate() {
     const e: Record<string, string> = {}
     if (form.fullName.trim().length < 2) e.fullName = 'Name must be at least 2 characters'
-    if (form.linkedinUrl && !isUrl(form.linkedinUrl)) e.linkedinUrl = 'Must be a valid URL (e.g. https://linkedin.com/in/...)'
+    if (form.linkedinUrl && !isHttpsUrl(form.linkedinUrl)) e.linkedinUrl = 'Please enter a link that starts with https:// (e.g. https://linkedin.com/in/...)'
     if (form.meetingLink && !isHttpsUrl(form.meetingLink)) e.meetingLink = 'Please enter a valid URL that starts with https://'
     return e
   }
