@@ -2,15 +2,16 @@
 
 /**
  * One participant's full record, for their organisation's partner contacts
- * and for admins: overview (streak, certificates, recent activity), courses
- * unit by unit with exam answers and action plans, and mentor sessions.
- * Mentors' private notes are never part of it. Ported from SMEEP 68d8fd4
- * without journeys, badges, events, the AI Examiner and saved AI chats.
+ * and for admins: overview (streak, badges, certificates, recent activity),
+ * courses unit by unit with exam answers and action plans, AI Examiner
+ * scorecards and transcripts, events and mentor sessions. Mentors' private
+ * notes are never part of it. AI text is shown as plain text, never rendered.
+ * Ported from SMEEP 68d8fd4 without journeys and saved AI chats.
  */
 import { useState, type ReactNode } from 'react'
 import Link from 'next/link'
 import { useQuery } from '@tanstack/react-query'
-import { ArrowLeft, Award, Check, ChevronDown, Circle, Flame, UserX, X } from 'lucide-react'
+import { ArrowLeft, Award, Check, ChevronDown, Circle, Flame, Trophy, UserX, X } from 'lucide-react'
 import { Avatar, Card, Chip, EmptyState, PageHeader, ProgressBar, Skeleton, Tabs } from '@/components/kit'
 import { Pill, TableCard, adminTableClass, fmtDate } from '@/components/admin/ui'
 import { apiFetch } from '@/lib/api'
@@ -18,7 +19,15 @@ import type { ParticipantRecordData } from '@/lib/api/organisations'
 import { cn } from '@/lib/utils'
 
 type CourseRecord = ParticipantRecordData['courses'][number]
-type Tab = 'overview' | 'courses' | 'mentors'
+type Tab = 'overview' | 'courses' | 'examiner' | 'sessions'
+
+const DIMENSION: Record<string, string> = {
+  courseKnowledge: 'Course knowledge',
+  application: 'Application',
+  communication: 'Communication',
+  problemSolving: 'Problem solving',
+  professionalism: 'Professionalism',
+}
 
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`
 const at = (iso: string) => `${fmtDate(iso)}, ${new Date(iso).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}`
@@ -73,6 +82,27 @@ function Overview({ r }: { r: ParticipantRecordData }) {
                 </li>
               ))}
             </ol>
+          </Card>
+        </Section>
+        <Section title={`Badges (${r.badges.length})`}>
+          <Card className="p-5">
+            {r.badges.length === 0 ? (
+              <p className="text-sm text-ui-muted">No badges yet.</p>
+            ) : (
+              <ul className="flex flex-col gap-2.5">
+                {r.badges.map((b) => (
+                  <li key={b.key} className="flex items-start gap-2.5">
+                    <Trophy className="mt-0.5 h-4 w-4 shrink-0 text-ui-brand-text" aria-hidden />
+                    <span className="min-w-0">
+                      <span className="block text-sm font-medium text-ui-text">{b.title}</span>
+                      <span className="block text-xs text-ui-muted">
+                        {b.description}, {fmtDate(b.earnedAt)}
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </Card>
         </Section>
         <Section title={`Certificates (${r.certificates.length})`}>
@@ -249,6 +279,131 @@ function Courses({ r }: { r: ParticipantRecordData }) {
   )
 }
 
+function Examiner({ r }: { r: ParticipantRecordData }) {
+  const [open, setOpen] = useState<number | null>(null)
+  if (!r.examiner.length) return <EmptyState title="No AI Examiner role-plays yet" />
+  return (
+    <ul className="flex flex-col gap-4">
+      {r.examiner.map((x, i) => (
+        <li key={i}>
+          <Card className="flex min-w-0 flex-col gap-3 p-5">
+            <div className="flex flex-wrap items-start gap-3">
+              <div className="min-w-0 flex-1">
+                <h3 className="break-words text-[15px] font-semibold text-ui-text">{x.scenario}</h3>
+                <p className="text-xs text-ui-muted">
+                  {x.course}, {x.mode}, {at(x.createdAt)}
+                </p>
+              </div>
+              <span className="text-2xl font-semibold tabular-nums text-ui-text">
+                {x.overallScore}
+                <span className="text-sm font-normal text-ui-muted">/100</span>
+              </span>
+            </div>
+            <div className="grid gap-x-6 gap-y-1.5 sm:grid-cols-2">
+              {Object.entries(x.dimensions).map(([k, v]) => (
+                <div key={k} className="flex items-center gap-2 text-[13px]">
+                  <span className="w-[130px] shrink-0 text-ui-muted">{DIMENSION[k] ?? k}</span>
+                  <ProgressBar value={v} className="flex-1" label={`${DIMENSION[k] ?? k} ${v}`} />
+                  <span className="w-8 text-right tabular-nums">{v}</span>
+                </div>
+              ))}
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div>
+                <p className="text-xs font-semibold text-ui-muted">Strengths</p>
+                <ul className="mt-1 list-disc ps-5 text-[13px] text-ui-text">
+                  {x.strengths.map((s, j) => (
+                    <li key={j}>{s}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-ui-muted">To improve</p>
+                <ul className="mt-1 list-disc ps-5 text-[13px] text-ui-text">
+                  {x.improvements.map((s, j) => (
+                    <li key={j}>{s}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <p className="whitespace-pre-wrap break-words text-[13px] leading-relaxed text-ui-text">{x.feedback}</p>
+            <button
+              type="button"
+              className="self-start text-[13px] font-semibold text-ui-brand-text hover:underline"
+              onClick={() => setOpen(open === i ? null : i)}
+              aria-expanded={open === i}
+            >
+              {open === i ? 'Hide transcript' : `Show transcript (${plural(x.transcript.length, 'turn')})`}
+            </button>
+            {open === i && (
+              <ol className="flex max-h-[420px] flex-col gap-2 overflow-y-auto rounded-[10px] border border-ui-line p-3">
+                {x.transcript.map((t, j) => (
+                  <li
+                    key={j}
+                    dir="auto"
+                    className={cn(
+                      'max-w-[85%] rounded-[12px] px-3 py-2 text-[13px] text-ui-text',
+                      t.role === 'learner' ? 'self-end bg-ui-brand-soft' : 'self-start bg-ui-surface-2',
+                    )}
+                  >
+                    <span className="block text-[11px] font-semibold text-ui-muted">{t.role === 'learner' ? 'Participant' : 'Role-play'}</span>
+                    <span className="whitespace-pre-wrap break-words">{t.text}</span>
+                  </li>
+                ))}
+              </ol>
+            )}
+          </Card>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+function Events({ r }: { r: ParticipantRecordData }) {
+  const [now] = useState(() => Date.now())
+  return (
+    <Section title={`Events (${r.events.length})`}>
+      <TableCard>
+        {r.events.length === 0 ? (
+          <EmptyState title="No events booked" />
+        ) : (
+          <table className={cn(adminTableClass, 'min-w-[560px]')}>
+            <thead>
+              <tr>
+                <th scope="col">Event</th>
+                <th scope="col">When</th>
+                <th scope="col">Booked</th>
+                <th scope="col">Attended</th>
+              </tr>
+            </thead>
+            <tbody>
+              {r.events.map((e, i) => {
+                const past = Date.parse(e.endsAt) < now
+                return (
+                  <tr key={i}>
+                    <td className="font-medium text-ui-text">{e.title}</td>
+                    <td className="whitespace-nowrap text-ui-muted">{at(e.startsAt)}</td>
+                    <td className="whitespace-nowrap text-ui-muted">{fmtDate(e.bookedAt)}</td>
+                    <td>
+                      {e.attendedMinutes != null ? (
+                        e.attendedMinutes > 0 ? <Pill tone="ok">{e.attendedMinutes} min</Pill> : <Pill tone="line">Didn’t join</Pill>
+                      ) : past ? (
+                        <span className="text-xs text-ui-muted">{e.format === 'zoom' ? 'Waiting for Zoom' : 'Not tracked'}</span>
+                      ) : (
+                        <span className="text-xs text-ui-muted">Upcoming</span>
+                      )}
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        )}
+      </TableCard>
+    </Section>
+  )
+}
+
 function Mentors({ r }: { r: ParticipantRecordData }) {
   return (
     <Section title={`Mentor sessions (${r.mentorSessions.length})`}>
@@ -338,6 +493,9 @@ export function ParticipantRecord({ endpoint, backHref, backLabel }: { endpoint:
           <div className="mb-4 flex flex-wrap gap-2">
             <Chip>{plural(r.courses.length, 'course')}</Chip>
             <Chip>{plural(r.certificates.length, 'certificate')}</Chip>
+            <Chip>{plural(r.badges.length, 'badge')}</Chip>
+            <Chip>{plural(r.examiner.length, 'AI Examiner role-play')}</Chip>
+            <Chip>{plural(r.events.length, 'event')}</Chip>
             <Chip>{plural(r.mentorSessions.length, 'mentor session')}</Chip>
             <Chip>{r.streak.current}-day streak</Chip>
             <Chip>{plural(r.profile.points, 'point')}</Chip>
@@ -350,12 +508,19 @@ export function ParticipantRecord({ endpoint, backHref, backLabel }: { endpoint:
             tabs={[
               { value: 'overview', label: 'Overview' },
               { value: 'courses', label: 'Courses and exams', count: r.courses.length },
-              { value: 'mentors', label: 'Mentor sessions', count: r.mentorSessions.length },
+              { value: 'examiner', label: 'AI Examiner', count: r.examiner.length },
+              { value: 'sessions', label: 'Events and mentors', count: r.events.length + r.mentorSessions.length },
             ]}
           />
           {tab === 'overview' && <Overview r={r} />}
           {tab === 'courses' && <Courses r={r} />}
-          {tab === 'mentors' && <Mentors r={r} />}
+          {tab === 'examiner' && <Examiner r={r} />}
+          {tab === 'sessions' && (
+            <div className="flex flex-col gap-5">
+              <Events r={r} />
+              <Mentors r={r} />
+            </div>
+          )}
         </>
       )}
     </>

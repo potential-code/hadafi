@@ -10,12 +10,17 @@ import {
   authSessions,
   authVerifications,
   courseEnrollments,
+  eventAttendance,
+  eventRsvps,
+  examinerAttempts,
+  liveEvents,
   mentorAvailabilitySlots,
   mentorSessions,
   modules,
   notifications,
   organisations,
   units,
+  userBadges,
   userUnitProgress,
   users,
 } from '../db/schema'
@@ -65,6 +70,9 @@ type RecordBody = {
     courses: { courseId: string; units: { status: string }[]; exams: { answers: { isCorrect: boolean }[] }[] }[]
     mentorSessions: { mentorName: string; status: string }[]
     activity: { kind: string }[]
+    badges: { key: string; title: string }[]
+    events: { title: string; attendedMinutes: number | null }[]
+    examiner: { overallScore: number; scenario: string; transcript: { role: string; text: string }[] }[]
   }
 }
 
@@ -366,6 +374,7 @@ describe('the partner portal shows only their own organisation', () => {
 
 describe('participant record', () => {
   let courseId: string
+  let eventId: string
 
   beforeAll(async () => {
     // The learner's learning: a course with a finished unit, a pre-test attempt and a mentor session.
@@ -401,12 +410,36 @@ describe('participant record', () => {
       status: 'completed',
       mentorNotes: 'E2E-PRIVATE-MENTOR-NOTE',
     })
+    // A badge, an attended Zoom event and an AI Examiner role-play.
+    await db.insert(userBadges).values({ userId: learner.id, badge: 'first_step' }).onConflictDoNothing()
+    const start = new Date(Date.now() - 3 * 3600_000)
+    const [ev] = await db
+      .insert(liveEvents)
+      .values({ title: 'E2E record event', date: '2026-01-01', time: '5:00 PM', startsAt: start, endsAt: new Date(start.getTime() + 3600_000), format: 'zoom', status: 'published', attendanceSyncedAt: new Date() })
+      .returning()
+    eventId = ev!.id
+    await db.insert(eventRsvps).values({ eventId, userId: learner.id })
+    await db.insert(eventAttendance).values({ eventId, userId: learner.id, matchKey: `user:${learner.id}`, name: 'Learner', firstJoinedAt: start, minutes: 42 })
+    await db.insert(examinerAttempts).values({
+      userId: learner.id,
+      courseId,
+      threadId: `e2e-record-${crypto.randomUUID()}`,
+      mode: 'text',
+      scenario: 'E2E late order',
+      overallScore: 77,
+      dimensions: { courseKnowledge: 80, application: 75 },
+      strengths: ['Clear'],
+      improvements: ['Ask more'],
+      feedback: 'Good start.',
+      transcript: [{ role: 'customer', text: 'Where is my order?' }, { role: 'learner', text: 'Let me check.' }],
+    })
   })
 
   afterAll(async () => {
     // Sessions restrict deleting users: clear them so fixture cleanup can run.
     await db.delete(mentorSessions).where(eq(mentorSessions.mentorUserId, mentor.id))
     await db.delete(mentorAvailabilitySlots).where(eq(mentorAvailabilitySlots.mentorUserId, mentor.id))
+    await db.delete(liveEvents).where(eq(liveEvents.id, eventId))
   })
 
   it("gives the partner the participant's record: courses, exams, mentor sessions, activity", async () => {
@@ -423,6 +456,17 @@ describe('participant record', () => {
     expect(r.activity.some((x) => x.kind === 'unit')).toBe(true)
     // Never a mentor's private notes.
     expect(JSON.stringify(r)).not.toContain('E2E-PRIVATE-MENTOR-NOTE')
+  })
+
+  it('includes badges, events with attended minutes, and AI Examiner scorecards with transcripts', async () => {
+    const r = (await api<RecordBody>('GET', `/api/partner/learners/${learner.id}`, { token: partnerToken })).body.data
+    expect(r.badges.some((b) => b.key === 'first_step' && b.title === 'First step')).toBe(true)
+    expect(r.events.find((e) => e.title === 'E2E record event')).toMatchObject({ attendedMinutes: 42 })
+    const x = r.examiner.find((e) => e.scenario === 'E2E late order')!
+    expect(x.overallScore).toBe(77)
+    expect(x.transcript).toHaveLength(2)
+    expect(r.activity.some((a) => a.kind === 'examiner')).toBe(true)
+    expect(r.activity.some((a) => a.kind === 'badge')).toBe(true)
   })
 
   it('opens for admins from the organisation page, only for that organisation’s learners', async () => {

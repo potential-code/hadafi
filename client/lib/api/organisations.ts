@@ -96,6 +96,7 @@ export interface ParticipantRecordData {
     avatarUrl: string | null
   }
   streak: { current: number; longest: number; week: { date: string; done: boolean }[]; activeDaysLast60: number }
+  badges: { key: string; title: string; description: string; earnedAt: string }[]
   activity: { at: string; kind: string; text: string }[]
   courses: {
     courseId: string
@@ -116,6 +117,20 @@ export interface ParticipantRecordData {
     responses: { kind: string; unit: string; prompt: string; answer: string; submittedAt: string | null }[]
   }[]
   certificates: { number: string; course: string; issuedAt: string; status: string }[]
+  examiner: {
+    course: string
+    mode: string
+    scenario: string
+    overallScore: number
+    dimensions: Record<string, number>
+    strengths: string[]
+    improvements: string[]
+    feedback: string
+    transcript: { role: string; text: string }[]
+    createdAt: string
+  }[]
+  /** attendedMinutes: from Zoom's report once read; null before (or not a Zoom event). */
+  events: { title: string; startsAt: string; endsAt: string; format: string; bookedAt: string; attendedMinutes: number | null }[]
   mentorSessions: { mentorName: string; startsAt: string; minutes: number; status: string; cancelledBy: string | null; bookedAt: string }[]
 }
 

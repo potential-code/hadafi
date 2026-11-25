@@ -8,28 +8,34 @@ import {
   courseCertificates,
   courseEnrollments,
   courses,
+  eventAttendance,
+  eventRsvps,
+  examinerAttempts,
   learnerActivityDays,
   learningBlocks,
+  liveEvents,
   mentorAvailabilitySlots,
   mentorSessions,
   modules,
   questionAnswers,
   units,
   userCourseProgress,
+  userBadges,
   userUnitProgress,
   users,
 } from "../db/schema";
 import { AppError } from "../utils/app-error";
 import { getStreak } from "./streak.service";
+import { BADGES } from "./achievements.service";
 
 /**
  * One participant's full record for their organisation's partner contacts
  * (and admins): courses unit by unit, exam attempts with the answers given,
- * action plans and survey answers, certificates, mentor sessions, streak and
- * recent activity. Never another organisation's learner, and never a mentor's
- * private notes (mentor_sessions.mentor_notes, mentor_mentee_notes).
- * Ported from SMEEP 68d8fd4 without journeys, events, badges, the AI Examiner
- * and saved AI chats, which Hadafi doesn't have.
+ * action plans and survey answers, certificates, AI Examiner scorecards and
+ * transcripts, events, mentor sessions, badges, streak and recent activity.
+ * Never another organisation's learner, and never a mentor's private notes
+ * (mentor_sessions.mentor_notes, mentor_mentee_notes). Ported from SMEEP
+ * 68d8fd4 without journeys and saved AI chats, which Hadafi doesn't have.
  */
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -182,7 +188,7 @@ async function courseRecords(userId: string) {
 
 export async function participantRecord(organisationId: string, userId: string) {
   const profile = await memberOf(organisationId, userId);
-  const [coursesData, certificates, sessions, streak, activityDays] = await Promise.all([
+  const [coursesData, certificates, examiner, events, sessions, badges, streak, activityDays] = await Promise.all([
     courseRecords(userId),
     db
       .select({
@@ -195,6 +201,29 @@ export async function participantRecord(organisationId: string, userId: string) 
       .innerJoin(courses, eq(courses.id, courseCertificates.courseId))
       .where(eq(courseCertificates.userId, userId))
       .orderBy(desc(courseCertificates.issuedAt)),
+    db
+      .select({ a: examinerAttempts, course: courses.title })
+      .from(examinerAttempts)
+      .innerJoin(courses, eq(courses.id, examinerAttempts.courseId))
+      .where(eq(examinerAttempts.userId, userId))
+      .orderBy(desc(examinerAttempts.createdAt))
+      .limit(50),
+    // Bookings, with attended minutes once Zoom's report has been read (null before).
+    db
+      .select({
+        title: liveEvents.title,
+        startsAt: liveEvents.startsAt,
+        endsAt: liveEvents.endsAt,
+        format: liveEvents.format,
+        bookedAt: eventRsvps.createdAt,
+        minutes: eventAttendance.minutes,
+        attendanceRead: liveEvents.attendanceSyncedAt,
+      })
+      .from(eventRsvps)
+      .innerJoin(liveEvents, eq(liveEvents.id, eventRsvps.eventId))
+      .leftJoin(eventAttendance, and(eq(eventAttendance.eventId, eventRsvps.eventId), eq(eventAttendance.userId, userId)))
+      .where(eq(eventRsvps.userId, userId))
+      .orderBy(desc(liveEvents.startsAt)),
     // Never the mentor's own notes: only when, with whom and how it went.
     db
       .select({
@@ -210,12 +239,23 @@ export async function participantRecord(organisationId: string, userId: string) 
       .innerJoin(users, eq(users.id, mentorSessions.mentorUserId))
       .where(eq(mentorSessions.smeUserId, userId))
       .orderBy(desc(mentorAvailabilitySlots.startsAt)),
+    db.select().from(userBadges).where(eq(userBadges.userId, userId)),
     getStreak(userId),
     db
       .select({ day: learnerActivityDays.day, steps: learnerActivityDays.steps })
       .from(learnerActivityDays)
       .where(and(eq(learnerActivityDays.userId, userId), sql`${learnerActivityDays.day} >= (current_date - 60)`)),
   ]);
+
+  const badgeDef = new Map(BADGES.map((b) => [b.key, b]));
+  const earned = badges
+    .map((b) => ({
+      key: b.badge,
+      title: badgeDef.get(b.badge)?.title ?? b.badge,
+      description: badgeDef.get(b.badge)?.description ?? "",
+      earnedAt: b.earnedAt.toISOString(),
+    }))
+    .sort((a, b) => b.earnedAt.localeCompare(a.earnedAt));
 
   // Recent activity: the latest things they did, newest first.
   const activity: { at: string; kind: string; text: string }[] = [];
@@ -228,7 +268,10 @@ export async function participantRecord(organisationId: string, userId: string) 
     if (c.completedAt) activity.push({ at: c.completedAt, kind: "course_done", text: `Completed ${c.title}` });
   }
   for (const cert of certificates) activity.push({ at: cert.issuedAt.toISOString(), kind: "certificate", text: `Certificate for ${cert.course}` });
+  for (const { a, course } of examiner) activity.push({ at: a.createdAt.toISOString(), kind: "examiner", text: `AI Examiner (${course}): ${a.overallScore}/100` });
+  for (const e of events) activity.push({ at: e.bookedAt.toISOString(), kind: "event", text: `Booked ${e.title}` });
   for (const s of sessions) activity.push({ at: s.bookedAt.toISOString(), kind: "mentor", text: `Booked a session with ${s.mentorName}` });
+  for (const b of earned) activity.push({ at: b.earnedAt, kind: "badge", text: `Earned the “${b.title}” badge` });
   activity.sort((a, b) => b.at.localeCompare(a.at));
 
   return {
@@ -239,9 +282,30 @@ export async function participantRecord(organisationId: string, userId: string) 
       week: streak.week,
       activeDaysLast60: activityDays.filter((d) => d.steps > 0).length,
     },
+    badges: earned,
     activity: activity.slice(0, 40),
     courses: coursesData,
     certificates: certificates.map((c) => ({ ...c, issuedAt: c.issuedAt.toISOString() })),
+    examiner: examiner.map(({ a, course }) => ({
+      course,
+      mode: a.mode,
+      scenario: a.scenario,
+      overallScore: a.overallScore,
+      dimensions: a.dimensions,
+      strengths: a.strengths,
+      improvements: a.improvements,
+      feedback: a.feedback,
+      transcript: a.transcript,
+      createdAt: a.createdAt.toISOString(),
+    })),
+    events: events.map((e) => ({
+      title: e.title,
+      startsAt: e.startsAt.toISOString(),
+      endsAt: e.endsAt.toISOString(),
+      format: e.format,
+      bookedAt: e.bookedAt.toISOString(),
+      attendedMinutes: e.attendanceRead ? (e.minutes ?? 0) : null,
+    })),
     mentorSessions: sessions.map((s) => ({
       mentorName: s.mentorName,
       startsAt: s.startsAt.toISOString(),
