@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import {
@@ -9,6 +9,7 @@ import {
   CircleHelp,
   GraduationCap,
   Home,
+  LayoutDashboard,
   Search,
   Tag,
   Users,
@@ -16,76 +17,97 @@ import {
 } from 'lucide-react'
 import { btn } from '@/components/kit'
 import { REDESIGN_ASSETS } from '@/lib/constants'
+import { getUser, homeFor, type User } from '@/lib/auth'
 import { cn } from '@/lib/utils'
 import { HUMAN_MENTORS_ENABLED } from '@/lib/features'
 import { CONTACT_EMAIL } from '@/components/landing/legal'
 
 type Dest = { label: string; meta: string; href: string; icon: LucideIcon; keywords: string }
 
-/** Where a lost visitor can go: the homepage's sections and support. */
-const DESTINATIONS: Dest[] = [
-  {
-    label: 'Courses',
-    meta: 'Free courses and certificates',
-    href: '/#courses',
-    icon: GraduationCap,
-    keywords: 'course courses learn learning lesson unit exam certificate training',
-  },
-  {
-    label: 'Mentors',
-    meta: HUMAN_MENTORS_ENABLED ? 'AI and human' : 'AI coaches, 24/7',
-    href: '/#ai-mentors',
-    icon: Users,
-    keywords: 'mentor mentors coach ai human session book expert hana assistant',
-  },
-  {
-    label: 'Events',
-    meta: 'Webinars and recordings',
-    href: '/#events',
-    icon: CalendarDays,
-    keywords: 'event events webinar webinars recording live',
-  },
-  {
-    label: 'Offers',
-    meta: 'Member offers',
-    href: '/#offers',
-    icon: Tag,
-    keywords: 'offer offers discount coupon points partner',
-  },
-  {
-    label: 'Support',
-    meta: CONTACT_EMAIL,
-    href: `mailto:${CONTACT_EMAIL}`,
-    icon: CircleHelp,
-    keywords: 'support help contact email question problem faq',
-  },
-]
+/**
+ * Where a lost visitor can go. Signed-in learners get their app pages; other
+ * roles get their own dashboard first; visitors get the homepage's sections.
+ */
+function destinationsFor(user: User | null): Dest[] {
+  const learner = user?.role === 'sme'
+  const list: Dest[] = [
+    {
+      label: 'Courses',
+      meta: 'Free courses and certificates',
+      href: learner ? '/dashboard/courses' : '/#courses',
+      icon: GraduationCap,
+      keywords: 'course courses learn learning lesson unit exam certificate training',
+    },
+    {
+      label: 'Mentors',
+      meta: HUMAN_MENTORS_ENABLED ? 'AI and human' : 'AI coaches, 24/7',
+      href: learner ? (HUMAN_MENTORS_ENABLED ? '/dashboard/human-mentors' : '/dashboard/ai-mentors') : '/#ai-mentors',
+      icon: Users,
+      keywords: 'mentor mentors coach ai human session book expert hana assistant',
+    },
+    {
+      label: 'Events',
+      meta: 'Webinars and recordings',
+      href: learner ? '/dashboard/events' : '/#events',
+      icon: CalendarDays,
+      keywords: 'event events webinar webinars recording live',
+    },
+    {
+      label: 'Offers',
+      meta: 'Member offers',
+      href: learner ? '/dashboard/offers' : '/#offers',
+      icon: Tag,
+      keywords: 'offer offers discount coupon points partner',
+    },
+    {
+      label: 'Support',
+      meta: CONTACT_EMAIL,
+      href: learner ? '/dashboard/support' : `mailto:${CONTACT_EMAIL}`,
+      icon: CircleHelp,
+      keywords: 'support help contact email question problem faq',
+    },
+  ]
+  if (user) {
+    list.unshift({ label: 'Dashboard', meta: 'Your home', href: homeFor(user.role), icon: LayoutDashboard, keywords: 'dashboard home progress' })
+  }
+  return list
+}
 
 export default function NotFound() {
   const router = useRouter()
+  const [user, setUser] = useState<User | null>(null)
   const [query, setQuery] = useState('')
   const [noMatch, setNoMatch] = useState(false)
 
+  // After mount, so the server render (no user) matches the first client render.
+  useEffect(() => setUser(getUser()), [])
+
+  const all = useMemo(() => destinationsFor(user), [user])
   const q = query.trim().toLowerCase()
   const shown = q
-    ? DESTINATIONS.filter(
+    ? all.filter(
         (d) =>
           `${d.label} ${d.meta} ${d.keywords}`.toLowerCase().includes(q) ||
           q.split(/\s+/).some((w) => w.length > 2 && d.keywords.includes(w)),
       )
-    : DESTINATIONS
+    : all
 
   function onSubmit(e: FormEvent) {
     e.preventDefault()
     if (!q) return
     const first = shown[0]
     if (!first) {
-      setNoMatch(true)
+      // A learner's search goes on to the course catalogue.
+      if (user?.role === 'sme') router.push(`/dashboard/courses?q=${encodeURIComponent(query.trim())}`)
+      else setNoMatch(true)
       return
     }
     if (first.href.startsWith('mailto:')) window.location.href = first.href
     else router.push(first.href)
   }
+
+  const homeHref = user ? homeFor(user.role) : '/'
+  const coursesHref = all.find((d) => d.label === 'Courses')!.href
 
   return (
     <div className="flex min-h-dvh flex-col bg-ui-bg font-sans text-ui-text">
@@ -95,12 +117,20 @@ export default function NotFound() {
             <img src={REDESIGN_ASSETS.logo.src} alt="Hadafi" width={1293} height={282} className="h-[26px] w-auto" />
           </Link>
           <span className="flex-1" />
-          <Link href="/login" className={cn(btn({ variant: 'secondary' }), 'h-9')}>
-            Log in
-          </Link>
-          <Link href="/sign-up" className={cn(btn(), 'h-9 max-[420px]:hidden')}>
-            Sign up
-          </Link>
+          {user ? (
+            <Link href={homeHref} className={cn(btn(), 'h-9')}>
+              Go to dashboard
+            </Link>
+          ) : (
+            <>
+              <Link href="/login" className={cn(btn({ variant: 'secondary' }), 'h-9')}>
+                Log in
+              </Link>
+              <Link href="/sign-up" className={cn(btn(), 'h-9 max-[420px]:hidden')}>
+                Sign up
+              </Link>
+            </>
+          )}
         </div>
       </header>
 
@@ -119,11 +149,11 @@ export default function NotFound() {
             The link may be broken, or the page may have moved. Your courses and progress are safe.
           </p>
           <div className="mt-1 flex flex-wrap gap-2.5">
-            <Link href="/" className={btn()}>
+            <Link href={homeHref} className={btn()}>
               <Home className="h-[18px] w-[18px]" aria-hidden />
-              Back home
+              {user ? 'Back to dashboard' : 'Back home'}
             </Link>
-            <Link href="/#courses" className={btn({ variant: 'secondary' })}>
+            <Link href={coursesHref} className={btn({ variant: 'secondary' })}>
               <GraduationCap className="h-[18px] w-[18px]" aria-hidden />
               Browse courses
             </Link>
