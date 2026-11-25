@@ -13,7 +13,7 @@ import type { LiveEvent } from '@/lib/api/liveEvents'
 const stamp = (iso: string) => new Date(iso).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')
 
 /** iCalendar separators must be escaped, or a title with a comma truncates the entry. */
-const esc = (t: string) => t.replace(/\\/g, '\\\\').replace(/;/g, '\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n')
+const esc = (t: string) => t.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n')
 
 /** Lines over 75 octets are folded, or strict parsers reject the file. */
 function fold(line: string): string {
