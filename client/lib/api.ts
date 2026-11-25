@@ -7,7 +7,8 @@ export const API_BASE = ''
 /**
  * Thin fetch wrapper that:
  * - Sends the request same-origin (the browser attaches the session cookie)
- * - Throws the parsed JSON error body on non-2xx responses
+ * - Throws the parsed JSON error body on non-2xx responses, with the HTTP
+ *   `status` added
  */
 export async function apiFetch<T = unknown>(
   path: string,
@@ -30,7 +31,9 @@ export async function apiFetch<T = unknown>(
     } catch {
       body = { error: res.statusText }
     }
-    throw body
+    // Keep the HTTP status: some error bodies (Better Auth's 429) carry only a
+    // message, and callers need it (429 "wait a minute", 409 conflicts).
+    throw body && typeof body === 'object' ? { ...(body as object), status: res.status } : { error: body, status: res.status }
   }
 
   return res.json() as Promise<T>
